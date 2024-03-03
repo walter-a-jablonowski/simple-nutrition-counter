@@ -1,0 +1,198 @@
+
+Brokkoli R:
+
+  unit:         pack
+  weight:       1000
+  calories:     29
+  amino:        3
+  salt:         0
+
+  STAT:         some
+  sources:      Pack
+  lastUpd:      2024-02-18
+
+Cashew E:
+
+  unit:         pack
+  weight:       200
+  calories:     603
+  fat:          47.1
+  saturatedFat: 9.3
+  carbs:        22.2
+  sugar:        6.2
+  fibre:        3.1
+  amino:        21
+  salt:         0
+
+  STAT:         all
+  sources:      Pack
+  lastUpd:      2024-02-18
+
+Cashew N:
+
+  unit:         pack
+  weight:       200
+  calories:     603
+  fat:          47.1
+  saturatedFat: 9.3
+  carbs:        22.2
+  sugar:        6.2
+  fibre:        3.1
+  amino:        21
+  salt:         0
+
+  STAT:         all
+  sources:      Pack
+  lastUpd:      2024-02-18
+
+Chick R Bio:
+
+  unit:         pack
+  weight:       215
+  calories:     120
+  amino:        6.5
+  salt:         0.35
+
+  STAT:         some
+  sources:      Pack
+  lastUpd:      2024-02-18
+
+Chips light:
+
+  unit:         pack
+  weight:       80
+  calories:     472
+  fat:          22
+  saturatedFat: 1.7
+  carbs:        60
+  sugar:        0.5
+  fibre:        4.1
+  amino:        6.4
+  salt:         2.5
+
+  STAT:         all
+  sources:      Web
+  lastUpd:      2024-02-18
+
+Erdn Salz N big:
+
+  unit:         pack
+  weight:       500
+  calories:     619
+  amino:        24.4
+  salt:         1
+
+  STAT:         some
+  sources:      Pack
+  lastUpd:      2024-02-18
+
+Fertigfuder R:
+
+  unit:         pack
+  weight:       375
+  calories:     105
+  fat:          2.6
+  saturatedFat: 1.5
+  carbs:        12.9
+  sugar:        1
+  fibre:        1.5
+  amino:        6.7
+  salt:         1.18
+
+  STAT:         all
+  sources:      Pack
+  lastUpd:      2024-02-18
+
+Linsen R Bio:
+
+  unit:         pack
+  weight:       260
+  calories:     92
+  amino:        7.5
+  salt:         0
+
+  STAT:         some
+  sources:      Pack
+  lastUpd:      2024-02-18
+
+Mandel E:
+
+  unit:         pack
+  weight:       200
+  calories:     619
+  fat:          53
+  saturatedFat: 4.1
+  carbs:        5.7
+  sugar:        3.4
+  fibre:        11.4
+  amino:        24
+  salt:         0.1
+
+  STAT:         all
+  sources:      Pack
+  lastUpd:      2024-02-18
+
+Mandel N:
+
+  unit:         pack
+  weight:       150
+  calories:     618
+  fat:          53
+  saturatedFat: 4.2
+  carbs:        4.0
+  sugar:        3.8
+  fibre:        8.6
+  amino:        27.0
+  salt:         0.7
+
+  STAT:         all
+  sources:      Pack
+  lastUpd:      2024-02-18
+
+Nussmisch N:
+
+  unit:         pack
+  weight:       200
+  calories:     653
+  amino:        19.2
+  salt:         0
+
+  STAT:         some
+  sources:      Pack
+  lastUpd:      2024-02-18
+
+Riegel Seitenb Sch:
+
+  unit:         piece
+  weight:       60
+  calories:     350
+  fat:          12
+  saturatedFat: 5
+  carbs:        24
+  sugar:        23
+  fibre:        21
+  amino:        26
+  salt:         0.1
+  calcium:      360 # mg
+
+  sources:      Web, calcium also from vendors page online
+  STAT:         all
+  lastUpd:      2024-02-18
+
+Salami R:
+
+  unit:         pack
+  comment:      "[DEV] could also pieces (1/2 pack or use single)"
+  weight:       70
+  calories:     277
+  fat:          19
+  saturatedFat: 8.7
+  carbs:        1
+  sugar:        1
+  fibre:        1
+  amino:        25
+  salt:         3.9
+
+  STAT:         all
+  sources:      Web
+  lastUpd:      2024-02-18

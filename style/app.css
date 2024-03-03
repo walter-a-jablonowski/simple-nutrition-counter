@@ -1,0 +1,22 @@
+.scrollable-list {
+  height: 100vh; /* 100% of the viewport height */
+  overflow-y: auto;
+  border: 1px solid #ddd;
+}
+
+.food-item {
+  padding: 5px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.list-group-item.flex-fill {
+  width: 100%; /* Make each list item full width */
+}
+
+/* Mini table */
+
+.align-split {
+  display: flex;
+  justify-content: space-between;
+}
