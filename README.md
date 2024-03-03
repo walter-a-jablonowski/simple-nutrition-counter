@@ -1,5 +1,7 @@
 # Simple nutrition counter
 
+(in development)
+
 Enables improving your daily nutrient intake to improve general health and brain function systematically. Counts nutrients as simple as possible (one tab per ingredient). It also calculates partially used ingredients.
 
 ```
