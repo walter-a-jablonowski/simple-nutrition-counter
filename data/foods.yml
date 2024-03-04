@@ -1,4 +1,27 @@
 
+# Usage see also readme
+#
+# My food S Bio:
+#
+#   comment:      ""
+#   unit:         pack
+#   amount:       _
+#   usedAmounts:  _
+#   weight:       _ # g
+#   calories:     _
+#   fat:          _
+#   saturatedFat: _
+#   carbs:        _
+#   sugar:        _
+#   fibre:        _
+#   amino:        _
+#   salt:         _
+#   calcium:      _ # mg
+#
+#   sources:      Web|Pack
+#   STAT:         some
+#   lastUpd:      2024-02-18
+
 Brokkoli R:
 
   unit:         pack
