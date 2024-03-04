@@ -16,6 +16,8 @@ composer install walter-a-jablonowski/simple-nutrition-counter
 
 ## Possible future extensions
 
+(duplicate)
+
 - track more substances like magnesium
 - input dialog for rarely used ingredients
 - also track cost of used ingredients
