@@ -123,13 +123,13 @@ foreach( scandir('data/days', SCANDIR_SORT_DESCENDING) as $file)
           <div class="col ml-3 pl-1 pr-1 bg-secondary text-start text-left small">
             kcal
           </div>
-          <div class="col pl-1 pr-1 border-left bg-secondary text-start text-left" style="max-height: 20px;">
+          <div class="col pl-1 pr-1 border-left bg-secondary text-start text-left">
             <div class="align-split small"><span>Fat</span> <span>g</span></div>  <!-- align-split ai made class -->
           </div>
-          <div class="col pl-1 pr-1 border-left bg-secondary text-start text-left" style="max-height: 20px;">
+          <div class="col pl-1 pr-1 border-left bg-secondary text-start text-left">
             <div class="align-split small"><span>Pro</span> <span>g</span></div>
           </div>
-          <div class="col pl-1 mr-3 pr-1 border-left bg-secondary text-start text-left" style="max-height: 20px;">
+          <div class="col pl-1 mr-3 pr-1 border-left bg-secondary text-start text-left">
             <div class="align-split small"><span>Salt</span> <span>g</span></div>
           </div>
           <div class="col text-end text-right" style="max-height: 20px;">
