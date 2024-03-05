@@ -141,14 +141,15 @@ foreach( scandir('data/days', SCANDIR_SORT_DESCENDING) as $file)
           <div class="col pl-1 pr-1 text-end text-right" id="aminoSum">0</div>
           <div class="col pl-1 pr-1 text-end text-right" id="aminoSum"><?= $dayAminoSum ?></div>
           <div class="col pl-1 mr-3 pr-1 text-end text-right" id="saltSum"><?= $daySaltSum ?></div>
+          <div class="col text-end text-right">
+            &nbsp;
 <!-- use tab instead -->
 <!--
-          <div class="col text-end text-right">
             <button class="btn btn-sm btn-light rounded-circle">
               <i class="bi bi-arrow-down"></i>
             </button>
-          </div>
 -->
+          </div>
         </div>
 
       </div>
