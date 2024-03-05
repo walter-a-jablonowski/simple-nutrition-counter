@@ -1,13 +1,15 @@
-
+#
 # Usage see also readme
 #
 # My food S Bio:
 #
 #   comment:      ""
+#
 #   unit:         pack
-#   amount:       _
+#   weight:       _
+#   pieces:       _
 #   usedAmounts:  _
-#   weight:       _ # g
+#
 #   calories:     _
 #   fat:          _
 #   saturatedFat: _
@@ -16,16 +18,19 @@
 #   fibre:        _
 #   amino:        _
 #   salt:         _
-#   calcium:      _ # mg
+#
+#   calcium:      _
 #
 #   sources:      Web|Pack
 #   STAT:         some
 #   lastUpd:      2024-02-18
+#
 
 Brokkoli R:
 
   unit:         pack
   weight:       1000
+
   calories:     29
   amino:        3
   salt:         0
@@ -38,6 +43,7 @@ Cashew E:
 
   unit:         pack
   weight:       200
+
   calories:     603
   fat:          47.1
   saturatedFat: 9.3
@@ -55,6 +61,7 @@ Cashew N:
 
   unit:         pack
   weight:       200
+
   calories:     603
   fat:          47.1
   saturatedFat: 9.3
@@ -72,6 +79,7 @@ Chick R Bio:
 
   unit:         pack
   weight:       215
+
   calories:     120
   amino:        6.5
   salt:         0.35
@@ -84,6 +92,7 @@ Chips light:
 
   unit:         pack
   weight:       80
+
   calories:     472
   fat:          22
   saturatedFat: 1.7
@@ -101,6 +110,7 @@ Erdn Salz N big:
 
   unit:         pack
   weight:       500
+
   calories:     619
   amino:        24.4
   salt:         1
@@ -113,6 +123,7 @@ Fertigfuder R:
 
   unit:         pack
   weight:       375
+
   calories:     105
   fat:          2.6
   saturatedFat: 1.5
@@ -130,6 +141,7 @@ Linsen R Bio:
 
   unit:         pack
   weight:       260
+
   calories:     92
   amino:        7.5
   salt:         0
@@ -142,6 +154,7 @@ Mandel E:
 
   unit:         pack
   weight:       200
+
   calories:     619
   fat:          53
   saturatedFat: 4.1
@@ -159,6 +172,7 @@ Mandel N:
 
   unit:         pack
   weight:       150
+
   calories:     618
   fat:          53
   saturatedFat: 4.2
@@ -176,6 +190,7 @@ Nussmisch N:
 
   unit:         pack
   weight:       200
+
   calories:     653
   amino:        19.2
   salt:         0
@@ -188,6 +203,7 @@ Riegel Seitenb Sch:
 
   unit:         piece
   weight:       60
+
   calories:     350
   fat:          12
   saturatedFat: 5
@@ -204,9 +220,11 @@ Riegel Seitenb Sch:
 
 Salami R:
 
-  unit:         pack
   comment:      "[DEV] could also pieces (1/2 pack or use single)"
+
+  unit:         pack
   weight:       70
+
   calories:     277
   fat:          19
   saturatedFat: 8.7

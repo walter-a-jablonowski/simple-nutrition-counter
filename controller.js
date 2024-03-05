@@ -35,6 +35,7 @@ function saveManualInput(event)
   // Manual entering values: current solution is enter values => save => reload
 
   saveDayEntries()
+  window.location.reload()
 }
 
 function saveDayEntries(event)

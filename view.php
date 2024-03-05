@@ -29,7 +29,7 @@ foreach( $foodsDef as $food => $entry )
       $foods["$food $frac"] = [
         'weight'   => round( $entry['weight']   * $multipl, 1),
         'calories' => round( $entry['calories'] * $multipl, 1),
-        'amino'   => round( $entry['amino']   * $multipl, 1),
+        'amino'    => round( $entry['amino']    * $multipl, 1),
         'salt'     => round( $entry['salt']     * $multipl, 1)
       ];
     }
@@ -40,10 +40,10 @@ foreach( $foodsDef as $food => $entry )
 
     foreach( $usedAmounts as $amount )
       $foods["$food $amount"] = [
-        'weight'   => round(( $entry['weight']   / $entry['amount'] ) * $amount, 1),
-        'calories' => round(( $entry['calories'] / $entry['amount'] ) * $amount, 1),
-        'amino'   => round(( $entry['amino']   / $entry['amount'] ) * $amount, 1),
-        'salt'     => round(( $entry['salt']     / $entry['amount'] ) * $amount, 1)
+        'weight'   => round(( $entry['weight']   / $entry['pieces'] ) * $amount, 1),
+        'calories' => round(( $entry['calories'] / $entry['pieces'] ) * $amount, 1),
+        'amino'    => round(( $entry['amino']    / $entry['pieces'] ) * $amount, 1),
+        'salt'     => round(( $entry['salt']     / $entry['pieces'] ) * $amount, 1)
       ];
   }
   else  // single piece

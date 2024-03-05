@@ -1,0 +1,20 @@
+#
+# Usage see also readme
+#
+# nutrient:
+#
+#   recommendedMale:   _
+#   recommendedFemale: _
+#   unit:              mg
+#   comment:           ""
+#   lower:             5%
+#   upper:             5%
+#
+
+magnesium:
+
+  recommendedMale: 
+  unit:            mg
+  comment:         "Increased need if doing sports"
+  lower:           5
+  upper:           5

@@ -4,12 +4,13 @@
 
 Counts nutrients as simple as possible (one tab per ingredient). Helps improving your daily nutrient intake to improve general health and brain function. It also calculates partially used ingredients.
 
-- [Possible future extensions](#possible-future-extensions)
-- [Foods file usage](#foods-file-usage)
-
 ```
 composer install walter-a-jablonowski/simple-nutrition-counter
 ```
+
+- [Possible future extensions](#possible-future-extensions)
+- [Usage](#usage)
+- [License](#license)
 
 ![Alt text](misc/img.png)
 
@@ -36,7 +37,22 @@ and maybe (advanced)
 Usage
 ----------------------------------------------------------
 
-- Manual entering values: current solution is enter values => save => reload
+- Manual entering values: current solution is page reload on save
+
+### Nutrients file usage
+
+(advanced feature)
+
+```
+nutrient:
+
+  recommendedMale:   400
+  recommendedFemale: 
+  unit:              mg
+  comment:           ""
+  lower:             5             <-- percent, summary view still is green progress if within these bounds
+  upper:             5
+```
 
 ### Foods file usage
 
@@ -46,19 +62,22 @@ Currently we enter the values once in data/foods.yml, which is much simpler than
 My food S Bio:                     <-- S = short for store if needed (save some space)
 
   comment:      "..."
+
   unit:         pack|piece|pieces  <-- pack e.g. brokkoli
-  amount:                          <-- if pieces
+  weight:       100                <-- grams
+  pieces:                          <-- number of pieces in a pack
   usedAmounts:  [1, 2, 3, 4, 5]    <-- for pack (default 1/4 - 1) and pieces (default 1 - 3)
-  weight:       100 # g
+
   calories:     
-  fat:          
+  fat:          100
   saturatedFat: 
   carbs:        
   sugar:        
   fibre:        
   amino:        
   salt:         1.0
-  calcium:          # mg
+
+  calcium:                         <-- same unit as in nutrients.yml
   ... some imp ...
 
   sources:      Web|Pack           <-- calcium also from vendors page online
@@ -70,7 +89,8 @@ My food S Bio:                     <-- S = short for store if needed (save some 
 LICENSE
 ----------------------------------------------------------
 
-Copyright (C) Walter A. Jablonowski 2024, MIT [License](LICENSE)
+Copyright (C) Walter A. Jablonowski 2024, free for non-commercial use currenlty under MIT [License](LICENSE), \
+commercial licensees must support the development
 
 This library is build upon PHP and free software (license see [credits](credits.md)).
 
