@@ -172,12 +172,25 @@ foreach( scandir('data/days', SCANDIR_SORT_DESCENDING) as $file)
   <!-- All tab -->
 
   <div class="tab-pane fade" id="dayPane" role="tabpanel">
-    <div class="d-flex align-items-center">
-      <div class="progress" style="width: 80%; margin-right: 20px;">
-        <div id="calorieProgressBar" class="progress-bar" role="progressbar"></div>
+
+    this is an advanced feature
+
+    <div class="scrollable-list">
+      <div class="d-flex align-items-center">
+        <div class="progress" style="width: 80%; margin-right: 20px;">
+          <div id="calorieProgressBar" class="progress-bar" role="progressbar"></div>
+        </div>  <!-- TASK: use a class ins of id in js -->
+        <span id="calorieProgress">100/500</span>
       </div>
-      <span id="calorieProgress">100/500</span>
+      <!-- Example progress bar #2 -->
+      <div class="d-flex align-items-center mb-2">
+          <div class="progress-container progress">
+            <div class="progress-bar bg-success" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+          </div>
+          <span class="progress-text">250/500</span>
+      </div>
     </div>
+
   </div>
 
   <!-- Last days tab -->
