@@ -74,4 +74,25 @@ function updSums()
   document.getElementById('caloriesSum').textContent = caloriesSum + ' kcal'
   document.getElementById('aminoSum').textContent    = aminoSum + ' g'
   document.getElementById('saltSum').textContent     = saltSum + ' g'
+
+
+  // TASK: progress
+
+  // let currentSum  = 100  // This should be dynamically set based on the day's sum
+  // let recommended = 500
+  // let tolerance   = 0.05
+
+  // let percentage = (currentSum / recommended) * 100
+  // percentage = Math.min(percentage, 100)  // ensure it doesn't exceed 100%
+
+  // let progressBarColor = 'bg-secondary'
+
+  // if( currentSum >= recommended * (1 - tolerance) && currentSum <= recommended * (1 + tolerance))
+  //   progressBarColor = 'bg-success'
+  // else if(currentSum > recommended * (1 + tolerance))
+  //   progressBarColor = 'bg-danger'
+
+  // document.getElementById('calorieProgressBar').style.width = `${percentage}%`
+  // document.getElementById('calorieProgressBar').className = `progress-bar ${progressBarColor}`
+  // document.getElementById('calorieProgress').textContent = `${currentSum}/${recommended}`
 }

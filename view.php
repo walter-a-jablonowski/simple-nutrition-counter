@@ -65,7 +65,7 @@ $dayEntriesTxt = trim( @file_get_contents('data/days/' . date('Y-m-d') . '.tsv')
 $dayEntries    = parse($dayEntriesTxt);
 
 $dayCaloriesSum = ! $dayEntries ? 0 : array_sum( array_column( $dayEntries, 1));
-$dayAminoSum   = ! $dayEntries ? 0 : array_sum( array_column( $dayEntries, 2));
+$dayAminoSum    = ! $dayEntries ? 0 : array_sum( array_column( $dayEntries, 2));
 $daySaltSum     = ! $dayEntries ? 0 : array_sum( array_column( $dayEntries, 3));
 
 // All days
@@ -82,7 +82,7 @@ foreach( scandir('data/days', SCANDIR_SORT_DESCENDING) as $file)
 
   $lastDaysSums[$dat] = [
     'caloriesSum' => ! $entries ? 0 : array_sum( array_column($entries, 1)),
-    'aminoSum'   => ! $entries ? 0 : array_sum( array_column($entries, 2)),
+    'aminoSum'    => ! $entries ? 0 : array_sum( array_column($entries, 2)),
     'saltSum'     => ! $entries ? 0 : array_sum( array_column($entries, 3))
   ];
 }
@@ -93,7 +93,10 @@ foreach( scandir('data/days', SCANDIR_SORT_DESCENDING) as $file)
 
 <ul class="nav nav-tabs" role="tablist">
   <li class="nav-item" role="presentation">
-    <a class="nav-link active" data-bs-toggle="tab" href="#dayPane" role="tab">This day</a>
+    <a class="nav-link active" data-bs-toggle="tab" href="#inpPane" role="tab">This day</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" data-bs-toggle="tab" href="#dayPane" role="tab">All</a>
   </li>
   <li class="nav-item" role="presentation">
     <a class="nav-link" data-bs-toggle="tab" href="#lastDaysPane" role="tab">Last days</a>
@@ -109,7 +112,7 @@ foreach( scandir('data/days', SCANDIR_SORT_DESCENDING) as $file)
 
   <!-- Edit Tab -->
 
-  <div class="tab-pane fade show active" id="dayPane" role="tabpanel">
+  <div class="tab-pane fade show active" id="inpPane" role="tabpanel">
     <div class="row">
       <div class="col-md-6">
 
@@ -165,7 +168,18 @@ foreach( scandir('data/days', SCANDIR_SORT_DESCENDING) as $file)
     </div>
   </div>
 
-  <!-- All Tab -->
+  <!-- All tab -->
+
+  <div class="tab-pane fade" id="dayPane" role="tabpanel">
+    <div class="d-flex align-items-center">
+      <div class="progress" style="width: 80%; margin-right: 20px;">
+        <div id="calorieProgressBar" class="progress-bar" role="progressbar"></div>
+      </div>
+      <span id="calorieProgress">100/500</span>
+    </div>
+  </div>
+
+  <!-- Last days tab -->
 
   <div class="tab-pane fade" id="lastDaysPane" role="tabpanel">
     <div class="row">
