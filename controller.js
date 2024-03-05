@@ -32,7 +32,8 @@ function addFood(food, calories, amino, salt)
 
 function saveManualInput(event)
 {
-  updSums()
+  // Manual entering values: current solution is enter values => save => reload
+
   saveDayEntries()
 }
 
@@ -67,10 +68,10 @@ function saveFoods(event)
 function updSums()
 {
   let caloriesSum = dayEntries.reduce((sum, entry) => sum + Number(entry.calories), 0)
-  let aminoSum   = dayEntries.reduce((sum, entry) => sum + Number(entry.amino), 0)
+  let aminoSum    = dayEntries.reduce((sum, entry) => sum + Number(entry.amino), 0)
   let saltSum     = dayEntries.reduce((sum, entry) => sum + Number(entry.salt), 0)
 
   document.getElementById('caloriesSum').textContent = caloriesSum + ' kcal'
-  document.getElementById('aminoSum').textContent   = aminoSum + ' g'
+  document.getElementById('aminoSum').textContent    = aminoSum + ' g'
   document.getElementById('saltSum').textContent     = saltSum + ' g'
 }

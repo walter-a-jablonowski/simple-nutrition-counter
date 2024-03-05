@@ -14,7 +14,8 @@ composer install walter-a-jablonowski/simple-nutrition-counter
 ![Alt text](misc/img.png)
 
 
-## Possible future extensions
+Possible future extensions
+----------------------------------------------------------
 
 (duplicate)
 
@@ -32,7 +33,12 @@ and maybe (advanced)
   - maybe use barcode scanner (fill foods.yml)
 
 
-## Foods file usage
+Usage
+----------------------------------------------------------
+
+- Manual entering values: current solution is enter values => save => reload
+
+### Foods file usage
 
 Currently we enter the values once in data/foods.yml, which is much simpler than doing manual calculations for partially used ingredients on a daily basis. The number of ingredients usually used in a day is limited...
 
@@ -61,7 +67,8 @@ My food S Bio:                     <-- S = short for store if needed (save some 
 ```
 
 
-## LICENSE
+LICENSE
+----------------------------------------------------------
 
 Copyright (C) Walter A. Jablonowski 2024, MIT [License](LICENSE)
 

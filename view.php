@@ -121,7 +121,7 @@ foreach( scandir('data/days', SCANDIR_SORT_DESCENDING) as $file)
             kcal
           </div>
           <div id="fatSum" class="col pl-1 pr-1 border-left bg-secondary text-start text-left" style="max-height: 20px;">
-            <div class="align-split small"><span>Fat</span> <span>g</span></div>   <!-- align-split ai made class -->
+            <div class="align-split small"><span>Fat</span> <span>g</span></div>  <!-- align-split ai made class -->
           </div>
           <div id="aminoSum" class="col pl-1 pr-1 border-left bg-secondary text-start text-left" style="max-height: 20px;">
             <div class="align-split small"><span>Pro</span> <span>g</span></div>
@@ -130,7 +130,7 @@ foreach( scandir('data/days', SCANDIR_SORT_DESCENDING) as $file)
             <div class="align-split small"><span>Salt</span> <span>g</span></div>
           </div>
           <div class="col text-end text-right" style="max-height: 20px;">
-            <button class="btn btn-sm btn-light" onclick="saveManualInput()">Upd</button>
+            <button class="btn btn-sm btn-light" onclick="saveManualInput()">Save</button>
           </div>
         </div>
         <div class="row">
@@ -138,11 +138,14 @@ foreach( scandir('data/days', SCANDIR_SORT_DESCENDING) as $file)
           <div class="col pl-1 pr-1 text-end text-right" id="aminoSum">0</div>
           <div class="col pl-1 pr-1 text-end text-right" id="aminoSum"><?= $dayAminoSum ?></div>
           <div class="col pl-1 mr-3 pr-1 text-end text-right" id="saltSum"><?= $daySaltSum ?></div>
+<!-- use tab instead -->
+<!--
           <div class="col text-end text-right">
             <button class="btn btn-sm btn-light rounded-circle">
               <i class="bi bi-arrow-down"></i>
             </button>
           </div>
+-->
         </div>
 
       </div>
