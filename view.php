@@ -120,16 +120,16 @@ foreach( scandir('data/days', SCANDIR_SORT_DESCENDING) as $file)
         ><?= $dayEntriesTxt ?></textarea>
 
         <div class="row mt-2">  <!-- text-start text-left same for diff bs versions -->
-          <div id="caloriesSum" class="col ml-3 pl-1 pr-1 bg-secondary text-start text-left small">
+          <div class="col ml-3 pl-1 pr-1 bg-secondary text-start text-left small">
             kcal
           </div>
-          <div id="fatSum" class="col pl-1 pr-1 border-left bg-secondary text-start text-left" style="max-height: 20px;">
+          <div class="col pl-1 pr-1 border-left bg-secondary text-start text-left" style="max-height: 20px;">
             <div class="align-split small"><span>Fat</span> <span>g</span></div>  <!-- align-split ai made class -->
           </div>
-          <div id="aminoSum" class="col pl-1 pr-1 border-left bg-secondary text-start text-left" style="max-height: 20px;">
+          <div class="col pl-1 pr-1 border-left bg-secondary text-start text-left" style="max-height: 20px;">
             <div class="align-split small"><span>Pro</span> <span>g</span></div>
           </div>
-          <div id="saltSum" class="col pl-1 mr-3 pr-1 border-left bg-secondary text-start text-left" style="max-height: 20px;">
+          <div class="col pl-1 mr-3 pr-1 border-left bg-secondary text-start text-left" style="max-height: 20px;">
             <div class="align-split small"><span>Salt</span> <span>g</span></div>
           </div>
           <div class="col text-end text-right" style="max-height: 20px;">
