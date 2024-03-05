@@ -93,16 +93,16 @@ foreach( scandir('data/days', SCANDIR_SORT_DESCENDING) as $file)
 
 <ul class="nav nav-tabs" role="tablist">
   <li class="nav-item" role="presentation">
-    <a class="nav-link active" data-bs-toggle="tab" href="#inpPane" role="tab">This day</a>
+    <a class="nav-link active py-1 px-2 small" data-bs-toggle="tab" href="#inpPane" role="tab">This day</a>
   </li>
   <li class="nav-item" role="presentation">
-    <a class="nav-link" data-bs-toggle="tab" href="#dayPane" role="tab">All</a>
+    <a class="nav-link py-1 px-2 small" data-bs-toggle="tab" href="#dayPane" role="tab">All</a>
   </li>
   <li class="nav-item" role="presentation">
-    <a class="nav-link" data-bs-toggle="tab" href="#lastDaysPane" role="tab">Last days</a>
+    <a class="nav-link py-1 px-2 small" data-bs-toggle="tab" href="#lastDaysPane" role="tab">Last days</a>
   </li>
   <li class="nav-item" role="presentation">
-    <a class="nav-link" data-bs-toggle="tab" href="#foodsPane" role="tab">Foods</a>
+    <a class="nav-link py-1 px-2 small" data-bs-toggle="tab" href="#foodsPane" role="tab">Foods</a>
   </li>
 </ul>
 
