@@ -39,12 +39,6 @@ function saveManualInput(event)
 
 function saveDayEntries(event)
 {
-  // let xhr = new XMLHttpRequest()  // (TASK) can use send from below
-  // xhr.open('POST', 'ajax/save_day_entries.php', true)
-  // xhr.setRequestHeader('Content-type', 'text/plain;charset=UTF-8')
-  //
-  // xhr.send(formattedText)
-
   send('ajax/save_day_entries.php', document.getElementById('dayEntries').value, function( result, data) {
 
     if( result === 'success')
@@ -76,7 +70,7 @@ function updSums()
   document.getElementById('saltSum').textContent     = saltSum
 
 
-  // TASK: progress
+  // (TASK) progress
 
   // let currentSum  = 100  // This should be dynamically set based on the day's sum
   // let recommended = 500
