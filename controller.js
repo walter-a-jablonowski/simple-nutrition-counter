@@ -71,9 +71,9 @@ function updSums()
   let aminoSum    = dayEntries.reduce((sum, entry) => sum + Number(entry.amino), 0)
   let saltSum     = dayEntries.reduce((sum, entry) => sum + Number(entry.salt), 0)
 
-  document.getElementById('caloriesSum').textContent = caloriesSum + ' kcal'
-  document.getElementById('aminoSum').textContent    = aminoSum + ' g'
-  document.getElementById('saltSum').textContent     = saltSum + ' g'
+  document.getElementById('caloriesSum').textContent = caloriesSum
+  document.getElementById('aminoSum').textContent    = aminoSum
+  document.getElementById('saltSum').textContent     = saltSum
 
 
   // TASK: progress
