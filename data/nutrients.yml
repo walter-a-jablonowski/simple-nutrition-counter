@@ -1,14 +1,5 @@
 #
-# Usage see also readme
-#
-# nutrient:
-#
-#   recommendedMale:   _
-#   recommendedFemale: _
-#   unit:              mg
-#   comment:           ""
-#   lower:             5%
-#   upper:             5%
+# Usage see readme
 #
 
 magnesium:

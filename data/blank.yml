@@ -1,0 +1,33 @@
+
+My food S Bio:
+
+  comment:      ""
+
+  unit:         pack
+  weight:       _
+  pieces:       _
+  usedAmounts:  _
+
+  calories:     _
+  fat:          _
+  saturatedFat: _
+  carbs:        _
+  sugar:        _
+  fibre:        _
+  amino:        _
+  salt:         _
+
+  calcium:      _
+
+  sources:      Web|Pack
+  STAT:         some
+  lastUpd:      2024-02-18
+
+nutrient:
+
+  recommendedMale:   _
+  recommendedFemale: _
+  unit:              mg
+  comment:           ""
+  lower:             5%
+  upper:             5%

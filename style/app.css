@@ -1,5 +1,5 @@
 .scrollable-list {
-  height: 100vh; /* 100% of the viewport height */
+  /* height: 100vh; */ /* 100% of the viewport height */
   overflow-y: auto;
   border: 1px solid #ddd;
 }
