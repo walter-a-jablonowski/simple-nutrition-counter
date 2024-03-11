@@ -201,7 +201,8 @@ foreach( scandir('data/days', SCANDIR_SORT_DESCENDING) as $file)
             <a href="#" class="list-group-item list-group-item-action">
               <div class="d-flex w-100 justify-content-between">
                 <?php $weekdays = ['Mon' => 'Mo', 'Tue' => 'Tu', 'Wed' => 'We', 'Thu' => 'Th', 'Fri' => 'Fr', 'Sat' => 'Sa', 'Sun' => 'Su']; ?>
-                <small class="text-body-secondary mb-1"><b><?= $weekdays[ date('D', strtotime($day))] ?></b> <?= $day ?></small>
+                <small class="text-body-secondary mb-1"><b><?= $weekdays[ date('D', strtotime($day))] ?></b>
+                &nbsp;<?= $day ?></small>
                 <!-- just add second elem (aligned right) -->
               </div>
               <div class="row">
@@ -209,6 +210,7 @@ foreach( scandir('data/days', SCANDIR_SORT_DESCENDING) as $file)
                 <div class="col"><?= $sums['aminoSum'] ?></div>
                 <div class="col"><?= $sums['saltSum'] ?></div>
               </div>
+              <!-- (TASK) we could add some collapse here -->
               <!-- <small class="text-body-secondary">And some muted small print.</small> -->
             </a>
           </div>
