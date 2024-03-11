@@ -194,13 +194,23 @@ foreach( scandir('data/days', SCANDIR_SORT_DESCENDING) as $file)
       <div class="col-md-6 scrollable-list">
 
         <!-- using BS is easier here than aligning tsv -->
+        <!-- (all alternatives seen 2403) https://getbootstrap.com/docs/5.3/components/list-group/#custom-content) -->
 
         <?php foreach( $lastDaysSums as $day => $sums): ?>
-          <ul class="list-group list-group-horizontal list-group-flush w-100">  <!-- https://getbootstrap.com/docs/5.3/components/list-group/#horizontal -->
-            <li class="list-group-item flex-fill"><?= $sums['caloriesSum'] ?></li>
-            <li class="list-group-item flex-fill"><?= $sums['aminoSum'] ?></li>
-            <li class="list-group-item flex-fill"><?= $sums['saltSum'] ?></li>
-          </ul>
+          <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <small class="text-body-secondary mb-1"><?= $day ?></small>
+                <!-- just add second elem (aligned right) -->
+              </div>
+              <div class="row">
+                <div class="col"><?= $sums['caloriesSum'] ?></div>
+                <div class="col"><?= $sums['aminoSum'] ?></div>
+                <div class="col"><?= $sums['saltSum'] ?></div>
+              </div>
+              <!-- <small class="text-body-secondary">And some muted small print.</small> -->
+            </a>
+          </div>
         <?php endforeach; ?>
 
       </div>
