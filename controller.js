@@ -87,7 +87,7 @@ function updSums()
   // else if(currentSum > recommended * (1 + tolerance))
   //   progressBarColor = 'bg-danger'
 
-  // document.getElementById('calorieProgressBar').style.width = `${percentage}%`
-  // document.getElementById('calorieProgressBar').className = `progress-bar ${progressBarColor}`
-  // document.getElementById('calorieProgress').textContent = `${currentSum}/${recommended}`
+  // document.getElementById('caloriesProgressBar').style.width = `${percentage}%`
+  // document.getElementById('caloriesProgressBar').className = `progress-bar ${progressBarColor}`
+  // document.getElementById('caloriesProgressLabel').textContent = `${currentSum}/${recommended}`
 }
