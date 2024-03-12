@@ -1,11 +1,22 @@
 #
-# Usage see readme
+# Selected nutrients
+# -> usage see readme
 #
 
 magnesium:
 
-  recommendedMale: 
-  unit:            mg
-  comment:         "Increased need if doing sports"
-  lower:           5
-  upper:           5
+  amountMale: 
+  increasedNeedMale: 
+  unit:              mg
+  comment:           "Increased need if doing sports"
+  lower:             5
+  upper:             5
+
+B 12 (methyl):
+
+  type:              methylcobalamin
+  amountMale: 
+  unit:              
+  comment:           
+  lower:             5
+  upper:             5

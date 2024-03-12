@@ -38,6 +38,7 @@ Usage
 ----------------------------------------------------------
 
 - Manual entering values: current solution is page reload on save
+- We include at least some supplements like magnesium to make sure we get the required amount. For some it may be enough to just take it regularly with no tracking.
 
 ### Nutrients file usage
 
