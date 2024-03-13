@@ -9,6 +9,11 @@ Brokkoli R:
   weight:       1000
 
   calories:     29
+  fat:          
+  saturatedFat: 
+  carbs:        
+  sugar:        
+  fibre:        
   amino:        3
   salt:         0
 
@@ -58,6 +63,11 @@ Chick R Bio:
   weight:       215
 
   calories:     120
+  fat:          
+  saturatedFat: 
+  carbs:        
+  sugar:        
+  fibre:        
   amino:        6.5
   salt:         0.35
 
@@ -89,6 +99,11 @@ Erdn Salz N big:
   weight:       500
 
   calories:     619
+  fat:          
+  saturatedFat: 
+  carbs:        
+  sugar:        
+  fibre:        
   amino:        24.4
   salt:         1
 
@@ -120,6 +135,11 @@ Linsen R Bio:
   weight:       260
 
   calories:     92
+  fat:          
+  saturatedFat: 
+  carbs:        
+  sugar:        
+  fibre:        
   amino:        7.5
   salt:         0
 
@@ -169,6 +189,11 @@ Nussmisch N:
   weight:       200
 
   calories:     653
+  fat:          
+  saturatedFat: 
+  carbs:        
+  sugar:        
+  fibre:        
   amino:        19.2
   salt:         0
 
@@ -196,8 +221,6 @@ Riegel Seitenb Sch:
   lastUpd:      2024-02-18
 
 Salami R:
-
-  comment:      "[DEV] could also pieces (1/2 pack or use single)"
 
   unit:         pack
   weight:       70

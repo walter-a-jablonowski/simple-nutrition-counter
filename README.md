@@ -8,6 +8,8 @@ Counts nutrients as simple as possible (one tab per ingredient). Helps improving
 composer install walter-a-jablonowski/simple-nutrition-counter
 ```
 
+**Long term goal:** Handle all minimal daily logging in a single app as simple as possible (with as few clicks as possible on a daily basis). Isn't neccessarily nutrition only but only all that can't be handled easier (most likely nutrition and daily expenses = actual consumption).
+
 - [Possible future extensions](#possible-future-extensions)
 - [Usage](#usage)
 - [License](#license)
@@ -45,24 +47,27 @@ Usage
 (advanced feature)
 
 ```
-nutrient:
+B 12 (methyl):
 
-  recommendedMale:   400
-  recommendedFemale: 
-  unit:              mg
-  comment:           ""
-  lower:             5             <-- percent, summary view still is green progress if within these bounds
-  upper:             5
+  type:                 methylcobalamin
+  amountMale:           
+  amountFemale: 
+  increasedNeedMale:
+  increasedNeedFemale:
+  unit:                 mg
+  comment:              ""
+  lower:                5          <-- percent, summary view still is green progress if within these bounds
+  upper:                5
 ```
 
 ### Foods file usage
 
-Currently we enter the values once in data/foods.yml, which is much simpler than doing manual calculations for partially used ingredients on a daily basis. The number of ingredients usually used in a day is limited...
+Currently we enter the values once in data/foods.yml. Easy when the number of ingredients usually used in a day is limited, and simpler than doing manual calculations (partially used ingredients).
 
 ```
 My food S Bio:                     <-- S = short for store if needed (save some space)
 
-  comment:      "..."
+  comment:      "..."              <-- misc comment
 
   unit:         pack|piece|pieces  <-- pack e.g. brokkoli
   weight:       100                <-- grams
@@ -81,8 +86,7 @@ My food S Bio:                     <-- S = short for store if needed (save some 
   calcium:                         <-- same unit as in nutrients.yml
   ... some imp ...
 
-  sources:      Web|Pack           <-- calcium also from vendors page online
-  STAT:         some|all           <-- from packaging
+  sources:      Web|Pack           <-- comment on from where the infomation is
   lastUpd:      2024-02-18
 ```
 
