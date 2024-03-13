@@ -3,7 +3,7 @@
 # -> all fields see readme
 #
 
-Brokkoli R:
+Brokkoli R:     # some German foods
 
   unit:         pack
   weight:       1000
@@ -17,7 +17,6 @@ Brokkoli R:
   amino:        3
   salt:         0
 
-  STAT:         some
   sources:      Pack
   lastUpd:      2024-02-18
 
@@ -35,7 +34,6 @@ Cashew E:
   amino:        21
   salt:         0
 
-  STAT:         all
   sources:      Pack
   lastUpd:      2024-02-18
 
@@ -53,7 +51,6 @@ Cashew N:
   amino:        21
   salt:         0
 
-  STAT:         all
   sources:      Pack
   lastUpd:      2024-02-18
 
@@ -62,18 +59,17 @@ Chick R Bio:
   unit:         pack
   weight:       215
 
-  calories:     120
-  fat:          
-  saturatedFat: 
-  carbs:        
-  sugar:        
+  calories:     127
+  fat:          2.7
+  saturatedFat: 0.3
+  carbs:        15
+  sugar:        0.4
   fibre:        
-  amino:        6.5
+  amino:        7.1
   salt:         0.35
 
-  STAT:         some
-  sources:      Pack
-  lastUpd:      2024-02-18
+  sources:      Web, information on packaging differs slightly, fiber is missing
+  lastUpd:      2024-03-13
 
 Chips light:
 
@@ -89,7 +85,6 @@ Chips light:
   amino:        6.4
   salt:         2.5
 
-  STAT:         all
   sources:      Web
   lastUpd:      2024-02-18
 
@@ -107,7 +102,6 @@ Erdn Salz N big:
   amino:        24.4
   salt:         1
 
-  STAT:         some
   sources:      Pack
   lastUpd:      2024-02-18
 
@@ -125,7 +119,6 @@ Fertigfuder R:
   amino:        6.7
   salt:         1.18
 
-  STAT:         all
   sources:      Pack
   lastUpd:      2024-02-18
 
@@ -143,7 +136,6 @@ Linsen R Bio:
   amino:        7.5
   salt:         0
 
-  STAT:         some
   sources:      Pack
   lastUpd:      2024-02-18
 
@@ -161,7 +153,6 @@ Mandel E:
   amino:        24
   salt:         0.1
 
-  STAT:         all
   sources:      Pack
   lastUpd:      2024-02-18
 
@@ -179,7 +170,6 @@ Mandel N:
   amino:        27.0
   salt:         0.7
 
-  STAT:         all
   sources:      Pack
   lastUpd:      2024-02-18
 
@@ -197,7 +187,6 @@ Nussmisch N:
   amino:        19.2
   salt:         0
 
-  STAT:         some
   sources:      Pack
   lastUpd:      2024-02-18
 
@@ -217,7 +206,6 @@ Riegel Seitenb Sch:
   calcium:      360 # mg
 
   sources:      Web, calcium also from vendors page online
-  STAT:         all
   lastUpd:      2024-02-18
 
 Salami R:
@@ -234,6 +222,5 @@ Salami R:
   amino:        25
   salt:         3.9
 
-  STAT:         all
   sources:      Web
   lastUpd:      2024-02-18
