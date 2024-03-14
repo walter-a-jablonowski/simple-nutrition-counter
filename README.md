@@ -96,6 +96,12 @@ My food S Bio:                     <-- S = short for store if needed (save some 
 ```
 
 
+Developer inforamtion
+----------------------------------------------------------
+
+- [Model](misc/model.md)
+
+
 LICENSE
 ----------------------------------------------------------
 

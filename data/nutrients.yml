@@ -12,7 +12,7 @@ magnesium:
   lower:             5
   upper:             5
 
-B 12 (methyl):
+B 12:
 
   type:              methylcobalamin
   amountMale: 
