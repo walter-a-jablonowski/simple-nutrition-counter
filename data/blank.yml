@@ -2,15 +2,19 @@
 My food S Bio:
 
   comment:      ""
+  ingredients:  ""
+  origin:       ""
 
-  unit:         pack
   weight:       _
-  pieces:       _
+  packaging:    pack|piece|pieces
+  quantity:     _
   usedAmounts:  _
 
   calories:     _
   fat:          _
   saturatedFat: _
+  monoUnsaturated: _
+  polyUnsaturated: _                 
   carbs:        _
   sugar:        _
   fibre:        _
@@ -19,10 +23,12 @@ My food S Bio:
 
   calcium:      _
 
-  sources:      Web|Pack
+  sources:      "Web|Pack, ..."
   lastUpd:      2024-02-18
 
 My nutrient:
+
+  comment:             ""
 
   type:                _
   amountMale:          _
@@ -30,6 +36,5 @@ My nutrient:
   increasedNeedMale:   _
   increasedNeedFemale: _
   unit:                mg
-  comment:             ""
   lower:               5%
   upper:               5%

@@ -5,8 +5,8 @@
 
 Brokkoli R:     # some German foods
 
-  unit:         pack
   weight:       1000
+  packaging:    pack
 
   calories:     24
   fat:          0.2
@@ -17,13 +17,13 @@ Brokkoli R:     # some German foods
   amino:        3
   salt:         0
 
-  sources:      Web, information on packaging differs slightly
+  sources:      "Web, information on packaging may differ slightly"
   lastUpd:      2024-03-13
 
 Cashew E:
 
-  unit:         pack
   weight:       200
+  packaging:    pack
 
   calories:     603
   fat:          47.1
@@ -39,8 +39,8 @@ Cashew E:
 
 Cashew N:
 
-  unit:         pack
   weight:       200
+  packaging:    pack
 
   calories:     603
   fat:          47.1
@@ -56,8 +56,8 @@ Cashew N:
 
 Chick R Bio:
 
-  unit:         pack
   weight:       215
+  packaging:    pack
 
   calories:     127
   fat:          2.7
@@ -68,13 +68,13 @@ Chick R Bio:
   amino:        7.1
   salt:         0.35
 
-  sources:      Web, information on packaging differs slightly, fiber is missing
+  sources:      "Web, information on packaging differs slightly, fiber is missing"
   lastUpd:      2024-03-13
 
 Chips light:
 
-  unit:         pack
   weight:       80
+  packaging:    pack
 
   calories:     472
   fat:          22
@@ -90,25 +90,25 @@ Chips light:
 
 Erdn Salz N big:
 
-  unit:         pack
   weight:       500
+  packaging:    pack
 
-  calories:     619
-  fat:          
-  saturatedFat: 
-  carbs:        
-  sugar:        
-  fibre:        
-  amino:        24.4
+  calories:     615
+  fat:          51
+  saturatedFat: 7.8
+  carbs:        11
+  sugar:        5.2
+  fibre:        8.2
+  amino:        24
   salt:         1
 
   sources:      Pack
-  lastUpd:      2024-02-18
+  lastUpd:      2024-03-13
 
 Frosta R:
 
-  unit:         pack
   weight:       375
+  packaging:    pack
 
   calories:     105
   fat:          2.6
@@ -124,8 +124,8 @@ Frosta R:
 
 Linsen R Bio:
 
-  unit:         pack
   weight:       260
+  packaging:    pack
 
   calories:     92
   fat:          0.4
@@ -136,13 +136,13 @@ Linsen R Bio:
   amino:        7.5
   salt:         0
 
-  sources:      Web, information on packaging differs slightly, fiber is missing
+  sources:      "Web, information on packaging differs slightly, fiber is missing"
   lastUpd:      2024-03-13
 
 Mandel E:
 
-  unit:         pack
   weight:       200
+  packaging:    pack
 
   calories:     619
   fat:          53
@@ -158,8 +158,8 @@ Mandel E:
 
 Mandel N:
 
-  unit:         pack
   weight:       150
+  packaging:    pack
 
   calories:     618
   fat:          53
@@ -175,15 +175,17 @@ Mandel N:
 
 Nussmisch N:
 
-  unit:         pack
   weight:       200
+  packaging:    pack
 
   calories:     653
-  fat:          
-  saturatedFat: 
-  carbs:        
-  sugar:        
-  fibre:        
+  fat:          57.8
+  saturatedFat: 6.5
+  monoUnsaturated: 32.3
+  polyUnsaturated: 16.9
+  carbs:        10.8
+  sugar:        4.2
+  fibre:        6.4
   amino:        19.2
   salt:         0
 
@@ -192,8 +194,8 @@ Nussmisch N:
 
 Riegel Seitenb Sch:
 
-  unit:         piece
   weight:       60
+  packaging:    piece
 
   calories:     350
   fat:          12
@@ -203,15 +205,16 @@ Riegel Seitenb Sch:
   fibre:        21
   amino:        26
   salt:         0.1
-  calcium:      360 # mg
 
-  sources:      Web, calcium also from vendors page online
+  calcium:      360
+
+  sources:      "Web, calcium also from vendors page online"
   lastUpd:      2024-02-18
 
 Salami R:
 
-  unit:         pack
   weight:       70
+  packaging:    pack
 
   calories:     275
   fat:          19

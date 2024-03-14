@@ -34,7 +34,7 @@ $s = str_replace(' mg',   '', $s );
 $s = str_replace(' kcal', '', $s );
 $s = str_replace(' kj',   '', $s );
 
-echo "  unit:             \n"
+echo "  packaging:             \n"
    . "  weigth:           \n"
    . "$s\n"
    . "\n"

@@ -49,13 +49,14 @@ Usage
 ```
 B 12 (methyl):
 
+  comment:              ""
+
   type:                 methylcobalamin
   amountMale:           
   amountFemale: 
   increasedNeedMale:
   increasedNeedFemale:
   unit:                 mg
-  comment:              ""
   lower:                5          <-- percent, summary view still is green progress if within these bounds
   upper:                5
 ```
@@ -68,15 +69,19 @@ Currently we enter the values once in data/foods.yml. Easy when the number of in
 My food S Bio:                     <-- S = short for store if needed (save some space)
 
   comment:      "..."              <-- misc comment
+  ingredients:  "..."              <-- ingredients that you want to be aware of
+  origin:       "..."              <-- country of origin, if you want to be aware of
 
-  unit:         pack|piece|pieces  <-- pack e.g. brokkoli
   weight:       100                <-- grams
-  pieces:                          <-- number of pieces in a pack
+  packaging:    pack|piece|pieces  <-- pack e.g. brokkoli
+  quantity:                        <-- number of pieces in a pack
   usedAmounts:  [1, 2, 3, 4, 5]    <-- for pack (default 1/4 - 1) and pieces (default 1 - 3)
 
   calories:     
   fat:          100
   saturatedFat: 
+  monoUnsaturated:                 <-- a few foods have data
+  polyUnsaturated:                   
   carbs:        
   sugar:        
   fibre:        
@@ -86,7 +91,7 @@ My food S Bio:                     <-- S = short for store if needed (save some 
   calcium:                         <-- same unit as in nutrients.yml
   ... some imp ...
 
-  sources:      Web|Pack           <-- comment on from where the infomation is
+  sources:      "Web|Pack, ..."    <-- comment on from where the infomation is
   lastUpd:      2024-02-18
 ```
 

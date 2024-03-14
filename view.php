@@ -17,7 +17,7 @@ $foods = [];
 
 foreach( $foodsDef as $food => $entry )
 {
-  if( $entry['unit'] === 'pack')
+  if( $entry['packaging'] === 'pack')
   {
     $usedAmounts = $entry['usedAmounts'] ?? ['1/4' => 1/4, '1/3' => 1/3, '1/2' => 1/2, '2/3' => 2/3, '3/4' => 3/4, '1' => 1];
 
@@ -34,16 +34,16 @@ foreach( $foodsDef as $food => $entry )
       ];
     }
   }
-  elseif( $entry['unit'] === 'pieces')
+  elseif( $entry['packaging'] === 'pieces')
   {
     $usedAmounts = $entry['usedAmounts'] ?? [1, 2, 3];
 
     foreach( $usedAmounts as $amount )
       $foods["$food $amount"] = [
-        'weight'   => round(( $entry['weight']   / $entry['pieces'] ) * $amount, 1),
-        'calories' => round(( $entry['calories'] / $entry['pieces'] ) * $amount, 1),
-        'amino'    => round(( $entry['amino']    / $entry['pieces'] ) * $amount, 1),
-        'salt'     => round(( $entry['salt']     / $entry['pieces'] ) * $amount, 1)
+        'weight'   => round(( $entry['weight']   / $entry['quantity'] ) * $amount, 1),
+        'calories' => round(( $entry['calories'] / $entry['quantity'] ) * $amount, 1),
+        'amino'    => round(( $entry['amino']    / $entry['quantity'] ) * $amount, 1),
+        'salt'     => round(( $entry['salt']     / $entry['quantity'] ) * $amount, 1)
       ];
   }
   else  // single piece
