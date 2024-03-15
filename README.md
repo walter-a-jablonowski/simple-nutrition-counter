@@ -12,9 +12,11 @@ composer install walter-a-jablonowski/simple-nutrition-counter
 
 - [Usage](misc/usage.md)
 - [Possible future extensions](#possible-future-extensions)
-- Developer information
-  - [Model](misc/model.md)
+- [Developer information](misc/dev_info.md)
+  - [Model](misc/dev_info.md#model)
 - [License](#license)
+
+This kind of project might be AI proof because AI solution would be: it watches you while cooking and counts the calories. Do you want that?
 
 ![Alt text](misc/img.png)
 
