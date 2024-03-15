@@ -2,12 +2,12 @@
 function addFood(food, calories, amino, salt)
 {
   dayEntries.push({ food, calories, amino, salt })  // because we need a unique name for dashb
-                                                      // object keys will be the var name
+                                                    // object keys will be the var name
   // Find the length of the longest strings
 
   let maxFoodLength     = Math.max( ...dayEntries.map( entry => entry.food.length))
   let maxCaloriesLength = Math.max( ...dayEntries.map( entry => String(entry.calories).length))
-  let maxAminoLength   = Math.max( ...dayEntries.map( entry => String(entry.amino).length))
+  let maxAminoLength    = Math.max( ...dayEntries.map( entry => String(entry.amino).length))
   let maxSaltLength     = Math.max( ...dayEntries.map( entry => String(entry.salt).length))
 
   // Align cols
@@ -16,7 +16,7 @@ function addFood(food, calories, amino, salt)
 
     let foodPadding     = ' '.repeat( maxFoodLength     - entry.food.length + 2)  // 2 extra spaces for food
     let caloriesPadding = ' '.repeat( maxCaloriesLength - String(entry.calories).length + 2)
-    let aminoPadding   = ' '.repeat( maxAminoLength   - String(entry.amino).length + 2)
+    let aminoPadding    = ' '.repeat( maxAminoLength    - String(entry.amino).length + 2)
 
     return `${entry.food}${foodPadding}${entry.calories}${caloriesPadding}${entry.amino}${aminoPadding}${entry.salt}`
 
@@ -87,7 +87,7 @@ function updSums()
   // else if(currentSum > recommended * (1 + tolerance))
   //   progressBarColor = 'bg-danger'
 
-  // document.getElementById('caloriesProgressBar').style.width = `${percentage}%`
-  // document.getElementById('caloriesProgressBar').className = `progress-bar ${progressBarColor}`
+  // document.getElementById('caloriesProgressBar').style.width   = `${percentage}%`
+  // document.getElementById('caloriesProgressBar').className     = `progress-bar ${progressBarColor}`
   // document.getElementById('caloriesProgressLabel').textContent = `${currentSum}/${recommended}`
 }

@@ -16,14 +16,14 @@ Salz	3,9 g
 
 $s = trim($s);
 
-$s = str_ireplace('Energie',                     '  calories:     ', $s );
-$s = str_ireplace('davon gesättigte Fettsäuren', '  saturatedFat: ', $s );
-$s = str_ireplace('Fett',                        '  fat:          ', $s );  // switched order needed
-$s = str_ireplace('Kohlenhydrate',               '  carbs:        ', $s );
-$s = str_ireplace('davon Zucker',                '  sugar:        ', $s );
-$s = str_ireplace('Ballaststoffe',               '  fibre:        ', $s );
-$s = str_ireplace('Eiweiß',                      '  amino:        ', $s );
-$s = str_ireplace('Salz',                        '  salt:         ', $s );
+$s = str_ireplace('Energie',                     '    calories:     ', $s );
+$s = str_ireplace('davon gesättigte Fettsäuren', '    saturatedFat: ', $s );
+$s = str_ireplace('Fett',                        '    fat:          ', $s );  // switched order needed
+$s = str_ireplace('Kohlenhydrate',               '    carbs:        ', $s );
+$s = str_ireplace('davon Zucker',                '    sugar:        ', $s );
+$s = str_ireplace('Ballaststoffe',               '    fibre:        ', $s );
+$s = str_ireplace('Eiweiß',                      '    amino:        ', $s );
+$s = str_ireplace('Salz',                        '    salt:         ', $s );
 
 // preg_replace('/\s+/', ' ', $originalString);
 
@@ -36,6 +36,9 @@ $s = str_replace(' kj',   '', $s );
 
 echo "  packaging:             \n"
    . "  weigth:           \n"
+   . "\n"
+   . "  nutrients:           \n"  // TASK: without calories
+   . "\n"
    . "$s\n"
    . "\n"
    . "  sources:          Web\n"

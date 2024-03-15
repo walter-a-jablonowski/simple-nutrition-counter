@@ -9,13 +9,15 @@ Brokkoli R:     # some German foods
   packaging:    pack
 
   calories:     24
-  fat:          0.2
-  saturatedFat: 0.1
-  carbs:        1.5
-  sugar:        1
-  fibre:        2.3
-  amino:        3
-  salt:         0
+  nutrients:
+
+    fat:          0.2
+    saturatedFat: 0.1
+    carbs:        1.5
+    sugar:        1
+    fibre:        2.3
+    amino:        3
+    salt:         0
 
   sources:      "Web, information on packaging may differ slightly"
   lastUpd:      2024-03-13
@@ -26,13 +28,15 @@ Cashew E:
   packaging:    pack
 
   calories:     603
-  fat:          47.1
-  saturatedFat: 9.3
-  carbs:        22.2
-  sugar:        6.2
-  fibre:        3.1
-  amino:        21
-  salt:         0
+  nutrients:
+
+    fat:          47.1
+    saturatedFat: 9.3
+    carbs:        22.2
+    sugar:        6.2
+    fibre:        3.1
+    amino:        21
+    salt:         0
 
   sources:      Pack
   lastUpd:      2024-02-18
@@ -43,13 +47,15 @@ Cashew N:
   packaging:    pack
 
   calories:     603
-  fat:          47.1
-  saturatedFat: 9.3
-  carbs:        22.2
-  sugar:        6.2
-  fibre:        3.1
-  amino:        21
-  salt:         0
+  nutrients:
+
+    fat:          47.1
+    saturatedFat: 9.3
+    carbs:        22.2
+    sugar:        6.2
+    fibre:        3.1
+    amino:        21
+    salt:         0
 
   sources:      Pack
   lastUpd:      2024-02-18
@@ -60,13 +66,15 @@ Chick R Bio:
   packaging:    pack
 
   calories:     127
-  fat:          2.7
-  saturatedFat: 0.3
-  carbs:        15
-  sugar:        0.4
-  fibre:        
-  amino:        7.1
-  salt:         0.35
+  nutrients:
+
+    fat:          2.7
+    saturatedFat: 0.3
+    carbs:        15
+    sugar:        0.4
+    fibre:        
+    amino:        7.1
+    salt:         0.35
 
   sources:      "Web, information on packaging differs slightly, fiber is missing"
   lastUpd:      2024-03-13
@@ -77,13 +85,15 @@ Chips light:
   packaging:    pack
 
   calories:     472
-  fat:          22
-  saturatedFat: 1.7
-  carbs:        60
-  sugar:        0.5
-  fibre:        4.1
-  amino:        6.4
-  salt:         2.5
+  nutrients:
+
+    fat:          22
+    saturatedFat: 1.7
+    carbs:        60
+    sugar:        0.5
+    fibre:        4.1
+    amino:        6.4
+    salt:         2.5
 
   sources:      Web
   lastUpd:      2024-02-18
@@ -94,13 +104,15 @@ Erdn Salz N big:
   packaging:    pack
 
   calories:     615
-  fat:          51
-  saturatedFat: 7.8
-  carbs:        11
-  sugar:        5.2
-  fibre:        8.2
-  amino:        24
-  salt:         1
+  nutrients:
+
+    fat:          51
+    saturatedFat: 7.8
+    carbs:        11
+    sugar:        5.2
+    fibre:        8.2
+    amino:        24
+    salt:         1
 
   sources:      Pack
   lastUpd:      2024-03-13
@@ -111,13 +123,15 @@ Frosta R:
   packaging:    pack
 
   calories:     105
-  fat:          2.6
-  saturatedFat: 1.5
-  carbs:        12.9
-  sugar:        1
-  fibre:        1.5
-  amino:        6.7
-  salt:         1.18
+  nutrients:
+
+    fat:          2.6
+    saturatedFat: 1.5
+    carbs:        12.9
+    sugar:        1
+    fibre:        1.5
+    amino:        6.7
+    salt:         1.18
 
   sources:      Pack
   lastUpd:      2024-02-18
@@ -128,13 +142,15 @@ Linsen R Bio:
   packaging:    pack
 
   calories:     92
-  fat:          0.4
-  saturatedFat: 0.1
-  carbs:        13.5
-  sugar:        0.1
-  fibre:        
-  amino:        7.5
-  salt:         0
+  nutrients:
+
+    fat:          0.4
+    saturatedFat: 0.1
+    carbs:        13.5
+    sugar:        0.1
+    fibre:        
+    amino:        7.5
+    salt:         0
 
   sources:      "Web, information on packaging differs slightly, fiber is missing"
   lastUpd:      2024-03-13
@@ -145,13 +161,15 @@ Mandel E:
   packaging:    pack
 
   calories:     619
-  fat:          53
-  saturatedFat: 4.1
-  carbs:        5.7
-  sugar:        3.4
-  fibre:        11.4
-  amino:        24
-  salt:         0.1
+  nutrients:
+
+    fat:          53
+    saturatedFat: 4.1
+    carbs:        5.7
+    sugar:        3.4
+    fibre:        11.4
+    amino:        24
+    salt:         0.1
 
   sources:      Pack
   lastUpd:      2024-02-18
@@ -162,13 +180,15 @@ Mandel N:
   packaging:    pack
 
   calories:     618
-  fat:          53
-  saturatedFat: 4.2
-  carbs:        4.0
-  sugar:        3.8
-  fibre:        8.6
-  amino:        27.0
-  salt:         0.7
+  nutrients:
+
+    fat:          53
+    saturatedFat: 4.2
+    carbs:        4.0
+    sugar:        3.8
+    fibre:        8.6
+    amino:        27.0
+    salt:         0.7
 
   sources:      Pack
   lastUpd:      2024-02-18
@@ -179,15 +199,17 @@ Nussmisch N:
   packaging:    pack
 
   calories:     653
-  fat:          57.8
-  saturatedFat: 6.5
-  monoUnsaturated: 32.3
-  polyUnsaturated: 16.9
-  carbs:        10.8
-  sugar:        4.2
-  fibre:        6.4
-  amino:        19.2
-  salt:         0
+  nutrients:
+
+    fat:          57.8
+    saturatedFat: 6.5
+    monoUnsaturated: 32.3
+    polyUnsaturated: 16.9
+    carbs:        10.8
+    sugar:        4.2
+    fibre:        6.4
+    amino:        19.2
+    salt:         0
 
   sources:      Pack
   lastUpd:      2024-02-18
@@ -198,13 +220,15 @@ Riegel Seitenb Sch:
   packaging:    piece
 
   calories:     350
-  fat:          12
-  saturatedFat: 5
-  carbs:        24
-  sugar:        23
-  fibre:        21
-  amino:        26
-  salt:         0.1
+  nutrients:
+
+    fat:          12
+    saturatedFat: 5
+    carbs:        24
+    sugar:        23
+    fibre:        21
+    amino:        26
+    salt:         0.1
 
   calcium:      360
 
@@ -217,13 +241,15 @@ Salami R:
   packaging:    pack
 
   calories:     275
-  fat:          19
-  saturatedFat: 8.7
-  carbs:        1
-  sugar:        1
-  fibre:        1
-  amino:        25
-  salt:         3.9
+  nutrients:
+
+    fat:          19
+    saturatedFat: 8.7
+    carbs:        1
+    sugar:        1
+    fibre:        1
+    amino:        25
+    salt:         3.9
 
   sources:      Web
   lastUpd:      2024-02-18

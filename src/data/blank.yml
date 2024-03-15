@@ -11,17 +11,19 @@ My food S Bio:
   usedAmounts:  _
 
   calories:     _
-  fat:          _
-  saturatedFat: _
-  monoUnsaturated: _
-  polyUnsaturated: _                 
-  carbs:        _
-  sugar:        _
-  fibre:        _
-  amino:        _
-  salt:         _
+  nutrients:
 
-  calcium:      _
+    fat:          _
+    saturatedFat: _
+    monoUnsaturated: _
+    polyUnsaturated: _                 
+    carbs:        _
+    sugar:        _
+    fibre:        _
+    amino:        _
+    salt:         _
+
+    calcium:      _
 
   sources:      "Web|Pack, ..."
   lastUpd:      2024-02-18
