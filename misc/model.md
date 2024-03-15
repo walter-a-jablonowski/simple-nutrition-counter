@@ -50,7 +50,6 @@ For a more intuitive, fluent, natural usage in this format/representation of the
 Currently ignored cause we don't know in foods: How do we use the sub type B 12 methylcobalamin ? (kind of combined key name + type)
 
 ```yaml
-
 My food S Bio:
 
   weight: 
