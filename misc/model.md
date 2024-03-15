@@ -57,6 +57,8 @@ My food S Bio:
 
   nutrients:
 
-    calories:
+    "@inline": ident -> amount  # some syntax could be used 2 highlight that the link class is saved inline
+
+    fat:
     # ...
 ```
