@@ -1,16 +1,16 @@
 
 My food S Bio:
 
-  comment:      ""
-  ingredients:  ""
-  origin:       ""
+  comment:        ""
+  ingredients:    ""
+  origin:         ""
 
-  weight:       _
-  packaging:    pack|piece|pieces
-  quantity:     _
-  usedAmounts:  _
+  weight:         _
+  packaging:      pack|piece|pieces
+  quantity:       _
+  usedAmounts:    _
 
-  calories:     _
+  calories:       _
   nutrients:
 
     fat:          _
@@ -25,8 +25,8 @@ My food S Bio:
 
     calcium:      _
 
-  sources:      "Web|Pack, ..."
-  lastUpd:      2024-02-18
+  sources:        "Web|Pack, ..."
+  lastUpd:        2024-02-18
 
 My nutrient:
 
