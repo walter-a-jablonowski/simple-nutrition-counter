@@ -231,10 +231,8 @@ foreach( scandir('data/days', SCANDIR_SORT_DESCENDING) as $file)
         <textarea id="foods" class="form-control" wrap="off" style="font-family: monospace;" rows="18"
         ><?= $foodsTxt ?></textarea>
 
-        <button id="saveFoodsBtn" onclick="saveFoods(event)" class="btn btn-sm btn-primary mt-2">Save</button>
+        <button onclick="saveFoods(event)" class="btn btn-sm btn-primary mt-2">Save</button>
         <span   id="foodsUIMsg"></span>
-
-        <a href="https://bootstrap.build/license">BS theme by bootstrap.build</a>
 
       </div>
     </div>

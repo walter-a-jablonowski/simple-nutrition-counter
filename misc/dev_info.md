@@ -1,4 +1,14 @@
-# Model
+# Dev info
+
+Common
+----------------------------------------------------------
+
+- Use the view ins of index for including in a large app
+  - html ids have a prefix
+  - encapsulation: (in development)
+
+Model
+----------------------------------------------------------
 
 ```
    --------------
@@ -20,8 +30,8 @@
 ```
 
 
-Yaml represantation
-----------------------------------------------------------
+
+### Yaml represantation
 
 We use yaml and (at least currently) tsv as our database
 
@@ -45,7 +55,7 @@ For a more intuitive, fluent, natural usage in this format/representation of the
 
 - the name should be used as id with no numeric ids
 - it should written in the key
-- and the link class/table should be saved inline in foods under a key nutrients
+- and the link class/table should be saved inline in foods under a key nutrients (view like)
 
 Currently ignored cause we don't know in foods: How do we use the sub type B 12 methylcobalamin ? (kind of combined key name + type)
 
