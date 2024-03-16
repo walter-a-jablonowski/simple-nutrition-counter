@@ -157,7 +157,7 @@ foreach( scandir('data/days', SCANDIR_SORT_DESCENDING) as $file)
           </div>
 -->
           <?php foreach( $foods as $food => $entry): ?>
-            <div class="food-item" onclick="addFood('<?= $food ?>', <?= $entry['calories'] ?>, <?= $entry['nutrients']['amino'] ?>, <?= $entry['nutrients']['salt'] ?>)">
+            <div class="food-item" onclick="addFood('<?= $food ?>', <?= $entry['calories'] ?>, <?= $entry['amino'] ?>, <?= $entry['salt'] ?>)">
               <?= $food ?>
             </div>
           <?php endforeach; ?>

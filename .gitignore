@@ -3,5 +3,5 @@ desktop.ini
 try.html
 composer.lock
 vendor/
-data/days/**.tsv
+src/data/days/**.tsv
 fade_230808.js
