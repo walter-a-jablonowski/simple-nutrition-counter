@@ -1,6 +1,6 @@
 desktop.ini
 *.ini
-try.html
+try.php
 composer.lock
 vendor/
 src/data/days/**.tsv

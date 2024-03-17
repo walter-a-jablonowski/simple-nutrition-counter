@@ -1,8 +1,5 @@
-<?php
-
-require_once('vendor/autoload.php');
-
-?><!DOCTYPE html>
+<!-- page wrapper for standalone use -->
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -39,7 +36,7 @@ require_once('vendor/autoload.php');
 
   <div class="container-fluid mt-3">
 
-    <?php require('view.php'); ?>
+    <?php require 'controller.php'; ?>
 
   </div>
 
