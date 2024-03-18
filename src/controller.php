@@ -1,7 +1,7 @@
 <?php
 
 use Symfony\Component\Yaml\Yaml;
-// use Symfony\Component\Yaml\Exception\ParseException;
+use Symfony\Component\Yaml\Exception\ParseException;
 
 require_once 'vendor/autoload.php';
 require_once 'lib/SimpleData_240317/SimpleData.php';
@@ -11,7 +11,8 @@ require_once 'lib/parse.php';
 // Make all the data
 // we currently use no Engine cause the app is tooooooooooo small
 
-$data = new SimpleData();
+$config = new SimpleData( Yaml::parse( file_get_contents('config.yml')));
+$data   = new SimpleData();
 
 $data->foodsTxt = file_get_contents('data/foods.yml');
 $foodsDef = Yaml::parse( $data->foodsTxt );
@@ -22,13 +23,14 @@ foreach( $foodsDef as $food => $entry )
 {
   if( $entry['packaging'] === 'pack')
   {
-    $usedAmounts = $entry['usedAmounts'] ?? ['1/4' => 1/4, '1/3' => 1/3, '1/2' => 1/2, '2/3' => 2/3, '3/4' => 3/4, '1' => 1];
+    // $usedAmounts = $entry['usedAmounts'] ?? ['1/4' => 1/4, '1/3' => 1/3, '1/2' => 1/2, '2/3' => 2/3, '3/4' => 3/4, '1' => 1];
+    $usedAmounts = $entry['usedAmounts'] ?? $config->get('foods.defaultAmounts.pack');
 
-    foreach( $usedAmounts as $frac => $multipl )
+    foreach( $usedAmounts as $amount => $multipl )
     {
-      if( is_string($multipl))  eval("\$multipl = \$data->$frac;");  // 1/2 => 0.5
-        
-      $data->push('foods', ["$food $frac" => [
+      eval("\$multipl = $multipl;");  // 1/2 => 0.5
+      
+      $data->push('foods', ["$food $amount" => [
         'weight'    => round( $entry['weight']   * $multipl, 1),
         'calories'  => round( $entry['calories'] * $multipl, 1),
         'nutrients' => [
@@ -40,7 +42,8 @@ foreach( $foodsDef as $food => $entry )
   }
   elseif( $entry['packaging'] === 'pieces')
   {
-    $usedAmounts = $entry['usedAmounts'] ?? [1, 2, 3];
+    // $usedAmounts = $entry['usedAmounts'] ?? [1, 2, 3];
+    $usedAmounts = $entry['usedAmounts'] ?? $config->get('foods.defaultAmounts.pieces');
 
     foreach( $usedAmounts as $amount )
 
