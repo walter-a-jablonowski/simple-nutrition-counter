@@ -30,15 +30,17 @@ My food S Bio:                     # S = short for store if needed (save some sp
   usedAmounts:  [1, 2, 3, 4, 5]    # for packaging = pack (default 1/4 - 1) and pieces (default 1 - 3)
 
   calories:                        # grams
-  fat:          100
-  saturatedFat: 
-  monoUnsaturated:                 # a few foods have that data
-  polyUnsaturated:                   
-  carbs:        
-  sugar:        
-  fibre:        
-  amino:        
-  salt:         1.0
+  nutrients:
+
+    fat:              100
+    saturatedFat: 
+    monoUnsaturated:               # a few foods have that data
+    polyUnsaturated:                   
+    carbs:        
+    sugar:        
+    fibre:        
+    amino:        
+    salt:             1.0
 
   calcium:                         # same unit as in nutrients.yml
   # ... some important ...

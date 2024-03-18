@@ -32,8 +32,8 @@ foreach( $foodsDef as $food => $entry )
         'weight'    => round( $entry['weight']   * $multipl, 1),
         'calories'  => round( $entry['calories'] * $multipl, 1),
         'nutrients' => [
-          'amino'   => round( $entry['nutrients']['amino']    * $multipl, 1),
-          'salt'    => round( $entry['nutrients']['salt']     * $multipl, 1)
+          'amino'   => round( $entry['nutrients']['amino'] * $multipl, 1),
+          'salt'    => round( $entry['nutrients']['salt']  * $multipl, 1)
         ]
       ]]);
     }
@@ -48,8 +48,8 @@ foreach( $foodsDef as $food => $entry )
         'weight'    => round(( $entry['weight']   / $entry['quantity'] ) * $amount, 1),
         'calories'  => round(( $entry['calories'] / $entry['quantity'] ) * $amount, 1),
         'nutrients' => [
-          'amino'   => round(( $entry['nutrients']['amino']    / $entry['quantity'] ) * $amount, 1),
-          'salt'    => round(( $entry['nutrients']['salt']     / $entry['quantity'] ) * $amount, 1)
+          'amino'   => round(( $entry['nutrients']['amino'] / $entry['quantity'] ) * $amount, 1),
+          'salt'    => round(( $entry['nutrients']['salt']  / $entry['quantity'] ) * $amount, 1)
         ]
       ]]);
   }
