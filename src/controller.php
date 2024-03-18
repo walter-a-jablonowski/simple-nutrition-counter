@@ -34,6 +34,7 @@ foreach( $foodsDef as $food => $entry )
         'weight'    => round( $entry['weight']   * $multipl, 1),
         'calories'  => round( $entry['calories'] * $multipl, 1),
         'nutrients' => [
+          'fat'     => round( $entry['nutrients']['fat']   * $multipl, 1),
           'amino'   => round( $entry['nutrients']['amino'] * $multipl, 1),
           'salt'    => round( $entry['nutrients']['salt']  * $multipl, 1)
         ]
@@ -51,6 +52,7 @@ foreach( $foodsDef as $food => $entry )
         'weight'    => round(( $entry['weight']   / $entry['quantity'] ) * $amount, 1),
         'calories'  => round(( $entry['calories'] / $entry['quantity'] ) * $amount, 1),
         'nutrients' => [
+          'fat'     => round(( $entry['nutrients']['fat']   / $entry['quantity'] ) * $amount, 1),
           'amino'   => round(( $entry['nutrients']['amino'] / $entry['quantity'] ) * $amount, 1),
           'salt'    => round(( $entry['nutrients']['salt']  / $entry['quantity'] ) * $amount, 1)
         ]
@@ -59,9 +61,10 @@ foreach( $foodsDef as $food => $entry )
   else  // single piece
   {
     $data->push('foods', [$food => [
-      'weight'   => $entry['weight'],
+      'weight'    => $entry['weight'],
       'calories'  => $entry['calories'],
       'nutrients' => [
+        'fat'     => $entry['nutrients']['fat'],
         'amino'   => $entry['nutrients']['amino'],
         'salt'    => $entry['nutrients']['salt']
       ]
@@ -75,8 +78,9 @@ $data->dayEntriesTxt  = trim( @file_get_contents('data/days/' . date('Y-m-d') . 
 $data->dayEntries     = parse($data->dayEntriesTxt);
 
 $data->dayCaloriesSum = ! $data->dayEntries ? 0 : array_sum( array_column( $data->dayEntries, 1));
-$data->dayAminoSum    = ! $data->dayEntries ? 0 : array_sum( array_column( $data->dayEntries, 2));
-$data->daySaltSum     = ! $data->dayEntries ? 0 : array_sum( array_column( $data->dayEntries, 3));
+$data->dayFatSum      = ! $data->dayEntries ? 0 : array_sum( array_column( $data->dayEntries, 2));
+$data->dayAminoSum    = ! $data->dayEntries ? 0 : array_sum( array_column( $data->dayEntries, 3));
+$data->daySaltSum     = ! $data->dayEntries ? 0 : array_sum( array_column( $data->dayEntries, 4));
 
 // All days
 
@@ -90,8 +94,9 @@ foreach( scandir('data/days', SCANDIR_SORT_DESCENDING) as $file)
 
   $data->push('lastDaysSums', [$dat => [
     'caloriesSum' => ! $entries ? 0 : array_sum( array_column($entries, 1)),
-    'aminoSum'    => ! $entries ? 0 : array_sum( array_column($entries, 2)),
-    'saltSum'     => ! $entries ? 0 : array_sum( array_column($entries, 3))
+    'fatSum'      => ! $entries ? 0 : array_sum( array_column($entries, 2)),
+    'aminoSum'    => ! $entries ? 0 : array_sum( array_column($entries, 3)),
+    'saltSum'     => ! $entries ? 0 : array_sum( array_column($entries, 4))
   ]]);
 }
 

@@ -1,12 +1,13 @@
 
-function addFood(food, calories, amino, salt)
+function addFood(food, calories, fat, amino, salt)
 {
-  dayEntries.push({ food, calories, amino, salt })  // because we need a unique name for dashb
-                                                    // object keys will be the var name
+  dayEntries.push({ food, calories, fat, amino, salt })  // because we need a unique name for dashb
+                                                         // object keys will be the var name
   // Find the length of the longest strings
 
   let maxFoodLength     = Math.max( ...dayEntries.map( entry => entry.food.length))
   let maxCaloriesLength = Math.max( ...dayEntries.map( entry => String(entry.calories).length))
+  let maxFatLength      = Math.max( ...dayEntries.map( entry => String(entry.fat).length))
   let maxAminoLength    = Math.max( ...dayEntries.map( entry => String(entry.amino).length))
   let maxSaltLength     = Math.max( ...dayEntries.map( entry => String(entry.salt).length))
 
@@ -16,9 +17,10 @@ function addFood(food, calories, amino, salt)
 
     let foodPadding     = ' '.repeat( maxFoodLength     - entry.food.length + 2)  // 2 extra spaces for food
     let caloriesPadding = ' '.repeat( maxCaloriesLength - String(entry.calories).length + 2)
+    let fatPadding      = ' '.repeat( maxFatLength      - String(entry.fat).length + 2)
     let aminoPadding    = ' '.repeat( maxAminoLength    - String(entry.amino).length + 2)
 
-    return `${entry.food}${foodPadding}${entry.calories}${caloriesPadding}${entry.amino}${aminoPadding}${entry.salt}`
+    return `${entry.food}${foodPadding}${entry.calories}${caloriesPadding}${entry.fat}${fatPadding}${entry.amino}${aminoPadding}${entry.salt}`
 
   }).join('\n')
 
@@ -63,10 +65,12 @@ function saveFoods(event)
 function updSums()
 {
   let caloriesSum = dayEntries.reduce((sum, entry) => sum + Number(entry.calories), 0)
+  let fatSum      = dayEntries.reduce((sum, entry) => sum + Number(entry.fat), 0)
   let aminoSum    = dayEntries.reduce((sum, entry) => sum + Number(entry.amino), 0)
   let saltSum     = dayEntries.reduce((sum, entry) => sum + Number(entry.salt), 0)
 
   document.getElementById('caloriesSum').textContent = caloriesSum
+  document.getElementById('fatSum').textContent      = fatSum
   document.getElementById('aminoSum').textContent    = aminoSum
   document.getElementById('saltSum').textContent     = saltSum
 

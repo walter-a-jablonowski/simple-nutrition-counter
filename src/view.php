@@ -47,7 +47,7 @@
         </div>
         <div class="row">
           <div class="col ml-3 pl-1 pr-1 text-start text-left" id="caloriesSum"><?= $data->dayCaloriesSum ?></div>
-          <div class="col pl-1 pr-1 text-end text-right" id="fatSum">0</div>
+          <div class="col pl-1 pr-1 text-end text-right" id="fatSum"><?= $data->dayFatSum ?></div>
           <div class="col pl-1 pr-1 text-end text-right" id="aminoSum"><?= $data->dayAminoSum ?></div>
           <div class="col pl-1 mr-3 pr-1 text-end text-right" id="saltSum"><?= $data->daySaltSum ?></div>
           <div class="col text-end text-right">
@@ -68,7 +68,7 @@
           </div>
 -->
           <?php foreach( $data->foods as $food => $entry): ?>
-            <div class="food-item" onclick="addFood('<?= $food ?>', <?= $entry['calories'] ?>, <?= $entry['nutrients']['amino'] ?>, <?= $entry['nutrients']['salt'] ?>)">
+            <div class="food-item" onclick="addFood('<?= $food ?>', <?= $entry['calories'] ?>, <?= $entry['nutrients']['fat'] ?>, <?= $entry['nutrients']['amino'] ?>, <?= $entry['nutrients']['salt'] ?>)">
               <?= $food ?>
             </div>
           <?php endforeach; ?>
@@ -120,6 +120,7 @@
               </div>
               <div class="row">
                 <div class="col"><?= $sums['caloriesSum'] ?></div>
+                <div class="col"><?= $sums['fatSum'] ?></div>
                 <div class="col"><?= $sums['aminoSum'] ?></div>
                 <div class="col"><?= $sums['saltSum'] ?></div>
               </div>
@@ -155,7 +156,7 @@
 
   let dayEntries = [
     <?php foreach( $data->dayEntries as $entry): ?>
-      {food: '<?= $entry[0] ?>', calories: <?= $entry[1] ?>, amino: <?= $entry[2] ?>, salt: <?= $entry[3] ?>},
+      {food: '<?= $entry[0] ?>', calories: <?= $entry[1] ?>, fat: <?= $entry[2] ?>, amino: <?= $entry[3] ?>, salt: <?= $entry[4] ?>},
     <?php endforeach; ?>
   ]
 
