@@ -1,110 +1,127 @@
 
-function foodLineClick(event)
+class FoodsEventController
 {
-  let target    = event.target
-  let food      = target.dataset.food
-  let calories  = target.dataset.calories
-  let nutrients = JSON.parse(target.dataset.nutrients)
+  constructor(args)
+  {
 
-  dayEntries.push({
-    food:     food,
-    calories: calories,
-    fat:      nutrients.fat,
-    amino:    nutrients.amino,
-    salt:     nutrients.salt
-  })
-  
-  // dayEntries.push({ food, calories, nutrients })           // TASK: (advanced) maybe
+    // Binding
 
-  // Find the length of the longest strings
+    this.foodItemClick          = this.foodItemClick.bind(this)
+    this.saveDayEntriesBtnClick = this.saveDayEntriesBtnClick.bind(this)
+    this.saveFoodsBtnClick      = this.saveFoodsBtnClick.bind(this)
+    // this.#saveDayEntries     = this.#saveDayEntries.bind(this)  // TASK: can't be done
+    // this.#updSums            = this.#updSums.bind(this)
+  }
 
-  let maxFoodLength     = Math.max( ...dayEntries.map( entry => entry.food.length))
-  let maxCaloriesLength = Math.max( ...dayEntries.map( entry => String(entry.calories).length))  // for some reason we must do it like this here
-  let maxFatLength      = Math.max( ...dayEntries.map( entry => String(entry.fat).length))
-  let maxAminoLength    = Math.max( ...dayEntries.map( entry => String(entry.amino).length))
-  // let maxSaltLength  = Math.max( ...dayEntries.map( entry => entry.salt.length))
+  foodItemClick(event)
+  {
+    let target    = event.target
+    let food      = target.dataset.food
+    let calories  = target.dataset.calories
+    let nutrients = JSON.parse(target.dataset.nutrients)
 
-  // Align cols
+    dayEntries.push({
+      food:     food,
+      calories: calories,
+      fat:      nutrients.fat,
+      amino:    nutrients.amino,
+      salt:     nutrients.salt
+    })
+    
+    // dayEntries.push({ food, calories, nutrients })  // TASK: (advanced) maybe
 
-  let formattedText = dayEntries.map( entry => {
+    // Find the length of the longest strings
 
-    let foodPadding     = ' '.repeat( maxFoodLength     - entry.food.length + 2)              // 2 extra spaces
-    let caloriesPadding = ' '.repeat( maxCaloriesLength - String(entry.calories).length + 2)  // for some reason we must do it like this here
-    let fatPadding      = ' '.repeat( maxFatLength      - String(entry.fat).length + 2)
-    let aminoPadding    = ' '.repeat( maxAminoLength    - String(entry.amino).length + 2)
+    let maxFoodLength     = Math.max( ...dayEntries.map( entry => entry.food.length))
+    let maxCaloriesLength = Math.max( ...dayEntries.map( entry => String(entry.calories).length))  // for some reason we must do it like this here
+    let maxFatLength      = Math.max( ...dayEntries.map( entry => String(entry.fat).length))
+    let maxAminoLength    = Math.max( ...dayEntries.map( entry => String(entry.amino).length))
+    // let maxSaltLength  = Math.max( ...dayEntries.map( entry => entry.salt.length))
 
-    return `${entry.food}${foodPadding}${entry.calories}${caloriesPadding}${entry.fat}${fatPadding}${entry.amino}${aminoPadding}${entry.salt}`
+    // TASK: (advanced) use a loop for more nutrients
 
-  }).join('\n')
+    // Align cols
 
-  document.getElementById('dayEntries').value = formattedText
+    let formattedText = dayEntries.map( entry => {
 
-  // Upd sums and save entries
+      let foodPadding     = ' '.repeat( maxFoodLength     - entry.food.length + 2)              // 2 extra spaces
+      let caloriesPadding = ' '.repeat( maxCaloriesLength - String(entry.calories).length + 2)  // for some reason we must do it like this here
+      let fatPadding      = ' '.repeat( maxFatLength      - String(entry.fat).length + 2)
+      let aminoPadding    = ' '.repeat( maxAminoLength    - String(entry.amino).length + 2)
 
-  updSums()
-  saveDayEntries()
-}
+      return `${entry.food}${foodPadding}${entry.calories}${caloriesPadding}${entry.fat}${fatPadding}${entry.amino}${aminoPadding}${entry.salt}`
 
-function saveManualInput(event)
-{
-  // Manual entering values: current solution is enter values => save => reload
+    }).join('\n')
 
-  saveDayEntries()
-  window.location.reload()
-}
+    document.getElementById('dayEntries').value = formattedText
 
-function saveDayEntries(event)
-{
-  send('ajax/save_day_entries.php', document.getElementById('dayEntries').value, function( result, data) {
+    // Upd sums and save entries
 
-    if( result === 'success')
-      document.getElementById('foodsUIMsg').innerHTML = 'Saved'
-    else
-      document.getElementById('foodsUIMsg').innerHTML = result.message
-  })
-}
+    this.#updSums()
+    this.#saveDayEntries()
+  }
 
-function saveFoods(event)
-{
-  send('ajax/save_foods.php', document.getElementById('foods').value, function( result, data) {
+  saveDayEntriesBtnClick(event)
+  {
+    // Manual entering values: current solution is enter values => save => reload
 
-    if( result === 'success')
-      document.getElementById('foodsUIMsg').innerHTML = 'Saved'
-    else
-      document.getElementById('foodsUIMsg').innerHTML = result.message
-  })
-}
+    this.#saveDayEntries()
+    window.location.reload()
+  }
 
-function updSums()
-{
-  let caloriesSum = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.calories), 0).toFixed(1))
-  let fatSum      = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.fat),      0).toFixed(1))
-  let aminoSum    = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.amino),    0).toFixed(1))
-  let saltSum     = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.salt),     0).toFixed(1))
+  saveFoodsBtnClick(event)
+  {
+    send('ajax/save_foods.php', document.getElementById('foods').value, function( result, data) {
 
-  document.getElementById('caloriesSum').textContent = caloriesSum
-  document.getElementById('fatSum').textContent      = fatSum
-  document.getElementById('aminoSum').textContent    = aminoSum
-  document.getElementById('saltSum').textContent     = saltSum
+      if( result === 'success')
+        document.getElementById('foodsUIMsg').innerHTML = 'Saved'
+      else
+        document.getElementById('foodsUIMsg').innerHTML = result.message
+    })
+  }
+
+  #saveDayEntries()
+  {
+    send('ajax/save_day_entries.php', document.getElementById('dayEntries').value, function( result, data) {
+
+      if( result === 'success')
+        document.getElementById('foodsUIMsg').innerHTML = 'Saved'
+      else
+        document.getElementById('foodsUIMsg').innerHTML = result.message
+    })
+  }
+
+  #updSums()
+  {
+    let caloriesSum = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.calories), 0).toFixed(1))
+    let fatSum      = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.fat),      0).toFixed(1))
+    let aminoSum    = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.amino),    0).toFixed(1))
+    let saltSum     = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.salt),     0).toFixed(1))
+
+    document.getElementById('caloriesSum').textContent = caloriesSum
+    document.getElementById('fatSum').textContent      = fatSum
+    document.getElementById('aminoSum').textContent    = aminoSum
+    document.getElementById('saltSum').textContent     = saltSum
 
 
-  // (TASK) progress
+    // (TASK) progress
 
-  // let currentSum  = 100  // This should be dynamically set based on the day's sum
-  // let recommended = 500
-  // let tolerance   = 0.05
+    // let currentSum  = 100  // This should be dynamically set based on the day's sum
+    // let recommended = 500
+    // let tolerance   = 0.05
 
-  // let percentage = (currentSum / recommended) * 100
-  // percentage = Math.min(percentage, 100)  // ensure it doesn't exceed 100%
+    // let percentage = (currentSum / recommended) * 100
+    // percentage = Math.min(percentage, 100)  // ensure it doesn't exceed 100%
 
-  // let progressBarColor = 'bg-secondary'
+    // let progressBarColor = 'bg-secondary'
 
-  // if( currentSum >= recommended * (1 - tolerance) && currentSum <= recommended * (1 + tolerance))
-  //   progressBarColor = 'bg-success'
-  // else if(currentSum > recommended * (1 + tolerance))
-  //   progressBarColor = 'bg-danger'
+    // if( currentSum >= recommended * (1 - tolerance) && currentSum <= recommended * (1 + tolerance))
+    //   progressBarColor = 'bg-success'
+    // else if(currentSum > recommended * (1 + tolerance))
+    //   progressBarColor = 'bg-danger'
 
-  // document.getElementById('caloriesProgressBar').style.width   = `${percentage}%`
-  // document.getElementById('caloriesProgressBar').className     = `progress-bar ${progressBarColor}`
-  // document.getElementById('caloriesProgressLabel').textContent = `${currentSum}/${recommended}`
+    // document.getElementById('caloriesProgressBar').style.width   = `${percentage}%`
+    // document.getElementById('caloriesProgressBar').className     = `progress-bar ${progressBarColor}`
+    // document.getElementById('caloriesProgressLabel').textContent = `${currentSum}/${recommended}`
+  }
 }

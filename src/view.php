@@ -42,7 +42,9 @@
             <div class="align-split small"><span>Salt</span> <span>g</span></div>
           </div>
           <div class="col text-end text-right" style="max-height: 20px;">
-            <button class="btn btn-sm btn-light" onclick="saveManualInput()">Save</button>
+            <button class="btn btn-sm btn-light" onclick="foodsCrl.saveDayEntriesBtnClick(event)">
+              Save
+            </button>
           </div>
         </div>
         <div class="row">
@@ -76,7 +78,7 @@
           </div>
 -->
           <?php foreach( $data->foods as $food => $entry): ?>
-            <div class="food-item" onclick="foodLineClick(event)"
+            <div class="food-item" onclick="foodsCrl.foodItemClick(event)"
                  data-food      = "<?= $food ?>"
                  data-calories  = "<?= $entry['calories'] ?>"
                  data-nutrients = "<?= htmlspecialchars( json_encode( $entry['nutrients'])) ?>"
@@ -155,7 +157,7 @@
         <textarea id="foods" class="form-control" wrap="off" style="font-family: monospace;" rows="18"
         ><?= $data->foodsTxt ?></textarea>
 
-        <button onclick="saveFoods(event)" class="btn btn-sm btn-primary mt-2">Save</button>
+        <button onclick="foodsCrl.saveFoodsBtnClick(event)" class="btn btn-sm btn-primary mt-2">Save</button>
         <span id="foodsUIMsg"></span>
 
       </div>
@@ -164,6 +166,7 @@
 
 </div>
 
+<script src="controller.js"></script>
 <script>
 
   let dayEntries = [
@@ -172,6 +175,6 @@
     <?php endforeach; ?>
   ]
 
-  // let foodsCrl = new FoodsEventController()
+  let foodsCrl = new FoodsEventController()
 
 </script>
