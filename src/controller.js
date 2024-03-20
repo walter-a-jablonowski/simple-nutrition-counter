@@ -64,10 +64,10 @@ function saveFoods(event)
 
 function updSums()
 {
-  let caloriesSum = dayEntries.reduce((sum, entry) => sum + Number(entry.calories), 0)
-  let fatSum      = dayEntries.reduce((sum, entry) => sum + Number(entry.fat), 0)
-  let aminoSum    = dayEntries.reduce((sum, entry) => sum + Number(entry.amino), 0)
-  let saltSum     = dayEntries.reduce((sum, entry) => sum + Number(entry.salt), 0)
+  let caloriesSum = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.calories), 0).toFixed(1))
+  let fatSum      = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.fat), 0).toFixed(1))
+  let aminoSum    = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.amino), 0).toFixed(1))
+  let saltSum     = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.salt), 0).toFixed(1))
 
   document.getElementById('caloriesSum').textContent = caloriesSum
   document.getElementById('fatSum').textContent      = fatSum
