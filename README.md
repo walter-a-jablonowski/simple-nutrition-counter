@@ -4,6 +4,8 @@
 
 Counts nutrients as simple as possible (one tab per ingredient). Helps improving your daily nutrient intake to improve general health and brain function. It also calculates partially used ingredients.
 
+Most people are deficient in one or more than one substance e.g. zinc, vitamin D, iron, ... What if you could have perfect supply?
+
 ```
 composer install walter-a-jablonowski/simple-nutrition-counter
 ```
