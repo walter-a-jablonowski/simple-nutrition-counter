@@ -46,10 +46,18 @@
           </div>
         </div>
         <div class="row">
-          <div class="col ml-3 pl-1 pr-1 text-start text-left" id="caloriesSum"><?= $data->dayCaloriesSum ?></div>
-          <div class="col pl-1 pr-1 text-end text-right" id="fatSum"><?= $data->dayFatSum ?></div>
-          <div class="col pl-1 pr-1 text-end text-right" id="aminoSum"><?= $data->dayAminoSum ?></div>
-          <div class="col pl-1 mr-3 pr-1 text-end text-right" id="saltSum"><?= $data->daySaltSum ?></div>
+          <div id="caloriesSum" class="col ml-3 pl-1 pr-1 text-start text-left">
+            <?= $data->dayCaloriesSum ?>
+          </div>
+          <div id="fatSum" class="col pl-1 pr-1 text-end text-right">
+            <?= $data->dayFatSum ?>
+          </div>
+          <div id="aminoSum" class="col pl-1 pr-1 text-end text-right">
+            <?= $data->dayAminoSum ?>
+          </div>
+          <div id="saltSum" class="col pl-1 mr-3 pr-1 text-end text-right">
+            <?= $data->daySaltSum ?>
+          </div>
           <div class="col text-end text-right">
             &nbsp;
           </div>
@@ -68,7 +76,11 @@
           </div>
 -->
           <?php foreach( $data->foods as $food => $entry): ?>
-            <div class="food-item" onclick="addFood('<?= $food ?>', <?= $entry['calories'] ?>, <?= $entry['nutrients']['fat'] ?>, <?= $entry['nutrients']['amino'] ?>, <?= $entry['nutrients']['salt'] ?>)">
+            <div class="food-item" onclick="foodLineClick(event)"
+                 data-food      = "<?= $food ?>"
+                 data-calories  = "<?= $entry['calories'] ?>"
+                 data-nutrients = "<?= htmlspecialchars( json_encode( $entry['nutrients'])) ?>"
+            >
               <?= $food ?>
             </div>
           <?php endforeach; ?>
@@ -144,7 +156,7 @@
         ><?= $data->foodsTxt ?></textarea>
 
         <button onclick="saveFoods(event)" class="btn btn-sm btn-primary mt-2">Save</button>
-        <span   id="foodsUIMsg"></span>
+        <span id="foodsUIMsg"></span>
 
       </div>
     </div>
@@ -159,5 +171,7 @@
       {food: '<?= $entry[0] ?>', calories: <?= $entry[1] ?>, fat: <?= $entry[2] ?>, amino: <?= $entry[3] ?>, salt: <?= $entry[4] ?>},
     <?php endforeach; ?>
   ]
+
+  // let foodsCrl = new FoodsEventController()
 
 </script>
