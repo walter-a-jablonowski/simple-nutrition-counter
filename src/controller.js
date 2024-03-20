@@ -9,8 +9,8 @@ class FoodsEventController
     this.foodItemClick          = this.foodItemClick.bind(this)
     this.saveDayEntriesBtnClick = this.saveDayEntriesBtnClick.bind(this)
     this.saveFoodsBtnClick      = this.saveFoodsBtnClick.bind(this)
+    this.updSums                = this.updSums.bind(this)
     // this.#saveDayEntries     = this.#saveDayEntries.bind(this)  // TASK: can't be done
-    // this.#updSums            = this.#updSums.bind(this)
   }
 
   foodItemClick(event)
@@ -57,7 +57,7 @@ class FoodsEventController
 
     // Upd sums and save entries
 
-    this.#updSums()
+    this.updSums()
     this.#saveDayEntries()
   }
 
@@ -91,7 +91,7 @@ class FoodsEventController
     })
   }
 
-  #updSums()
+  updSums()
   {
     let caloriesSum = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.calories), 0).toFixed(1))
     let fatSum      = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.fat),      0).toFixed(1))

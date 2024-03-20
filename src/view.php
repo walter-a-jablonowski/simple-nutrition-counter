@@ -170,11 +170,12 @@
 <script>
 
   let dayEntries = [
-    <?php foreach( $data->dayEntries as $entry): ?>
+    <?php foreach( $data->dayEntries as $entry): ?>  // TASK: nutrients in sub list
       {food: '<?= $entry[0] ?>', calories: <?= $entry[1] ?>, fat: <?= $entry[2] ?>, amino: <?= $entry[3] ?>, salt: <?= $entry[4] ?>},
     <?php endforeach; ?>
   ]
 
   let foodsCrl = new FoodsEventController()
+  // foodsCrl.updSums()  // TASK: maybe rm PHP duplicate in a future version
 
 </script>
