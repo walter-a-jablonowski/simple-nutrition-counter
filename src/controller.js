@@ -80,18 +80,12 @@ class FoodsEventController
     })
   }
 
-  #saveDayEntries()
-  {
-    send('ajax/save_day_entries.php', document.getElementById('dayEntries').value, function( result, data) {
+  /*@
+  
+  - public cause used in view
 
-      if( result === 'success')
-        document.getElementById('foodsUIMsg').innerHTML = 'Saved'
-      else
-        document.getElementById('foodsUIMsg').innerHTML = result.message
-    })
-  }
-
-  updSums()
+  */
+  updSums() /*@*/
   {
     let caloriesSum = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.calories), 0).toFixed(1))
     let fatSum      = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.fat),      0).toFixed(1))
@@ -123,5 +117,16 @@ class FoodsEventController
     // document.getElementById('caloriesProgressBar').style.width   = `${percentage}%`
     // document.getElementById('caloriesProgressBar').className     = `progress-bar ${progressBarColor}`
     // document.getElementById('caloriesProgressLabel').textContent = `${currentSum}/${recommended}`
+  }
+
+  #saveDayEntries()
+  {
+    send('ajax/save_day_entries.php', document.getElementById('dayEntries').value, function( result, data) {
+
+      if( result === 'success')
+        document.getElementById('foodsUIMsg').innerHTML = 'Saved'
+      else
+        document.getElementById('foodsUIMsg').innerHTML = result.message
+    })
   }
 }
