@@ -4,7 +4,7 @@
 
 Counts nutrients as simple as possible (one tab per ingredient). Helps improving your daily nutrient intake to improve general health and brain function. It also calculates partially used ingredients.
 
-Most people are deficient in one or more than one substance e.g. zinc, vitamin D, iron, ... What if you could have perfect supply?
+Most people are deficient in one or more than one substance e.g. zinc, vitamin D, iron, ... What if you could have perfect supply? The problem with supplements: B12 cyanocobalamin isn't the real B12 but a cheap sythetic form, dosage while production often goes wrong and you are missing unexplored plant substances.
 
 ```
 composer install walter-a-jablonowski/simple-nutrition-counter
