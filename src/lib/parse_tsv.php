@@ -1,6 +1,6 @@
 <?php
 
-function parse( $entriesTxt )
+function parse_tsv( $entriesTxt )
 {
   $foodEntries = [];
 

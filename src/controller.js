@@ -53,7 +53,7 @@ class FoodsEventController
 
     }).join('\n')
 
-    document.getElementById('dayEntries').value = formattedText
+    query('#dayEntries').value = formattedText
 
     // Upd sums and save entries
 
@@ -71,12 +71,12 @@ class FoodsEventController
 
   saveFoodsBtnClick(event)
   {
-    send('ajax/save_foods.php', document.getElementById('foods').value, function( result, data) {
+    send('ajax/save_foods.php', query('#foods').value, function( result, data) {
 
       if( result === 'success')
-        document.getElementById('foodsUIMsg').innerHTML = 'Saved'
+        query('#foodsUIMsg').innerHTML = 'Saved'
       else
-        document.getElementById('foodsUIMsg').innerHTML = result.message
+        query('#foodsUIMsg').innerHTML = result.message
     })
   }
 
@@ -92,10 +92,10 @@ class FoodsEventController
     let aminoSum    = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.amino),    0).toFixed(1))
     let saltSum     = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.salt),     0).toFixed(1))
 
-    document.getElementById('caloriesSum').textContent = caloriesSum
-    document.getElementById('fatSum').textContent      = fatSum
-    document.getElementById('aminoSum').textContent    = aminoSum
-    document.getElementById('saltSum').textContent     = saltSum
+    query('#caloriesSum').textContent = caloriesSum
+    query('#fatSum').textContent      = fatSum
+    query('#aminoSum').textContent    = aminoSum
+    query('#saltSum').textContent     = saltSum
 
 
     // (TASK) progress
@@ -114,19 +114,19 @@ class FoodsEventController
     // else if(currentSum > recommended * (1 + tolerance))
     //   progressBarColor = 'bg-danger'
 
-    // document.getElementById('caloriesProgressBar').style.width   = `${percentage}%`
-    // document.getElementById('caloriesProgressBar').className     = `progress-bar ${progressBarColor}`
-    // document.getElementById('caloriesProgressLabel').textContent = `${currentSum}/${recommended}`
+    // query('#caloriesProgressBar').style.width   = `${percentage}%`
+    // query('#caloriesProgressBar').className     = `progress-bar ${progressBarColor}`
+    // query('#caloriesProgressLabel').textContent = `${currentSum}/${recommended}`
   }
 
   #saveDayEntries()
   {
-    send('ajax/save_day_entries.php', document.getElementById('dayEntries').value, function( result, data) {
+    send('ajax/save_day_entries.php', query('#dayEntries').value, function( result, data) {
 
       if( result === 'success')
-        document.getElementById('foodsUIMsg').innerHTML = 'Saved'
+        query('#foodsUIMsg').innerHTML = 'Saved'
       else
-        document.getElementById('foodsUIMsg').innerHTML = result.message
+        query('#foodsUIMsg').innerHTML = result.message
     })
   }
 }

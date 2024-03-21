@@ -5,7 +5,7 @@ use Symfony\Component\Yaml\Exception\ParseException;
 
 require_once 'vendor/autoload.php';
 require_once 'lib/SimpleData_240317/SimpleData.php';
-require_once 'lib/parse.php';
+require_once 'lib/parse_tsv.php';
 
 
 // Make all the data
@@ -75,7 +75,7 @@ foreach( $foodsDef as $food => $entry )
 // This day
 
 $data->dayEntriesTxt  = trim( @file_get_contents('data/days/' . date('Y-m-d') . '.tsv') ?: '');
-$data->dayEntries     = parse($data->dayEntriesTxt);
+$data->dayEntries     = parse_tsv( $data->dayEntriesTxt);
 
 $data->dayCaloriesSum = ! $data->dayEntries ? 0 : array_sum( array_column( $data->dayEntries, 1));
 $data->dayFatSum      = ! $data->dayEntries ? 0 : array_sum( array_column( $data->dayEntries, 2));
@@ -90,7 +90,7 @@ foreach( scandir('data/days', SCANDIR_SORT_DESCENDING) as $file)
     continue;
 
   $dat     = pathinfo($file, PATHINFO_FILENAME);
-  $entries = parse( file_get_contents("data/days/$file"));
+  $entries = parse_tsv( file_get_contents("data/days/$file"));
 
   $data->push('lastDaysSums', [$dat => [
     'caloriesSum' => ! $entries ? 0 : array_sum( array_column($entries, 1)),
