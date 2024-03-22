@@ -271,19 +271,19 @@ Riegel Seitenb Sch:
 
 Salami R:
 
-  weight:         70
-  packaging:      pack
+  weight:            70
+  packaging:         pack
 
-  calories:       275
+  calories:          275
   nutrients:
 
-    fat:          19
-    saturatedFat: 8.7
-    carbs:        1
-    sugar:        1
-    fibre:        1
-    amino:        25
-    salt:         3.9
+    fat:             19
+    saturatedFat:    8.7
+    carbs:           1
+    sugar:           1
+    fibre:           1
+    amino:           25
+    salt:            3.9
 
-  sources:        Web
-  lastUpd:        2024-02-18
+  sources:           Web
+  lastUpd:           2024-02-18
