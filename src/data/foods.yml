@@ -5,6 +5,7 @@
 
 Brokkoli R:  # some German foods
 
+  price:             2.19
   weight:            1000
   packaging:         pack
 
@@ -19,11 +20,13 @@ Brokkoli R:  # some German foods
     amino:           3
     salt:            0
 
-  sources:           "Web, information on packaging may differ slightly"
+  sources:           "Macro nutrients: web (information on packaging may differ slightly)"
   lastUpd:           2024-03-13
+  lastPriceUpd:      2024-03-23
 
 Cashew E:
 
+  price:             
   weight:            200
   packaging:         pack
 
@@ -40,9 +43,11 @@ Cashew E:
 
   sources:           Pack
   lastUpd:           2024-02-18
+  lastPriceUpd:      2024-03-23
 
 Cashew N:
 
+  price:             
   weight:            200
   packaging:         pack
 
@@ -59,9 +64,11 @@ Cashew N:
 
   sources:           Pack
   lastUpd:           2024-02-18
+  lastPriceUpd:      2024-03-23
 
 Chick R Bio:
 
+  price:             0.85
   weight:            215
   packaging:         pack
 
@@ -75,11 +82,13 @@ Chick R Bio:
     amino:           7.1
     salt:            0.35
 
-  sources:           "Web, information on packaging differs slightly"
+  sources:           "Macro nutrients: Web (information on packaging differs slightly)"
   lastUpd:           2024-03-13
+  lastPriceUpd:      2024-03-23
 
 Chips light:
 
+  price:             2.19
   weight:            80
   packaging:         pack
 
@@ -96,9 +105,11 @@ Chips light:
 
   sources:           Web
   lastUpd:           2024-02-18
+  lastPriceUpd:      2024-03-23
 
 Erdn Salz N big:
 
+  price:             
   weight:            500
   packaging:         pack
 
@@ -115,9 +126,11 @@ Erdn Salz N big:
 
   sources:           Pack
   lastUpd:           2024-03-13
+  lastPriceUpd:      2024-03-23
 
 Frosta R:
 
+  price:             3.49
   weight:            375
   packaging:         pack
 
@@ -132,11 +145,13 @@ Frosta R:
     amino:           6.7
     salt:            1.18
 
-  sources:           Pack
+  sources:           "Macro nutrients: pack, price: web"
   lastUpd:           2024-02-18
+  lastPriceUpd:      2024-03-23
 
 Linsen R Bio:
 
+  price:             1.39
   weight:            260
   packaging:         pack
 
@@ -150,11 +165,13 @@ Linsen R Bio:
     amino:           7.5
     salt:            0
 
-  sources:           "Web, information on packaging differs slightly"
+  sources:           "Macro nutrients: web (information on packaging differs slightly)"
   lastUpd:           2024-03-13
+  lastPriceUpd:      2024-03-23
 
 Lyoner R Bio:
 
+  price:             1.39
   weight:            70
   packaging:         pack
 
@@ -168,11 +185,13 @@ Lyoner R Bio:
     amino:           13.3
     salt:            2.5
 
-  sources:           "Web, information on packaging may differ slightly"
+  sources:           "Macro nutrients: web (information on packaging may differ slightly)"
   lastUpd:           2024-03-22
+  lastPriceUpd:      2024-03-23
 
 Mandel E:
 
+  price:             
   weight:            200
   packaging:         pack
 
@@ -189,9 +208,11 @@ Mandel E:
 
   sources:           Pack
   lastUpd:           2024-02-18
+  lastPriceUpd:      2024-03-23
 
 Mandel N:
 
+  price:             
   weight:            150
   packaging:         pack
 
@@ -208,9 +229,11 @@ Mandel N:
 
   sources:           Pack
   lastUpd:           2024-02-18
+  lastPriceUpd:      2024-03-23
 
 Nussmisch N:
 
+  price:             
   weight:            200
   packaging:         pack
 
@@ -229,9 +252,11 @@ Nussmisch N:
 
   sources:           Pack
   lastUpd:           2024-02-18
+  lastPriceUpd:      2024-03-23
 
 Pumpernickel R Bio:
 
+  price:             1.09
   weight:            250
   packaging:         pack
 
@@ -245,11 +270,13 @@ Pumpernickel R Bio:
     amino:           4.6
     salt:            1
 
-  sources:           "Web, information on packaging may differ slightly"
+  sources:           "Macro nutrients: Web (information on packaging may differ slightly)"
   lastUpd:           2024-03-22
+  lastPriceUpd:      2024-03-23
 
 Riegel Seitenb Sch:
 
+  price:             1.99
   weight:            60
   packaging:         piece
 
@@ -266,11 +293,13 @@ Riegel Seitenb Sch:
 
   calcium:           360
 
-  sources:           "Web, calcium also from vendors page online"
+  sources:           "Macro nutrients: Web, nutrients: calcium also from vendors page online"
   lastUpd:           2024-02-18
+  lastPriceUpd:      2024-03-23
 
 Salami R:
 
+  price:             1.79
   weight:            70
   packaging:         pack
 
@@ -287,3 +316,4 @@ Salami R:
 
   sources:           Web
   lastUpd:           2024-02-18
+  lastPriceUpd:      2024-03-23
