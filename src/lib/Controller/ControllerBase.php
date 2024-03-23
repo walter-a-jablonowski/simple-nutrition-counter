@@ -37,7 +37,7 @@ abstract class ControllerBase
 
       $this->$identifier();
     }
-    elseif( count($identifier) >= 1 )
+    elseif( count($identifier) > 1 )
     {
       $request['identifier'] = implode('/', $identifier);
 
