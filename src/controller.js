@@ -1,4 +1,3 @@
-
 class FoodsEventController
 {
   constructor(args)
@@ -34,11 +33,10 @@ class FoodsEventController
 
     let maxFoodLength     = Math.max( ...dayEntries.map( entry => entry.food.length))
     let maxCaloriesLength = Math.max( ...dayEntries.map( entry => String(entry.calories).length))  // for some reason we must do it like this here
+    // TASK: (advanced) use a loop for all nutrients or handle macro seperate
     let maxFatLength      = Math.max( ...dayEntries.map( entry => String(entry.fat).length))
     let maxAminoLength    = Math.max( ...dayEntries.map( entry => String(entry.amino).length))
     // let maxSaltLength  = Math.max( ...dayEntries.map( entry => entry.salt.length))
-
-    // TASK: (advanced) use a loop for more nutrients
 
     // Align cols
 
