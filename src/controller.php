@@ -4,11 +4,12 @@ use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Yaml\Exception\ParseException;
 
 require_once 'vendor/autoload.php';
-require_once 'lib/Controller/ControllerBase.php';
+require_once 'lib/SimpleData_240317/SimpleData.php';
+require_once 'lib/ConfigStatic_240323/config.php';
+require_once 'lib/parse_tsv.php';
+require_once 'lib/Controller_240323/ControllerBase.php';
 require_once 'ajax/save_day_entries.php';
 require_once 'ajax/save_foods.php';
-require_once 'lib/SimpleData_240317/SimpleData.php';
-require_once 'lib/parse_tsv.php';
 
 class FoodsController extends ControllerBase
 {
@@ -23,6 +24,7 @@ class FoodsController extends ControllerBase
     parent::__construct();
 
     $this->config = new SimpleData( Yaml::parse( file_get_contents('config.yml')));  // TASK: might be moved out
+    // config::setData( new SimpleData( Yaml::parse( file_get_contents('config.yml'))));
     $this->data   = new SimpleData();
 
 
@@ -38,6 +40,7 @@ class FoodsController extends ControllerBase
       if( $entry['packaging'] === 'pack')
       {
         $usedAmounts = $entry['usedAmounts'] ?? $config->get('foods.defaultAmounts.pack');
+        // $usedAmounts = $entry['usedAmounts'] ?? config::get('foods.defaultAmounts.pack');
 
         foreach( $usedAmounts as $amount => $multipl )
         {
@@ -57,6 +60,7 @@ class FoodsController extends ControllerBase
       elseif( $entry['packaging'] === 'pieces')
       {
         $usedAmounts = $entry['usedAmounts'] ?? $config->get('foods.defaultAmounts.pieces');
+        // $usedAmounts = $entry['usedAmounts'] ?? config::get('foods.defaultAmounts.pieces');
 
         foreach( $usedAmounts as $amount )
 

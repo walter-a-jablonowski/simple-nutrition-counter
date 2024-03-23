@@ -58,14 +58,14 @@ class SimpleData /*@*/
   }
 
 
-  public function set( string $key, $value )
+  public function set( string $key, $value ) : void
   {
     $elem = &$this->findKey( $key, $make = true );
     $elem = $value;
   }
 
 
-  public function __set( string $key, $value )
+  public function __set( string $key, $value ) : void
   {
     $this->data[$key] = $value;
   }

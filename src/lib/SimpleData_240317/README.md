@@ -16,6 +16,8 @@ Concept
 
 - features from SimpleDataClass and
 - single value crud
+  - has
+  - maybe del mutiple keys
 - replace placeholders
 - arrays functions
 
