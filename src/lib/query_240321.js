@@ -29,6 +29,8 @@ function query( sel, returnSingle = false ) /*@*/
 
 /*@
 
+Query only one
+
 alternative: query()[0]
 
 */
@@ -40,7 +42,7 @@ function queryOne( sel ) /*@*/
 
 /*@
 
-synonym
+Query only one synonym
 
 */
 function queryFirst( sel ) /*@*/
@@ -56,8 +58,8 @@ Find inside version of query()
 */
 HTMLElement.prototype.find = function( sel, returnSingle = true ) /*@*/
 {
-  sel = sel.replace(/\s+/g, ' ').trim();     // same as query()
-  let r = document.querySelectorAll( sel );
+  sel   = sel.replace(/\s+/g, ' ').trim();  // same as query() except we search from this element
+  let r = this.querySelectorAll( sel );
 
   if(['html', 'title', 'head', 'body', 'main'].includes(sel))
     return r[0];
@@ -70,4 +72,36 @@ HTMLElement.prototype.find = function( sel, returnSingle = true ) /*@*/
     else
       return r;
   }
+}
+
+
+/*@
+
+Find only one
+
+*/
+HTMLElement.prototype.findOne = function( sel ) /*@*/
+{
+  // sel   = sel.replace(/\s+/g, ' ').trim();  // same as query() except we search from this element and return only one
+  // let r = this.querySelectorAll( sel );
+  //
+  // return r[0];
+
+  return this.find( sel, true )
+}
+
+
+/*@
+
+Find only one synonym
+
+*/
+HTMLElement.prototype.findFirst = function( sel ) /*@*/
+{
+  // sel   = sel.replace(/\s+/g, ' ').trim();  // same as query() except we search from this element and return only one
+  // let r = this.querySelectorAll( sel );
+  //
+  // return r[0];
+
+  return this.find( sel, true )
 }
