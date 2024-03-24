@@ -2,7 +2,7 @@
 
 class config
 {
-  private SimpleData $config;
+  private static SimpleData $config;
 
   public static function setData( SimpleData $config )
   {

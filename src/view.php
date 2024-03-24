@@ -26,7 +26,7 @@
       <div class="col-md-6">
 
         <textarea id="dayEntries" class="form-control" wrap="off" style="font-family: monospace;" rows="5"
-        ><?= $data->dayEntriesTxt ?></textarea>
+        ><?= $this->data->dayEntriesTxt ?></textarea>
 
         <div class="row mt-2">  <!-- text-start text-left same for diff bs versions -->
           <div class="col ml-3 pl-1 pr-1 bg-secondary text-start text-left small">
@@ -49,16 +49,16 @@
         </div>
         <div class="row">
           <div id="caloriesSum" class="col ml-3 pl-1 pr-1 text-start text-left">
-            <?= $data->dayCaloriesSum ?>
+            <?= $this->data->dayCaloriesSum ?>
           </div>
           <div id="fatSum" class="col pl-1 pr-1 text-end text-right">
-            <?= $data->dayFatSum ?>
+            <?= $this->data->dayFatSum ?>
           </div>
           <div id="aminoSum" class="col pl-1 pr-1 text-end text-right">
-            <?= $data->dayAminoSum ?>
+            <?= $this->data->dayAminoSum ?>
           </div>
           <div id="saltSum" class="col pl-1 mr-3 pr-1 text-end text-right">
-            <?= $data->daySaltSum ?>
+            <?= $this->data->daySaltSum ?>
           </div>
           <div class="col text-end text-right">
             &nbsp;
@@ -77,7 +77,7 @@
             Enter manually ...
           </div>
 -->
-          <?php foreach( $data->foods as $food => $entry): ?>
+          <?php foreach( $this->data->foods as $food => $entry): ?>
             <div class="food-item" onclick="foodsCrl.foodItemClick(event)"
                  data-food      = "<?= $food ?>"
                  data-calories  = "<?= $entry['calories'] ?>"
@@ -123,7 +123,7 @@
         <!-- using BS is easier here than aligning tsv -->
         <!-- (all alternatives seen 2403) https://getbootstrap.com/docs/5.3/components/list-group/#custom-content) -->
 
-        <?php foreach( $data->lastDaysSums as $day => $sums): ?>
+        <?php foreach( $this->data->lastDaysSums as $day => $sums): ?>
           <div class="list-group">
             <a href="#" class="list-group-item list-group-item-action">
               <div class="d-flex w-100 justify-content-between">
@@ -155,7 +155,7 @@
       <div class="col-md-6">
 
         <textarea id="foods" class="form-control" wrap="off" style="font-family: monospace;" rows="18"
-        ><?= $data->foodsTxt ?></textarea>
+        ><?= $this->data->foodsTxt ?></textarea>
 
         <button onclick="foodsCrl.saveFoodsBtnClick(event)" class="btn btn-sm btn-primary mt-2">Save</button>
         <span id="foodsUIMsg"></span>
@@ -174,7 +174,7 @@ var dayEntries, foodsCrl
 ready( function() {
 
   dayEntries = [
-    <?php foreach( $data->dayEntries as $entry): ?>  // TASK: nutrients in sub list
+    <?php foreach( $this->data->dayEntries as $entry): ?>  // TASK: nutrients in sub list
       {food: '<?= $entry[0] ?>', calories: <?= $entry[1] ?>, fat: <?= $entry[2] ?>, amino: <?= $entry[3] ?>, salt: <?= $entry[4] ?>},
     <?php endforeach; ?>
   ]

@@ -1,5 +1,16 @@
-<!-- page wrapper for standalone use -->
-<!DOCTYPE html>
+<?php
+
+// page wrapper for standalone use
+
+use Symfony\Component\Yaml\Yaml;
+use Symfony\Component\Yaml\Exception\ParseException;
+
+require_once 'vendor/autoload.php';
+require_once 'lib/SimpleData_240317/SimpleData.php';
+require_once 'lib/ConfigStatic_240323/config.php';
+require_once 'controller.php';
+
+?><!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -42,7 +53,15 @@
 
   <div class="container-fluid mt-3">
 
-    <?php require 'controller.php'; ?>
+    <?php
+    
+      // $this->config = new SimpleData( Yaml::parse( file_get_contents('config.yml')));  // TASK: might be moved out
+      config::setData( new SimpleData( Yaml::parse( file_get_contents('config.yml'))));
+
+      $controller = new FoodsController();
+      echo $controller->view();
+
+    ?>
 
   </div>
 

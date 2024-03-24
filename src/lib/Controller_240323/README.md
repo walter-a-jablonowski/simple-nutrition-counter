@@ -23,6 +23,10 @@ class SampleController extends ControllerBase
   //   $data = $this->view-> ...;   // use some Engine ...
   // }
 
+  // public function someStaticPage( ) {
+  // 
+  // }
+
   // public function getData( $request )
   // {
   //   // ajax ...

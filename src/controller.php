@@ -3,30 +3,27 @@
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Yaml\Exception\ParseException;
 
-require_once 'vendor/autoload.php';
+// require_once 'vendor/autoload.php';
 require_once 'lib/SimpleData_240317/SimpleData.php';
-require_once 'lib/ConfigStatic_240323/config.php';
-require_once 'lib/parse_tsv.php';
+// require_once 'lib/ConfigStatic_240323/config.php';
 require_once 'lib/Controller_240323/ControllerBase.php';
 require_once 'ajax/save_day_entries.php';
 require_once 'ajax/save_foods.php';
+require_once 'lib/parse_tsv.php';
 
 class FoodsController extends ControllerBase
 {
   use SaveDayEntriesAjaxController;
   use SaveFoodsAjaxController;
 
-  protected $config;
-  protected $data;
+  // protected $config;
+  public SimpleData $data;
 
-  public function __constuct()
+  public function __construct()
   {
     parent::__construct();
 
-    $this->config = new SimpleData( Yaml::parse( file_get_contents('config.yml')));  // TASK: might be moved out
-    // config::setData( new SimpleData( Yaml::parse( file_get_contents('config.yml'))));
-    $this->data   = new SimpleData();
-
+    $data = new SimpleData();
 
     // Make all the data
 
@@ -39,8 +36,8 @@ class FoodsController extends ControllerBase
     {
       if( $entry['packaging'] === 'pack')
       {
-        $usedAmounts = $entry['usedAmounts'] ?? $config->get('foods.defaultAmounts.pack');
-        // $usedAmounts = $entry['usedAmounts'] ?? config::get('foods.defaultAmounts.pack');
+        // $usedAmounts = $entry['usedAmounts'] ?? $config->get('foods.defaultAmounts.pack');
+        $usedAmounts = $entry['usedAmounts'] ?? config::get('foods.defaultAmounts.pack');
 
         foreach( $usedAmounts as $amount => $multipl )
         {
@@ -59,8 +56,8 @@ class FoodsController extends ControllerBase
       }
       elseif( $entry['packaging'] === 'pieces')
       {
-        $usedAmounts = $entry['usedAmounts'] ?? $config->get('foods.defaultAmounts.pieces');
-        // $usedAmounts = $entry['usedAmounts'] ?? config::get('foods.defaultAmounts.pieces');
+        // $usedAmounts = $entry['usedAmounts'] ?? $config->get('foods.defaultAmounts.pieces');
+        $usedAmounts = $entry['usedAmounts'] ?? config::get('foods.defaultAmounts.pieces');
 
         foreach( $usedAmounts as $amount )
 
@@ -117,17 +114,22 @@ class FoodsController extends ControllerBase
     }
     
     $this->data = $data;
+    // var_dump($this->data);
   }
 
-  public function view( $request ) {
+  public function view() {
 
     // we currently use no Engine cause the app is tooooooooooo small
 
-    ( function( $data ) {  // make a scope, making a block only isn't enough in PHP
+    // ( function( $data ) {  // make a scope, making a block only isn't enough in PHP
+    //
+    //   require 'view.php';
+    //
+    // })( $this->data );
 
-      require 'view.php';
-
-    })( $this->data );
+    ob_start();
+    require 'view.php';
+    return ob_get_clean();
   }
 }
 
