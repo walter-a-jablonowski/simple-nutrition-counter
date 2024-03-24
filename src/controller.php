@@ -17,6 +17,7 @@ class FoodsController extends ControllerBase
 
   public SimpleData $data;
 
+
   public function __construct()
   {
     parent::__construct();
@@ -112,8 +113,8 @@ class FoodsController extends ControllerBase
     }
     
     $this->data = $data;
-    // var_dump($this->data);
   }
+
 
   public function view() {
 
