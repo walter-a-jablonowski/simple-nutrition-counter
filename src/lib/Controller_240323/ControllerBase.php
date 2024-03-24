@@ -31,16 +31,16 @@ abstract class ControllerBase
 
     if( ! count($identifier) )  // ins of methods like index() as done in laravel
     {
-      $this->render();
+      return $this->render();
     }
     elseif( count($identifier) == 1 && method_exists($this, $identifier[1]))
     {
       $method = $identifier[1];
-      $this->$method();
+      return $this->$method();
     }
     elseif( count($identifier) > 1 )
     {
-      $this->subViewControllers[$identifier]->dispatch( $request );
+      return $this->subViewControllers[$identifier]->dispatch( $request );
     }
     else
     {
