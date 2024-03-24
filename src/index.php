@@ -1,7 +1,5 @@
 <?php
 
-// page wrapper for standalone use
-
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Yaml\Exception\ParseException;
 
@@ -32,6 +30,9 @@ require_once 'controller.php';
 // });
 //
 // $router->run();
+
+
+// Page wrapper for standalone use
 
 ?><!DOCTYPE html>
 <html>
@@ -82,7 +83,7 @@ require_once 'controller.php';
       config::setData( new SimpleData( Yaml::parse( file_get_contents('config.yml'))));
 
       $controller = new FoodsController();
-      echo $controller->view();
+      echo $controller->render();
 
     ?>
 

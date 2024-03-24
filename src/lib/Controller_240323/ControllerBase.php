@@ -31,12 +31,12 @@ abstract class ControllerBase
 
     if( ! count($identifier) )  // ins of methods like index() as done in laravel
     {
-      return $this->render();
+      return $this->render( $request );
     }
-    elseif( count($identifier) == 1 && method_exists($this, $identifier[1]))
+    elseif( count($identifier) == 1 && method_exists($this, $identifier[0]))
     {
-      $method = $identifier[1];
-      return $this->$method();
+      $method = $identifier[0];
+      return $this->$method( $request );
     }
     elseif( count($identifier) > 1 )
     {

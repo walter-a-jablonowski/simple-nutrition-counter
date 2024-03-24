@@ -18,7 +18,7 @@ class FoodsController extends ControllerBase
   public SimpleData $data;
 
 
-  public function __construct()
+  public function __construct(/*$model = null, $view = null*/)
   {
     parent::__construct();
 
@@ -116,7 +116,7 @@ class FoodsController extends ControllerBase
   }
 
 
-  public function view() {
+  public function render(/*$request*/) {
 
     // we currently use no Engine cause the app is tooooooooooo small
 

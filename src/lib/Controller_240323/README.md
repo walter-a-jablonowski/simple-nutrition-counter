@@ -38,11 +38,11 @@ class SampleController extends ControllerBase
 {
   use SomeAjaxController;  // trait (partial class if long)
 
-  // public function __constuct()
   public function __constuct( $model = null, $view = null )
+  // public function __constuct()  // or
   {
-    // parent::__construct();  // or
     parent::__construct( $model, $view );
+    // parent::__construct();
 
     // Register sub and ajax controllers
     
@@ -58,6 +58,7 @@ class SampleController extends ControllerBase
   // dispatch() may be used by Routing just like any method here (which handles sub controllers)
 
   public function getData( $request )
+  // public function getData()  // or
   {
     // ajax ...
   }

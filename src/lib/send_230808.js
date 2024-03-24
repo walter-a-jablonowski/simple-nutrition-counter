@@ -5,10 +5,10 @@ function send( url, data, callback )
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ data: data })
+    body: JSON.stringify( data )
   })
   .then( response => response.text())
-.then( result => {
+  .then( result => {
     result = JSON.parse(result)
     if( typeof callback === 'function' )
       callback( result.result, result.data  || null )
