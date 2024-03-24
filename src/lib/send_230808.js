@@ -8,7 +8,7 @@ function send( url, data, callback )
     body: JSON.stringify({ data: data })
   })
   .then( response => response.text())
-  .then( result => {
+.then( result => {
     result = JSON.parse(result)
     if( typeof callback === 'function' )
       callback( result.result, result.data  || null )

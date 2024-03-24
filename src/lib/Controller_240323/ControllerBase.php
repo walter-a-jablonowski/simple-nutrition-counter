@@ -27,18 +27,24 @@ abstract class ControllerBase
   public function dispatch( $request )
   {
     $identifier = $request['identifier'];
-    array_shift($identifier);
     $identifier = explode('/', $identifier);
+    // array_shift($identifier);
 
-    if( count($identifier) == 1)
+    // if( count($identifier) == 1)
+    // {
+    //   if( ! method_exists($this, $identifier))    // methods like index() as done in laravel
+    //     throw new \Exception('No method found');
+    //      
+    //   $this->$identifier();
+    // }
+    if( count($identifier) == 2 && method_exists($this, $identifier[1]))
     {
-      if( ! method_exists($this, $identifier))
-        throw new \Exception('No method found');
-
-      $this->$identifier();
+      $method = $identifier[1];
+      $this->$method();
     }
-    elseif( count($identifier) > 1 )
+    elseif( count($identifier) > 2 )
     {
+      array_shift($identifier);
       $request['identifier'] = implode('/', $identifier);
 
       $this->subViewControllers[$identifier]->dispatch( $request );

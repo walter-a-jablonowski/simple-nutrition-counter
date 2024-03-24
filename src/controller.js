@@ -70,6 +70,7 @@ class FoodsEventController
   saveFoodsBtnClick(event)
   {
     send('ajax/save_foods.php', query('#foods').value, function( result, data) {
+    // send('controller.php', { identifier: 'foods/saveFoods', data: query('#foods').value ]}, function( result, data ) {
 
       if( result === 'success')
         query('#foodsUIMsg').innerHTML = 'Saved'
@@ -120,6 +121,7 @@ class FoodsEventController
   #saveDayEntries()
   {
     send('ajax/save_day_entries.php', query('#dayEntries').value, function( result, data) {
+    // send('controller.php', { identifier: 'foods/saveDayEntries', data: query('#dayEntries').value ]}, function( result, data ) {
 
       if( result === 'success')
         query('#foodsUIMsg').innerHTML = 'Saved'

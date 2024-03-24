@@ -6,8 +6,12 @@ AI generated (unfinished)
 
 class SampleController extends ControllerBase
 {
+  use SomeAjaxController;  // trait (partial class if long)
+
+  // public function __constuct()
   public function __constuct( $model = null, $view = null )
   {
+    // parent::__construct();  // or
     parent::__construct( $model, $view );
 
     // Register sub and ajax controllers
@@ -16,7 +20,32 @@ class SampleController extends ControllerBase
     // ...
   }
 
-  // Requests may be routet -> dispatch which handles sub controllers
+  public function render( $request ) {
+    $data = $this->model-> ...;
+    $data = $this->view-> ...;   // use some Engine ...
+  }
+
+  // dispatch() may be used by Routing just like any method here (which handles sub controllers)
+
+  public function getData( $request )
+  {
+    // ajax ...
+  }
+
+  public function miscHelper( ... )
+  {
+
+  }
+}
+```
+
+
+Dev
+----------------------------------------------------------
+
+### Removed, we use just render() instead
+
+```php
 
   // public function index( $request ) {
   //   $data = $this->model-> ...;
@@ -26,15 +55,9 @@ class SampleController extends ControllerBase
   // public function someStaticPage( ) {
   // 
   // }
-
-  // public function getData( $request )
-  // {
-  //   // ajax ...
-  // }
-}
 ```
 
-Routing should extract args
+### Routing should extract args
 
 ```php
 
