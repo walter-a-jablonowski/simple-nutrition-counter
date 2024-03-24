@@ -1,36 +1,32 @@
 <?php
 
-// Usage example
-$router = new Router();
-$router->register('GET', '/users/{id}', function($params) {
-  echo 'User ID: ' . htmlspecialchars($params['id']);
-});
-$router->run();
-
 class Router
 {
   private $routes = [];
 
-  public function register($method, $path, $callback)
+  public function register( $path, $callback)
   {
     $this->routes[] = [
-      'method' => $method,
-      'path' => $path,
-      'callback' => $callback
+      // 'method' => $method,
+      'path'      => $path,
+      'callback'  => $callback
     ];
   }
 
   public function run()
   {
-    $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    $requestUri    = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
     $requestMethod = $_SERVER['REQUEST_METHOD'];
 
-    foreach($this->routes as $route) {
-      if($requestMethod == $route['method'] && preg_match($this->buildPattern($route['path']), $requestUri, $matches)) {
-        array_shift($matches); // Remove the full match
-        $pathParams = array_combine($this->extractPlaceholders($route['path']), $matches);
+    foreach( $this->routes as $route)
+    {
+      // if( $requestMethod == $route['method'] && preg_match($this->buildPattern($route['path']), $requestUri, $matches))
+      if( preg_match( $this->buildPattern($route['path']), $requestUri, $matches))
+      {
+        array_shift($matches); // remove the full match
+        $pathParams  = array_combine( $this->extractPlaceholders($route['path']), $matches);
         $queryParams = $_GET;
-        $bodyParams = json_decode(file_get_contents('php://input'), true) ?: [];
+        $bodyParams  = json_decode(file_get_contents('php://input'), true) ?: [];
 
         $params = array_merge($pathParams, $queryParams, $bodyParams);
         call_user_func($route['callback'], $params);
