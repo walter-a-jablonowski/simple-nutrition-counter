@@ -22,6 +22,8 @@ class FoodsController extends ControllerBase
   {
     parent::__construct();
 
+    $config = config::instance();
+
     // Make all the data
 
     $data = new SimpleData();
@@ -35,8 +37,8 @@ class FoodsController extends ControllerBase
     {
       if( $entry['packaging'] === 'pack')
       {
-        // $usedAmounts = $entry['usedAmounts'] ?? $config->get('foods.defaultAmounts.pack');
-        $usedAmounts = $entry['usedAmounts'] ?? config::get('foods.defaultAmounts.pack');
+        $usedAmounts = $entry['usedAmounts'] ?? $config->get('foods.defaultAmounts.pack');
+        // $usedAmounts = $entry['usedAmounts'] ?? config::get('foods.defaultAmounts.pack');
 
         foreach( $usedAmounts as $amount => $multipl )
         {
@@ -55,8 +57,8 @@ class FoodsController extends ControllerBase
       }
       elseif( $entry['packaging'] === 'pieces')
       {
-        // $usedAmounts = $entry['usedAmounts'] ?? $config->get('foods.defaultAmounts.pieces');
-        $usedAmounts = $entry['usedAmounts'] ?? config::get('foods.defaultAmounts.pieces');
+        $usedAmounts = $entry['usedAmounts'] ?? $config->get('foods.defaultAmounts.pieces');
+        // $usedAmounts = $entry['usedAmounts'] ?? config::get('foods.defaultAmounts.pieces');
 
         foreach( $usedAmounts as $amount )
 

@@ -11,10 +11,8 @@ require_once 'controller.php';
 
 // Currently used as a bridge for dashbard integration
 
-// $this->config = new SimpleData( Yaml::parse( file_get_contents('config.yml')));
-config::setData( new SimpleData( Yaml::parse( file_get_contents('config.yml'))));
-
-$args = json_decode( file_get_contents('php://input'), true);
+$config = config::instance( new SimpleData( Yaml::parse( file_get_contents('config.yml'))));
+$args   = json_decode( file_get_contents('php://input'), true);
 
 $controller = new FoodsController();
 echo $controller->dispatch($args);

@@ -23,7 +23,11 @@ require_once 'controller.php';
 
 // $router = new Router();
 //
-// $router->register('', function($params) {  // empty should match anything (no apache config)
+// $router->register('', function($args) {  // empty should match anything (no apache config)
+//
+//   $identifier = explode('/', $args['identifier']);  // remove first key is managed by routing
+//   array_shift($identifier);
+//   $args['identifier'] = implode('/', $identifier);
 //
 //   $controller = new FoodsController();
 //   echo $controller->dispatch($params);
@@ -79,8 +83,7 @@ require_once 'controller.php';
 
     <?php
     
-      // $this->config = new SimpleData( Yaml::parse( file_get_contents('config.yml')));
-      config::setData( new SimpleData( Yaml::parse( file_get_contents('config.yml'))));
+      config::instance( new SimpleData( Yaml::parse( file_get_contents('config.yml'))));
 
       $controller = new FoodsController();
       echo $controller->render();

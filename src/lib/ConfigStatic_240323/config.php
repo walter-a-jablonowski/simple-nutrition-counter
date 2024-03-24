@@ -4,10 +4,15 @@ class config
 {
   private static SimpleData $config;
 
-  public static function setData( SimpleData $config )
+  public static function instance( ?SimpleData $config = null )
   {
-    self::$config = $config;
+    if( $config )
+      self::$config = $config;
+  
+    return self::$config;
   }
+  
+  // Some of the methods as static
 
   public static function require( string $key )
   {

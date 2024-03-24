@@ -7,5 +7,9 @@ Init
 
 ```php
 
-config::setData( new SimpleData(...))
+config::instance( new SimpleData(...));
+
+$config = config::instance();
+
+// some methods available static
 ```
