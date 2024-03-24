@@ -55,7 +55,7 @@ require_once 'controller.php';
 
     <?php
     
-      // $this->config = new SimpleData( Yaml::parse( file_get_contents('config.yml')));  // TASK: might be moved out
+      // $this->config = new SimpleData( Yaml::parse( file_get_contents('config.yml')));
       config::setData( new SimpleData( Yaml::parse( file_get_contents('config.yml'))));
 
       $controller = new FoodsController();

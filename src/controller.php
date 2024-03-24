@@ -3,29 +3,27 @@
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Yaml\Exception\ParseException;
 
-// require_once 'vendor/autoload.php';
 require_once 'lib/SimpleData_240317/SimpleData.php';
-// require_once 'lib/ConfigStatic_240323/config.php';
 require_once 'lib/Controller_240323/ControllerBase.php';
 require_once 'ajax/save_day_entries.php';
 require_once 'ajax/save_foods.php';
 require_once 'lib/parse_tsv.php';
+
 
 class FoodsController extends ControllerBase
 {
   use SaveDayEntriesAjaxController;
   use SaveFoodsAjaxController;
 
-  // protected $config;
   public SimpleData $data;
 
   public function __construct()
   {
     parent::__construct();
 
-    $data = new SimpleData();
-
     // Make all the data
+
+    $data = new SimpleData();
 
     $data->foodsTxt = file_get_contents('data/foods.yml');
     $foodsDef = Yaml::parse( $data->foodsTxt );
