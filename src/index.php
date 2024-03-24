@@ -8,7 +8,30 @@ use Symfony\Component\Yaml\Exception\ParseException;
 require_once 'vendor/autoload.php';
 require_once 'lib/SimpleData_240317/SimpleData.php';
 require_once 'lib/ConfigStatic_240323/config.php';
+// require_once 'lib/Routing_240324/Routing.php';
 require_once 'controller.php';
+
+
+// Current simple solution
+
+// $isAjax = ! empty( $_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower( $_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
+//
+// if( $isAjax )
+// {
+//   // ...
+// }
+
+// Routing would be sth like (delayed due to effort, see tasks, we currently make more features)
+
+// $router = new Router();
+//
+// $router->register('', function($params) {  // empty should match anything (no apache config)
+//
+//   $controller = new FoodsController();
+//   echo $controller->dispatch($params);
+// });
+//
+// $router->run();
 
 ?><!DOCTYPE html>
 <html>

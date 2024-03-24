@@ -21,7 +21,7 @@ class Router
     foreach( $this->routes as $route)
     {
       // if( $requestMethod == $route['method'] && preg_match($this->buildPattern($route['path']), $requestUri, $matches))
-      if( preg_match( $this->buildPattern($route['path']), $requestUri, $matches))
+      if( preg_match( $this->buildPattern( $route['path']), $requestUri, $matches))
       {
         array_shift($matches); // remove the full match
         $pathParams  = array_combine( $this->extractPlaceholders($route['path']), $matches);
