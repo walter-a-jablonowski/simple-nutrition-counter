@@ -2,6 +2,36 @@
 
 AI generated (unfinished)
 
+
+Usage
+----------------------------------------------------------
+
+### Page load
+
+```
+my-domain.com/myPage
+my-domain.com?identifier=myPage
+
+=> routing removes page, controller gets empty identifier => default = render()
+```
+
+
+### Ajax
+
+```javascript
+
+//    v also can be controller.php if no routing
+
+send('index.php', { identifier: 'myPage/subView/save', data: ... ]}, function( result, data ) {
+
+})
+
+// => routing removes page, controller gets identifier = subView/save
+```
+
+
+### Controller
+
 ```php
 
 class SampleController extends ControllerBase
@@ -47,35 +77,12 @@ Dev
 
 ```php
 
-  // public function index( $request ) {
-  //   $data = $this->model-> ...;
-  //   $data = $this->view-> ...;   // use some Engine ...
-  // }
+// public function index( $request ) {
+//   $data = $this->model-> ...;
+//   $data = $this->view-> ...;   // use some Engine ...
+// }
 
-  // public function someStaticPage( ) {
-  // 
-  // }
-```
-
-### Routing should extract args
-
-```php
-
-$isAjax = ! empty( $_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower( $_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
-
-if( method_exists($this, $action))
-  $this->$action();
-
-if ($isAjax) {
-  return json_decode(file_get_contents('php://input'), true) ?: [];
-}
-else {
-  $requestUri = $_SERVER['REQUEST_URI'];
-  $path       = parse_url($requestUri, PHP_URL_PATH);
-  $segments   = explode('/', trim($path, '/'));
-  return [
-    'identifier' => $segments[0] ?? null,
-    'sub' => $segments[1] ?? null,
-  ];
-}
+// public function someStaticPage( ) {
+// 
+// }
 ```
