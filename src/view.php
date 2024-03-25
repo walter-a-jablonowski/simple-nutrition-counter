@@ -48,18 +48,10 @@
           </div>
         </div>
         <div class="row">
-          <div id="caloriesSum" class="col ml-3 pl-1 pr-1 text-start text-left">
-            <?= $this->data->dayCaloriesSum ?>
-          </div>
-          <div id="fatSum" class="col pl-1 pr-1 text-end text-right">
-            <?= $this->data->dayFatSum ?>
-          </div>
-          <div id="aminoSum" class="col pl-1 pr-1 text-end text-right">
-            <?= $this->data->dayAminoSum ?>
-          </div>
-          <div id="saltSum" class="col pl-1 mr-3 pr-1 text-end text-right">
-            <?= $this->data->daySaltSum ?>
-          </div>
+          <div id="caloriesSum" class="col ml-3 pl-1 pr-1 text-start text-left">0</div>
+          <div id="fatSum" class="col pl-1 pr-1 text-end text-right">0</div>
+          <div id="aminoSum" class="col pl-1 pr-1 text-end text-right">0</div>
+          <div id="saltSum" class="col pl-1 mr-3 pr-1 text-end text-right">0</div>
           <div class="col text-end text-right">
             &nbsp;
           </div>
@@ -180,7 +172,7 @@ ready( function() {
   ]
 
   foodsCrl = new FoodsEventController()
-  // foodsCrl.updSums()  // TASK: maybe rm PHP duplicate in a future version
+  foodsCrl.updSums()
 })
 
 </script>

@@ -91,11 +91,6 @@ class FoodsController extends ControllerBase
     $data->dayEntriesTxt  = trim( @file_get_contents('data/days/' . date('Y-m-d') . '.tsv') ?: '');
     $data->dayEntries     = parse_tsv( $data->dayEntriesTxt);
 
-    $data->dayCaloriesSum = ! $data->dayEntries ? 0 : array_sum( array_column( $data->dayEntries, 1));
-    $data->dayFatSum      = ! $data->dayEntries ? 0 : array_sum( array_column( $data->dayEntries, 2));
-    $data->dayAminoSum    = ! $data->dayEntries ? 0 : array_sum( array_column( $data->dayEntries, 3));
-    $data->daySaltSum     = ! $data->dayEntries ? 0 : array_sum( array_column( $data->dayEntries, 4));
-
     // All days
 
     foreach( scandir('data/days', SCANDIR_SORT_DESCENDING) as $file)
