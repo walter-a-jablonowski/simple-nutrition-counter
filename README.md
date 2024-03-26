@@ -20,7 +20,12 @@ composer install walter-a-jablonowski/simple-nutrition-counter
 
 This kind of project might be AI proof because AI solution would be: it watches you while cooking and counts the calories. Do you want that?
 
-![Alt text](misc/img.png)
+<table>
+  <tr>
+    <td><img src="misc/img.png" alt="Image 1" width="100"></td>
+    <td><img src="misc/design_1.png" alt="Image 2" width="100"></td>
+  </tr>
+</table>
 
 
 Possible future extensions
