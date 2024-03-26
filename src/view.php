@@ -25,6 +25,8 @@
     <div class="row">
       <div class="col-md-6">
 
+        <!-- Day entries -->
+
         <textarea id="dayEntries" class="form-control" wrap="off" style="font-family: monospace;" rows="5"
         ><?= $this->data->dayEntriesTxt ?></textarea>
 
@@ -43,6 +45,8 @@
           < ?php endforeach; ?>
         </ul>
 -->
+        <!-- Quick summary -->
+        
         <div class="row mt-2">  <!-- text-start text-left same for diff bs versions -->
           <div class="col ml-2 pl-1 pr-1 bg-secondary text-start text-left small">
             <b>H2O</b>
@@ -82,6 +86,8 @@
 
       </div>
     </div>
+
+    <!-- Food list -->
 
     <div class="row mt-2">
       <div class="col-md-12">
