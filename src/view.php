@@ -28,6 +28,21 @@
         <textarea id="dayEntries" class="form-control" wrap="off" style="font-family: monospace;" rows="5"
         ><?= $this->data->dayEntriesTxt ?></textarea>
 
+        <!-- full ui (advanced) -->
+<!-- 
+        <ul id="dayEntries" class="list-group scrollable-list">
+          < ?php foreach( $this->data->... ): ?>
+            <li class   = "food-item p-1 list-group-item d-flex justify-content-between align-items-center"
+                onclick = "..."
+                data-   = "..."
+            >
+              ...
+              <i class="bi bi-pencil-square"></i>
+              <!-- <span class="badge text-bg-primary rounded-pill">-</span> -- >
+            </li>
+          < ?php endforeach; ?>
+        </ul>
+-->
         <div class="row mt-2">  <!-- text-start text-left same for diff bs versions -->
           <div class="col ml-2 pl-1 pr-1 bg-secondary text-start text-left small">
             <b>H2O</b>
@@ -70,23 +85,53 @@
 
     <div class="row mt-2">
       <div class="col-md-12">
-
+        <!-- old -->
+<!-- 
         <div id="foodList" class="scrollable-list">
+          < ?php foreach( $this->data->foods as $food => $entry): ?>
+            <div class="food-item" onclick="foodsCrl.foodItemClick(event)"
+                 data-food      = "< ?= $food ?>"
+                 data-calories  = "< ?= $entry['calories'] ?>"
+                 data-nutrients = "< ?= htmlspecialchars( json_encode( $entry['nutrients'])) ?>"
+            >
+              < ?= $food ?>
+            </div>
+          < ?php endforeach; ?>
+        </div>
+-->
+        <ul id="foodList" class="list-group scrollable-list">
+          <!-- static (advanced) -->
 <!--
-          <div class="food-item" onclick="">
+          <li class   = "food-item list-group-item d-flex justify-content-between align-items-center"
+              onclick = "..."
+          >
             Enter manually ...
-          </div>
+          </li>
+          <li class   = "food-item list-group-item d-flex justify-content-between align-items-center"
+              onclick = "..."
+          >
+            Water
+          </li>
 -->
           <?php foreach( $this->data->foods as $food => $entry): ?>
-            <div class="food-item" onclick="foodsCrl.foodItemClick(event)"
-                 data-food      = "<?= $food ?>"
-                 data-calories  = "<?= $entry['calories'] ?>"
-                 data-nutrients = "<?= htmlspecialchars( json_encode( $entry['nutrients'])) ?>"
+            <li class   = "food-item p-1 list-group-item d-flex justify-content-between align-items-center"
+                onclick = "foodsCrl.foodItemClick(event)"
+                data-food      = "<?= $food ?>"
+                data-calories  = "<?= $entry['calories'] ?>"
+                data-nutrients = "<?= htmlspecialchars( json_encode( $entry['nutrients'])) ?>"
             >
               <?= $food ?>
-            </div>
+              <!-- buttons for quatities (advanced) -->
+<!-- 
+              <div>
+                <button type="button" class="btn px-2 py-0 btn-outline-secondary">1</button>
+                <button type="button" class="btn px-2 py-0 btn-outline-secondary">2</button>
+              </div>              
+-->
+            </li>
           <?php endforeach; ?>
-        </div>
+        </ul>
+
       </div>
     </div>
   </div>

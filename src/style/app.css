@@ -5,8 +5,8 @@
 }
 
 .food-item {
-  padding: 5px;
-  border-bottom: 1px solid #eee;
+  /* padding: 5px; */  /* old */
+  /* border-bottom: 1px solid #eee; */
   cursor: pointer;
 }
 
