@@ -33,16 +33,20 @@
         <!-- full ui (advanced) -->
 <!-- 
         <ul id="dayEntries" class="list-group scrollable-list">
-          < ?php foreach( $this->data->... ): ?>
-            <li class   = "food-item p-1 list-group-item d-flex justify-content-between align-items-center"
-                onclick = "..."
-                data-   = "..."
+          <!-- < ?php foreach( $this->data->... ): ?> -- >
+          <!-- < ?php for( $i=0; $i < 5; $i++): ?> -- >
+            <li class     = "food-item p-1 list-group-item d-flex justify-content-between align-items-center"
+                onclick   = ""
+                data-misc = ""
             >
-              ...
+              <span>
+                <span class="handle bi bi-grip-vertical"></span>
+                < ?= $i ?>                
+              </span>
               <i class="bi bi-pencil-square"></i>
               <!-- <span class="badge text-bg-primary rounded-pill">-</span> -- >
             </li>
-          < ?php endforeach; ?>
+          < ?php endfor; ?>
         </ul>
 -->
         <!-- Quick summary -->

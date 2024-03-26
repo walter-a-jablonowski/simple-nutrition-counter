@@ -10,6 +10,15 @@ class FoodsEventController
     this.saveFoodsBtnClick      = this.saveFoodsBtnClick.bind(this)
     this.updSums                = this.updSums.bind(this)
     // this.#saveDayEntries     = this.#saveDayEntries.bind(this)  // TASK: can't be done
+
+    // sortable (advanced)
+
+    // $('#dayEntries').sortable({
+    //   handle:      '.handle',
+    //   placeholder: 'ui-state-highlight'
+    // })
+    //
+    // $('#dayEntries').disableSelection()
   }
 
   foodItemClick(event)
