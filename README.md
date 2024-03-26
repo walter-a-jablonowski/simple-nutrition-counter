@@ -10,7 +10,7 @@ Most people are deficient in one or more than one substance e.g. zinc, vitamin D
 composer install walter-a-jablonowski/simple-nutrition-counter
 ```
 
-**Long term goal:** Handle all minimal daily logging in a single app as simple as possible (with as few clicks as possible on a daily basis). Isn't neccessarily nutrition only but only all that can't be handled easier (most likely nutrition and daily expenses = actual consumption).
+**Long term goal:** Handle all minimal daily logging in a single app as simple as possible (with as few clicks as possible). Isn't neccessarily nutrition only but only all that can't be handled easier (most likely nutrition and daily expenses = actual consumption).
 
 - [Usage](misc/usage.md)
 - [Possible future extensions](#possible-future-extensions)
@@ -24,13 +24,17 @@ This kind of project might be AI proof because AI solution would be: it watches 
   <tr>
     <td>Current</td>
     <td>Plan</td>
+    <td>&nbsp;</td>
   </tr>
   <tr>
     <td>
-      <img src="misc/img.png" width="280">
+      <img src="misc/img.png" width="200">
     </td>
     <td>
-      <img src="misc/design_1.png" width="280">
+      <img src="misc/design_1.png" width="200">
+    </td>
+    <td>
+      <img src="misc/design_2.png" width="200">
     </td>
   </tr>
 </table>
