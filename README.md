@@ -24,11 +24,13 @@ This kind of project might be AI proof because AI solution would be: it watches 
   <tr>
     <td>Current</td>
     <td>Plan</td>
+  </tr>
+  <tr>
     <td>
-      <img src="misc/img.png" width="100">
+      <img src="misc/img.png" width="280">
     </td>
     <td>
-      <img src="misc/design_1.png" width="100">
+      <img src="misc/design_1.png" width="280">
     </td>
   </tr>
 </table>
