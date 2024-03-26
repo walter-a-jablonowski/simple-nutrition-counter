@@ -17,7 +17,7 @@ class FoodsEventController
     //   handle:      '.handle',
     //   placeholder: 'ui-state-highlight'
     // })
-    //
+    //    
     // $('#dayEntries').disableSelection()
   }
 

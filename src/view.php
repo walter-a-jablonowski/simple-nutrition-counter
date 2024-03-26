@@ -17,7 +17,7 @@
 
 <!-- Tab Content -->
 
-<div class="tab-content mt-4">
+<div class="tab-content mt-3">
 
   <!-- Edit Tab -->
 
@@ -31,24 +31,29 @@
         ><?= $this->data->dayEntriesTxt ?></textarea>
 
         <!-- full ui (advanced) -->
-<!-- 
+<!--
         <ul id="dayEntries" class="list-group scrollable-list">
+          < ?php for( $i=0; $i < 4; $i++): ?>
           <!-- < ?php foreach( $this->data->... ): ?> -- >
-          <!-- < ?php for( $i=0; $i < 5; $i++): ?> -- >
-            <li class     = "food-item p-1 list-group-item d-flex justify-content-between align-items-center"
+            <li class     = "food-item p-0 list-group-item d-flex justify-content-between align-items-center"
                 onclick   = ""
                 data-misc = ""
             >
               <span>
                 <span class="handle bi bi-grip-vertical"></span>
-                < ?= $i ?>                
+                < ?= "UI demo food $i" ?>
               </span>
-              <i class="bi bi-pencil-square"></i>
-              <!-- <span class="badge text-bg-primary rounded-pill">-</span> -- >
+              <div>
+                <i class="bi bi-pencil-square btn px-0"></i>
+                <button type="button" class="btn">  <!-- maybe add the (-) or make btn in dlg -- >
+                  <i class="bi bi-dash-circle"></i>
+                </button>
+              </div>
             </li>
           < ?php endfor; ?>
         </ul>
 -->
+
         <!-- Quick summary -->
         
         <div class="row mt-2">  <!-- text-start text-left same for diff bs versions -->
@@ -71,18 +76,20 @@
             <b>Price</b>
           </div>
           <div class="col mr-2 pl-1 text-end text-right" style="max-height: 20px;">
+
             <button class="btn btn-sm btn-light" onclick="foodsCrl.saveDayEntriesBtnClick(event)">
               Save
             </button>
+
           </div>
         </div>
         <div class="row">
-          <div id="h2oSum" class="col ml-2 pl-1 pr-1 text-start text-left">0</div>
+          <div id="h2oSum"      class="col ml-2 pl-1 pr-1 text-start text-left">0</div>
           <div id="caloriesSum" class="col pl-1 pr-1 text-start text-left">0</div>
-          <div id="fatSum" class="col pl-1 pr-1 text-end text-right">0</div>
-          <div id="aminoSum" class="col pl-1 pr-1 text-end text-right">0</div>
-          <div id="saltSum" class="col pl-1 pr-1 text-end text-right">0</div>
-          <div id="priceSum" class="col pl-1 pr-1 text-end text-right">0</div>
+          <div id="fatSum"      class="col pl-1 pr-1 text-end text-right">0</div>
+          <div id="aminoSum"    class="col pl-1 pr-1 text-end text-right">0</div>
+          <div id="saltSum"     class="col pl-1 pr-1 text-end text-right">0</div>
+          <div id="priceSum"    class="col pl-1 pr-1 text-end text-right">0</div>
           <div class="col mr-2 pl-1 text-end text-right">
             &nbsp;
           </div>
@@ -153,12 +160,14 @@
     this is an advanced feature
 
     <div class="scrollable-list">
+      <div>Magnesium</div>  <!-- simple for now -->
       <div class="d-flex align-items-center mb-2">
         <div class="progress w-100" role="progressbar" style="margin-right: 20px;">
           <div id="caloriesProgressBar" class="progress-bar bg-success" style="width: 80%;">80%</div>
         </div>
         <span id="caloriesProgressLabel">100/500</span>
       </div>
+      <div>Misc ...</div>
       <div class="d-flex align-items-center mb-2">
         <div class="progress w-100" role="progressbar" style="margin-right: 20px;">
           <div id="fatProgressBar" class="progress-bar bg-success" style="width: 80%;">80%</div>
