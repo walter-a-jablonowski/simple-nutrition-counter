@@ -23,7 +23,7 @@ This kind of project might be AI proof because AI solution would be: it watches 
 <table>
   <tr>
     <td>Current</td>
-    <td>Plan</td>
+    <td>Plan (a little nicer ;)</td>
     <td>&nbsp;</td>
   </tr>
   <tr>
