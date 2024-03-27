@@ -33,12 +33,11 @@ function queryData( sel, attributes)
   return results
 }
 
-function decodeHtml(html)
-{
-  return html.replace(/&quot;/g, '"')
-             .replace(/&amp;/g, '&')
-             .replace(/&lt;/g, '<')
-             .replace(/&gt;/g, '>')
-             .replace(/&apos;/g, "'")
-}
-
+// function decodeHtml(html)
+// {
+//   return html.replace(/&quot;/g, '"')
+//              .replace(/&amp;/g, '&')
+//              .replace(/&lt;/g, '<')
+//              .replace(/&gt;/g, '>')
+//              .replace(/&apos;/g, "'")
+// }
