@@ -10,7 +10,7 @@ Most people are deficient in one or more than one substance e.g. zinc, vitamin D
 composer install walter-a-jablonowski/simple-nutrition-counter
 ```
 
-**Long term goal:** Handle all minimal daily logging in a single app as simple as possible (with as few clicks as possible). Isn't neccessarily nutrition only but only all that can't be handled easier (most likely nutrition and daily expenses = actual consumption).
+**Long term goal:** Handle all minimal daily logging in a single app as simple as possible (with as few clicks as possible). This isn't neccessarily nutrition only but only all that can't be handled easier (most likely nutrition and daily expenses = actual consumption).
 
 - [Usage](misc/usage.md)
 - [Possible future extensions](#possible-future-extensions)
@@ -65,6 +65,6 @@ LICENSE
 Copyright (C) Walter A. Jablonowski 2024, free for non-commercial use currenlty under MIT [License](LICENSE), \
 commercial licensees must support the development
 
-This library is build upon PHP and free software (license see [credits](credits.md)).
+This app is build upon PHP and free software (see [credits](credits.md)).
 
 [Privacy](https://walter-a-jablonowski.github.io/privacy.html) | [Legal](https://walter-a-jablonowski.github.io/imprint.html)
