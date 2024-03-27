@@ -56,10 +56,13 @@ For a more intuitive, fluent, natural usage in this format/representation of the
 - the name should be used as id with no numeric ids
 - it should written in the key
 - and the link class/table should be saved inline in foods under a key nutrients (view like)
+- all entries in the foods file implicit have the field "type: food"
 
 Currently ignored cause we don't know in foods: How do we use the sub type B 12 methylcobalamin ? (kind of combined key name + type)
 
+
 ```yaml
+
 My food S Bio:
 
   weight: 

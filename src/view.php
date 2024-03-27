@@ -160,20 +160,15 @@
     this is an advanced feature
 
     <div class="scrollable-list">
-      <div>Magnesium</div>  <!-- simple for now -->
-      <div class="d-flex align-items-center mb-2">
-        <div class="progress w-100" role="progressbar" style="margin-right: 20px;">
-          <div id="caloriesProgressBar" class="progress-bar bg-success" style="width: 80%;">80%</div>
+      <?php for( $i=0; $i < 4; $i++): ?>
+        <div>Substance <?= $i ?></div>  <!-- simple for now -->
+        <div class="d-flex align-items-center mb-2">
+          <div class="progress w-100" role="progressbar" style="margin-right: 20px;">
+            <div id="<?= $i ?>ProgressBar" class="progress-bar bg-success" style="width: 80%;">80%</div>
+          </div>
+          <span id="<?= $i ?>ProgressLabel">100/500</span>
         </div>
-        <span id="caloriesProgressLabel">100/500</span>
-      </div>
-      <div>Misc ...</div>
-      <div class="d-flex align-items-center mb-2">
-        <div class="progress w-100" role="progressbar" style="margin-right: 20px;">
-          <div id="fatProgressBar" class="progress-bar bg-success" style="width: 80%;">80%</div>
-        </div>
-        <span id="fatProgressLabel">100/500</span>
-      </div>
+      <?php endfor; ?>
     </div>
 
   </div>
@@ -189,18 +184,18 @@
 
         <?php foreach( $this->data->lastDaysSums as $day => $sums): ?>
           <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action">
+            <a href="#" class="list-group-item list-group-item-action p-2">
               <div class="d-flex w-100 justify-content-between">
                 <?php $weekdays = ['Mon' => 'Mo', 'Tue' => 'Tu', 'Wed' => 'We', 'Thu' => 'Th', 'Fri' => 'Fr', 'Sat' => 'Sa', 'Sun' => 'Su']; ?>
                 <small class="text-body-secondary mb-1"><b><?= $weekdays[ date('D', strtotime($day))] ?></b>
                 &nbsp;<?= $day ?></small>
-                <!-- just add second elem (aligned right) -->
+                <small class="text-body-secondary mb-1"><b>1 EUR</b></small>
               </div>
-              <div class="row">
-                <div class="col"><?= $sums['caloriesSum'] ?></div>
-                <div class="col"><?= $sums['fatSum'] ?></div>
-                <div class="col"><?= $sums['aminoSum'] ?></div>
-                <div class="col"><?= $sums['saltSum'] ?></div>
+              <div class="row small">
+                <div class="col-3"><?= $sums['caloriesSum'] ?> kcal</div>
+                <div class="col-3"><?= $sums['fatSum'] ?> g</div>
+                <div class="col-3"><?= $sums['aminoSum'] ?> g</div>
+                <div class="col-3"><?= $sums['saltSum'] ?> g</div>
               </div>
               <!-- (TASK) we could add some collapse here -->
               <!-- <small class="text-body-secondary">And some muted small print.</small> -->
