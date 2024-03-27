@@ -3,9 +3,11 @@
 Common
 ----------------------------------------------------------
 
-- Use the view ins of index for including in a large app
+- Code is minimalistic intentionally
+  - we use only: PHP, js, bootstrap, maybe a view styles
+  - no database, just parsable text files
+- view.php is for including in a larger app
   - html ids have a prefix
-  - encapsulation: (in development)
 
 Model
 ----------------------------------------------------------
