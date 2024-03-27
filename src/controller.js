@@ -11,7 +11,12 @@ class FoodsEventController
     this.updSums                = this.updSums.bind(this)
     // this.#saveDayEntries     = this.#saveDayEntries.bind(this)  // TASK: can't be done
 
-    // sortable (advanced)
+    // BS
+
+    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+    const popoverList = [...popoverTriggerList].map( popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl, {html: true}))
+
+    // Sortable (advanced)
 
     // $('#dayEntries').sortable({
     //   handle:      '.handle',

@@ -56,7 +56,14 @@ require_once 'controller.php';
 
   <nav class="navbar navbar-expand-lg bg-primary">
     <div class="container-fluid">
-      <a class="navbar-brand text-white" href="#">Nutrition counter</a>
+      <div class="d-flex w-100 justify-content-between">
+        <a class="navbar-brand text-white" href="#">Nutrition counter</a>
+        <button type="button" class="btn btn-sm" data-bs-toggle="popover"
+                data-bs-title   = "Credits"
+                data-bs-content = "BS theme by &lt;a href=&quot;https://bootstrap.build/license&quot;&gt;bootstrap.build&lt;/a&gt;">
+          <i class="bi bi-info-circle mt-4 text-white"></i>
+        </button>
+      </div>
       <!--
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
@@ -94,8 +101,6 @@ require_once 'controller.php';
     ?>
 
   </div>
-
-  <a href="https://bootstrap.build/license">BS theme by bootstrap.build</a>
 
 </body>
 </html>
