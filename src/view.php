@@ -213,7 +213,7 @@
     <div class="row">
       <div class="col-md-6">
 
-        <textarea id="foods" class="form-control" wrap="off" style="font-family: monospace;" rows="18"
+        <textarea id="foods" class="form-control" wrap="off" style="font-family: monospace; font-size: 15px;" rows="18"
         ><?= $this->data->foodsTxt ?></textarea>
 
         <button onclick="foodsCrl.saveFoodsBtnClick(event)" class="btn btn-sm btn-primary mt-2">Save</button>
