@@ -10,7 +10,7 @@ require_once 'lib/ConfigStatic_240323/config.php';
 require_once 'controller.php';
 
 
-// Current simple solution
+// Current simple solution #code/routing
 
 // $isAjax = ! empty( $_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower( $_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
 //

@@ -30,7 +30,7 @@
         <textarea id="dayEntries" class="form-control" wrap="off" style="font-family: monospace;" rows="5"
         ><?= $this->data->dayEntriesTxt ?></textarea>
 
-        <!-- full ui (advanced) -->
+        <!-- full ui (#code/advancedDayEntries) -->
 <!--
         <ul id="dayEntries" class="list-group scrollable-list">
           < ?php for( $i=0; $i < 4; $i++): ?>
@@ -117,7 +117,7 @@
         </div>
 -->
         <ul id="foodList" class="list-group scrollable-list">
-          <!-- static (advanced) -->
+          <!-- static #code/staticListEntries -->
 <!--
           <li class   = "food-item list-group-item d-flex justify-content-between align-items-center"
               onclick = "..."
@@ -197,7 +197,7 @@
                 <div class="col-3"><?= $sums['aminoSum'] ?> g</div>
                 <div class="col-3"><?= $sums['saltSum'] ?> g</div>
               </div>
-              <!-- (TASK) we could add some collapse here -->
+              <!-- (TASK) we could add some #code/collapse here -->
               <!-- <small class="text-body-secondary">And some muted small print.</small> -->
             </a>
           </div>
@@ -232,8 +232,8 @@ var dayEntries, foodsCrl
 
 ready( function() {
 
-  dayEntries = [
-    <?php foreach( $this->data->dayEntries as $entry): ?>  // TASK: nutrients in sub list
+  dayEntries = [  // will be replaced by #code/advancedData
+    <?php foreach( $this->data->dayEntries as $entry): ?>
       {food: '<?= $entry[0] ?>', calories: <?= $entry[1] ?>, fat: <?= $entry[2] ?>, amino: <?= $entry[3] ?>, salt: <?= $entry[4] ?>},
     <?php endforeach; ?>
   ]

@@ -16,7 +16,7 @@ class FoodsEventController
     const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
     const popoverList = [...popoverTriggerList].map( popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl, {html: true}))
 
-    // Sortable (advanced)
+    // Sortable (advanced)  #code/advancedDayEntries
 
     // $('#dayEntries').sortable({
     //   handle:      '.handle',
@@ -41,13 +41,10 @@ class FoodsEventController
       salt:     nutrients.salt
     })
     
-    // dayEntries.push({ food, calories, nutrients })  // TASK: (advanced) maybe
-
     // Find the length of the longest strings
 
     let maxFoodLength     = Math.max( ...dayEntries.map( entry => entry.food.length))
     let maxCaloriesLength = Math.max( ...dayEntries.map( entry => String(entry.calories).length))  // for some reason we must do it like this here
-    // TASK: (advanced) use a loop for all nutrients or handle macro seperate
     let maxFatLength      = Math.max( ...dayEntries.map( entry => String(entry.fat).length))
     let maxAminoLength    = Math.max( ...dayEntries.map( entry => String(entry.amino).length))
     // let maxSaltLength  = Math.max( ...dayEntries.map( entry => entry.salt.length))
@@ -111,7 +108,7 @@ class FoodsEventController
     query('#saltSum').textContent     = saltSum
 
 
-    // (TASK) progress
+    // (TASK) #code/progress
 
     // let currentSum  = 100  // This should be dynamically set based on the day's sum
     // let recommended = 500
