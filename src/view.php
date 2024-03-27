@@ -28,13 +28,13 @@
         <!-- Day entries -->
 
         <textarea id="dayEntries" class="form-control" wrap="off" style="font-family: monospace;" rows="5"
-        ><?= $this->data->dayEntriesTxt ?></textarea>
+        ><?= $this->model->dayEntriesTxt ?></textarea>
 
         <!-- full ui (#code/advancedDayEntries) -->
 <!--
         <ul id="dayEntries" class="list-group scrollable-list">
           < ?php for( $i=0; $i < 4; $i++): ?>
-          <!-- < ?php foreach( $this->data->... ): ?> -- >
+          <!-- < ?php foreach( $this->model->... ): ?> -- >
             <li class     = "food-item p-0 list-group-item d-flex justify-content-between align-items-center"
                 onclick   = ""
                 data-misc = ""
@@ -105,7 +105,7 @@
         <!-- old -->
 <!-- 
         <div id="foodList" class="scrollable-list">
-          < ?php foreach( $this->data->foods as $food => $entry): ?>
+          < ?php foreach( $this->model->foods as $food => $entry): ?>
             <div class="food-item" onclick="foodsCrl.foodItemClick(event)"
                  data-food      = "< ?= $food ?>"
                  data-calories  = "< ?= $entry['calories'] ?>"
@@ -130,7 +130,7 @@
             Water
           </li>
 -->
-          <?php foreach( $this->data->foods as $food => $entry): ?>
+          <?php foreach( $this->model->foods as $food => $entry): ?>
             <li class   = "food-item p-1 list-group-item d-flex justify-content-between align-items-center"
                 onclick = "foodsCrl.foodItemClick(event)"
                 data-food      = "<?= $food ?>"
@@ -182,7 +182,7 @@
         <!-- using BS is easier here than aligning tsv -->
         <!-- (all alternatives seen 2403) https://getbootstrap.com/docs/5.3/components/list-group/#custom-content) -->
 
-        <?php foreach( $this->data->lastDaysSums as $day => $sums): ?>
+        <?php foreach( $this->model->lastDaysSums as $day => $sums): ?>
           <div class="list-group">
             <a href="#" class="list-group-item list-group-item-action p-2">
               <div class="d-flex w-100 justify-content-between">
@@ -214,7 +214,7 @@
       <div class="col-md-6">
 
         <textarea id="foods" class="form-control" wrap="off" style="font-family: monospace; font-size: 15px;" rows="18"
-        ><?= $this->data->foodsTxt ?></textarea>
+        ><?= $this->model->foodsTxt ?></textarea>
 
         <button onclick="foodsCrl.saveFoodsBtnClick(event)" class="btn btn-sm btn-primary mt-2">Save</button>
         <span id="foodsUIMsg"></span>
@@ -233,7 +233,7 @@ var dayEntries, foodsCrl
 ready( function() {
 
   dayEntries = [  // will be replaced by #code/advancedData
-    <?php foreach( $this->data->dayEntries as $entry): ?>
+    <?php foreach( $this->model->dayEntries as $entry): ?>
       {food: '<?= $entry[0] ?>', calories: <?= $entry[1] ?>, fat: <?= $entry[2] ?>, amino: <?= $entry[3] ?>, salt: <?= $entry[4] ?>},
     <?php endforeach; ?>
   ]

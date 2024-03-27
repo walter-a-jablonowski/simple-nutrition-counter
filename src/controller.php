@@ -15,12 +15,14 @@ class FoodsController extends ControllerBase
   use SaveDayEntriesAjaxController;
   use SaveFoodsAjaxController;
 
-  public SimpleData $data;
-
 
   public function __construct(/*$model = null, $view = null*/)
   {
     parent::__construct();
+  }
+
+
+  public function render(/*$request*/) {
 
     $config = config::instance();
 
@@ -108,12 +110,9 @@ class FoodsController extends ControllerBase
         'saltSum'     => ! $entries ? 0 : array_sum( array_column($entries, 4))
       ]]);
     }
-    
-    $this->data = $data;
-  }
 
+    $this->model = $data;
 
-  public function render(/*$request*/) {
 
     // we currently use no Engine cause the app is tooooooooooo small
 
