@@ -35,9 +35,12 @@
         <ul id="dayEntries" class="list-group scrollable-list">
           < ?php for( $i=0; $i < 4; $i++): ?>
           <!-- < ?php foreach( $this->model->... ): ?> -- >
-            <li class     = "food-item p-0 list-group-item d-flex justify-content-between align-items-center"
-                onclick   = ""
-                data-misc = ""
+            <li class   = "food-item p-0 list-group-item d-flex justify-content-between align-items-center"
+                onclick = ""
+                data-type      = "food"
+                data-weight    = ""
+                data-calories  = ""    v make own function
+                data-nutrients = "< ?= html_encode( json_encode( $entry['nutrients'])) ?>"
             >
               <span>
                 <span class="handle bi bi-grip-vertical"></span>
