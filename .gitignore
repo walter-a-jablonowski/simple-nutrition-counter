@@ -6,3 +6,4 @@ composer.lock
 vendor/
 src/data/days/**.tsv
 fade_230808.js
+src/data/price_data.yml
