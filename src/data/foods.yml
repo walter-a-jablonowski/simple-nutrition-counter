@@ -275,6 +275,46 @@ Nussmisch N:
   lastUpd:           2024-02-18
   lastPriceUpd:      
 
+Patros:
+
+  price:             
+  weight:            150
+  packaging:         pack
+
+  calories:          278
+  nutrients:
+
+    fat:             24
+    saturatedFat:    16
+    carbs:           0.6
+    sugar:           0.6
+    amino:           15
+    salt:            3
+
+  sources:           "Macro nutrients: Vendor online, Variants differ only slightly"
+  lastUpd:           2024-04-01
+  lastPriceUpd:      
+
+Patros W:
+
+  price:             
+  weight:            135
+  packaging:         pack
+
+  calories:          278
+  nutrients:
+
+    fat:             22
+    saturatedFat:    15
+    carbs:           0.7
+    sugar:           0.6
+    amino:           19
+    salt:            3
+
+  sources:           "Macro nutrients: Vendor online, Variants differ only slightly"
+  lastUpd:           2024-04-01
+  lastPriceUpd:      
+
 Pumpernickel R Bio:
 
   price:             1.09
