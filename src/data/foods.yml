@@ -47,7 +47,7 @@ Cashew E:
 
 Cashew N:
 
-  price:             
+  price:             2.29
   weight:            200
   packaging:         pack
 
@@ -64,7 +64,7 @@ Cashew N:
 
   sources:           "Macro nutrients: pack"
   lastUpd:           2024-02-18
-  lastPriceUpd:      
+  lastPriceUpd:      2024-04-06
 
 Chick R Bio:
 
@@ -212,7 +212,7 @@ Lyoner R Bio:
 
 Mandel N:
 
-  price:             1.89  # maybe
+  price:             1.89
   weight:            150
   packaging:         pack
 
@@ -227,9 +227,9 @@ Mandel N:
     amino:           27.0
     salt:            0.7
 
-  sources:           "Macro nutrients: pack, price: maybe"
+  sources:           "Macro nutrients: pack, price: 1.99"
   lastUpd:           2024-02-18
-  lastPriceUpd:      2024-03-30
+  lastPriceUpd:      2024-04-06
 
 Mandel R Bio:
 
@@ -254,7 +254,7 @@ Mandel R Bio:
 
 Nussmisch N:
 
-  price:             
+  price:             2.79
   weight:            200
   packaging:         pack
 
@@ -271,9 +271,9 @@ Nussmisch N:
     amino:           19.2
     salt:            0
 
-  sources:           "Macro nutrients: pack"
+  sources:           "Macro nutrients: pack, price: 2,89"
   lastUpd:           2024-02-18
-  lastPriceUpd:      
+  lastPriceUpd:      2024-04-06
 
 Patros:
 
