@@ -53,7 +53,7 @@ require_once 'controller.php';
   <link href="style/app.css" rel="stylesheet">
 
 </head>
-<body>
+<body style="max-width: 800px;">
 
   <nav class="navbar navbar-expand-lg bg-primary">
     <div class="container-fluid">

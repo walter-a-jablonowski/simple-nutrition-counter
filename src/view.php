@@ -23,7 +23,7 @@
 
   <div class="tab-pane fade show active" id="inpPane" role="tabpanel">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col">
 
         <!-- Day entries -->
 
@@ -104,7 +104,7 @@
     <!-- Food list -->
 
     <div class="row mt-2">
-      <div class="col-md-12">
+      <div class="col">
         <!-- old -->
 <!-- 
         <div id="foodList" class="scrollable-list">
@@ -180,7 +180,7 @@
 
   <div class="tab-pane fade" id="lastDaysPane" role="tabpanel">
     <div class="row">
-      <div class="col-md-6 scrollable-list">
+      <div class="col scrollable-list">
 
         <!-- using BS is easier here than aligning tsv -->
         <!-- (all alternatives seen 2403) https://getbootstrap.com/docs/5.3/components/list-group/#custom-content) -->
@@ -214,7 +214,7 @@
 
   <div class="tab-pane fade" id="foodsPane" role="tabpanel">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col">
 
         <textarea id="foods" class="form-control" wrap="off" style="font-family: monospace; font-size: 15px;" rows="18"
         ><?= $this->model->foodsTxt ?></textarea>
