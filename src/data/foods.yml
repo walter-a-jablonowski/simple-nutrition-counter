@@ -275,6 +275,28 @@ Nussmisch N:
   lastUpd:           2024-02-18
   lastPriceUpd:      2024-04-06
 
+Olivenöl:
+
+  price:             
+  weight:            200
+  packaging:         pack
+
+  calories:          900
+  nutrients:
+
+    fat:             100
+    saturatedFat:    16.1
+    monoUnsaturated: 76.3
+    polyUnsaturated: 7.6
+    carbs:           0
+    sugar:           0
+    amino:           0
+    salt:            0
+
+  sources:           "Macro nutrients: pack"
+  lastUpd:           2024-04-08
+  lastPriceUpd:      
+
 Patros:
 
   price:             
