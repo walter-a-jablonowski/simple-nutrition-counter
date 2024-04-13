@@ -1,51 +1,55 @@
 
+My recipe:
+
+  showFirst:   
+
+  Chick R Bio: 
+  Brokkoli R:  
+  Olivenöl:    
+
 My food S Bio:
 
+  showFirst:         
+  
   comment:           ""
   ingredients:       ""
   origin:            ""
 
-  price:             _
+  price:             
 
-  weight:            _
+  weight:            
   packaging:         pack|piece|pieces
-  quantity:          _
-  usedAmounts:       _
+  quantity:          
+  usedAmounts:       
 
-  calories:          _
+  calories:          
   nutrients:
 
-    fat:             _
-    saturatedFat:    _
-    monoUnsaturated: _
-    polyUnsaturated: _                 
-    carbs:           _
-    sugar:           _
-    fibre:           _
-    amino:           _
-    salt:            _
+    fat:             
+    saturatedFat:    
+    monoUnsaturated: 
+    polyUnsaturated:                  
+    carbs:           
+    sugar:           
+    fibre:           
+    amino:           
+    salt:            
 
-    calcium:         _
+    calcium:         
 
   sources:           "Macro nutrients: web|pack|Vendor online, information on packaging may differ slightly, nutrients: ..., price: ..."
   lastUpd:           2024-02-18
   lastPriceUpd:      2024-03-23
 
-My recipe:
-
-  Chick R Bio:  -    # amount: 
-  Brokkoli R:   -    # < 0 (1/2)    is percent of pack
-  Olivenöl:          # > 0 (e.g. 2) is piece(s)
-                     # or with "g" (100g)
 My nutrient:
 
   comment:             ""
 
-  type:                _
-  amountMale:          _
-  amountFemale:        _
-  increasedNeedMale:   _
-  increasedNeedFemale: _
+  type:                
+  amountMale:          
+  amountFemale:        
+  increasedNeedMale:   
+  increasedNeedFemale: 
   unit:                mg
-  lower:               _
-  upper:               _
+  lower:               
+  upper:               
