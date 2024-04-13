@@ -404,7 +404,7 @@ Chips light:
 Milch H:
 
   price:             
-  weight:            80
+  weight:            1000
   packaging:         pack
 
   perUnit:           ml
