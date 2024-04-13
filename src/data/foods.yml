@@ -62,7 +62,7 @@ Cashew N:
     amino:           21
     salt:            0
 
-  sources:           "Macro nutrients: pack"
+  sources:           "Macro nutrients: pack, price: 2.39"
   lastUpd:           2024-02-18
   lastPriceUpd:      2024-04-06
 
@@ -299,7 +299,7 @@ Olivenöl:
 
 Patros:
 
-  price:             
+  price:             2.99
   weight:            150
   packaging:         pack
 
@@ -313,13 +313,13 @@ Patros:
     amino:           15
     salt:            3
 
-  sources:           "Macro nutrients: Vendor online, Variants differ only slightly"
+  sources:           "Macro nutrients: Vendor online, Variants differ only slightly, price: online"
   lastUpd:           2024-04-01
-  lastPriceUpd:      
+  lastPriceUpd:      2024-04-11
 
 Patros W:
 
-  price:             
+  price:             2.99
   weight:            135
   packaging:         pack
 
@@ -333,9 +333,9 @@ Patros W:
     amino:           19
     salt:            3
 
-  sources:           "Macro nutrients: Vendor online, Variants differ only slightly"
+  sources:           "Macro nutrients: Vendor online, Variants differ only slightly, price: online"
   lastUpd:           2024-04-01
-  lastPriceUpd:      
+  lastPriceUpd:      2024-04-11
 
 Pumpernickel R Bio:
 
