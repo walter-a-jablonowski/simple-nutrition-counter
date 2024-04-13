@@ -169,7 +169,7 @@ Riegel Seitenb Sch:
     amino:           26
     salt:            0.1
 
-  calcium:           360
+    calcium:         360
 
   sources:           "Macro nutrients: Web, nutrients: calcium also from vendors page online"
   lastUpd:           2024-02-18
@@ -400,3 +400,26 @@ Chips light:
   sources:           "Macro nutrients: web"
   lastUpd:           2024-02-18
   lastPriceUpd:      2024-03-23
+
+Milch H:
+
+  price:             
+  weight:            80
+  packaging:         pack
+
+  perUnit:           ml
+  calories:          64
+  nutrients:
+
+    fat:             3.5
+    saturatedFat:    2.3
+    carbs:           4.8
+    sugar:           4.8
+    amino:           3.3
+    salt:            0.13
+
+    calcium:         120
+
+  sources:           "Macro nutrients: web"
+  lastUpd:           2024-04-11
+  lastPriceUpd:      

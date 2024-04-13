@@ -43,11 +43,12 @@ My food S Bio:                           # S = short for store if needed (save s
 
   price:              1.00
 
-  weight:             100                # grams
+  weight:             100
   packaging:          pack|piece|pieces  # pack e.g. brokkoli
   quantity:           3                  # number of pieces in a pack
   usedAmounts:        [1, 2, 3, 4, 5]    # for packaging = pack (default 1/4 - 1) and pieces (default 1 - 3)
 
+  perUnit:            g (default) | ml   # all values in g per 100g or 100ml
   calories:                              # grams
   nutrients:
 
@@ -61,8 +62,8 @@ My food S Bio:                           # S = short for store if needed (save s
     amino:        
     salt:             1.0
 
-  calcium:                               # same unit as in nutrients.yml
-  # ... some important ...
+    calcium:                             # same unit as in nutrients.yml
+    # ... some important ...
 
   sources:            "Macro nutrients: web|pack, information on packaging may differ slightly, nutrients: ..., price: ..."
   lastUpd:            2024-02-18
