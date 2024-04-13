@@ -12,6 +12,21 @@ Common
 - We include at least some supplements like magnesium to make sure we get the required amount. For some it may be enough to just take it regularly with no tracking.
 
 
+Recipes0 file usage
+----------------------------------------------------------
+
+```yaml
+
+My recipe:
+
+  showFirst:         # true|false (missing = false)
+                     # amount:
+  Chick R Bio:  100g # < 0 (1/2)    is percent of pack
+  Brokkoli R:        # > 0 (e.g. 2) is piece(s)
+  Olivenöl:          # or with "g" (100g), "ml" (100ml)
+                     
+```
+
 Foods file usage
 ----------------------------------------------------------
 
@@ -19,6 +34,8 @@ Currently we enter the values once in data/foods.yml. Easy when the number of in
 
 ```yaml
 My food S Bio:                           # S = short for store if needed (save some space)
+
+  showFirst:          true
 
   comment:            "..."              # misc comment
   ingredients:        "..."              # ingredients that you want to be aware of
