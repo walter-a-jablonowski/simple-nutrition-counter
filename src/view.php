@@ -125,12 +125,7 @@
           <li class   = "food-item list-group-item d-flex justify-content-between align-items-center"
               onclick = "..."
           >
-            Enter manually ...
-          </li>
-          <li class   = "food-item list-group-item d-flex justify-content-between align-items-center"
-              onclick = "..."
-          >
-            Water
+            Expired ...  <!-- TASK: if needed: Add more here beside -- >
           </li>
 -->
           <?php foreach( $this->model->foods as $food => $entry): ?>
