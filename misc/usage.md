@@ -1,8 +1,10 @@
 # Usage
 
 - [Common](#common)
+- [Recipes file usage](#recipes-file-usage)
 - [Foods file usage](#foods-file-usage)
 - [Nutrients file usage](#nutrients-file-usage)
+- [Layout file usage](#layout-file-usage)
 
 
 Common
@@ -12,14 +14,12 @@ Common
 - We include at least some supplements like magnesium to make sure we get the required amount. For some it may be enough to just take it regularly with no tracking.
 
 
-Recipes0 file usage
+Recipes file usage
 ----------------------------------------------------------
 
 ```yaml
 
 My recipe:
-
-  showFirst:         # true|false (missing = false)
                      # amount:
   Chick R Bio:  100g # < 0 (1/2)    is percent of pack
   Brokkoli R:        # > 0 (e.g. 2) is piece(s)
@@ -33,9 +33,8 @@ Foods file usage
 Currently we enter the values once in data/foods.yml. Easy when the number of ingredients usually used in a day is limited, and simpler than doing manual calculations (partially used ingredients).
 
 ```yaml
-My food S Bio:                           # S = short for store if needed (save some space)
 
-  showFirst:          true
+My food S Bio:                           # S = short for store if needed (save some space)
 
   comment:            "..."              # misc comment
   ingredients:        "..."              # ingredients that you want to be aware of
@@ -77,6 +76,7 @@ Nutrients file usage
 (advanced feature)
 
 ```yaml
+
 B 12:
 
   comment:              ""
@@ -89,4 +89,11 @@ B 12:
   unit:                 mg
   lower:                5   # percent, summary view still is green progress if within these bounds
   upper:                5
+```
+
+Layout file usage
+----------------------------------------------------------
+
+```yaml
+
 ```
