@@ -107,15 +107,8 @@
 
     <div class="row mt-2">
       <div class="col scrollable-list">
+
         <ul id="foodList" class="list-group">
-          <!-- static #code/staticListEntries -->
-<!--
-          <li class   = "food-item list-group-item d-flex justify-content-between align-items-center"
-              onclick = "..."
-          >
-            Expired ...  <!-- TASK: if needed: Add more here beside -- >
-          </li>
--->
           <?php foreach( $this->model->foods as $food => $entry): ?>
             <li class   = "food-item p-1 list-group-item d-flex justify-content-between align-items-center"
                 onclick = "foodsCrl.foodItemClick(event)"
@@ -128,6 +121,37 @@
           <?php endforeach; ?>
         </ul>
 
+        <!-- new -->
+<!--
+        <div id="foodList" class="row">
+          <div class="col">
+
+            <!-- static #code/staticListEntries -- >
+
+            <div class="row">
+              <div class="col-12" onclick = "...">
+                Expired ...
+              </div>
+            </div>
+
+          </div>
+          <div class="col">
+
+            <div class="row">
+              <div class="col-12">
+                My Group
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="food-item col-?" onclick = "...">
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+-->
       </div>
     </div>
   </div>
