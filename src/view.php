@@ -107,20 +107,6 @@
 
     <div class="row mt-2">
       <div class="col scrollable-list">
-        <!-- old -->
-<!-- 
-        <div id="foodList">
-          < ?php foreach( $this->model->foods as $food => $entry): ?>
-            <div class="food-item" onclick="foodsCrl.foodItemClick(event)"
-                 data-food      = "< ?= $food ?>"
-                 data-calories  = "< ?= $entry['calories'] ?>"
-                 data-nutrients = "< ?= htmlspecialchars( json_encode( $entry['nutrients'])) ?>"
-            >
-              < ?= $food ?>
-            </div>
-          < ?php endforeach; ?>
-        </div>
--->
         <ul id="foodList" class="list-group">
           <!-- static #code/staticListEntries -->
 <!--
@@ -153,7 +139,7 @@
     this is an advanced feature
 
     <div class="scrollable-list">
-      <div>
+      <div id="">
         <?php for( $i=0; $i < 4; $i++): ?>
           <div>Substance <?= $i ?></div>  <!-- simple for now -->
           <div class="d-flex align-items-center mb-2">
