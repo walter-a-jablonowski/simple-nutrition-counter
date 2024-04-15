@@ -32,29 +32,31 @@
 
         <!-- full ui (#code/advancedDayEntries) -->
 <!--
-        <ul id="dayEntries" class="list-group scrollable-list">
-          < ?php for( $i=0; $i < 4; $i++): ?>
-          <!-- < ?php foreach( $this->model->... ): ?> -- >
-            <li class   = "food-item p-0 list-group-item d-flex justify-content-between align-items-center"
-                onclick = ""
-                data-type      = "food"
-                data-weight    = ""
-                data-calories  = ""    v make own function
-                data-nutrients = "< ?= html_encode( json_encode( $entry['nutrients'])) ?>"
-            >
-              <span>
-                <span class="handle bi bi-grip-vertical"></span>
-                < ?= "UI demo food $i" ?>
-              </span>
-              <div>
-                <i class="bi bi-pencil-square btn px-0"></i>
-                <button type="button" class="btn">  <!-- maybe add the (-) or make btn in dlg -- >
-                  <i class="bi bi-dash-circle"></i>
-                </button>
-              </div>
-            </li>
-          < ?php endfor; ?>
-        </ul>
+        <div class="scrollable-list">
+          <ul id="dayEntries" class="list-group">
+            < ?php for( $i=0; $i < 4; $i++): ?>
+            <!-- < ?php foreach( $this->model->... ): ?> -- >
+              <li class   = "food-item p-0 list-group-item d-flex justify-content-between align-items-center"
+                  onclick = ""
+                  data-type      = "food"
+                  data-weight    = ""
+                  data-calories  = ""    v make own function
+                  data-nutrients = "< ?= html_encode( json_encode( $entry['nutrients'])) ?>"
+              >
+                <span>
+                  <span class="handle bi bi-grip-vertical"></span>
+                  < ?= "UI demo food $i" ?>
+                </span>
+                <div>
+                  <i class="bi bi-pencil-square btn px-0"></i>
+                  <button type="button" class="btn">  <!-- maybe add the (-) or make btn in dlg -- >
+                    <i class="bi bi-dash-circle"></i>
+                  </button>
+                </div>
+              </li>
+            < ?php endfor; ?>
+          </ul>
+        </div>
 -->
 
         <!-- Quick summary -->
@@ -104,10 +106,10 @@
     <!-- Food list -->
 
     <div class="row mt-2">
-      <div class="col">
+      <div class="col scrollable-list">
         <!-- old -->
 <!-- 
-        <div id="foodList" class="scrollable-list">
+        <div id="foodList">
           < ?php foreach( $this->model->foods as $food => $entry): ?>
             <div class="food-item" onclick="foodsCrl.foodItemClick(event)"
                  data-food      = "< ?= $food ?>"
@@ -119,7 +121,7 @@
           < ?php endforeach; ?>
         </div>
 -->
-        <ul id="foodList" class="list-group scrollable-list">
+        <ul id="foodList" class="list-group">
           <!-- static #code/staticListEntries -->
 <!--
           <li class   = "food-item list-group-item d-flex justify-content-between align-items-center"
@@ -136,13 +138,6 @@
                 data-nutrients = "<?= htmlspecialchars( json_encode( $entry['nutrients'])) ?>"
             >
               <?= $food ?>
-              <!-- buttons for quatities (advanced) -->
-<!-- 
-              <div>
-                <button type="button" class="btn px-2 py-0 btn-outline-secondary">1</button>
-                <button type="button" class="btn px-2 py-0 btn-outline-secondary">2</button>
-              </div>              
--->
             </li>
           <?php endforeach; ?>
         </ul>
@@ -158,15 +153,17 @@
     this is an advanced feature
 
     <div class="scrollable-list">
-      <?php for( $i=0; $i < 4; $i++): ?>
-        <div>Substance <?= $i ?></div>  <!-- simple for now -->
-        <div class="d-flex align-items-center mb-2">
-          <div class="progress w-100" role="progressbar" style="margin-right: 20px;">
-            <div id="<?= $i ?>ProgressBar" class="progress-bar bg-success" style="width: 80%;">80%</div>
+      <div>
+        <?php for( $i=0; $i < 4; $i++): ?>
+          <div>Substance <?= $i ?></div>  <!-- simple for now -->
+          <div class="d-flex align-items-center mb-2">
+            <div class="progress w-100" role="progressbar" style="margin-right: 20px;">
+              <div id="<?= $i ?>ProgressBar" class="progress-bar bg-success" style="width: 80%;">80%</div>
+            </div>
+            <span id="<?= $i ?>ProgressLabel">100/500</span>
           </div>
-          <span id="<?= $i ?>ProgressLabel">100/500</span>
-        </div>
-      <?php endfor; ?>
+        <?php endfor; ?>
+      </div>
     </div>
 
   </div>
