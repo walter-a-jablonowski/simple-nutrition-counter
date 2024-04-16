@@ -152,7 +152,7 @@
                 <div class="row">
                   < ?php foreach( $btns as $btn ):
 
-                    $done[] = $btn;  // TASK: fix attrib
+                    $done[] = $btn;  // TASK: fix attrib, food a recipes in a sgl list
                   ?>
                     <div class="food-item col p-2" onclick="foodsCrl.foodItemClick(event)"
                       data-food      = "< ?= $food ?>"
