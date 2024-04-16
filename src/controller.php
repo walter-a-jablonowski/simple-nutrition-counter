@@ -30,6 +30,8 @@ class FoodsController extends ControllerBase
 
     $data = new SimpleData();
 
+    $this->debug = $config->get('debug');
+    
     $data->foodsTxt = file_get_contents('data/foods.yml');
     $foodsDef = Yaml::parse( $data->foodsTxt );
 

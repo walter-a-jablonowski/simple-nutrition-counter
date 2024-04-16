@@ -87,7 +87,7 @@ require_once 'controller.php';
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   <script src="lib/events_240321.js"></script>
   <script src="lib/query_240321.js"></script>
-  <script src="lib/lib/query_data_240328.js"></script>
+  <script src="lib/query_data_240328.js"></script>
   <script src="lib/send_230808.js"></script>
   <script src="lib/fade_230808.js"></script>
 
