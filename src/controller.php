@@ -35,6 +35,8 @@ class FoodsController extends ControllerBase
 
     // Make food list with amounts
 
+    // we pre calc all values cause it's simpler for recipes
+
     foreach( $foodsDef as $food => $entry )
     {
       // TASK: simplify, rm duplicate code

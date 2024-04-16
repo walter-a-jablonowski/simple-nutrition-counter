@@ -72,7 +72,7 @@
             <div class="align-split small"><span>Fat</span> <span>g</span></div>  <!-- align-split ai made class -->
           </div>
           <div class="col pl-1 pr-1 border-left bg-secondary text-start text-left">
-            <div class="align-split small"><span>Pro</span> <span>g</span></div>
+            <div class="align-split small"><span>Amino</span> <span>g</span></div>
           </div>
           <div class="col pl-1 pr-1 border-left bg-secondary text-start text-left">
             <div class="align-split small"><span>Salt</span> <span>g</span></div>
