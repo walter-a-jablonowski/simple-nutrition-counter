@@ -131,7 +131,7 @@
 
             <div class="row">
               <div class="col-12" onclick = "...">
-                Expired ...
+                Expired food ...
               </div>
             </div>
 
@@ -140,10 +140,10 @@
           <?php foreach( $layout as $group => $lines ): ?>
             <div class="col">
 
-              <?php if( trim($group) ): ?>
+              <?php if( $group ): ?>
                 <div class="row">
                   <div class="col-12 p-1 small">
-                    <?= trim($group) ?>
+                    <?= $group ?>
                   </div>
                 </div>
               <?php endif; ?>
@@ -152,14 +152,14 @@
                 <div class="row">
                   <?php foreach( $btns as $btn ):
 
-                    $done[] = $btn;
+                    $done[] = $btn;  // TASK: fix attrib
                   ?>
-                    <div class="food-item col p-2" onclick = "foodsCrl.foodItemClick(event)"
+                    <div class="food-item col p-2" onclick="foodsCrl.foodItemClick(event)"
                       data-food      = "<?= $food ?>"
                       data-calories  = "<?= $entry['calories'] ?>"
                       data-nutrients = "<?= htmlspecialchars( json_encode( $entry['nutrients'])) ?>"
                     >
-                      <?= trim($btn) ?>
+                      <?= $btn ?>
                     </div>
                   <?php endforeach; ?>
                 </div>
@@ -167,6 +167,28 @@
 
             </div>
           <?php endforeach; ?>
+
+          <!-- left over entries -->
+
+          <div class="col">
+
+            <?php foreach( $this->model->foods as $food => $entry): ?>
+
+              <div class="row">
+                <?php if( ! in_array( $food, $done)): ?>
+                  <div class="food-item col p-2" onclick="foodsCrl.foodItemClick(event)"
+                    data-food      = "<?= $food ?>"
+                    data-calories  = "<?= $entry['calories'] ?>"
+                    data-nutrients = "<?= htmlspecialchars( json_encode( $entry['nutrients'])) ?>"
+                  >
+                    <?= $food ?>
+                  </div>
+                <?php endif; ?>
+              </div>
+
+            <?php endforeach; ?>
+         </div>
+
         </div>
 -->
       </div>
