@@ -124,32 +124,46 @@
         <!-- new -->
 <!--
         <div id="foodList" class="row">
-          <div class="col">
+            <div class="col">
 
-            <!-- static #code/staticListEntries -- >
+              <!-- static #code/staticListEntries -- >
 
-            <div class="row">
-              <div class="col-12" onclick = "...">
-                Expired ...
+              <div class="row">
+                <div class="col-12" onclick = "...">
+                  Expired ...
+                </div>
               </div>
+
             </div>
 
-          </div>
-          <div class="col">
+            <?php foreach( $layout as $group => $lines ): ?>
+              <div class="col">
 
-            <div class="row">
-              <div class="col-12">
-                My Group
+                <?php if( trim($group) ): ?>
+                  <div class="row">
+                    <div class="col-12 p-1 small">
+                      <?= trim($group) ?>
+                    </div>
+                  </div>
+                <?php endif; ?>
+
+                <?php $done = []; foreach( $lines as $btn ):
+
+                  $done[] = $btn;
+                ?>
+                  <div class="row">
+                    <div class="food-item col-?" onclick = "foodsCrl.foodItemClick(event)"
+                      data-food      = "<?= $food ?>"
+                      data-calories  = "<?= $entry['calories'] ?>"
+                      data-nutrients = "<?= htmlspecialchars( json_encode( $entry['nutrients'])) ?>"
+                    >
+                      <?= trim($btn) ?>
+                    </div>
+                  </div>
+                <?php endforeach; ?>
+
               </div>
-            </div>
-
-            <div class="row">
-              <div class="food-item col-?" onclick = "...">
-
-              </div>
-            </div>
-
-          </div>
+            <?php endforeach; ?>
         </div>
 -->
       </div>
