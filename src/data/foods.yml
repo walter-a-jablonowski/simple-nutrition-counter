@@ -408,6 +408,26 @@ Patros W:
   lastUpd:           2024-04-01
   lastPriceUpd:      2024-04-11
 
+Ritter Sp:
+
+  price:             1.79
+  weight:            100
+  packaging:         pack
+
+  calories:          595
+  nutrients:
+
+    fat:             45
+    saturatedFat:    28
+    carbs:           35
+    sugar:           33
+    amino:           8.5
+    salt:            0.14
+
+  sources:           "Macro nutrients: Web, price: web mybe less"
+  lastUpd:           2024-04-16
+  lastPriceUpd:      2024-04-16
+
 Pumpernickel R Bio:
 
   price:             1.09
