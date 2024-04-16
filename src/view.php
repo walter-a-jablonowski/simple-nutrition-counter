@@ -170,24 +170,26 @@
 
           <!-- left over entries -- >
 
-          <div class="col">
+          < ?php if( count( $foods) > count($done)): ?>
+            <div class="col">
 
-            < ?php foreach( $this->model->foods as $food => $entry): ?>
+              < ?php foreach( $this->model->foods as $food => $entry): ?>
 
-              <div class="row">
-                < ?php if( ! in_array( $food, $done)): ?>
-                  <div class="food-item col p-2" onclick="foodsCrl.foodItemClick(event)"
-                    data-food      = "< ?= $food ?>"
-                    data-calories  = "< ?= $entry['calories'] ?>"
-                    data-nutrients = "< ?= htmlspecialchars( json_encode( $entry['nutrients'])) ?>"
-                  >
-                    < ?= $food ?>
-                  </div>
-                < ?php endif; ?>
-              </div>
+                <div class="row">
+                  < ?php if( ! in_array( $food, $done)): ?>
+                    <div class="food-item col p-2" onclick="foodsCrl.foodItemClick(event)"
+                      data-food      = "< ?= $food ?>"
+                      data-calories  = "< ?= $entry['calories'] ?>"
+                      data-nutrients = "< ?= htmlspecialchars( json_encode( $entry['nutrients'])) ?>"
+                    >
+                      < ?= $food ?>
+                    </div>
+                  < ?php endif; ?>
+                </div>
 
-            < ?php endforeach; ?>
-         </div>
+              < ?php endforeach; ?>
+            </div>
+          < ?php endif; ?>
 
         </div>
 -->
