@@ -244,7 +244,6 @@
                 <div class="col-3"><?= $sums['aminoSum'] ?> g</div>
                 <div class="col-3"><?= $sums['saltSum'] ?> g</div>
               </div>
-              <!-- (TASK) we could add some #code/collapse here -->
               <!-- <small class="text-body-secondary">And some muted small print.</small> -->
             </a>
           </div>
