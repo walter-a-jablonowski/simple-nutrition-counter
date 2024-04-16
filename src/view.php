@@ -124,46 +124,52 @@
         <!-- new -->
 <!--
         <div id="foodList" class="row">
-            <div class="col">
 
-              <!-- static #code/staticListEntries -- >
+          <!-- static #code/staticListEntries -- >
 
-              <div class="row">
-                <div class="col-12" onclick = "...">
-                  Expired ...
-                </div>
+          <div class="col">
+
+            <div class="row">
+              <div class="col-12" onclick = "...">
+                Expired ...
               </div>
-
             </div>
 
-            <?php foreach( $layout as $group => $lines ): ?>
-              <div class="col">
+          </div>
 
-                <?php if( trim($group) ): ?>
-                  <div class="row">
-                    <div class="col-12 p-1 small">
-                      <?= trim($group) ?>
-                    </div>
+          <?php foreach( $layout as $group => $lines ): ?>
+            <div class="col">
+
+              <?php if( trim($group) ): ?>
+                <div class="row">
+                  <div class="col-12 p-1 small">
+                    <?= trim($group) ?>
                   </div>
-                <?php endif; ?>
+                </div>
+              <?php endif; ?>
 
-                <?php $done = []; foreach( $lines as $btn ):
+              <?php foreach( $lines as $btns ):
 
-                  $done[] = $btn;
-                ?>
-                  <div class="row">
-                    <div class="food-item col-?" onclick = "foodsCrl.foodItemClick(event)"
+                $done = [];
+              ?>
+                <div class="row">
+                  <?php foreach( $btns as $btn ):
+
+                    $done[] = $btn;
+                  ?>
+                    <div class="food-item col p-2" onclick = "foodsCrl.foodItemClick(event)"
                       data-food      = "<?= $food ?>"
                       data-calories  = "<?= $entry['calories'] ?>"
                       data-nutrients = "<?= htmlspecialchars( json_encode( $entry['nutrients'])) ?>"
                     >
                       <?= trim($btn) ?>
                     </div>
-                  </div>
-                <?php endforeach; ?>
+                  <?php endforeach; ?>
+                </div>
+              <?php endforeach; ?>
 
-              </div>
-            <?php endforeach; ?>
+            </div>
+          <?php endforeach; ?>
         </div>
 -->
       </div>
