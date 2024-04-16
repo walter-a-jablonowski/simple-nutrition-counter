@@ -6,7 +6,14 @@
 # - see also -> readme
 #
 
-My Group: # or "" for only one
-  -       # line with 2 btns (50% width)
-    - Veggie L
-    - Veggie C
+Nuts:         # or "" for only one
+  - Cashew N  # line with 2 btns (50% width)
+  - Cashew E
+  - Mandel N
+  - Mandel R Bio
+  - Erdn Salz N big
+  - Nussmisch N
+
+# My Group:
+#   - Veggie L
+#   - Veggie C
