@@ -262,6 +262,30 @@ Salami R:
   lastUpd:           2024-02-18
   lastPriceUpd:      2024-03-23
 
+Kartoffeltaschen F:
+
+  comment:           "TASK: Fix quantity"
+  ingredients:       "Kartoffeln 70%, FRISCHKÄSE 19%, Sonnenblumenöl, modifizierte Stärke, Kartoffelstärke, Speisesalz, Gewürze, Kräuter, Dextrose"
+
+  price:             
+  weight:            600
+  packaging:         pieces
+  quantity:          10
+
+  calories:          182
+  nutrients:
+
+    fat:             10
+    saturatedFat:    3.9
+    carbs:           19.5
+    sugar:           1.5
+    amino:           2.5
+    salt:            1.3
+
+  sources:           "Macro nutrients: Web (information on packaging may differ slightly)"
+  lastUpd:           2024-04-16
+  lastPriceUpd:      
+
 Linsen R Bio:
 
   price:             1.39
@@ -407,6 +431,28 @@ Patros W:
   sources:           "Macro nutrients: Vendor online, Variants differ only slightly, price: online"
   lastUpd:           2024-04-01
   lastPriceUpd:      2024-04-11
+
+Pommes:
+
+  ingredients:       "Kartoffeln 95%, Sonnenblumenöl 4,5 %, Dextrose"
+
+  price:             
+  weight:            1000
+  packaging:         pack  
+
+  calories:          145
+  nutrients:
+
+    fat:             4.5
+    saturatedFat:    0.5
+    carbs:           22
+    sugar:           0.2
+    amino:           2.8
+    salt:            0.06
+
+  sources:           "Macro nutrients: Web, price: web (information on packaging may differ slightly)"
+  lastUpd:           2024-04-16
+  lastPriceUpd:      
 
 Ritter Sp:
 

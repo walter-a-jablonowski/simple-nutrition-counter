@@ -15,7 +15,7 @@ My food S Bio:
 
   weight:            
   packaging:         pack|piece|pieces
-  quantity:          []       
+  quantity:          
   usedAmounts:       
 
   perUnit:           g (default) | ml   # all values in g per 100g or 100ml
