@@ -7,7 +7,7 @@
 
 # Wasser 1.74 2024-03-30
 
-Brokkoli R:
+Brokkoli R:  # some German foods
 
   price:             2.19
   weight:            1000
@@ -49,7 +49,7 @@ Cashew E:
   lastUpd:           2024-02-18
   lastPriceUpd:      
 
-Cashew N:  # some German foods
+Cashew N:
 
   price:             2.29
   weight:            200
