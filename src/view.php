@@ -148,10 +148,7 @@
                 </div>
               <?php endif; ?>
 
-              <?php foreach( $lines as $btns ):
-
-                $done = [];
-              ?>
+              <?php foreach( $lines as $btns ): ?>
                 <div class="row">
                   <?php foreach( $btns as $btn ):
 
