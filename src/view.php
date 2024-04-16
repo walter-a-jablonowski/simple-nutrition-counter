@@ -170,7 +170,7 @@
 
           <!-- left over entries -- >
 
-          < ?php if( count( $foods) > count($done)): ?>
+          < ?php if( count($foods) > count($done)): ?>
             <div class="col">
 
               < ?php foreach( $this->model->foods as $food => $entry): ?>
