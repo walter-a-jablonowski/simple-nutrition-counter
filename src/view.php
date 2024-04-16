@@ -137,7 +137,7 @@
 
           </div>
 
-          < ?php foreach( $layout as $group => $lines ): ?>
+          < ?php $done = []; foreach( $layout as $group => $lines ): ?>
             <div class="col">
 
               < ?php if( $group ): ?>
