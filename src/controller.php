@@ -126,8 +126,8 @@ class FoodsController extends ControllerBase
 
     // This day
 
-    $data->dayEntriesTxt  = trim( @file_get_contents('data/days/' . date('Y-m-d') . '.tsv') ?: '');
-    $data->dayEntries     = parse_tsv( $data->dayEntriesTxt);
+    $data->dayEntriesTxt = trim( @file_get_contents('data/days/' . date('Y-m-d') . '.tsv') ?: '');
+    $data->dayEntries    = parse_tsv( $data->dayEntriesTxt);
 
     // All days
 
