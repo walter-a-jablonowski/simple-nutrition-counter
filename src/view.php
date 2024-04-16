@@ -137,56 +137,56 @@
 
           </div>
 
-          <?php foreach( $layout as $group => $lines ): ?>
+          < ?php foreach( $layout as $group => $lines ): ?>
             <div class="col">
 
-              <?php if( $group ): ?>
+              < ?php if( $group ): ?>
                 <div class="row">
                   <div class="col-12 p-1 small">
-                    <?= $group ?>
+                    < ?= $group ?>
                   </div>
                 </div>
-              <?php endif; ?>
+              < ?php endif; ?>
 
-              <?php foreach( $lines as $btns ): ?>
+              < ?php foreach( $lines as $btns ): ?>
                 <div class="row">
-                  <?php foreach( $btns as $btn ):
+                  < ?php foreach( $btns as $btn ):
 
                     $done[] = $btn;  // TASK: fix attrib
                   ?>
                     <div class="food-item col p-2" onclick="foodsCrl.foodItemClick(event)"
-                      data-food      = "<?= $food ?>"
-                      data-calories  = "<?= $entry['calories'] ?>"
-                      data-nutrients = "<?= htmlspecialchars( json_encode( $entry['nutrients'])) ?>"
+                      data-food      = "< ?= $food ?>"
+                      data-calories  = "< ?= $entry['calories'] ?>"
+                      data-nutrients = "< ?= htmlspecialchars( json_encode( $entry['nutrients'])) ?>"
                     >
-                      <?= $btn ?>
+                      < ?= $btn ?>
                     </div>
-                  <?php endforeach; ?>
+                  < ?php endforeach; ?>
                 </div>
-              <?php endforeach; ?>
+              < ?php endforeach; ?>
 
             </div>
-          <?php endforeach; ?>
+          < ?php endforeach; ?>
 
-          <!-- left over entries -->
+          <!-- left over entries -- >
 
           <div class="col">
 
-            <?php foreach( $this->model->foods as $food => $entry): ?>
+            < ?php foreach( $this->model->foods as $food => $entry): ?>
 
               <div class="row">
-                <?php if( ! in_array( $food, $done)): ?>
+                < ?php if( ! in_array( $food, $done)): ?>
                   <div class="food-item col p-2" onclick="foodsCrl.foodItemClick(event)"
-                    data-food      = "<?= $food ?>"
-                    data-calories  = "<?= $entry['calories'] ?>"
-                    data-nutrients = "<?= htmlspecialchars( json_encode( $entry['nutrients'])) ?>"
+                    data-food      = "< ?= $food ?>"
+                    data-calories  = "< ?= $entry['calories'] ?>"
+                    data-nutrients = "< ?= htmlspecialchars( json_encode( $entry['nutrients'])) ?>"
                   >
-                    <?= $food ?>
+                    < ?= $food ?>
                   </div>
-                <?php endif; ?>
+                < ?php endif; ?>
               </div>
 
-            <?php endforeach; ?>
+            < ?php endforeach; ?>
          </div>
 
         </div>
