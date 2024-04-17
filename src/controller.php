@@ -36,7 +36,6 @@ class FoodsController extends ControllerBase
     $foodsDef = Yaml::parse( $data->foodsTxt );
 
     // Make food list with amounts
-
     // we pre calc all values cause it's simpler for recipes
 
     foreach( $foodsDef as $food => $entry )
@@ -61,7 +60,7 @@ class FoodsController extends ControllerBase
 
             $weight = [
               'pack'   => $entry['weight'] * $multipl,
-              'pieces' => ($entry['weight'] / $entry['quantity']) * $multipl,
+              'pieces' => ($entry['weight'] / ($entry['quantity'] ?? 1)) * $multipl,  // evaluated first, quatity must be set: just use 1, doesn't matter caue diff type
               'piece'  => $entry['weight']
             ][ $entry['packaging']];
           }
@@ -76,7 +75,6 @@ class FoodsController extends ControllerBase
             'salt'    => round( $entry['nutrients']['salt']  * ($weight / 100), 1)
           ]
         ]]);
-      }
 */
 // /*
       if( $entry['packaging'] === 'pack')
