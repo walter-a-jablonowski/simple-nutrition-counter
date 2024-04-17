@@ -42,13 +42,12 @@ My food S Bio:                           # S = short for store if needed (save s
 
   price:              1.00
 
-  weight:             100                # of whole pack in case of pieces
+  weight:             100                # in g or ml, of whole pack in case of pieces
   quantity:           3                  # number of pieces in a pack
   packaging:          pack|piece|pieces  # pack e.g. brokkoli
   usedAmounts:        ["1/4", "1/3", "1/2", "1"]  # default for packaging = pack, (1-3 for  pieces)
 
-  perUnit:            g (default) | ml   # all values in g per 100g or 100ml
-  calories:                              # grams
+  calories:                              # grams, per 100g or 100 ml (depends on what weight is)
   nutrients:
 
     fat:              100

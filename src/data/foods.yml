@@ -1,33 +1,33 @@
 #
 # Foods
 #
-# - sorting in UI like layout.yml), all left as entered
+# - sorting in UI like layout.yml, all left as entered
 # - all fields see -> readme
 #
 
-Amino NaDuRia Pur:  # some German foods
-
-  comment:           "2 Meßlöffel orange = 20g"
-
-  price:             
-  weight:            300
-  packaging:         pack
-  usedAmounts:       ["20g"]
-
-  calories:          357
-  nutrients:
-
-    fat:             6.5
-    saturatedFat:    0.9
-    carbs:           12
-    sugar:           11
-    fibre:           11
-    amino:           57
-    salt:            0.02
-
-  sources:           "Macro nutrients: web (information on packaging may differ slightly)"
-  lastUpd:           2024-03-13
-  lastPriceUpd:      
+# Amino NaDuRia Pur:  # some German foods  # (TASK) needs 100g feature in controller
+#
+#   comment:           "2 Meßlöffel orange = 20g"
+#
+#   price:             
+#   weight:            300
+#   packaging:         pack
+#   usedAmounts:       ["20g"]
+#
+#   calories:          357
+#   nutrients:
+#
+#     fat:             6.5
+#     saturatedFat:    0.9
+#     carbs:           12
+#     sugar:           11
+#     fibre:           11
+#     amino:           57
+#     salt:            0.02
+#
+#   sources:           "Macro nutrients: web (information on packaging may differ slightly)"
+#   lastUpd:           2024-03-13
+#   lastPriceUpd:      
 
 Brokkoli R:
 
@@ -375,7 +375,6 @@ Milch H:
   weight:            1000
   packaging:         pack
 
-  perUnit:           ml
   calories:          64
   nutrients:
 

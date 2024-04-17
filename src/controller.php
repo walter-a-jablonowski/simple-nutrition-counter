@@ -50,14 +50,22 @@ class FoodsController extends ControllerBase
       {
         $multipl = $amount;
         
-        if( $entry['packaging'] == 'pack')
-          eval("\$multipl = $multipl;");  // 1/2 => 0.5
+        if( strpos( $amount, 'g') !== false || strpos( $amount, 'ml') !== false )  // works for ml if weight also is ml
+          $weight = (int) trim( $amount, "gml ");
+        else
+        {
 
-        $weight = [
-          'pack'   => $entry['weight'] * $multipl
-          'pieces' => $weight = ($entry['weight'] / $entry['quantity']) * $multipl
-          'piece'  => $entry['weight']
-        ][ $entry['packaging']];
+          if( $entry['packaging'] == 'pack')
+            eval("\$multipl = $multipl;");  // 1/2 => 0.5
+            // $multipl = eval("return $multipl;");
+
+            $weight = [
+              'pack'   => $entry['weight'] * $multipl,
+              'pieces' => ($entry['weight'] / $entry['quantity']) * $multipl,
+              'piece'  => $entry['weight']
+            ][ $entry['packaging']];
+          }
+        }
 
         $data->push('foods', ["$food $amount" => [
           'weight'    => round( $weight, 1),
@@ -68,8 +76,9 @@ class FoodsController extends ControllerBase
             'salt'    => round( $entry['nutrients']['salt']  * ($weight / 100), 1)
           ]
         ]]);
-      }        
+      }
 */
+// /*
       if( $entry['packaging'] === 'pack')
       {
         $usedAmounts = $entry['usedAmounts'] ?? $config->get('foods.defaultAmounts.pack');
@@ -126,6 +135,7 @@ class FoodsController extends ControllerBase
           ]
         ]]);
       }
+// */
     }
 
     // This day
