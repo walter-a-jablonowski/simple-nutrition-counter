@@ -11,6 +11,7 @@
 #
 #   price:             
 #   weight:            300
+#   packaging:         pack
 #   usedAmounts:       ["20g"]
 #
 #   calories:          357
@@ -32,6 +33,7 @@ Brokkoli R:
 
   price:             2.19
   weight:            1000
+  packaging:         pack
 
   calories:          24
   nutrients:
@@ -52,6 +54,7 @@ Cashew E:
 
   price:             
   weight:            200
+  packaging:         pack
 
   calories:          603
   nutrients:
@@ -72,6 +75,7 @@ Cashew N:
 
   price:             2.29
   weight:            200
+  packaging:         pack
 
   calories:          603
   nutrients:
@@ -92,6 +96,7 @@ Chick R Bio:
 
   price:             0.85
   weight:            215
+  packaging:         pack
 
   calories:          127
   nutrients:
@@ -111,6 +116,7 @@ Chips light:
 
   price:             2.19
   weight:            80
+  packaging:         pack
 
   calories:          472
   nutrients:
@@ -131,6 +137,7 @@ Erdn Salz N big:
 
   price:             2.39
   weight:            500
+  packaging:         pack
 
   calories:          615
   nutrients:
@@ -151,6 +158,7 @@ Frosta R:
 
   price:             3.49
   weight:            375
+  packaging:         pack
 
   calories:          105
   nutrients:
@@ -171,6 +179,7 @@ Karamalz:
 
   price:             
   weight:            330   # (TASK) multiple available
+  packaging:         pack
 
   calories:          44
   nutrients:
@@ -193,7 +202,7 @@ Kfc Original:
 
   price:             5.99
   weight:            147
-  perPiece:          24.5
+  packaging:         piece
 
   calories:          234
   nutrients:
@@ -213,6 +222,7 @@ Mandel N:
 
   price:             1.89
   weight:            150
+  packaging:         pack
 
   calories:          618
   nutrients:
@@ -233,6 +243,7 @@ Mandel R Bio:
 
   price:             2.89
   weight:            200
+  packaging:         pack
 
   calories:          619
   nutrients:
@@ -253,6 +264,7 @@ Nussmisch N:
 
   price:             2.79
   weight:            200
+  packaging:         pack
 
   calories:          653
   nutrients:
@@ -275,7 +287,7 @@ Riegel Seitenb Sch:
 
   price:             1.99
   weight:            60
-  perPiece:          60
+  packaging:         piece
 
   calories:          350
   nutrients:
@@ -298,6 +310,7 @@ Salami R:
 
   price:             1.79
   weight:            70
+  packaging:         pack
 
   calories:          275
   nutrients:
@@ -321,7 +334,8 @@ Kartoffeltaschen F:
 
   price:             
   weight:            600
-  perPiece:          60 # 10 St
+  quantity:          10
+  packaging:         pieces
 
   calories:          182
   nutrients:
@@ -341,6 +355,7 @@ Linsen R Bio:
 
   price:             1.39
   weight:            260
+  packaging:         pack
 
   calories:          92
   nutrients:
@@ -360,6 +375,7 @@ Lyoner R Bio:
 
   price:             1.39
   weight:            70
+  packaging:         pack
 
   calories:          230
   nutrients:
@@ -379,6 +395,7 @@ Lyoner R Bio:
 
 #   price:             
 #   weight:            200
+#   packaging:         pack
 #
 #   calories:          619
 #   nutrients:
@@ -399,6 +416,7 @@ Milch H:
 
   price:             
   weight:            1000
+  packaging:         pack
 
   calories:          64
   nutrients:
@@ -420,6 +438,7 @@ Olivenöl:
 
   price:             
   weight:            200
+  packaging:         pack
 
   calories:          900
   nutrients:
@@ -441,6 +460,7 @@ Patros:
 
   price:             2.99
   weight:            150
+  packaging:         pack
 
   calories:          278
   nutrients:
@@ -460,6 +480,7 @@ Patros W:
 
   price:             2.99
   weight:            135
+  packaging:         pack
 
   calories:          278
   nutrients:
@@ -481,6 +502,7 @@ Pommes:
 
   price:             
   weight:            1000
+  packaging:         pack  
 
   calories:          145
   nutrients:
@@ -500,6 +522,7 @@ Ritter Sp:
 
   price:             1.79
   weight:            100
+  packaging:         pack
 
   calories:          595
   nutrients:
@@ -519,6 +542,7 @@ Pumpernickel R Bio:
 
   price:             1.09
   weight:            250
+  packaging:         pack
 
   calories:          196
   nutrients:

@@ -34,25 +34,26 @@ Currently we enter the values once in data/foods.yml. Easy when the number of in
 
 ```yaml
 
-My food S Bio:                           # S = short for store if needed (save some space)
+My food S Bio:                      # S = short for store if needed (save some space)
 
-  comment:            "..."              # misc comment
-  ingredients:        "..."              # ingredients that you want to be aware of
-  origin:             "..."              # country of origin, if you want to be aware of
+  comment:            "..."         # misc comment
+  ingredients:        "..."         # ingredients that you want to be aware of
+  origin:             "..."         # country of origin, if you want to be aware of
 
   price:              1.00
 
-  weight:             100                # in g or ml, of whole pack in case of pieces
-  quantity:           3                  # number of pieces in a pack
-  packaging:          pack|piece|pieces  # pack e.g. brokkoli
-  usedAmounts:        ["1/4", "1/3", "1/2", "1"]  # default for packaging = pack, (1-3 for  pieces)
+  weight:             100           # in g or ml, of whole pack in case of pieces
+  perPiece:           24.5          # weight per piece in case packaging consist of pieces that are consumed seperately
+  usedAmounts:        ["1/4", ...]  # "1/4", "1/3", "1/2", "1"
+                                    # or 1, 2, 3 pieces (see weight perPice)
+                                    # or 10g or 50ml
 
-  calories:                              # grams, per 100g or 100 ml (depends on what weight is)
+  calories:                         # grams, per 100g or 100 ml (depends on what weight is)
   nutrients:
 
     fat:              100
     saturatedFat: 
-    monoUnsaturated:                     # a few foods have that data
+    monoUnsaturated:                # a few foods have that data
     polyUnsaturated:                   
     carbs:        
     sugar:        
@@ -60,7 +61,7 @@ My food S Bio:                           # S = short for store if needed (save s
     amino:        
     salt:             1.0
 
-    calcium:                             # same unit as in nutrients.yml
+    calcium:                        # same unit as in nutrients.yml
     # ... some important ...
 
   sources:            "Macro nutrients: web|pack, information on packaging may differ slightly, nutrients: ..., price: ..."
