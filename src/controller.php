@@ -41,10 +41,10 @@ class FoodsController extends ControllerBase
     foreach( $foodsDef as $food => $entry )
     {
       $usage = strpos( $entry['weight'], 'g') !== false || strpos( $entry['weight'], 'ml') !== false
-              ? 'precise' : (
-                isset($entry['pieces'])
-              ? 'pieces'
-              : 'pack'
+             ? 'precise' : (
+               isset($entry['pieces'])
+             ? 'pieces'
+             : 'pack'
       );
 
       $usedAmounts = $entry['usedAmounts'] ?? ( $config->get("foods.defaultAmounts.$usage") ?: 1);
@@ -53,7 +53,7 @@ class FoodsController extends ControllerBase
       foreach( $usedAmounts as $amount )
       {
         $multipl = trim( $amount, "mgl ");
-        $multipl = (float) eval("return $multipl;");         // 1/2 => 0.5
+        $multipl = (float) eval("return $multipl;");            // 1/2 => 0.5
         // eval("\$multipl = $multipl;");
 
         // $weight = ([
