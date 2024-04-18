@@ -5,28 +5,28 @@
 # - all fields see -> readme
 #
 
-# Amino NaDuRia Pur:  # some German foods  # (TASK) needs 100g feature in controller
-#
-#   comment:           "2 Meßlöffel orange = 20g"
-#
-#   price:             
-#   weight:            300
-#   usedAmounts:       ["20g"]
-#
-#   calories:          357
-#   nutrients:
-#
-#     fat:             6.5
-#     saturatedFat:    0.9
-#     carbs:           12
-#     sugar:           11
-#     fibre:           11
-#     amino:           57
-#     salt:            0.02
-#
-#   sources:           "Macro nutrients: web (information on packaging may differ slightly)"
-#   lastUpd:           2024-03-13
-#   lastPriceUpd:      
+Amino NaDuRia Pur:  # some German foods  # (TASK) needs 100g feature in controller
+
+  comment:           "2 Meßlöffel orange = 20g"
+
+  price:             
+  weight:            300
+  usedAmounts:       ["20g"]
+
+  calories:          357
+  nutrients:
+
+    fat:             6.5
+    saturatedFat:    0.9
+    carbs:           12
+    sugar:           11
+    fibre:           11
+    amino:           57
+    salt:            0.02
+
+  sources:           "Macro nutrients: web (information on packaging may differ slightly)"
+  lastUpd:           2024-03-13
+  lastPriceUpd:      
 
 Brokkoli R:
 
@@ -194,6 +194,7 @@ Kfc Original:
   price:             5.99
   weight:            147
   pieces:            6 # 24.5
+  usedAmounts:       [1]
 
   calories:          234
   nutrients:
@@ -399,6 +400,7 @@ Milch H:
 
   price:             
   weight:            1000
+  usedAmounts:       ["50ml", "100ml", "200ml"]
 
   calories:          64
   nutrients:
@@ -420,6 +422,7 @@ Olivenöl:
 
   price:             
   weight:            200
+  usedAmounts:       ["30ml", "60ml"]
 
   calories:          900
   nutrients:
@@ -481,6 +484,7 @@ Pommes:
 
   price:             
   weight:            1000
+  usedAmounts:       ["50g", "100ml", "200g"]
 
   calories:          145
   nutrients:
@@ -500,6 +504,7 @@ Ritter Sp:
 
   price:             1.79
   weight:            100
+  usedAmounts:       ["1/4", "1/2"]
 
   calories:          595
   nutrients:
@@ -519,6 +524,7 @@ Pumpernickel R Bio:
 
   price:             1.09
   weight:            250
+  pieces:            8  # TASK: verify
 
   calories:          196
   nutrients:

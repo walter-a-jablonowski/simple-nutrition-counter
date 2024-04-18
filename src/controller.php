@@ -50,6 +50,8 @@ class FoodsController extends ControllerBase
       $usedAmounts = $entry['usedAmounts'] ?? ( $config->get("foods.defaultAmounts.$usage") ?: 1);
       // $usedAmounts = $entry['usedAmounts'] ?? ( config::get("foods.defaultAmounts.$usage") ?: 1);
 
+      // print $food;  // DEBUG
+
       foreach( $usedAmounts as $amount )
       {
         $multipl = trim( $amount, "mgl ");
