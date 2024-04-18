@@ -56,11 +56,18 @@ class FoodsController extends ControllerBase
         $multipl = (float) eval("return $multipl;");         // 1/2 => 0.5
         // eval("\$multipl = $multipl;");
 
-        $weight = ([
-          'pack'    => fn() => $entry['weight'] * $multipl,  // would be evaluated first => function trick
-          'pieces'  => fn() => ($entry['weight'] / $entry['pieces']) * $multipl,
-          'precise' => fn() => $multipl
-        ][ $usage ])();
+        // $weight = ([
+        //   'pack'    => fn() => $entry['weight'] * $multipl,  // would be evaluated first => function trick
+        //   'pieces'  => fn() => ($entry['weight'] / $entry['pieces']) * $multipl,
+        //   'precise' => fn() => $multipl
+        // ][ $usage ])();
+
+        $weight = $usage === 'pack' 
+                ? $entry['weight'] * $multipl : (
+                  $usage === 'pieces' 
+                ? ($entry['weight'] / $entry['pieces']) * $multipl
+                : $multipl  // precise
+        );
 
         $data->push('foods', ["$food $amount" => [
           'weight'    => round( $weight, 1),
