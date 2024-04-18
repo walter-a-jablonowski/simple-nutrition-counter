@@ -40,15 +40,6 @@ class FoodsController extends ControllerBase
 
     foreach( $foodsDef as $food => $entry )
     {
-      // $packaging = isset($entry['pieces']) && $entry['weight'] == $entry['perPiece']
-      //            ? 'piece' : (
-      //              isset($entry['perPiece'])
-      //            ? 'pieces'
-      //            : 'pack');
-
-// /*
-      // TASK: fix return by value only in get()
-
       $usage = strpos( $entry['weight'], 'g') !== false || strpos( $entry['weight'], 'ml') !== false
               ? 'precise' : (
                 isset($entry['pieces'])
@@ -62,9 +53,8 @@ class FoodsController extends ControllerBase
       foreach( $usedAmounts as $amount )
       {
         $multipl = trim( $amount, "mgl ");
-        // if( $usage == 'pack')
-        //   eval("\$multipl = $multipl;");
         $multipl = (float) eval("return $multipl;");         // 1/2 => 0.5
+        // eval("\$multipl = $multipl;");
 
         $weight = ([
           'pack'    => fn() => $entry['weight'] * $multipl,  // would be evaluated first => function trick
@@ -81,66 +71,7 @@ class FoodsController extends ControllerBase
             'salt'    => round( $entry['nutrients']['salt']  * ($weight / 100), 1)
           ]
         ]]);
-    }
-// */
-/*
-      if( $packaging === 'pack')
-      {
-        $usedAmounts = $entry['usedAmounts'] ?? $config->get('foods.defaultAmounts.pack');
-        // $usedAmounts = $entry['usedAmounts'] ?? config::get('foods.defaultAmounts.pack');
-
-        foreach( $usedAmounts as $amount => $multipl )
-        {
-          eval("\$multipl = $multipl;");  // 1/2 => 0.5
-
-          $weight = $entry['weight'] * $multipl;
-          
-          $data->push('foods', ["$food $amount" => [
-            'weight'    => round( $weight, 1),
-            'calories'  => round( $entry['calories'] * ($weight / 100), 1),
-            'nutrients' => [
-              'fat'     => round( $entry['nutrients']['fat']   * ($weight / 100), 1),
-              'amino'   => round( $entry['nutrients']['amino'] * ($weight / 100), 1),
-              'salt'    => round( $entry['nutrients']['salt']  * ($weight / 100), 1)
-            ]
-          ]]);
-        }
       }
-      elseif( $packaging === 'pieces')
-      {
-        $usedAmounts = $entry['usedAmounts'] ?? $config->get('foods.defaultAmounts.pieces');
-        // $usedAmounts = $entry['usedAmounts'] ?? config::get('foods.defaultAmounts.pieces');
-          
-        foreach( $usedAmounts as $amount )
-        {
-          $weight = ($entry['weight'] / $entry['pieces']) * $amount;
-
-          $data->push('foods', ["$food $amount" => [
-            'weight'    => round( $weight, 1),
-            'calories'  => round( $entry['calories'] * ($weight / 100), 1),
-            'nutrients' => [
-              'fat'     => round( $entry['nutrients']['fat']   * ($weight / 100), 1),
-              'amino'   => round( $entry['nutrients']['amino'] * ($weight / 100), 1),
-              'salt'    => round( $entry['nutrients']['salt']  * ($weight / 100), 1)
-            ]
-          ]]);
-        }
-      }
-      else  // single piece
-      {
-        $weight = $entry['weight'];
-        
-        $data->push('foods', [$food => [
-          'weight'    => $weight,
-          'calories'  => round( $entry['calories'] * ($weight / 100), 1),
-          'nutrients' => [
-            'fat'     => round( $entry['nutrients']['fat']   * ($weight / 100), 1),
-            'amino'   => round( $entry['nutrients']['amino'] * ($weight / 100), 1),
-            'salt'    => round( $entry['nutrients']['salt']  * ($weight / 100), 1)
-          ]
-        ]]);
-      }
-// */
     }
 
     // This day
