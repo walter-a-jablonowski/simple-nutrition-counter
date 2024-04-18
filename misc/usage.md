@@ -50,7 +50,7 @@ My food S Bio:                      # S = short for store if needed (save some s
                                     # you can't mix these, chosse one
                                     # consumed as a single piece: use 1
 
-  calories:                         # grams, per 100g or 100 ml (depends on what weight is)
+  calories:                         # grams, per 100g or 100ml (depends on what weight is)
   nutrients:
 
     fat:              100

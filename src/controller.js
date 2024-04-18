@@ -5,8 +5,11 @@ class FoodsEventController
 
     // Binding
 
-    this.foodItemClick          = this.foodItemClick.bind(this)
+    this.lastDayBtnClick        = this.lastDayBtnClick.bind(this)
+    this.nextDayBtnClick        = this.nextDayBtnClick.bind(this)
+    // this.thisDayBtnClick     = this.thisDayBtnClick.bind(this)
     this.saveDayEntriesBtnClick = this.saveDayEntriesBtnClick.bind(this)
+    this.foodItemClick          = this.foodItemClick.bind(this)
     this.saveFoodsBtnClick      = this.saveFoodsBtnClick.bind(this)
     this.updSums                = this.updSums.bind(this)
     // this.#saveDayEntries     = this.#saveDayEntries.bind(this)  // TASK: can't be done
@@ -24,6 +27,35 @@ class FoodsEventController
     // })
     //    
     // $('#dayEntries').disableSelection()
+  }
+
+  lastDayBtnClick(event)
+  {
+    let currentDate = new Date( query('#dateDisplay').textContent)
+
+    currentDate.setDate( currentDate.getDate() - 1)
+    window.location.href = `?date=${ currentDate.toISOString().split('T')[0]}`
+  }
+
+  nextDayBtnClick(event)
+  {
+    let currentDate = new Date( query('#dateDisplay').textContent)
+
+    currentDate.setDate( currentDate.getDate() + 1)
+    window.location.href = `?date=${ currentDate.toISOString().split('T')[0]}`
+  }
+
+  thisDayBtnClick(event)
+  {
+    // TASK
+  }
+
+  saveDayEntriesBtnClick(event)
+  {
+    // Manual entering values: current solution is enter values => save => reload
+
+    this.#saveDayEntries()
+    window.location.reload()
   }
 
   foodItemClick(event)
@@ -68,14 +100,6 @@ class FoodsEventController
 
     this.updSums()
     this.#saveDayEntries()
-  }
-
-  saveDayEntriesBtnClick(event)
-  {
-    // Manual entering values: current solution is enter values => save => reload
-
-    this.#saveDayEntries()
-    window.location.reload()
   }
 
   saveFoodsBtnClick(event)
