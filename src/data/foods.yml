@@ -422,7 +422,7 @@ Milch H:
 Olivenöl:
 
   price:             
-  weight:            200
+  weight:            500
   usedAmounts:       ["30ml", "60ml"]
 
   calories:          900
