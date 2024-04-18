@@ -40,7 +40,7 @@ class FoodsController extends ControllerBase
 
     foreach( $foodsDef as $food => $entry )
     {
-      $usage = strpos( $entry['weight'], 'g') !== false || strpos( $entry['weight'], 'ml') !== false
+      $usage = isset( $entry['usedAmounts']) && ( strpos( $entry['usedAmounts'][0], 'g') !== false || strpos( $entry['usedAmounts'][0], 'ml') !== false)
              ? 'precise' : (
                isset($entry['pieces'])
              ? 'pieces'
@@ -63,6 +63,9 @@ class FoodsController extends ControllerBase
         //   'pieces'  => fn() => ($entry['weight'] / $entry['pieces']) * $multipl,
         //   'precise' => fn() => $multipl
         // ][ $usage ])();
+
+        // if( $food == 'Amino NaDuRia Pur' )  // DEBUG
+        //   $debug = 'halt';
 
         $weight = $usage === 'pack'   ? $entry['weight'] * $multipl : (
                   $usage === 'pieces' ? ($entry['weight'] / $entry['pieces']) * $multipl
