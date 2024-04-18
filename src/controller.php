@@ -40,42 +40,37 @@ class FoodsController extends ControllerBase
 
     foreach( $foodsDef as $food => $entry )
     {
-      // TASK: only for compatibility, do we need packaging at all?
+      // $packaging = isset($entry['pieces']) && $entry['weight'] == $entry['perPiece']
+      //            ? 'piece' : (
+      //              isset($entry['perPiece'])
+      //            ? 'pieces'
+      //            : 'pack');
 
-      $packaging = isset($entry['perPiece']) && $entry['weight'] == $entry['perPiece']
-                 ? 'piece' : (
-                   isset($entry['perPiece'])
-                 ? 'pieces'
-                 : 'pack');
-
-      // TASK: simplify, rm duplicate code
-/*
+// /*
       // TASK: fix return by value only in get()
 
-      $usedAmounts = $entry['usedAmounts'] ?? ( $config->get("foods.defaultAmounts.$packaging") ?: 1);
-      // $usedAmounts = $entry['usedAmounts'] ?? ( config::get("foods.defaultAmounts.$packaging") ?: 1);
-      
-      foreach( $usedAmounts as $amount )  // TASK: modify in config (no key)
+      $usage = strpos( $entry['weight'], 'g') !== false || strpos( $entry['weight'], 'ml') !== false
+              ? 'precise' : (
+                isset($entry['pieces'])
+              ? 'pieces'
+              : 'pack'
+      );
+
+      $usedAmounts = $entry['usedAmounts'] ?? ( $config->get("foods.defaultAmounts.$usage") ?: 1);
+      // $usedAmounts = $entry['usedAmounts'] ?? ( config::get("foods.defaultAmounts.$usage") ?: 1);
+
+      foreach( $usedAmounts as $amount )
       {
-        $multipl = $amount;
-        
-        if( strpos( $amount, 'g') !== false || strpos( $amount, 'ml') !== false )  // works for ml if weight also is ml
-          $weight = (int) trim( $amount, "gml ");
-        else
-        {
+        $multipl = trim( $amount, "mgl ");
+        // if( $usage == 'pack')
+        //   eval("\$multipl = $multipl;");
+        $multipl = (float) eval("return $multipl;");         // 1/2 => 0.5
 
-          if( $packaging == 'pack')
-            eval("\$multipl = $multipl;");  // 1/2 => 0.5
-            // $multipl = eval("return $multipl;");
-
-            $weight = $packaging == 'pack'
-                    ? $entry['weight'] * $multipl : (
-                      $packaging == 'pieces'
-                    ? $entry['perPiece'] * $multipl
-                    : $entry['weight']  // piece
-            );
-          }
-        }
+        $weight = ([
+          'pack'    => fn() => $entry['weight'] * $multipl,  // would be evaluated first => function trick
+          'pieces'  => fn() => ($entry['weight'] / $entry['pieces']) * $multipl,
+          'precise' => fn() => $multipl
+        ][ $usage ])();
 
         $data->push('foods', ["$food $amount" => [
           'weight'    => round( $weight, 1),
@@ -86,8 +81,9 @@ class FoodsController extends ControllerBase
             'salt'    => round( $entry['nutrients']['salt']  * ($weight / 100), 1)
           ]
         ]]);
-*/
-// /*
+    }
+// */
+/*
       if( $packaging === 'pack')
       {
         $usedAmounts = $entry['usedAmounts'] ?? $config->get('foods.defaultAmounts.pack');
@@ -117,8 +113,7 @@ class FoodsController extends ControllerBase
           
         foreach( $usedAmounts as $amount )
         {
-          // $weight = ($entry['weight'] / $entry['quantity']) * $amount;
-          $weight = $entry['perPiece'] * $amount;
+          $weight = ($entry['weight'] / $entry['pieces']) * $amount;
 
           $data->push('foods', ["$food $amount" => [
             'weight'    => round( $weight, 1),

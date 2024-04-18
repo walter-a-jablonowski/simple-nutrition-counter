@@ -43,10 +43,11 @@ My food S Bio:                      # S = short for store if needed (save some s
   price:              1.00
 
   weight:             100           # in g or ml, of whole pack in case of pieces
-  perPiece:           24.5          # weight per piece in case packaging consist of pieces that are consumed seperately
-  usedAmounts:        ["1/4", ...]  # "1/4", "1/3", "1/2", "1"
-                                    # or 1, 2, 3 pieces (see weight perPice)
-                                    # or 10g or 50ml
+  pieces:             6             # number of pieces in a pack (if any)
+  usedAmounts:        ["1/4", ...]  # default  1/4, 1/3, 1 * weight        if pieces unset
+                                    #      or  1, 2, 3 * (weight / pieces) if pieces set
+                                    # or use   10g or 50ml
+                                    # consumed as a single piece: use 1
 
   calories:                         # grams, per 100g or 100 ml (depends on what weight is)
   nutrients:

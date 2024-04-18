@@ -193,7 +193,7 @@ Kfc Original:
 
   price:             5.99
   weight:            147
-  perPiece:          24.5
+  pieces:            6 # 24.5
 
   calories:          234
   nutrients:
@@ -275,7 +275,7 @@ Riegel Seitenb Sch:
 
   price:             1.99
   weight:            60
-  perPiece:          60
+  usedAmounts:       ["1/2", "1"]
 
   calories:          350
   nutrients:
@@ -321,7 +321,7 @@ Kartoffeltaschen F:
 
   price:             
   weight:            600
-  perPiece:          60 # 10 St
+  pieces:            10
 
   calories:          182
   nutrients:

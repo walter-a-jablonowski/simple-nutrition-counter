@@ -48,7 +48,8 @@ class SimpleData /*@*/
       }
     }
 
-    return $r;
+    $return = $r;  // remove the reference return byval
+    return $return;
   }
 
 

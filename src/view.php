@@ -122,7 +122,7 @@
           <?php endforeach; ?>
         </ul>
 
-        <!-- new -->
+        <!-- new  TASK: needs upd, layout.yml was changed -->
 <!--
         <div id="foodList" class="row">
 
