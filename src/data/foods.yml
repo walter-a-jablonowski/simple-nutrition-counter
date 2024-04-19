@@ -48,6 +48,32 @@ Brokkoli R:
   lastUpd:           2024-03-13
   lastPriceUpd:      2024-03-23
 
+Avocado:
+
+  weight:            150
+
+  calories:          160
+  nutrients:
+
+    fat:             15
+    saturatedFat:    2.1
+    carbs:           9
+    sugar:           0.7
+    fibre:           7
+    amino:           2
+    salt:            0
+
+    # Vitamin K
+    # Vitamin E
+    # Vitamin C
+    # B-Vitamine (insbesondere B5 und B6)
+    # Kalium
+    # Magnesium
+
+  sources:           "Macro nutrients: CharGPT (vals on websites differ, TASK: good source?)"
+  lastUpd:           2024-03-13
+  lastPriceUpd:      
+
 Cashew E:
 
   price:             
