@@ -296,6 +296,7 @@ Mandel N:
 
   price:             1.89
   weight:            150
+  usedAmounts:       ["50g", "100g"]
 
   calories:          618
   nutrients:
