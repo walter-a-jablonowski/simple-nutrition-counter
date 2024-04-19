@@ -51,6 +51,7 @@ Brokkoli R:
 Avocado:
 
   weight:            150
+  usedAmounts:       [1]
 
   calories:          160
   nutrients:
@@ -283,6 +284,7 @@ Linsen vegan:
 
   price:             
   weight:            400
+  usedAmounts:       [1]
 
   calories:          61
   nutrients:

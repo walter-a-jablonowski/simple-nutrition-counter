@@ -44,7 +44,7 @@ My food S Bio:                      # S = short for store if needed (save some s
 
   weight:             100           # in g or ml, of whole pack in case of pieces
   pieces:             6             # number of pieces in a pack (if any)
-  usedAmounts:        ["1/4", ...]  # default  1/4, 1/3, 1 * weight        if pieces unset
+  usedAmounts:        ["1/4", ...]  # default  "1/4", "1/3", 1 * weight    if pieces unset
                                     #      or  1, 2, 3 * (weight / pieces) if pieces set
                                     # or use   10g or 50ml
                                     # you can't mix these, chosse one
