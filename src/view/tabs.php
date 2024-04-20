@@ -45,7 +45,7 @@
 <script src="controller.js"></script>
 <script>
 
-ajax.file = 'ajax.php'
+// ajax.file = 'ajax.php'
 
 var dayEntries, foodsCrl
 
