@@ -104,7 +104,7 @@ class FoodsEventController
 
   saveFoodsBtnClick(event)
   {
-    send('saveFoods', { data: query('#foods').value }, function( result, data ) {
+    ajax.send('saveFoods', { data: query('#foods').value }, function( result, data ) {
 
       if( result === 'success')
         query('#foodsUIMsg').innerHTML = 'Saved'
@@ -154,7 +154,7 @@ class FoodsEventController
 
   #saveDayEntries()
   {
-    send('saveDayEntries', { data: query('#dayEntries').value }, function( result, data ) {
+    ajax.send('saveDayEntries', { data: query('#dayEntries').value }, function( result, data ) {
 
       if( result === 'success')
         query('#foodsUIMsg').innerHTML = 'Saved'

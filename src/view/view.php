@@ -280,6 +280,8 @@
 <script src="controller.js"></script>
 <script>
 
+ajax.file = 'ajax.php'
+
 var dayEntries, foodsCrl
 
 ready( function() {
