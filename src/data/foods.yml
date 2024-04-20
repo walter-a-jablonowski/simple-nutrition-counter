@@ -469,6 +469,7 @@ Patros:
 
   price:             2.99
   weight:            150
+  usedAmounts:       ["10g", "20g"]
 
   calories:          278
   nutrients:
@@ -612,6 +613,7 @@ Vollkorn Rhein R:
 
   price:             
   weight:            250
+  pieces:            6
 
   calories:          194
   nutrients:
