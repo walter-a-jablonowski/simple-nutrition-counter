@@ -10,8 +10,8 @@ function parse_tsv( $entriesTxt )
 
     foreach( $lines as $line )
     {
-      // $line = trim($line);  // cause we are using str_pad() for amounts (looks like it's unneeded for some reason)
-      $line = preg_replace('/ {2,}/', ';', trim($line));
+      // $line = preg_replace('/ {2,}/', ';', trim($line));
+      $line = preg_replace('/(?<=\S) {2,}(?=\S)/', ';', $line);  // added ignore spaces at bol (cause we are using str_pad() for amounts)
       $entry = explode(';', $line);
       $foodEntries[] = $entry;
     }
