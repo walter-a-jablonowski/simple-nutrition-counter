@@ -22,13 +22,15 @@ class FoodsController extends ControllerBase
   }
 
 
-  private function makeData()
+  /*@
+
+  Make all the data
+
+  */
+  private function makeData()  /*@*/
   {
     $config = config::instance();
-
-    // Make all the data
-
-    $data = new SimpleData();
+    $data   = new SimpleData();
 
     $this->debug = $config->get('debug');
     
