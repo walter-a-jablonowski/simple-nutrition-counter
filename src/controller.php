@@ -118,9 +118,13 @@ class FoodsController extends ControllerBase
     //
     // })( $this->data );
 
-    ob_start();
-    require 'view.php';
-    return ob_get_clean();
+    $index = file_get_contents('view/index.html');
+
+    ob_start();  // (TASK) for impoving this available
+    require 'view/view.php';
+    $view = ob_get_clean();
+
+    echo str_replace('{content}', $view, $index);
   }
 }
 

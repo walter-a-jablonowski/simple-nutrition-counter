@@ -1,6 +1,11 @@
-function send( url, data, callback )
+function send( identifier, data, callback, ajaxFile = 'ajax.php')
 {
-  fetch( url, {
+  data = {
+    identifier: identifier,
+    ...data
+  }
+
+  fetch( ajaxFile, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
