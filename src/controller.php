@@ -74,7 +74,9 @@ class FoodsController extends ControllerBase
                 : $multipl  // precise
         );
 
-        $data->push('foods', ["$food $amount" => [
+        $title = str_pad( $amount, 3, ' ', STR_PAD_LEFT) . " $food";
+
+        $data->push('foods', [ $title => [
           'weight'    => round( $weight, 1),
           'calories'  => round( $entry['calories'] * ($weight / 100), 1),
           'nutrients' => [
@@ -126,8 +128,6 @@ class FoodsController extends ControllerBase
     //
     // })( $this->data );
 
-    $index = file_get_contents('view/index.html');
-
     ob_start();               // (TASK) for impoving this available
     require 'view/tabs.php';
     $tabs = ob_get_clean();   // TASK: mov in lib
@@ -148,7 +148,7 @@ class FoodsController extends ControllerBase
     require 'view/tab_content/foods.php';
     $tabs = str_replace('{foods_tab}', ob_get_clean(), $tabs);
 
-    echo str_replace('{content}', $tabs, $index);
+    echo str_replace('{content}', $tabs, file_get_contents('view/index.html'));
   }
 }
 
