@@ -121,16 +121,9 @@ class FoodsController extends ControllerBase
 
     // we currently use no Engine cause the app is tooooooooooo small
 
-    // TASK: mov in lib
-    // ( function( $data ) {  // make a scope, making a block only isn't enough in PHP
-    //
-    //   require 'view.php';
-    //
-    // })( $this->data );
-
     ob_start();               // (TASK) for impoving this available
     require 'view/tabs.php';
-    $tabs = ob_get_clean();   // TASK: mov in lib
+    $tabs = ob_get_clean();
 
     ob_start();
     require 'view/tab_content/edit.php';
@@ -148,7 +141,13 @@ class FoodsController extends ControllerBase
     require 'view/tab_content/foods.php';
     $tabs = str_replace('{foods_tab}', ob_get_clean(), $tabs);
 
-    echo str_replace('{content}', $tabs, file_get_contents('view/index.html'));
+    ob_start();
+    require 'view/index.php';
+    $index = ob_get_clean();
+    
+    $index = str_replace('{content}', $tabs, $index);
+
+    echo $index;
   }
 }
 
