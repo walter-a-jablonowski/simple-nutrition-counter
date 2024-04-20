@@ -22,8 +22,8 @@ class FoodsController extends ControllerBase
   }
 
 
-  public function render(/*$request*/) {
-
+  private function makeData()
+  {
     $config = config::instance();
 
     // Make all the data
@@ -108,10 +108,16 @@ class FoodsController extends ControllerBase
     }
 
     $this->model = $data;
+  }
 
+
+  public function render(/*$request*/)
+  {
+    $this->makeData();
 
     // we currently use no Engine cause the app is tooooooooooo small
 
+    // TASK: mov in lib
     // ( function( $data ) {  // make a scope, making a block only isn't enough in PHP
     //
     //   require 'view.php';
@@ -120,9 +126,9 @@ class FoodsController extends ControllerBase
 
     $index = file_get_contents('view/index.html');
 
-    ob_start();  // (TASK) for impoving this available
+    ob_start();               // (TASK) for impoving this available
     require 'view/tabs.php';
-    $tabs = ob_get_clean();
+    $tabs = ob_get_clean();   // TASK: mov in lib
 
     ob_start();
     require 'view/tab_content/edit.php';
