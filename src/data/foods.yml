@@ -55,6 +55,45 @@ Avocado:
   lastUpd:           2024-04-19
   lastPriceUpd:      
 
+Bresso:
+
+  price:             
+  weight:            150
+
+  calories:          337
+  nutrients:
+
+    fat:             32
+    saturatedFat:    23
+    carbs:           3
+    sugar:           2.4
+    amino:           9.2
+    salt:            1.2
+
+  sources:           "Macro nutrients: Web (information on packaging may differ)"
+  lastUpd:           2024-04-20
+  lastPriceUpd:      
+
+Bresso mini:
+
+  price:             
+  weight:            120
+  pieces:            8
+
+  calories:          337
+  nutrients:
+
+    fat:             32
+    saturatedFat:    23
+    carbs:           3
+    sugar:           2.4
+    amino:           9.2
+    salt:            1.2
+
+  sources:           "Macro nutrients: Web (information on packaging may differ)"
+  lastUpd:           2024-04-20
+  lastPriceUpd:      
+
 Brokkoli R:
 
   price:             2.19
@@ -503,6 +542,47 @@ Patros W:
   sources:           "Macro nutrients: Vendor online, Variants differ only slightly, price: online"
   lastUpd:           2024-04-01
   lastPriceUpd:      2024-04-11
+
+Philadephia:
+
+  price:             
+  weight:            175
+
+  calories:          225
+  nutrients:
+
+    fat:             21
+    saturatedFat:    14
+    carbs:           4.3
+    sugar:           4.3
+    fibre:           0.2
+    amino:           5.4
+    salt:            0.75
+
+  sources:           "Macro nutrients: Web (information on packaging may differ)"
+  lastUpd:           2024-04-20
+  lastPriceUpd:      
+
+Philadephia mini:
+
+  price:             
+  weight:            100.02
+  pieces:            6
+
+  calories:          225
+  nutrients:
+
+    fat:             21
+    saturatedFat:    14
+    carbs:           4.3
+    sugar:           4.3
+    fibre:           0.2
+    amino:           5.4
+    salt:            0.75
+
+  sources:           "Macro nutrients: Web (information on packaging may differ)"
+  lastUpd:           2024-04-20
+  lastPriceUpd:      
 
 Pommes:
 
