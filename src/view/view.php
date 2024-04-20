@@ -263,7 +263,7 @@
         ><?= $this->model->foodsTxt ?></textarea>
 
         <button onclick="foodsCrl.saveFoodsBtnClick(event)" class="btn btn-sm btn-primary mt-2">Save</button>
-        <span id="foodsUIMsg"></span>
+        <span id="uiMsg"></span>
 
       </div>
     </div>

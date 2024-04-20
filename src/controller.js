@@ -107,9 +107,9 @@ class FoodsEventController
     ajax.send('saveFoods', { data: query('#foods').value }, function( result, data ) {
 
       if( result === 'success')
-        query('#foodsUIMsg').innerHTML = 'Saved'
+        query('#uiMsg').innerHTML = 'Saved'
       else
-        query('#foodsUIMsg').innerHTML = result.message
+        query('#uiMsg').innerHTML = result.message
     })
   }
 
@@ -157,9 +157,9 @@ class FoodsEventController
     ajax.send('saveDayEntries', { data: query('#dayEntries').value }, function( result, data ) {
 
       if( result === 'success')
-        query('#foodsUIMsg').innerHTML = 'Saved'
+        query('#uiMsg').innerHTML = 'Saved'
       else
-        query('#foodsUIMsg').innerHTML = result.message
+        query('#uiMsg').innerHTML = result.message
     })
   }
 }
