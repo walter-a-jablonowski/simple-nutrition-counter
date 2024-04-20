@@ -25,6 +25,7 @@ class FoodsController extends ControllerBase
   /*@
 
   Make all the data
+  we pre calc all values cause it's simpler for recipes
 
   */
   private function makeData()  /*@*/
@@ -38,7 +39,6 @@ class FoodsController extends ControllerBase
     $foodsDef = Yaml::parse( $data->foodsTxt );
 
     // Make food list with amounts
-    // we pre calc all values cause it's simpler for recipes
 
     foreach( $foodsDef as $food => $entry )
     {
