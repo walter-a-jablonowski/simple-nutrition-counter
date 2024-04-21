@@ -4,7 +4,7 @@
     <!-- using BS is easier here than aligning tsv -->
     <!-- (all alternatives seen 2403) https://getbootstrap.com/docs/5.3/components/list-group/#custom-content) -->
 
-    <?php foreach( $this->model->lastDaysSums as $day => $sums): ?>
+    <?php foreach( $this->lastDaysSums as $day => $sums): ?>
       <div class="list-group">
         <a href="#" class="list-group-item list-group-item-action p-2">
           <div class="d-flex w-100 justify-content-between">

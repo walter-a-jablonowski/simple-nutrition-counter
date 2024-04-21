@@ -31,14 +31,19 @@ class FoodsController extends ControllerBase
   private function makeData()  /*@*/
   {
     $config = config::instance();
-    $data   = new SimpleData();
-
     $this->debug = $config->get('debug');
-    
-    $data->foodsTxt = file_get_contents('data/foods.yml');
-    $foodsDef = Yaml::parse( $data->foodsTxt );
 
-    // Make food list with amounts
+    // This day and foods tab
+
+    $this->dayEntriesTxt = trim( @file_get_contents('data/days/' . date('Y-m-d') . '.tsv') ?: '', "\n");
+    $this->dayEntries    = parse_tsv( $this->dayEntriesTxt );
+
+    $this->foodsTxt = file_get_contents('data/foods.yml');
+    $foodsDef = Yaml::parse( $this->foodsTxt );
+
+    // make food list with amounts (model)
+
+    $model = new SimpleData();
 
     foreach( $foodsDef as $food => $entry )
     {
@@ -78,7 +83,7 @@ class FoodsController extends ControllerBase
 
         $title = str_pad( $amount, 3, ' ', STR_PAD_LEFT) . " $food";
 
-        $data->push("foods.$title", [
+        $model->push("foods.$title", [
           'weight'    => round( $weight, 1),
           'calories'  => round( $entry['calories'] * ($weight / 100), 1),
           'nutrients' => [
@@ -90,12 +95,10 @@ class FoodsController extends ControllerBase
       }
     }
 
-    // This day
-
-    $data->dayEntriesTxt = trim( @file_get_contents('data/days/' . date('Y-m-d') . '.tsv') ?: '', "\n");
-    $data->dayEntries    = parse_tsv( $data->dayEntriesTxt );
+    $this->model = $model;
 
     // All days
+    // no model data, kind of report
 
     foreach( scandir('data/days', SCANDIR_SORT_DESCENDING) as $file)
     {
@@ -105,15 +108,13 @@ class FoodsController extends ControllerBase
       $dat     = pathinfo($file, PATHINFO_FILENAME);
       $entries = parse_tsv( file_get_contents("data/days/$file"));
 
-      $data->push("lastDaysSums.$dat", [
+      $this->lastDaysSums[$dat] = [
         'caloriesSum' => ! $entries ? 0 : array_sum( array_column($entries, 1)),
         'fatSum'      => ! $entries ? 0 : array_sum( array_column($entries, 2)),
         'aminoSum'    => ! $entries ? 0 : array_sum( array_column($entries, 3)),
         'saltSum'     => ! $entries ? 0 : array_sum( array_column($entries, 4))
-      ]);
+      ];
     }
-
-    $this->model = $data;
   }
 
 
