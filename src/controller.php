@@ -125,9 +125,25 @@ class FoodsController extends ControllerBase
     require 'view/tabs.php';
     $tabs = ob_get_clean();
 
+
     ob_start();
     require 'view/tab_content/edit.php';
-    $tabs = str_replace('{edit_tab}', ob_get_clean(), $tabs);
+    $edit = ob_get_clean();
+
+    ob_start();
+    require 'view/tab_content/edit_controls/day_entries.php';
+    $edit = str_replace('{day_entries}', ob_get_clean(), $edit);
+
+    ob_start();
+    require 'view/tab_content/edit_controls/quick_summary.php';
+    $edit = str_replace('{quick_summary}', ob_get_clean(), $edit);
+
+    ob_start();
+    require 'view/tab_content/edit_controls/food_list.php';
+    $edit = str_replace('{food_list}', ob_get_clean(), $edit);
+
+    $tabs = str_replace('{edit_tab}', $edit, $tabs);
+
 
     ob_start();
     require 'view/tab_content/nutrients.php';
