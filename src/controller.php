@@ -43,7 +43,7 @@ class FoodsController extends ControllerBase
 
     // make food list with amounts (model)
 
-    $model = new SimpleData();
+    $this->model = new SimpleData();
 
     foreach( $foodsDef as $food => $entry )
     {
@@ -83,7 +83,7 @@ class FoodsController extends ControllerBase
 
         $title = str_pad( $amount, 3, ' ', STR_PAD_LEFT) . " $food";
 
-        $model->push("foods.$title", [
+        $this->model->push("foods.$title", [
           'weight'    => round( $weight, 1),
           'calories'  => round( $entry['calories'] * ($weight / 100), 1),
           'nutrients' => [
@@ -94,8 +94,6 @@ class FoodsController extends ControllerBase
         ]);
       }
     }
-
-    $this->model = $model;
 
     // All days
     // no model data, kind of report
