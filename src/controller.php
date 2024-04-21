@@ -122,48 +122,48 @@ class FoodsController extends ControllerBase
     // we currently use no Engine cause the app is tooooooooooo small
 
     ob_start();               // (TASK) for impoving this available
-    require 'view/tabs.php';
+    require 'view/tabs/-this.php';
     $tabs = ob_get_clean();
 
 
     ob_start();
-    require 'view/tab_content/edit.php';
+    require 'view/tabs/edit/-this.php';
     $edit = ob_get_clean();
 
     ob_start();
-    require 'view/tab_content/edit_controls/day_entries.php';
+    require 'view/tabs/edit/day_entries.php';
     $edit = str_replace('{day_entries}', ob_get_clean(), $edit);
 
     ob_start();
-    require 'view/tab_content/edit_controls/quick_summary.php';
+    require 'view/tabs/edit/quick_summary.php';
     $edit = str_replace('{quick_summary}', ob_get_clean(), $edit);
 
     ob_start();
-    require 'view/tab_content/edit_controls/food_list.php';
+    require 'view/tabs/edit/food_list.php';
     $edit = str_replace('{food_list}', ob_get_clean(), $edit);
 
-    $tabs = str_replace('{edit_tab}', $edit, $tabs);
+    $tabs = str_replace('{edit}', $edit, $tabs);
 
 
     ob_start();
-    require 'view/tab_content/nutrients.php';
-    $tabs = str_replace('{nutrients_tab}', ob_get_clean(), $tabs);
+    require 'view/tabs/nutrients.php';
+    $tabs = str_replace('{nutrients}', ob_get_clean(), $tabs);
 
     ob_start();
-    require 'view/tab_content/last_days.php';
-    $tabs = str_replace('{days_tab}', ob_get_clean(), $tabs);
+    require 'view/tabs/last_days.php';
+    $tabs = str_replace('{last_days}', ob_get_clean(), $tabs);
 
     ob_start();
-    require 'view/tab_content/foods.php';
-    $tabs = str_replace('{foods_tab}', ob_get_clean(), $tabs);
+    require 'view/tabs/foods.php';
+    $tabs = str_replace('{foods}', ob_get_clean(), $tabs);
 
     ob_start();
-    require 'view/index.php';
-    $index = ob_get_clean();
+    require 'view/-this.php';
+    $view = ob_get_clean();
     
-    $index = str_replace('{content}', $tabs, $index);
+    $view = str_replace('{tabs}', $tabs, $view);
 
-    echo $index;
+    echo $view;
   }
 }
 

@@ -16,22 +16,22 @@
 <div class="tab-content mt-3">
   <div class="tab-pane fade show active" id="inpPane" role="tabpanel">
 
-    {edit_tab}
+    {edit}
 
   </div>
   <div class="tab-pane fade" id="dayPane" role="tabpanel">
 
-    {nutrients_tab}
+    {nutrients}
 
   </div>
   <div class="tab-pane fade" id="lastDaysPane" role="tabpanel">
 
-    {days_tab}
+    {last_days}
 
   </div>
   <div class="tab-pane fade" id="foodsPane" role="tabpanel">
 
-    {foods_tab}
+    {foods}
 
   </div>
 </div>
