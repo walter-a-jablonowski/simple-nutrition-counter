@@ -43,7 +43,7 @@ My food S Bio:                      # S = short for store if needed (save some s
 
   price:              1.00
 
-  weight:             100           # in g or ml, of whole pack in case of pieces
+  weight:             100g          # unit g or ml is optional, of whole pack in case of pieces
   pieces:             6             # number of pieces in a pack (if any)
   usedAmounts:        ["1/4", ...]  # default  "1/4", "1/3", 1 * weight    if pieces unset
                                     #      or  1, 2, 3 * (weight / pieces) if pieces set

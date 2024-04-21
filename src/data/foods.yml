@@ -10,7 +10,7 @@ Amino NaDuRia Pur:  # some German foods  # (TASK) needs 100g feature in controll
   comment:           "2 Meßlöffel orange = 20g"
 
   price:             
-  weight:            300
+  weight:            300g
   usedAmounts:       ["20g"]
 
   calories:          357
@@ -30,7 +30,7 @@ Amino NaDuRia Pur:  # some German foods  # (TASK) needs 100g feature in controll
 
 Avocado:
 
-  weight:            150
+  weight:            150g
   usedAmounts:       [1]
 
   calories:          160

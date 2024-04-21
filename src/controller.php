@@ -60,6 +60,8 @@ class FoodsController extends ControllerBase
         $multipl = (float) eval("return $multipl;");            // 1/2 => 0.5
         // eval("\$multipl = $multipl;");
 
+        $entry['weight'] = trim( $entry['weight'], "mgl ");
+
         // $weight = ([                                         // trick use array, more readable but unusual
         //   'pack'    => fn() => $entry['weight'] * $multipl,  // would be evaluated first => use function
         //   'pieces'  => fn() => ($entry['weight'] / $entry['pieces']) * $multipl,
@@ -121,7 +123,7 @@ class FoodsController extends ControllerBase
 
     ob_start();
     require 'view/-this.php';
-    return ob_get_clean();    // echo is done in index  
+    return ob_get_clean();    // echo is done in index
   }
 }
 
