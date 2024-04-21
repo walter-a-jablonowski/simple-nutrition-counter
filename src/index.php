@@ -42,7 +42,7 @@ else
   $args = json_decode( file_get_contents('php://input'), true);
 
   $controller = new FoodsController();
-  echo $controller->dispatch($args);
+  echo json_encode( $controller->dispatch($args));
 }
 
 ?>
