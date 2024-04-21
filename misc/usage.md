@@ -45,13 +45,13 @@ My food S Bio:                      # S = short for store if needed (save some s
 
   weight:             100g          # unit g or ml is optional, of whole pack in case of pieces
   pieces:             6             # number of pieces in a pack (if any)
-  usedAmounts:        ["1/4", ...]  # default  "1/4", "1/3", 1 * weight    if pieces unset
-                                    #      or  1, 2, 3 * (weight / pieces) if pieces set
-                                    # or use   10g or 50ml
-                                    # you can't mix these, chosse one
+  usedAmounts:        ["1/4", ...]  # enter fraction, pieces or precise (you can't mix these, chosse one)
+                                    # - default  "1/4", "1/3", 1 * weight            if pieces unset
+                                    # -      or  1, 1pc, 2, 3    * (weight / pieces) if pieces set
+                                    # - or use   10g or 50ml
                                     # consumed as a single piece: use 1
 
-  calories:                         # grams, per 100g or 100ml (depends on what weight is)
+  calories:                         # per 100g or 100ml in grams (depends on what weight is)
   nutrients:
 
     fat:              100

@@ -42,6 +42,8 @@ class FoodsController extends ControllerBase
 
     foreach( $foodsDef as $food => $entry )
     {
+      $entry['weight'] = trim( $entry['weight'], "mgl ");  // just for convenience, we don't need the unit here
+
       $usage = isset( $entry['usedAmounts']) && ( strpos( $entry['usedAmounts'][0], 'g') !== false || strpos( $entry['usedAmounts'][0], 'ml') !== false)
              ? 'precise' : (
                isset($entry['pieces'])
@@ -56,11 +58,9 @@ class FoodsController extends ControllerBase
 
       foreach( $usedAmounts as $amount )
       {
-        $multipl = trim( $amount, "mgl ");
+        $multipl = trim( $amount, "mglpc ");
         $multipl = (float) eval("return $multipl;");            // 1/2 => 0.5
         // eval("\$multipl = $multipl;");
-
-        $entry['weight'] = trim( $entry['weight'], "mgl ");
 
         // $weight = ([                                         // trick use array, more readable but unusual
         //   'pack'    => fn() => $entry['weight'] * $multipl,  // would be evaluated first => use function
