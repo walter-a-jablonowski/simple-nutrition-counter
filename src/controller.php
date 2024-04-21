@@ -119,7 +119,9 @@ class FoodsController extends ControllerBase
   {
     $this->makeData();
 
+    ob_start();
     require 'view/-this.php';
+    return ob_get_clean();    // echo is done in index  
   }
 }
 

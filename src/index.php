@@ -18,18 +18,18 @@ $isAjax = ! empty( $_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower( $_SERVER['H
 
 if( ! $isAjax )
 {
-  // Routing would be sth like (delayed due to effort, see tasks, we currently make more features)
+  // Routing would be sth like (delayed due to effort, see tasks, we currently make features)
 
   // $router = new Router();
   //
-  // $router->register('', function($args) {  // empty should match anything (no apache config)
+  // $router->register('', function($args) {             // empty should match anything (no apache config)
   //
   //   $identifier = explode('/', $args['identifier']);  // remove first key is managed by routing
   //   array_shift($identifier);
   //   $args['identifier'] = implode('/', $identifier);
   //
   //   $controller = new FoodsController();
-  //   echo $controller->dispatch($params);
+  //   echo $controller->dispatch($args);
   // });
   //
   // $router->run();
