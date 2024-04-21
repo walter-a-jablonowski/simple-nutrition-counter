@@ -103,12 +103,12 @@ class FoodsController extends ControllerBase
       $dat     = pathinfo($file, PATHINFO_FILENAME);
       $entries = parse_tsv( file_get_contents("data/days/$file"));
 
-      $data->push('lastDaysSums', [$dat => [
+      $data->push("lastDaysSums.$dat", [
         'caloriesSum' => ! $entries ? 0 : array_sum( array_column($entries, 1)),
         'fatSum'      => ! $entries ? 0 : array_sum( array_column($entries, 2)),
         'aminoSum'    => ! $entries ? 0 : array_sum( array_column($entries, 3)),
         'saltSum'     => ! $entries ? 0 : array_sum( array_column($entries, 4))
-      ]]);
+      ]);
     }
 
     $this->model = $data;
