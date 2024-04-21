@@ -119,51 +119,7 @@ class FoodsController extends ControllerBase
   {
     $this->makeData();
 
-    // we currently use no Engine cause the app is tooooooooooo small
-
-    ob_start();               // (TASK) for impoving this available
-    require 'view/tabs/-this.php';
-    $tabs = ob_get_clean();
-
-
-    ob_start();
-    require 'view/tabs/edit/-this.php';
-    $edit = ob_get_clean();
-
-    ob_start();
-    require 'view/tabs/edit/day_entries.php';
-    $edit = str_replace('{day_entries}', ob_get_clean(), $edit);
-
-    ob_start();
-    require 'view/tabs/edit/quick_summary.php';
-    $edit = str_replace('{quick_summary}', ob_get_clean(), $edit);
-
-    ob_start();
-    require 'view/tabs/edit/food_list.php';
-    $edit = str_replace('{food_list}', ob_get_clean(), $edit);
-
-    $tabs = str_replace('{edit}', $edit, $tabs);
-
-
-    ob_start();
-    require 'view/tabs/nutrients.php';
-    $tabs = str_replace('{nutrients}', ob_get_clean(), $tabs);
-
-    ob_start();
-    require 'view/tabs/last_days.php';
-    $tabs = str_replace('{last_days}', ob_get_clean(), $tabs);
-
-    ob_start();
-    require 'view/tabs/foods.php';
-    $tabs = str_replace('{foods}', ob_get_clean(), $tabs);
-
-    ob_start();
     require 'view/-this.php';
-    $view = ob_get_clean();
-    
-    $view = str_replace('{tabs}', $tabs, $view);
-
-    echo $view;
   }
 }
 

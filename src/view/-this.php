@@ -51,7 +51,7 @@
 
   <div class="container-fluid mt-3">
 
-    {tabs}
+    <?php require( __DIR__ . '/tabs/-this.php') ?>
 
   </div>
 

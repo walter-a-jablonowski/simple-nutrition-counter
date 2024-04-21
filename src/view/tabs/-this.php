@@ -16,22 +16,22 @@
 <div class="tab-content mt-3">
   <div class="tab-pane fade show active" id="inpPane" role="tabpanel">
 
-    {edit}
+    <?php require( __DIR__ . '/edit/-this.php') ?>
 
   </div>
   <div class="tab-pane fade" id="dayPane" role="tabpanel">
 
-    {nutrients}
+    <?php require( __DIR__ . '/nutrients.php') ?>
 
   </div>
   <div class="tab-pane fade" id="lastDaysPane" role="tabpanel">
 
-    {last_days}
+    <?php require( __DIR__ . '/last_days.php') ?>
 
   </div>
   <div class="tab-pane fade" id="foodsPane" role="tabpanel">
 
-    {foods}
+    <?php require( __DIR__ . '/foods.php') ?>
 
   </div>
 </div>

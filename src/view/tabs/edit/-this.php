@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col">
 
-    {day_entries}
+    <?php require( __DIR__ . '/day_entries.php') ?>
 
-    {quick_summary}
+    <?php require( __DIR__ . '/quick_summary.php') ?>
 
   </div>
 </div>
@@ -11,7 +11,7 @@
 <div class="row mt-2">
   <div class="col scrollable-list">
 
-    {food_list}
+    <?php require( __DIR__ . '/food_list.php') ?>
 
   </div>
 </div>
