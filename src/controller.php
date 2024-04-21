@@ -76,6 +76,7 @@ class FoodsController extends ControllerBase
 
         $title = str_pad( $amount, 3, ' ', STR_PAD_LEFT) . " $food";
 
+        // $data->push("foods.$title", [    // TASK: problem: arra may be value, isn't neccesarily key
         $data->push('foods', [ $title => [
           'weight'    => round( $weight, 1),
           'calories'  => round( $entry['calories'] * ($weight / 100), 1),

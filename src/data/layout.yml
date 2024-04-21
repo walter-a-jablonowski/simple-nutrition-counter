@@ -1,13 +1,27 @@
 #
 # Layout
 #
-# - for upper part of nutrients list (button names are keys from nutrients or recipes)
+# - for upper part of nutrients list
 # - left over recipes nutrients will be attached below
 # - see also -> readme
 #
 
-Nuts:         # or "" for only one
-  - Cashew N  # line with 2 btns (50% width)
+#
+# Sample
+#
+# - Single recipe or nutrient name  # names are from recipes.yml
+#                                   # or foods.yml
+#                         ___________________
+# - My nutrient group:   | My nutrient group
+#                        |-------------------
+#   - Recipe             | Recipe   |
+#   - or nutrient        | Nutrient | 1/4 | ...  < amounts as defined in
+#   - ...                |          |              foods.yml
+#
+
+Nuts:
+
+  - Cashew N
   - Cashew E
   - Mandel N
   - Mandel R Bio
@@ -15,5 +29,6 @@ Nuts:         # or "" for only one
   - Nussmisch N
 
 # My Group:
+#   
 #   - Veggie L
 #   - Veggie C

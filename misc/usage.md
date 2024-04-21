@@ -1,10 +1,10 @@
 # Usage
 
 - [Common](#common)
-- [Recipes file usage](#recipes-file-usage)
-- [Foods file usage](#foods-file-usage)
-- [Nutrients file usage](#nutrients-file-usage)
-- [Layout file usage](#layout-file-usage)
+- [Recipes file usage (recipes.yml)](#recipes-file-usage-recipesyml)
+- [Foods file usage (foods.yml)](#foods-file-usage-foodsyml)
+- [Nutrients file usage (nutrients.yml)](#nutrients-file-usage-nutrientsyml)
+- [Layout file usage (layout.yml)](#layout-file-usage-layoutyml)
 
 
 Common
@@ -13,8 +13,10 @@ Common
 - Manual entering values: current solution is page reload on save
 - We include at least some supplements like magnesium to make sure we get the required amount. For some it may be enough to just take it regularly with no tracking.
 
+Data files below see /data
 
-Recipes file usage
+
+Recipes file usage (recipes.yml)
 ----------------------------------------------------------
 
 ```yaml
@@ -24,13 +26,12 @@ My recipe:
   Chick R Bio:  100g # < 0 (1/2)    is percent of pack
   Brokkoli R:        # > 0 (e.g. 2) is piece(s)
   Olivenöl:          # or with "g" (100g), "ml" (100ml)
-                     
 ```
 
-Foods file usage
+Foods file usage (foods.yml)
 ----------------------------------------------------------
 
-Currently we enter the values once in data/foods.yml. Easy when the number of ingredients usually used in a day is limited, and simpler than doing manual calculations (partially used ingredients).
+Currently we enter the values once in data/foods.yml. Simpler than doing manual calculations (partially used ingredients).
 
 ```yaml
 
@@ -72,7 +73,7 @@ My food S Bio:                      # S = short for store if needed (save some s
 ```
 
 
-Nutrients file usage
+Nutrients file usage (nutrients.yml)
 ----------------------------------------------------------
 
 (advanced feature)
@@ -93,9 +94,20 @@ B 12:
   upper:                5
 ```
 
-Layout file usage
+Layout file usage (layout.yml)
 ----------------------------------------------------------
+
+- for upper part of nutrients list
+- left over recipes nutrients will be attached below
 
 ```yaml
 
+- Single recipe or nutrient name  # names are from recipes.yml
+                                  # or foods.yml
+                        ___________________
+- My nutrient group:   | My nutrient group
+                       |-------------------
+  - Recipe             | Recipe   |
+  - or nutrient        | Nutrient | 1/4 | ...  < amounts as defined in
+  - ...                |          |              foods.yml
 ```
