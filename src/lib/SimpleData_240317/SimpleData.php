@@ -76,13 +76,12 @@ class SimpleData /*@*/
 
   public function push( string $key, $value )
   {
-    $elem = &$this->findKey( $key, $make = true );
+    $keys = explode('.', $key);
+    $sub  = array_pop($keys);
+    $key  = implode('.', $keys);
     
-    if( ! is_array($value) )
-      $elem[] = $value;
-    else
-      $elem[ array_key_first($value) ] = array_values($value)[0];
-      // $elem = array_merge( $elem, $value );
+    $elem = &$this->findKey( $key, $make = true );
+    $elem[$sub] = $value;
   }
 
 
