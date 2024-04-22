@@ -19,6 +19,17 @@ class FoodsEventController
     const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
     const popoverList = [...popoverTriggerList].map( popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl, {html: true}))
 
+    // clear modal
+
+    query('#newEntryModal').addEventListener('show.bs.modal', event => {
+      
+      query('#modalNameInput').value     = 'Misc'  // default
+      query('#modalCaloriesInput').value = ''
+      query('#modalFatInput').value      = ''
+      query('#modalAminoInput').value    = ''
+      query('#modalSaltInput').value     = ''
+    })
+
     // Sortable (advanced)  #code/advancedDayEntries
 
     // $('#dayEntries').sortable({
@@ -60,28 +71,14 @@ class FoodsEventController
 
   newEntryBtn(event)
   { 
+    // modal see also construct
+
     // $('#newEntryModal').modal('show')
 
-    $('#newEntryModal').on('show.bs.modal', function () {
-
-      $('#modalNameInput').val('Misc')  // default
-      $('#modalCaloriesInput').val('')
-      $('#modalFatInput').val('')
-      $('#modalAminoInput').val('')
-      $('#modalSaltInput').val('')
-    })
-
-    // Plain js?
-
-    // const openModalButton = document.getElementById('openModalButton');
-    // const modalElement = document.getElementById('newEntryModal');
-    // const modalInstance = new bootstrap.Modal( modalElement, {
-    //   // Optional: Modal options go here (like keyboard: false to disable closing modal with keyboard)
-    // })
-
-    // openModalButton.addEventListener('click', function () {
-    //   modalInstance.show()
-    // })
+    const myModal = new bootstrap.Modal( query('#newEntryModal')) //, options)
+    // or const myModalAlternative = new bootstrap.Modal('#myModal', options)
+    
+    myModal.show()  //  Also, you can pass a DOM element as an argument that can be received in the modal events (as the relatedTarget property). (i.e. const modalToggle = document.getElementById('toggleMyModal'); myModal.show(modalToggle)
   }
 
   newEntrySaveBtn(event)
