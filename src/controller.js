@@ -58,6 +58,32 @@ class FoodsEventController
     window.location.reload()
   }
 
+  newEntryBtn(event)
+  { 
+    // $('#newEntryModal').modal('show')
+
+    $('#newEntryModal').on('show.bs.modal', function () {
+
+      $('#modalNameInput').val('Misc')  // default
+      $('#modalCaloriesInput').val('')
+      $('#modalFatInput').val('')
+      $('#modalAminoInput').val('')
+      $('#modalSaltInput').val('')
+    })
+
+    // Plain js?
+
+    // const openModalButton = document.getElementById('openModalButton');
+    // const modalElement = document.getElementById('newEntryModal');
+    // const modalInstance = new bootstrap.Modal( modalElement, {
+    //   // Optional: Modal options go here (like keyboard: false to disable closing modal with keyboard)
+    // })
+
+    // openModalButton.addEventListener('click', function () {
+    //   modalInstance.show()
+    // })
+  }
+
   newEntrySaveBtn(event)
   {
     // AI generated
@@ -74,6 +100,7 @@ class FoodsEventController
     $('#newEntryModal').modal('hide')
     
     // Plain js?
+
     // const modalElement = document.getElementById('newEntryModal')
     // const modalInstance = bootstrap.Modal.getInstance(modalElement)
     // modalInstance.hide()
