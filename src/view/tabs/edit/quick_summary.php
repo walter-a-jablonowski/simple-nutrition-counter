@@ -23,6 +23,13 @@
       Save
     </button>
 
+    <!-- Try modal (or add in list as static entry -->
+
+<!--
+    <button class="btn btn-sm btn-light" onclick="foodsCrl.saveDayEntriesBtnClick(event)">
+      New
+    </button>
+-->
   </div>
 </div>
 <div class="row">

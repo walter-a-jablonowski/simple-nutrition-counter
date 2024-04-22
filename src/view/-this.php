@@ -55,7 +55,7 @@
 
   </div>
 
-
+  <?php require( __DIR__ . '/modal.php') ?>
 
 <?php if( $this->debug ): ?>
   <script>
