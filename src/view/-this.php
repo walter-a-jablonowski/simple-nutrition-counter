@@ -55,6 +55,8 @@
 
   </div>
 
+
+
 <?php if( $this->debug ): ?>
   <script>
     document.write('<p>Width: ' + window.innerWidth + 'px, Height: ' + window.innerHeight + 'px</p>')

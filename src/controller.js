@@ -58,6 +58,27 @@ class FoodsEventController
     window.location.reload()
   }
 
+  newEntrySaveBtn(event)
+  {
+    // AI generated
+
+    const entry = {
+      name:     query('#modalNameInput').value,
+      calories: parseFloat( query('#modalCaloriesInput').value),
+      fat:      parseFloat( query('#modalFatInput').value),
+      amino:    parseFloat( query('#modalAminoInput').value),
+      salt:     parseFloat( query('#modalSaltInput').value)
+    }
+    
+    dayEntries.push(entry);
+    $('#newEntryModal').modal('hide')
+    
+    // Plain js?
+    // const modalElement = document.getElementById('newEntryModal')
+    // const modalInstance = bootstrap.Modal.getInstance(modalElement)
+    // modalInstance.hide()
+  }
+
   foodItemClick(event)
   {
     let target    = event.target
