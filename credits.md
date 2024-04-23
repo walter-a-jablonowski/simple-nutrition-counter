@@ -26,18 +26,6 @@ THE SOFTWARE.
 ```
 
 
-bootstrap.build
-==========================================================
-
-Use our themes and templates for multiple projects, both personal and commercial - link is required.
-
-But there are some things you can't do:
-
-Redistribute or resell our themes and templates or source files.
-Offer themes and templates to users of your hosting or blogging service.
-Create templates, themes and plugins for sale or free distribution.
-
-
 PHP
 ==========================================================
 

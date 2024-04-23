@@ -1,0 +1,26 @@
+/* AI geneated */
+
+:root {
+  --bs-primary: #E95420 !important;
+}
+
+.navbar.bg-primary {
+  background-color: var(--bs-primary) !important;
+}
+
+.btn-primary {
+  background-color: var(--bs-primary) !important;
+  border-color: var(--bs-primary) !important;
+}
+
+.nav-tabs .nav-link {
+  color: var(--bs-primary) !important;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-link.active:hover, .nav-tabs .nav-link.active:focus {
+  color: var(--bs-primary) !important;
+}
+
+.progress-bar.bg-success {
+  background-color: #38B44A !important;
+}

@@ -8,28 +8,27 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="modalNameInput" class="form-label">Name</label>
-            <input id="modalNameInput"  type="text" value="Misc" class="form-control" required>
-          </div>
-          <div class="mb-3">
-            <label for="modalCaloriesInput" class="form-label">Calories</label>
-            <input id="modalCaloriesInput"  type="number" class="form-control" required>
-          </div>
-          <div class="mb-3">
-            <label for="modalFatInput" class="form-label">Fat (grams)</label>
-            <input id="modalFatInput"  type="number" class="form-control" required>
-          </div>
-          <div class="mb-3">
-            <label for="modalAminoInput" class="form-label">Amino Acids (grams)</label>
-            <input id="modalAminoInput"  type="number" class="form-control" required>
-          </div>
-          <div class="mb-3">
-            <label for="modalSaltInput" class="form-label">Salt (grams)</label>
-            <input id="modalSaltInput"  type="number" class="form-control" required>
-          </div>
-        </form>
+
+        <div class="form-floating mb-3">
+          <input id="modalNameInput" type="text" class="form-control" placeholder="Name" value="Misc" required>
+          <label for="modalNameInput">Name</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input id="modalCaloriesInput" type="number" class="form-control" placeholder="Calories" required>
+          <label for="modalCaloriesInput">Calories</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input id="modalFatInput"   type="number" class="form-control" placeholder="Fat (grams)" required>
+          <label for="modalFatInput">Fat (grams)</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input id="modalAminoInput" type="number" class="form-control" placeholder="Amino Acids (grams)" required>
+          <label for="modalAminoInput">Amino Acids (grams)</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input id="modalSaltInput"  type="number" class="form-control" placeholder="Salt (grams)" required>
+          <label for="modalSaltInput">Salt (grams)</label>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">

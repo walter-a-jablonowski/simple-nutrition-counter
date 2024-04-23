@@ -6,8 +6,8 @@
 
   <title>NutriCounter</title>
 
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
-  <link rel="stylesheet" href="style/bootstrap_themed.min.css">
+  <link href="style/theme.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
   <link href="style/app.css" rel="stylesheet">
@@ -27,8 +27,8 @@
         </div>
 -->
         <button type="button" class="btn btn-sm" data-bs-toggle="popover"
-                data-bs-title   = "Credits"
-                data-bs-content = "BS theme by &lt;a href=&quot;https://bootstrap.build/license&quot;&gt;bootstrap.build&lt;/a&gt;">
+                data-bs-title   = "Some help"
+                data-bs-content = "...">
           <i class="bi bi-info-circle mt-4 text-white"></i>
         </button>
       </div>
