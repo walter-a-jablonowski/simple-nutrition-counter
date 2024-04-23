@@ -1,0 +1,66 @@
+körnerbr N
+roggenvollkorn N
+sardine
+thunfisch
+senf
+gurken N
+rüben N
+champignons N
+apfelkohl N
+pilze N
+kokos
+walnüsse N
+essig (?)
+jogh
+käse N
+pizza
+seelachs N
+fischstäbchen
+kiwi
+tomaten N
+knoblauch N
+zwiebeln N
+bohnen N
+
+salat
+salatsoße
+banane
+knoblauch R
+zwiebeln R
+gemüsezwiebeln R
+tomaten R
+paprika R
+kartoffel rösti
+(frosta multiple)
+kabeljau
+rosenkohl
+walnüsse R
+kürbis
+sonnenblumenkerne
+pinienkerne
+champignons R
+bohnen
+grüne bohnen
+gurken R
+apfelkohl R
+pilze R
+oliven
+artischocken
+rüben R
+pepperoni
+rapsöl
+pfeffer
+oregano
+ingwer
+petersilie
+chili
+gebackene bohnen
+roggenvollkorn R
+br R (multiple)
+frischkäse
+käse R
+parmesan
+milch frisch
+zitrone
+pink grapefruit
+orangensaft
