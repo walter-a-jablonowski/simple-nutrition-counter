@@ -7,7 +7,7 @@
         <h5 class="modal-title">New entry</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body small">
 
         <div class="form-floating mb-3">
           <input id="modalNameInput" type="text" class="form-control" placeholder="Name" value="Misc" required>
