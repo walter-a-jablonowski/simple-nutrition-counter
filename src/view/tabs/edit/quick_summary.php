@@ -19,17 +19,17 @@
   </div>
   <div class="col mr-2 pl-1 text-end text-right" style="max-height: 20px;">
 
-    <button class="btn btn-sm btn-light" onclick="foodsCrl.saveDayEntriesBtnClick(event)">
+    <!-- <button class="btn btn-sm btn-light" onclick="foodsCrl.saveDayEntriesBtnClick(event)">
       Save
-    </button>
+    </button> -->
 
     <!-- Try modal (or add in list as static entry -->
 
-<!--
+
     <button class="btn btn-sm btn-light" onclick="foodsCrl.newEntryBtn(event)">
       New
     </button>
--->
+
   </div>
 </div>
 <div class="row">
