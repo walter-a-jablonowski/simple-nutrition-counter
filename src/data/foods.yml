@@ -438,6 +438,26 @@ Mandel R Bio:
   lastUpd:           2024-03-30
   lastPriceUpd:      2024-03-30
 
+Mehrkornbr:
+
+  price:             
+  weight:            500g
+
+  calories:          221
+  nutrients:
+
+    fat:             2.6
+    saturatedFat:    0.2
+    carbs:           39.0
+    sugar:           0.3
+    fibre:           5.7
+    amino:           7.6
+    salt:            1.34
+
+  sources:           "Macro nutrients: pack"
+  lastUpd:           2024-04-23
+  lastPriceUpd:      
+
 Milch H:
 
   price:             
@@ -458,6 +478,25 @@ Milch H:
 
   sources:           "Macro nutrients: web, nutrients: calcium also from vendors page online"
   lastUpd:           2024-04-11
+  lastPriceUpd:      
+
+Mohnkuchen:
+
+  price:             
+  weight:            400g
+
+  calories:          331
+  nutrients:
+
+    fat:             9.4
+    saturatedFat:    3.3
+    carbs:           52.1
+    sugar:           18.3
+    amino:           7.8
+    salt:            0.78
+
+  sources:           "Macro nutrients: pack"
+  lastUpd:           2024-04-23
   lastPriceUpd:      
 
 Nussmisch N:
