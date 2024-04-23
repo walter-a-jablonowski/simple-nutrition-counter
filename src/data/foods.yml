@@ -440,8 +440,11 @@ Mandel R Bio:
 
 Mehrkornbr:
 
+  comment:           "2 smaller pieces count as one"
+
   price:             
   weight:            500g
+  pieces:            12
 
   calories:          221
   nutrients:
