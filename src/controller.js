@@ -73,17 +73,14 @@ class FoodsEventController
   { 
     // modal see also construct
 
-    // $('#newEntryModal').modal('show')
-
+    // const myModal = new bootstrap.Modal('#myModal'), options)  // some eror
     const myModal = new bootstrap.Modal( query('#newEntryModal')) //, options)
-    // or const myModalAlternative = new bootstrap.Modal('#myModal', options)
-    
     myModal.show()  //  Also, you can pass a DOM element as an argument that can be received in the modal events (as the relatedTarget property). (i.e. const modalToggle = document.getElementById('toggleMyModal'); myModal.show(modalToggle)
   }
 
   newEntrySaveBtn(event)
   {
-    // AI generated
+    // modal see also construct
 
     const entry = {
       name:     query('#modalNameInput').value,
@@ -93,14 +90,17 @@ class FoodsEventController
       salt:     parseFloat( query('#modalSaltInput').value)
     }
     
-    dayEntries.push(entry);
-    $('#newEntryModal').modal('hide')
-    
-    // Plain js?
+    dayEntries.push(entry);   // simple version
+    query('#dayEntries').value += `\n${entry.name}  ${entry.calories}  ${entry.fat}  ${entry.amino}  ${entry.salt}`    
 
-    // const modalElement = document.getElementById('newEntryModal')
-    // const modalInstance = bootstrap.Modal.getInstance(modalElement)
-    // modalInstance.hide()
+    this.updSums()
+    this.#saveDayEntries()
+
+    // const myModal = new bootstrap.Modal('#myModal'), options)     // some eror
+    // const myModal = new bootstrap.Modal( query('#newEntryModal')) //, options)
+    $('#newEntryModal').modal('hide')
+
+    // window.location.reload()  // simple version: fix tsv
   }
 
   foodItemClick(event)

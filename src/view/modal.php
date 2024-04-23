@@ -10,7 +10,7 @@
       <div class="modal-body small">
 
         <div class="form-floating mb-3">
-          <input id="modalNameInput" type="text" class="form-control" placeholder="Name" value="Misc" required>
+          <input id="modalNameInput" class="form-control" placeholder="Name" value="Misc" required>
           <label for="modalNameInput">Name</label>
         </div>
         <div class="form-floating mb-3">
