@@ -2,7 +2,6 @@ class FoodsEventController
 {
   constructor(args)
   {
-
     // Binding
 
     this.lastDayBtnClick        = this.lastDayBtnClick.bind(this)
@@ -19,7 +18,7 @@ class FoodsEventController
     const popoverTriggerList = query('[data-bs-toggle="popover"]')
     const popoverList = [...popoverTriggerList].map( popoverTriggerEl => new bootstrap.Popover( popoverTriggerEl, {
       html: true,
-      customClass: 'help'
+      customClass: 'help'  // TASK: use a modal
     }))
 
     // clear modal
@@ -43,26 +42,44 @@ class FoodsEventController
     // $('#dayEntries').disableSelection()
   }
 
+
+  // Switch day
+
+  // lastDayBtnClick(event)
+  // {
+  //   let currentDate = new Date( query('#dateDisplay').textContent)
+  //
+  //   currentDate.setDate( currentDate.getDate() - 1)
+  //   window.location.href = `?date=${ currentDate.toISOString().split('T')[0]}`
+  // }
+  //
+  // nextDayBtnClick(event)
+  // {
+  //   let currentDate = new Date( query('#dateDisplay').textContent)
+  //
+  //   currentDate.setDate( currentDate.getDate() + 1)
+  //   window.location.href = `?date=${ currentDate.toISOString().split('T')[0]}`
+  // }
+  //
+  // thisDayBtnClick(event)
+
   lastDayBtnClick(event)
-  {
-    let currentDate = new Date( query('#dateDisplay').textContent)
-
-    currentDate.setDate( currentDate.getDate() - 1)
-    window.location.href = `?date=${ currentDate.toISOString().split('T')[0]}`
+  { 
+    if( event.target.innerHTML === 'Last day')
+    {
+      let currentDate = new Date( query('#dateDisplay').textContent)
+  
+      currentDate.setDate( currentDate.getDate() - 1)
+      window.location.href = `?date=${ currentDate.toISOString().split('T')[0]}`
+    }
+    else if( event.target.innerHTML === 'This day')
+    {
+      window.location.href = `index.php`
+    }
   }
 
-  nextDayBtnClick(event)
-  {
-    let currentDate = new Date( query('#dateDisplay').textContent)
 
-    currentDate.setDate( currentDate.getDate() + 1)
-    window.location.href = `?date=${ currentDate.toISOString().split('T')[0]}`
-  }
-
-  thisDayBtnClick(event)
-  {
-    // TASK
-  }
+  // Day entries
 
   saveDayEntriesBtnClick(event)
   {
@@ -105,6 +122,9 @@ class FoodsEventController
 
     // window.location.reload()  // simple version: fix tsv
   }
+
+
+  // List
 
   foodItemClick(event)
   {
@@ -160,6 +180,9 @@ class FoodsEventController
         query('#uiMsg').innerHTML = result.message
     })
   }
+
+
+  // Helper
 
   /*@
   

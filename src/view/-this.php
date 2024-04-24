@@ -18,7 +18,8 @@
   <nav class="navbar navbar-expand-lg bg-primary">
     <div class="container-fluid">
       <div class="d-flex w-100 justify-content-between">
-        <a class="navbar-brand text-white" href="#">Nutri Counter</a>
+
+        <!-- Full version -->
 <!--
         <div class="d-flex justify-content-center align-items-center">
           <button onclick="foodsCrl.lasrDayBtnClick(event)" class="btn btn-primary mx-2">&lt;</button>
@@ -26,6 +27,18 @@
           <button onclick="foodsCrl.lastDayBtnClick(event)" class="btn btn-primary mx-2">&gt;</button>
         </div>
 -->
+        <!-- Simplified -->
+<!-- 
+        <div>
+-->
+          <a class="navbar-brand text-white" href="#">Nutri Counter</a>
+<!-- 
+          <button onclick="foodsCrl.lasrDayBtnClick(event)" class="btn btn-sm btn-secondary mb-1">
+            Last day
+          </button>
+        </div>
+-->
+
         <button type="button" class="btn btn-sm" data-bs-toggle="popover"
                 data-bs-title   = "Help"
                 data-bs-content = "<?= htmlspecialchars( file_get_contents('help.html')) ?>">
