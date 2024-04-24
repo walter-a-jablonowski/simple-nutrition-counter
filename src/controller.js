@@ -16,8 +16,11 @@ class FoodsEventController
 
     // BS
 
-    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-    const popoverList = [...popoverTriggerList].map( popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl, {html: true}))
+    const popoverTriggerList = query('[data-bs-toggle="popover"]')
+    const popoverList = [...popoverTriggerList].map( popoverTriggerEl => new bootstrap.Popover( popoverTriggerEl, {
+      html: true,
+      customClass: 'help'
+    }))
 
     // clear modal
 

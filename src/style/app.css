@@ -1,22 +1,26 @@
-.scrollable-list {
-  /* height: 100vh; */ /* 100% of the viewport height */
-  overflow-y: auto;
-  border: 1px solid #ddd;
+/* Help */
+
+.help {
+  max-width: 400px;
 }
+
+/* Food list */
 
 .food-item {
-  /* padding: 5px; */  /* old */
-  /* border-bottom: 1px solid #eee; */
-  cursor: pointer;
+  cursor: pointer;  /* TASK */
 }
 
-.list-group-item.flex-fill {
-  width: 100%; /* Make each list item full width */
-}
-
-/* Mini table */
+/* Quick summary */
 
 .align-split {
   display: flex;
   justify-content: space-between;
+}
+
+/* Tools */
+
+.scrollable-list {
+  /* height: 100vh; */ /* 100% of the viewport height */
+  overflow-y: auto;
+  border: 1px solid #ddd;
 }
