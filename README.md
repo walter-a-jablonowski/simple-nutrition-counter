@@ -36,7 +36,7 @@ Mission
 
 Most people are deficient in one or more than one substance e.g. zinc, vitamin D, iron, ... 50% of US citizens are deficient in Magnesium, 30% are deficent in ... What if you could have perfect supply? All of these substances are needed for something. Being able to track all vitamins, minerals, amino acids, faty acids seperately may make a big difference for general health and brain function.
 
-Would you fill gas in your car if it's empty? Is it wise to fill in all nutrients your body needs?
+Would you fill gas in your car if it's empty? Is it wise to fill in all nutrients the body needs?
 
 The problem with supplements: B12 cyanocobalamin isn't the real B12 but a cheap sythetic form, dosage while production often goes wrong and you are missing unexplored plant substances. Of course it might make sense to use some supplements if you can't get enough from food. But in general food is the more natural (better) source if you verfiy there are e.g. no pesticides in it.
 
