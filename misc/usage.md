@@ -1,13 +1,22 @@
 # Usage
 
-- [Common](#common)
+- [Install](install)
+- [Common usage](#common-usage)
 - [Recipes file usage (recipes.yml)](#recipes-file-usage-recipesyml)
 - [Foods file usage (foods.yml)](#foods-file-usage-foodsyml)
 - [Nutrients file usage (nutrients.yml)](#nutrients-file-usage-nutrientsyml)
 - [Layout file usage (layout.yml)](#layout-file-usage-layoutyml)
 
 
-Common
+Install
+----------------------------------------------------------
+
+```
+composer install walter-a-jablonowski/simple-nutrition-counter
+```
+
+
+Common usage
 ----------------------------------------------------------
 
 - Manual entering values: current solution is page reload on save
