@@ -69,8 +69,8 @@ and maybe (advanced)
 LICENSE
 ----------------------------------------------------------
 
-Copyright (C) Walter A. Jablonowski 2024, licensed currenlty under AGPLv3 [License](https://choosealicense.com/licenses/agpl-3.0), \
-free for non-commercial users, commercial licensees must support the development
+Copyright (C) Walter A. Jablonowski 2024, free for non-commercial users currenlty under AGPLv3 [License](https://choosealicense.com/licenses/agpl-3.0), \
+commercial licensees must support the development
 
 This app is build upon PHP and free software (see [credits](credits.md)).
 
