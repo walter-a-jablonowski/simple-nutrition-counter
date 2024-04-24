@@ -5,7 +5,7 @@ class FoodsEventController
     // Binding
 
     this.lastDayBtnClick        = this.lastDayBtnClick.bind(this)
-    this.nextDayBtnClick        = this.nextDayBtnClick.bind(this)
+    // this.nextDayBtnClick     = this.nextDayBtnClick.bind(this)
     // this.thisDayBtnClick     = this.thisDayBtnClick.bind(this)
     this.saveDayEntriesBtnClick = this.saveDayEntriesBtnClick.bind(this)
     this.foodItemClick          = this.foodItemClick.bind(this)
