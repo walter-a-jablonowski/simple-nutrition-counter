@@ -252,7 +252,27 @@ Green beans R:
   lastUpd:           2024-04-24
   lastPriceUpd:      
 
-Frosta R:
+Frosta Bratk R:
+
+  price:             2.99
+  weight:            500
+
+  calories:          96
+  nutrients:
+
+    fat:             3.5
+    saturatedFat:    1.2
+    carbs:           10.2
+    sugar:           2.1
+    fibre:           2
+    amino:           4.8
+    salt:            0.74
+
+  sources:           "Macro nutrients: pack, price: deal ca"
+  lastUpd:           2024-04-24
+  lastPriceUpd:      2024-04-24
+
+Frosta Gesch R:
 
   price:             3.49
   weight:            375
