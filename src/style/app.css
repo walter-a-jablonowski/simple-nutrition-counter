@@ -24,3 +24,7 @@
   overflow-y: auto;
   border: 1px solid #ddd;
 }
+
+.no-indent {
+  padding-left: 20px;
+}
