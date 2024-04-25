@@ -789,11 +789,11 @@ Riegel Deca Basic:
   lastUpd:           2024-04-24
   lastPriceUpd:      2024-04-24
 
-Ritter Sp:
+Ritter Sp 50%:
 
   price:             1.69
   weight:            100
-  usedAmounts:       ["1/4", "1/2"]
+  usedAmounts:       [1,2,4,6,8,16]
 
   calories:          595
   nutrients:
@@ -808,6 +808,26 @@ Ritter Sp:
   sources:           "Macro nutrients: web"
   lastUpd:           2024-04-16
   lastPriceUpd:      2024-04-16
+
+Ritter Sp 81%:
+
+  price:             1.69
+  weight:            100
+  usedAmounts:       [1,2,4]
+
+  calories:          609
+  nutrients:
+
+    fat:             52
+    saturatedFat:    33
+    carbs:           20
+    sugar:           16
+    amino:           9.4
+    salt:            0
+
+  sources:           "Macro nutrients: web"
+  lastUpd:           2024-04-24
+  lastPriceUpd:      2024-04-24
 
 Salami R:
 
