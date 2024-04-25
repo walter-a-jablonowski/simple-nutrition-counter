@@ -28,6 +28,26 @@ Amino NaDuRia Pur:  # some German foods  # (TASK) needs 100g feature in controll
   lastUpd:           2024-03-13
   lastPriceUpd:      
 
+Amino Deca Muscle Gainer:
+
+  price:             17.99
+  weight:            700g
+  usedAmounts:       ["20g"]
+
+  calories:          375
+  nutrients:
+
+    fat:             4.6
+    saturatedFat:    2
+    carbs:           45
+    sugar:           8.6
+    amino:           36
+    salt:            0.3
+
+  sources:           "Macro nutrients: web (information on packaging may differ slightly)"
+  lastUpd:           2024-04-24
+  lastPriceUpd:      2024-04-24
+
 Avocado:
 
   weight:            150g
@@ -212,6 +232,26 @@ Chips light:
   lastUpd:           2024-02-18
   lastPriceUpd:      2024-03-23
 
+Duplo:
+
+  price:             0.49
+  weight:            18.2
+  usedAmounts:       [1]
+
+  calories:          551
+  nutrients:
+
+    fat:             33
+    saturatedFat:    18.9
+    carbs:           56
+    sugar:           50.4
+    amino:           6.1
+    salt:            0.191
+
+  sources:           "Macro nutrients: web (information on packaging may differ slightly), price: D"
+  lastUpd:           2024-04-24
+  lastPriceUpd:      2024-04-24
+
 Erdn Salz N big:
 
   price:             2.39
@@ -235,7 +275,7 @@ Erdn Salz N big:
 
 Green beans R:
 
-  price:             
+  price:             1.49
   weight:            330
 
   calories:          25
@@ -250,7 +290,7 @@ Green beans R:
 
   sources:           "Macro nutrients: pack"
   lastUpd:           2024-04-24
-  lastPriceUpd:      
+  lastPriceUpd:      2024-04-24
 
 Frosta Bratk R:
 
@@ -336,12 +376,11 @@ Kartoffeltaschen F:
 
 Kfc Original:
 
-  comment:           "TASK: weight is from a third party source (kfc source unclear)"
+  comment:           "weight is from a third party source (kfc source unclear)"
   ingredients:       "Hähnchenfleischerzeugnis aus flüssiggewürztem Hähnchenbrustfleisch, paniert, gegart. 100 g Produkt werden aus 79 g Hähnchenbrustfleisch hergestellt. Hähnchenbrustfleisch, Weizenmehl, pflanzliche Öle (Sonnenblume, Raps), Speisesalz, Maisstärke, Säureregulator Natriumhydrogencarbonat/E500(ii), Geschmacksverstärker Mononatriumglutamat/E621, Gewürze, Magermilchpulver, Süßmolkenpulver (enthält Milch), Eieralbuminpulver"
 
   price:             5.99
   weight:            147
-  pieces:            6 # 24.5
   usedAmounts:       [1]
 
   calories:          234
@@ -565,7 +604,7 @@ Nussmisch N:
 
 Olivenöl:
 
-  price:             
+  price:             16.00
   weight:            500
   usedAmounts:       ["30ml", "60ml"]
 
@@ -583,7 +622,7 @@ Olivenöl:
 
   sources:           "Macro nutrients: pack"
   lastUpd:           2024-04-08
-  lastPriceUpd:      
+  lastPriceUpd:      2024-04-24
 
 Patros:
 
@@ -729,6 +768,26 @@ Riegel Seitenb Sch:
   sources:           "Macro nutrients: web, nutrients: calcium also from vendors page online"
   lastUpd:           2024-02-18
   lastPriceUpd:      2024-03-23
+
+Riegel Deca Basic:
+
+  price:             1.99
+  weight:            60
+  usedAmounts:       [1]
+
+  calories:          385
+  nutrients:
+
+    fat:             9.8
+    saturatedFat:    7
+    carbs:           44
+    sugar:           28
+    amino:           28
+    salt:            0.33
+
+  sources:           "Macro nutrients: web"
+  lastUpd:           2024-04-24
+  lastPriceUpd:      2024-04-24
 
 Ritter Sp:
 
