@@ -11,7 +11,7 @@ Amino NaDuRia Pur:  # some German foods  # (TASK) needs 100g feature in controll
 
   price:             
   weight:            300g
-  usedAmounts:       ["20g"]
+  usedAmounfts:       ["20g"]
 
   calories:          357
   nutrients:
@@ -455,26 +455,6 @@ Lyoner R Bio:
   lastUpd:           2024-03-22
   lastPriceUpd:      2024-03-23
 
-# Mandel E:  # maybe was rewe
-
-#   price:             
-#   weight:            200
-#
-#   calories:          619
-#   nutrients:
-#
-#     fat:             53
-#     saturatedFat:    4.1
-#     carbs:           5.7
-#     sugar:           3.4
-#     fibre:           11.4
-#     amino:           24
-#     salt:            0.1
-#
-#   sources:           "Macro nutrients: pack"
-#   lastUpd:           2024-02-18
-#   lastPriceUpd:      
-
 Mandel N:
 
   price:             1.89
@@ -510,9 +490,9 @@ Mandel R Bio:
     sugar:           3.4
     fibre:           11.4
     amino:           24
-    salt:            0.1
+    salt:            0.01
 
-  sources:           "Macro nutrients: web (information on packaging may differ slightly)"
+  sources:           "Macro nutrients: pack"
   lastUpd:           2024-03-30
   lastPriceUpd:      2024-03-30
 
@@ -604,7 +584,7 @@ Nussmisch N:
 
 Olivenöl:
 
-  price:             16.00
+  price:             16.99
   weight:            500
   usedAmounts:       ["30ml", "60ml"]
 
