@@ -119,6 +119,8 @@ class FoodsController extends ControllerBase
   public function render(/*$request*/)
   {
     $this->date = $_GET['date'] ?? date('Y-m-d');
+    $this->mode = isset($_GET['date']) ? 'last' : 'current';
+    
     $this->makeData();
 
     ob_start();

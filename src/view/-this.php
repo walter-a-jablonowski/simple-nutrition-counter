@@ -19,7 +19,7 @@
     <div class="container-fluid">
       <div class="d-flex w-100 justify-content-between">
 
-        <!-- Full version -->
+        <!-- Multiple days version -->
 <!--
         <div class="d-flex justify-content-center align-items-center">
           <button onclick="foodsCrl.lasrDayBtnClick(event)" class="btn btn-primary mx-2">&lt;</button>
@@ -30,11 +30,13 @@
         <!-- Simplified -->
 
         <div>
-
           <a class="navbar-brand text-white" href="#">Nutri Counter</a>
 
-          <button onclick="foodsCrl.lasrDayBtnClick(event)" class="btn btn-sm btn-secondary mb-1">
-            Last day
+          <button onclick="foodsCrl.lasrDayBtnClick(event)"
+            data-sel = "<?= $this->mode ?>"
+            class    = "btn btn-sm btn-secondary mb-1"
+          >
+            <?= ( $this->mode === 'current' ? 'current day' : 'last day' ) ?>
           </button>
         </div>
 

@@ -47,6 +47,8 @@ class FoodsEventController
 
   // Switch day
 
+  // multiple days version
+
   // lastDayBtnClick(event)
   // {
   //   let currentDate = new Date( query('#dateDisplay').textContent)
@@ -67,14 +69,14 @@ class FoodsEventController
 
   lastDayBtnClick(event)
   { 
-    if( event.target.innerHTML === 'Last day')
+    if( event.target.dataset.sel === 'current')
     {
       let currentDate = new Date( query('#dateDisplay').textContent)
   
       currentDate.setDate( currentDate.getDate() - 1)
       window.location.href = `?date=${ currentDate.toISOString().split('T')[0]}`
     }
-    else if( event.target.innerHTML === 'This day')
+    else if( event.target.dataset.sel === 'last')
     {
       window.location.href = `index.php`
     }
