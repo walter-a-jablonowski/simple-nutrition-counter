@@ -34,7 +34,7 @@ Amino NaDuRia Pur:  # (TASK) needs 100g feature in controller
 
   price:             
   weight:            300g
-  usedAmounfts:       ["20g"]
+  usedAmounts:       ["20g"]
 
   calories:          357
   nutrients:
