@@ -17,20 +17,6 @@
   <div class="col pl-1 pr-1 border-left bg-secondary text-start text-left small">
     <b>Price</b>
   </div>
-  <div class="col mr-2 pl-1 text-end text-right" style="max-height: 20px;">
-
-    <button class="btn btn-sm btn-light" onclick="foodsCrl.saveDayEntriesBtnClick(event)">
-      Save
-    </button>
-
-    <!-- Try modal (or add in list as static entry -->
-
-<!--
-    <button class="btn btn-sm btn-light" onclick="foodsCrl.newEntryBtn(event)">
-      New
-    </button>
--->
-  </div>
 </div>
 <div class="row">
   <div id="h2oSum"      class="col ml-2 pl-1 pr-1 text-start text-left">0</div>
@@ -39,7 +25,4 @@
   <div id="aminoSum"    class="col pl-1 pr-1 text-end text-right">0</div>
   <div id="saltSum"     class="col pl-1 pr-1 text-end text-right">0</div>
   <div id="priceSum"    class="col pl-1 pr-1 text-end text-right">0</div>
-  <div class="col mr-2 pl-1 text-end text-right">
-    &nbsp;
-  </div>
 </div>
