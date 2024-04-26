@@ -35,7 +35,7 @@ class FoodsController extends ControllerBase
 
     // This day and foods tab
 
-    $this->dayEntriesTxt = trim( @file_get_contents('data/days/' . date('Y-m-d') . '.tsv') ?: '', "\n");
+    $this->dayEntriesTxt = trim( @file_get_contents("data/days/{$this->date}.tsv") ?: '', "\n");
     $this->dayEntries    = parse_tsv( $this->dayEntriesTxt );
 
     $this->foodsTxt = file_get_contents('data/foods.yml');
@@ -118,6 +118,7 @@ class FoodsController extends ControllerBase
 
   public function render(/*$request*/)
   {
+    $this->date = $_GET['date'] ?? date('Y-m-d');
     $this->makeData();
 
     ob_start();

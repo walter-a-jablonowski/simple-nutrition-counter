@@ -2,6 +2,8 @@ class FoodsEventController
 {
   constructor(args)
   {
+    this.date = null
+
     // Binding
 
     this.lastDayBtnClick        = this.lastDayBtnClick.bind(this)
@@ -225,7 +227,7 @@ class FoodsEventController
 
   #saveDayEntries()
   {
-    ajax.send('saveDayEntries', { data: query('#dayEntries').value }, function( result, data ) {
+    ajax.send('saveDayEntries', { date: this.date, data: query('#dayEntries').value }, function( result, data ) {
 
       if( result === 'success')
         query('#uiMsg').innerHTML = 'Saved'
