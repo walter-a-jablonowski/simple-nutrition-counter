@@ -32,7 +32,7 @@
         <div>
           <a class="navbar-brand text-white" href="#">Nutri Counter</a>
 
-          <button onclick="foodsCrl.lasrDayBtnClick(event)"
+          <button onclick="foodsCrl.lastDayBtnClick(event)"
             data-sel = "<?= $this->mode ?>"
             class    = "btn btn-sm btn-secondary mb-1"
           >

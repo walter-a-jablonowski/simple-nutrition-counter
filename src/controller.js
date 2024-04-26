@@ -71,9 +71,10 @@ class FoodsEventController
   { 
     if( event.target.dataset.sel === 'current')
     {
-      let currentDate = new Date( query('#dateDisplay').textContent)
-  
+      let currentDate = new Date( this.date)
+
       currentDate.setDate( currentDate.getDate() - 1)
+      // console.log(`?date=${ currentDate.toISOString().split('T')[0]}`)
       window.location.href = `?date=${ currentDate.toISOString().split('T')[0]}`
     }
     else if( event.target.dataset.sel === 'last')
