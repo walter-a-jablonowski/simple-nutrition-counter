@@ -8,10 +8,10 @@
   <div class="col">
 
     <div class="row">
-      <div class="col-6" onclick = "...">
-        Enter ...
+      <div class="col-6" onclick="foodsCrl.newEntryBtn(event)">
+        Enter manually ...
       </div>
-      <div class="col-6" onclick = "...">
+      <div class="col-6" onclick="...">
         Expired food ...
       </div>
     </div>

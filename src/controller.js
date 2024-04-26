@@ -79,7 +79,7 @@ class FoodsEventController
   }
 
 
-  // Day entries
+  // List: btns
 
   saveDayEntriesBtnClick(event)
   {
@@ -110,9 +110,7 @@ class FoodsEventController
       salt:     parseFloat( query('#modalSaltInput').value.trim().replace(',', '.'))     || 0
     }
 
-    console.log(entry)
-
-    dayEntries.push(entry);   // simple version
+    dayEntries.push(entry);  // simple version
     query('#dayEntries').value += `\n${entry.name}  ${entry.calories}  ${entry.fat}  ${entry.amino}  ${entry.salt}`    
 
     this.updSums()
@@ -126,7 +124,7 @@ class FoodsEventController
   }
 
 
-  // List
+  // List: entries
 
   foodItemClick(event)
   {
