@@ -14,6 +14,7 @@ Philadephia
 Philadephia mini
 Pommes
 Vollkorn Rhein R
+rapsöl
 
 Mehrkornbr
 Mohnkuchen
@@ -75,7 +76,6 @@ oliven
 artischocken
 rüben R
 pepperoni
-rapsöl
 pfeffer
 oregano
 ingwer

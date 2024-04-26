@@ -319,6 +319,7 @@ Frosta Bratk R:
 
   price:             2.99
   weight:            500
+  usedAmounts:       ["1"]
 
   calories:          96
   nutrients:
@@ -339,6 +340,7 @@ Frosta Gesch R:
 
   price:             3.49
   weight:            375
+  usedAmounts:       ["1"]
 
   calories:          105
   nutrients:
@@ -608,7 +610,7 @@ Nussmisch N:
 Olivenöl:
 
   price:             16.99
-  weight:            500
+  weight:            500ml
   usedAmounts:       ["30ml", "60ml"]
 
   calories:          900
@@ -748,6 +750,28 @@ Pumpernickel R Bio:
   sources:           "Macro nutrients: web (information on packaging may differ slightly)"
   lastUpd:           2024-03-22
   lastPriceUpd:      2024-03-23
+
+Rapsöl:
+
+  price:             
+  weight:            500ml
+  usedAmounts:       ["30ml", "60ml"]
+
+  calories:          823
+  nutrients:
+
+    fat:             91.4
+    saturatedFat:    6.3
+    carbs:           0
+    sugar:           0
+    amino:           0
+    salt:            0.03
+
+    Vitamin E:	     30 # mg
+
+  sources:           "Macro nutrients: web"
+  lastUpd:           2024-04-24
+  lastPriceUpd:      
 
 Riegel Seitenb Sch:
 
