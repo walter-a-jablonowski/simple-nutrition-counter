@@ -47,6 +47,39 @@ abstract class ControllerBase
       throw new \Exception('No method found');
     }
   }
+
+
+  // from damn-small-engine (append() simplified)
+
+  /*@
+
+  Append a string
+
+  like print() adds space before
+
+  */
+  public static function append( $s ) /*@*/
+  {
+    // $s = self::print( $arg1, $arg2, $arg3 );
+
+    if( $s )  return " $s";
+    else      return '';
+  }
+
+  /*@
+
+  iif
+
+  - valid are non-false and 0, 0.0, "0"
+
+  */
+  public static function iif( $if, $true, $false = '' ) /*@*/
+  {
+    if( $if || $if === 0 || $if === 0.0 || $if === "0" )
+      return $true;
+    else
+      return $false;
+  }
 }
 
 ?>

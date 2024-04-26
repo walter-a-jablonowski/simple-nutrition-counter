@@ -36,7 +36,7 @@
             data-sel = "<?= $this->mode ?>"
             class    = "btn btn-sm btn-secondary mb-1"
           >
-            <?= ( $this->mode === 'current' ? 'current day' : 'last day' ) ?>
+            <?= self::iif( $this->mode === 'current', 'current day', 'last day' ) ?>
           </button>
         </div>
 
