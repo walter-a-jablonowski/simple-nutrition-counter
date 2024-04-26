@@ -104,11 +104,13 @@ class FoodsEventController
 
     const entry = {
       name:     query('#modalNameInput').value,
-      calories: parseFloat( query('#modalCaloriesInput').value.trim()) || 0,
-      fat:      parseFloat( query('#modalFatInput').value.trim())      || 0,
-      amino:    parseFloat( query('#modalAminoInput').value.trim())    || 0,
-      salt:     parseFloat( query('#modalSaltInput').value.trim())     || 0
+      calories: parseFloat( query('#modalCaloriesInput').value.trim().replace(',', '.')) || 0,
+      fat:      parseFloat( query('#modalFatInput').value.trim().replace(',', '.'))      || 0,
+      amino:    parseFloat( query('#modalAminoInput').value.trim().replace(',', '.'))    || 0,
+      salt:     parseFloat( query('#modalSaltInput').value.trim().replace(',', '.'))     || 0
     }
+
+    console.log(entry)
 
     dayEntries.push(entry);   // simple version
     query('#dayEntries').value += `\n${entry.name}  ${entry.calories}  ${entry.fat}  ${entry.amino}  ${entry.salt}`    
