@@ -1,7 +1,7 @@
 
 <ul id="foodList" class="list-group">
-  <li class   = "food-item p-1 list-group-item d-flex"
-      style   = "font-size: 1.5rem;"
+  <li class="food-item p-1 list-group-item d-flex"
+      style="font-size: 1.5rem;"
   >
     <button class="btn btn-sm flex-fill" onclick="foodsCrl.saveDayEntriesBtnClick(event)">
       Save

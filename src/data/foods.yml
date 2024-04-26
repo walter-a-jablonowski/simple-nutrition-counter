@@ -11,7 +11,7 @@ Amino misc:  # use for some left over nuts
 
   price:             
   weight:            100g
-  usedAmounfts:       ["10g", "20g", "30g"]
+  usedAmounts:       ["10g", "20g", "30g"]
 
   calories:          610
   nutrients:
