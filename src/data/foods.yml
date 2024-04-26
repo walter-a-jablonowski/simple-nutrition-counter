@@ -5,7 +5,30 @@
 # - all fields see -> readme
 #
 
-Amino NaDuRia Pur:  # some German foods  # (TASK) needs 100g feature in controller
+# some German foods
+
+Amino misc:  # use for some left over nuts
+
+  price:             
+  weight:            100g
+  usedAmounfts:       ["10g", "20g", "30g"]
+
+  calories:          610
+  nutrients:
+
+    fat:             54
+    saturatedFat:    4
+    carbs:           22
+    sugar:           5
+    fibre:           6.4
+    amino:           20
+    salt:            0.02
+
+  sources:           "Macro nutrients: Asked Alexa for avg"
+  lastUpd:           2024-04-24
+  lastPriceUpd:      
+
+Amino NaDuRia Pur:  # (TASK) needs 100g feature in controller
 
   comment:           "2 Meßlöffel orange = 20g"
 
