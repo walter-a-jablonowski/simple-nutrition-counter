@@ -14,19 +14,19 @@
           <label for="modalNameInput">Name</label>
         </div>
         <div class="form-floating mb-3">
-          <input id="modalCaloriesInput" type="number" class="form-control" placeholder="Calories" required>
+          <input id="modalCaloriesInput" type="number" inputmode="numeric" class="form-control" placeholder="Calories" required>
           <label for="modalCaloriesInput">Calories</label>
         </div>
         <div class="form-floating mb-3">
-          <input id="modalFatInput"   type="number" class="form-control" placeholder="Fat (grams)" required>
+          <input id="modalFatInput"   type="number" inputmode="numeric" class="form-control" placeholder="Fat (grams)" required>
           <label for="modalFatInput">Fat (grams)</label>
         </div>
         <div class="form-floating mb-3">
-          <input id="modalAminoInput" type="number" class="form-control" placeholder="Amino Acids (grams)" required>
+          <input id="modalAminoInput" type="number" inputmode="numeric" class="form-control" placeholder="Amino Acids (grams)" required>
           <label for="modalAminoInput">Amino Acids (grams)</label>
         </div>
         <div class="form-floating mb-3">
-          <input id="modalSaltInput"  type="number" class="form-control" placeholder="Salt (grams)" required>
+          <input id="modalSaltInput"  type="number" inputmode="numeric" class="form-control" placeholder="Salt (grams)" required>
           <label for="modalSaltInput">Salt (grams)</label>
         </div>
       </div>
