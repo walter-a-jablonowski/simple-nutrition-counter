@@ -161,6 +161,7 @@ Cashew E:
 
   price:             
   weight:            200
+  usedAmounts:       ["1/2", "1"]
 
   calories:          603
   nutrients:
@@ -181,6 +182,7 @@ Cashew N:
 
   price:             2.29
   weight:            200
+  usedAmounts:       ["1/2", "1"]
 
   calories:          603
   nutrients:
@@ -505,6 +507,7 @@ Mandel R Bio:
 
   price:             2.89
   weight:            200
+  usedAmounts:       ["50g", "100g"]
 
   calories:          619
   nutrients:
@@ -589,6 +592,7 @@ Nussmisch N:
 
   price:             2.79
   weight:            200
+  usedAmounts:       ["50g", "100g"]
 
   calories:          653
   nutrients:
