@@ -120,8 +120,9 @@ My nutrient group:   | My nutrient group     # names are from recipes.yml
   - or nutrient      | Nutrient | 1/4 | ...  < amounts as defined in
   - ...              |          |              foods.yml
 
-My nutrient group:   # Variant with comment
-  comment:
+My nutrient group:   
+  comment:           # Variant with comment
+  color:             # Visually group qith color
   list:
     - ...
 ```

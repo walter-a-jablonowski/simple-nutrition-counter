@@ -15,34 +15,45 @@
 #   - or nutrient      | Nutrient | 1/4 | ...  < amounts as defined in
 #   - ...              |          |              foods.yml
 #
-# My nutrient group:   # Variant with comment
-#   comment:
+# My nutrient group:   
+#   comment:           # Variant with comment
+#   color:             # Visually group qith color
 #   list:
 #     - ...
 #
 
 Nuts:
 
-  - Cashew E
-  - Cashew N
-  - Erdn Salz N big
-  - Mandel N
-  - Mandel R Bio
-  - Nussmisch N
-  - Walnuss R Bio
+  color: 
+  list:
+
+    - Cashew E
+    - Cashew N
+    - Erdn Salz N big
+    - Mandel N
+    - Mandel R Bio
+    - Nussmisch N
+    - Walnuss R Bio
 
 Veggie Bowl:
   
-  - Veggie L
-  - Veggie C
+  color: 
+  list:
+
+    - Veggie L
+    - Veggie C
 
 Third meal:
 
-  - Avocado  # used kind of standalone
+  color: 
+  list:
+
+    - Avocado  # used kind of standalone
 
 Ingredients:
 
   comment: "Ideal: Veggie some chicken fish. We may also need fill up some energy from time to time (carbs)."
+  color: 
   list:
 
     - Artisch R viertel
@@ -71,10 +82,10 @@ Ingredients:
     - Pumpernickel R Bio  # acceptable occasionally
     - Salami R            # less good
     - Vollkorn Rhein R    # acceptable occasionally
-
 A little taste:
 
-  comment: "Add only a little bit per meal makes it far more tasty and keeps it healthy"
+  comment: "Add only a little per meal makes it far more tasty and keeps it healthy"
+  color: 
   list:
 
     - Bresso
@@ -88,6 +99,7 @@ A little taste:
 Fill up missing:
 
   comment: "... and supplements"
+  color: 
   list:
 
     - Amino misc  # use left over
@@ -100,6 +112,7 @@ Fill up missing:
 Micro candy or sugar less:
 
   comment: "Reduce amount per day (effectively: don't buy more or you will eat it)"
+  color: 
   list:
 
     - Duplo
@@ -107,17 +120,29 @@ Micro candy or sugar less:
 
 Brain tuning:
 
-  - Milch H
+  color: 
+  list:
+
+    - Milch H
 
 On the go:
 
-  - Kfc Original
-  - Karamalz
+  color: 
+  list:
+
+    - Kfc Original
+    - Karamalz
 
 Used as supplements (currently):
 
-  - Ritter Sp 81%
+  color: 
+  list:
+
+    - Ritter Sp 81%
 
 Cheat day:
 
-  - Mohnkuchen
+  color: 
+  list:
+
+    - Mohnkuchen
