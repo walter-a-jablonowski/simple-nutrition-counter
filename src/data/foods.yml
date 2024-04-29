@@ -324,6 +324,8 @@ Erdn Salz N big:
 
 Fischst:
 
+  nutriVal:          "occasionally"
+
   price:             2.79
   weight:            450
   pieces:            15
@@ -346,6 +348,8 @@ Fischst:
 
 Frosta Bratk R:
 
+  nutriVal:          "occasionally"
+
   price:             2.99
   weight:            500
   usedAmounts:       ["1"]
@@ -366,6 +370,8 @@ Frosta Bratk R:
   lastPriceUpd:      2024-04-24
 
 Frosta Gesch R:
+
+  nutriVal:          "occasionally"
 
   price:             3.49
   weight:            375
@@ -426,6 +432,7 @@ Karamalz:
 
 Kartoffeltaschen F:
 
+  nutriVal:          "less"
   comment:           "TASK: Fix quantity"
   ingredients:       "Kartoffeln 70%, FRISCHKÄSE 19%, Sonnenblumenöl, modifizierte Stärke, Kartoffelstärke, Speisesalz, Gewürze, Kräuter, Dextrose"
 
@@ -449,6 +456,7 @@ Kartoffeltaschen F:
 
 Kartoffel Wedges:
 
+  nutriVal:          "less"
   ingredients:       "Kartoffeln 91%, Sonnenblumenöl 5%, WEIZENMEHL, Speisesalz, Stärke, Dextrose, Gewürze (Paprika, schwarzer Pfeffer), Knoblauchpulver, Zwiebelpulver, Gewürzextrakt (Paprika)"
 
   price:             1.89
@@ -534,6 +542,7 @@ Linsen vegan:
 
 Lyoner R Bio:
 
+  nutriVal:          "less"
   price:             1.39
   weight:            70
 
@@ -595,6 +604,7 @@ Mandel R Bio:
 
 Mehrkornbr:
 
+  nutriVal:          "less"
   comment:           "2 smaller pieces count as one"
 
   price:             
@@ -826,6 +836,7 @@ Philadephia mini:
 
 Pommes:
 
+  nutriVal:          "less"
   ingredients:       "Kartoffeln 95%, Sonnenblumenöl 4,5 %, Dextrose"
 
   price:             
@@ -847,6 +858,8 @@ Pommes:
   lastPriceUpd:      
 
 Pumpernickel R Bio:
+
+  nutriVal:          "occasionally"
 
   price:             1.09
   weight:            250
@@ -953,6 +966,8 @@ Ritter Sp 81%:
 
 Salami R:
 
+  nutriVal:          "less"
+
   price:             1.79
   weight:            70
 
@@ -972,6 +987,8 @@ Salami R:
   lastPriceUpd:      2024-03-23
 
 Vollkorn Rhein R:
+
+  nutriVal:          "occasionally"
 
   price:             
   weight:            250

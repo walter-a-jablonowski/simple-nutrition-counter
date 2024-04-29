@@ -47,7 +47,9 @@ Currently we enter the values once in data/foods.yml. Simpler than doing manual 
 My food S Bio:                      # S = short for store if needed (save some space)
 
   product:            "..."         # precise product name
-  comment:            "..."         # misc comment
+
+  nutriVal:           "less|occasionally"  # highlight less good or acceptable occasionally ingredients
+  comment:            "..."         # all misc comments
   ingredients:        "..."         # ingredients that you want to be aware of
   origin:             "..."         # country of origin, if you want to be aware of
 
