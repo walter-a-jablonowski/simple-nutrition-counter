@@ -83,18 +83,21 @@ Ingredients:            # veggie add on, some cicken fish
 
 A little taste:
 
-  - Bresso
-  - Bresso mini
-  - Patros
-  - Patros W
-  - Philadephia
-  - Philadephia mini
+  comment: "Add only a little bit per meal makes it far more tasty and keeps it healthy"
+  list:
 
-  # - Salatsoße (missing)
+    - Bresso
+    - Bresso mini
+    - Patros
+    - Patros W
+    - Philadephia
+    - Philadephia mini
+
+    # - Salatsoße (missing)
 
 Micro candy or sugar less:
 
-  comment:
+  comment: "Reduce amount per day (effectively: don't buy more or you will eat it)"
   list:
 
     - Duplo
