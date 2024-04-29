@@ -447,6 +447,29 @@ Kartoffeltaschen F:
   lastUpd:           2024-04-16
   lastPriceUpd:      
 
+Kartoffel Wedges:
+
+  ingredients:       "Kartoffeln 91%, Sonnenblumenöl 5%, WEIZENMEHL, Speisesalz, Stärke, Dextrose, Gewürze (Paprika, schwarzer Pfeffer), Knoblauchpulver, Zwiebelpulver, Gewürzextrakt (Paprika)"
+
+  price:             1.89
+  weight:            750
+  # pieces:                # TASK
+  usedAmounts:       ["1/8", "1/4"]
+
+  calories:          139
+  nutrients:
+
+    fat:             3.4
+    saturatedFat:    0.4
+    carbs:           23.4
+    sugar:           0.5
+    amino:           2.6
+    salt:            0.53
+
+  sources:           "Macro nutrients: web (information on packaging may differ slightly), price: web"
+  lastUpd:           2024-04-28
+  lastPriceUpd:      2024-04-28
+
 Kfc Original:
 
   comment:           "weight is from a third party source (kfc source unclear)"
