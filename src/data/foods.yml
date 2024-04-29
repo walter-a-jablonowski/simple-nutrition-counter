@@ -30,7 +30,7 @@ Amino misc:  # use for some left over nuts
 
 Amino Deca Muscle Gainer:
 
-  acceptable:        "occasionally"
+  acceptable:        occasionally
 
   price:             17.99
   weight:            700g
@@ -246,7 +246,7 @@ Champ mini ganz R:
 
 Chips light:
 
-  acceptable:        "less"
+  acceptable:        less
 
   price:             2.19
   weight:            80
@@ -328,7 +328,7 @@ Erdn Salz N big:
 
 Fischst:
 
-  acceptable:        "occasionally"
+  acceptable:        occasionally
 
   price:             2.79
   weight:            450
@@ -352,7 +352,7 @@ Fischst:
 
 Frosta Bratk R:
 
-  acceptable:        "occasionally"
+  acceptable:        occasionally
 
   price:             2.99
   weight:            500
@@ -375,7 +375,7 @@ Frosta Bratk R:
 
 Frosta Gesch R:
 
-  acceptable:        "occasionally"
+  acceptable:        occasionally
 
   price:             3.49
   weight:            375
@@ -417,7 +417,7 @@ Green beans R:
 
 Karamalz:
 
-  acceptable:        "less"
+  acceptable:        less
 
   price:             
   weight:            330   # (TASK) multiple available
@@ -438,7 +438,7 @@ Karamalz:
 
 Kartoffeltaschen F:
 
-  acceptable:        "less"
+  acceptable:        less
   comment:           "TASK: Fix quantity"
   ingredients:       "Kartoffeln 70%, FRISCHKÄSE 19%, Sonnenblumenöl, modifizierte Stärke, Kartoffelstärke, Speisesalz, Gewürze, Kräuter, Dextrose"
 
@@ -462,7 +462,7 @@ Kartoffeltaschen F:
 
 Kartoffel Wedges:
 
-  acceptable:        "less"
+  acceptable:        less
   ingredients:       "Kartoffeln 91%, Sonnenblumenöl 5%, WEIZENMEHL, Speisesalz, Stärke, Dextrose, Gewürze (Paprika, schwarzer Pfeffer), Knoblauchpulver, Zwiebelpulver, Gewürzextrakt (Paprika)"
 
   price:             1.89
@@ -548,7 +548,7 @@ Linsen vegan:
 
 Lyoner R Bio:
 
-  acceptable:        "less"
+  acceptable:        less
   price:             1.39
   weight:            70
 
@@ -610,7 +610,7 @@ Mandel R Bio:
 
 Mehrkornbr:
 
-  acceptable:        "less"
+  acceptable:        less
   comment:           "2 smaller pieces count as one"
 
   price:             
@@ -634,7 +634,7 @@ Mehrkornbr:
 
 Milch H:
 
-  acceptable:        "less"
+  acceptable:        less
   comment:           "Sometimes nice for good mood"
 
   price:             
@@ -845,7 +845,7 @@ Philadephia mini:
 
 Pommes:
 
-  acceptable:        "less"
+  acceptable:        less
   ingredients:       "Kartoffeln 95%, Sonnenblumenöl 4,5 %, Dextrose"
 
   price:             
@@ -868,7 +868,7 @@ Pommes:
 
 Pumpernickel R Bio:
 
-  acceptable:        "occasionally"
+  acceptable:        occasionally
 
   price:             1.09
   weight:            250
@@ -890,7 +890,7 @@ Pumpernickel R Bio:
 
 Riegel Seitenb Sch:
 
-  acceptable:        "less"
+  acceptable:        less
   comment:           "still processed food ..."
 
   price:             1.99
@@ -916,7 +916,7 @@ Riegel Seitenb Sch:
 
 Riegel Deca Basic:
 
-  acceptable:        "less"
+  acceptable:        less
   comment:           "still processed food ..."
 
   price:             1.99
@@ -981,7 +981,7 @@ Ritter Sp 81%:
 
 Salami R:
 
-  acceptable:        "less"
+  acceptable:        less
 
   price:             1.79
   weight:            70
@@ -1003,7 +1003,7 @@ Salami R:
 
 Vollkorn Rhein R:
 
-  acceptable:        "occasionally"
+  acceptable:        occasionally
 
   price:             
   weight:            250
