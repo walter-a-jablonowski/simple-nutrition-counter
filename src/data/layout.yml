@@ -8,15 +8,17 @@
 
 #
 # Sample
+#                       ___________________    
+# My nutrient group:   | My nutrient group     # names are from recipes.yml
+#                      |-------------------    # or foods.yml
+#   - Recipe           | Recipe   |
+#   - or nutrient      | Nutrient | 1/4 | ...  < amounts as defined in
+#   - ...              |          |              foods.yml
 #
-# - Single recipe or nutrient name  # names are from recipes.yml
-#                                   # or foods.yml
-#                         ___________________
-# - My nutrient group:   | My nutrient group
-#                        |-------------------
-#   - Recipe             | Recipe   |
-#   - or nutrient        | Nutrient | 1/4 | ...  < amounts as defined in
-#   - ...                |          |              foods.yml
+# My nutrient group:   # Variant with comment
+#   comment:
+#   list:
+#     - ...
 #
 
 # TASK: MOV
@@ -92,8 +94,11 @@ A little taste:
 
 Micro candy or sugar less:
 
-  - Duplo
-  - Ritter Sp 50%
+  comment:
+  list:
+
+    - Duplo
+    - Ritter Sp 50%
 
 Used as supplements (currently):
 
