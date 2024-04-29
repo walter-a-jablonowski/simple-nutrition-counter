@@ -71,9 +71,33 @@ Amino NaDuRia Pur:  # (TASK) needs 100g feature in controller
   lastUpd:           2024-03-13
   lastPriceUpd:      
 
+Artisch R viertel:
+
+  product:           "Gegrillte Artischockenviertel in Sonnenblumenöl mit Kräutern"
+  comment:           "kein Abtropfgewicht"
+  
+  price:             2.29
+  weight:            280
+
+  calories:          103
+  nutrients:
+
+    fat:             7.8
+    saturatedFat:    0.8
+    carbs:           3.9
+    sugar:           1.4
+    amino:           1.9
+    salt:            1
+
+  sources:           "Macro nutrients: pack"
+  lastUpd:           2024-04-28
+  lastPriceUpd:      2024-04-28
+
 Avocado:
 
+  price:             1.89
   weight:            150g
+  pieces:            5
   usedAmounts:       [1]
 
   calories:          160
@@ -96,7 +120,7 @@ Avocado:
 
   sources:           "Macro nutrients: ChatGPT (vals on websites differ, TASK: good source?)"
   lastUpd:           2024-04-19
-  lastPriceUpd:      
+  lastPriceUpd:      2024-04-28
 
 Bresso:
 
@@ -297,6 +321,28 @@ Erdn Salz N big:
   sources:           "Macro nutrients: pack"
   lastUpd:           2024-03-13
   lastPriceUpd:      2024-03-30
+
+Fischst:
+
+  price:             2.79
+  weight:            450
+  pieces:            15
+  usedAmounts:       [2,4,6]
+
+  calories:          181
+  nutrients:
+
+    fat:             7.9
+    saturatedFat:    1
+    carbs:           15
+    sugar:           1
+    fibre:           0.9
+    amino:           12
+    salt:            0.75
+
+  sources:           "Macro nutrients: pack"
+  lastUpd:           2024-04-28
+  lastPriceUpd:      2024-04-28
 
 Frosta Bratk R:
 
@@ -505,7 +551,7 @@ Mandel N:
 
 Mandel R Bio:
 
-  price:             2.89
+  price:             2.29 # 2024-03-30 2.89
   weight:            200
   usedAmounts:       ["50g", "100g"]
 
@@ -522,7 +568,7 @@ Mandel R Bio:
 
   sources:           "Macro nutrients: pack"
   lastUpd:           2024-03-30
-  lastPriceUpd:      2024-03-30
+  lastPriceUpd:      2024-04-28
 
 Mehrkornbr:
 
@@ -611,6 +657,26 @@ Nussmisch N:
   lastUpd:           2024-02-18
   lastPriceUpd:      2024-04-06
 
+Oliven R Bio:
+
+  price:             1.89
+  weight:            180
+
+  calories:          154
+  nutrients:
+
+    fat:             16
+    saturatedFat:    2.3
+    carbs:           0
+    sugar:           0
+    fibre:           3.1
+    amino:           0.9
+    salt:            3
+
+  sources:           "Macro nutrients: pack (fibre is from web)"
+  lastUpd:           2024-04-28
+  lastPriceUpd:      2024-04-28
+
 Olivenöl:
 
   price:             16.99
@@ -657,7 +723,7 @@ Olivenöl:
 
 Patros:
 
-  price:             2.99
+  price:             1.69 # deal price
   weight:            150
   usedAmounts:       ["10g", "20g"]
 
@@ -671,9 +737,9 @@ Patros:
     amino:           15
     salt:            3
 
-  sources:           "Macro nutrients: Vendor online, Variants differ only slightly, price: online"
+  sources:           "Macro nutrients: Vendor online (Variants differ only slightly), price: deal price (2.99)"
   lastUpd:           2024-04-01
-  lastPriceUpd:      2024-04-11
+  lastPriceUpd:      2024-04-28
 
 Patros W:
 
@@ -902,3 +968,22 @@ Vollkorn Rhein R:
   sources:           "Macro nutrients: pack"
   lastUpd:           2024-04-20
   lastPriceUpd:      
+
+Walnuss R Bio:
+
+  price:             2.99
+  weight:            200
+
+  calories:          711
+  nutrients:
+
+    fat:             69
+    saturatedFat:    6.4
+    carbs:           3.7
+    sugar:           2.9
+    amino:           16
+    salt:            0.1
+
+  sources:           "Macro nutrients: web (information on packaging may differ slightly)"
+  lastUpd:           2024-04-28
+  lastPriceUpd:      2024-04-28
