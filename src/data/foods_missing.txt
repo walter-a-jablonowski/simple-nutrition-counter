@@ -44,7 +44,6 @@ jogh
 käse N
 pizza
 seelachs N
-fischstäbchen
 kiwi
 tomaten N
 knoblauch N
@@ -63,7 +62,6 @@ kartoffel rösti
 (frosta multiple)
 kabeljau
 rosenkohl
-walnüsse R
 kürbis
 sonnenblumenkerne
 pinienkerne
@@ -73,7 +71,6 @@ gurken R
 apfelkohl R
 pilze R
 oliven
-artischocken
 rüben R
 pepperoni
 pfeffer
