@@ -19,31 +19,82 @@
 #   - ...                |          |              foods.yml
 #
 
+# TASK: MOV
+
+# - Amino misc
+# - Amino Deca Muscle Gainer
+# - Amino NaDuRia Pur
+# - Avocado
+# - Chips light
+# - Karamalz
+# - Milch H
+# - Riegel Seitenb Sch
+# - Riegel Deca Basic
+
 Nuts:
 
-  - Cashew N
   - Cashew E
+  - Cashew N
+  - Erdn Salz N big
   - Mandel N
   - Mandel R Bio
-  - Erdn Salz N big
   - Nussmisch N
+  - Walnuss R Bio
 
 Veggie Bowl:
   
   - Veggie L
   - Veggie C
 
-  # maybe also add frosta here (use occasionally)
-
 Third meal:
 
-Ingredients:  # veggie add on, some cicken fish
+  - Kfc Original
+
+Ingredients:            # veggie add on, some cicken fish
+
+  - Artisch R viertel
+  - Brokkoli R
+  - Champ mini ganz R
+  - Chick R Bio
+
+  - Fischst             # acceptable occasionally
+  - Frosta Bratk R
+  - Frosta Gesch R
+
+  - Green beans R
+  - Linsen R Bio
+  - Linsen vegan
+
+  - Kartoffeltaschen F  # less good
+  - Kartoffel Wedges
+  - Lyoner R Bio
+  - Mehrkornbr
+
+  - Oliven R Bio
+  - Olivenöl
+  - Öl
+
+  - Pommes              # less good
+  - Pumpernickel R Bio
+  - Salami R
+  - Vollkorn Rhein R
 
 A little taste:
 
-  - Salatsoße
+  - Bresso
+  - Bresso mini
+  - Patros
+  - Patros W
+  - Philadephia
+  - Philadephia mini
+
+  # - Salatsoße (missing)
 
 Micro candy or sugar less:
+
+  - Duplo
+  - Ritter Sp 50%
+  - Ritter Sp 81%  # ~suppl
 
 Cheat day:
 
