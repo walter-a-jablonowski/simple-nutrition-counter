@@ -185,7 +185,7 @@ Cashew E:
 
   price:             
   weight:            200
-  usedAmounts:       ["1/2", "1"]
+  usedAmounts:       ["1/4", "1/2", "1"]
 
   calories:          603
   nutrients:
@@ -206,7 +206,7 @@ Cashew N:
 
   price:             2.29
   weight:            200
-  usedAmounts:       ["1/2", "1"]
+  usedAmounts:       ["1/4", "1/2", "1"]
 
   calories:          603
   nutrients:
@@ -973,6 +973,7 @@ Walnuss R Bio:
 
   price:             2.99
   weight:            200
+  usedAmounts:       ["1/4", "1/2", "1"]
 
   calories:          711
   nutrients:
