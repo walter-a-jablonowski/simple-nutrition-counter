@@ -48,7 +48,7 @@ My food S Bio:                      # S = short for store if needed (save some s
 
   product:            "..."         # precise product name
 
-  nutriVal:           "less|occasionally"  # highlight less good or acceptable occasionally ingredients
+  acceptable:         "less|occasionally"  # highlight less good foods, (i) switch in UI
   comment:            "..."         # all misc comments
   ingredients:        "..."         # ingredients that you want to be aware of
   origin:             "..."         # country of origin, if you want to be aware of
