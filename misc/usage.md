@@ -122,7 +122,7 @@ My nutrient group:   | My nutrient group     # names are from recipes.yml
 
 My nutrient group:   
   comment:           # Variant with comment
-  color:             # Visually group qith color
+  color:             # Visually group with color
   list:
     - ...
 ```
