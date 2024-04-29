@@ -121,7 +121,7 @@ My nutrient group:   | My nutrient group     # names are from recipes.yml
   - ...              |          |              foods.yml
 
 My nutrient group:   
-  comment:           # Variant with comment
+  comment:           # Variant with comment (i) switch in UI
   color:             # Visually group with color
   list:
     - ...
