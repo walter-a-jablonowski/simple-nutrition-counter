@@ -21,21 +21,6 @@
 #     - ...
 #
 
-# TASK: MOV
-
-# - Amino misc          # on the go
-# - Amino Deca Muscle Gainer
-# - Amino NaDuRia Pur
-# 
-# - Avocado             # 
-# 
-# - Chips light
-# - Milch H
-# 
-# - Karamalz
-# - Riegel Seitenb Sch  # on the go
-# - Riegel Deca Basic
-
 Nuts:
 
   - Cashew E
@@ -53,36 +38,39 @@ Veggie Bowl:
 
 Third meal:
 
-  - Kfc Original        # on the go
+  - Avocado  # used kind of standalone
 
-Ingredients:            # veggie add on, some cicken fish
+Ingredients:
 
-  - Artisch R viertel
-  - Brokkoli R
-  - Champ mini ganz R
-  - Chick R Bio
+  comment: "Ideal: Veggie add on, some cicken fish. We may also need fill up some energy from time to time (carbs)."
+  list:
 
-  - Fischst             # acceptable occasionally
-  - Frosta Bratk R
-  - Frosta Gesch R
+    - Artisch R viertel
+    - Brokkoli R
+    - Champ mini ganz R
+    - Chick R Bio
 
-  - Green beans R
-  - Linsen R Bio
-  - Linsen vegan
+    - Fischst             # acceptable occasionally
+    - Frosta Bratk R
+    - Frosta Gesch R
 
-  - Kartoffeltaschen F  # less good
-  - Kartoffel Wedges
-  - Lyoner R Bio
-  - Mehrkornbr
+    - Green beans R
+    - Linsen R Bio
+    - Linsen vegan
 
-  - Oliven R Bio
-  - Olivenöl
-  - Öl
+    - Kartoffeltaschen F  # less good
+    - Kartoffel Wedges
+    - Lyoner R Bio
+    - Mehrkornbr
 
-  - Pommes              # less good
-  - Pumpernickel R Bio  # acceptable occasionally
-  - Salami R            # less good
-  - Vollkorn Rhein R    # acceptable occasionally
+    - Oliven R Bio
+    - Olivenöl
+    - Öl
+
+    - Pommes              # less good
+    - Pumpernickel R Bio  # acceptable occasionally
+    - Salami R            # less good
+    - Vollkorn Rhein R    # acceptable occasionally
 
 A little taste:
 
@@ -95,8 +83,19 @@ A little taste:
     - Patros W
     - Philadephia
     - Philadephia mini
-
     # - Salatsoße (missing)
+
+Fill up missing:
+
+  comment: "... and supplements"
+  list:
+
+    - Amino misc  # use left over
+    - Amino Deca Muscle Gainer
+    - Amino NaDuRia Pur
+    - Riegel Seitenb Sch
+    - Riegel Deca Basic
+    - Chips light
 
 Micro candy or sugar less:
 
@@ -105,6 +104,15 @@ Micro candy or sugar less:
 
     - Duplo
     - Ritter Sp 50%
+
+Brain tuning:
+
+  - Milch H
+
+On the go:
+
+  - Kfc Original
+  - Karamalz
 
 Used as supplements (currently):
 

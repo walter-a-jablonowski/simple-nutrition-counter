@@ -30,6 +30,8 @@ Amino misc:  # use for some left over nuts
 
 Amino Deca Muscle Gainer:
 
+  nutriVal:          "occasionally"
+
   price:             17.99
   weight:            700g
   usedAmounts:       ["20g"]
@@ -244,6 +246,8 @@ Champ mini ganz R:
 
 Chips light:
 
+  nutriVal:          "less"
+
   price:             2.19
   weight:            80
 
@@ -412,6 +416,8 @@ Green beans R:
   lastPriceUpd:      2024-04-24
 
 Karamalz:
+
+  nutriVal:          "less"
 
   price:             
   weight:            330   # (TASK) multiple available
@@ -627,6 +633,9 @@ Mehrkornbr:
   lastPriceUpd:      
 
 Milch H:
+
+  nutriVal:          "less"
+  comment:           "Sometimes nice for good mood"
 
   price:             
   weight:            1000
@@ -881,6 +890,9 @@ Pumpernickel R Bio:
 
 Riegel Seitenb Sch:
 
+  nutriVal:          "less"
+  comment:           "still processed food ..."
+
   price:             1.99
   weight:            60
   usedAmounts:       ["1/2", "1"]
@@ -903,6 +915,9 @@ Riegel Seitenb Sch:
   lastPriceUpd:      2024-03-23
 
 Riegel Deca Basic:
+
+  nutriVal:          "less"
+  comment:           "still processed food ..."
 
   price:             1.99
   weight:            60
