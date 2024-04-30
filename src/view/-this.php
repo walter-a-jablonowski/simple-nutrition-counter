@@ -100,7 +100,7 @@ ready( function() {
 
   dayEntries = [  // will be replaced by #code/advancedData
     <?php foreach( $this->dayEntries as $entry): ?>
-      {food: '<?= $entry[0] ?>', calories: <?= $entry[1] ?>, fat: <?= $entry[2] ?>, amino: <?= $entry[3] ?>, salt: <?= $entry[4] ?>},
+      {food: '<?= $entry[0] ?>', calories: <?= $entry[1] ?>, fat: <?= $entry[2] ?>, amino: <?= $entry[3] ?>, salt: <?= $entry[4] ?>, price: <?= $entry[5] ?>},
     <?php endforeach; ?>
   ]
 
