@@ -17,6 +17,7 @@
         data-food      = "<?= $food ?>"
         data-calories  = "<?= $entry['calories'] ?>"
         data-nutrients = "<?= htmlspecialchars( json_encode( $entry['nutrients'])) ?>"
+        data-price     = "<?= $entry['price'] ?>"
     >
       <?= $food ?>
     </li>

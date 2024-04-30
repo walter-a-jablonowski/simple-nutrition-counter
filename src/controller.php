@@ -73,8 +73,9 @@ class FoodsController extends ControllerBase
         //   'precise' => fn() => $multipl
         // ][ $usage ])();
 
-        // if( $food == 'Amino NaDuRia Pur' )  // DEBUG
-        //   $debug = 'halt';
+        
+        if( $food == 'Amino Deca Muscle Gainer' )  // DEBUG
+          $debug = 'halt';
 
         $weight = $usage === 'pack'   ? $entry['weight'] * $multipl : (
                   $usage === 'pieces' ? ($entry['weight'] / $entry['pieces']) * $multipl
@@ -83,14 +84,15 @@ class FoodsController extends ControllerBase
 
         $title = str_pad( $amount, 3, ' ', STR_PAD_LEFT) . " $food";
 
-        $this->model->push("foods.$title", [  // TASK: use set push for index only
+        $this->model->push("foods.$title", [  // TASK: use set push for index only 
           'weight'    => round( $weight, 1),
           'calories'  => round( $entry['calories'] * ($weight / 100), 1),
           'nutrients' => [
             'fat'     => round( $entry['nutrients']['fat']   * ($weight / 100), 1),
             'amino'   => round( $entry['nutrients']['amino'] * ($weight / 100), 1),
             'salt'    => round( $entry['nutrients']['salt']  * ($weight / 100), 1)
-          ]
+          ],
+          'price'     => isset($entry['price']) ? round( $entry['price'] * ($weight / $entry['weight']), 2) : 0
         ]);
       }
     }
