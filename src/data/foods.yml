@@ -185,7 +185,7 @@ Brokkoli R:
 
 Cappuccino Eni:
 
-  acceptable:        "less"
+  acceptable:        less
 
   price:             2.39
   weight:            200ml  # TASK: just a guess
@@ -724,6 +724,7 @@ Oliven R Bio:
 
   price:             1.89
   weight:            180
+  usedAmounts:       ["1/8", "1/4", "1/2"]
 
   calories:          154
   nutrients:
