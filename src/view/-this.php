@@ -36,7 +36,11 @@
             data-sel = "<?= $this->mode ?>"
             class    = "btn btn-sm btn-secondary mb-1"
           >
-            <?= self::iif( $this->mode === 'current', 'current day', 'last day') ?>
+            <?php
+              $weekdays = ['Mon' => 'Mo', 'Tue' => 'Tu', 'Wed' => 'We', 'Thu' => 'Th', 'Fri' => 'Fr', 'Sat' => 'Sa', 'Sun' => 'Su'];
+              $day = $weekdays[ date('D', strtotime($day))] . ' ' . date('j') . '.';
+            ?>
+            <?= self::iif( $this->mode === 'current', $day, "-1 day") ?>
           </button>
         </div>
 
