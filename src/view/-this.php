@@ -38,7 +38,7 @@
           >
             <?php
               $weekdays = ['Mon' => 'Mo', 'Tue' => 'Tu', 'Wed' => 'We', 'Thu' => 'Th', 'Fri' => 'Fr', 'Sat' => 'Sa', 'Sun' => 'Su'];
-              $day = $weekdays[ date('D', strtotime($day))] . ' ' . date('j') . '.';
+              $day = $weekdays[date('D')] . ' ' . date('j') . '.';
             ?>
             <?= self::iif( $this->mode === 'current', $day, "-1 day") ?>
           </button>
