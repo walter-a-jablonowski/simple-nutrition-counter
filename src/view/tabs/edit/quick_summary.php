@@ -1,5 +1,5 @@
 <div class="row mt-2">
-  <div class="col data-badge ms-2 ps-0 pe-0">
+  <div class="col data-badge ms-2 ps-0 pe-0" style="background-color: #FF6347;">
     <div class="label-bg">kcal</div>
 	  <div id="caloriesSum" class="value-text">0</div>
   </div>
@@ -19,8 +19,11 @@
     <div class="px-1 align-split bg-secondary small"><span>Salt</span> <span>g</span></div>
     <div id="saltSum" class="ps-1">0</div>
   </div>
-  <div class="col data-badge me-2 ps-1 pe-0">
-    <div class="label-bg">€</div>
-	  <div id="priceSum" class="value-text">0</div>
+  <div class="col data-badge me-2 ps-1 pe-0" style="background-color: #79fe28;">
+    <div class="label-bg">&nbsp;</div>
+	  <div id="caloriesSum" class="value-text">
+      <span>€</span>
+      <span id="priceSum">0</span>
+    </div>
   </div>
 </div>
