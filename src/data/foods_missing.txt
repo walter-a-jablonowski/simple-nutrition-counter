@@ -5,7 +5,8 @@ prices
 Bresso
 Bresso mini
 Champ mini ganz R
-Frosta Bratk R (deal can 2.99)
+Frosta Bratk
+Frosta Paella
 Karamalz
 Kartoffeltaschen F
 Linsen vegan
@@ -59,7 +60,6 @@ gemüsezwiebeln R
 tomaten R
 paprika R
 kartoffel rösti
-(frosta multiple)
 kabeljau
 rosenkohl
 kürbis
