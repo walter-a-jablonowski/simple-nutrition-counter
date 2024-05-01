@@ -10,7 +10,7 @@
 # Sample
 #                       ___________________    
 # My nutrient group:   | My nutrient group     # names are from recipes.yml
-#                      |-------------------    # or foods.yml
+#                      |-------------------    # or foods.yml (use multiple times possible)
 #   - Recipe           | Recipe   |
 #   - or nutrient      | Nutrient | 1/4 | ...  < amounts as defined in
 #   - ...              |          |              foods.yml
@@ -62,8 +62,9 @@ Ingredients:
     - Chick R Bio
 
     - Fischst             # acceptable occasionally
-    - Frosta Bratk R
-    - Frosta Gesch R
+    - Frosta Bratk
+    - Frosta Gesch
+    - Frosta Paella
 
     - Green beans R
     - Linsen R Bio
@@ -126,6 +127,13 @@ Brain tuning:
 
     - Milch H
 
+Used as supplements (currently):
+
+  color: 
+  list:
+
+    - Ritter Sp 81%
+
 On the go:
 
   color: 
@@ -135,16 +143,11 @@ On the go:
     - Karamalz
     - Cappuccino Eni
 
-Used as supplements (currently):
-
-  color: 
-  list:
-
-    - Ritter Sp 81%
-
 Cheat day:
 
   color: 
   list:
 
     - Mohnkuchen
+
+Misc expenses:  # finance only

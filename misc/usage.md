@@ -46,7 +46,7 @@ Currently we enter the values once in data/foods.yml. Simpler than doing manual 
 
 My food S Bio:                      # S = short for store if needed (save some space)
 
-  product:            "..."         # precise product name
+  productName:        "..."         # precise product name
 
   acceptable:         less|occasionally  # highlight less good foods, (i) switch in UI
   comment:            "..."         # all misc comments
@@ -54,6 +54,8 @@ My food S Bio:                      # S = short for store if needed (save some s
   origin:             "..."         # country of origin, if you want to be aware of
 
   price:              1.00
+
+  cookingInstrutions: ""
 
   weight:             100g          # unit g or ml is optional, of whole pack in case of pieces
   pieces:             6             # number of pieces in a pack (if any)
@@ -115,7 +117,7 @@ Layout file usage (layout.yml)
 ```yaml
                       ___________________    
 My nutrient group:   | My nutrient group     # names are from recipes.yml
-                     |-------------------    # or foods.yml
+                     |-------------------    # or foods.yml (use multiple times possible)
   - Recipe           | Recipe   |
   - or nutrient      | Nutrient | 1/4 | ...  < amounts as defined in
   - ...              |          |              foods.yml

@@ -75,7 +75,7 @@ Amino NaDuRia Pur:  # (TASK) needs 100g feature in controller
 
 Artisch R viertel:
 
-  product:           "Gegrillte Artischockenviertel in Sonnenblumenöl mit Kräutern"
+  productName:       "Gegrillte Artischockenviertel in Sonnenblumenöl mit Kräutern"
   comment:           "kein Abtropfgewicht"
   
   price:             2.29
@@ -371,13 +371,13 @@ Fischst:
   lastUpd:           2024-04-28
   lastPriceUpd:      2024-04-28
 
-Frosta Bratk R:
+Frosta Bratk:
 
   acceptable:        occasionally
 
   price:             2.99
   weight:            500
-  usedAmounts:       ["1"]
+  usedAmounts:       ["1/3", "1/2", "1"]
 
   calories:          96
   nutrients:
@@ -394,13 +394,13 @@ Frosta Bratk R:
   lastUpd:           2024-04-24
   lastPriceUpd:      2024-04-24
 
-Frosta Gesch R:
+Frosta Gesch:
 
   acceptable:        occasionally
 
   price:             3.49
   weight:            375
-  usedAmounts:       ["1"]
+  usedAmounts:       ["1/3", "1/2", "1"]
 
   calories:          105
   nutrients:
@@ -416,6 +416,31 @@ Frosta Gesch R:
   sources:           "Macro nutrients: pack, price: web"
   lastUpd:           2024-02-18
   lastPriceUpd:      2024-03-23
+
+Frosta Paella:
+
+  productName:       "Hähnchen Paella"
+
+  acceptable:        occasionally
+
+  price:             
+  weight:            500
+  usedAmounts:       ["1/3", "1/2", "1"]
+
+  calories:          125
+  nutrients:
+
+    fat:             4.7
+    saturatedFat:    1.3
+    carbs:           14
+    sugar:           2.2
+    fibre:           1.3
+    amino:           6.1
+    salt:            1.01
+
+  sources:           "Macro nutrients: pack, price: deal"
+  lastUpd:           2024-05-01
+  lastPriceUpd:      
 
 Green beans R:
 
