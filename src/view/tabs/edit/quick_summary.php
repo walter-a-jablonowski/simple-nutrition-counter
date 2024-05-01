@@ -1,28 +1,26 @@
-<div class="row mt-2">  <!-- text-start text-left same for diff bs versions -->
-  <div class="col ms-2 pl-1 pr-1 bg-secondary text-start text-left small">
-    <b>H2O</b>
+<div class="row mt-2">
+  <div class="col data-badge ms-2 ps-0 pe-0">
+    <div class="label-bg">kcal</div>
+	  <div id="caloriesSum" class="value-text">0</div>
   </div>
-  <div class="col pl-1 pr-1 bg-secondary text-start text-left small">
-    kcal
+  <div class="col ps-1 pe-0">
+    <div class="ps-1 bg-secondary small">Carbs</div>
+    <div id="carbsSum" class="ps-1">0</div>
   </div>
-  <div class="col pl-1 pr-1 border-left bg-secondary text-start text-left">
-    <div class="align-split small"><span>Fat</span> <span>g</span></div>  <!-- align-split ai made class -->
+  <div class="col ps-1 pe-0">
+    <div class="px-1 align-split bg-secondary small"><span>Fat</span> <span>g</span></div>  <!-- align-split ai made class -->
+    <div id="fatSum" class="ps-1">0</div>
   </div>
-  <div class="col pl-1 pr-1 border-left bg-secondary text-start text-left">
-    <div class="align-split small"><span>Amino</span> <span>g</span></div>
+  <div class="col ps-1 pe-0">
+    <div class="px-1 align-split bg-secondary small"><span>Amino</span> <span>g</span></div>
+    <div id="aminoSum" class="ps-1">0</div>
   </div>
-  <div class="col pl-1 pr-1 border-left bg-secondary text-start text-left">
-    <div class="align-split small"><span>Salt</span> <span>g</span></div>
+  <div class="col ps-1 pe-0">
+    <div class="px-1 align-split bg-secondary small"><span>Salt</span> <span>g</span></div>
+    <div id="saltSum" class="ps-1">0</div>
   </div>
-  <div class="col me-2 pl-1 border-left bg-secondary text-start text-left small">
-    <b>Price</b>
+  <div class="col data-badge me-2 ps-1 pe-0">
+    <div class="label-bg">€</div>
+	  <div id="priceSum" class="value-text">0</div>
   </div>
-</div>
-<div class="row">
-  <div id="h2oSum"      class="col ms-2 pl-1 pr-1 text-start text-left">0</div>
-  <div id="caloriesSum" class="col pl-1 pr-1 text-start text-left">0</div>
-  <div id="fatSum"      class="col pl-1 pr-1 text-end text-right">0</div>
-  <div id="aminoSum"    class="col pl-1 pr-1 text-end text-right">0</div>
-  <div id="saltSum"     class="col pl-1 pr-1 text-end text-right">0</div>
-  <div id="priceSum"    class="col me-2 pl-1 text-end text-right">0</div>
 </div>

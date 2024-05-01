@@ -12,7 +12,29 @@
 
 /* Quick summary */
 
-.align-split {
+.data-badge {
+  position: relative;
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.label-bg {
+  position: absolute;
+  /* font-size: 5rem; */
+  opacity: 0.3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.value-text {
+  position: relative;
+  z-index: 1;
+}
+
+.align-split {  /* TASK: maybe rm this */
   display: flex;
   justify-content: space-between;
 }
