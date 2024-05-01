@@ -98,9 +98,9 @@ Artisch R viertel:
 Avocado:
 
   price:             1.89
-  weight:            150g
+  weight:            150g              # larger one
   pieces:            5
-  usedAmounts:       [1]
+  usedAmounts:       ["100g", "150g"]  # smaller is ~100g, larger more
 
   calories:          160
   nutrients:
@@ -128,6 +128,7 @@ Bresso:
 
   price:             
   weight:            150
+  usedAmounts:       ["10g", "20g", "30g"]
 
   calories:          337
   nutrients:
@@ -466,7 +467,8 @@ Karamalz:
   acceptable:        less
 
   price:             
-  weight:            330   # (TASK) multiple available
+  weight:            330                # larger one
+  usedAmounts:       ["330ml", "500g"]  # smaller and larger ver
 
   calories:          44
   nutrients:
@@ -850,10 +852,11 @@ Patros W:
   lastUpd:           2024-04-01
   lastPriceUpd:      2024-04-11
 
-Philadephia:
+Philadelphia:
 
   price:             
   weight:            175
+  usedAmounts:       ["10g", "20g", "30g"]
 
   calories:          225
   nutrients:
@@ -870,7 +873,7 @@ Philadephia:
   lastUpd:           2024-04-20
   lastPriceUpd:      
 
-Philadephia mini:
+Philadelphia mini:
 
   price:             
   weight:            100.02
