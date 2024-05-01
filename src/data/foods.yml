@@ -98,8 +98,8 @@ Artisch R viertel:
 Avocado:
 
   price:             1.89
-  weight:            150g              # larger one
-  pieces:            5
+  weight:            750g              # 5 * 150 larger one
+  pieces:            5                 # TASK
   usedAmounts:       ["100g", "150g"]  # smaller is ~100g, larger more
 
   calories:          160
@@ -466,7 +466,7 @@ Karamalz:
 
   acceptable:        less
 
-  price:             
+  price:                                # (TASK) for 2 variants
   weight:            330                # larger one
   usedAmounts:       ["330ml", "500g"]  # smaller and larger ver
 
