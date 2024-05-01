@@ -34,11 +34,6 @@
   z-index: 1;
 }
 
-.align-split {  /* TASK: maybe rm this */
-  display: flex;
-  justify-content: space-between;
-}
-
 /* Tools */
 
 .scrollable-list {
