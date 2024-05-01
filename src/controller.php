@@ -110,9 +110,11 @@ class FoodsController extends ControllerBase
 
       $this->lastDaysSums[$dat] = [
         'caloriesSum' => ! $entries ? 0 : array_sum( array_column($entries, 1)),
+        // 'carbsSum' => ! $entries ? 0 : array_sum( array_column($entries, 2)),
         'fatSum'      => ! $entries ? 0 : array_sum( array_column($entries, 2)),
         'aminoSum'    => ! $entries ? 0 : array_sum( array_column($entries, 3)),
-        'saltSum'     => ! $entries ? 0 : array_sum( array_column($entries, 4))
+        'saltSum'     => ! $entries ? 0 : array_sum( array_column($entries, 4)),
+        'priceSum'    => ! $entries ? 0 : array_sum( array_column($entries, 4))
       ];
     }
   }
