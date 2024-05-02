@@ -33,6 +33,16 @@ foreach( $foods as $key => $food)
   }
 }
 
-print_r($r);
+// AI generated (modified)
+
+$maxKeyLen   = max( array_map('strlen', array_keys($r))) + 1;
+$maxPriceLen = max( array_map( fn($item) => strlen($item['price']), $r));
+
+foreach ($r as $key => $value)
+{
+  print str_pad("$key:", $maxKeyLen + 1)
+      . str_pad($value['price'], $maxPriceLen + 2)
+      . " ({$value['lastPriceUpd']})\n";
+}
 
 ?>
