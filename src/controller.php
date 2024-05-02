@@ -82,7 +82,7 @@ class FoodsController extends ControllerBase
                 : $multipl  // precise
         );
 
-        $title = str_pad( $amount, 3, ' ', STR_PAD_LEFT) . " $food";
+        $title = str_pad( $amount, 5, ' ', STR_PAD_LEFT) . " $food";
 
         $this->model->push("foods.$title", [  // TASK: use set push for index only 
           'weight'    => round( $weight, 1),
