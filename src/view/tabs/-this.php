@@ -11,6 +11,9 @@
   <li class="nav-item" role="presentation">
     <a class="nav-link py-1 px-2 small" data-bs-toggle="tab" href="#foodsPane" role="tab">Foods</a>
   </li>
+  <li id="settingsTab" class="nav-item" role="presentation" style="display: none;">
+    <a id="settingsTabBtn" class="nav-link py-1 px-2 small" data-bs-toggle="tab" href="#settingsPane" role="tab">Settings</a>
+  </li>
   <li class="nav-item ms-auto" role="presentation">
     <button id="expandBtn" class="btn p-1 border-0 bg-transparent">
       <i class="bi bi-caret-down text-secondary"></i>
@@ -37,6 +40,15 @@
   <div class="tab-pane fade" id="foodsPane" role="tabpanel">
 
     <?php require( __DIR__ . '/foods.php') ?>
+
+  </div>
+  <div class="tab-pane fade" id="settingsPane" role="tabpanel">
+
+    <button type="button" class="btn btn-sm" data-bs-toggle="popover"
+            data-bs-title   = "Help"
+            data-bs-content = "< ?= htmlspecialchars( file_get_contents('help.html')) ?>">
+      <i class="bi bi-info-circle mt-4"></i>
+    </button>
 
   </div>
 </div>

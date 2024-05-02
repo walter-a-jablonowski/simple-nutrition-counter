@@ -83,6 +83,17 @@ class FoodsEventController
   }
 
 
+  // Settings
+
+  settingsBtnClick(event)
+  {
+    const triggerEl = document.querySelector('#settingsTab a[href="#settingsPane"]')
+    // bootstrap.Tab.getInstance(triggerEl).show()
+    var tab = new bootstrap.Tab(triggerEl)
+    tab.show()
+  }
+
+
   // List: btns
 
   saveDayEntriesBtnClick(event)
