@@ -2,27 +2,27 @@
 prices
 ----------------------------------------------------------
 
-Bresso
-Bresso mini
-Champ mini ganz R
-Frosta Bratk
-Frosta Paella
-Karamalz
-Kartoffeltaschen F
-Linsen vegan
-Milch H
-Philadelphia
-Philadelphia mini
-Pommes
-Vollkorn Rhein R
-öl
+Frosta Bratk (price is a guess)
 
-Mehrkornbr
-Mohnkuchen
+(made via missing_prices.php)
 
-Amino NaDuRia Pur
-
-Cashew E
+Amino NaDuRia Pur:     ()
+Bresso:                ()
+Bresso mini:           ()
+Cashew E:              ()
+Champ mini ganz R:     ()
+Frosta Paella:         ()
+Karamalz:              ()
+Kartoffeltaschen F:    ()
+Linsen vegan:          ()
+Mehrkornbr:            ()
+Milch H:               ()
+Mohnkuchen:            ()
+Öl:                   ()
+Philadelphia:          ()
+Philadelphia mini:     ()
+Pommes:                ()
+Vollkorn Rhein R:      ()
 
 
 foods
