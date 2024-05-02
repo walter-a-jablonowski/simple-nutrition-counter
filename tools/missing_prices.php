@@ -19,8 +19,8 @@ $r = [];
 foreach( $foods as $key => $food)
 {
   $lastPriceUpdate = isset($food['lastPriceUpd']) && is_numeric($food['lastPriceUpd'])
-                  ? (new DateTime())->setTimestamp($food['lastPriceUpd'])
-                  : new DateTime();
+                   ? (new DateTime())->setTimestamp($food['lastPriceUpd'])
+                   : new DateTime();
 
   $diff = (new DateTime())->diff($lastPriceUpdate);
 
@@ -33,7 +33,7 @@ foreach( $foods as $key => $food)
   }
 }
 
-// AI generated (modified)
+// Print (AI generated modified)
 
 $maxKeyLen   = max( array_map('strlen', array_keys($r))) + 1;
 $maxPriceLen = max( array_map( fn($item) => strlen($item['price']), $r));
