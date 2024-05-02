@@ -43,14 +43,9 @@
             <?= self::iif( $this->mode === 'current', $day, "-1 day") ?>
           </button>
         </div>
-<!--
-        <button type="button" class="btn btn-sm" data-bs-toggle="popover"
-                data-bs-title   = "Help"
-                data-bs-content = "< ?= htmlspecialchars( file_get_contents('help.html')) ?>">
-          <i class="bi bi-info-circle mt-4 text-white"></i>
-        </button>
--->
+
         <!-- we try using a hidden tab -->
+
         <button id="settingsBtn" onclick="foodsCrl.settingsBtnClick(event)" type="button" class="btn btn-sm">
           <i class="bi bi-gear-fill text-white"></i>
         </button>
@@ -78,7 +73,8 @@
 
   </div>
 
-  <?php require( __DIR__ . '/modal.php') ?>
+  <?php require( __DIR__ . '/new_entry_modal.php') ?>
+  <?php require( __DIR__ . '/help_modal.php') ?>
 
 <?php if( $this->debug ): ?>
   <script>

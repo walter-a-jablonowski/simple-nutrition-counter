@@ -44,11 +44,11 @@
   </div>
   <div class="tab-pane fade" id="settingsPane" role="tabpanel">
 
-    <button type="button" class="btn btn-sm" data-bs-toggle="popover"
-            data-bs-title   = "Help"
-            data-bs-content = "< ?= htmlspecialchars( file_get_contents('help.html')) ?>">
-      <i class="bi bi-info-circle mt-4"></i>
-    </button>
+    <ul class="list-group">
+      <li class="list-group-item" onclick="foodsCrl.helpBtn(event)">
+        Help
+      </li>
+    </ul>
 
   </div>
 </div>

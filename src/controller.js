@@ -20,7 +20,7 @@ class FoodsEventController
     const popoverTriggerList = query('[data-bs-toggle="popover"]')
     const popoverList = [...popoverTriggerList].map( popoverTriggerEl => new bootstrap.Popover( popoverTriggerEl, {
       html: true,
-      customClass: 'help'  // TASK: use a modal
+      customClass: 'app-modal'
     }))
 
     // clear modal
@@ -83,7 +83,7 @@ class FoodsEventController
   }
 
 
-  // Settings
+  // Settings btn (tab content see below)
 
   settingsBtnClick(event)
   {
@@ -197,6 +197,18 @@ class FoodsEventController
       else
         query('#uiMsg').innerHTML = result.message
     })
+  }
+
+
+  // Settings tab
+
+  helpBtn(event)
+  {
+    // modal see also construct
+
+    // const myModal = new bootstrap.Modal('#myModal'), options)  // some eror
+    const myModal = new bootstrap.Modal( query('#helpModal')) //, options)
+    myModal.show()  //  Also, you can pass a DOM element as an argument that can be received in the modal events (as the relatedTarget property). (i.e. const modalToggle = document.getElementById('toggleMyModal'); myModal.show(modalToggle)
   }
 
 
