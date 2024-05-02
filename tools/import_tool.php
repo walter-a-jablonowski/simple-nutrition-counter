@@ -1,7 +1,5 @@
 <?php
 
-$output = '';
-
 if( $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inputText']))
 {
   $s = trim($_POST['inputText']);
@@ -35,7 +33,7 @@ if( $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inputText']))
       $vals[$key] = str_replace(',', '.', preg_match("/\d+,\d+/", $line, $m) ? $m[0] : null);
   }
 
-  $output .= "  calories:          $vals[calories]\n";
+  $output  = "  calories:          $vals[calories]\n";
   $output .= "  nutrients:\n";
   $output .= "\n";
   $output .= "    fat:             $vals[fat]\n";
@@ -67,7 +65,7 @@ if( $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inputText']))
   <textarea id="inputText" rows="10" cols="50"></textarea><br>
   <button id="parseBtn">Parse</button>
   <br><br>
-  <div id="output" class="output"><?= $output ?></div>
+  <div id="output" class="output"></div>
 
 <script>
 
