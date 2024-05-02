@@ -13,9 +13,6 @@
     <a class="nav-link py-1 px-2 small" data-bs-toggle="tab" href="#foodsPane" role="tab">Foods</a>
   </li>
 -->
-  <li id="settingsTab" class="nav-item" role="presentation" style="display: none;">
-    <a id="settingsTabBtn" class="nav-link py-1 px-2 small" data-bs-toggle="tab" href="#settingsPane" role="tab">Settings</a>
-  </li>
   <li class="nav-item ms-auto" role="presentation">
     <button id="expandBtn" class="btn p-1 border-0 bg-transparent">
       <i class="bi bi-caret-down text-secondary"></i>
@@ -46,16 +43,4 @@
 
   </div>
 -->
-  <div class="tab-pane fade" id="settingsPane" role="tabpanel">
-
-    <ul class="list-group">
-      <li class="list-group-item" onclick="" style="cursor: pointer;">
-        Edit foods (advanced feature)
-      </li>
-      <li class="list-group-item" onclick="foodsCrl.helpBtn(event)" style="cursor: pointer;">
-        Help
-      </li>
-    </ul>
-
-  </div>
 </div>

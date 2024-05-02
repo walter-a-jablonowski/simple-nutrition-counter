@@ -67,9 +67,15 @@
     </div>
   </nav>
 
-  <div class="container-fluid mt-3">
+  <div id="mainView" class="container-fluid mt-3" style="display: block;">  <!-- needed -->
 
     <?php require( __DIR__ . '/tabs/-this.php') ?>
+
+  </div>
+
+  <div id="settingsView" class="container-fluid mt-3" style="display: none;">
+
+    <?php require( __DIR__ . '/settings.php') ?>
 
   </div>
 

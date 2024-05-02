@@ -87,10 +87,19 @@ class FoodsEventController
 
   settingsBtnClick(event)
   {
-    const triggerEl = document.querySelector('#settingsTab a[href="#settingsPane"]')
-    // bootstrap.Tab.getInstance(triggerEl).show()
-    var tab = new bootstrap.Tab(triggerEl)
-    tab.show()
+    var mainView     = query('#mainView')
+    var settingsView = query('#settingsView')
+
+    if( mainView.style.display === 'block')
+    {
+      mainView.style.display     = 'none'
+      settingsView.style.display = 'block'
+    }
+    else
+    {
+      mainView.style.display     = 'block'
+      settingsView.style.display = 'none'
+    }
   }
 
 
