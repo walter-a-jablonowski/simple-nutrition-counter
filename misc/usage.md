@@ -2,10 +2,12 @@
 
 - [Install](install)
 - [Common usage](#common-usage)
-- [Recipes file usage (recipes.yml)](#recipes-file-usage-recipesyml)
-- [Foods file usage (foods.yml)](#foods-file-usage-foodsyml)
-- [Nutrients file usage (nutrients.yml)](#nutrients-file-usage-nutrientsyml)
-- [Layout file usage (layout.yml)](#layout-file-usage-layoutyml)
+- [Settings file (settings.yml)](#settings-file-settingsyml)
+- [Foods file (foods.yml)](#foods-file-foodsyml)
+- [Recipes file (recipes.yml)](#recipes-file-recipesyml)
+- [Layout file (layout.yml)](#layout-file-layoutyml)
+- [Misc counters (misc_counters.yml)](#misc-counters-misc_countersyml)
+- [Nutrient files (nutrients.yml)](#nutrient-files-nutrientsyml-and-nutrient_groupsyml)
 
 
 Install
@@ -25,19 +27,11 @@ Common usage
 Data files below see /data
 
 
-Recipes file usage (recipes.yml)
+Settings file (settings.yml)
 ----------------------------------------------------------
 
-```yaml
 
-My recipe:
-                     # amount:
-  Chick R Bio:  100g # < 0 (1/2)    is percent of pack
-  Brokkoli R:        # > 0 (e.g. 2) is piece(s)
-  Olivenöl:          # or with "g" (100g), "ml" (100ml)
-```
-
-Foods file usage (foods.yml)
+Foods file (foods.yml)
 ----------------------------------------------------------
 
 Currently we enter the values once in data/foods.yml. Simpler than doing manual calculations (partially used ingredients).
@@ -87,28 +81,19 @@ My food S Bio:                      # S = short for store if needed (save some s
 ```
 
 
-Nutrients file usage (nutrients.yml)
+Recipes file (recipes.yml)
 ----------------------------------------------------------
-
-(advanced feature)
 
 ```yaml
 
-B 12:
-
-  comment:              ""
-
-  type:                 methylcobalamin
-  amountMale:           
-  amountFemale: 
-  increasedNeedMale:
-  increasedNeedFemale:
-  unit:                 mg
-  lower:                5   # percent, summary view still is green progress if within these bounds
-  upper:                5
+My recipe:
+                     # amount:
+  Chick R Bio:  100g # < 0 (1/2)    is percent of pack
+  Brokkoli R:        # > 0 (e.g. 2) is piece(s)
+  Olivenöl:          # or with "g" (100g), "ml" (100ml)
 ```
 
-Layout file usage (layout.yml)
+Layout file (layout.yml)
 ----------------------------------------------------------
 
 - for upper part of nutrients list
@@ -127,4 +112,32 @@ My nutrient group:
   color:             # Visually group with color
   list:
     - ...
+```
+
+
+Misc counters (misc_counters.yml)
+----------------------------------------------------------
+
+- All misc expenses that are no food
+
+
+Nutrient files (nutrients.yml and nutrient_groups.yml)
+----------------------------------------------------------
+
+(advanced feature)
+
+```yaml
+
+B 12:
+
+  comment:              ""
+
+  type:                 methylcobalamin
+  amountMale:           
+  amountFemale: 
+  increasedNeedMale:
+  increasedNeedFemale:
+  unit:                 mg
+  lower:                5   # percent, summary view still is green progress if within these bounds
+  upper:                5
 ```

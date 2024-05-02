@@ -13,14 +13,12 @@
   </li>
 <!--
   <li class="list-group-item" onclick="" style="cursor: pointer;">
-    Misc
+    Expenses
   </li>
 -->
   <li class="list-group-item" onclick="" style="cursor: pointer;">
-    Expenses
-  </li>
-  <li class="list-group-item" onclick="" style="cursor: pointer;">
-    Misc counters
+    Misc counters<br>
+    <span style="font-size: 0.6rem;">Expenses</span>
   </li>
   <li class="list-group-item" onclick="" style="cursor: pointer;">
     Nutrients

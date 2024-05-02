@@ -1,7 +1,9 @@
 
+# see also users > settings.yml
+
 debug: false
 
-foods:
+foods:  # TASK: move settings
 
   defaultAmounts:
     

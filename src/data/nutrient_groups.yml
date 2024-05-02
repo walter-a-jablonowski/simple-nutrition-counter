@@ -1,0 +1,9 @@
+
+amino acids:  # id could be just rm the blanks
+
+  amountMale: 
+  increasedNeedMale: 
+  unit:              mg
+  comment:           "Increased need if doing sports"
+  lower:             50
+  upper:             120
