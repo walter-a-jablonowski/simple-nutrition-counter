@@ -8,18 +8,18 @@
 
 # key is type
 
-water:
+Water:
 
   price:        1.74
   lastPriceUpd: 2024-03-30
 
-beverages:
+Beverages:
 
-  coffee:
+  Coffee:
 
     price:             
     weight:            
-    usedAmounts:       []
+    usedAmounts:       ["50ml", ...]
 
     calories:          0
     nutrients:
@@ -33,4 +33,4 @@ beverages:
 
 # All misc expenses that are no food
 
-expenses:
+Expenses:
