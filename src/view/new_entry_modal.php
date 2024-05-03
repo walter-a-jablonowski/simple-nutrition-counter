@@ -8,7 +8,9 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body small">
-
+        
+        <!-- Floating form (placeholder is more compact) -->
+<!--
         <div class="form-floating mb-3">
           <input id="modalNameInput" class="form-control" placeholder="Name" value="Misc" required>
           <label for="modalNameInput">Name</label>
@@ -33,6 +35,26 @@
           <input id="modalPriceInput"  type="number" inputmode="numeric" class="form-control" placeholder="Price" required>
           <label for="modalPriceInput">Price</label>
         </div>
+-->
+        <div class="mb-3">
+          <input id="modalNameInput" class="form-control" placeholder="Name" value="Misc" required>
+        </div>
+        <div class="mb-3">
+          <input id="modalCaloriesInput" type="number" inputmode="numeric" class="form-control" placeholder="Calories" required>
+        </div>
+        <div class="mb-3">
+          <input id="modalFatInput"   type="number" inputmode="numeric" class="form-control" placeholder="Fat (grams)" required>
+        </div>
+        <div class="mb-3">
+          <input id="modalAminoInput" type="number" inputmode="numeric" class="form-control" placeholder="Amino Acids (grams)" required>
+        </div>
+        <div class="mb-3">
+          <input id="modalSaltInput"  type="number" inputmode="numeric" class="form-control" placeholder="Salt (grams)" required>
+        </div>
+        <div class="mb-3">
+          <input id="modalPriceInput"  type="number" inputmode="numeric" class="form-control" placeholder="Price" required>
+        </div>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">
