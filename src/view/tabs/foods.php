@@ -5,7 +5,7 @@
     ><?= $this->foodsTxt ?></textarea>
 
     <button onclick="foodsCrl.saveFoodsBtnClick(event)" class="btn btn-sm btn-primary mt-2">Save</button>
-    <span id="uiMsg"></span>
+    <span id="foodsUIMsg"></span>
 
   </div>
 </div>

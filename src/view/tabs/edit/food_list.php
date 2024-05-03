@@ -6,6 +6,7 @@
     <button class="btn btn-sm flex-fill" onclick="foodsCrl.saveDayEntriesBtnClick(event)">
       Save
     </button>
+    <span id="uiMsg"></span>
     <button class="btn btn-sm flex-fill" onclick="foodsCrl.newEntryBtn(event)">
       New
     </button>

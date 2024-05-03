@@ -202,9 +202,9 @@ class FoodsEventController
     ajax.send('saveFoods', { data: query('#foods').value }, function( result, data ) {
 
       if( result === 'success')
-        query('#uiMsg').innerHTML = 'Saved'
+        query('#foodsUIMsg').innerHTML = 'Saved'
       else
-        query('#uiMsg').innerHTML = result.message
+        query('#foodsUIMsg').innerHTML = result.message
     })
   }
 
