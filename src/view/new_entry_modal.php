@@ -29,6 +29,10 @@
           <input id="modalSaltInput"  type="number" inputmode="numeric" class="form-control" placeholder="Salt (grams)" required>
           <label for="modalSaltInput">Salt (grams)</label>
         </div>
+        <div class="form-floating mb-3">
+          <input id="modalPriceInput"  type="number" inputmode="numeric" class="form-control" placeholder="Price" required>
+          <label for="modalPriceInput">Price</label>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">

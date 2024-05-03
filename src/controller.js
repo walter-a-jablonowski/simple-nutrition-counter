@@ -32,6 +32,7 @@ class FoodsEventController
       query('#modalFatInput').value      = ''
       query('#modalAminoInput').value    = ''
       query('#modalSaltInput').value     = ''
+      query('#modalPriceInput').value    = ''
     })
 
     // Sortable (advanced)  #code/advancedDayEntries
@@ -131,11 +132,12 @@ class FoodsEventController
       calories: parseFloat( query('#modalCaloriesInput').value.trim().replace(',', '.')) || 0,
       fat:      parseFloat( query('#modalFatInput').value.trim().replace(',', '.'))      || 0,
       amino:    parseFloat( query('#modalAminoInput').value.trim().replace(',', '.'))    || 0,
-      salt:     parseFloat( query('#modalSaltInput').value.trim().replace(',', '.'))     || 0
+      salt:     parseFloat( query('#modalSaltInput').value.trim().replace(',', '.'))     || 0,
+      price:    parseFloat( query('#modalPriceInput').value.trim().replace(',', '.'))    || 0
     }
 
     dayEntries.push(entry);  // simple version
-    query('#dayEntries').value += `\n${entry.name}  ${entry.calories}  ${entry.fat}  ${entry.amino}  ${entry.salt}`    
+    query('#dayEntries').value += `\n${entry.name}  ${entry.calories}  ${entry.fat}  ${entry.amino}  ${entry.salt}  ${entry.price}`
 
     this.updSums()
     this.#saveDayEntries()

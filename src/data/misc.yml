@@ -31,6 +31,6 @@ Beverages:
     lastUpd:           
     lastPriceUpd:      
 
-# All misc expenses that are no food
+# All misc expenses that are no food (variable expenses spent on daily basis)
 
 Expenses:
