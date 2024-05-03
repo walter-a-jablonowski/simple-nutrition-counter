@@ -16,26 +16,6 @@
       </div>
     </div>
 
-    <!-- Coffee counter -->
-
-    <div class="row">
-      <div class="col">
-        Coffee
-      </div>
-      <div class="col" onclick = "...">
-        XXS
-      </div>
-      <div class="col" onclick = "...">
-        XS
-      </div>
-      <div class="col" onclick = "...">
-        M
-      </div>
-      <div class="col">
-        [VALUE GREEN|RED]
-      </div>
-    </div>
-
   </div>
 
   <?php

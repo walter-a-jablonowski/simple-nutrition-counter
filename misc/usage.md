@@ -6,8 +6,8 @@
 - [Foods file (foods.yml)](#foods-file-foodsyml)
 - [Recipes file (recipes.yml)](#recipes-file-recipesyml)
 - [Layout file (layout.yml)](#layout-file-layoutyml)
-- [Misc counters (misc_counters.yml)](#misc-counters-misc_countersyml)
-- [Nutrient files (nutrients.yml)](#nutrient-files-nutrientsyml-and-nutrient_groupsyml)
+- [Misc counters (misc.yml)](#misc-counters-miscyml)
+- [Nutrient files (nutrients.yml)](#nutrient-files-substancesyml-and-groupsyml)
 
 
 Install
@@ -115,13 +115,17 @@ My nutrient group:
 ```
 
 
-Misc counters (misc_counters.yml)
+Misc counters (misc.yml)
 ----------------------------------------------------------
 
-- All misc expenses that are no food
+all misc counters
+
+- water
+- beverages
+- misc expenses that are no food
 
 
-Nutrient files (nutrients.yml and nutrient_groups.yml)
+Nutrient files (substances.yml and groups.yml)
 ----------------------------------------------------------
 
 (advanced feature)

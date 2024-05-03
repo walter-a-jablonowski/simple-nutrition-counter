@@ -1,0 +1,36 @@
+#
+# All misc counters
+#
+# - water
+# - beverages
+# - misc expenses that are no food
+#
+
+# key is type
+
+water:
+
+  price:        1.74
+  lastPriceUpd: 2024-03-30
+
+beverages:
+
+  coffee:
+
+    price:             
+    weight:            
+    usedAmounts:       []
+
+    calories:          0
+    nutrients:
+
+      water:           99
+      caffeine:
+
+    sources:           "price: "
+    lastUpd:           
+    lastPriceUpd:      
+
+# All misc expenses that are no food
+
+expenses:
