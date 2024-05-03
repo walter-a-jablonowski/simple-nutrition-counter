@@ -16,6 +16,8 @@
       </div>
     </div>
 
+    <!-- TASK: add entries from layout group first_entries -->
+
   </div>
 
   <?php

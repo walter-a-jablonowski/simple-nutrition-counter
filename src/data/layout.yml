@@ -24,9 +24,9 @@
 #     - ...
 #
 
-# Coffee: (single_entry)  # TASK: combine these with static entries somehow? (use space)
+# Coffee: (single_entry)  # TASK: maybe unused
 
-Misc:
+first_entries:    # see (TASK) add entries from layout group first_entries
 
   - Coffee
 
