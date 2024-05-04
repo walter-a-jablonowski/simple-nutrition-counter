@@ -14,7 +14,15 @@
 
 </head>
 <body>
-
+<!--
+< ?php
+if( error ):  // TASK: also add class "ext" in body
+  require( __DIR__ . '/error_page.php')
+elseif( ! session_id() ):  // TASK
+  require( __DIR__ . '/login.php')
+else:
+?>
+-->
   <nav class="navbar navbar-expand-lg bg-primary">
     <div class="container-fluid">
       <div class="d-flex w-100 justify-content-between">
@@ -82,12 +90,19 @@
   <?php require( __DIR__ . '/new_entry_modal.php') ?>
   <?php require( __DIR__ . '/help_modal.php') ?>
 
-<?php if( $this->debug ): ?>
-  <script>
-    document.write('<p>Width: ' + window.innerWidth + 'px, Height: ' + window.innerHeight + 'px</p>')
-  </script>
-<?php endif; ?>
+  <div id="errorPage" style="display: none;">
+    <?php require( __DIR__ . '/error_page.php') ?>
+  </div>
 
+  <?php if( $this->debug ): ?>
+    <script>
+      document.write('<p>Width: ' + window.innerWidth + 'px, Height: ' + window.innerHeight + 'px</p>')
+    </script>
+  <?php endif; ?>
+
+<!--
+< ?php endif;  // error_page and login ?>
+-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
