@@ -3,7 +3,7 @@
 
 debug: false
 
-user:  single_user  # TASK: remove
+user:  single_user  # TASK: remove (currently single user)
 foods:              # TASK: move settings
 
   defaultAmounts:
