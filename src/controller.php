@@ -35,7 +35,7 @@ class FoodsController extends ControllerBase
 
     // This day and foods tab
 
-    $this->dayEntriesTxt = trim( @file_get_contents("data/days/{$this->date}.tsv") ?: '', "\n");
+    $this->dayEntriesTxt = trim( @file_get_contents('data/users/' . $config->get('user') . "/days/{$this->date}.tsv") ?: '', "\n");
     $this->dayEntries    = parse_tsv( $this->dayEntriesTxt );
 
     $this->foodsTxt = file_get_contents('data/foods.yml');
@@ -100,13 +100,13 @@ class FoodsController extends ControllerBase
     // All days
     // no model data, kind of report
 
-    foreach( scandir('data/days', SCANDIR_SORT_DESCENDING) as $file)
+    foreach( scandir('data/users/' . $config->get('user') . '/days', SCANDIR_SORT_DESCENDING) as $file)
     {
       if( pathinfo($file, PATHINFO_EXTENSION) !== 'tsv')
         continue;
 
       $dat     = pathinfo($file, PATHINFO_FILENAME);
-      $entries = parse_tsv( file_get_contents("data/days/$file"));
+      $entries = parse_tsv( file_get_contents('data/users/' . $config->get('user') . "/days/$file"));
 
       $this->lastDaysSums[$dat] = [
         'caloriesSum' => ! $entries ? 0 : array_sum( array_column($entries, 1)),

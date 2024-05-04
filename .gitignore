@@ -4,7 +4,7 @@ try.php
 debug.php
 composer.lock
 vendor/
-src/data/days/**.tsv
+src/data/users/single_user/days/**.tsv
 fade_230808.js
 src/data/price_data.yml
 nutri.code-workspace
