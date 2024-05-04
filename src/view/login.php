@@ -1,6 +1,6 @@
 <!--
 
-has the same layout as error_page, only one class removed (see below)
+has the same style as error_page, only one class removed (see below)
 
 TASKS:
 
