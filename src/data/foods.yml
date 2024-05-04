@@ -516,8 +516,7 @@ Kartoffel Wedges:
 
   price:             1.89
   weight:            750
-  # pieces:                # TASK
-  usedAmounts:       ["1/8", "1/4"]
+  usedAmounts:       ["50g", "100g"]
 
   calories:          139
   nutrients:
