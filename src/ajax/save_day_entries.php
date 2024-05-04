@@ -5,6 +5,8 @@ trait SaveDayEntriesAjaxController
 
   public function saveDayEntries( $request )
   {
+    $config = config::instance();
+
     // we use no backup here, just start from scratch if error
 
     if( ! file_put_contents('data/users/' . $config->get('user') . "/days/$request[date].tsv", $request['data']))
