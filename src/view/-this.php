@@ -87,8 +87,8 @@ else:
 
   </div>
 
-  <?php require( __DIR__ . '/new_entry_modal.php') ?>
-  <?php require( __DIR__ . '/help_modal.php') ?>
+  <?php require( __DIR__ . '/modal/new_entry.php') ?>
+  <?php require( __DIR__ . '/modal/help.php') ?>
 
   <div id="errorPage" style="display: none;">
     <?php require( __DIR__ . '/error_page.php') ?>
