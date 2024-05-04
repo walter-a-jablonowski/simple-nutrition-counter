@@ -9,7 +9,7 @@
       </div>
       <div class="modal-body small">
 
-        <?= file_get_contents('help.html') ?>
+        <?= file_get_contents('misc/help.html') ?>
 
       </div>
       <div class="modal-footer">
