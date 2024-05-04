@@ -18,7 +18,7 @@
 < ?php
 if( error ):  // TASK: also add class "ext" in body
   require( __DIR__ . '/error_page.php')
-elseif( ! session_id() ):  // TASK
+elseif( ! session_id() ):
   require( __DIR__ . '/login.php')
 else:
 ?>
@@ -54,9 +54,14 @@ else:
 
         <!-- we try using a hidden tab -->
 
-        <button id="settingsBtn" onclick="foodsCrl.settingsBtnClick(event)" type="button" class="btn btn-sm">
-          <i class="bi bi-gear-fill text-white"></i>
-        </button>
+        <div>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tipsModal">
+            <i class="bi bi-info-circle icon-circle"></i>
+          </button>
+          <button id="settingsBtn" onclick="foodsCrl.settingsBtnClick(event)" type="button" class="btn btn-sm">
+            <i class="bi bi-gear-fill text-white"></i>
+          </button>
+        </div>
       </div>
       <!--
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -88,6 +93,7 @@ else:
   </div>
 
   <?php require( __DIR__ . '/modal/new_entry.php') ?>
+  <?php require( __DIR__ . '/modal/tips.php') ?>
   <?php require( __DIR__ . '/modal/help.php') ?>
 
   <div id="errorPage" style="display: none;">
