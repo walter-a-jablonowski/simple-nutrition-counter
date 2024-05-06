@@ -187,7 +187,7 @@ class FoodsEventController
       let foodPadding     = ' '.repeat( maxFoodLength     - entry.food.length + 2)              // 2 extra spaces
       let caloriesPadding = ' '.repeat( maxCaloriesLength - String(entry.calories).length + 2)  // for some reason we must do it like this here
       let fatPadding      = ' '.repeat( maxFatLength      - String(entry.fat).length + 2)
-      let carbsPadding    = ' '.repeat( maxFatLength      - String(entry.carbs).length + 2)
+      let carbsPadding    = ' '.repeat( maxCarbsLength    - String(entry.carbs).length + 2)
       let aminoPadding    = ' '.repeat( maxAminoLength    - String(entry.amino).length + 2)
       let saltPadding     = ' '.repeat( maxSaltLength     - String(entry.salt).length + 2)
 
