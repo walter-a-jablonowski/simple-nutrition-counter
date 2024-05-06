@@ -14,7 +14,7 @@ Amino misc:  # use for some left over nuts
   usedAmounts:       ["10g", "20g", "30g"]
 
   calories:          610
-  nutrients:
+  nutrientGroups:
 
     fat:             54
     saturatedFat:    4
@@ -37,7 +37,7 @@ Amino Deca Muscle Gainer:
   usedAmounts:       ["20g"]
 
   calories:          375
-  nutrients:
+  nutrientGroups:
 
     fat:             4.6
     saturatedFat:    2
@@ -59,7 +59,7 @@ Amino NaDuRia Pur:
   usedAmounts:       ["20g"]
 
   calories:          357
-  nutrients:
+  nutrientGroups:
 
     fat:             6.5
     saturatedFat:    0.9
@@ -83,7 +83,7 @@ Artisch R viertel:
   usedAmounts:       ["1/4", "1/3", "1/2"]
 
   calories:          103
-  nutrients:
+  nutrientGroups:
 
     fat:             7.8
     saturatedFat:    0.8
@@ -104,7 +104,7 @@ Avocado:
   usedAmounts:       [1, 2, 4]
 
   calories:          160  # TASK: right?
-  nutrients:
+  nutrientGroups:
 
     fat:             15
     saturatedFat:    2.1
@@ -132,7 +132,7 @@ Bresso:
   usedAmounts:       ["10g", "20g", "30g"]
 
   calories:          337
-  nutrients:
+  nutrientGroups:
 
     fat:             32
     saturatedFat:    23
@@ -152,7 +152,7 @@ Bresso mini:
   pieces:            8
 
   calories:          337
-  nutrients:
+  nutrientGroups:
 
     fat:             32
     saturatedFat:    23
@@ -171,7 +171,7 @@ Brokkoli R:
   weight:            1000
 
   calories:          24
-  nutrients:
+  nutrientGroups:
 
     fat:             0.2
     saturatedFat:    0.1
@@ -194,7 +194,7 @@ Cappuccino Eni:
   usedAmounts:       ["1"]
 
   calories:          63
-  nutrients:
+  nutrientGroups:
 
     fat:             1.2
     carbs:           12     # 10 & sugar ca 3.8/2 ~ 2g
@@ -213,7 +213,7 @@ Cashew E:
   usedAmounts:       ["1/4", "1/2", "1"]
 
   calories:          603
-  nutrients:
+  nutrientGroups:
 
     fat:             47.1
     saturatedFat:    9.3
@@ -234,7 +234,7 @@ Cashew N:
   usedAmounts:       ["1/4", "1/2", "1"]
 
   calories:          603
-  nutrients:
+  nutrientGroups:
 
     fat:             47.1
     saturatedFat:    9.3
@@ -255,7 +255,7 @@ Cashew R Bio:
   usedAmounts:       ["50g", "100g"]
 
   calories:          600
-  nutrients:
+  nutrientGroups:
 
     fat:             48.3
     saturatedFat:    8
@@ -274,7 +274,7 @@ Champ mini ganz R:
   weight:            115
 
   calories:          16
-  nutrients:
+  nutrientGroups:
 
     fat:             0.2
     saturatedFat:    0.1
@@ -295,7 +295,7 @@ Chips light:
   weight:            80
 
   calories:          472
-  nutrients:
+  nutrientGroups:
 
     fat:             22
     saturatedFat:    1.7
@@ -315,7 +315,7 @@ Chick R Bio:
   weight:            215
 
   calories:          127
-  nutrients:
+  nutrientGroups:
 
     fat:             2.7
     saturatedFat:    0.3
@@ -335,7 +335,7 @@ Duplo:
   usedAmounts:       [1]
 
   calories:          551
-  nutrients:
+  nutrientGroups:
 
     fat:             33
     saturatedFat:    18.9
@@ -355,7 +355,7 @@ Erdn Salz N big:
   usedAmounts:       ["50g", "100g"]
 
   calories:          615
-  nutrients:
+  nutrientGroups:
 
     fat:             51
     saturatedFat:    7.8
@@ -379,7 +379,7 @@ Ferrero Kuesschen:
   usedAmounts:       [1, 2, 5]
 
   calories:          628
-  nutrients:
+  nutrientGroups:
 
     fat:             47.3
     saturatedFat:    19.7
@@ -402,7 +402,7 @@ Fischst:
   usedAmounts:       [2,4,6]
 
   calories:          181
-  nutrients:
+  nutrientGroups:
 
     fat:             7.9
     saturatedFat:    1
@@ -425,7 +425,7 @@ Frosta Bratk:
   usedAmounts:       ["1/3", "1/2", "1"]
 
   calories:          96
-  nutrients:
+  nutrientGroups:
 
     fat:             3.5
     saturatedFat:    1.2
@@ -448,7 +448,7 @@ Frosta Gesch:
   usedAmounts:       ["1/3", "1/2", "1"]
 
   calories:          105
-  nutrients:
+  nutrientGroups:
 
     fat:             2.6
     saturatedFat:    1.5
@@ -473,7 +473,7 @@ Frosta Paella:
   usedAmounts:       ["1/3", "1/2", "1"]
 
   calories:          125
-  nutrients:
+  nutrientGroups:
 
     fat:             4.7
     saturatedFat:    1.3
@@ -493,7 +493,7 @@ Green beans R:
   weight:            330
 
   calories:          25
-  nutrients:
+  nutrientGroups:
 
     fat:             0.1
     saturatedFat:    0.1
@@ -515,7 +515,7 @@ Karamalz:
   usedAmounts:       ["330ml", "500g"]  # smaller and larger ver
 
   calories:          44
-  nutrients:
+  nutrientGroups:
 
     fat:             0
     saturatedFat:    0
@@ -539,7 +539,7 @@ Kartoffeltaschen F:
   pieces:            10
 
   calories:          182
-  nutrients:
+  nutrientGroups:
 
     fat:             10
     saturatedFat:    3.9
@@ -562,7 +562,7 @@ Kartoffel Wedges:
   usedAmounts:       ["50g", "100g"]
 
   calories:          139
-  nutrients:
+  nutrientGroups:
 
     fat:             3.4
     saturatedFat:    0.4
@@ -585,7 +585,7 @@ Kfc Original:
   usedAmounts:       [1]
 
   calories:          234
-  nutrients:
+  nutrientGroups:
 
     fat:             12
     saturatedFat:    4
@@ -604,7 +604,7 @@ Linsen R Bio:
   weight:            260
 
   calories:          92
-  nutrients:
+  nutrientGroups:
 
     fat:             0.4
     saturatedFat:    0.1
@@ -624,7 +624,7 @@ Linsen vegan:
   usedAmounts:       [1]
 
   calories:          61
-  nutrients:
+  nutrientGroups:
 
     fat:             0.5
     saturatedFat:    0.1
@@ -644,7 +644,7 @@ Lyoner R Bio:
   weight:            70
 
   calories:          230
-  nutrients:
+  nutrientGroups:
 
     fat:             19
     saturatedFat:    4
@@ -664,7 +664,7 @@ Mandel N:
   usedAmounts:       ["50g", "100g"]
 
   calories:          618
-  nutrients:
+  nutrientGroups:
 
     fat:             53
     saturatedFat:    4.2
@@ -685,7 +685,7 @@ Mandel R Bio:
   usedAmounts:       ["50g", "100g"]
 
   calories:          619
-  nutrients:
+  nutrientGroups:
 
     fat:             53
     saturatedFat:    4.1
@@ -709,7 +709,7 @@ Mehrkornbr:
   pieces:            12
 
   calories:          221
-  nutrients:
+  nutrientGroups:
 
     fat:             2.6
     saturatedFat:    0.2
@@ -733,7 +733,7 @@ Milch H:
   usedAmounts:       ["50ml", "100ml", "200ml"]
 
   calories:          64
-  nutrients:
+  nutrientGroups:
 
     fat:             3.5
     saturatedFat:    2.3
@@ -754,7 +754,7 @@ Mohnkuchen:
   weight:            400g
 
   calories:          331
-  nutrients:
+  nutrientGroups:
 
     fat:             9.4
     saturatedFat:    3.3
@@ -774,7 +774,7 @@ Nussmisch N:
   usedAmounts:       ["50g", "100g"]
 
   calories:          653
-  nutrients:
+  nutrientGroups:
 
     fat:             57.8
     saturatedFat:    6.5
@@ -797,7 +797,7 @@ Oliven R Bio:
   usedAmounts:       ["1/8", "1/4", "1/3"]
 
   calories:          154
-  nutrients:
+  nutrientGroups:
 
     fat:             16
     saturatedFat:    2.3
@@ -818,7 +818,7 @@ Olivenöl:
   usedAmounts:       ["30ml", "60ml"]
 
   calories:          900
-  nutrients:
+  nutrientGroups:
 
     fat:             100
     saturatedFat:    16.1
@@ -840,7 +840,7 @@ Olivenöl:
   usedAmounts:       ["30ml", "60ml"]
 
   calories:          823
-  nutrients:
+  nutrientGroups:
 
     fat:             91.4
     saturatedFat:    6.3
@@ -862,7 +862,7 @@ Patros:
   usedAmounts:       ["10g", "20g", "30g"]
 
   calories:          278
-  nutrients:
+  nutrientGroups:
 
     fat:             24
     saturatedFat:    16
@@ -882,7 +882,7 @@ Patros W:
   usedAmounts:       ["10g", "20g", "30g"]
 
   calories:          278
-  nutrients:
+  nutrientGroups:
 
     fat:             22
     saturatedFat:    15
@@ -902,7 +902,7 @@ Philadelphia:
   usedAmounts:       ["10g", "20g", "30g"]
 
   calories:          225
-  nutrients:
+  nutrientGroups:
 
     fat:             21
     saturatedFat:    14
@@ -923,7 +923,7 @@ Philadelphia mini:
   pieces:            6
 
   calories:          225
-  nutrients:
+  nutrientGroups:
 
     fat:             21
     saturatedFat:    14
@@ -945,7 +945,7 @@ Pizza Mag:
   usedAmounts:       [1]
 
   calories:          247
-  nutrients:
+  nutrientGroups:
 
     fat:             7.6
     saturatedFat:    2.9
@@ -969,7 +969,7 @@ Pommes:
   usedAmounts:       ["50g", "100ml", "200g"]
 
   calories:          145
-  nutrients:
+  nutrientGroups:
 
     fat:             4.5
     saturatedFat:    0.5
@@ -991,7 +991,7 @@ Pumpernickel R Bio:
   pieces:            8  # TASK: verify
 
   calories:          196
-  nutrients:
+  nutrientGroups:
 
     fat:             1.7
     saturatedFat:    0.2
@@ -1014,7 +1014,7 @@ Riegel Seitenb Sch:
   usedAmounts:       ["1/2", "1"]
 
   calories:          350
-  nutrients:
+  nutrientGroups:
 
     fat:             12
     saturatedFat:    5
@@ -1040,7 +1040,7 @@ Riegel Deca Basic:
   usedAmounts:       [1]
 
   calories:          385
-  nutrients:
+  nutrientGroups:
 
     fat:             9.8
     saturatedFat:    7
@@ -1061,7 +1061,7 @@ Ritter Sp 50%:
   usedAmounts:       [1,2,4,6]
 
   calories:          595
-  nutrients:
+  nutrientGroups:
 
     fat:             45
     saturatedFat:    28
@@ -1082,7 +1082,7 @@ Ritter Sp 81%:
   usedAmounts:       [1,2,4]
 
   calories:          609
-  nutrients:
+  nutrientGroups:
 
     fat:             52
     saturatedFat:    33
@@ -1103,7 +1103,7 @@ Salami R:
   weight:            70
 
   calories:          275
-  nutrients:
+  nutrientGroups:
 
     fat:             19
     saturatedFat:    8.7
@@ -1126,7 +1126,7 @@ Vollkorn Rhein R:
   pieces:            6
 
   calories:          194
-  nutrients:
+  nutrientGroups:
 
     fat:             1.1
     saturatedFat:    0.2
@@ -1147,7 +1147,7 @@ Walnuss R Bio:
   usedAmounts:       ["1/4", "1/2", "1"]
 
   calories:          711
-  nutrients:
+  nutrientGroups:
 
     fat:             69
     saturatedFat:    6.4

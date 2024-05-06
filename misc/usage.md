@@ -60,7 +60,7 @@ My food S Bio:                      # S = short for store if needed (save some s
                                     # consumed as a single piece: use 1
 
   calories:                         # (required) per 100g or 100ml in grams (depends on what weight is)
-  nutrients:
+  nutrientGroups:
 
     fat:              100           # (required)
     saturatedFat: 
@@ -70,13 +70,20 @@ My food S Bio:                      # S = short for store if needed (save some s
     sugar:                          # (required)
     fibre:        
     amino:                          # (required)
-    salt:             1.0           # (required)
+    salt:             1.0           # (required) TASK: technically is a single substance
+
+  fattyAcids:
+  
+  aminoAcids:
+  
+  vitamins:
+  
+  minerals:
 
     calcium:                        # same unit as in nutrients.yml
-    # ... some important ...        # all below (required)
 
   sources:            "Macro nutrients: web|pack, information on packaging may differ slightly, nutrients: ..., price: ..."
-  lastUpd:            2024-02-18
+  lastUpd:            2024-02-18  # all (required)
   lastPriceUpd:       2024-03-23
 ```
 
