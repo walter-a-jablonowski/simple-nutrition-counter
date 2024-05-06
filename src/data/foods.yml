@@ -147,7 +147,7 @@ Bresso:
 
 Bresso mini:
 
-  price:             
+  price:             1.19  # deal price
   weight:            120
   pieces:            8
 
@@ -161,7 +161,7 @@ Bresso mini:
     amino:           9.2
     salt:            1.2
 
-  sources:           "Macro nutrients: web (information on packaging may differ)"
+  sources:           "Macro nutrients: web (information on packaging may differ), price: deal"
   lastUpd:           2024-04-20
   lastPriceUpd:      
 
@@ -420,7 +420,7 @@ Frosta Bratk:
 
   acceptable:        occasionally
 
-  price:             2.99
+  price:             2.99  # deal ca
   weight:            500
   usedAmounts:       ["1/3", "1/2", "1"]
 
@@ -857,7 +857,7 @@ Olivenöl:
 
 Patros:
 
-  price:             1.69 # deal price
+  price:             1.69  # deal price
   weight:            150
   usedAmounts:       ["10g", "20g", "30g"]
 
