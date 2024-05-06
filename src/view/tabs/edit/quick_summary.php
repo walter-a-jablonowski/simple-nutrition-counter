@@ -1,5 +1,5 @@
 <div class="row mt-2 px-2">
-  <div class="col-2 ps-0 pe-0" style="background-color: #FF6348;">
+  <div class="col-2 ps-0 pe-0" style="background-color: #eb6864;">
     <div class="ps-1 fw-bold small">kcal</div>
     <div id="caloriesSum" class="ps-1">0</div>
   </div>

@@ -914,6 +914,28 @@ Philadelphia mini:
   lastUpd:           2024-04-20
   lastPriceUpd:      
 
+Pizza Mag:
+
+  price:             2.99
+  weight:            900
+  pieces:            3
+  usedAmounts:       [1]
+
+  calories:          247
+  nutrients:
+
+    fat:             7.6
+    saturatedFat:    2.9
+    carbs:           35.2
+    sugar:           4.9
+    fibre:           2
+    amino:           8.4
+    salt:            0.8
+
+  sources:           "Macro nutrients: pack"
+  lastUpd:           2024-05-06
+  lastPriceUpd:      2024-05-06
+
 Pommes:
 
   acceptable:        less
