@@ -110,7 +110,7 @@ class FoodsEventController
   {
     // Manual entering values: current solution is enter values => save => reload
 
-    this.#saveDayEntries()
+    this.#saveDayEntries( true )
     window.location.reload()
   }
 
@@ -270,13 +270,13 @@ class FoodsEventController
     // query('#caloriesProgressLabel').textContent = `${currentSum}/${recommended}`
   }
 
-  #saveDayEntries()
+  #saveDayEntries( uiMsg = false )
   {
     ajax.send('saveDayEntries', { date: this.date, data: query('#dayEntries').value }, function( result, data ) {
 
-      if( result === 'success')
+      if( result === 'success' && uiMsg)
         query('#uiMsg').innerHTML = 'Saved'
-      else
+      elseif( result !== 'success')
         query('#uiMsg').innerHTML = result.message
     })
   }
