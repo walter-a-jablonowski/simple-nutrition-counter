@@ -34,3 +34,5 @@ Beverages:
 # All misc expenses that are no food (variable expenses spent on daily basis)
 
 Expenses:
+
+  Waschm: [ price: 4.89, lastUpd: 2024-05-06 ]
