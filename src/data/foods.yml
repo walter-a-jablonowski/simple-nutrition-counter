@@ -248,6 +248,26 @@ Cashew N:
   lastUpd:           2024-02-18
   lastPriceUpd:      2024-04-06
 
+Cashew R Bio:
+
+  price:             2.99
+  weight:            250
+  usedAmounts:       ["50g", "100g"]
+
+  calories:          600
+  nutrients:
+
+    fat:             48.3
+    saturatedFat:    8
+    carbs:           16.1
+    sugar:           5.7
+    amino:           20.7
+    salt:            0.01
+
+  sources:           "Macro nutrients: web"
+  lastUpd:           2024-05-06
+  lastPriceUpd:      2024-05-06
+
 Champ mini ganz R:
 
   price:             
