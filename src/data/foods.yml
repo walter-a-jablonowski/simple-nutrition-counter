@@ -99,11 +99,11 @@ Artisch R viertel:
 Avocado:
 
   price:             1.89
-  weight:            750g              # 5 * 150 larger one
-  pieces:            5                 # TASK
-  usedAmounts:       ["100g", "150g"]  # smaller is ~100g, larger more
+  weight:            500g              
+  pieces:            5                 
+  usedAmounts:       [1, 2, 4]
 
-  calories:          160
+  calories:          160  # TASK: right?
   nutrients:
 
     fat:             15
