@@ -51,7 +51,7 @@ My food S Bio:                      # S = short for store if needed (save some s
 
   cookingInstrutions: ""
 
-  weight:             100g          # unit g or ml is optional, of whole pack in case of pieces
+  weight:             100g          # (required) unit g or ml is optional, of whole pack in case of pieces
   pieces:             6             # number of pieces in a pack (if any)
   usedAmounts:        ["1/4", ...]  # enter fraction, pieces or precise (you can't mix these, chosse one)
                                     # - default  "1/4", "1/3", 1 * weight            if pieces unset
@@ -59,21 +59,21 @@ My food S Bio:                      # S = short for store if needed (save some s
                                     # - or use   10g or 50ml
                                     # consumed as a single piece: use 1
 
-  calories:                         # per 100g or 100ml in grams (depends on what weight is)
+  calories:                         # (required) per 100g or 100ml in grams (depends on what weight is)
   nutrients:
 
-    fat:              100
+    fat:              100           # (required)
     saturatedFat: 
     monoUnsaturated:                # a few foods have that data
     polyUnsaturated:                   
-    carbs:        
-    sugar:        
+    carbs:                          # (required)
+    sugar:                          # (required)
     fibre:        
-    amino:        
-    salt:             1.0
+    amino:                          # (required)
+    salt:             1.0           # (required)
 
     calcium:                        # same unit as in nutrients.yml
-    # ... some important ...
+    # ... some important ...        # all below (required)
 
   sources:            "Macro nutrients: web|pack, information on packaging may differ slightly, nutrients: ..., price: ..."
   lastUpd:            2024-02-18
