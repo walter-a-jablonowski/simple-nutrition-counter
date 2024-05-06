@@ -6,7 +6,8 @@
 
 Magnesium:
 
-  amountMale: 
+  short:             Mg
+  amountMale:
   increasedNeedMale: 
   unit:              mg
   comment:           "Increased need if doing sports"
@@ -15,6 +16,7 @@ Magnesium:
 
 B12:
 
+  short:             B12
   type:              methylcobalamin
   amountMale: 
   unit:              

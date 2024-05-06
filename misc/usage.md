@@ -136,6 +136,7 @@ B 12:
 
   comment:              ""
 
+  short:                Mg
   type:                 methylcobalamin
   amountMale:           
   amountFemale: 
