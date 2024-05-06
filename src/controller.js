@@ -131,13 +131,14 @@ class FoodsEventController
       name:     query('#modalNameInput').value,
       calories: parseFloat( query('#modalCaloriesInput').value.trim().replace(',', '.')) || 0,
       fat:      parseFloat( query('#modalFatInput').value.trim().replace(',', '.'))      || 0,
+      carbs:    parseFloat( query('#modalCarbsInput').value.trim().replace(',', '.'))    || 0,
       amino:    parseFloat( query('#modalAminoInput').value.trim().replace(',', '.'))    || 0,
       salt:     parseFloat( query('#modalSaltInput').value.trim().replace(',', '.'))     || 0,
       price:    parseFloat( query('#modalPriceInput').value.trim().replace(',', '.'))    || 0
     }
 
     dayEntries.push(entry);  // simple version
-    query('#dayEntries').value += `\n${entry.name}  ${entry.calories}  ${entry.fat}  ${entry.amino}  ${entry.salt}  ${entry.price}`
+    query('#dayEntries').value += `\n${entry.name}  ${entry.calories}  ${entry.fat}  ${entry.carbs}  ${entry.amino}  ${entry.salt}  ${entry.price}`
 
     this.updSums()
     this.#saveDayEntries()
@@ -164,6 +165,7 @@ class FoodsEventController
       food:     food,
       calories: calories,
       fat:      nutrients.fat,
+      carbs:    nutrients.carbs,
       amino:    nutrients.amino,
       salt:     nutrients.salt,
       price:    price
@@ -174,6 +176,7 @@ class FoodsEventController
     let maxFoodLength     = Math.max( ...dayEntries.map( entry => entry.food.length))
     let maxCaloriesLength = Math.max( ...dayEntries.map( entry => String(entry.calories).length))  // for some reason we must do it like this here
     let maxFatLength      = Math.max( ...dayEntries.map( entry => String(entry.fat).length))
+    let maxCarbsLength    = Math.max( ...dayEntries.map( entry => String(entry.carbs).length))
     let maxAminoLength    = Math.max( ...dayEntries.map( entry => String(entry.amino).length))
     let maxSaltLength     = Math.max( ...dayEntries.map( entry => String(entry.salt).length))
 
@@ -184,10 +187,11 @@ class FoodsEventController
       let foodPadding     = ' '.repeat( maxFoodLength     - entry.food.length + 2)              // 2 extra spaces
       let caloriesPadding = ' '.repeat( maxCaloriesLength - String(entry.calories).length + 2)  // for some reason we must do it like this here
       let fatPadding      = ' '.repeat( maxFatLength      - String(entry.fat).length + 2)
+      let carbsPadding    = ' '.repeat( maxFatLength      - String(entry.carbs).length + 2)
       let aminoPadding    = ' '.repeat( maxAminoLength    - String(entry.amino).length + 2)
       let saltPadding     = ' '.repeat( maxSaltLength     - String(entry.salt).length + 2)
 
-      return `${entry.food}${foodPadding}${entry.calories}${caloriesPadding}${entry.fat}${fatPadding}${entry.amino}${aminoPadding}${entry.salt}${saltPadding}${entry.price}`
+      return `${entry.food}${foodPadding}${entry.calories}${caloriesPadding}${entry.fat}${fatPadding}${entry.carbs}${carbsPadding}${entry.amino}${aminoPadding}${entry.salt}${saltPadding}${entry.price}`
 
     }).join('\n')
 

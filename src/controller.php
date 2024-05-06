@@ -89,6 +89,7 @@ class FoodsController extends ControllerBase
           'calories'  => round( $entry['calories'] * ($weight / 100), 1),
           'nutrients' => [
             'fat'     => round( $entry['nutrients']['fat']   * ($weight / 100), 1),
+            'carbs'   => round( $entry['nutrients']['carbs'] * ($weight / 100), 1),
             'amino'   => round( $entry['nutrients']['amino'] * ($weight / 100), 1),
             'salt'    => round( $entry['nutrients']['salt']  * ($weight / 100), 1)
           ],
