@@ -15,11 +15,15 @@
     <li class   = "food-item p-1 list-group-item"
         style   = "font-size: 1.5rem;"
         onclick = "foodsCrl.foodItemClick(event)"
-        data-food      = "<?= $food ?>"
-        data-calories  = "<?= $entry['calories'] ?>"
-        data-nutrients = "<?= htmlspecialchars( json_encode( $entry['nutrients'])) ?>"
-        data-price     = "<?= $entry['price'] ?>"
-    >
+        data-food       = "<?= $food ?>"
+        data-calories   = "<?= $entry['calories'] ?>"
+        data-nutrientgroups = "<?= htmlspecialchars( json_encode( $entry['nutrientGroups'])) ?>"
+        data-fattyacids = "<?= htmlspecialchars( json_encode( $entry['fattyAcids'])) ?>"
+        data-aminoacids = "<?= htmlspecialchars( json_encode( $entry['aminoAcids'])) ?>"
+        data-vitamins   = "<?= htmlspecialchars( json_encode( $entry['vitamins'])) ?>"
+        data-minerals   = "<?= htmlspecialchars( json_encode( $entry['minerals'])) ?>"
+        data-price      = "<?= $entry['price'] ?>"
+    >   <!-- camelCase doesn't work here -->
       <?= $food ?>
     </li>
   <?php endforeach; ?>

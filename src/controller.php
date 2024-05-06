@@ -59,64 +59,34 @@ class FoodsController extends ControllerBase
       $usedAmounts = $entry['usedAmounts'] ?? ( $config->get("foods.defaultAmounts.$usage") ?: 1);
       // $usedAmounts = $entry['usedAmounts'] ?? ( config::get("foods.defaultAmounts.$usage") ?: 1);
 
-      // print $food;  // DEBUG
-
       foreach( $usedAmounts as $amount )
       {
-        $multipl = trim( $amount, "mglpc ");
-        $multipl = (float) eval("return $multipl;");            // 1/2 => 0.5
-        // eval("\$multipl = $multipl;");
+        // if( $food == 'Milch H' )  // DEBUG
+        //   $debug = 'halt';
 
-        // $weight = ([                                         // trick use array, more readable but unusual
-        //   'pack'    => fn() => $entry['weight'] * $multipl,  // would be evaluated first => use function
-        //   'pieces'  => fn() => ($entry['weight'] / $entry['pieces']) * $multipl,
-        //   'precise' => fn() => $multipl
-        // ][ $usage ])();
+        $multipl = trim( $amount, "mglpc ");
+        $multipl = (float) eval("return $multipl;");  // 1/2 => 0.5
+        // eval("\$multipl = $multipl;");
 
         $weight = $usage === 'pack'   ? $entry['weight'] * $multipl : (
                   $usage === 'pieces' ? ($entry['weight'] / $entry['pieces']) * $multipl
                 : $multipl  // precise
         );
 
-        $nutrients = $entry['nutrients'];
-
         $perWeight = [
-          'weight'    => round( $weight, 1),
-          'calories'  => round( $entry['calories'] * ($weight / 100), 1),
-          'nutrients' => [
-            'fat'             => round( $nutrients['fat'] * ($weight / 100), 1),
-            'saturatedFat'    => ! isset($nutrients['saturatedFat']) ? 0
-                               : round( $nutrients['saturatedFat'] * ($weight / 100), 1),
-            'monoUnsaturated' => ! isset($nutrients['monoUnsaturated']) ? 0
-                               : round( $nutrients['monoUnsaturated'] * ($weight / 100), 1),
-            'polyUnsaturated' => ! isset($nutrients['polyUnsaturated']) ? 0
-                               : round( $nutrients['polyUnsaturated'] * ($weight / 100), 1),
-            'carbs'           => round( $nutrients['carbs'] * ($weight / 100), 1),
-            'sugar'           => round( $nutrients['fat']   * ($weight / 100), 1),
-            'fibre'           => ! isset($nutrients['fibre']) ? 0
-                               : round( $nutrients['fibre'] * ($weight / 100), 1),
-            'amino'           => round( $nutrients['amino'] * ($weight / 100), 1),
-            'salt'            => round( $nutrients['salt']  * ($weight / 100), 1)
-          ],
-          'price'     => isset($entry['price']) ? round( $entry['price'] * ($weight / $entry['weight']), 2) : 0
+          'weight'   => round( $weight, 1),
+          'calories' => round( $entry['calories'] * ($weight / 100), 1),
+          'price'    => isset($entry['price']) ? round( $entry['price'] * ($weight / $entry['weight']), 2) : 0
         ];
 
-
-        // if( $food == 'Milch H' )  // DEBUG
-        //   $debug = 'halt';
-
-        unset($nutrients['fat']);
-        unset($nutrients['saturatedFat']);
-        unset($nutrients['monoUnsaturated']);
-        unset($nutrients['polyUnsaturated']);
-        unset($nutrients['carbs']);
-        unset($nutrients['sugar']);
-        unset($nutrients['fibre']);
-        unset($nutrients['amino']);
-        unset($nutrients['salt']);
-
-        foreach( $nutrients as $name => $value)
-          $perWeight['nutrients'][$name] = round( $nutrients[$name] * ($weight / 100), 1);
+        foreach(['nutrientGroups', 'fattyAcids', 'aminoAcids', 'vitamins', 'minerals'] as $group)
+        {
+          if( ! isset($entry[$group]) || count($entry[$group]) == 0)
+            $perWeight[$group] = [];
+          else
+            foreach( $entry[$group] as $name => $value)
+              $perWeight[$group][$name] = round( $entry[$group][$name] * ($weight / 100), 1);
+        }
 
         $title = str_pad( $amount, 5, ' ', STR_PAD_LEFT) . " $food";  // TASK: improve
 
