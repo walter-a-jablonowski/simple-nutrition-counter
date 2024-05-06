@@ -24,6 +24,10 @@
           <label for="modalFatInput">Fat (grams)</label>
         </div>
         <div class="form-floating mb-3">
+          <input id="modalCarbsInput" type="number" inputmode="numeric" class="form-control" placeholder="Carbs (grams)" required>
+          <label for="modalCarbsInput">Carbs (grams)</label>
+        </div>
+        <div class="form-floating mb-3">
           <input id="modalAminoInput" type="number" inputmode="numeric" class="form-control" placeholder="Amino Acids (grams)" required>
           <label for="modalAminoInput">Amino Acids (grams)</label>
         </div>
@@ -44,6 +48,9 @@
         </div>
         <div class="mb-3">
           <input id="modalFatInput"   type="number" inputmode="numeric" class="form-control" placeholder="Fat (grams)" required>
+        </div>
+        <div class="mb-3">
+          <input id="modalCarbsInput" type="number" inputmode="numeric" class="form-control" placeholder="Carbs (grams)" required>
         </div>
         <div class="mb-3">
           <input id="modalAminoInput" type="number" inputmode="numeric" class="form-control" placeholder="Amino Acids (grams)" required>
