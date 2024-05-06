@@ -74,14 +74,15 @@ class SimpleData /*@*/
 
   // Array
 
-  public function push( string $key, $value )
+  /*@
+  
+  Index based arrays only (use set for key)
+
+  */
+  public function push( string $key, $value )  /*@*/
   {
-    $keys = explode('.', $key);
-    $sub  = array_pop($keys);
-    $key  = implode('.', $keys);
-    
     $elem = &$this->findKey( $key, $make = true );
-    $elem[$sub] = $value;
+    $elem[$sub][] = $value;
   }
 
 

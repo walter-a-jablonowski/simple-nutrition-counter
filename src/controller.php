@@ -84,7 +84,7 @@ class FoodsController extends ControllerBase
 
         $title = str_pad( $amount, 5, ' ', STR_PAD_LEFT) . " $food";
 
-        $this->model->push("foods.$title", [  // TASK: use set push for index only 
+        $this->model->set("foods.$title", [
           'weight'    => round( $weight, 1),
           'calories'  => round( $entry['calories'] * ($weight / 100), 1),
           'nutrients' => [
