@@ -17,7 +17,7 @@
         onclick = "foodsCrl.foodItemClick(event)"
         data-food       = "<?= $food ?>"
         data-calories   = "<?= $entry['calories'] ?>"
-        data-nutrientgroups = "<?= htmlspecialchars( json_encode( $entry['nutrientGroups'])) ?>"
+        data-nutrientgroups = "<?= htmlspecialchars( json_encode( $entry['nutritionalValues'])) ?>"
         data-fattyacids = "<?= htmlspecialchars( json_encode( $entry['fattyAcids'])) ?>"
         data-aminoacids = "<?= htmlspecialchars( json_encode( $entry['aminoAcids'])) ?>"
         data-vitamins   = "<?= htmlspecialchars( json_encode( $entry['vitamins'])) ?>"

@@ -60,7 +60,7 @@ My food S Bio:                      # S = short for store if needed (save some s
                                     # consumed as a single piece: use 1
 
   calories:                         # (required) per 100g or 100ml in grams (depends on what weight is)
-  nutrientGroups:
+  nutritionalValues:                # basic data usually used on food packaging
 
     fat:              100           # (required)
     saturatedFat: 
