@@ -28,136 +28,107 @@
                     # see (TASK) add entries from layout group first_entries
   - Coffee
 
-Nuts:
+Nuts (color=):
 
-  color: 
-  list:
+  - Cashew E
+  - Cashew N
+  - Cashew R Bio
+  - Erdn Salz N big
+  - Mandel N
+  - Mandel R Bio
+  - Nussmisch N
+  - Walnuss R Bio
 
-    - Cashew E
-    - Cashew N
-    - Cashew R Bio
-    - Erdn Salz N big
-    - Mandel N
-    - Mandel R Bio
-    - Nussmisch N
-    - Walnuss R Bio
-
-Veggie Bowl:
+Veggie Bowl (color=):
   
-  color: 
-  list:
+  - Veggie L
+  - Veggie C
 
-    - Veggie L
-    - Veggie C
+Third meal (color=):
 
-Third meal:
+  - Avocado  # used kind of standalone
 
-  color: 
-  list:
+Ingredients (color=):
 
-    - Avocado  # used kind of standalone
+  - comment: Ideal is veggie some chicken fish. We may also need fill up some energy from time to time (carbs).
 
-Ingredients:
+  - Artisch R viertel
+  - Brokkoli R
+  - Champ mini ganz R
+  - Chick R Bio
 
-  comment: "Ideal: Veggie some chicken fish. We may also need fill up some energy from time to time (carbs)."
-  color: 
-  list:
+  - Fischst             # acceptable occasionally
+  - Frosta Bratk
+  - Frosta Gesch
+  - Frosta Paella
 
-    - Artisch R viertel
-    - Brokkoli R
-    - Champ mini ganz R
-    - Chick R Bio
+  - Green beans R
+  - Linsen R Bio
+  - Linsen vegan
 
-    - Fischst             # acceptable occasionally
-    - Frosta Bratk
-    - Frosta Gesch
-    - Frosta Paella
+  - Kartoffeltaschen F  # less good
+  - Kartoffel Wedges
+  - Lyoner R Bio
+  - Mehrkornbr
 
-    - Green beans R
-    - Linsen R Bio
-    - Linsen vegan
+  - Oliven R Bio
+  - Olivenöl
+  - Öl
 
-    - Kartoffeltaschen F  # less good
-    - Kartoffel Wedges
-    - Lyoner R Bio
-    - Mehrkornbr
+  - Pommes              # less good
+  - Pumpernickel R Bio  # acceptable occasionally
+  - Salami R            # less good
+  - Vollkorn Rhein R    # acceptable occasionally
 
-    - Oliven R Bio
-    - Olivenöl
-    - Öl
+A little taste (color=):
 
-    - Pommes              # less good
-    - Pumpernickel R Bio  # acceptable occasionally
-    - Salami R            # less good
-    - Vollkorn Rhein R    # acceptable occasionally
+  - comment: Add only a little per meal makes it far more tasty and keeps it healthy
 
-A little taste:
+  - Bresso
+  - Bresso mini
+  - Patros
+  - Patros W
+  - Philadelphia
+  - Philadelphia mini
+  # - Salatsoße (missing)
 
-  comment: "Add only a little per meal makes it far more tasty and keeps it healthy"
-  color: 
-  list:
+Fill up missing (color=):
 
-    - Bresso
-    - Bresso mini
-    - Patros
-    - Patros W
-    - Philadelphia
-    - Philadelphia mini
-    # - Salatsoße (missing)
+  - comment: "... and supplements"
 
-Fill up missing:
+  - Amino misc  # use left over
+  - Amino Deca Muscle Gainer
+  - Amino NaDuRia Pur
+  - Riegel Seitenb Sch
+  - Riegel Deca Basic
+  - Chips light
 
-  comment: "... and supplements"
-  color: 
-  list:
+Micro candy or sugar less (color=):
 
-    - Amino misc  # use left over
-    - Amino Deca Muscle Gainer
-    - Amino NaDuRia Pur
-    - Riegel Seitenb Sch
-    - Riegel Deca Basic
-    - Chips light
+  - comment: "Reduce amount per day (effectively: don't buy more or you will eat it)"
 
-Micro candy or sugar less:
+  - Duplo
+  - Ferrero Kuesschen
+  - Ritter Sp 50%
 
-  comment: "Reduce amount per day (effectively: don't buy more or you will eat it)"
-  color: 
-  list:
+Brain tuning (color=):
 
-    - Duplo
-    - Ferrero Kuesschen
-    - Ritter Sp 50%
+  - Milch H
+  - Ricola Zitronenm
 
-Brain tuning:
+Used as supplements (currently) (color=):
 
-  color: 
-  list:
+  - Ritter Sp 81%
 
-    - Milch H
-    - Ricola Zitronenm
+On the go (color=):
 
-Used as supplements (currently):
+  - Kfc Original
+  - Karamalz
+  - Cappuccino Eni
 
-  color: 
-  list:
+Cheat day (color=):
 
-    - Ritter Sp 81%
+  - Pizza Mag
+  - Mohnkuchen
 
-On the go:
-
-  color: 
-  list:
-
-    - Kfc Original
-    - Karamalz
-    - Cappuccino Eni
-
-Cheat day:
-
-  color: 
-  list:
-
-    - Pizza Mag
-    - Mohnkuchen
-
-Misc expenses:  # finance only
+Misc expenses (color=):  # finance only
