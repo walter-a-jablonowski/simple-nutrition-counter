@@ -1,0 +1,16 @@
+#
+# Vitamins
+#
+# -> usage see readme
+#
+
+B12:
+
+  short:             B12
+  group:             Vitamins
+  type:              methylcobalamin
+  amountMale: 
+  unit:              
+  comment:           
+  lower:             5
+  upper:             5
