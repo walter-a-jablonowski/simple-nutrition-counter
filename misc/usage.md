@@ -68,6 +68,7 @@ My food S Bio:                      # S = short for store if needed (save some s
     polyUnsaturated:                   
     carbs:                          # (required)
     sugar:                          # (required)
+    sugarAlcohol:                   
     fibre:        
     amino:                          # (required)
     salt:             1.0           # (required) TASK: technically is a single substance

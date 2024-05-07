@@ -9,6 +9,7 @@
 
 Amino misc:  # use for some left over nuts
 
+
   price:             
   weight:            100g
   usedAmounts:       ["10g", "20g", "30g"]
@@ -371,6 +372,7 @@ Erdn Salz N big:
 
 Ferrero Kuesschen:
 
+  acceptable:        less
   ingredients:       "MILCHSCHOKOLADE 31 % (Zucker, Kakaomasse, Kakaobutter, VOLLMILCHPULVER, BUTTERREINFETT, Emulgator Lecithine (SOJA), Vanillin), HASELNÜSSE (26,5 %), Halbbitterschokolade 15 % (Zucker, Kakaomasse, Kakaobutter, Emulgator Lecithine (SOJA), Vanillin), Palmöl, Zucker, MAGERMILCHPULVER, fettarmer Kakao, Vanillin. Kann GLUTEN und MANDELN enthalten"
 
   price:             0.97
@@ -939,6 +941,8 @@ Philadelphia mini:
 
 Pizza Mag:
 
+  acceptable:        less
+
   price:             2.99
   weight:            900
   pieces:            3
@@ -1003,6 +1007,32 @@ Pumpernickel R Bio:
   sources:           "Macro nutrients: web (information on packaging may differ slightly)"
   lastUpd:           2024-03-22
   lastPriceUpd:      2024-03-23
+
+Ricola Zitronenm:
+
+  acceptable:        "occasionally"
+  comment:           "Andorn Bibernelle Ehrenpreis Eibisch Frauenmantel Holunder Malve Pfefferminze Salbei Schafgarbe Schlüsselblume Spitzwegerich Thymian"
+  ingredients:       "Süßungsmittel (Isomalt), Säuerungsmittel (Citronensäure), Kräuterauszug (0,3%) aus Zitronenmelisse sowie Spitzwegerich, Eibisch, Pfefferminze, Thymian, Salbei, Frauenmantel, Schafgarbe, Bibernelle, Malve, Holunderblüten, Schlüsselblume, Ehrenpreis und Andorn, natürliches Citrusaroma, Karottensaftkonzentrat, Süßungsmittel (Steviolglycoside aus Stevia, Thaumatin), Pfefferminzöl, Minzöl, Menthol"
+
+  price:             
+  weight:            50 # small pack
+  pieces:            # TASK
+  usedAmounts:       [1]
+
+  calories:          235
+  nutrientGroups:
+
+    fat:             0
+    saturatedFat:    0
+    carbs:           96
+    sugar:           0
+    sugarAlcohol:    96
+    amino:           0
+    salt:            0
+
+  sources:           "Macro nutrients: web"
+  lastUpd:           2024-05-06
+  lastPriceUpd:      
 
 Riegel Seitenb Sch:
 
