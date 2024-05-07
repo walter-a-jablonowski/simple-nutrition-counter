@@ -110,6 +110,9 @@ Layout file (layout.yml)
 - left over recipes nutrients will be attached below
 
 ```yaml
+
+Data                 Layout
+-----------          -----------
                       ___________________    
 My nutrient group:   | My nutrient group     # nutrient names are from recipes.yml, foods.yml
                      |-------------------    # or misc.yml (use multiple times possible)
