@@ -158,16 +158,16 @@ class FoodsEventController
     let target    = event.target
     let food      = target.dataset.food
     let calories  = target.dataset.calories
-    let nutrientGroups = JSON.parse(target.dataset.nutrientgroups)
+    let nutritionalValues = JSON.parse(target.dataset.nutritionalvalues)
     let price     = target.dataset.price
 
     dayEntries.push({
       food:     food,
       calories: calories,
-      fat:      nutrientGroups.fat,
-      carbs:    nutrientGroups.carbs,
-      amino:    nutrientGroups.amino,
-      salt:     nutrientGroups.salt,
+      fat:      nutritionalValues.fat,
+      carbs:    nutritionalValues.carbs,
+      amino:    nutritionalValues.amino,
+      salt:     nutritionalValues.salt,
       price:    price
     })
     
