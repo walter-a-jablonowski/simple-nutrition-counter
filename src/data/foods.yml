@@ -115,10 +115,15 @@ Avocado:
     amino:           2
     salt:            0
 
+  vitamins:
+
     # Vitamin K
     # Vitamin E
     # Vitamin C
     # B-Vitamine (insbesondere B5 und B6)
+
+  minerals:
+
     # Kalium
     # Magnesium
 
@@ -744,6 +749,8 @@ Milch H:
     amino:           3.3
     salt:            0.13
 
+  minerals:
+
     calcium:         120
 
   sources:           "Macro nutrients: web, nutrients: calcium also from vendors page online"
@@ -850,6 +857,8 @@ Olivenöl:
     sugar:           0
     amino:           0
     salt:            0.03
+
+  vitamins:
 
     Vitamin E:	     30 # mg
 
@@ -1053,6 +1062,8 @@ Riegel Seitenb Sch:
     fibre:           21
     amino:           26
     salt:            0.1
+
+  minerals:
 
     calcium:         360
 
