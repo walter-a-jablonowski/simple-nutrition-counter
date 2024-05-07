@@ -286,20 +286,12 @@ class FoodsEventController
   #yamlish(obj) {
     return JSON.stringify(obj)
       .replace(/"(\w+)":/g, '$1:')
-      .replace(/"/g, '')
   }
 
   #fromYAMLish(yamlLike) {
 
     let jsonLike = yamlLike
-      .replace(/\s*(\w+):/g, '"$1":')
-      // .replace(/:([a-zA-Z]+)/g, ':"$1"')  // we have numbers only
-
-    // all types
-    // loop all
-    //   .replace('"true"', true)
-    //   ...
-    //   numbers ...
+      .replace(/(\w+):/g, '"$1":')
 
     return JSON.parse(jsonLike)
   }
