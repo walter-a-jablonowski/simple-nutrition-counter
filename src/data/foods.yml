@@ -9,7 +9,6 @@
 
 Amino misc:  # use for some left over nuts
 
-
   price:             
   weight:            100g
   usedAmounts:       ["10g", "20g", "30g"]
@@ -751,7 +750,7 @@ Milch H:
 
   minerals:
 
-    calcium:         120
+    Calcium:         120
 
   sources:           "Macro nutrients: web, nutrients: calcium also from vendors page online"
   lastUpd:           2024-04-11
@@ -1065,7 +1064,7 @@ Riegel Seitenb Sch:
 
   minerals:
 
-    calcium:         360
+    Calcium:         360
 
   sources:           "Macro nutrients: web, nutrients: calcium also from vendors page online"
   lastUpd:           2024-02-18

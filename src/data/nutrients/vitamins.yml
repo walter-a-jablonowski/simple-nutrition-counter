@@ -4,13 +4,32 @@
 # -> usage see readme
 #
 
+(group):
+
+  short:             vit
+  amountMale: 
+  increasedNeedMale: 
+  unit:              
+  comment:           ""
+  lower:             
+  upper:             
+
 B12:
 
   short:             B12
-  group:             Vitamins
   type:              methylcobalamin
   amountMale: 
   unit:              
+  comment:           
+  lower:             5
+  upper:             5
+
+Vitamin E:
+
+  short:             VitE
+  type:              
+  amountMale: 
+  unit:              mg
   comment:           
   lower:             5
   upper:             5

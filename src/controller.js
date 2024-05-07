@@ -180,13 +180,20 @@ class FoodsEventController
     let price     = target.dataset.price
 
     dayEntries.push({
-      food:     food,
-      calories: calories,
-      fat:      nutritionalValues.fat,
-      carbs:    nutritionalValues.carbs,
-      amino:    nutritionalValues.amino,
-      salt:     nutritionalValues.salt,
-      price:    price
+      food:      food,
+      calories:  calories,
+      fat:       nutritionalValues.fat,
+      carbs:     nutritionalValues.carbs,
+      amino:     nutritionalValues.amino,
+      salt:      nutritionalValues.salt,
+      price:     price,
+      nutrients: {
+        fattyAcids: JSON.parse( target.dataset.fattyacids),
+        aminoacids: JSON.parse( target.dataset.aminoacids),
+        vitamins:   JSON.parse( target.dataset.vitamins),
+        minerals:   JSON.parse( target.dataset.minerals),
+        secondary:  JSON.parse( target.dataset.secondary)
+      }
     })
     
     // Find the length of the longest strings
@@ -209,7 +216,8 @@ class FoodsEventController
       let aminoPadding    = ' '.repeat( maxAminoLength    - String(entry.amino).length + 2)
       let saltPadding     = ' '.repeat( maxSaltLength     - String(entry.salt).length + 2)
 
-      return `${entry.food}${foodPadding}${entry.calories}${caloriesPadding}${entry.fat}${fatPadding}${entry.carbs}${carbsPadding}${entry.amino}${aminoPadding}${entry.salt}${saltPadding}${entry.price}`
+      return `${entry.food}${foodPadding}${entry.calories}${caloriesPadding}${entry.fat}${fatPadding}${entry.carbs}${carbsPadding}${entry.amino}${aminoPadding}${entry.salt}${saltPadding}${entry.price}  `
+             + this.#yamlish( entry.nutrients )
 
     }).join('\n')
 

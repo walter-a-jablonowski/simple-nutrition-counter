@@ -4,10 +4,29 @@
 # -> usage see readme
 #
 
+(group):
+
+  short:             min
+  amountMale: 
+  increasedNeedMale: 
+  unit:              
+  comment:           ""
+  lower:             
+  upper:             
+
+Calcium:
+
+  short:             Ca
+  amountMale:
+  increasedNeedMale: 
+  unit:              mg
+  comment:           "Increased need if doing sports"
+  lower:             5
+  upper:             5
+
 Magnesium:
 
   short:             Mg
-  group:             Minerals
   amountMale:
   increasedNeedMale: 
   unit:              mg

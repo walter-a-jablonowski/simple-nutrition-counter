@@ -57,12 +57,12 @@
             <option value="0.5">1/2</option>
             <option value="1">1</option>
           </optgroup>
-          <optgroup data-usage="pieces" label="Whole Numbers">
+          <optgroup data-usage="pieces" label="Pieces">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
           </optgroup>
-          <optgroup data-usage="precise" label="Grams">
+          <optgroup data-usage="precise" label="Precise">
             <option value="50">50g</option>
             <option value="100">100g</option>
           </optgroup>

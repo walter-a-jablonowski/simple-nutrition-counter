@@ -2,6 +2,16 @@
 
 # AI generated (see also wqikipedia)
 
+(group):
+
+  short:             sec
+  amountMale: 
+  increasedNeedMale: 
+  unit:              
+  comment:           ""
+  lower:             
+  upper:             
+
 # - Phytonutrients: Compounds found in plants that have various health benefits, including anti-inflammatory and antioxidant properties, which can help reduce the risk of chronic diseases
 #   - Polyphenols
 #     - Flavonoids

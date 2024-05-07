@@ -22,8 +22,9 @@
         data-aminoacids = "<?= htmlspecialchars( json_encode( $entry['aminoAcids'])) ?>"
         data-vitamins   = "<?= htmlspecialchars( json_encode( $entry['vitamins'])) ?>"
         data-minerals   = "<?= htmlspecialchars( json_encode( $entry['minerals'])) ?>"
+        data-secondary  = "<?= htmlspecialchars( json_encode( $entry['secondary'])) ?>"
         data-price      = "<?= $entry['price'] ?>"
-    >   <!-- camelCase doesn't work here -->
+    >   <!-- camelCase doesn't work here -->  <!-- TASK: keys are hard coded here while var in controller -->
       <?= $food ?>
     </li>
   <?php endforeach; ?>

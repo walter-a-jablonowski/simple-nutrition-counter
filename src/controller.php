@@ -33,6 +33,12 @@ class FoodsController extends ControllerBase
     $config = config::instance();
     $this->debug = $config->get('debug');
 
+    $nutrients['fattyAcids'] = Yaml::parse( file_get_contents('data/nutrients/fattyAcids.yml'));
+    $nutrients['aminoAcids'] = Yaml::parse( file_get_contents('data/nutrients/aminoAcids.yml'));
+    $nutrients['vitamins']   = Yaml::parse( file_get_contents('data/nutrients/vitamins.yml'));
+    $nutrients['minerals']   = Yaml::parse( file_get_contents('data/nutrients/minerals.yml'));
+    $nutrients['secondary']  = Yaml::parse( file_get_contents('data/nutrients/secondary.yml'));
+
     // This day and foods tab
 
     $this->dayEntriesTxt = trim( @file_get_contents('data/users/' . $config->get('user') . "/days/{$this->date}.tsv") ?: '', "\n");
@@ -79,13 +85,21 @@ class FoodsController extends ControllerBase
           'price'    => isset($entry['price']) ? round( $entry['price'] * ($weight / $entry['weight']), 2) : 0
         ];
 
-        foreach(['nutritionalValues', 'fattyAcids', 'aminoAcids', 'vitamins', 'minerals'] as $group)
+        foreach(['nutritionalValues', 'fattyAcids', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $group)
         {
+          $sgroup = $group === 'nutritionalValues' ? $group
+                  : $nutrients[$group]['(group)']['short'];
+
           if( ! isset($entry[$group]) || count($entry[$group]) == 0)
-            $perWeight[$group] = [];
+            $perWeight[$sgroup] = [];
           else
             foreach( $entry[$group] as $name => $value)
-              $perWeight[$group][$name] = round( $entry[$group][$name] * ($weight / 100), 1);
+            {
+              $short = $group === 'nutritionalValues' ? $name
+                      : $nutrients[$group][$name]['short'];
+
+              $perWeight[$sgroup][$short] = round( $value * ($weight / 100), 1);
+            }
         }
 
         $title = str_pad( $amount, 5, ' ', STR_PAD_LEFT) . " $food";  // TASK: improve

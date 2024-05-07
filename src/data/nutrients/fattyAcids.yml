@@ -4,3 +4,12 @@
 # -> usage see readme
 #
 
+(group):
+
+  short:             fat
+  amountMale: 
+  increasedNeedMale: 
+  unit:              
+  comment:           ""
+  lower:             
+  upper:             
