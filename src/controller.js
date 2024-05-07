@@ -176,10 +176,11 @@ class FoodsEventController
     let target    = event.target
     let food      = target.dataset.food
     let calories  = target.dataset.calories
-    let nutritionalValues = JSON.parse(target.dataset.nutritionalvalues)
     let price     = target.dataset.price
 
-    dayEntries.push({
+    let nutritionalValues = JSON.parse(target.dataset.nutritionalvalues)
+
+    let entry = {
       food:      food,
       calories:  calories,
       fat:       nutritionalValues.fat,
@@ -188,13 +189,15 @@ class FoodsEventController
       salt:      nutritionalValues.salt,
       price:     price,
       nutrients: {
-        fattyAcids: JSON.parse( target.dataset.fattyacids),
-        aminoacids: JSON.parse( target.dataset.aminoacids),
-        vitamins:   JSON.parse( target.dataset.vitamins),
-        minerals:   JSON.parse( target.dataset.minerals),
-        secondary:  JSON.parse( target.dataset.secondary)
+        fat:   JSON.parse( target.dataset.fattyacids),
+        amino: JSON.parse( target.dataset.aminoacids),
+        vit:   JSON.parse( target.dataset.vitamins),
+        min:   JSON.parse( target.dataset.minerals),
+        sec:   JSON.parse( target.dataset.secondary)
       }
-    })
+    }
+
+    dayEntries.push( entry )
     
     // Find the length of the longest strings
 
