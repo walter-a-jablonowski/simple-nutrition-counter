@@ -28,7 +28,7 @@
                     # see (TASK) add entries from layout group first_entries
   - Coffee
 
-Nuts (color=):
+Nuts (color:):
 
   # - (i): ...
   # - head:
@@ -43,16 +43,16 @@ Nuts (color=):
   - Nussmisch N
   - Walnuss R Bio
 
-Veggie Bowl (color=):
+Veggie Bowl (color:):
   
   - Veggie L
   - Veggie C
 
-Third meal (color=):
+Third meal (color:):
 
   - Avocado  # used kind of standalone
 
-Ingredients (color=):
+Ingredients (color:):
 
   - (i): Ideal is veggie some chicken fish. We may also need fill up some energy from time to time (carbs).
 
@@ -84,7 +84,7 @@ Ingredients (color=):
   - Salami R            # less good
   - Vollkorn Rhein R    # acceptable occasionally
 
-A little taste (color=):
+A little taste (color:):
 
   - (i): Add only a little per meal makes it far more tasty and keeps it healthy
 
@@ -96,7 +96,7 @@ A little taste (color=):
   - Philadelphia mini
   # - Salatsoße (missing)
 
-Fill up missing (color=):
+Fill up missing (color:):
 
   - (i): "... and supplements"
 
@@ -107,7 +107,7 @@ Fill up missing (color=):
   - Riegel Deca Basic
   - Chips light
 
-Micro candy or sugar less (color=):
+Micro candy or sugar less (color:):
 
   - (i): "Reduce amount per day (effectively: don't buy more or you will eat it)"
 
@@ -115,24 +115,24 @@ Micro candy or sugar less (color=):
   - Ferrero Kuesschen
   - Ritter Sp 50%
 
-Brain tuning (color=):
+Brain tuning (color:):
 
   - Milch H
   - Ricola Zitronenm
 
-Used as supplements (currently) (color=):
+Used as supplements (currently) (color:):
 
   - Ritter Sp 81%
 
-On the go (color=):
+On the go (color:):
 
   - Kfc Original
   - Karamalz
   - Cappuccino Eni
 
-Cheat day (color=):
+Cheat day (color:):
 
   - Pizza Mag
   - Mohnkuchen
 
-Misc expenses (color=):  # finance only
+Misc expenses (color:):  # finance only
