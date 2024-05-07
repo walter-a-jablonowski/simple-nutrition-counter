@@ -111,8 +111,7 @@ Layout file (layout.yml)
 
 ```yaml
 
-Data                 Layout
------------          -----------
+-- Data --------     -- Layout --------
                       ___________________    
 My nutrient group:   | My nutrient group     # nutrient names are from recipes.yml, foods.yml
                      |-------------------    # or misc.yml (use multiple times possible)
