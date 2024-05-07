@@ -30,6 +30,10 @@
 
 Nuts (color=):
 
+  # - (i): ...
+  # - head:
+  #   comment: ...
+
   - Cashew E
   - Cashew N
   - Cashew R Bio
@@ -50,7 +54,7 @@ Third meal (color=):
 
 Ingredients (color=):
 
-  - comment: Ideal is veggie some chicken fish. We may also need fill up some energy from time to time (carbs).
+  - (i): Ideal is veggie some chicken fish. We may also need fill up some energy from time to time (carbs).
 
   - Artisch R viertel
   - Brokkoli R
@@ -82,7 +86,7 @@ Ingredients (color=):
 
 A little taste (color=):
 
-  - comment: Add only a little per meal makes it far more tasty and keeps it healthy
+  - (i): Add only a little per meal makes it far more tasty and keeps it healthy
 
   - Bresso
   - Bresso mini
@@ -94,7 +98,7 @@ A little taste (color=):
 
 Fill up missing (color=):
 
-  - comment: "... and supplements"
+  - (i): "... and supplements"
 
   - Amino misc  # use left over
   - Amino Deca Muscle Gainer
@@ -105,7 +109,7 @@ Fill up missing (color=):
 
 Micro candy or sugar less (color=):
 
-  - comment: "Reduce amount per day (effectively: don't buy more or you will eat it)"
+  - (i): "Reduce amount per day (effectively: don't buy more or you will eat it)"
 
   - Duplo
   - Ferrero Kuesschen
