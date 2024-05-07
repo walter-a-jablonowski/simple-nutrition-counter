@@ -288,11 +288,9 @@ class FoodsEventController
       .replace(/"(\w+)":/g, '$1:')
   }
 
-  #fromYAMLish(yamlLike) {
-
-    let jsonLike = yamlLike
-      .replace(/(\w+):/g, '"$1":')
-
-    return JSON.parse(jsonLike)
+  #jsonLike(yamlLike) {
+    return JSON.parse(
+      yamlLike.replace(/(\w+):/g, '"$1":')
+    )
   }
 }
