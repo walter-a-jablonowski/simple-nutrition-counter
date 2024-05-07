@@ -83,6 +83,8 @@ My food S Bio:                      # S = short for store if needed (save some s
 
     calcium:                        # same unit as in nutrients.yml
 
+  secondary:  # secondary plant substances
+
   sources:            "Macro nutrients: web|pack, information on packaging may differ slightly, nutrients: ..., price: ..."
   lastUpd:            2024-02-18  # all (required)
   lastPriceUpd:       2024-03-23
