@@ -127,7 +127,7 @@ class FoodsEventController
   {
     // modal see also construct
 
-    const entry = {
+    let entry = {
       name:     query('#modalNameInput').value,
       calories: parseFloat( query('#modalCaloriesInput').value.trim().replace(',', '.')) || 0,
       fat:      parseFloat( query('#modalFatInput').value.trim().replace(',', '.'))      || 0,
@@ -136,7 +136,25 @@ class FoodsEventController
       salt:     parseFloat( query('#modalSaltInput').value.trim().replace(',', '.'))     || 0,
       price:    parseFloat( query('#modalPriceInput').value.trim().replace(',', '.'))    || 0
     }
+/*
+    let fibreInp = query('#modalFibreInput')
 
+    if( fibreInp && fibreInp.value.trim() !== '')
+      entry.fibre = fibreInp.value.trim()
+
+    let weight     = query('#modalWeightInput').value
+    let usedSelect = query('#modalUsedSelect')
+    let usage      = 'precise'
+
+    if( usedSelect && usedSelect.selectedIndex >= 0)
+      usage = usedSelect.options[usedSelect.selectedIndex]
+            .parentNode.dataset.usage
+
+    let used = usage === 'pack'   ? weight * usedSelect.value : (
+               usage === 'pieces' ? (weight / pieces) * usedSelect.value
+             : usedSelect.value  // precise
+    )
+*/
     dayEntries.push(entry);  // simple version
     query('#dayEntries').value += `\n${entry.name}  ${entry.calories}  ${entry.fat}  ${entry.carbs}  ${entry.amino}  ${entry.salt}  ${entry.price}`
 
