@@ -4,12 +4,9 @@
 # -> usage see readme
 #
 
-(group):
-
-  short:             amino
-  amountMale: 
-  increasedNeedMale: 
-  unit:              mg
-  comment:           "Increased need if doing sports"
-  lower:             50
-  upper:             120
+amountMale: 
+increasedNeedMale: 
+unit:              mg
+comment:           "Increased need if doing sports"
+lower:             50
+upper:             120

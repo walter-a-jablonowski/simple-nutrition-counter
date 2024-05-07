@@ -4,15 +4,12 @@
 # -> usage see readme
 #
 
-(group):
-
-  short:             vit
-  amountMale: 
-  increasedNeedMale: 
-  unit:              
-  comment:           ""
-  lower:             
-  upper:             
+amountMale: 
+increasedNeedMale: 
+unit:              
+comment:           ""
+lower:             
+upper:             
 
 B12:
 

@@ -4,15 +4,12 @@
 # -> usage see readme
 #
 
-(group):
-
-  short:             min
-  amountMale: 
-  increasedNeedMale: 
-  unit:              
-  comment:           ""
-  lower:             
-  upper:             
+amountMale: 
+increasedNeedMale: 
+unit:              
+comment:           ""
+lower:             
+upper:             
 
 Calcium:
 

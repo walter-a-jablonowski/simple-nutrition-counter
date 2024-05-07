@@ -85,18 +85,21 @@ class FoodsController extends ControllerBase
           'price'    => isset($entry['price']) ? round( $entry['price'] * ($weight / $entry['weight']), 2) : 0
         ];
 
-        foreach(['nutritionalValues', 'fattyAcids', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $group)
+        foreach([
+          'nutritionalValues' => 'nutriVal',
+          'fattyAcids'        => 'fat',
+          'aminoAcids'        => 'amino',
+          'vitamins'          => 'vit',
+          'minerals'          => 'min',
+          'secondary'         => 'sec'] as $group => $sgroup)
         {
-          $sgroup = $group === 'nutritionalValues' ? $group
-                  : $nutrients[$group]['(group)']['short'];
-
           if( ! isset($entry[$group]) || count($entry[$group]) == 0)
             $perWeight[$sgroup] = [];
           else
             foreach( $entry[$group] as $name => $value)
             {
               $short = $group === 'nutritionalValues' ? $name
-                      : $nutrients[$group][$name]['short'];
+                     : $nutrients[$group][$name]['short'];
 
               $perWeight[$sgroup][$short] = round( $value * ($weight / 100), 1);
             }

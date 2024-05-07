@@ -17,14 +17,14 @@
         onclick = "foodsCrl.foodItemClick(event)"
         data-food       = "<?= $food ?>"
         data-calories   = "<?= $entry['calories'] ?>"
-        data-nutritionalvalues = "<?= htmlspecialchars( json_encode( $entry['nutritionalValues'])) ?>"
-        data-fattyacids = "<?= htmlspecialchars( json_encode( $entry['fattyAcids'])) ?>"
-        data-aminoacids = "<?= htmlspecialchars( json_encode( $entry['aminoAcids'])) ?>"
-        data-vitamins   = "<?= htmlspecialchars( json_encode( $entry['vitamins'])) ?>"
-        data-minerals   = "<?= htmlspecialchars( json_encode( $entry['minerals'])) ?>"
-        data-secondary  = "<?= htmlspecialchars( json_encode( $entry['secondary'])) ?>"
+        data-nutritionalvalues = "<?= htmlspecialchars( json_encode( $entry['nutriVal'])) ?>"
+        data-fattyacids = "<?= htmlspecialchars( json_encode( $entry['fat'])) ?>"
+        data-aminoacids = "<?= htmlspecialchars( json_encode( $entry['amino'])) ?>"
+        data-vitamins   = "<?= htmlspecialchars( json_encode( $entry['vit'])) ?>"
+        data-minerals   = "<?= htmlspecialchars( json_encode( $entry['min'])) ?>"
+        data-secondary  = "<?= htmlspecialchars( json_encode( $entry['sec'])) ?>"
         data-price      = "<?= $entry['price'] ?>"
-    >   <!-- camelCase doesn't work here -->  <!-- TASK: keys are hard coded here while var in controller -->
+    >   <!-- camelCase doesn't work here -->
       <?= $food ?>
     </li>
   <?php endforeach; ?>
