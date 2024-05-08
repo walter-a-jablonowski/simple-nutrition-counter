@@ -147,8 +147,7 @@ class FoodsEventController
     let usage      = 'precise'
 
     if( usedSelect && usedSelect.selectedIndex >= 0)
-      usage = usedSelect.options[usedSelect.selectedIndex]
-            .parentNode.dataset.usage
+      usage = usedSelect.options[usedSelect.selectedIndex].dataset.usage
 
     let used = usage === 'pack'   ? weight * usedSelect.value : (
                usage === 'pieces' ? (weight / pieces) * usedSelect.value
