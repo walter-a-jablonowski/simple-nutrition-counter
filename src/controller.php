@@ -44,6 +44,9 @@ class FoodsController extends ControllerBase
     $this->dayEntriesTxt = trim( @file_get_contents('data/users/' . $config->get('user') . "/days/{$this->date}.tsv") ?: '', "\n");
     $this->dayEntries    = parse_tsv( $this->dayEntriesTxt );
 
+    foreach( $this->dayEntries as $idx => $entry)
+      $this->dayEntries[$idx][7] = Yaml::parse( $this->dayEntries[$idx][7] );
+
     $this->foodsTxt = file_get_contents('data/foods.yml');
     $foodsDef = Yaml::parse( $this->foodsTxt );
 
