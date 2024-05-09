@@ -114,6 +114,7 @@ else:
 <script src="lib/events_240321.js"></script>
 <script src="lib/query_240321.js"></script>
 <script src="lib/query_data_240328.js"></script>
+<script src="lib/YAMLish_240508.js"></script>
 <script src="lib/send_240420.js"></script>
 <script src="lib/fade_230808.js"></script>
 <script src="controller.js"></script>

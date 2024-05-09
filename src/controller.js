@@ -185,8 +185,8 @@ class FoodsEventController
       entry.fibre = Math.round(entry.fibre * (usedWeight / 100) * 10) / 10
 
     dayEntries.push(entry);  // simple version
-    query('#dayEntries').value += `\n${entry.food}  ${entry.calories}  ${entry.fat}  ${entry.carbs}  ${entry.amino}  ${entry.salt}  ${entry.price}  \{\}`
-
+    query('#dayEntries').value += `\n${entry.food}  ${entry.calories}  ${entry.fat}  ${entry.carbs}  ${entry.amino}  ${entry.salt}  ${entry.price}`
+                               +  '  {}'
     this.updSums()
     this.#saveDayEntries()
 
@@ -247,7 +247,7 @@ class FoodsEventController
       let saltPadding     = ' '.repeat( maxSaltLength     - String(entry.salt).length + 2)
 
       return `${entry.food}${foodPadding}${entry.calories}${caloriesPadding}${entry.fat}${fatPadding}${entry.carbs}${carbsPadding}${entry.amino}${aminoPadding}${entry.salt}${saltPadding}${entry.price}  `
-             + this.#yamlish( entry.nutrients )
+             + YAMLish.dump( entry.nutrients )
 
     }).join('\n')
 
@@ -323,18 +323,5 @@ class FoodsEventController
       elseif( result !== 'success')
         query('#uiMsg').innerHTML = result.message
     })
-  }
-
-  // TASK: MOV
-
-  #yamlish(obj) {
-    return JSON.stringify(obj)
-      .replace(/"(\w+)":/g, '$1:')
-  }
-
-  #fromYamlish(yamlLike) {
-    return JSON.parse(
-      yamlLike.replace(/(\w+):/g, '"$1":')
-    )
   }
 }
