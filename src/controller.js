@@ -26,11 +26,9 @@ class FoodsEventController
     // Modal
 
     // const myModal = new bootstrap.Modal('#myModal'), options)  // some error
-    this.tipsModal     = new bootstrap.Modal( query('#tipsModal')) //, options)
+    this.newEntryModal = new bootstrap.Modal( query('#newEntryModal'))
     // myModal.show()  // also, you can pass a DOM element as an argument that can be received in the modal events (as the relatedTarget property). (i.e. const modalToggle = document.getElementById('toggleMyModal'); myModal.show(modalToggle)
     // $('#newEntryModal').modal('hide')
-    this.newEntryModal = new bootstrap.Modal( query('#newEntryModal')) //, options)
-    this.helpModal     = new bootstrap.Modal( query('#helpModal')) //, options)
 
     query('#newEntryModal').addEventListener('show.bs.modal', event => {
       
@@ -94,14 +92,6 @@ class FoodsEventController
       window.location.href = `index.php`
     }
   }
-
-
-  // Tips btn
-
-  // tipsBtnClick(event)
-  // {
-  //   this.tipsModal.show()
-  // }
 
 
   // Settings btn (tab content see below)
@@ -278,14 +268,6 @@ class FoodsEventController
       else
         query('#foodsUIMsg').innerHTML = result.message
     })
-  }
-
-
-  // Settings tab
-
-  helpBtn(event)
-  {
-    this.helpModal.show()
   }
 
 

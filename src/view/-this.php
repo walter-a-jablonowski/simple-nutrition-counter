@@ -56,11 +56,6 @@ else:
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tipsModal">
             <i class="bi bi-info-circle icon-circle"></i>
           </button>
-<!--
-          <button onclick="foodsCrl.tipsBtnClick(event)" type="button" class="btn btn-primary">
-            <i class="bi bi-info-circle icon-circle"></i>
-          </button>
--->
           <button id="settingsBtn" onclick="foodsCrl.settingsBtnClick(event)" type="button" class="btn btn-sm">
             <i class="bi bi-gear-fill text-white"></i>
           </button>
@@ -98,6 +93,7 @@ else:
   <?php require( __DIR__ . '/modal/new_entry.php') ?>
   <?php require( __DIR__ . '/modal/tips.php') ?>
   <?php require( __DIR__ . '/modal/help.php') ?>
+  <?php require( __DIR__ . '/modal/about.php') ?>
 
   <div id="errorPage" style="display: none;">
     <?php require( __DIR__ . '/error_page.php') ?>
