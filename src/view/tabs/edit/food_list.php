@@ -8,7 +8,7 @@
     </button>
     <span id="uiMsg"></span>
     <button class="btn btn-sm flex-fill" onclick="foodsCrl.newEntryBtn(event)">
-      New
+      Enter manually ...
     </button>
   </li>
   <?php foreach( $this->model->foods as $food => $entry): ?>

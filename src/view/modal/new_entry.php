@@ -128,7 +128,7 @@
             Cancel
           </button>
           <button type="button" class="btn btn-sm btn-primary" onclick="foodsCrl.newEntrySaveBtn()">
-            Save
+            Add entry
           </button>
         </div>
       </div>
