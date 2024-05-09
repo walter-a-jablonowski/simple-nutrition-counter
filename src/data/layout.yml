@@ -33,6 +33,8 @@ Nuts (color:):
   # - (i): ...
   # - head:
   #   comment: ...
+  #   
+  # comment: ...  or use like this and str_replace()
 
   - Cashew E
   - Cashew N
