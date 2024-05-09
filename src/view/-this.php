@@ -128,7 +128,7 @@ ready( function() {
 
   dayEntries = [  // will be replaced by #code/advancedData
     <?php foreach( $this->dayEntries as $entry): ?>
-      {food: '<?= $entry[0] ?>', calories: <?= $entry[1] ?>, fat: <?= $entry[2] ?>, carbs: <?= $entry[3] ?>, amino: <?= $entry[4] ?>, salt: <?= $entry[5] ?>, price: <?= $entry[6] ?>},
+      {food: '<?= $entry[0] ?>', calories: <?= $entry[1] ?>, fat: <?= $entry[2] ?>, carbs: <?= $entry[3] ?>, amino: <?= $entry[4] ?>, salt: <?= $entry[5] ?>, price: <?= $entry[6] ?>, nutrients: <?= ( ! $entry[7] ? '{}' : json_encode($entry[7])) ?>},
     <?php endforeach; ?>
   ]
 
