@@ -12,7 +12,7 @@ class FoodsEventController
     this.saveDayEntriesBtnClick = this.saveDayEntriesBtnClick.bind(this)
     this.foodItemClick          = this.foodItemClick.bind(this)
     this.saveFoodsBtnClick      = this.saveFoodsBtnClick.bind(this)
-    this.updSums                = this.updSums.bind(this)
+    this.updQuickSummary        = this.updQuickSummary.bind(this)
     // this.#saveDayEntries     = this.#saveDayEntries.bind(this)  // TASK: can't be done
 
     // BS
@@ -184,15 +184,8 @@ class FoodsEventController
     if('fibre' in entry)
       entry.fibre = Math.round(entry.fibre * (usedWeight / 100) * 10) / 10
 
-    dayEntries.push(entry);  // simple version
-    query('#dayEntries').value += `\n${entry.food}  ${entry.calories}  ${entry.fat}  ${entry.carbs}  ${entry.amino}  ${entry.salt}  ${entry.price}`
-                               +  '  {}'
-    this.updSums()
-    this.#saveDayEntries()
-
+    this.#addDayEntry( entry )
     this.newEntryModal.hide()
-
-    // window.location.reload()  // simple version: fix tsv
   }
 
 
@@ -224,6 +217,28 @@ class FoodsEventController
       }
     }
 
+    this.#addDayEntry( entry )
+  }
+
+  saveFoodsBtnClick(event)
+  {
+    ajax.send('saveFoods', { data: query('#foods').value }, function( result, data ) {
+
+      if( result === 'success')
+        query('#foodsUIMsg').innerHTML = 'Saved'
+      else
+        query('#foodsUIMsg').innerHTML = result.message
+    })
+  }
+
+
+  // Helper
+
+  /*@
+  
+  */
+  #addDayEntry( entry ) /*@*/
+  {
     dayEntries.push( entry )
     
     // Find the length of the longest strings
@@ -248,39 +263,23 @@ class FoodsEventController
       let saltPadding     = ' '.repeat( maxSaltLength     - String(entry.salt).length + 2)
       let pricePadding    = ' '.repeat( maxPriceLength    - String(entry.price).length + 2)
 
-      return `${entry.food}${foodPadding}${entry.calories}${caloriesPadding}${entry.fat}${fatPadding}${entry.carbs}${carbsPadding}${entry.amino}${aminoPadding}${entry.salt}${saltPadding}${entry.price}${entry.pricePadding}`
+      return `${entry.food}${foodPadding}${entry.calories}${caloriesPadding}${entry.fat}${fatPadding}${entry.carbs}${carbsPadding}${entry.amino}${aminoPadding}${entry.salt}${saltPadding}${entry.price}${pricePadding}`
              + YAMLish.dump( entry.nutrients )
 
     }).join('\n')
 
     query('#dayEntries').value = formattedText
 
-    // Upd sums and save entries
-
-    this.updSums()
+    this.updQuickSummary()
     this.#saveDayEntries()
   }
-
-  saveFoodsBtnClick(event)
-  {
-    ajax.send('saveFoods', { data: query('#foods').value }, function( result, data ) {
-
-      if( result === 'success')
-        query('#foodsUIMsg').innerHTML = 'Saved'
-      else
-        query('#foodsUIMsg').innerHTML = result.message
-    })
-  }
-
-
-  // Helper
 
   /*@
   
   - public cause used in view
 
   */
-  updSums() /*@*/
+  updQuickSummary() /*@*/
   {
     let caloriesSum = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.calories), 0).toFixed(1))
     let fatSum      = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.fat),      0).toFixed(1))
