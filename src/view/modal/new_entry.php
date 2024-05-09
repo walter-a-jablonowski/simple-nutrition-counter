@@ -75,32 +75,32 @@
         </div>
         <div class="mb-2">
           <div class="input-group">
-            <input id="modalFatInput"   type="number" inputmode="numeric" step="0.1" placeholder="Fat (g)" class="form-control" required>
+            <input id="modalFatInput"   type="number" inputmode="numeric" step="0.1" placeholder="Fat" class="form-control" required>
             <span class="input-group-text">g</span>
           </div>
         </div>
         <div class="mb-2">
           <div class="input-group">
-            <input id="modalCarbsInput" type="number" inputmode="numeric" step="0.1" placeholder="Carbs (g)" class="form-control">
+            <input id="modalCarbsInput" type="number" inputmode="numeric" step="0.1" placeholder="Carbs" class="form-control">
             <span class="input-group-text">g</span>
           </div>
         </div>
         <!-- TASK: (very advanced) some list where non-required can be added (fibre and all nutrients -->
         <div class="mb-2">
           <div class="input-group">
-            <input id="modalFibreInput" type="number" inputmode="numeric" step="0.1" placeholder="Fibre (g)" class="form-control">
+            <input id="modalFibreInput" type="number" inputmode="numeric" step="0.1" placeholder="Fibre" class="form-control">
             <span class="input-group-text">g</span>
           </div>
         </div>
         <div class="mb-2">
           <div class="input-group">
-            <input id="modalAminoInput" type="number" inputmode="numeric" step="0.1" placeholder="Amino Acids (g)" class="form-control" required>
+            <input id="modalAminoInput" type="number" inputmode="numeric" step="0.1" placeholder="Amino acids" class="form-control" required>
             <span class="input-group-text">g</span>
           </div>
         </div>
         <div class="mb-2">
           <div class="input-group">
-            <input id="modalSaltInput"  type="number" inputmode="numeric" step="0.1" placeholder="Salt (g)" class="form-control" required>
+            <input id="modalSaltInput"  type="number" inputmode="numeric" step="0.1" placeholder="Salt" class="form-control" required>
             <span class="input-group-text">g</span>
           </div>
         </div>
