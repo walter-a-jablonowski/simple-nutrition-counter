@@ -68,26 +68,47 @@
           <option data-usage="precise" value="100" >100g or ml</option>
         </select>
         <div class="mb-2">
-          <input id="modalCaloriesInput" type="number" inputmode="numeric" placeholder="Calories (kcal)" class="form-control" required>
+          <div class="input-group">
+            <input id="modalCaloriesInput" type="number" inputmode="numeric" placeholder="Calories" class="form-control" required>
+            <span class="input-group-text">kcal</span>
+          </div>
         </div>
         <div class="mb-2">
-          <input id="modalFatInput"   type="number" inputmode="numeric" step="0.1" placeholder="Fat (g)" class="form-control" required>
+          <div class="input-group">
+            <input id="modalFatInput"   type="number" inputmode="numeric" step="0.1" placeholder="Fat (g)" class="form-control" required>
+            <span class="input-group-text">g</span>
+          </div>
         </div>
         <div class="mb-2">
-          <input id="modalCarbsInput" type="number" inputmode="numeric" step="0.1" placeholder="Carbs (g)" class="form-control">
+          <div class="input-group">
+            <input id="modalCarbsInput" type="number" inputmode="numeric" step="0.1" placeholder="Carbs (g)" class="form-control">
+            <span class="input-group-text">g</span>
+          </div>
         </div>
         <!-- TASK: (very advanced) some list where non-required can be added (fibre and all nutrients -->
         <div class="mb-2">
-          <input id="modalFibreInput" type="number" inputmode="numeric" step="0.1" placeholder="Fibre (g)" class="form-control">
+          <div class="input-group">
+            <input id="modalFibreInput" type="number" inputmode="numeric" step="0.1" placeholder="Fibre (g)" class="form-control">
+            <span class="input-group-text">g</span>
+          </div>
         </div>
         <div class="mb-2">
-          <input id="modalAminoInput" type="number" inputmode="numeric" step="0.1" placeholder="Amino Acids (g)" class="form-control" required>
+          <div class="input-group">
+            <input id="modalAminoInput" type="number" inputmode="numeric" step="0.1" placeholder="Amino Acids (g)" class="form-control" required>
+            <span class="input-group-text">g</span>
+          </div>
         </div>
         <div class="mb-2">
-          <input id="modalSaltInput"  type="number" inputmode="numeric" step="0.1" placeholder="Salt (g)" class="form-control" required>
+          <div class="input-group">
+            <input id="modalSaltInput"  type="number" inputmode="numeric" step="0.1" placeholder="Salt (g)" class="form-control" required>
+            <span class="input-group-text">g</span>
+          </div>
         </div>
         <div>
-          <input id="modalPriceInput"  type="number" inputmode="numeric" step="0.01" placeholder="Price" class="form-control">
+          <div class="input-group">
+            <span class="input-group-text">$</span>
+            <input id="modalPriceInput"  type="number" inputmode="numeric" step="0.01" placeholder="Price" class="form-control">
+          </div>
         </div>
       </div>
       <div class="modal-footer">
