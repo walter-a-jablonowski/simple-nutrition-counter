@@ -374,6 +374,28 @@ Erdn Salz N big:
   lastUpd:           2024-03-13
   lastPriceUpd:      2024-03-30
 
+Falafel:
+
+  acceptable:        occasionally
+
+  price:             
+  weight:            190
+  usedAmounts:       [1]
+
+  calories:          246
+  nutritionalValues:
+
+    fat:             6.9
+    saturatedFat:    2.1
+    carbs:           37
+    sugar:           2.6
+    amino:           7
+    salt:            1.8
+
+  sources:           "Macro nutrients: pack"
+  lastUpd:           2024-05-06
+  lastPriceUpd:      
+
 Ferrero Kuesschen:
 
   acceptable:        less
@@ -1018,7 +1040,7 @@ Pumpernickel R Bio:
 
 Ricola Zitronenm:
 
-  acceptable:        "occasionally"
+  acceptable:        occasionally
   comment:           "Andorn Bibernelle Ehrenpreis Eibisch Frauenmantel Holunder Malve Pfefferminze Salbei Schafgarbe Schlüsselblume Spitzwegerich Thymian"
   ingredients:       "Süßungsmittel (Isomalt), Säuerungsmittel (Citronensäure), Kräuterauszug (0,3%) aus Zitronenmelisse sowie Spitzwegerich, Eibisch, Pfefferminze, Thymian, Salbei, Frauenmantel, Schafgarbe, Bibernelle, Malve, Holunderblüten, Schlüsselblume, Ehrenpreis und Andorn, natürliches Citrusaroma, Karottensaftkonzentrat, Süßungsmittel (Steviolglycoside aus Stevia, Thaumatin), Pfefferminzöl, Minzöl, Menthol"
 
