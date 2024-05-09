@@ -179,7 +179,7 @@ class FoodsEventController
       entry.fibre = Math.round(entry.fibre * (usedWeight / 100) * 10) / 10
 
     dayEntries.push(entry);  // simple version
-    query('#dayEntries').value += `\n${entry.food}  ${entry.calories}  ${entry.fat}  ${entry.carbs}  ${entry.amino}  ${entry.salt}  ${entry.price}`
+    query('#dayEntries').value += `\n${entry.food}  ${entry.calories}  ${entry.fat}  ${entry.carbs}  ${entry.amino}  ${entry.salt}  ${entry.price}  \{\}`
 
     this.updSums()
     this.#saveDayEntries()
