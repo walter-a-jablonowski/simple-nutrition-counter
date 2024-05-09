@@ -1,7 +1,7 @@
 
 # see also users > settings.yml
 
-debug: false
+devMode: true
 
 user:  single_user  # TASK: remove (currently single user)
 foods:              # TASK: move settings

@@ -99,7 +99,7 @@ else:
     <?php require( __DIR__ . '/error_page.php') ?>
   </div>
 
-  <?php if( $this->debug ): ?>
+  <?php if( $this->devMode ): ?>
     <script>
       document.write('<p>Width: ' + window.innerWidth + 'px, Height: ' + window.innerHeight + 'px</p>')
     </script>

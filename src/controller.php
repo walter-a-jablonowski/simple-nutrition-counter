@@ -31,7 +31,7 @@ class FoodsController extends ControllerBase
   private function makeData()  /*@*/
   {
     $config = config::instance();
-    $this->debug = $config->get('debug');
+    $this->devMode = $config->get('devMode');
 
     $nutrients['fattyAcids'] = Yaml::parse( file_get_contents('data/nutrients/fattyAcids.yml'));
     $nutrients['aminoAcids'] = Yaml::parse( file_get_contents('data/nutrients/aminoAcids.yml'));
