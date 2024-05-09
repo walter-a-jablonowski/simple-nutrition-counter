@@ -1,6 +1,6 @@
 <div id="tipsModal" class="modal fade" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content">
+  <div class="modal-dialog modal-dialog-scrollable" style="height: 100vh;">
+    <div class="modal-content" style="height: 90%;">
 <!--
       <div class="modal-header">
         <h6 class="modal-title">Tips</h6>
