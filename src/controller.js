@@ -127,35 +127,59 @@ class FoodsEventController
   {
     // modal see also construct
 
+    let weight     = query('#modalWeightInput').value
+    let usedSelect = query('#modalUsedSelect')
+    let usage      = 'precise'
+
+    // similar PHP controller
+
+    usage = usedSelect.options[usedSelect.selectedIndex].dataset.usage
+
+    let usedWeight = usage === 'pack'   ? weight * usedSelect.value : (
+                     usage === 'pieces' ? (weight / pieces) * query('#modalPiecesSelect').value
+                   : usedSelect.value  // precise
+    )
+
     let entry = {
-      name:     query('#modalNameInput').value,
+      food:     query('#modalNameInput').value,  // TASK: rename
       calories: parseFloat( query('#modalCaloriesInput').value.trim().replace(',', '.')) || 0,
       fat:      parseFloat( query('#modalFatInput').value.trim().replace(',', '.'))      || 0,
       carbs:    parseFloat( query('#modalCarbsInput').value.trim().replace(',', '.'))    || 0,
       amino:    parseFloat( query('#modalAminoInput').value.trim().replace(',', '.'))    || 0,
       salt:     parseFloat( query('#modalSaltInput').value.trim().replace(',', '.'))     || 0,
-      price:    parseFloat( query('#modalPriceInput').value.trim().replace(',', '.'))    || 0
+      price:    parseFloat( query('#modalPriceInput').value.trim().replace(',', '.'))    || 0,
+      nutrients: {}
     }
-/*
+
     let fibreInp = query('#modalFibreInput')
 
     if( fibreInp && fibreInp.value.trim() !== '')
       entry.fibre = fibreInp.value.trim()
 
-    let weight     = query('#modalWeightInput').value
-    let usedSelect = query('#modalUsedSelect')
-    let usage      = 'precise'
+    entry = {
+      food:     entry.food,
+      // multiplying by 10 and then dividing by 10: This is a common technique to round to a specific number of decimal places—in this case, one decimal place
+      calories:  Math.round( entry.calories * (usedWeight / 100) * 10) / 10,  // 10 is one decimal place
+      fat:       Math.round( entry.fat      * (usedWeight / 100) * 10) / 10,
+      carbs:     Math.round( entry.carbs    * (usedWeight / 100) * 10) / 10,
+      amino:     Math.round( entry.amino    * (usedWeight / 100) * 10) / 10,
+      salt:      Math.round( entry.salt     * (usedWeight / 100) * 10) / 10,  // 100 2 decimal places
+      price:     ! entry.price ? 0 : Math.round( entry.price * (usedWeight / weight) * 100) / 100,
+      nutrients: entry.nutrients
+    }
 
-    if( usedSelect && usedSelect.selectedIndex >= 0)
-      usage = usedSelect.options[usedSelect.selectedIndex].dataset.usage
+    // TASK: function for upper decimal places
 
-    let used = usage === 'pack'   ? weight * usedSelect.value : (
-               usage === 'pieces' ? (weight / pieces) * usedSelect.value
-             : usedSelect.value  // precise
-    )
-*/
+    // function roundToDecimalPlace(number, decimalPlaces) {
+    //   let factor = Math.pow(10, decimalPlaces);
+    //   return Math.round(number * factor) / factor;
+    // }
+
+    if('fibre' in entry)
+      entry.fibre = Math.round(entry.fibre * (usedWeight / 100) * 10) / 10
+
     dayEntries.push(entry);  // simple version
-    query('#dayEntries').value += `\n${entry.name}  ${entry.calories}  ${entry.fat}  ${entry.carbs}  ${entry.amino}  ${entry.salt}  ${entry.price}`
+    query('#dayEntries').value += `\n${entry.food}  ${entry.calories}  ${entry.fat}  ${entry.carbs}  ${entry.amino}  ${entry.salt}  ${entry.price}`
 
     this.updSums()
     this.#saveDayEntries()
@@ -180,7 +204,7 @@ class FoodsEventController
     let nutritionalValues = JSON.parse(target.dataset.nutritionalvalues)
 
     let entry = {
-      food:      food,
+      food:      food,  // TASK: rename
       calories:  calories,
       fat:       nutritionalValues.fat,
       carbs:     nutritionalValues.carbs,

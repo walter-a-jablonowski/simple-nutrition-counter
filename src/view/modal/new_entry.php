@@ -44,14 +44,14 @@
         <div class="mb-3">
           <input id="modalNameInput" placeholder="Name" value="Misc entry" class="form-control" required>
         </div>
-        <div class="mb-3">
-          <input id="modalWeightInput" type="number" inputmode="numeric" placeholder="Weight (g)" class="form-control" required>
+        <div class="row mb-3">
+          <div class="col">
+            <input id="modalWeightInput" type="number" inputmode="numeric" placeholder="Weight (g)" class="form-control" required>
+          </div>
+          <div class="col">
+            <input id="modalPiecesInput" type="number" inputmode="numeric" placeholder="Pieces" class="form-control">
+          </div>
         </div>
-<!--
-        <div class="mb-3">
-          <input id="modalUsedInput" type="number" inputmode="numeric" placeholder="Used amount" class="form-control" required>
-        </div>
--->
         <select id="modalUsedSelect" class="form-select" required>
           <option class="default" value="null" disabled selected>Used amount ...</option>
           <option data-usage="pack"    value="0.25">1/4</option>
