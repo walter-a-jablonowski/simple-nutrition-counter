@@ -3,10 +3,12 @@
 <div id="newEntryModal" class="modal fade" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
+<!--
       <div class="modal-header">
         <h6 class="modal-title">New entry</h6>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
+-->
       <div class="modal-body small">
         
         <!-- Floating form (placeholder is more compact) -->
@@ -41,10 +43,10 @@
           <label for="modalPriceInput">Price</label>
         </div>
 -->
-        <div class="mb-3">
+        <div class="mb-2">
           <input id="modalNameInput" placeholder="Name" value="Misc entry" class="form-control" required>
         </div>
-        <div class="row mb-3">
+        <div class="row mb-2">
           <div class="col">
             <input id="modalWeightInput" type="number" inputmode="numeric" placeholder="Weight (g)" class="form-control" required>
           </div>
@@ -52,7 +54,7 @@
             <input id="modalPiecesInput" type="number" inputmode="numeric" placeholder="Pieces" class="form-control">
           </div>
         </div>
-        <select id="modalUsedSelect" class="form-select" required>
+        <select id="modalUsedSelect" class="form-select mb-2" required>
           <option class="default" value="null" disabled selected>Used amount ...</option>
           <!-- TASK: get from defaults -->
           <option data-usage="pack"    value="0.25">1/4</option>
@@ -65,47 +67,49 @@
           <option data-usage="precise" value="50"  >50g or ml</option>
           <option data-usage="precise" value="100" >100g or ml</option>
         </select>
-        <div class="mb-3">
+        <div class="mb-2">
           <input id="modalCaloriesInput" type="number" inputmode="numeric" placeholder="Calories (kcal)" class="form-control" required>
         </div>
-        <div class="mb-3">
+        <div class="mb-2">
           <input id="modalFatInput"   type="number" inputmode="numeric" step="0.1" placeholder="Fat (g)" class="form-control" required>
         </div>
-        <div class="mb-3">
+        <div class="mb-2">
           <input id="modalCarbsInput" type="number" inputmode="numeric" step="0.1" placeholder="Carbs (g)" class="form-control">
         </div>
         <!-- TASK: (very advanced) some list where non-required can be added (fibre and all nutrients -->
-        <div class="mb-3">
+        <div class="mb-2">
           <input id="modalFibreInput" type="number" inputmode="numeric" step="0.1" placeholder="Fibre (g)" class="form-control">
         </div>
-        <div class="mb-3">
+        <div class="mb-2">
           <input id="modalAminoInput" type="number" inputmode="numeric" step="0.1" placeholder="Amino Acids (g)" class="form-control" required>
         </div>
-        <div class="mb-3">
+        <div class="mb-2">
           <input id="modalSaltInput"  type="number" inputmode="numeric" step="0.1" placeholder="Salt (g)" class="form-control" required>
         </div>
-        <div class="mb-3">
+        <div>
           <input id="modalPriceInput"  type="number" inputmode="numeric" step="0.01" placeholder="Price" class="form-control">
         </div>
-        <!-- TASK: add a dev config and hide -->
-        <!-- TASK: (very advanced) -->
-        <div class="mb-3">
+      </div>
+      <div class="modal-footer">
+        <div class="d-flex w-100 justify-content-between">
+          <!-- TASK: add a dev config and hide -->
+          <!-- TASK: (very advanced) -->
+        <div>
           <div class="form-check">
             <input id="flexCheckDefault" type="checkbox" value="" class="form-check-input">
-            <label class="form-check-label" for="flexCheckDefault">
+            <label class="form-check-label small" for="flexCheckDefault">
               Save as new food
             </label>
           </div>
         </div>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">
-          Cancel
-        </button>
-        <button type="button" class="btn btn-sm btn-primary" onclick="foodsCrl.newEntrySaveBtn()">
-          Save
-        </button>
+        <div>
+          <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">
+            Cancel
+          </button>
+          <button type="button" class="btn btn-sm btn-primary" onclick="foodsCrl.newEntrySaveBtn()">
+            Save
+          </button>
+        </div>
       </div>
     </div>
   </div>
