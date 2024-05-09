@@ -292,27 +292,6 @@ class FoodsEventController
     query('#aminoSum').textContent    = aminoSum
     query('#saltSum').textContent     = saltSum
     query('#priceSum').textContent    = priceSum
-
-
-    // (TASK) #code/progress
-
-    // let currentSum  = 100  // This should be dynamically set based on the day's sum
-    // let recommended = 500
-    // let tolerance   = 0.05
-
-    // let percentage = (currentSum / recommended) * 100
-    // percentage = Math.min(percentage, 100)  // ensure it doesn't exceed 100%
-
-    // let progressBarColor = 'bg-secondary'
-
-    // if( currentSum >= recommended * (1 - tolerance) && currentSum <= recommended * (1 + tolerance))
-    //   progressBarColor = 'bg-success'
-    // else if(currentSum > recommended * (1 + tolerance))
-    //   progressBarColor = 'bg-danger'
-
-    // query('#caloriesProgressBar').style.width   = `${percentage}%`
-    // query('#caloriesProgressBar').className     = `progress-bar ${progressBarColor}`
-    // query('#caloriesProgressLabel').textContent = `${currentSum}/${recommended}`
   }
 
   #saveDayEntries( uiMsg = false )
@@ -325,4 +304,31 @@ class FoodsEventController
         query('#uiMsg').innerHTML = result.message
     })
   }
+
+  /*@
+  
+
+  */
+  // updSummary() /*@*/
+  // {
+  //   // (TASK) #code/progress
+
+  //   let currentSum  = 100  // This should be dynamically set based on the day's sum
+  //   let recommended = 500
+  //   let tolerance   = 0.05
+
+  //   let percentage = (currentSum / recommended) * 100
+  //   percentage = Math.min(percentage, 100)  // ensure it doesn't exceed 100%
+
+  //   let progressBarColor = 'bg-secondary'
+
+  //   if( currentSum >= recommended * (1 - tolerance) && currentSum <= recommended * (1 + tolerance))
+  //     progressBarColor = 'bg-success'
+  //   else if(currentSum > recommended * (1 + tolerance))
+  //     progressBarColor = 'bg-danger'
+
+  //   query('#caloriesProgressBar').style.width   = `${percentage}%`
+  //   query('#caloriesProgressBar').className     = `progress-bar ${progressBarColor}`
+  //   query('#caloriesProgressLabel').textContent = `${currentSum}/${recommended}`
+  // }
 }
