@@ -54,6 +54,7 @@
         </div>
         <select id="modalUsedSelect" class="form-select" required>
           <option class="default" value="null" disabled selected>Used amount ...</option>
+          <!-- TASK: get from defaults -->
           <option data-usage="pack"    value="0.25">1/4</option>
           <option data-usage="pack"    value="0.33">1/3</option>
           <option data-usage="pack"    value="0.5" >1/2</option>
@@ -71,8 +72,9 @@
           <input id="modalFatInput"   type="number" inputmode="numeric" step="0.1" placeholder="Fat (g)" class="form-control" required>
         </div>
         <div class="mb-3">
-          <input id="modalCarbsInput" type="number" inputmode="numeric" step="0.1" placeholder="Carbs (g)" value="0" class="form-control">
+          <input id="modalCarbsInput" type="number" inputmode="numeric" step="0.1" placeholder="Carbs (g)" class="form-control">
         </div>
+        <!-- TASK: (very advanced) some list where non-required can be added (fibre and all nutrients -->
         <div class="mb-3">
           <input id="modalFibreInput" type="number" inputmode="numeric" step="0.1" placeholder="Fibre (g)" class="form-control">
         </div>
@@ -84,6 +86,16 @@
         </div>
         <div class="mb-3">
           <input id="modalPriceInput"  type="number" inputmode="numeric" step="0.01" placeholder="Price" class="form-control">
+        </div>
+        <!-- TASK: add a dev config and hide -->
+        <!-- TASK: (very advanced) -->
+        <div class="mb-3">
+          <div class="form-check">
+            <input id="flexCheckDefault" type="checkbox" value="" class="form-check-input">
+            <label class="form-check-label" for="flexCheckDefault">
+              Save as new food
+            </label>
+          </div>
         </div>
 
       </div>
