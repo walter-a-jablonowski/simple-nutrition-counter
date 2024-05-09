@@ -234,6 +234,7 @@ class FoodsEventController
     let maxCarbsLength    = Math.max( ...dayEntries.map( entry => String(entry.carbs).length))
     let maxAminoLength    = Math.max( ...dayEntries.map( entry => String(entry.amino).length))
     let maxSaltLength     = Math.max( ...dayEntries.map( entry => String(entry.salt).length))
+    let maxPriceLength    = Math.max( ...dayEntries.map( entry => String(entry.price).length))
 
     // Align cols
 
@@ -245,8 +246,9 @@ class FoodsEventController
       let carbsPadding    = ' '.repeat( maxCarbsLength    - String(entry.carbs).length + 2)
       let aminoPadding    = ' '.repeat( maxAminoLength    - String(entry.amino).length + 2)
       let saltPadding     = ' '.repeat( maxSaltLength     - String(entry.salt).length + 2)
+      let pricePadding    = ' '.repeat( maxPriceLength    - String(entry.price).length + 2)
 
-      return `${entry.food}${foodPadding}${entry.calories}${caloriesPadding}${entry.fat}${fatPadding}${entry.carbs}${carbsPadding}${entry.amino}${aminoPadding}${entry.salt}${saltPadding}${entry.price}  `
+      return `${entry.food}${foodPadding}${entry.calories}${caloriesPadding}${entry.fat}${fatPadding}${entry.carbs}${carbsPadding}${entry.amino}${aminoPadding}${entry.salt}${saltPadding}${entry.price}${entry.pricePadding}`
              + YAMLish.dump( entry.nutrients )
 
     }).join('\n')
