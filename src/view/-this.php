@@ -52,13 +52,15 @@ else:
             <?= self::iif( $this->mode === 'current', $day, "-1 day") ?>
           </button>
         </div>
-
-        <!-- we try using a hidden tab -->
-
         <div>
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tipsModal">
             <i class="bi bi-info-circle icon-circle"></i>
           </button>
+<!--
+          <button onclick="foodsCrl.tipsBtnClick(event)" type="button" class="btn btn-primary">
+            <i class="bi bi-info-circle icon-circle"></i>
+          </button>
+-->
           <button id="settingsBtn" onclick="foodsCrl.settingsBtnClick(event)" type="button" class="btn btn-sm">
             <i class="bi bi-gear-fill text-white"></i>
           </button>

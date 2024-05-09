@@ -17,19 +17,31 @@ class FoodsEventController
 
     // BS
 
-    const popoverTriggerList = query('[data-bs-toggle="popover"]')
-    const popoverList = [...popoverTriggerList].map( popoverTriggerEl => new bootstrap.Popover( popoverTriggerEl, {
-      html: true,
-      customClass: 'app-modal'
-    }))
+    // const popoverTriggerList = query('[data-bs-toggle="popover"]')
+    // const popoverList = [...popoverTriggerList].map( popoverTriggerEl => new bootstrap.Popover( popoverTriggerEl, {
+    //   html: true,
+    //   customClass: 'app-modal'
+    // }))
 
-    // clear modal
+    // Modal
+
+    // const myModal = new bootstrap.Modal('#myModal'), options)  // some error
+    this.tipsModal     = new bootstrap.Modal( query('#tipsModal')) //, options)
+    // myModal.show()  // also, you can pass a DOM element as an argument that can be received in the modal events (as the relatedTarget property). (i.e. const modalToggle = document.getElementById('toggleMyModal'); myModal.show(modalToggle)
+    // $('#newEntryModal').modal('hide')
+    this.newEntryModal = new bootstrap.Modal( query('#newEntryModal')) //, options)
+    this.helpModal     = new bootstrap.Modal( query('#helpModal')) //, options)
 
     query('#newEntryModal').addEventListener('show.bs.modal', event => {
       
-      query('#modalNameInput').value     = 'Misc'  // default
+      query('#modalNameInput').value     = 'Misc entry'  // default
+      query('#modalWeightInput').value   = ''
+      query('#modalPiecesInput').value   = ''
+      query('#modalUsedSelect').value    = 'null'
       query('#modalCaloriesInput').value = ''
       query('#modalFatInput').value      = ''
+      query('#modalCarbsInput').value    = ''
+      query('#modalFibreInput').value    = ''
       query('#modalAminoInput').value    = ''
       query('#modalSaltInput').value     = ''
       query('#modalPriceInput').value    = ''
@@ -84,6 +96,14 @@ class FoodsEventController
   }
 
 
+  // Tips btn
+
+  // tipsBtnClick(event)
+  // {
+  //   this.tipsModal.show()
+  // }
+
+
   // Settings btn (tab content see below)
 
   settingsBtnClick(event)
@@ -116,11 +136,7 @@ class FoodsEventController
 
   newEntryBtn(event)
   { 
-    // modal see also construct
-
-    // const myModal = new bootstrap.Modal('#myModal'), options)  // some eror
-    const myModal = new bootstrap.Modal( query('#newEntryModal')) //, options)
-    myModal.show()  //  Also, you can pass a DOM element as an argument that can be received in the modal events (as the relatedTarget property). (i.e. const modalToggle = document.getElementById('toggleMyModal'); myModal.show(modalToggle)
+    this.newEntryModal.show()
   }
 
   newEntrySaveBtn(event)
@@ -184,9 +200,7 @@ class FoodsEventController
     this.updSums()
     this.#saveDayEntries()
 
-    // const myModal = new bootstrap.Modal('#myModal'), options)     // some eror
-    // const myModal = new bootstrap.Modal( query('#newEntryModal')) //, options)
-    $('#newEntryModal').modal('hide')
+    this.newEntryModal.hide()
 
     // window.location.reload()  // simple version: fix tsv
   }
@@ -271,11 +285,7 @@ class FoodsEventController
 
   helpBtn(event)
   {
-    // modal see also construct
-
-    // const myModal = new bootstrap.Modal('#myModal'), options)  // some eror
-    const myModal = new bootstrap.Modal( query('#helpModal')) //, options)
-    myModal.show()  //  Also, you can pass a DOM element as an argument that can be received in the modal events (as the relatedTarget property). (i.e. const modalToggle = document.getElementById('toggleMyModal'); myModal.show(modalToggle)
+    this.helpModal.show()
   }
 
 

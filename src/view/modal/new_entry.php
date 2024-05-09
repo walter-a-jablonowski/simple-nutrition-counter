@@ -1,5 +1,3 @@
-<!-- AI generated -->
-
 <div id="newEntryModal" class="modal fade" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -115,21 +113,20 @@
         <div class="d-flex w-100 justify-content-between">
           <!-- TASK: add a dev config and hide -->
           <!-- TASK: (very advanced) -->
-        <div>
           <div class="form-check">
             <input id="flexCheckDefault" type="checkbox" value="" class="form-check-input">
             <label class="form-check-label small" for="flexCheckDefault">
               Save as new food
             </label>
           </div>
-        </div>
-        <div>
-          <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">
-            Cancel
-          </button>
-          <button type="button" class="btn btn-sm btn-primary" onclick="foodsCrl.newEntrySaveBtn()">
-            Add entry
-          </button>
+          <div>
+            <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">
+              Cancel
+            </button>
+            <button type="button" class="btn btn-sm btn-primary" onclick="foodsCrl.newEntrySaveBtn()">
+              Add entry
+            </button>
+          </div>
         </div>
       </div>
     </div>
