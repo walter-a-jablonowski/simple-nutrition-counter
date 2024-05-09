@@ -21,17 +21,17 @@
 </ul>
 
 <div class="tab-content mt-3">
-  <div class="tab-pane fade show active" id="inpPane" role="tabpanel">
+  <div id="inpPane" class="tab-pane fade show active" role="tabpanel">
 
     <?php require( __DIR__ . '/edit/-this.php') ?>
 
   </div>
-  <div class="tab-pane fade" id="dayPane" role="tabpanel">
+  <div id="dayPane" class="tab-pane fade" role="tabpanel">
 
     <?php require( __DIR__ . '/nutrients.php') ?>
 
   </div>
-  <div class="tab-pane fade" id="lastDaysPane" role="tabpanel">
+  <div id="lastDaysPane" class="tab-pane fade" role="tabpanel">
 
     <?php require( __DIR__ . '/last_days.php') ?>
 

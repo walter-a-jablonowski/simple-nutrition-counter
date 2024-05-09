@@ -43,6 +43,7 @@ class FoodsEventController
       query('#modalAminoInput').value    = ''
       query('#modalSaltInput').value     = ''
       query('#modalPriceInput').value    = ''
+      // query('#flexCheckDefault').checked = false  // TASK: devMode only
     })
 
     // Sortable (advanced)  #code/advancedDayEntries

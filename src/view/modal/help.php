@@ -3,7 +3,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h6 class="modal-title">Help</h6>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        <button data-bs-dismiss="modal" class="btn-close" type="button"></button>
       </div>
       <div class="modal-body small">
 
@@ -11,7 +11,7 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">
+        <button data-bs-dismiss="modal" class="btn btn-sm btn-secondary" type="button">
           Close
         </button>
       </div>

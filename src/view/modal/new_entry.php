@@ -110,6 +110,7 @@
         </div>
       </div>
       <div class="modal-footer">
+      <?php if( $this->devMode ): ?>
         <div class="d-flex w-100 justify-content-between">
           <!-- TASK: add a dev config and hide -->
           <!-- TASK: (very advanced) -->
@@ -120,14 +121,17 @@
             </label>
           </div>
           <div>
-            <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">
+      <?php endif; ?>
+            <button data-bs-dismiss="modal" class="btn btn-sm btn-secondary" type="button">
               Cancel
             </button>
-            <button type="button" class="btn btn-sm btn-primary" onclick="foodsCrl.newEntrySaveBtn()">
+            <button onclick="foodsCrl.newEntrySaveBtn()" class="btn btn-sm btn-primary" type="button">
               Add entry
             </button>
+      <?php if( $this->devMode ): ?>
           </div>
         </div>
+      <?php endif; ?>
       </div>
     </div>
   </div>

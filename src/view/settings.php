@@ -31,7 +31,7 @@
 <?php endif; ?>
 
 <ul class="list-group mt-3">
-  <li class="list-group-item fw-bold" data-bs-toggle="modal" data-bs-target="#helpModal" style="cursor: pointer;">
+  <li class="list-group-item" data-bs-toggle="modal" data-bs-target="#helpModal" style="cursor: pointer;">
     Help
   </li>
   <li class="list-group-item fw-bold" data-bs-toggle="modal" data-bs-target="#aboutModal" style="cursor: pointer;">
