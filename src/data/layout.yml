@@ -34,7 +34,7 @@ Nuts (color:):
   # - head:
   #   comment: ...
   #   
-  # comment: ...  or use like this and str_replace()
+  # comment: ...  or use like this and str_replace(), could also keep the comment sign
 
   - Cashew E
   - Cashew N
