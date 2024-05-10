@@ -1,11 +1,19 @@
+/* 
 .app-modal {
   max-width: 400px;
 }
+*/
 
 /* Food list */
 
 .food-item {
   cursor: pointer;  /* TASK */
+}
+
+/* Info modal */
+
+.info-modal a:not(.active) {
+  color: #888 !important;
 }
 
 /* Tools */

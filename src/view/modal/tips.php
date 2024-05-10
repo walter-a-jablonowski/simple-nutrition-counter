@@ -1,4 +1,4 @@
-<div id="tipsModal" class="modal fade" tabindex="-1">
+<div id="tipsModal" class="modal info-modal fade" tabindex="-1">
   <div class="modal-dialog modal-dialog-scrollable" style="height: 100vh;">
     <div class="modal-content" style="height: 90%;">
 <!--
@@ -11,17 +11,17 @@
 
         <ul class="nav nav-tabs" role="tablist">
           <li class="nav-item" role="presentation">
-            <a href="#tipsAppPane" class="nav-link active py-1 px-2 small" style="color: #888 !important;" data-bs-toggle="tab" role="tab">
+            <a href="#tipsAppPane" class="nav-link active py-1 px-2 small" data-bs-toggle="tab" role="tab">
               App help
             </a>
           </li>
           <li class="nav-item" role="presentation">
-            <a href="#tipsNutritionPane" class="nav-link py-1 px-2 small" style="color: #888 !important;" data-bs-toggle="tab" role="tab">
+            <a href="#tipsNutritionPane" class="nav-link py-1 px-2 small" data-bs-toggle="tab" role="tab">
               Nutrition tips
             </a>
           </li>
           <li class="nav-item" role="presentation">
-            <a href="#tipsMissionPane" class="nav-link py-1 px-2 small" style="color: #888 !important;" data-bs-toggle="tab" role="tab">
+            <a href="#tipsMissionPane" class="nav-link py-1 px-2 small" data-bs-toggle="tab" role="tab">
               Mission
             </a>
           </li>
