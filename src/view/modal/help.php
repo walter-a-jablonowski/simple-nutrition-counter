@@ -11,12 +11,12 @@
 
         <ul class="nav nav-tabs" role="tablist">
           <li class="nav-item" role="presentation">
-            <a href="#helpPane" class="nav-link active py-1 px-2 small" data-bs-toggle="tab" role="tab">
+            <a href="#helpPane" class="nav-link active py-1 px-2 small" style="color: #888 !important;" data-bs-toggle="tab" role="tab">
               Help
             </a>
           </li>
           <li class="nav-item" role="presentation">
-            <a href="#helpMiscPane" class="nav-link py-1 px-2 small" data-bs-toggle="tab" role="tab">
+            <a href="#helpMiscPane" class="nav-link py-1 px-2 small" style="color: #888 !important;" data-bs-toggle="tab" role="tab">
               Misc
             </a>
           </li>
