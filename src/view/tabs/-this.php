@@ -3,14 +3,14 @@
     <a class="nav-link active py-1 px-2 small" data-bs-toggle="tab" href="#inpPane" role="tab">This day</a>
   </li>
   <li class="nav-item" role="presentation">
-    <a class="nav-link py-1 px-2 small" data-bs-toggle="tab" href="#dayPane" role="tab">Summary</a>
+    <a href="#dayPane" class="nav-link py-1 px-2 small" data-bs-toggle="tab" role="tab">Summary</a>
   </li>
   <li class="nav-item" role="presentation">
-    <a class="nav-link py-1 px-2 small" data-bs-toggle="tab" href="#lastDaysPane" role="tab">Last days</a>
+    <a href="#lastDaysPane" class="nav-link py-1 px-2 small" data-bs-toggle="tab" role="tab">Last days</a>
   </li>
 <!--
   <li class="nav-item" role="presentation">
-    <a class="nav-link py-1 px-2 small" data-bs-toggle="tab" href="#foodsPane" role="tab">Foods</a>
+    <a href="#foodsPane" class="nav-link py-1 px-2 small" data-bs-toggle="tab" role="tab">Foods</a>
   </li>
 -->
   <li class="nav-item ms-auto" role="presentation">

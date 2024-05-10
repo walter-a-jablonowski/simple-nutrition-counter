@@ -2,8 +2,10 @@
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <h6 class="modal-title">Tips</h6>
+        <h6 class="modal-title">About</h6>
+<!--
         <button data-bs-dismiss="modal" class="btn-close" type="button"></button>
+-->
       </div>
       <div class="modal-body small">
 
