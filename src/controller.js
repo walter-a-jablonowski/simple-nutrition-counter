@@ -44,6 +44,7 @@ class FoodsEventController
       query('#modalSaltInput').value     = ''
       query('#modalPriceInput').value    = ''
       // query('#flexCheckDefault').checked = false  // TASK: devMode only
+      // TASK: maybe set tab (remains clicked)
     })
 
     // Sortable (advanced)  #code/advancedDayEntries
