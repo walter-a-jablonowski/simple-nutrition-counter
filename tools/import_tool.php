@@ -34,7 +34,7 @@ if( $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inputText']))
   }
 
   $output  = "  calories:          $vals[calories]\n";
-  $output .= "  nutrients:\n";
+  $output .= "  nutritionalValues:\n";
   $output .= "\n";
   $output .= "    fat:             $vals[fat]\n";
   $output .= "    saturatedFat:    $vals[saturatedFat]\n";
