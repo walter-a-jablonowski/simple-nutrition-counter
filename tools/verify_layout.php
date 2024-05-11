@@ -29,10 +29,33 @@ foreach($layout as $category => $items)
 $missingInLayout = array_diff( $foods, $layoutFoods);
 $missingInFoods  = array_diff( $layoutFoods, $foods);
 
-echo "Foods missing in layout:\n";
-print_r($missingInLayout);
+// AI generated
 
-echo "Foods missing in foods list:\n";
-print_r($missingInFoods);
+?><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Food List Comparison</title>
+<style>
+  body { font-family: Arial, sans-serif; }
+  h2 { color: #333; }
+  ul { list-style-type: none; padding: 0; }
+  li { margin: 5px 0; padding: 5px; background-color: #f9f9f9; border: 1px solid #ddd; }
+</style>
+</head>
+<body>
+<h2>Foods missing in layout</h2>
+<ul>
+  <?php foreach( $missingInLayout as $food): ?>
+    <li><?php echo htmlspecialchars($food); ?></li>
+  <?php endforeach; ?>
+</ul>
 
-?>
+<h2>Foods missing in foods list</h2>
+<ul>
+  <?php foreach( $missingInFoods as $food): ?>
+    <li><?php echo htmlspecialchars($food); ?></li>
+  <?php endforeach; ?>
+</ul>
+</body>
+</html>
