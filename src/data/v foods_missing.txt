@@ -20,7 +20,6 @@ Mohnkuchen:            ()
 Öl:                   ()
 Philadelphia:          ()
 Philadelphia mini:     ()
-Pommes:                ()
 Vollkorn Rhein R:      ()
 
 
@@ -34,15 +33,12 @@ thunfisch
 senf
 gurken N
 rüben N
-champignons N
 apfelkohl N
-pilze N
 kokos
 walnüsse N
 essig (?)
 jogh
 käse N
-pizza
 seelachs N
 kiwi
 tomaten N
@@ -76,8 +72,6 @@ pfeffer
 oregano
 ingwer
 petersilie
-chili
-gebackene bohnen
 roggenvollkorn R
 br R (multiple)
 frischkäse
