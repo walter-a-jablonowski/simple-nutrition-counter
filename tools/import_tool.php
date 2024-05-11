@@ -56,6 +56,7 @@ if( $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inputText']))
   <meta charset="UTF-8">
   <title>Import tool</title>
   <style>
+    body { font-family: sans-serif; }
     textarea, div.output { font-family: monospace; }
     div.output { white-space: pre-wrap; }
   </style>
@@ -64,7 +65,7 @@ if( $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inputText']))
 
   <h3>Import tool</h3>
   <textarea id="inputText" rows="10" cols="50"></textarea><br>
-  <button id="parseBtn">Parse</button>
+  <button id="parseBtn">Parse</button> <span style="color: grey;">click for copy</span>
   <br><br>
   <div id="output" class="output"></div>
 
@@ -87,6 +88,13 @@ if( $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inputText']))
         document.getElementById('output').innerHTML = data.result
       })
       .catch(error => alert('Error: ' + error.message))
+    })
+
+    // Copy clipboard
+
+    document.getElementById('output').addEventListener('click', function() {
+      const text = this.innerText
+      navigator.clipboard.writeText(text)
     })
   })
 
