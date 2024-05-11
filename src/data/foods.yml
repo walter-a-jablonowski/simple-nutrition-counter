@@ -1068,10 +1068,10 @@ Pizza Mag:
 
 Pommes:
 
-  acceptable:        less
+  acceptable:        occasionally
   ingredients:       "Kartoffeln 95%, Sonnenblumenöl 4,5 %, Dextrose"
 
-  price:             
+  price:             1.89
   weight:            1000
   usedAmounts:       ["50g", "100ml", "200g"]
 
@@ -1085,9 +1085,32 @@ Pommes:
     amino:           2.8
     salt:            0.06
 
-  sources:           "Macro nutrients: web, price: web (information on packaging may differ slightly)"
+  sources:           "Macro nutrients: web (information on packaging may differ slightly), price: web"
   lastUpd:           2024-04-16
-  lastPriceUpd:      
+  lastPriceUpd:      2024-05-11
+
+Pommes R Bio:
+
+  acceptable:        occasionally
+  ingredients:       "Kartoffeln¹ 96%, Sonnenblumenöl¹"
+
+  price:             2.49
+  weight:            750
+  usedAmounts:       ["50g", "100ml", "200g"]
+
+  calories:          145
+  nutritionalValues:
+
+    fat:             3.5
+    saturatedFat:    0.5
+    carbs:           24.5
+    sugar:           1
+    amino:           2.5
+    salt:            0.03
+
+  sources:           "Macro nutrients: web (information on packaging may differ slightly), price: web"
+  lastUpd:           2024-05-11
+  lastPriceUpd:      2024-05-11
 
 Pumpernickel R Bio:
 
