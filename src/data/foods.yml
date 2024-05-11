@@ -292,6 +292,30 @@ Champ mini ganz R:
   lastUpd:           2024-04-20
   lastPriceUpd:      
 
+Chili vegan:
+
+  acceptable:        occasionally
+  ingredients:       "Bohnen 31%, Wasser, Tomatenmark, Tomaten, Paprika, Mais, Zwiebeln, texturiertes SOJAPROTEIN 3%, Rapsöl, Speisesalz, Gewürze, Zucker, modifizierte Stärke, Verdickungsmittel (Guarkernmehl), färbendes Lebensmittel (Paprikaextrakt), WEIZENMEHL"
+  comment:           "NutriScore A"
+
+  price:             1.89
+  weight:            400
+  usedAmounts:       [1]
+
+  calories:          89
+  nutritionalValues:
+
+    fat:             1.9
+    saturatedFat:    0.2
+    carbs:           9.8
+    sugar:           0.7
+    amino:           5.9
+    salt:            0.85
+
+  sources:           "Macro nutrients: web (information on packaging may differ slightly), price: web"
+  lastUpd:           2024-05-11
+  lastPriceUpd:      2024-05-11
+
 Chips light:
 
   acceptable:        less
@@ -514,6 +538,31 @@ Frosta Paella:
   sources:           "Macro nutrients: pack, price: deal"
   lastUpd:           2024-05-01
   lastPriceUpd:      
+
+Geb Bohnen:
+
+  acceptable:        occasionally
+  ingredients:       "Bohnen 51%, Wasser, Tomatenmark dreifach konzentriert 4,6%, Zucker, modifizierte Maisstärke, Salz, Weißweinessig, Zwiebelpulver, Paprikapulver, Rapsöl, Gewürzextrakte, natürliche Aromen"
+  comment:           "NutriScore A"
+
+  price:             1.39
+  weight:            420
+  usedAmounts:       [1]
+
+  calories:          88
+  nutritionalValues:
+
+    fat:             0.5
+    saturatedFat:    0.2
+    carbs:           14
+    sugar:           5.4
+    fibre:           4.5
+    amino:           4.6
+    salt:            0.45
+
+  sources:           "Macro nutrients: web (information on packaging may differ slightly), price: web"
+  lastUpd:           2024-05-11
+  lastPriceUpd:      2024-05-11
 
 Green beans R:
 
