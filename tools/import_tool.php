@@ -30,7 +30,8 @@ if( $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inputText']))
       $key = 'salt';
 
     if( $key )
-      $vals[$key] = str_replace(',', '.', preg_match("/\d+,\d+/", $line, $m) ? $m[0] : null);
+      // $vals[$key] = str_replace(',', '.', preg_match("/\d+,\d+/", $line, $m) ? $m[0] : null);
+      $vals[$key] = str_replace(',', '.', preg_match("/\d+(?:\,\d+)?/", $line, $m) ? $m[0] : null);
   }
 
   $output  = "  calories:          $vals[calories]\n";
