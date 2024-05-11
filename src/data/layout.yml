@@ -66,31 +66,39 @@ Ingredients (color:):
 
   - (i): Ideal is veggie some chicken fish. We may also need fill up some energy from time to time (carbs).
 
-  - Artisch R viertel
-  - Brokkoli R
-  - Champ mini ganz R
+  # TASK: some sub sorting or just more groups?
+  # legumes:
   - Chick R Bio
-
-  - Fischst             # acceptable occasionally
-
-  - Green beans R
   - Linsen R Bio
 
-  - Kartoffeltaschen F  # less good
-  - Kartoffel Wedges
-  - Lyoner R Bio
-  - Mehrkornbr
-  - Eiweißbr
+  # greens:
+  - Brokkoli R
+  - Green beans R
+  - Artisch R viertel
+  - R Rüben N
 
+  # oil:
   - Oliven R Bio
   - Olivenöl
   - Öl
 
-  - Pommes              # acceptable occasionally
-  - Pommes R Bio        # 
-  - Pumpernickel R Bio  # 
+  # mushrooms:
+  - Champ mini ganz R
+
+  # ...:
+  - Kartoffeltaschen F  # occasionally?
+  - Kartoffel Wedges
+  - Pommes              
+  - Pommes R Bio        
+  - Pumpernickel R Bio  
+  - Vollkorn Rhein R    # less acceptable
+  - Mehrkornbr
+  - Eiweißbr
+
+  # fish & meat:
+  - Fischst             # acceptable occasionally
   - Salami R            # less good
-  - Vollkorn Rhein R    # acceptable occasionally
+  - Lyoner R Bio        
 
 A little taste (color:):
 

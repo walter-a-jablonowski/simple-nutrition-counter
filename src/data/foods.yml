@@ -292,6 +292,25 @@ Champ mini ganz R:
   lastUpd:           2024-04-20
   lastPriceUpd:      
 
+Champ N:
+
+  price:             0.99
+  weight:            170
+
+  calories:          20
+  nutritionalValues:
+
+    fat:             0.5
+    saturatedFat:    0.1
+    carbs:           0.5
+    sugar:           0.1
+    amino:           2.3
+    salt:            1
+
+  sources:           "Macro nutrients: pack"
+  lastUpd:           2024-05-11
+  lastPriceUpd:      2024-05-11
+
 Chili vegan:
 
   acceptable:        occasionally
@@ -1252,6 +1271,26 @@ Ritter Sp 81%:
   sources:           "Macro nutrients: web"
   lastUpd:           2024-04-24
   lastPriceUpd:      2024-04-24
+
+R Rüben N:
+
+  price:             0.99
+  weight:            430
+
+  calories:          55
+  nutritionalValues:
+
+    fat:             0.5
+    saturatedFat:    0.1
+    carbs:           11.2
+    sugar:           11.2
+    fibre:           1.6
+    amino:           1
+    salt:            1.2
+
+  sources:           "Macro nutrients: pack"
+  lastUpd:           2024-05-11
+  lastPriceUpd:      2024-05-11
 
 Salami R:
 
