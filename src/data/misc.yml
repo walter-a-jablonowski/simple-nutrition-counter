@@ -17,7 +17,7 @@ Beverages:
 
   Coffee:
 
-    price:             
+    price:             4.99
     weight:            
     usedAmounts:       ["50ml", ...]
 
@@ -27,9 +27,9 @@ Beverages:
       water:           99
       caffeine:
 
-    sources:           "price: "
+    sources:           "price: deal price"
     lastUpd:           
-    lastPriceUpd:      
+    lastPriceUpd:      2024-05-11
 
 # All misc expenses that are no food (variable expenses spent on daily basis)
 
