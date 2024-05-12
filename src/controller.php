@@ -39,6 +39,8 @@ class FoodsController extends ControllerBase
     $nutrients['minerals']   = Yaml::parse( file_get_contents('data/nutrients/minerals.yml'));
     $nutrients['secondary']  = Yaml::parse( file_get_contents('data/nutrients/secondary.yml'));
 
+    $this->inlineHelp = new SimpleData( Yaml::parse( file_get_contents('misc/inline_help.yml')));
+
     // This day and foods tab
 
     $this->dayEntriesTxt = trim( @file_get_contents('data/users/' . $config->get('user') . "/days/{$this->date}.tsv") ?: '', "\n");

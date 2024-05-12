@@ -1,7 +1,13 @@
 <?php if( $this->devMode ): ?>
   <ul class="list-group">
     <li class="list-group-item px-0">
-      <span class="fw-bold">Me</span> (advanced feature)
+      <span class="fw-bold">Me</span>
+      <button type="button" class="btn btn-sm" data-bs-toggle="popover"
+              data-bs-title   = "Info"
+              data-bs-content = "<?= htmlspecialchars( $this->inlineHelp->get('settings.me') ) ?>">
+        <i class="bi bi-info-circle mt-4"></i>
+      </button>
+      (advanced feature)
     </li>
     <li class="list-group-item px-0" onclick="" style="cursor: pointer;">
       <div class="row">

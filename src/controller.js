@@ -17,11 +17,11 @@ class FoodsEventController
 
     // BS
 
-    // const popoverTriggerList = query('[data-bs-toggle="popover"]')
-    // const popoverList = [...popoverTriggerList].map( popoverTriggerEl => new bootstrap.Popover( popoverTriggerEl, {
-    //   html: true,
-    //   customClass: 'app-modal'
-    // }))
+    const popoverTriggerList = query('[data-bs-toggle="popover"]')
+    const popoverList = [...popoverTriggerList].map( popoverTriggerEl => new bootstrap.Popover( popoverTriggerEl, {
+      html: true
+      // customClass: 'popover-cus'
+    }))
 
     // Modal
 
