@@ -11,6 +11,8 @@ Counts nutrients as simple as possible (one tab per ingredient). Helps improving
   - [Model](misc/dev_info.md#model)
 - [License](#license)
 
+**Disclaimer:** Use the app and recommendations included in it at your own risk. This app is in developemt, the recommended amounts might be wrong.
+
 <table>
   <tr>
     <td>Current</td>
@@ -38,8 +40,6 @@ Most people are deficient in one or more than one substance e.g. zinc, vitamin D
 
 The problem with supplements: B12 cyanocobalamin isn't the real B12 but a cheap sythetic form, dosage while production often goes wrong and unexplored plant substances are missing. Of course it might make sense to use some supplements if you can't get enough from food. But in general food is the more natural (better) source (if free of substances like pesticides).
 
-Disclaimer: this is no professional advice, it's just some things that I learned
-
 **Long term goal:** Handle all minimal daily logging in a single app as simple as possible (with as few clicks as possible). This isn't neccessarily nutrition only but only all that can't be handled easier (most likely nutrition and daily expenses = actual consumption).
 
 This kind of project might be AI proof because AI solution would be: it watches you while cooking and counts the calories. Do you want that?
@@ -50,11 +50,11 @@ Possible future extensions
 
 (duplicate)
 
-- track more substances like magnesium
-- input dialog for rarely used ingredients
-- also track cost of used ingredients
-- track all daily data in a single app: daily cost, add special buyings ...
-- improve js code
+- [ ] **(started)** track more substances like magnesium
+- [ ] **(started)** input dialog for rarely used ingredients
+- [x] also track cost of used ingredients
+- [ ] **(started)** track all daily data in a single app: daily cost, add special buyings ...
+- [ ] **(started)** improve js code
 
 and maybe (advanced)
 
