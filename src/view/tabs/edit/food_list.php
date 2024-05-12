@@ -17,14 +17,14 @@
         onclick = "foodsCrl.foodItemClick(event)"
         data-food       = "<?= $food ?>"
         data-calories   = "<?= $entry['calories'] ?>"
-        data-nutritionalvalues = "<?= htmlspecialchars( json_encode( $entry['nutriVal'])) ?>"
-        data-fattyacids = "<?= htmlspecialchars( json_encode( $entry['fat'])) ?>"
-        data-aminoacids = "<?= htmlspecialchars( json_encode( $entry['amino'])) ?>"
-        data-vitamins   = "<?= htmlspecialchars( json_encode( $entry['vit'])) ?>"
-        data-minerals   = "<?= htmlspecialchars( json_encode( $entry['min'])) ?>"
-        data-secondary  = "<?= htmlspecialchars( json_encode( $entry['sec'])) ?>"
+        data-nutritionalvalues = "<?= htmlspecialchars( json_encode( $entry['nutriVal'], JSON_FORCE_OBJECT)) ?>"
+        data-fattyacids = "<?= htmlspecialchars( json_encode( $entry['fat'],   JSON_FORCE_OBJECT)) ?>"
+        data-aminoacids = "<?= htmlspecialchars( json_encode( $entry['amino'], JSON_FORCE_OBJECT)) ?>"
+        data-vitamins   = "<?= htmlspecialchars( json_encode( $entry['vit'],   JSON_FORCE_OBJECT)) ?>"
+        data-minerals   = "<?= htmlspecialchars( json_encode( $entry['min'],   JSON_FORCE_OBJECT)) ?>"
+        data-secondary  = "<?= htmlspecialchars( json_encode( $entry['sec'],   JSON_FORCE_OBJECT)) ?>"
         data-price      = "<?= $entry['price'] ?>"
-    >   <!-- camelCase doesn't work here -->
+    >   <!-- ^ camelCase doesn't work here                                     ^ empty array as js obj -->
       <?= $food ?>
     </li>
   <?php endforeach; ?>
