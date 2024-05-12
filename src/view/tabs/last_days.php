@@ -1,6 +1,6 @@
 <div class="row ps-2 mb-2 small">
   <div class="col-2 fw-bold">kcal</div>
-  <!-- <div class="col-2 fw-bold">Carbs/div> -->
+  <div class="col-2 fw-bold">Carbs</div>
   <div class="col-2 fw-bold">Fat</div>
   <div class="col-2 fw-bold">Amino</div>
   <div class="col-2 fw-bold">Salt</div>
@@ -18,7 +18,7 @@
         </div>
         <div class="row small">
           <div class="col-2"><?= $sums['caloriesSum'] ?> kcal</div>
-          <!-- <div class="col-2">< ?= $sums['carbsSum'] ?> g</div> -->
+          <div class="col-2"><?= $sums['carbsSum'] ?> g</div>
           <div class="col-2"><?= $sums['fatSum'] ?> g</div>
           <div class="col-2"><?= $sums['aminoSum'] ?> g</div>
           <div class="col-2"><?= $sums['saltSum'] ?> g</div>
