@@ -20,14 +20,29 @@
               Nutrition tips
             </a>
           </li>
+          <!-- TASK: -->
+<!-- 
           <li class="nav-item" role="presentation">
             <a href="#tipsMissionPane" class="nav-link py-1 px-2 small" data-bs-toggle="tab" role="tab">
               Mission
             </a>
           </li>
+-->
           <li class="nav-item ms-auto" role="presentation">
             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            <!-- TASK: Btn design alternatives -->
+<!-- 
+            <button type="button" class="border-0" data-bs-dismiss="modal">
+              <i class="bi bi-x"></i>
+            </button>
+ -->
+            <!-- <i class="bi bi-x-circle"></i> -->
+<!-- 
+            <button type="button" class="btn btn-sm btn-outline-secondary p-1 py-0" style="    font-size: .8em;" data-bs-dismiss="modal">
+              Close
+            </button>
           </li>
+-->
         </ul>
 
         <div class="tab-content mt-3">
