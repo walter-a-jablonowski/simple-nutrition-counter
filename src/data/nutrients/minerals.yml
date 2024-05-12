@@ -4,29 +4,35 @@
 # -> usage see readme
 #
 
-amountMale: 
-increasedNeedMale: 
 unit:              
 comment:           ""
-lower:             
-upper:             
+amounts:
+  - criteria: { gender: , age: , height: , weight: }
+    amount:
+    increasedNeed: 
+    lower: 5
+    upper: 5
 
 Calcium:
 
   short:             Ca
-  amountMale:
-  increasedNeedMale: 
   unit:              mg
-  comment:           "Increased need if doing sports"
-  lower:             5
-  upper:             5
+  comment:           ""
+  amounts:
+    - criteria: { gender: , age: , height: , weight: }
+      amount:
+      increasedNeed: 
+      lower: 5
+      upper: 5
 
 Magnesium:
 
   short:             Mg
-  amountMale:
-  increasedNeedMale: 
   unit:              mg
   comment:           "Increased need if doing sports"
-  lower:             5
-  upper:             5
+  amounts:
+    - criteria: { gender: , age: , height: , weight: }
+      amount:
+      increasedNeed: 
+      lower: 5
+      upper: 5

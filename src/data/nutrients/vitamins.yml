@@ -4,29 +4,37 @@
 # -> usage see readme
 #
 
-amountMale: 
-increasedNeedMale: 
 unit:              
 comment:           ""
-lower:             
-upper:             
+amounts:
+  - criteria: { gender: , age: , height: , weight: }
+    amount:
+    increasedNeed: 
+    lower: 5
+    upper: 5
 
 B12:
 
-  short:             B12
   type:              methylcobalamin
-  amountMale: 
+  short:             B12
   unit:              
   comment:           
-  lower:             5
-  upper:             5
+  amounts:
+    - criteria: { gender: , age: , height: , weight: }
+      amount:
+      increasedNeed: 
+      lower: 5
+      upper: 5
 
 Vitamin E:
 
-  short:             VitE
   type:              
-  amountMale: 
+  short:             VitE
   unit:              mg
   comment:           
-  lower:             5
-  upper:             5
+  amounts:
+    - criteria: { gender: , age: , height: , weight: }
+      amount:
+      increasedNeed: 
+      lower: 5
+      upper: 5

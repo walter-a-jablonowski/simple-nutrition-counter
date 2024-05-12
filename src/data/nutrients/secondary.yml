@@ -2,12 +2,14 @@
 
 # AI generated (see also wqikipedia)
 
-amountMale: 
-increasedNeedMale: 
 unit:              
 comment:           ""
-lower:             
-upper:             
+amounts:
+  - criteria: { gender: , age: , height: , weight: }
+    amount:
+    increasedNeed: 
+    lower: 5
+    upper: 5
 
 # - Phytonutrients: Compounds found in plants that have various health benefits, including anti-inflammatory and antioxidant properties, which can help reduce the risk of chronic diseases
 #   - Polyphenols

@@ -4,9 +4,11 @@
 # -> usage see readme
 #
 
-amountMale: 
-increasedNeedMale: 
 unit:              mg
 comment:           "Increased need if doing sports"
-lower:             50
-upper:             120
+amounts:
+  - criteria: { gender: , age: , height: , weight: }
+    amount:        # 50
+    increasedNeed: # 120
+    lower:         5
+    upper:         5
