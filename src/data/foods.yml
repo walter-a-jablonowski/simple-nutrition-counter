@@ -1092,7 +1092,7 @@ Pommes:
 
   price:             1.89
   weight:            1000
-  usedAmounts:       ["50g", "100ml", "200g"]
+  usedAmounts:       ["50g", "100g", "200g"]
 
   calories:          145
   nutritionalValues:
@@ -1115,7 +1115,7 @@ Pommes R Bio:
 
   price:             2.49
   weight:            750
-  usedAmounts:       ["50g", "100ml", "200g"]
+  usedAmounts:       ["50g", "100g", "200g"]
 
   calories:          145
   nutritionalValues:
