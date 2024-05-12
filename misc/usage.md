@@ -163,8 +163,8 @@ B 12:
   keeping:           "keep cool"
   amounts:
 
-    - criteria: { gender: male , age: 45 , height: 180 , weight: 75 }
-      amount:
+    - criteria: { gender: male , age: 40 , height: "*" , weight: 70 }  # value mean all >= this
+      amount:                                                          # height might be used to fix weight
       lower: 5  # percent, summary view still is green progress if within these bounds
       upper: 5
 ```
