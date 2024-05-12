@@ -125,13 +125,16 @@ class FoodsController extends ControllerBase
       $dat     = pathinfo($file, PATHINFO_FILENAME);
       $entries = parse_tsv( file_get_contents('data/users/' . $config->get('user') . "/days/$file"));
 
+      // foreach( $entries as $idx => $entry)
+      //   $entries[$idx][7] = Yaml::parse( $entries[$idx][7] );
+
       $this->lastDaysSums[$dat] = [
         'caloriesSum' => ! $entries ? 0 : array_sum( array_column($entries, 1)),
-        // 'carbsSum' => ! $entries ? 0 : array_sum( array_column($entries, 2)),
-        'fatSum'      => ! $entries ? 0 : array_sum( array_column($entries, 2)),
-        'aminoSum'    => ! $entries ? 0 : array_sum( array_column($entries, 3)),
-        'saltSum'     => ! $entries ? 0 : array_sum( array_column($entries, 4)),
-        'priceSum'    => ! $entries ? 0 : array_sum( array_column($entries, 4))
+        'carbsSum'    => ! $entries ? 0 : array_sum( array_column($entries, 2)),
+        'fatSum'      => ! $entries ? 0 : array_sum( array_column($entries, 3)),
+        'aminoSum'    => ! $entries ? 0 : array_sum( array_column($entries, 4)),
+        'saltSum'     => ! $entries ? 0 : array_sum( array_column($entries, 5)),
+        'priceSum'    => ! $entries ? 0 : array_sum( array_column($entries, 6))
       ];
     }
   }
