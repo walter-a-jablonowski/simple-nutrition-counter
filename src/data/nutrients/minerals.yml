@@ -4,42 +4,42 @@
 # -> usage see readme
 #
 
-unit:              
-comment:           ""
+unit:         
+comment:      ""
 
 Calcium:
 
-  short:             Ca
-  unit:              mg
+  short:      Ca
+  unit:       mg
 
-  comment:           ""
+  comment:    ""
 
-  per:               day
-  times:             
+  per:        day
+  times:     
   amounts:
 
     - criteria: { gender: male , age: 40 , height: "*" , weight: 70 }
       amount:
-      lower: 5%
-      upper: 5%
+      lower:  5%
+      upper:  5%
 
 Magnesium:
 
-  short:             Mg
-  unit:              mg
+  short:      Mg
+  unit:       mg
 
-  comment:           "Increased need if doing sports"
+  comment:    "Increased need if doing sports"
 
-  per:               day
-  times:             
+  per:        day
+  times:      
   amounts:
 
     - criteria: { gender: male , age: 40 , height: "*" , weight: 70 , workout: false }
-      amount:        
-      lower: 5%
-      upper: 5%
+      amount: 
+      lower:  5%
+      upper:  5%
 
     - criteria: { gender: male , age: 40 , height: "*" , weight: 70 , workout: true }
-      amount:        
-      lower: 5%
-      upper: 5%
+      amount: 
+      lower:  5%
+      upper:  5%

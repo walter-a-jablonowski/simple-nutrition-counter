@@ -146,25 +146,27 @@ Nutrient files (substances.yml and groups.yml)
 
 B 12:
 
-  type:              methylcobalamin
-  short:             B12
-  unit:              mg
+  per:        day
 
-  comment:           # Advantage
-  careful:           false
+  type:       methylcobalamin
+  short:      B12
+  unit:       mg
+
+  comment:    # Advantage
+  careful:    false
   interactions:      
   sideEffects:      
 
-  per:               day
-  times:             morning, ...
-  how:               # bio availability
-  limit:             # take how long
-  break:             # min break time
-  keeping:           "keep cool"
+  per:        day
+  times:      morning, ...
+  how:        # bio availability
+  limit:      # take how long
+  break:      # min break time
+  keeping:    "keep cool"
   amounts:
 
     - criteria: { gender: male , age: 40 , height: "*" , weight: 70 }  # value mean all >= this
       amount:                                                          # height might be used to fix weight
-      lower: 4%  # summary view still is green progress if within these bounds
-      upper: 8   # percent for some defaut value, number for precise (max is added to amount)
+      lower:  4%  # summary view still is green progress if within these bounds
+      upper:  8   # percent for some defaut value, number for precise (max is added to amount)
 ```

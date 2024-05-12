@@ -4,38 +4,38 @@
 # -> usage see readme
 #
 
-unit:              
-comment:           ""
+unit:         
+comment:      ""
 
 B12:
 
-  type:              methylcobalamin
-  short:             B12
-  unit:              
+  type:       methylcobalamin
+  short:      B12
+  unit:       
 
-  comment:           
+  comment:    
 
-  per:               day
-  times:             
+  per:        day
+  times:      
   amounts:
 
     - criteria: { gender: male , age: 40 , height: "*" , weight: 70 }
       amount:
-      lower: 5%
-      upper: 5%
+      lower:  5%
+      upper:  5%
 
 Vitamin E:
 
-  short:             VitE
-  unit:              mg
+  short:      VitE
+  unit:       mg
 
-  comment:           
+  comment:    
 
-  per:               day
-  times:             
+  per:        day
+  times:      
   amounts:
 
     - criteria: { gender: male , age: 40 , height: "*" , weight: 70 }
       amount:
-      lower: 5%
-      upper: 5%
+      lower:  5%
+      upper:  5%
