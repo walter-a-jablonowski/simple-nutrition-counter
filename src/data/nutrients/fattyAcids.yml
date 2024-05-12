@@ -6,6 +6,7 @@
 
 unit:              
 comment:           ""
+per:               day
 amounts:
   - criteria: { gender: , age: , height: , weight: }
     amount:

@@ -6,6 +6,7 @@
 
 unit:              mg
 comment:           "Increased need if doing sports"
+per:               day
 amounts:
   - criteria: { gender: , age: , height: , weight: }
     amount:        # 50

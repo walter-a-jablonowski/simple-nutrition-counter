@@ -6,12 +6,6 @@
 
 unit:              
 comment:           ""
-amounts:
-  - criteria: { gender: , age: , height: , weight: }
-    amount:
-    increasedNeed: 
-    lower: 5
-    upper: 5
 
 B12:
 
@@ -19,6 +13,7 @@ B12:
   short:             B12
   unit:              
   comment:           
+  per:               day
   amounts:
     - criteria: { gender: , age: , height: , weight: }
       amount:
@@ -32,6 +27,7 @@ Vitamin E:
   short:             VitE
   unit:              mg
   comment:           
+  per:               day
   amounts:
     - criteria: { gender: , age: , height: , weight: }
       amount:
