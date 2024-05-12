@@ -3,7 +3,6 @@
     <li class="list-group-item px-0">
       <span class="fw-bold">Me</span>
       <button type="button" class="btn btn-sm" data-bs-toggle="popover"
-              data-bs-title   = "Info"
               data-bs-content = "<?= htmlspecialchars( $this->inlineHelp->get('settings.me') ) ?>">
         <i class="bi bi-info-circle mt-4"></i>
       </button>
