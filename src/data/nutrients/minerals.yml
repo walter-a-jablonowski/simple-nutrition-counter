@@ -16,7 +16,6 @@ Calcium:
   amounts:
     - criteria: { gender: , age: , height: , weight: }
       amount:
-      increasedNeed: 
       lower: 5
       upper: 5
 
@@ -27,8 +26,11 @@ Magnesium:
   comment:           "Increased need if doing sports"
   per:               day
   amounts:
-    - criteria: { gender: , age: , height: , weight: }
-      amount:
-      increasedNeed: 
-      lower: 5
-      upper: 5
+    - criteria: { gender: , age: , height: , weight: , workout: false }
+      amount:        
+      lower:         5
+      upper:         5
+    - criteria: { gender: , age: , height: , weight: , workout: true }
+      amount:        
+      lower:         5
+      upper:         5

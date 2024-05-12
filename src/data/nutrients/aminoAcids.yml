@@ -8,8 +8,11 @@ unit:              mg
 comment:           "Increased need if doing sports"
 per:               day
 amounts:
-  - criteria: { gender: , age: , height: , weight: }
+  - criteria: { gender: , age: , height: , weight: , workout: false }
     amount:        # 50
-    increasedNeed: # 120
+    lower:         5
+    upper:         5
+  - criteria: { gender: , age: , height: , weight: , workout: true }
+    amount:        # 120
     lower:         5
     upper:         5

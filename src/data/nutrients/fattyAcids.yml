@@ -10,6 +10,5 @@ per:               day
 amounts:
   - criteria: { gender: , age: , height: , weight: }
     amount:
-    increasedNeed: 
     lower: 5
     upper: 5

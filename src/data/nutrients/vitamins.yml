@@ -17,7 +17,6 @@ B12:
   amounts:
     - criteria: { gender: , age: , height: , weight: }
       amount:
-      increasedNeed: 
       lower: 5
       upper: 5
 
@@ -31,6 +30,5 @@ Vitamin E:
   amounts:
     - criteria: { gender: , age: , height: , weight: }
       amount:
-      increasedNeed: 
       lower: 5
       upper: 5
