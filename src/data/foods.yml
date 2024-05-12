@@ -494,7 +494,7 @@ Fischst:
   price:             2.79
   weight:            450
   pieces:            15
-  usedAmounts:       [2,4,6]
+  usedAmounts:       [1,2,3]
 
   calories:          181
   nutritionalValues:
