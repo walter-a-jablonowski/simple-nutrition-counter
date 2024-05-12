@@ -165,6 +165,6 @@ B 12:
 
     - criteria: { gender: male , age: 40 , height: "*" , weight: 70 }  # value mean all >= this
       amount:                                                          # height might be used to fix weight
-      lower: 5  # percent, summary view still is green progress if within these bounds
-      upper: 5
+      lower: 4%  # summary view still is green progress if within these bounds
+      upper: 8   # percent for some defaut value, number for precise (max is added to amount)
 ```
