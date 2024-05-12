@@ -1,6 +1,6 @@
 <?php if( $this->devMode ): ?>
   <ul class="list-group">
-    <li class="list-group-item px-0">
+    <li class="list-group-item px-1">
       <span class="fw-bold">Me</span>
       <button type="button" class="btn btn-sm" data-bs-toggle="popover"
               data-bs-content = "<?= htmlspecialchars( $this->inlineHelp->get('settings.me') ) ?>">
@@ -8,7 +8,7 @@
       </button>
       (advanced feature)
     </li>
-    <li class="list-group-item px-0" onclick="" style="cursor: pointer;">
+    <li class="list-group-item px-1" onclick="" style="cursor: pointer;">
       <div class="row">
         <label for="genderSelect" class="col-sm-2 col-form-label">Gender</label>
         <div class="col-sm-10 col-md-3">
@@ -19,7 +19,7 @@
         </div>
       </div>
     </li>
-    <li class="list-group-item px-0" onclick="" style="cursor: pointer;">
+    <li class="list-group-item px-1" onclick="" style="cursor: pointer;">
       <div class="row">
         <label for="birthYearSelect" class="col-sm-2 col-form-label">Birth</label>
         <div class="col-sm-3 col-md-2">
@@ -42,7 +42,7 @@
         </div>
       </div>
     </li>
-    <li class="list-group-item px-0" onclick="" style="cursor: pointer;">
+    <li class="list-group-item px-1" onclick="" style="cursor: pointer;">
       <div class="row">
         <label for="heightInp" class="col-sm-2 col-form-label">Height</label>
         <div class="col-sm-10 col-md-3">
@@ -53,7 +53,7 @@
         </div>
       </div>
     </li>
-    <li class="list-group-item px-0" onclick="" style="cursor: pointer;">
+    <li class="list-group-item px-1" onclick="" style="cursor: pointer;">
       <div class="row">
         <label for="weightInp" class="col-sm-2 col-form-label">Weight</label>
         <div class="col-sm-10 col-md-3">
@@ -69,41 +69,41 @@
 
 <?php if( $this->devMode ): ?>
   <ul class="list-group">
-    <li class="list-group-item px-0">
+    <li class="list-group-item px-1">
       <span class="fw-bold">Foods</span> (advanced feature)
     </li>
-    <li class="list-group-item px-0" onclick="" style="cursor: pointer;">
+    <li class="list-group-item px-1" onclick="" style="cursor: pointer;">
       Foods
     </li>
-    <li class="list-group-item px-0" onclick="" style="cursor: pointer;">
+    <li class="list-group-item px-1" onclick="" style="cursor: pointer;">
       Recipes
     </li>
-    <li class="list-group-item px-0" onclick="" style="cursor: pointer;">
+    <li class="list-group-item px-1" onclick="" style="cursor: pointer;">
       Layout
     </li>
 <!--
-    <li class="list-group-item px-0" onclick="" style="cursor: pointer;">
+    <li class="list-group-item px-1" onclick="" style="cursor: pointer;">
       Expenses
     </li>
 -->
-    <li class="list-group-item px-0" onclick="" style="cursor: pointer;">
+    <li class="list-group-item px-1" onclick="" style="cursor: pointer;">
       Misc counters<br>
       <span style="font-size: 0.6rem;">Expenses</span>
     </li>
-    <li class="list-group-item px-0" onclick="" style="cursor: pointer;">
+    <li class="list-group-item px-1" onclick="" style="cursor: pointer;">
       Nutrients
     </li>
-    <li class="list-group-item px-0" onclick="" style="cursor: pointer;">
+    <li class="list-group-item px-1" onclick="" style="cursor: pointer;">
       Nutrient groups
     </li>
   </ul>
 <?php endif; ?>
 
 <ul class="list-group mt-3">
-  <li class="list-group-item px-0 fw-bold" data-bs-toggle="modal" data-bs-target="#helpModal" style="cursor: pointer;">
+  <li class="list-group-item px-1 fw-bold" data-bs-toggle="modal" data-bs-target="#helpModal" style="cursor: pointer;">
     Help
   </li>
-  <li class="list-group-item px-0 fw-bold" data-bs-toggle="modal" data-bs-target="#aboutModal" style="cursor: pointer;">
+  <li class="list-group-item px-1 fw-bold" data-bs-toggle="modal" data-bs-target="#aboutModal" style="cursor: pointer;">
     About
   </li>
 </ul>
