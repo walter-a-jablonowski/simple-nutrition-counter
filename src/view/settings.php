@@ -1,40 +1,93 @@
 <?php if( $this->devMode ): ?>
   <ul class="list-group">
-    <li class="list-group-item">
-      <span class="fw-bold">Edit</span> (advanced feature)
+    <li class="list-group-item px-0">
+      <span class="fw-bold">Me</span> (advanced feature)
     </li>
-    <li class="list-group-item" onclick="" style="cursor: pointer;">
+    <li class="list-group-item px-0" onclick="" style="cursor: pointer;">
+      <div class="row">
+        <label for="genderSelect" class="col-sm-2 col-form-label">Gender</label>
+        <div class="col-sm-10 col-md-3">
+          <select id="genderSelect" class="form-select">
+            <option value="male">male</option>
+            <option value="female">female</option>
+          </select>
+        </div>
+      </div>
+    </li>
+    <li class="list-group-item px-0" onclick="" style="cursor: pointer;">
+      <div class="row">
+        <label for="birthYearSelect" class="col-sm-2 col-form-label">Birth</label>
+        <div class="col-sm-3 col-md-2">
+          <select id="birthYearSelect" class="form-select">
+            <option class="default" value="null" disabled selected>year</option>
+            <option value="">2024</option>
+          </select>
+        </div>
+        <div class="col-sm-3">
+          <select id="birthMonthSelect" class="form-select">
+            <option class="default" value="null" disabled selected>month</option>
+            <option value="">11</option>
+          </select>
+        </div>
+        <div class="col-sm-3 col-md-2">
+          <select id="birthDaySelect" class="form-select">
+            <option class="default" value="null" disabled selected>day</option>
+            <option value="">01</option>
+          </select>
+        </div>
+      </div>
+    </li>
+    <li class="list-group-item px-0" onclick="" style="cursor: pointer;">
+      <div class="row">
+        <label for="weightInp" class="col-sm-2 col-form-label">Weight</label>
+        <div class="col-sm-10 col-md-3">
+          <div class="input-group">
+            <input id="weightInp" type="number" class="form-control form-control-sm">
+            <span class="input-group-text">kg</span>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+<?php endif; ?>
+
+<?php if( $this->devMode ): ?>
+  <ul class="list-group">
+    <li class="list-group-item px-0">
+      <span class="fw-bold">Foods</span> (advanced feature)
+    </li>
+    <li class="list-group-item px-0" onclick="" style="cursor: pointer;">
       Foods
     </li>
-    <li class="list-group-item" onclick="" style="cursor: pointer;">
+    <li class="list-group-item px-0" onclick="" style="cursor: pointer;">
       Recipes
     </li>
-    <li class="list-group-item" onclick="" style="cursor: pointer;">
+    <li class="list-group-item px-0" onclick="" style="cursor: pointer;">
       Layout
     </li>
 <!--
-    <li class="list-group-item" onclick="" style="cursor: pointer;">
+    <li class="list-group-item px-0" onclick="" style="cursor: pointer;">
       Expenses
     </li>
 -->
-    <li class="list-group-item" onclick="" style="cursor: pointer;">
+    <li class="list-group-item px-0" onclick="" style="cursor: pointer;">
       Misc counters<br>
       <span style="font-size: 0.6rem;">Expenses</span>
     </li>
-    <li class="list-group-item" onclick="" style="cursor: pointer;">
+    <li class="list-group-item px-0" onclick="" style="cursor: pointer;">
       Nutrients
     </li>
-    <li class="list-group-item" onclick="" style="cursor: pointer;">
+    <li class="list-group-item px-0" onclick="" style="cursor: pointer;">
       Nutrient groups
     </li>
   </ul>
 <?php endif; ?>
 
 <ul class="list-group mt-3">
-  <li class="list-group-item" data-bs-toggle="modal" data-bs-target="#helpModal" style="cursor: pointer;">
+  <li class="list-group-item px-0 fw-bold" data-bs-toggle="modal" data-bs-target="#helpModal" style="cursor: pointer;">
     Help
   </li>
-  <li class="list-group-item fw-bold" data-bs-toggle="modal" data-bs-target="#aboutModal" style="cursor: pointer;">
+  <li class="list-group-item px-0 fw-bold" data-bs-toggle="modal" data-bs-target="#aboutModal" style="cursor: pointer;">
     About
   </li>
 </ul>
