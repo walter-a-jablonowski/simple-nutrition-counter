@@ -12,6 +12,8 @@ Calcium:
   short:             Ca
   unit:              mg
   comment:           ""
+  interactions:      
+  sideEffects:      
   per:               day
   amounts:
     - criteria: { gender: male , age: 45 , height: 180 , weight: 75 }
@@ -24,6 +26,8 @@ Magnesium:
   short:             Mg
   unit:              mg
   comment:           "Increased need if doing sports"
+  interactions:      
+  sideEffects:      
   per:               day
   amounts:
     - criteria: { gender: male , age: 45 , height: 180 , weight: 75 , workout: false }

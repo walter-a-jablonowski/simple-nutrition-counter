@@ -13,6 +13,8 @@ B12:
   short:             B12
   unit:              
   comment:           
+  interactions:      
+  sideEffects:      
   per:               day
   amounts:
     - criteria: { gender: male , age: 45 , height: 180 , weight: 75 }
@@ -26,6 +28,8 @@ Vitamin E:
   short:             VitE
   unit:              mg
   comment:           
+  interactions:      
+  sideEffects:      
   per:               day
   amounts:
     - criteria: { gender: male , age: 45 , height: 180 , weight: 75 }
