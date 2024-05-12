@@ -39,6 +39,17 @@
     </li>
     <li class="list-group-item px-0" onclick="" style="cursor: pointer;">
       <div class="row">
+        <label for="heightInp" class="col-sm-2 col-form-label">Height</label>
+        <div class="col-sm-10 col-md-3">
+          <div class="input-group">
+            <input id="heightInp" type="number" class="form-control form-control-sm">
+            <span class="input-group-text">cm</span>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li class="list-group-item px-0" onclick="" style="cursor: pointer;">
+      <div class="row">
         <label for="weightInp" class="col-sm-2 col-form-label">Weight</label>
         <div class="col-sm-10 col-md-3">
           <div class="input-group">
