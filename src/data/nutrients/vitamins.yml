@@ -15,7 +15,7 @@ B12:
   comment:           
   per:               day
   amounts:
-    - criteria: { gender: , age: , height: , weight: }
+    - criteria: { gender: male , age: 45 , height: 180 , weight: 75 }
       amount:
       lower: 5
       upper: 5
@@ -28,7 +28,7 @@ Vitamin E:
   comment:           
   per:               day
   amounts:
-    - criteria: { gender: , age: , height: , weight: }
+    - criteria: { gender: male , age: 45 , height: 180 , weight: 75 }
       amount:
       lower: 5
       upper: 5
