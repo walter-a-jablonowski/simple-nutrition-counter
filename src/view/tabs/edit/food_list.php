@@ -17,14 +17,14 @@
         onclick = "foodsCrl.foodItemClick(event)"
         data-food       = "<?= $food ?>"
         data-calories   = "<?= $entry['calories'] ?>"
-        data-nutritionalvalues = "<?= htmlspecialchars( json_encode( $entry['nutriVal'], JSON_FORCE_OBJECT)) ?>"
-        data-fattyacids = "<?= htmlspecialchars( json_encode( $entry['fat'],   JSON_FORCE_OBJECT)) ?>"
-        data-aminoacids = "<?= htmlspecialchars( json_encode( $entry['amino'], JSON_FORCE_OBJECT)) ?>"
-        data-vitamins   = "<?= htmlspecialchars( json_encode( $entry['vit'],   JSON_FORCE_OBJECT)) ?>"
-        data-minerals   = "<?= htmlspecialchars( json_encode( $entry['min'],   JSON_FORCE_OBJECT)) ?>"
-        data-secondary  = "<?= htmlspecialchars( json_encode( $entry['sec'],   JSON_FORCE_OBJECT)) ?>"
+        data-nutritionalvalues = "<?= htmlspecialchars( dump_json( $entry['nutriVal'])) ?>"
+        data-fattyacids = "<?= htmlspecialchars( dump_json( $entry['fat'])) ?>"
+        data-aminoacids = "<?= htmlspecialchars( dump_json( $entry['amino'])) ?>"
+        data-vitamins   = "<?= htmlspecialchars( dump_json( $entry['vit'])) ?>"
+        data-minerals   = "<?= htmlspecialchars( dump_json( $entry['min'])) ?>"
+        data-secondary  = "<?= htmlspecialchars( dump_json( $entry['sec'])) ?>"
         data-price      = "<?= $entry['price'] ?>"
-    >   <!-- ^ camelCase doesn't work here                                     ^ empty array as js obj -->
+    >   <!-- ^ camelCase doesn't work here       ^ empty array as js obj, yml comp blanks behind colon -->
       <?= $food ?>
     </li>
   <?php endforeach; ?>

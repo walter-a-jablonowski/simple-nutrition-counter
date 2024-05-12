@@ -20,4 +20,19 @@ function parse_tsv( $entriesTxt )
   return $r;
 }
 
+/*@
+
+- compatibility: YML needs more blanks (behind colon)
+- empty array as js obj
+
+*/
+function dump_json( $array )  /**/
+{
+  // $r = json_encode( $array, JSON_FORCE_OBJECT);  // might also make num keys obj
+  $r = str_replace('[]', '{}', json_encode( $array ));
+  $r = preg_replace('/([:,])(?! )/', '$1 ', $r);
+
+  return $r;
+}
+
 ?>
