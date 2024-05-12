@@ -12,11 +12,13 @@ B12:
   type:              methylcobalamin
   short:             B12
   unit:              
+
   comment:           
-  interactions:      
-  sideEffects:      
+
   per:               day
+  times:             
   amounts:
+
     - criteria: { gender: male , age: 45 , height: 180 , weight: 75 }
       amount:
       lower: 5
@@ -24,14 +26,15 @@ B12:
 
 Vitamin E:
 
-  type:              
   short:             VitE
   unit:              mg
+
   comment:           
-  interactions:      
-  sideEffects:      
+
   per:               day
+  times:             
   amounts:
+
     - criteria: { gender: male , age: 45 , height: 180 , weight: 75 }
       amount:
       lower: 5

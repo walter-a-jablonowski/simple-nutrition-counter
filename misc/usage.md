@@ -146,15 +146,25 @@ Nutrient files (substances.yml and groups.yml)
 
 B 12:
 
-  comment:              ""
+  type:              methylcobalamin
+  short:             B12
+  unit:              mg
 
-  short:                Mg
-  type:                 methylcobalamin
-  amountMale:           
-  amountFemale: 
-  increasedNeedMale:
-  increasedNeedFemale:
-  unit:                 mg
-  lower:                5   # percent, summary view still is green progress if within these bounds
-  upper:                5
+  comment:           # Advantage
+  careful:           false
+  interactions:      
+  sideEffects:      
+
+  per:               day
+  times:             morning, ...
+  how:               # bio availability
+  limit:             # take how long
+  break:             # min break time
+  keeping:           "keep cool"
+  amounts:
+
+    - criteria: { gender: male , age: 45 , height: 180 , weight: 75 }
+      amount:
+      lower: 5  # percent, summary view still is green progress if within these bounds
+      upper: 5
 ```
