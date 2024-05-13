@@ -49,78 +49,77 @@ Veggie bowl (color:):
   
   - Veggie L
   - Veggie C
-  - Frosta Bratk        # acceptable occasionally
+  - Frosta Bratk                # acceptable occasionally
   - Frosta Gesch
   - Frosta Paella
   - Aldi Bratk
-  - Linsen vegan        # less good
+  - Linsen vegan                # less good
   - Geb Bohnen
   - Chili vegan
 
 Third meal (color:):
 
-  - Avocado             # used kind of standalone
+  - Avocado                     # used kind of standalone
 
 Misc meals (color:):
 
-Ingredients (color:):
+Legumes & greens (color:):      # Ingredients
 
+  # TASK: mov
   - (i): Ideal is veggie some chicken fish. We may also need fill up some energy from time to time (carbs).
 
-  # TASK: some sub sorting or just more groups?
-  # legumes:
   - Chick R Bio
   - Linsen R Bio
 
-  # greens:
   - Brokkoli R
   - Green beans R
-  - Artisch R viertel   # acceptable occasionally
+  - Artisch R viertel           # acceptable occasionally
   - R Rüben N
 
-  # oil:
+Greens oil mushrooms (color:):  # Ingredients
+
   - Oliven R Bio
   - Olivenöl
   - Öl
 
-  # mushrooms:
+  - Kartoffeltaschen F          # less
+  - Kartoffel Wedges
+  - Pommes                      # acceptable
+  - Pommes R Bio        
+
   - Champ mini ganz R
 
-  # ...:
-  - Kartoffeltaschen F  # less
-  - Kartoffel Wedges
-  - Pommes              # acceptable
-  - Pommes R Bio        
-  - Pumpernickel R Bio  # occasionally
-  - Vollkorn Rhein R    # less
+Misc, fish, meat (color:):      # Ingredients
+
+  - Pumpernickel R Bio          # occasionally
+  - Vollkorn Rhein R            # less
   - Mehrkornbr
   - Eiweißbr
 
-  # fish & meat:
-  - Fischst             # acceptable occasionally
-  - Salami R            # less
+  - Fischst                     # acceptable occasionally
+  - Salami R                    # less
   - Lyoner R Bio        
 
 A little taste (color:):
 
   - (i): Add only a little per meal makes it far more tasty and keeps it healthy
 
-  - Bresso              # less
+  - Bresso                      # less
   - Bresso mini
-  - Patros 150          # occasionally
+  - Patros 150                  # occasionally
   - Patros W
-  - Philadelphia        # less
+  - Philadelphia                # less
   - Philadelphia mini
-  # - Salatsoße         # (missing)
+  # - Salatsoße                 # (missing)
 
 Fill up missing (color:):
 
   - (i): "... and supplements"
 
-  - Amino misc          # use left over
+  - Amino misc                  # use left over
   - Amino Deca Muscle Gainer
   - Amino NaDuRia Pur
-  - Riegel Seitenb Sch  # less
+  - Riegel Seitenb Sch          # less
   - Riegel Deca Basic
   - Chips light
 
@@ -128,14 +127,14 @@ Micro candy or sugar less (color:):
 
   - (i): "Reduce amount per day (effectively: don't buy more or you will eat it)"
 
-  - Duplo               # less
+  - Duplo                       # less
   - Ferrero Kuesschen
   - Ritter Sp 50%
 
 Brain tuning (color:):
 
-  - Milch H             # less
-  - Ricola Zitronenm    # occasionally
+  - Milch H                     # less
+  - Ricola Zitronenm            # occasionally
 
 Used as supplements (currently) (color:):
 
@@ -143,14 +142,14 @@ Used as supplements (currently) (color:):
 
 On the go (color:):
 
-  - Falafel             # occasionally
+  - Falafel                     # occasionally
   - Kfc Original
-  - Karamalz            # less
+  - Karamalz                    # less
   - Cappuccino Eni
 
 Cheat day (color:):
 
-  - Pizza Mag           # less
+  - Pizza Mag                   # less
   - Mohnkuchen
 
-Misc expenses (color:): # finance only
+Misc expenses (color:):         # finance only
