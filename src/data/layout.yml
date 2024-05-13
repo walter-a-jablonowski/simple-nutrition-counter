@@ -57,11 +57,11 @@ Veggie bowl (color:):
   - Geb Bohnen
   - Chili vegan
 
-Third meal (color:):
+Third meal (color:):            # TASK: similar
 
-  - Avocado                     # used kind of standalone
+  - Avocado                     # TASK: MOV, used kind of standalone
 
-Misc meals (color:):
+# Misc meals (color:):
 
 Legumes & greens (color:):      # Ingredients
 
@@ -120,7 +120,6 @@ Fill up missing (color:):
   - Amino Deca Muscle Gainer
   - Amino NaDuRia Pur
   - Riegel Seitenb Sch          # less
-  - Riegel Deca Basic
   - Chips light
 
 Micro candy or sugar less (color:):
@@ -131,14 +130,12 @@ Micro candy or sugar less (color:):
   - Ferrero Kuesschen
   - Ritter Sp 50%
 
-Brain tuning (color:):
+Suppl, Brain tuning (color:):
 
   - Milch H                     # less
   - Ricola Zitronenm            # occasionally
 
-Used as supplements (currently) (color:):
-
-  - Ritter Sp 81%
+  - Ritter Sp 81%               # used as supplements (currently)
 
 On the go (color:):
 
@@ -146,6 +143,7 @@ On the go (color:):
   - Kfc Original
   - Karamalz                    # less
   - Cappuccino Eni
+  - Riegel Deca Basic
 
 Cheat day (color:):
 
