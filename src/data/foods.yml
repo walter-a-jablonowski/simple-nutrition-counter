@@ -75,6 +75,8 @@ Amino NaDuRia Pur:
 
 Aldi Bratk:
 
+  acceptable:        occasionally
+
   price:             2.89
   weight:            600g
   usedAmounts:       ["1/4", "1/2", "1"]
@@ -94,6 +96,8 @@ Aldi Bratk:
   lastPriceUpd:      2024-05-13
 
 Artisch R viertel:
+
+  # acceptable:      occasionally  # currently no alternative
 
   productName:       "Gegrillte Artischockenviertel in Sonnenblumenöl mit Kräutern"
   comment:           "kein Abtropfgewicht"
@@ -152,6 +156,8 @@ Avocado:
 
 Bresso:
 
+  acceptable:        less
+
   price:             
   weight:            150
   usedAmounts:       ["10g", "20g", "30g"]
@@ -171,6 +177,8 @@ Bresso:
   lastPriceUpd:      
 
 Bresso mini:
+
+  acceptable:        less
 
   price:             1.19  # deal price
   weight:            120
@@ -333,7 +341,7 @@ Champ N:
 
 Chili vegan:
 
-  acceptable:        occasionally
+  acceptable:        less
   ingredients:       "Bohnen 31%, Wasser, Tomatenmark, Tomaten, Paprika, Mais, Zwiebeln, texturiertes SOJAPROTEIN 3%, Rapsöl, Speisesalz, Gewürze, Zucker, modifizierte Stärke, Verdickungsmittel (Guarkernmehl), färbendes Lebensmittel (Paprikaextrakt), WEIZENMEHL"
   comment:           "NutriScore A"
 
@@ -397,6 +405,8 @@ Chick R Bio:
   lastPriceUpd:      2024-03-23
 
 Duplo:
+
+  acceptable:        less
 
   price:             0.49
   weight:            18.2
@@ -604,7 +614,7 @@ Frosta Paella:
 
 Geb Bohnen:
 
-  acceptable:        occasionally
+  acceptable:        less
   ingredients:       "Bohnen 51%, Wasser, Tomatenmark dreifach konzentriert 4,6%, Zucker, modifizierte Maisstärke, Salz, Weißweinessig, Zwiebelpulver, Paprikapulver, Rapsöl, Gewürzextrakte, natürliche Aromen"
   comment:           "NutriScore A"
 
@@ -717,6 +727,8 @@ Kartoffel Wedges:
 
 Kfc Original:
 
+  acceptable:        occasionally
+
   comment:           "weight is from a third party source (kfc source unclear)"
   ingredients:       "Hähnchenfleischerzeugnis aus flüssiggewürztem Hähnchenbrustfleisch, paniert, gegart. 100 g Produkt werden aus 79 g Hähnchenbrustfleisch hergestellt. Hähnchenbrustfleisch, Weizenmehl, pflanzliche Öle (Sonnenblume, Raps), Speisesalz, Maisstärke, Säureregulator Natriumhydrogencarbonat/E500(ii), Geschmacksverstärker Mononatriumglutamat/E621, Gewürze, Magermilchpulver, Süßmolkenpulver (enthält Milch), Eieralbuminpulver"
 
@@ -758,6 +770,8 @@ Linsen R Bio:
   lastPriceUpd:      2024-03-23
 
 Linsen vegan:
+
+  acceptable:        less
 
   price:             
   weight:            400
@@ -892,6 +906,8 @@ Milch H:
 
 Mohnkuchen:
 
+  acceptable:        less
+
   price:             
   weight:            400g
 
@@ -1001,6 +1017,8 @@ Olivenöl:
 
 Patros 150:
 
+  acceptable:        occasionally
+
   price:             1.69  # deal price
   weight:            150
   usedAmounts:       ["10g", "20g", "30g"]
@@ -1020,6 +1038,8 @@ Patros 150:
   lastPriceUpd:      2024-04-28
 
 Patros W:
+
+  acceptable:        occasionally
 
   price:             2.99
   weight:            135
@@ -1041,6 +1061,8 @@ Patros W:
 
 Philadelphia:
 
+  acceptable:        less
+
   price:             
   weight:            175
   usedAmounts:       ["10g", "20g", "30g"]
@@ -1061,6 +1083,8 @@ Philadelphia:
   lastPriceUpd:      
 
 Philadelphia mini:
+
+  acceptable:        less
 
   price:             
   weight:            100.02
@@ -1252,6 +1276,8 @@ Riegel Deca Basic:
 
 Ritter Sp 50%:
 
+  acceptable:        less
+
   price:             1.69
   weight:            100
   pieces:            25
@@ -1293,6 +1319,8 @@ Ritter Sp 81%:
   lastPriceUpd:      2024-04-24
 
 R Rüben N:
+
+  # acceptable:      occasionally  # currently no alternative
 
   price:             0.99
   weight:            430
@@ -1336,7 +1364,7 @@ Salami R:
 
 Vollkorn Rhein R:
 
-  acceptable:        occasionally
+  acceptable:        less
 
   price:             
   weight:            250

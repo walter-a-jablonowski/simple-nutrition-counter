@@ -53,7 +53,7 @@ Veggie bowl (color:):
   - Frosta Gesch
   - Frosta Paella
   - Aldi Bratk
-  - Linsen vegan
+  - Linsen vegan        # less good
   - Geb Bohnen
   - Chili vegan
 
@@ -75,7 +75,7 @@ Ingredients (color:):
   # greens:
   - Brokkoli R
   - Green beans R
-  - Artisch R viertel
+  - Artisch R viertel   # acceptable occasionally
   - R Rüben N
 
   # oil:
@@ -87,40 +87,40 @@ Ingredients (color:):
   - Champ mini ganz R
 
   # ...:
-  - Kartoffeltaschen F  # occasionally?
+  - Kartoffeltaschen F  # less
   - Kartoffel Wedges
-  - Pommes              
+  - Pommes              # acceptable
   - Pommes R Bio        
-  - Pumpernickel R Bio  
-  - Vollkorn Rhein R    # less acceptable
+  - Pumpernickel R Bio  # occasionally
+  - Vollkorn Rhein R    # less
   - Mehrkornbr
   - Eiweißbr
 
   # fish & meat:
   - Fischst             # acceptable occasionally
-  - Salami R            # less good
+  - Salami R            # less
   - Lyoner R Bio        
 
 A little taste (color:):
 
   - (i): Add only a little per meal makes it far more tasty and keeps it healthy
 
-  - Bresso
+  - Bresso              # less
   - Bresso mini
-  - Patros 150
+  - Patros 150          # occasionally
   - Patros W
-  - Philadelphia
+  - Philadelphia        # less
   - Philadelphia mini
-  # - Salatsoße (missing)
+  # - Salatsoße         # (missing)
 
 Fill up missing (color:):
 
   - (i): "... and supplements"
 
-  - Amino misc  # use left over
+  - Amino misc          # use left over
   - Amino Deca Muscle Gainer
   - Amino NaDuRia Pur
-  - Riegel Seitenb Sch
+  - Riegel Seitenb Sch  # less
   - Riegel Deca Basic
   - Chips light
 
@@ -128,14 +128,14 @@ Micro candy or sugar less (color:):
 
   - (i): "Reduce amount per day (effectively: don't buy more or you will eat it)"
 
-  - Duplo
+  - Duplo               # less
   - Ferrero Kuesschen
   - Ritter Sp 50%
 
 Brain tuning (color:):
 
-  - Milch H
-  - Ricola Zitronenm
+  - Milch H             # less
+  - Ricola Zitronenm    # occasionally
 
 Used as supplements (currently) (color:):
 
@@ -143,14 +143,14 @@ Used as supplements (currently) (color:):
 
 On the go (color:):
 
-  - Falafel
+  - Falafel             # occasionally
   - Kfc Original
-  - Karamalz
+  - Karamalz            # less
   - Cappuccino Eni
 
 Cheat day (color:):
 
-  - Pizza Mag
+  - Pizza Mag           # less
   - Mohnkuchen
 
-Misc expenses (color:):  # finance only
+Misc expenses (color:): # finance only
