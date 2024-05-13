@@ -73,6 +73,26 @@ Amino NaDuRia Pur:
   lastUpd:           2024-03-13
   lastPriceUpd:      
 
+Aldi Bratk:
+
+  price:             2.89
+  weight:            600g
+  usedAmounts:       ["1/4", "1/2", "1"]
+
+  calories:          95
+  nutritionalValues:
+
+    fat:             3
+    saturatedFat:    1.1
+    carbs:           11
+    sugar:           2
+    amino:           5
+    salt:            0.6
+
+  sources:           "Macro nutrients: pack"
+  lastUpd:           2024-05-13
+  lastPriceUpd:      2024-05-13
+
 Artisch R viertel:
 
   productName:       "Gegrillte Artischockenviertel in Sonnenblumenöl mit Kräutern"
