@@ -15,13 +15,30 @@ class FoodsEventController
     this.updQuickSummary        = this.updQuickSummary.bind(this)
     // this.#saveDayEntries     = this.#saveDayEntries.bind(this)  // TASK: can't be done
 
+    let crl = this
+
+
     // BS
 
-    const popoverTriggerList = query('[data-bs-toggle="popover"]')
-    const popoverList = [...popoverTriggerList].map( popoverTriggerEl => new bootstrap.Popover( popoverTriggerEl, {
+    this.popoverTriggerList = query('[data-bs-toggle="popover"]')
+    // popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    this.popoverList = [...this.popoverTriggerList].map( popoverTriggerEl => new bootstrap.Popover( popoverTriggerEl, {
       html: true
       // customClass: 'popover-cus'
     }))
+    // popoverList = popoverTriggerList.map( function(popoverTriggerEl) {
+
+    // if click was outside the popover and its trigger close
+    
+    document.addEventListener('click', function(e) {
+    
+      if( ! e.target.closest('.popover') && ! e.target.closest('[data-bs-toggle="popover"]')) {
+        crl.popoverTriggerList.forEach( function(popoverTriggerEl) {
+          let popover = bootstrap.Popover.getInstance(popoverTriggerEl)
+          if( popover ) popover.hide()
+        })
+      }
+    })
 
     // Modal
 
@@ -179,8 +196,8 @@ class FoodsEventController
     // TASK: function for upper decimal places
 
     // function roundToDecimalPlace(number, decimalPlaces) {
-    //   let factor = Math.pow(10, decimalPlaces);
-    //   return Math.round(number * factor) / factor;
+    //   let factor = Math.pow(10, decimalPlaces)
+    //   return Math.round(number * factor) / factor
     // }
 
     if('fibre' in entry)
