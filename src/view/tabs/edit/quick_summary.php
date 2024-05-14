@@ -3,9 +3,15 @@
     <div class="ps-1 fw-bold small">kcal</div>
     <div id="caloriesSum" class="ps-1">0</div>
   </div>
+<!--
   <div class="col-2 ps-1 pe-0">
     <div class="ps-1 bg-secondary text-white small">Carbs</div>
     <div class="ps-1"><span id="carbsSum">0</span> g</div>
+  </div>
+-->
+  <div class="col-2 val">
+    <div class="label fs-sm-1 fs-md-2">Carbs</div>
+    <div class="value"><span id="carbsSum">0</span> g</div>
   </div>
   <div class="col-2 ps-1 pe-0">
     <div class="px-1 bg-secondary text-white small">Fat</div>
