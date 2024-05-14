@@ -660,7 +660,7 @@ Karamalz:
 
   acceptable:        less
 
-  price:                                # (TASK) for 2 variants
+  price:             0.75               # price for 0.33 (guess) # (TASK) for 2 variants
   weight:            500                # larger one
   usedAmounts:       ["330ml", "500g"]  # smaller and larger ver
 
@@ -674,9 +674,9 @@ Karamalz:
     amino:           0.4
     salt:            0.01
 
-  sources:           "Macro nutrients: web"
+  sources:           "Macro nutrients: web, price: web"
   lastUpd:           2024-04-17
-  lastPriceUpd:      
+  lastPriceUpd:      2024-05-15
 
 Kartoffeltaschen F:
 
@@ -882,7 +882,7 @@ Milch H:
   acceptable:        less
   comment:           "Sometimes nice for good mood"
 
-  price:             
+  price:             1.49
   weight:            1000
   usedAmounts:       ["50ml", "100ml", "200ml"]
 
@@ -900,15 +900,15 @@ Milch H:
 
     Calcium:         120
 
-  sources:           "Macro nutrients: web, nutrients: calcium also from vendors page online"
+  sources:           "Macro nutrients: web, nutrients: calcium also from vendors page online, price: web"
   lastUpd:           2024-04-11
-  lastPriceUpd:      
+  lastPriceUpd:      2024-05-15
 
 Mohnkuchen:
 
   acceptable:        less
 
-  price:             
+  price:             2.89
   weight:            400g
 
   calories:          331
@@ -921,9 +921,9 @@ Mohnkuchen:
     amino:           7.8
     salt:            0.78
 
-  sources:           "Macro nutrients: pack"
+  sources:           "Macro nutrients: pack, price: web"
   lastUpd:           2024-04-23
-  lastPriceUpd:      
+  lastPriceUpd:      2024-05-15
 
 Nussmisch N:
 
@@ -993,7 +993,7 @@ Olivenöl:
 
 Öl:
 
-  price:             
+  price:             1.99
   weight:            500ml
   usedAmounts:       ["30ml", "60ml"]
 
@@ -1011,9 +1011,9 @@ Olivenöl:
 
     Vitamin E:	     30 # mg
 
-  sources:           "Macro nutrients: web"
+  sources:           "Macro nutrients: web, price: guess"
   lastUpd:           2024-04-24
-  lastPriceUpd:      
+  lastPriceUpd:      2024-05-01
 
 Patros 150:
 
