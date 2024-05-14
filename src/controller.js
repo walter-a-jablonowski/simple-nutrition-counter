@@ -321,7 +321,7 @@ class FoodsEventController
 
       if( result === 'success' && uiMsg)
         query('#uiMsg').innerHTML = 'Saved'
-      elseif( result !== 'success')
+      else if( result !== 'success')
         query('#uiMsg').innerHTML = result.message
     })
   }
