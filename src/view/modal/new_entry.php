@@ -46,7 +46,10 @@
         </div>
         <div class="row mb-2">
           <div class="col">
-            <input id="modalWeightInput" type="number" inputmode="numeric" placeholder="Weight (g)" class="form-control" required>
+            <div class="input-group">
+              <input id="modalWeightInput" type="number" inputmode="numeric" placeholder="Weight" class="form-control" required>
+              <span class="input-group-text">g</span>
+            </div>
           </div>
           <div class="col">
             <input id="modalPiecesInput" type="number" inputmode="numeric" placeholder="Pieces" class="form-control">
