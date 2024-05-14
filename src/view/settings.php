@@ -2,7 +2,7 @@
   <ul class="list-group">
     <li class="list-group-item px-1">
       <span class="fw-bold">Me</span>
-      <button type="button" class="btn btn-sm" data-bs-toggle="popover"
+      <button type="button" class="btn btn-sm text-secondary" data-bs-toggle="popover"
               data-bs-content = "<?= htmlspecialchars( $this->inlineHelp->get('settings.me') ) ?>">
         <i class="bi bi-info-circle mt-4"></i>
       </button>
