@@ -10,7 +10,7 @@
   </div>
 -->
   <div class="col-2 val">
-    <div class="label fs-sm-1 fs-md-2">Carbs</div>
+    <div class="label">Carbs</div>
     <div class="value"><span id="carbsSum">0</span> g</div>
   </div>
   <div class="col-2 ps-1 pe-0">

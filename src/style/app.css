@@ -1,4 +1,4 @@
-/* 
+/*
 .popover-cus {
   max-width: 400px;
 }
@@ -19,21 +19,30 @@
     font-size: 1.5rem;
   }
 }
-@media( min-width: 992px) {   /* Large devices (desktops, 992px and up) */
+/* Large devices (desktops, 992px and up) */
+/*
+@media( min-width: 992px) {
   .responsive-text {
     font-size: 1.75rem;
   }
 }
-@media( min-width: 1200px) {  /* Extra large devices (large desktops, 1200px and up) */
+*/
+/* Extra large devices (large desktops, 1200px and up) */
+/*
+@media( min-width: 1200px) {
   .responsive-text {
     font-size: 2rem;
   }
 }
-@media( min-width: 1200px) {  /* X Extra large devices (1400px and up) */
+*/
+/* X Extra large devices (1400px and up) */
+/* 
+@media( min-width: 1200px) {
   .responsive-text {
     font-size: 2rem;
   }
 }
+*/
 
 /* Quick summary val view */
 
@@ -105,7 +114,7 @@ body.ext {
 }
 .ext-heading { color: #333; }
 .ext-icon-box {
-  font-size: 60px; 
+  font-size: 60px;
   margin-bottom: 20px;
   color: #eb6864;
 }
