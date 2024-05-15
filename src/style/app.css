@@ -9,17 +9,15 @@
 
 /* Default font size may be xs */
 
-@media( min-width: 576px) {   /* Small devices (landscape phones, 576px and up) */
-  .responsive-text {
-    font-size: 1.25rem;
-  }
+@media( min-width: 576px) {   /* sm (landscape phones, 576px and up) */
+  #quickSummary .value { font-size: 1.25rem; }
+  #foodList li  { font-size: 1.25rem; }
 }
-@media( min-width: 768px) {   /* Medium devices (tablets, 768px and up) */
-  .responsive-text {
-    font-size: 1.5rem;
-  }
+@media( min-width: 768px) {   /* md (tablets, 768px and up) */
+  #quickSummary .value { font-size: 1.5rem; }
+  #foodList li  { font-size: 1.5rem; }
 }
-/* Large devices (desktops, 992px and up) */
+/* lg (desktops, 992px and up) */
 /*
 @media( min-width: 992px) {
   .responsive-text {
@@ -27,17 +25,15 @@
   }
 }
 */
-/* Extra large devices (large desktops, 1200px and up) */
 /*
-@media( min-width: 1200px) {
+@media( min-width: 1200px) {  /* xl (large desktops, 1200px and up) * /
   .responsive-text {
     font-size: 2rem;
   }
 }
 */
-/* X Extra large devices (1400px and up) */
 /* 
-@media( min-width: 1200px) {
+@media( min-width: 1200px) {  /* xxl (1400px and up) * /
   .responsive-text {
     font-size: 2rem;
   }
