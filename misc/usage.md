@@ -47,10 +47,9 @@ My food S Bio:                      # S = short for store if needed (save some s
   ingredients:        "..."         # ingredients that you want to be aware of
   origin:             "..."         # country of origin, if you want to be aware of
 
-  price:              1.00
-
   cookingInstrutions: ""
 
+  price:              1.00
   weight:             100g          # (required) unit g or ml is optional, of whole pack in case of pieces
   pieces:             6             # number of pieces in a pack (if any)
   usedAmounts:        ["1/4", ...]  # enter fraction, pieces or precise (you can't mix these, chosse one)

@@ -404,6 +404,30 @@ Chick R Bio:
   lastUpd:           2024-03-13
   lastPriceUpd:      2024-03-23
 
+Donuts:
+
+  acceptable:        less
+
+  price:             2.89
+  weight:            330
+  pieces:            6
+  usedAmounts:       [1, 2, 3]
+
+  calories:          407
+  nutritionalValues:
+
+    fat:             21
+    saturatedFat:    11
+    carbs:           47
+    sugar:           15
+    fibre:           2.3
+    amino:           6.4
+    salt:            0.95
+
+  sources:           "Macro nutrients: pack"
+  lastUpd:           2024-05-16
+  lastPriceUpd:      2024-05-16
+
 Duplo:
 
   acceptable:        less
@@ -724,6 +748,32 @@ Kartoffel Wedges:
   sources:           "Macro nutrients: web (information on packaging may differ slightly), price: web"
   lastUpd:           2024-04-28
   lastPriceUpd:      2024-04-28
+
+Kartoffel Wedges Bio:
+
+
+  acceptable:        occasionally
+  comment:           "NutriScore A"
+  ingredients:       "Kartoffeln 96,5%, Sonnenblumenöl"
+
+  price:             2.69
+  weight:            600
+  usedAmounts:       ["50g", "100g"]
+
+  calories:          126
+  nutritionalValues:
+
+    fat:             3.5
+    saturatedFat:    0.4
+    carbs:           20
+    sugar:           0.5
+    fibre:           2.5
+    amino:           2.4
+    salt:            0.08
+
+  sources:           "Macro nutrients: web"
+  lastUpd:           2024-05-16
+  lastPriceUpd:      2024-05-16
 
 Kfc Original:
 
