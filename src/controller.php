@@ -31,18 +31,8 @@ class FoodsController extends ControllerBase
   private function makeData()  /*@*/
   {
     $config = config::instance();
-    $this->devMode = $config->get('devMode');
 
-    $nutrients['fattyAcids'] = Yaml::parse( file_get_contents('data/nutrients/fattyAcids.yml'));
-    $nutrients['aminoAcids'] = Yaml::parse( file_get_contents('data/nutrients/aminoAcids.yml'));
-    $nutrients['vitamins']   = Yaml::parse( file_get_contents('data/nutrients/vitamins.yml'));
-    $nutrients['minerals']   = Yaml::parse( file_get_contents('data/nutrients/minerals.yml'));
-    $nutrients['secondary']  = Yaml::parse( file_get_contents('data/nutrients/secondary.yml'));
-
-    $this->inlineHelp = new SimpleData( Yaml::parse( file_get_contents('misc/inline_help.yml')));
-
-    // This day and foods tab
-
+    $this->devMode       = $config->get('devMode');
     $this->dayEntriesTxt = trim( @file_get_contents('data/users/' . $config->get('user') . "/days/{$this->date}.tsv") ?: '', "\n");
     $this->dayEntries    = parse_tsv( $this->dayEntriesTxt );
 
@@ -52,9 +42,18 @@ class FoodsController extends ControllerBase
     $this->foodsTxt = file_get_contents('data/foods.yml');
     $foodsDef = Yaml::parse( $this->foodsTxt );
 
-    // make food list with amounts (model)
+    $nutrients['fattyAcids'] = Yaml::parse( file_get_contents('data/nutrients/fattyAcids.yml'));
+    $nutrients['aminoAcids'] = Yaml::parse( file_get_contents('data/nutrients/aminoAcids.yml'));
+    $nutrients['vitamins']   = Yaml::parse( file_get_contents('data/nutrients/vitamins.yml'));
+    $nutrients['minerals']   = Yaml::parse( file_get_contents('data/nutrients/minerals.yml'));
+    $nutrients['secondary']  = Yaml::parse( file_get_contents('data/nutrients/secondary.yml'));
 
-    $this->model = new SimpleData();
+    $this->inlineHelp = new SimpleData( Yaml::parse( file_get_contents('misc/inline_help.yml')));
+    $this->model      = new SimpleData();
+
+
+    // This day tab
+    // make food list with amounts (model)
 
     foreach( $foodsDef as $food => $entry )
     {
@@ -116,7 +115,37 @@ class FoodsController extends ControllerBase
       }
     }
 
-    // All days
+
+    // Summary tab
+/*
+    $summary = [];
+
+    // TASK: group vals
+
+    foreach(['fattyAcids', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $group )
+    {
+      foreach( $nutrients[$group] as $name => $attr )
+      {
+        if( in_array( $name, ['short', 'unit', 'comment', 'per', 'amounts']))
+          continue;
+
+        $a = $amount[0];     // TASK: (advanced) currently
+
+        $summary[$name] = [  // TASK: use unit for sth?
+
+          'lower' => strpos($a['lower'], '%') === false
+                  ?  $a['amount'] - $a['lower']
+                  :  $a['amount'] - $a['amount'] * (floatval($a['lower']) / 100),  // floatval removes the percent
+          'ideal' => $a['amount'],
+          'upper' => strpos($a['lower'], '%') === false
+                  ?  $a['amount'] + $a['upper']
+                  :  $a['amount'] + $a['amount'] * (floatval($a['upper']) / 100)   // TASK: prefer calc or just write the val?
+        ];
+      }
+    }
+*/
+
+    // All days tab
     // no model data, kind of report
 
     foreach( scandir('data/users/' . $config->get('user') . '/days', SCANDIR_SORT_DESCENDING) as $file)
