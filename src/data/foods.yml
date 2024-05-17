@@ -661,6 +661,53 @@ Geb Bohnen:
   lastUpd:           2024-05-11
   lastPriceUpd:      2024-05-11
 
+Gemüse R:
+
+  acceptable:        occasionally
+  comment:           "NutriScore A"
+  ingredients:       "92 % (Brechbohnen, gegrillte Zucchini, rote Paprika, gelbe Paprika, vorgebackene Zwiebel (Zwiebel, Sonnenblumenöl)), Wasser, Speisesalz, Tomatenpüree, Zucker, Rapsöl, Olivenöl, Gemüsebrühe (Speisesalz, Glukosesirup, Gemüsepulver (Zwiebeln, Karotten, Tomaten), Zucker, Sonnenblumenöl, Gewürze), Gewürze, Petersilie, Glukosesirup, Champignonpulver, Karottenpulver, Reisstärke"
+  url:               "https://shop.rewe.de/p/rewe-beste-wahl-italienisches-pfannengemuese-500g/7075825"
+
+  price:             1.99
+  weight:            500
+
+  calories:          49
+  nutritionalValues:
+
+    fat:             2.1
+    saturatedFat:    0.2
+    carbs:           5.1
+    sugar:           2.6
+    amino:           1.4
+    salt:            0.93
+
+  sources:           "Macro nutrients: web (information on packaging may differ slightly), price: web"
+  lastUpd:           2024-05-17
+  lastPriceUpd:      2024-05-17
+
+Gemüse R Bio:
+
+  ingredients:       "Gemüsemischung 91% (Zucchini* 25%, Broccoli* 20%, Karotten* 15%, gelbe Karotten* 13%, Cherrytomaten* 12%, Zwiebeln*), Kräuter (Basilikum*, Oregano*), BUTTER*, Meersalz, Sonnenblumenöl*, Stärke*, Honig*, Gewürze*, Olivenöl*"
+  comment:           "NutriScore A"
+  url:               "https://shop.rewe.de/p/rewe-bio-gemuesepfanne-mediterrane-art-450g/7321580"
+
+  price:             1.99
+  weight:            450
+
+  calories:          42
+  nutritionalValues:
+
+    fat:             2.1
+    saturatedFat:    0.8
+    carbs:           3.5
+    sugar:           2.9
+    amino:           1.4
+    salt:            0.98
+
+  sources:           "Macro nutrients: web (information on packaging may differ slightly), price: web"
+  lastUpd:           2024-05-17
+  lastPriceUpd:      2024-05-17
+
 Green beans R:
 
   price:             1.49

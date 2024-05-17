@@ -41,6 +41,7 @@ Currently we enter the values once in data/foods.yml. Simpler than doing manual 
 My food S Bio:                      # S = short for store if needed (save some space)
 
   productName:        "..."         # precise product name
+  url:                "..."         
 
   acceptable:         less|occasionally  # highlight less good foods, (i) switch in UI
   comment:            "..."         # all misc comments
