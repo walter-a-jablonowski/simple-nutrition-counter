@@ -1,10 +1,11 @@
 
+devMode: true
+user:    single_user  # TASK: remove (currently single user)
+
+# default settings
 # see also users > settings.yml
 
-devMode: true
-
-user:  single_user  # TASK: remove (currently single user)
-foods:              # TASK: move settings
+foods:
 
   defaultAmounts:
     
