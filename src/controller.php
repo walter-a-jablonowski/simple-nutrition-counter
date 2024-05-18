@@ -117,7 +117,7 @@ class FoodsController extends ControllerBase
 
 
     // Summary tab
-/*
+// /*
     $summary = [];
 
     // TASK: group vals
@@ -129,9 +129,9 @@ class FoodsController extends ControllerBase
         if( in_array( $name, ['short', 'unit', 'comment', 'per', 'amounts']))
           continue;
 
-        $a = $amount[0];     // TASK: (advanced) currently
+        $a = $attr['amounts'][0];  // TASK: (advanced) currently
 
-        $summary[$name] = [  // TASK: use unit for sth?
+        $summary[$name] = [        // TASK: use unit for sth?
 
           'lower' => strpos($a['lower'], '%') === false
                   ?  $a['amount'] - $a['lower']
@@ -143,7 +143,9 @@ class FoodsController extends ControllerBase
         ];
       }
     }
-*/
+
+    $this->summary = $summary;
+// */
 
     // All days tab
     // no model data, kind of report
