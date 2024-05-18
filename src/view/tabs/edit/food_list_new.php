@@ -12,7 +12,7 @@
         Enter manually ...
       </div>
       <div class="col-6" onclick="...">
-        Expired food ...  <!-- TASK: make X btn instead like [ My food |1|2|3| X ] -->
+        Expired food ...  <!-- TASK: make kind of X checkbox instead ? like [ My food |1|2|3| X ] -->
       </div>
     </div>
 
