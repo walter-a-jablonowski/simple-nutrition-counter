@@ -727,6 +727,58 @@ Green beans R:
   lastUpd:           2024-04-24
   lastPriceUpd:      2024-04-24
 
+Käse Gr Sch (all):
+
+  acceptable:        less
+
+  price:             1.49  # TASK: was online
+  weight:            120g
+  pieces:            5     # TASK: is a guess
+
+  calories:          1510
+  nutritionalValues:
+
+    fat:             29
+    saturatedFat:    19
+    carbs:           0.5
+    sugar:           0.5
+    amino:           25
+    salt:            0.80
+
+  minerals:
+
+    Calcium:         850
+
+  sources:           "Macro nutrients: web, price: deal price"
+  lastUpd:           2024-05-24
+  lastPriceUpd:      2024-05-24
+
+Käse Gr W (all):
+
+  acceptable:        less
+
+  price:             
+  weight:            120g  
+  pieces:            20    # TASK: is a guess
+
+  calories:          1510
+  nutritionalValues:
+
+    fat:             29
+    saturatedFat:    19
+    carbs:           0.5
+    sugar:           0.5
+    amino:           25
+    salt:            0.80
+
+  minerals:
+
+    Calcium:         850
+
+  sources:           "Macro nutrients: web, price: deal price"
+  lastUpd:           2024-05-24
+  lastPriceUpd:      
+
 Karamalz:
 
   acceptable:        less

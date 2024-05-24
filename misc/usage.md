@@ -81,7 +81,7 @@ My food S Bio:                      # S = short for store if needed (save some s
   
   minerals:
 
-    calcium:                        # same unit as in nutrients.yml
+    calcium:                        # same unit as in /nutrients
 
   secondary:  # secondary plant substances
 

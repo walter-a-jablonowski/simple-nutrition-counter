@@ -23,6 +23,5 @@ this is an advanced feature
         </div>
       </div>
     <?php endforeach; ?>
-
   </div>
 </div>
