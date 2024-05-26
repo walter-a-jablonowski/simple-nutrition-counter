@@ -670,6 +670,7 @@ Gemüse R:
 
   price:             1.99
   weight:            500
+  usedAmounts:       ["50g", "100g"]
 
   calories:          49
   nutritionalValues:
@@ -693,6 +694,7 @@ Gemüse R Bio:
 
   price:             1.99
   weight:            450
+  usedAmounts:       ["50g", "100g"]
 
   calories:          42
   nutritionalValues:
@@ -850,7 +852,6 @@ Kartoffel Wedges:
 
 Kartoffel Wedges Bio:
 
-
   acceptable:        occasionally
   comment:           "NutriScore A"
   ingredients:       "Kartoffeln 96,5%, Sonnenblumenöl"
@@ -985,7 +986,7 @@ Mandel R Bio:
 
   price:             2.29 # 2024-03-30 2.89
   weight:            200
-  usedAmounts:       ["50g", "100g"]
+  usedAmounts:       ["1/4", "1/2", "1"]
 
   calories:          619
   nutritionalValues:
@@ -1078,7 +1079,7 @@ Nussmisch N:
 
   price:             2.79
   weight:            200
-  usedAmounts:       ["50g", "100g"]
+  usedAmounts:       ["1/8", "1/4", "1/2"]
 
   calories:          653
   nutritionalValues:
@@ -1564,7 +1565,7 @@ Walnuss R Bio:
 
   price:             2.99
   weight:            200
-  usedAmounts:       ["1/4", "1/2", "1"]
+  usedAmounts:       ["1/8", "1/4", "1/2"]
 
   calories:          711
   nutritionalValues:
