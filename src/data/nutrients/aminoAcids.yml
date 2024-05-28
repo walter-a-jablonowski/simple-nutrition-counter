@@ -9,12 +9,12 @@ comment:   "Increased need if doing sports"
 per:       day
 amounts:
 
-  - criteria: { gender: male , age: 40 , height: "*" , weight: 70 , workout: false }
+  - criteria: { gender: male, age: 40, height: "*", weight: 70, workout: false }
     amount: # 50
     lower:  5%
     upper:  5%
 
-  - criteria: { gender: male , age: 40 , height: "*" , weight: 70 , workout: true }
+  - criteria: { gender: male, age: 40, height: "*", weight: 70, workout: true }
     amount: # 120
     lower:  5%
     upper:  5%

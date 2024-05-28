@@ -36,13 +36,17 @@ Nuts (color:):
   #   
   # comment: ...  or use like this and str_replace(), could also keep the comment sign
 
+  - Cashew A
   - Cashew E
   - Cashew N
   - Cashew R Bio
   - Erdn Salz N big
   - Mandel N
   - Mandel R Bio
+  - Nussmisch A
+  - Nussmisch A ger
   - Nussmisch N
+  - Pistazien
   - Walnuss R Bio
 
 Veggie bowl (color:):
