@@ -1172,7 +1172,7 @@ Nussmisch A ger:  # small pack
 
   price:             
   weight:            150
-  usedAmounts:       ["1/8", "1/4", "1/3"]
+  usedAmounts:       ["50g", "100g"]
 
   calories:          614
   nutritionalValues:
