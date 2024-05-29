@@ -1,5 +1,4 @@
 <!-- TASK: needs upd, layout.yml was changed -->
-
 <div id="foodList" class="row">
 
   <!-- static #code/staticListEntries -->
@@ -8,91 +7,117 @@
   <div class="col">
 
     <div class="row">
-      <div class="col-6" onclick="foodsCrl.newEntryBtn(event)">
+      <div class="col-6 p-1" onclick="foodsCrl.newEntryBtn(event)">
         Enter manually ...
       </div>
-      <div class="col-6" onclick="...">
+      <div class="col-6 p-1" onclick="...">
         Expired food ...  <!-- TASK: make kind of X checkbox instead ? like [ My food |1|2|3| X ] -->
       </div>
+      <!-- TASK: currently used save btn -->
+<!--
+      <div class="col-6 p-1" onclick="foodsCrl.saveDayEntriesBtnClick(event)">
+        Save ...
+      </div>
+-->
     </div>
-
-    <!-- TASK: add entries from layout group first_entries -->
-
   </div>
 
   <?php
 
   $done = [];
 
-  foreach( $layout as $idx => $def ):
+  foreach( $this->layout as $groupName => $entries ):
 
-    $type      = is_array( $def )   ?  'group' : 'single';
-    $groupName = $type == 'single'  ?  $def    : array_key_first($def);
-    $entries   = $type == 'single'  ?  null    : array_values($def);
-
-    $done[] = $name;  // left over will be printed below (done = foods and recipes n a single list)
   ?>
+    <div class="col">
 
-    <?php if( $type == 'single'): ?>
-      <!-- TASK -->
-    <?php elseif( $type == 'group'): ?>
-      <div class="col">
-
-        <?php if( $group ): ?>
-          <div class="row">
-            <div class="col-12 p-1 small">
-              <?= $groupName ?>
-            </div>
-          </div>
-        <?php endif; ?>
-
-        <?php foreach( $entries as $name => $entry ): ?>
-
-          <!-- TASK: we need name, amounts => nutirents in entry (merge on controller) -->
-
-          <div class="row">
-            <div class="col p-2">
-              <?= $name ?>
-            </div>
-            <?php foreach( $entry as $amount => $data ):  // TASK ?>
-              <div class="food-item col p-2" onclick="foodsCrl.foodItemClick(event)"
-                data-food      = "<?= $amount ?>"
-                data-calories  = "<?= $data['calories'] ?>"
-                data-nutrients = "<?= htmlspecialchars( json_encode( $data['nutrients'])) ?>"
-              >
-                <?= $amount ?>
-              </div>
-            <?php endforeach; ?>
-          </div>
-        <?php endforeach; ?>
-
+      <div class="row">
+        <div class="col-12 p-1 small">
+          <?= $groupName ?>
+        </div>
       </div>
-    <?php endif; ?>
+
+      <?php
+      
+      foreach( $entries as $name ):
+      
+        $done[] = $name;  // left over will be printed below (done = foods and recipes n a single list)
+        
+        $type = isset( $this->recipes[$name] ) ? 'recipe' : 'food';
+
+        // if( $type === 'recipe' )
+        //   // TASK: merge nutrients (or do in controller
+
+        $entry = $this->foods[$name];  // or from recipe
+      ?>
+
+        <div class="row">
+          <div class="col p-2">
+            <?= $name ?>
+          </div>
+          <!-- TASK: Simplify in controller ? default -->
+          <?php foreach( $entry['usedAmounts'] as $amount ): ?>
+            <div class   = "food-item col p-1"
+                 onclick = "foodsCrl.foodItemClick(event)"
+                 data-food       = "<?= $name ?>"
+                 data-calories   = "<?= $entry['calories'] ?>"
+                 data-nutrients  = "<?= htmlspecialchars( json_encode( $data['nutriVal'])) ?>"
+                 data-fattyacids = "<?= htmlspecialchars( dump_json( $entry['fat'])) ?>"
+                 data-aminoacids = "<?= htmlspecialchars( dump_json( $entry['amino'])) ?>"
+                 data-vitamins   = "<?= htmlspecialchars( dump_json( $entry['vit'])) ?>"
+                 data-minerals   = "<?= htmlspecialchars( dump_json( $entry['min'])) ?>"
+                 data-secondary  = "<?= htmlspecialchars( dump_json( $entry['sec'])) ?>"
+                 data-price      = "<?= $entry['price'] ?>"
+            >
+              <?= $amount ?>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      <?php endforeach; ?>
+
+    </div>
   <?php endforeach; ?>
 
   <!-- left over entries -->
 
-  <!-- TASK -->
-
   <?php if( count($foods) > count($done)): ?>
     <div class="col">
 
-      <?php foreach( $this->model->foods as $food => $entry): ?>
-
-        <div class="row">
-          <?php if( ! in_array( $food, $done)): ?>
-            <div class="food-item col p-2" onclick="foodsCrl.foodItemClick(event)"
-              data-food      = "<?= $food ?>"
-              data-calories  = "<?= $entry['calories'] ?>"
-              data-nutrients = "<?= htmlspecialchars( json_encode( $entry['nutrients'])) ?>"
-            >
-              <?= $food ?>
-            </div>
-          <?php endif; ?>
+      <div class="row">
+        <div class="col-12 p-1 small">
+          Misc foods
         </div>
+      </div>
 
+      <?php
+      
+      foreach( $this->model->foods as $name => $entry):  // (TASK) recipes
+    
+        if( in_array( $name, $done))
+          continue;
+      ?>
+        <div class="row">
+          <div class="col p-2">
+            <?= $name ?>
+          </div>
+          <?php foreach( $entry['usedAmounts'] as $amount ): ?>
+            <div class    = "food-item col p-1"
+                  onclick = "foodsCrl.foodItemClick(event)"
+                  data-food       = "<?= $name ?>"
+                  data-calories   = "<?= $entry['calories'] ?>"
+                  data-nutrients  = "<?= htmlspecialchars( json_encode( $entry['nutriVal'])) ?>"
+                  data-fattyacids = "<?= htmlspecialchars( dump_json( $entry['fat'])) ?>"
+                  data-aminoacids = "<?= htmlspecialchars( dump_json( $entry['amino'])) ?>"
+                  data-vitamins   = "<?= htmlspecialchars( dump_json( $entry['vit'])) ?>"
+                  data-minerals   = "<?= htmlspecialchars( dump_json( $entry['min'])) ?>"
+                  data-secondary  = "<?= htmlspecialchars( dump_json( $entry['sec'])) ?>"
+                  data-price      = "<?= $entry['price'] ?>"
+            >
+              <?= $amount ?>
+            </div>
+          <?php endforeach; ?>
+        </div>
       <?php endforeach; ?>
     </div>
   <?php endif; ?>
-
 </div>
