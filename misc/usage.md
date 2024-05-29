@@ -45,6 +45,9 @@ My food S Bio:                      # S = short for store if needed (save some s
 
   acceptable:         less|occasionally  # highlight less good foods, (i) switch in UI
   comment:            "..."         # all misc comments
+  bio:                true
+  vegan:              true
+  misc:               {NutriScore: A}
   ingredients:        "..."         # ingredients that you want to be aware of
   origin:             "..."         # country of origin, if you want to be aware of
 

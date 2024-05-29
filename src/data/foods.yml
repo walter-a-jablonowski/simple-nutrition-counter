@@ -308,6 +308,8 @@ Cashew N:
 
 Cashew R Bio:
 
+  bio:               true
+
   price:             2.99
   weight:            250
   usedAmounts:       ["50g", "100g"]
@@ -411,6 +413,8 @@ Chips light:
   lastPriceUpd:      2024-03-23
 
 Chick R Bio:
+
+  bio:               true
 
   price:             0.85
   weight:            215
@@ -686,6 +690,31 @@ Geb Bohnen:
   lastUpd:           2024-05-11
   lastPriceUpd:      2024-05-11
 
+Gemüse A:
+
+  productName:       "Gemüsepfanne Sommergenuss"
+  url:               "https://www.aldi-nord.de/produkt/bio-gemuesepfanne-4398-0-0.article.html"
+
+  bio:               true
+
+  price:             2.49
+  weight:            600
+  usedAmounts:       ["50g", "100g"]
+
+  calories:          53
+  nutritionalValues:
+
+    fat:             2.1
+    saturatedFat:    0.3
+    carbs:           6.0
+    sugar:           3.1
+    amino:           1.6
+    salt:            0.78
+
+  sources:           "Macro nutrients: pack, price: web"
+  lastUpd:           2024-05-29
+  lastPriceUpd:      2024-05-29
+
 Gemüse R:
 
   acceptable:        occasionally
@@ -713,9 +742,11 @@ Gemüse R:
 
 Gemüse R Bio:
 
-  ingredients:       "Gemüsemischung 91% (Zucchini* 25%, Broccoli* 20%, Karotten* 15%, gelbe Karotten* 13%, Cherrytomaten* 12%, Zwiebeln*), Kräuter (Basilikum*, Oregano*), BUTTER*, Meersalz, Sonnenblumenöl*, Stärke*, Honig*, Gewürze*, Olivenöl*"
-  comment:           "NutriScore A"
   url:               "https://shop.rewe.de/p/rewe-bio-gemuesepfanne-mediterrane-art-450g/7321580"
+  
+  comment:           "NutriScore A"
+  bio:               true
+  ingredients:       "Gemüsemischung 91% (Zucchini* 25%, Broccoli* 20%, Karotten* 15%, gelbe Karotten* 13%, Cherrytomaten* 12%, Zwiebeln*), Kräuter (Basilikum*, Oregano*), BUTTER*, Meersalz, Sonnenblumenöl*, Stärke*, Honig*, Gewürze*, Olivenöl*"
 
   price:             1.99
   weight:            450
@@ -879,6 +910,7 @@ Kartoffel Wedges Bio:
 
   acceptable:        occasionally
   comment:           "NutriScore A"
+  bio:               true
   ingredients:       "Kartoffeln 96,5%, Sonnenblumenöl"
 
   price:             2.69
@@ -927,6 +959,8 @@ Kfc Original:
 
 Linsen R Bio:
 
+  bio:               true
+
   price:             1.39
   weight:            260
 
@@ -969,6 +1003,8 @@ Linsen vegan:
 Lyoner R Bio:
 
   acceptable:        less
+  bio:               true
+
   price:             1.39
   weight:            70
 
@@ -1008,6 +1044,8 @@ Mandel N:
   lastPriceUpd:      2024-04-06
 
 Mandel R Bio:
+
+  bio:               true
 
   price:             2.29 # 2024-03-30 2.89
   weight:            200
@@ -1175,6 +1213,8 @@ Nussmisch N:
   lastPriceUpd:      2024-04-06
 
 Oliven R Bio:
+
+  bio:               true
 
   price:             1.89
   weight:            180
@@ -1402,6 +1442,7 @@ Pommes:
 Pommes R Bio:
 
   acceptable:        occasionally
+  bio:               true
   ingredients:       "Kartoffeln 96%, Sonnenblumenöl"
 
   price:             2.49
@@ -1425,6 +1466,7 @@ Pommes R Bio:
 Pumpernickel R Bio:
 
   acceptable:        occasionally
+  bio:               true
 
   price:             1.09
   weight:            250
@@ -1659,6 +1701,8 @@ Vollkorn Rhein R:
   lastPriceUpd:      
 
 Walnuss R Bio:
+
+  bio:               true
 
   price:             2.99
   weight:            200
