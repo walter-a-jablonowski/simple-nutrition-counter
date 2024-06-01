@@ -266,6 +266,8 @@ Cashew A:
 
 Cashew E:
 
+  url:               "https://www.edeka.de/unsere-marken/produkte/gut-guenstig-cashewkerne-naturbelassen-4311501627150.jsp"
+
   price:             
   weight:            200
   usedAmounts:       ["1/4", "1/2", "1"]
@@ -1354,9 +1356,11 @@ Patros W:
 
 Philadelphia:
 
+  url:               "https://shop.rewe.de/p/philadelphia-natur-doppelrahmstufe-175g/575043"
+
   acceptable:        less
 
-  price:             
+  price:             1.49  # deal price
   weight:            175
   usedAmounts:       ["10g", "20g", "30g"]
 
@@ -1371,11 +1375,13 @@ Philadelphia:
     amino:           5.4
     salt:            0.75
 
-  sources:           "Macro nutrients: web (information on packaging may differ)"
+  sources:           "Macro nutrients: web (information on packaging may differ), price: deal (web)"
   lastUpd:           2024-04-20
-  lastPriceUpd:      
+  lastPriceUpd:      2024-06-01
 
 Philadelphia mini:
+
+  url:               "https://shop.rewe.de/p/philadelphia-natur-doppelrahmstufe-6x16-7g/5349729"
 
   acceptable:        less
 
