@@ -594,6 +594,32 @@ Fischst:
   lastUpd:           2024-04-28
   lastPriceUpd:      2024-04-28
 
+Frischk R Bio:
+
+  url:               "https://shop.rewe.de/p/rewe-bio-koerniger-frischkaese-200g/1906432"
+
+  acceptable:        occasionally
+  bio:               true
+  misc:              {NutriScore: B}
+
+  price:             
+  weight:            200
+  usedAmounts:       ["1/3", "1/3", "1/2"]
+
+  calories:          91
+  nutritionalValues:
+
+    fat:             4
+    saturatedFat:    2.6
+    carbs:           1
+    sugar:           1
+    amino:           12.7
+    salt:            0.7
+
+  sources:           "Macro nutrients: web"
+  lastUpd:           2024-06-01
+  lastPriceUpd:      
+
 Frosta Bratk:
 
   acceptable:        occasionally
