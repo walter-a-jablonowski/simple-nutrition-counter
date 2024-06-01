@@ -369,8 +369,8 @@ Champ N:
 Chili vegan:
 
   acceptable:        less
+  misc:              {NutriScore: A}
   ingredients:       "Bohnen 31%, Wasser, Tomatenmark, Tomaten, Paprika, Mais, Zwiebeln, texturiertes SOJAPROTEIN 3%, Rapsöl, Speisesalz, Gewürze, Zucker, modifizierte Stärke, Verdickungsmittel (Guarkernmehl), färbendes Lebensmittel (Paprikaextrakt), WEIZENMEHL"
-  comment:           "NutriScore A"
 
   price:             1.89
   weight:            400
@@ -461,7 +461,7 @@ Duplo:
 
   acceptable:        less
 
-  price:             0.49
+  price:             0.55
   weight:            18.2
   usedAmounts:       [1]
 
@@ -668,8 +668,8 @@ Frosta Paella:
 Geb Bohnen:
 
   acceptable:        less
+  misc:              {NutriScore: A}
   ingredients:       "Bohnen 51%, Wasser, Tomatenmark dreifach konzentriert 4,6%, Zucker, modifizierte Maisstärke, Salz, Weißweinessig, Zwiebelpulver, Paprikapulver, Rapsöl, Gewürzextrakte, natürliche Aromen"
-  comment:           "NutriScore A"
 
   price:             1.39
   weight:            420
@@ -717,10 +717,11 @@ Gemüse A:
 
 Gemüse R:
 
-  acceptable:        occasionally
-  comment:           "NutriScore A"
-  ingredients:       "92 % (Brechbohnen, gegrillte Zucchini, rote Paprika, gelbe Paprika, vorgebackene Zwiebel (Zwiebel, Sonnenblumenöl)), Wasser, Speisesalz, Tomatenpüree, Zucker, Rapsöl, Olivenöl, Gemüsebrühe (Speisesalz, Glukosesirup, Gemüsepulver (Zwiebeln, Karotten, Tomaten), Zucker, Sonnenblumenöl, Gewürze), Gewürze, Petersilie, Glukosesirup, Champignonpulver, Karottenpulver, Reisstärke"
   url:               "https://shop.rewe.de/p/rewe-beste-wahl-italienisches-pfannengemuese-500g/7075825"
+  
+  acceptable:        occasionally
+  misc:              {NutriScore: A}
+  ingredients:       "92 % (Brechbohnen, gegrillte Zucchini, rote Paprika, gelbe Paprika, vorgebackene Zwiebel (Zwiebel, Sonnenblumenöl)), Wasser, Speisesalz, Tomatenpüree, Zucker, Rapsöl, Olivenöl, Gemüsebrühe (Speisesalz, Glukosesirup, Gemüsepulver (Zwiebeln, Karotten, Tomaten), Zucker, Sonnenblumenöl, Gewürze), Gewürze, Petersilie, Glukosesirup, Champignonpulver, Karottenpulver, Reisstärke"
 
   price:             1.99
   weight:            500
@@ -744,8 +745,8 @@ Gemüse R Bio:
 
   url:               "https://shop.rewe.de/p/rewe-bio-gemuesepfanne-mediterrane-art-450g/7321580"
   
-  comment:           "NutriScore A"
   bio:               true
+  misc:              {NutriScore: A}
   ingredients:       "Gemüsemischung 91% (Zucchini* 25%, Broccoli* 20%, Karotten* 15%, gelbe Karotten* 13%, Cherrytomaten* 12%, Zwiebeln*), Kräuter (Basilikum*, Oregano*), BUTTER*, Meersalz, Sonnenblumenöl*, Stärke*, Honig*, Gewürze*, Olivenöl*"
 
   price:             1.99
@@ -909,8 +910,8 @@ Kartoffel Wedges:
 Kartoffel Wedges Bio:
 
   acceptable:        occasionally
-  comment:           "NutriScore A"
   bio:               true
+  misc:              {NutriScore: A}
   ingredients:       "Kartoffeln 96,5%, Sonnenblumenöl"
 
   price:             2.69
