@@ -9,6 +9,8 @@
 
 Amino misc:  # use for some left over nuts
 
+  vendor:            none
+
   price:             
   weight:            100g
   usedAmounts:       ["10g", "20g", "30g"]
@@ -30,6 +32,7 @@ Amino misc:  # use for some left over nuts
 
 Amino Deca Muscle Gainer:
 
+  vendor:            Deca
   acceptable:        occasionally
 
   price:             17.99
@@ -52,6 +55,7 @@ Amino Deca Muscle Gainer:
 
 Amino NaDuRia Pur:
 
+  vendor:            multiple
   comment:           "2 Meßlöffel orange = 20g"
 
   price:             
@@ -75,6 +79,7 @@ Amino NaDuRia Pur:
 
 Aldi Bratk:
 
+  vendor:            Aldi
   acceptable:        occasionally
 
   price:             2.89
@@ -97,6 +102,7 @@ Aldi Bratk:
 
 Artisch R viertel:
 
+  vendor:            Rewe
   # acceptable:      occasionally  # currently no alternative
 
   productName:       "Gegrillte Artischockenviertel in Sonnenblumenöl mit Kräutern"
@@ -121,6 +127,8 @@ Artisch R viertel:
   lastPriceUpd:      2024-04-28
 
 Avocado:
+
+  vendor:            Norma
 
   price:             1.89
   weight:            500g              
@@ -156,6 +164,7 @@ Avocado:
 
 Bresso:
 
+  vendor:            Rewe
   acceptable:        less
 
   price:             
@@ -178,6 +187,7 @@ Bresso:
 
 Bresso mini:
 
+  vendor:            Rewe
   acceptable:        less
 
   price:             1.19  # deal price
@@ -200,6 +210,8 @@ Bresso mini:
 
 Brokkoli R:
 
+  vendor:            Rewe
+
   price:             2.19
   weight:            1000
 
@@ -220,6 +232,7 @@ Brokkoli R:
 
 Cappuccino Eni:
 
+  vendor:            Eni
   acceptable:        less
 
   price:             2.39
@@ -240,6 +253,8 @@ Cappuccino Eni:
   lastPriceUpd:      2024-04-30
 
 Cashew A:
+
+  vendor:            Aldi
 
   price:             2.29  # guess
   weight:            200
@@ -266,6 +281,7 @@ Cashew A:
 
 Cashew E:
 
+  vendor:            Edeka
   url:               "https://www.edeka.de/unsere-marken/produkte/gut-guenstig-cashewkerne-naturbelassen-4311501627150.jsp"
 
   price:             
@@ -289,6 +305,8 @@ Cashew E:
 
 Cashew N:
 
+  vendor:            Norma
+
   price:             2.29
   weight:            200
   usedAmounts:       ["1/4", "1/2", "1"]
@@ -310,6 +328,7 @@ Cashew N:
 
 Cashew R Bio:
 
+  vendor:            Rewe
   bio:               true
 
   price:             2.99
@@ -332,6 +351,8 @@ Cashew R Bio:
 
 Champ mini ganz R:
 
+  vendor:            Rewe
+
   price:             
   weight:            115
 
@@ -351,6 +372,8 @@ Champ mini ganz R:
 
 Champ N:
 
+  vendor:            Norma
+
   price:             0.99
   weight:            170
 
@@ -369,6 +392,8 @@ Champ N:
   lastPriceUpd:      2024-05-11
 
 Chili vegan:
+
+  vendor:            Rewe
 
   acceptable:        less
   misc:              {NutriScore: A}
@@ -394,6 +419,7 @@ Chili vegan:
 
 Chips light:
 
+  vendor:            Rewe
   acceptable:        less
 
   price:             2.19
@@ -416,6 +442,7 @@ Chips light:
 
 Chick R Bio:
 
+  vendor:            Rewe
   bio:               true
 
   price:             0.85
@@ -437,6 +464,7 @@ Chick R Bio:
 
 Donuts:
 
+  vendor:            Norma
   acceptable:        less
 
   price:             2.89
@@ -461,6 +489,7 @@ Donuts:
 
 Duplo:
 
+  vendor:            Rewe
   acceptable:        less
 
   price:             0.55
@@ -483,6 +512,7 @@ Duplo:
 
 Eiweißbr:
 
+  vendor:            Norma
   acceptable:        less
   comment:           "2 smaller pieces count as one, one big as 2"
 
@@ -507,6 +537,8 @@ Eiweißbr:
 
 Erdn Salz N big:
 
+  vendor:            Norma
+
   price:             2.39
   weight:            500
   usedAmounts:       ["50g", "100g"]
@@ -528,6 +560,7 @@ Erdn Salz N big:
 
 Falafel:
 
+  vendor:            Bavaria
   acceptable:        occasionally
 
   price:             
@@ -550,6 +583,7 @@ Falafel:
 
 Ferrero Kuesschen:
 
+  vendor:            Rewe
   acceptable:        less
   ingredients:       "MILCHSCHOKOLADE 31 % (Zucker, Kakaomasse, Kakaobutter, VOLLMILCHPULVER, BUTTERREINFETT, Emulgator Lecithine (SOJA), Vanillin), HASELNÜSSE (26,5 %), Halbbitterschokolade 15 % (Zucker, Kakaomasse, Kakaobutter, Emulgator Lecithine (SOJA), Vanillin), Palmöl, Zucker, MAGERMILCHPULVER, fettarmer Kakao, Vanillin. Kann GLUTEN und MANDELN enthalten"
 
@@ -574,6 +608,7 @@ Ferrero Kuesschen:
 
 Fischst:
 
+  vendor:            Norma
   acceptable:        occasionally
 
   price:             2.79
@@ -598,6 +633,7 @@ Fischst:
 
 Frischk R Bio:
 
+  vendor:            Rewe
   url:               "https://shop.rewe.de/p/rewe-bio-koerniger-frischkaese-200g/1906432"
 
   acceptable:        occasionally
@@ -624,6 +660,7 @@ Frischk R Bio:
 
 Frosta Bratk:
 
+  vendor:            Rewe
   acceptable:        occasionally
 
   price:             2.99  # deal ca
@@ -647,6 +684,7 @@ Frosta Bratk:
 
 Frosta Gesch:
 
+  vendor:            Rewe
   acceptable:        occasionally
 
   price:             3.49
@@ -671,6 +709,7 @@ Frosta Gesch:
 Frosta Paella:
 
   productName:       "Hähnchen Paella"
+  vendor:            Rewe
 
   acceptable:        occasionally
 
@@ -695,6 +734,7 @@ Frosta Paella:
 
 Geb Bohnen:
 
+  vendor:            Rewe
   acceptable:        less
   misc:              {NutriScore: A}
   ingredients:       "Bohnen 51%, Wasser, Tomatenmark dreifach konzentriert 4,6%, Zucker, modifizierte Maisstärke, Salz, Weißweinessig, Zwiebelpulver, Paprikapulver, Rapsöl, Gewürzextrakte, natürliche Aromen"
@@ -721,6 +761,7 @@ Geb Bohnen:
 Gemüse A:
 
   productName:       "Gemüsepfanne Sommergenuss"
+  vendor:            Aldi
   url:               "https://www.aldi-nord.de/produkt/bio-gemuesepfanne-4398-0-0.article.html"
 
   bio:               true
@@ -745,6 +786,7 @@ Gemüse A:
 
 Gemüse R:
 
+  vendor:            Rewe
   url:               "https://shop.rewe.de/p/rewe-beste-wahl-italienisches-pfannengemuese-500g/7075825"
   
   acceptable:        occasionally
@@ -771,6 +813,7 @@ Gemüse R:
 
 Gemüse R Bio:
 
+  vendor:            Rewe
   url:               "https://shop.rewe.de/p/rewe-bio-gemuesepfanne-mediterrane-art-450g/7321580"
   
   bio:               true
@@ -797,6 +840,8 @@ Gemüse R Bio:
 
 Green beans R:
 
+  vendor:            Rewe
+
   price:             1.49
   weight:            330
 
@@ -816,6 +861,7 @@ Green beans R:
 
 Käse Gr Sch (all):
 
+  vendor:            Rewe
   acceptable:        less
 
   price:             1.49  # TASK: was online
@@ -842,6 +888,7 @@ Käse Gr Sch (all):
 
 Käse Gr W (all):
 
+  vendor:            Rewe
   acceptable:        less
 
   price:             
@@ -868,6 +915,7 @@ Käse Gr W (all):
 
 Karamalz:
 
+  vendor:            Rewe
   acceptable:        less
 
   price:             0.75               # price for 0.33 (guess) # (TASK) for 2 variants
@@ -890,6 +938,7 @@ Karamalz:
 
 Kartoffeltaschen F:
 
+  vendor:            Rewe
   acceptable:        less
   comment:           "TASK: Fix quantity"
   ingredients:       "Kartoffeln 70%, FRISCHKÄSE 19%, Sonnenblumenöl, modifizierte Stärke, Kartoffelstärke, Speisesalz, Gewürze, Kräuter, Dextrose"
@@ -914,6 +963,7 @@ Kartoffeltaschen F:
 
 Kartoffel Wedges:
 
+  vendor:            Rewe
   acceptable:        less
   ingredients:       "Kartoffeln 91%, Sonnenblumenöl 5%, WEIZENMEHL, Speisesalz, Stärke, Dextrose, Gewürze (Paprika, schwarzer Pfeffer), Knoblauchpulver, Zwiebelpulver, Gewürzextrakt (Paprika)"
 
@@ -936,6 +986,8 @@ Kartoffel Wedges:
   lastPriceUpd:      2024-04-28
 
 Kartoffel Wedges Bio:
+
+  vendor:            Rewe
 
   acceptable:        occasionally
   bio:               true
@@ -963,8 +1015,9 @@ Kartoffel Wedges Bio:
 
 Kfc Original:
 
-  acceptable:        occasionally
+  vendor:            Kfc
 
+  acceptable:        occasionally
   comment:           "weight is from a third party source (kfc source unclear)"
   ingredients:       "Hähnchenfleischerzeugnis aus flüssiggewürztem Hähnchenbrustfleisch, paniert, gegart. 100 g Produkt werden aus 79 g Hähnchenbrustfleisch hergestellt. Hähnchenbrustfleisch, Weizenmehl, pflanzliche Öle (Sonnenblume, Raps), Speisesalz, Maisstärke, Säureregulator Natriumhydrogencarbonat/E500(ii), Geschmacksverstärker Mononatriumglutamat/E621, Gewürze, Magermilchpulver, Süßmolkenpulver (enthält Milch), Eieralbuminpulver"
 
@@ -988,6 +1041,7 @@ Kfc Original:
 
 Linsen R Bio:
 
+  vendor:            Rewe
   bio:               true
 
   price:             1.39
@@ -1009,6 +1063,7 @@ Linsen R Bio:
 
 Linsen vegan:
 
+  vendor:            Rewe
   acceptable:        less
 
   price:             
@@ -1031,6 +1086,7 @@ Linsen vegan:
 
 Lyoner R Bio:
 
+  vendor:            Rewe
   acceptable:        less
   bio:               true
 
@@ -1053,6 +1109,8 @@ Lyoner R Bio:
 
 Mandel N:
 
+  vendor:            Norma
+
   price:             1.89
   weight:            150
   usedAmounts:       ["50g", "100g"]
@@ -1074,6 +1132,7 @@ Mandel N:
 
 Mandel R Bio:
 
+  vendor:            Rewe
   bio:               true
 
   price:             2.29 # 2024-03-30 2.89
@@ -1097,6 +1156,7 @@ Mandel R Bio:
 
 Mehrkornbr:
 
+  vendor:            Norma
   acceptable:        less
   comment:           "2 smaller pieces count as one"
 
@@ -1121,6 +1181,7 @@ Mehrkornbr:
 
 Milch H:
 
+  vendor:            Rewe
   acceptable:        less
   comment:           "Sometimes nice for good mood"
 
@@ -1148,6 +1209,7 @@ Milch H:
 
 Mohnkuchen:
 
+  vendor:            Norma
   acceptable:        less
 
   price:             2.89
@@ -1168,6 +1230,8 @@ Mohnkuchen:
   lastPriceUpd:      2024-05-15
 
 Nussmisch A:      # big pack
+
+  vendor:            Aldi
 
   price:             
   weight:            200
@@ -1199,6 +1263,8 @@ Nussmisch A:      # big pack
 
 Nussmisch A ger:  # small pack
 
+  vendor:            Aldi
+
   price:             
   weight:            150
   usedAmounts:       ["50g", "100g"]
@@ -1219,6 +1285,8 @@ Nussmisch A ger:  # small pack
   lastPriceUpd:      
 
 Nussmisch N:
+
+  vendor:            Norma
 
   price:             2.79
   weight:            200
@@ -1243,6 +1311,7 @@ Nussmisch N:
 
 Oliven R Bio:
 
+  vendor:            Rewe
   bio:               true
 
   price:             1.89
@@ -1266,6 +1335,8 @@ Oliven R Bio:
 
 Olivenöl:
 
+  vendor:            Denns
+
   price:             16.99
   weight:            500ml
   usedAmounts:       ["30ml", "60ml"]
@@ -1287,6 +1358,8 @@ Olivenöl:
   lastPriceUpd:      2024-04-24
 
 Öl:
+
+  vendor:            Rewe
 
   price:             1.99
   weight:            500ml
@@ -1312,6 +1385,7 @@ Olivenöl:
 
 Patros 150:
 
+  vendor:            Rewe
   acceptable:        occasionally
 
   price:             1.69  # deal price
@@ -1334,6 +1408,7 @@ Patros 150:
 
 Patros W:
 
+  vendor:            Rewe
   acceptable:        occasionally
 
   price:             2.99
@@ -1356,8 +1431,8 @@ Patros W:
 
 Philadelphia:
 
+  vendor:            Rewe
   url:               "https://shop.rewe.de/p/philadelphia-natur-doppelrahmstufe-175g/575043"
-
   acceptable:        less
 
   price:             1.49  # deal price
@@ -1381,8 +1456,8 @@ Philadelphia:
 
 Philadelphia mini:
 
+  vendor:            Rewe
   url:               "https://shop.rewe.de/p/philadelphia-natur-doppelrahmstufe-6x16-7g/5349729"
-
   acceptable:        less
 
   price:             
@@ -1406,6 +1481,8 @@ Philadelphia mini:
 
 Pistazien:
 
+  vendor:            Aldi
+
   price:             
   weight:            250
   usedAmounts:       ["1/8", "1/4", "1/3"]
@@ -1427,6 +1504,7 @@ Pistazien:
 
 Pizza Mag:
 
+  vendor:            Norma
   acceptable:        less
 
   price:             2.99
@@ -1451,6 +1529,7 @@ Pizza Mag:
 
 Pommes:
 
+  vendor:            Rewe
   acceptable:        occasionally
   ingredients:       "Kartoffeln 95%, Sonnenblumenöl 4,5 %, Dextrose"
 
@@ -1474,6 +1553,7 @@ Pommes:
 
 Pommes R Bio:
 
+  vendor:            Rewe
   acceptable:        occasionally
   bio:               true
   ingredients:       "Kartoffeln 96%, Sonnenblumenöl"
@@ -1498,6 +1578,7 @@ Pommes R Bio:
 
 Pumpernickel R Bio:
 
+  vendor:            Rewe
   acceptable:        occasionally
   bio:               true
 
@@ -1521,6 +1602,7 @@ Pumpernickel R Bio:
 
 Ricola Zitronenm:  # (TASK) currently 2 entries
 
+  vendor:            DM
   acceptable:        occasionally
   comment:           "Andorn Bibernelle Ehrenpreis Eibisch Frauenmantel Holunder Malve Pfefferminze Salbei Schafgarbe Schlüsselblume Spitzwegerich Thymian"
   ingredients:       "Süßungsmittel (Isomalt), Säuerungsmittel (Citronensäure), Kräuterauszug (0,3%) aus Zitronenmelisse sowie Spitzwegerich, Eibisch, Pfefferminze, Thymian, Salbei, Frauenmantel, Schafgarbe, Bibernelle, Malve, Holunderblüten, Schlüsselblume, Ehrenpreis und Andorn, natürliches Citrusaroma, Karottensaftkonzentrat, Süßungsmittel (Steviolglycoside aus Stevia, Thaumatin), Pfefferminzöl, Minzöl, Menthol"
@@ -1547,6 +1629,7 @@ Ricola Zitronenm:  # (TASK) currently 2 entries
 
 Ricola Zitronenm mini:  # (TASK) currently 2 entries
 
+  vendor:            Rewe
   acceptable:        occasionally
   comment:           "Andorn Bibernelle Ehrenpreis Eibisch Frauenmantel Holunder Malve Pfefferminze Salbei Schafgarbe Schlüsselblume Spitzwegerich Thymian"
   ingredients:       "Süßungsmittel (Isomalt), Säuerungsmittel (Citronensäure), Kräuterauszug (0,3%) aus Zitronenmelisse sowie Spitzwegerich, Eibisch, Pfefferminze, Thymian, Salbei, Frauenmantel, Schafgarbe, Bibernelle, Malve, Holunderblüten, Schlüsselblume, Ehrenpreis und Andorn, natürliches Citrusaroma, Karottensaftkonzentrat, Süßungsmittel (Steviolglycoside aus Stevia, Thaumatin), Pfefferminzöl, Minzöl, Menthol"
@@ -1573,6 +1656,7 @@ Ricola Zitronenm mini:  # (TASK) currently 2 entries
 
 Riegel Seitenb Sch:
 
+  vendor:            Rewe
   acceptable:        less
   comment:           "still processed food ..."
 
@@ -1601,6 +1685,7 @@ Riegel Seitenb Sch:
 
 Riegel Deca Basic:
 
+  vendor:            Deca
   acceptable:        less
   comment:           "still processed food ..."
 
@@ -1624,6 +1709,7 @@ Riegel Deca Basic:
 
 Ritter Sp 50%:
 
+  vendor:            Rewe
   acceptable:        less
 
   price:             1.69
@@ -1647,6 +1733,8 @@ Ritter Sp 50%:
 
 Ritter Sp 81%:
 
+  vendor:            Rewe
+
   price:             1.69
   weight:            100
   pieces:            25
@@ -1668,6 +1756,7 @@ Ritter Sp 81%:
 
 R Rüben N:
 
+  vendor:            Norma
   # acceptable:      occasionally  # currently no alternative
 
   price:             0.99
@@ -1690,6 +1779,7 @@ R Rüben N:
 
 Salami R:
 
+  vendor:            Rewe
   acceptable:        less
 
   price:             1.79
@@ -1712,6 +1802,7 @@ Salami R:
 
 Vollkorn Rhein R:
 
+  vendor:            Rewe
   acceptable:        less
 
   price:             
@@ -1735,6 +1826,7 @@ Vollkorn Rhein R:
 
 Walnuss R Bio:
 
+  vendor:            Rewe
   bio:               true
 
   price:             2.99
