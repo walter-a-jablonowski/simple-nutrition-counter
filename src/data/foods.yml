@@ -682,30 +682,6 @@ Frosta Bratk:
   lastUpd:           2024-04-24
   lastPriceUpd:      2024-04-24
 
-Frosta Gesch:
-
-  vendor:            Rewe
-  acceptable:        occasionally
-
-  price:             3.49
-  weight:            375
-  usedAmounts:       ["1/3", "1/2", "1"]
-
-  calories:          105
-  nutritionalValues:
-
-    fat:             2.6
-    saturatedFat:    1.5
-    carbs:           12.9
-    sugar:           1
-    fibre:           1.5
-    amino:           6.7
-    salt:            1.18
-
-  sources:           "Macro nutrients: pack, price: web"
-  lastUpd:           2024-02-18
-  lastPriceUpd:      2024-03-23
-
 Frosta Frikassee:
 
   vendor:            Rewe
@@ -730,6 +706,30 @@ Frosta Frikassee:
   sources:           "Macro nutrients: web, price: deal price"
   lastUpd:           2024-06-04
   lastPriceUpd:      2024-06-04
+
+Frosta Gesch:
+
+  vendor:            Rewe
+  acceptable:        occasionally
+
+  price:             3.49
+  weight:            375
+  usedAmounts:       ["1/3", "1/2", "1"]
+
+  calories:          105
+  nutritionalValues:
+
+    fat:             2.6
+    saturatedFat:    1.5
+    carbs:           12.9
+    sugar:           1
+    fibre:           1.5
+    amino:           6.7
+    salt:            1.18
+
+  sources:           "Macro nutrients: pack, price: web"
+  lastUpd:           2024-02-18
+  lastPriceUpd:      2024-03-23
 
 Frosta Paella:
 
