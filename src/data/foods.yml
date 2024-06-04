@@ -706,6 +706,31 @@ Frosta Gesch:
   lastUpd:           2024-02-18
   lastPriceUpd:      2024-03-23
 
+Frosta Frikassee:
+
+  vendor:            Rewe
+  url:               "https://www.frosta.de/produkte/schnelle-gerichte/huehner-frikassee"
+  acceptable:        occasionally
+
+  price:             2.99  # deal
+  weight:            500
+  usedAmounts:       ["1/3", "1/2", "1"]
+
+  calories:          144
+  nutritionalValues:
+
+    fat:             8.2
+    saturatedFat:    3
+    carbs:           10.9
+    sugar:           1.1
+    fibre:           0.9
+    amino:           6.1
+    salt:            0.99
+
+  sources:           "Macro nutrients: web, price: deal price"
+  lastUpd:           2024-06-04
+  lastPriceUpd:      2024-06-04
+
 Frosta Paella:
 
   productName:       "Hähnchen Paella"
