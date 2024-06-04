@@ -190,7 +190,7 @@ Bresso mini:
   vendor:            Rewe
   acceptable:        less
 
-  price:             1.19  # deal price
+  price:             1.11  # deal price, 2024-04-20 1.19
   weight:            120
   pieces:            8
 
@@ -206,7 +206,7 @@ Bresso mini:
 
   sources:           "Macro nutrients: web (information on packaging may differ), price: deal"
   lastUpd:           2024-04-20
-  lastPriceUpd:      
+  lastPriceUpd:      2024-06-04
 
 Brokkoli R:
 
@@ -713,7 +713,7 @@ Frosta Paella:
 
   acceptable:        occasionally
 
-  price:             
+  price:             2.99
   weight:            500
   usedAmounts:       ["1/3", "1/2", "1"]
 
@@ -730,7 +730,7 @@ Frosta Paella:
 
   sources:           "Macro nutrients: pack, price: deal"
   lastUpd:           2024-05-01
-  lastPriceUpd:      
+  lastPriceUpd:      2024-06-04
 
 Geb Bohnen:
 
@@ -864,9 +864,9 @@ Käse Gr Sch (all):
   vendor:            Rewe
   acceptable:        less
 
-  price:             1.49  # TASK: was online
+  price:             1.39  # 2024-05-24 1.49
   weight:            120g
-  pieces:            5     # TASK: is a guess
+  pieces:            5     # 2024-06-04
 
   calories:          1510
   nutritionalValues:
@@ -884,7 +884,7 @@ Käse Gr Sch (all):
 
   sources:           "Macro nutrients: web, price: deal price"
   lastUpd:           2024-05-24
-  lastPriceUpd:      2024-05-24
+  lastPriceUpd:      2024-06-04
 
 Käse Gr W (all):
 
