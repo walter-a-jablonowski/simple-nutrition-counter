@@ -10,14 +10,13 @@ Dallmayr classic   6.49 2024-06-01
 
 Frosta Bratk (price is a guess)
 
-(made via missing_prices.php)
+( made via missing_prices.php )
 
 Amino NaDuRia Pur:     ()
 Bresso:                ()
 Cashew E:              ()
 Champ mini ganz R:     ()
 Falafel:               ()
-Frosta Paella:         ()
 Kartoffeltaschen F:    ()
 Linsen vegan:          ()
 Mehrkornbr:            ()
