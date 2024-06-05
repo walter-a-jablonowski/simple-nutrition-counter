@@ -12,6 +12,11 @@
   </li>
   <!-- style   = "font-size: 1.5rem;"-->
   <?php foreach( $this->model->foods as $food => $entry): ?>
+  <?php
+          // if( strpos( $food, 'Salt') !== false )  // DEBUG
+          // if( $food === '1.38g Salt' )
+          //   $debug = 'halt';
+  ?>
     <li class   = "food-item p-1 list-group-item"
         onclick = "foodsCrl.foodItemClick(event)"
         data-food       = "<?= $food ?>"

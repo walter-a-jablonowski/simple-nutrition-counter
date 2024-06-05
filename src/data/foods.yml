@@ -7,9 +7,10 @@
 
 # some German foods
 
-Amino misc:  # use for some left over nuts
+Amino misc:
 
   vendor:            none
+  comment:           "use for some left over nuts"
 
   price:             
   weight:            100g
@@ -29,6 +30,30 @@ Amino misc:  # use for some left over nuts
   sources:           "Macro nutrients: Asked Alexa for avg"
   lastUpd:           2024-04-24
   lastPriceUpd:      
+
+# TASK: some error
+# Salt:
+
+#   vendor:            none
+
+#   price:             0
+#   weight:            100g
+#   usedAmounts:       ["1.38g"]  # in smaller portions
+
+#   calories:          0
+#   nutritionalValues:
+
+#     fat:             0
+#     saturatedFat:    0
+#     carbs:           0
+#     sugar:           0
+#     fibre:           0
+#     amino:           0
+#     salt:            100
+
+#   sources:           ""
+#   lastUpd:           2024-06-05
+#   lastPriceUpd:      
 
 Amino Deca Muscle Gainer:
 

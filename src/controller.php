@@ -87,7 +87,7 @@ class FoodsController extends ControllerBase
 
       foreach( $usedAmounts as $amount )
       {
-        // if( $food == 'Milch H' )  // DEBUG
+        // if( $food == 'Salt' )  // DEBUG
         //   $debug = 'halt';
 
         $multipl = trim( $amount, "mglpc ");
@@ -118,6 +118,9 @@ class FoodsController extends ControllerBase
           else
             foreach( $entry[$group] as $name => $value)
             {
+              // if( $food == 'Salt' && $name == 'salt' )  // DEBUG
+              //   $debug = 'halt';
+
               $short = $group === 'nutritionalValues' ? $name
                      : $nutrients[$group][$name]['short'];
 
