@@ -255,6 +255,28 @@ Brokkoli R:
   lastUpd:           2024-03-13
   lastPriceUpd:      2024-03-23
 
+Cappuccino R:  # TASK: fix, is just a cp of Eni
+
+  vendor:            Eni
+  acceptable:        less
+
+  price:             2.39
+  weight:            200ml
+  usedAmounts:       ["1"]
+
+  calories:          63
+  nutritionalValues:
+
+    fat:             1.2
+    carbs:           12
+    sugar:           10.8
+    amino:           2.7
+    salt:            0.08
+
+  sources:           "Macro nutrients: web (kind of impossible, third party), weight is a guess"
+  lastUpd:           2024-04-30
+  lastPriceUpd:      2024-04-30
+
 Cappuccino Eni:
 
   vendor:            Eni
