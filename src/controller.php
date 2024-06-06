@@ -16,14 +16,14 @@ class FoodsController extends ControllerBase
   use SaveFoodsAjaxController;
 
   private bool $devMode;
-  
+
   private array  $recipes;
   private array  $foods;
   private string $foodsTxt;
   private array  $layout;
   private string $dayEntriesTxt;
   private array  $dayEntries;
-  
+
   private SimpleData $inlineHelp;
 
 
@@ -53,7 +53,7 @@ class FoodsController extends ControllerBase
 
     $this->foodsTxt = file_get_contents('data/foods.yml');
     $this->foods    = Yaml::parse( $this->foodsTxt );
-    
+
     $this->recipes = [];
 
     $this->layout = Yaml::parse( file_get_contents('data/layout.yml'));
@@ -128,7 +128,8 @@ class FoodsController extends ControllerBase
             }
         }
 
-        $title = str_pad( $amount, 5, ' ', STR_PAD_LEFT) . " $food";  // TASK: improve
+        $title = str_replace('.', ',', $amount);  // be compatible with amounts like 1.38
+        $title = str_pad( $title, 5, ' ', STR_PAD_LEFT) . " $food";  // TASK: improve
 
         $this->model->set("foods.$title", $perWeight);
       }
@@ -196,7 +197,7 @@ class FoodsController extends ControllerBase
   {
     $this->date = $_GET['date'] ?? date('Y-m-d');
     $this->mode = isset($_GET['date']) ? 'last' : 'current';
-    
+
     $this->makeData();
 
     ob_start();

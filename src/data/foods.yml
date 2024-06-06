@@ -31,29 +31,28 @@ Amino misc:
   lastUpd:           2024-04-24
   lastPriceUpd:      
 
-# TASK: some error
-# Salt:
+Salt:
 
-#   vendor:            none
+  vendor:            none
 
-#   price:             0
-#   weight:            100g
-#   usedAmounts:       ["1.38g"]  # in smaller portions
+  price:             0
+  weight:            100g
+  usedAmounts:       ["1.38g"]  # in smaller portions
 
-#   calories:          0
-#   nutritionalValues:
+  calories:          0
+  nutritionalValues:
 
-#     fat:             0
-#     saturatedFat:    0
-#     carbs:           0
-#     sugar:           0
-#     fibre:           0
-#     amino:           0
-#     salt:            100
+    fat:             0
+    saturatedFat:    0
+    carbs:           0
+    sugar:           0
+    fibre:           0
+    amino:           0
+    salt:            100
 
-#   sources:           ""
-#   lastUpd:           2024-06-05
-#   lastPriceUpd:      
+  sources:           ""
+  lastUpd:           2024-06-05
+  lastPriceUpd:      
 
 Amino Deca Muscle Gainer:
 
