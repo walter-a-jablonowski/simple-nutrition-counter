@@ -259,7 +259,7 @@ Cappuccino R:  # TASK: fix, is just a cp of Eni
   vendor:            Eni
   acceptable:        less
 
-  price:             2.39
+  price:             1.00
   weight:            200ml
   usedAmounts:       ["1"]
 
