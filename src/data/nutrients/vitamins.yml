@@ -20,7 +20,7 @@ B12:
   amounts:
 
     - criteria: { gender: male, age: 40, height: "*", weight: 70 }
-      amount:
+      amount: 100 # TASK: dummy entry
       lower:  5%
       upper:  5%
 
@@ -36,6 +36,6 @@ Vitamin E:
   amounts:
 
     - criteria: { gender: male, age: 40, height: "*", weight: 70 }
-      amount:
+      amount: 100 # TASK: dummy entry
       lower:  5%
       upper:  5%

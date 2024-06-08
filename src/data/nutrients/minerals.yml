@@ -19,7 +19,7 @@ Calcium:
   amounts:
 
     - criteria: { gender: male, age: 40, height: "*", weight: 70 }
-      amount:
+      amount: 100 # TASK: dummy entry
       lower:  5%
       upper:  5%
 
@@ -35,12 +35,12 @@ Magnesium:
   amounts:
 
     - criteria: { gender: male, age: 40, height: "*", weight: 70, workout: false }
-      amount: 
+      amount: 100 # TASK: dummy entry
       lower:  5%
       upper:  5%
 
     - criteria: { gender: male, age: 40, height: "*", weight: 70, workout: true }
-      amount: 
+      amount: 100 # TASK: dummy entry
       lower:  5%
       upper:  5%
 
@@ -54,6 +54,6 @@ Phosphor:
   amounts:
 
     - criteria: { gender: male, age: 40, height: "*", weight: 70 }
-      amount: 
+      amount: 100 # TASK: dummy entry
       lower:  5%
       upper:  5%
