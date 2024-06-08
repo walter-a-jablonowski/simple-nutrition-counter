@@ -322,13 +322,19 @@ class FoodsEventController
     // Summary tab
     // TASK: maybe add a simple sum first (no percent) #code/progress
 /*
-    <div class="progress w-100" role="progressbar">
-      <div id="<?= $name ?>ProgressBar" class="progress-bar bg-success" style="width: 80%;">
-        <!-- < ?= $name ?> -->  <!-- breaks in 2 lines even with d-flex justify-content-between text-nowrap -->
-        <span><?= $name ?> <span id="<?= $name ?>ProgressLabel">100 / <?= $val['ideal'] ?></span></span>
+    <div class      = "nutrients-entry mb-2"
+          data-name  = "<?= $name ?>"
+          data-ideal = "<?= $val['ideal'] ?>"
+    >
+      <div><?= $name ?></div>
+      <div class="progress w-100" role="progressbar">
+        <div class="progress-bar bg-success" style="width: 0%;">
+          <span><!-- < ?= $name ?> --><span class="progress-label">0 / <?= $val['ideal'] ?></span></span>
+        </div>
       </div>
     </div>
 */
+    
 /*
     let currentSum  = 100  // This should be dynamically set based on the day's sum
     let recommended = 500

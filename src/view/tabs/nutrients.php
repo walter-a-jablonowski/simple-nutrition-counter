@@ -13,11 +13,14 @@ this is an advanced feature
     < ?php endfor; ?>
 -->
     <?php foreach( $this->summary as $name => $val ): ?>
-      <div class="mb-2">
+      <div class      = "nutrients-entry mb-2"
+           data-name  = "<?= $name ?>"
+           data-ideal = "<?= $val['ideal'] ?>"
+      >
         <div><?= $name ?></div>
         <div class="progress w-100" role="progressbar">
-          <div id="<?= $name ?>ProgressBar" class="progress-bar bg-success" style="width: 80%;">
-            <span><!-- < ?= $name ?> --><span id="<?= $name ?>ProgressLabel">100 / <?= $val['ideal'] ?></span></span>
+          <div class="progress-bar bg-success" style="width: 0%;">
+            <span><!-- < ?= $name ?> --><span class="progress-label">0 / <?= $val['ideal'] ?></span></span>
           </div>
         </div>
       </div>
