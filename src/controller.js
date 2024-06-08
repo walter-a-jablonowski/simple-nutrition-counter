@@ -321,7 +321,7 @@ class FoodsEventController
 
     // Summary tab
     // TASK: maybe add a simple sum first (no percent) #code/progress
-/*
+// /*
     let nutrientEntries = query('.nutrients-entry')
 
     for( const entry of nutrientEntries )
@@ -347,7 +347,7 @@ class FoodsEventController
       // entry.find('.progress-bar').classList.add(progressBarColor)
       entry.find('.progress-label').textContent = `${currentSum} / ${entry.dataset.ideal}`
     }
-*/
+// */
   }
 
   #saveDayEntries( uiMsg = false )
