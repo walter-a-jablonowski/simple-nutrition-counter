@@ -219,6 +219,9 @@ class FoodsEventController
 
     let nutritionalValues = JSON.parse(target.dataset.nutritionalvalues)
 
+    // new version
+    // console.log( queryData('.food-item', ['food']))
+
     let entry = {
       food:      food,  // TASK: rename
       calories:  calories,
@@ -315,9 +318,6 @@ class FoodsEventController
     query('#aminoSum').textContent    = aminoSum
     query('#saltSum').textContent     = saltSum
     query('#priceSum').textContent    = priceSum
-
-    // TASK: try query data
-    console.log( queryData('.food-item', ['food']))
 
     // Summary tab
     // (TASK) #code/progress

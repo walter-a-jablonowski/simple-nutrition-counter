@@ -1,25 +1,27 @@
-function queryData( sel, attributes)
+function queryData( sel, attribs )  // keeping this low level
 {
-  const parentElement = document.querySelector(sel)  // keeping this low level
-  if( ! parentElement) return []
+  // const parentElement = document.querySelector(sel)
+  const elems = document.querySelectorAll(sel)
+  if( ! elems) return []
   
-  const children = parentElement.children
+  // const children = parentElement.children
   const results = []
 
-  for( const child of children )
+  // for( const child of children )
+  for( const elem of elems )
   {
     const result = {}
   
-    for( const attribute of attributes)
+    for( const attrib of attribs )
     {
-      let value = child.getAttribute(`data-${attribute}`)
+      let value = elem.getAttribute(`data-${attrib}`)
       if( value )
       {
         try {
-          result[attribute] = JSON.parse( value.replace(/\\/g, ''))  // try to parse JSON
-          // result[attribute] = JSON.parse( decodeHtml(value))      // TASK: remove htmlspecialchars() and just escape " or use this alternative
+          result[attrib] = JSON.parse( value.replace(/\\/g, ''))  // try to parse JSON
+          // result[attrib] = JSON.parse( decodeHtml(value))      // TASK: remove htmlspecialchars() and just escape " or use this alternative
         } catch(error) {
-          result[attribute] = value                                  // or is scalar value
+          result[attrib] = value                                  // or is scalar value
         }
       }
     }
