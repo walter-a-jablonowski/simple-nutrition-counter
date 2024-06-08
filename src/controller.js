@@ -12,7 +12,7 @@ class FoodsEventController
     this.saveDayEntriesBtnClick = this.saveDayEntriesBtnClick.bind(this)
     this.foodItemClick          = this.foodItemClick.bind(this)
     this.saveFoodsBtnClick      = this.saveFoodsBtnClick.bind(this)
-    this.updQuickSummary        = this.updQuickSummary.bind(this)
+    this.updSummary             = this.updSummary.bind(this)
     // this.#saveDayEntries     = this.#saveDayEntries.bind(this)  // TASK: can't be done
 
     let crl = this
@@ -289,7 +289,7 @@ class FoodsEventController
 
     query('#dayEntries').value = formattedText
 
-    this.updQuickSummary()
+    this.updSummary()
     this.#saveDayEntries()
   }
 
@@ -298,8 +298,10 @@ class FoodsEventController
   - public cause used in view
 
   */
-  updQuickSummary() /*@*/
+  updSummary() /*@*/
   {
+    // Quick summary
+
     let caloriesSum = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.calories), 0).toFixed(1))
     let carbsSum    = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.carbs),    0).toFixed(1))
     let fatSum      = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.fat),      0).toFixed(1))
@@ -313,6 +315,36 @@ class FoodsEventController
     query('#aminoSum').textContent    = aminoSum
     query('#saltSum').textContent     = saltSum
     query('#priceSum').textContent    = priceSum
+
+    // Summary tab
+    // (TASK) #code/progress
+/*
+    <div class="progress w-100" role="progressbar">
+      <div id="<?= $name ?>ProgressBar" class="progress-bar bg-success" style="width: 80%;">
+        <!-- < ?= $name ?> -->  <!-- breaks in 2 lines even with d-flex justify-content-between text-nowrap -->
+        <span><?= $name ?> <span id="<?= $name ?>ProgressLabel">100 / <?= $val['ideal'] ?></span></span>
+      </div>
+    </div>
+*/
+/*
+    let currentSum  = 100  // This should be dynamically set based on the day's sum
+    let recommended = 500
+    let tolerance   = 0.05
+
+    let percentage = (currentSum / recommended) * 100
+    percentage = Math.min(percentage, 100)  // ensure it doesn't exceed 100%
+
+    let progressBarColor = 'bg-secondary'
+
+    if( currentSum >= recommended * (1 - tolerance) && currentSum <= recommended * (1 + tolerance))
+      progressBarColor = 'bg-success'
+    else if(currentSum > recommended * (1 + tolerance))
+      progressBarColor = 'bg-danger'
+
+    query('#caloriesProgressBar').style.width   = `${percentage}%`
+    query('#caloriesProgressBar').className     = `progress-bar ${progressBarColor}`
+    query('#caloriesProgressLabel').textContent = `${currentSum}/${recommended}`
+*/
   }
 
   #saveDayEntries( uiMsg = false )
@@ -325,31 +357,4 @@ class FoodsEventController
         query('#uiMsg').innerHTML = result.message
     })
   }
-
-  /*@
-  
-
-  */
-  // updSummary() /*@*/
-  // {
-  //   // (TASK) #code/progress
-
-  //   let currentSum  = 100  // This should be dynamically set based on the day's sum
-  //   let recommended = 500
-  //   let tolerance   = 0.05
-
-  //   let percentage = (currentSum / recommended) * 100
-  //   percentage = Math.min(percentage, 100)  // ensure it doesn't exceed 100%
-
-  //   let progressBarColor = 'bg-secondary'
-
-  //   if( currentSum >= recommended * (1 - tolerance) && currentSum <= recommended * (1 + tolerance))
-  //     progressBarColor = 'bg-success'
-  //   else if(currentSum > recommended * (1 + tolerance))
-  //     progressBarColor = 'bg-danger'
-
-  //   query('#caloriesProgressBar').style.width   = `${percentage}%`
-  //   query('#caloriesProgressBar').className     = `progress-bar ${progressBarColor}`
-  //   query('#caloriesProgressLabel').textContent = `${currentSum}/${recommended}`
-  // }
 }
