@@ -17,8 +17,7 @@ this is an advanced feature
         <div><?= $name ?></div>
         <div class="progress w-100" role="progressbar">
           <div id="<?= $name ?>ProgressBar" class="progress-bar bg-success" style="width: 80%;">
-            <!-- < ?= $name ?> -->  <!-- breaks in 2 lines even with d-flex justify-content-between text-nowrap -->
-            <span><?= $name ?> <span id="<?= $name ?>ProgressLabel">100 / <?= $val['ideal'] ?></span></span>
+            <span><!-- < ?= $name ?> --><span id="<?= $name ?>ProgressLabel">100 / <?= $val['ideal'] ?></span></span>
           </div>
         </div>
       </div>

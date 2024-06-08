@@ -320,7 +320,7 @@ class FoodsEventController
     query('#priceSum').textContent    = priceSum
 
     // Summary tab
-    // (TASK) #code/progress
+    // TASK: maybe add a simple sum first (no percent) #code/progress
 /*
     <div class="progress w-100" role="progressbar">
       <div id="<?= $name ?>ProgressBar" class="progress-bar bg-success" style="width: 80%;">
