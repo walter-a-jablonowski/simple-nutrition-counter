@@ -149,10 +149,12 @@ class FoodsController extends ControllerBase
         if( in_array( $name, ['short', 'unit', 'comment', 'per', 'amounts']))
           continue;
 
-        $a = $attr['amounts'][0];  // TASK: (advanced) currently
+        $a = $attr['amounts'][0];      // TASK: (advanced) currently
 
-        $summary[$name] = [        // TASK: use unit for sth?
-
+        $summary[ $attr['short']] = [  // TASK: use unit for sth?
+                                       // TASK: currently short is used as id, unify and use name?
+          'name'  => $name,            
+          'group' => $group,
           'lower' => strpos($a['lower'], '%') === false
                   ?  $a['amount'] - $a['lower']
                   :  $a['amount'] - $a['amount'] * (floatval($a['lower']) / 100),  // floatval removes the percent
@@ -164,7 +166,7 @@ class FoodsController extends ControllerBase
       }
     }
 
-    $this->summary = $summary;
+    $this->summary = $summary;  // TASK: maybe just merge in model
 // */
 
     // All days tab

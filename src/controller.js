@@ -327,7 +327,9 @@ class FoodsEventController
     for( const entry of nutrientEntries )
     {
       // TASK: looks like dayEntries has short name
-      let currentSum = Number( dayEntries.nutrients.reduce((sum, entry) => sum + Number(entry.dataset.name), 0).toFixed(1))
+      let group = entry.dataset.group
+      let short = entry.dataset.short
+      let currentSum = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.nutrients[group][short]), 0).toFixed(1))
       // let tolerance = 0.05  // TASK: advanced
     
       let percentage = (currentSum / entry.dataset.ideal) * 100
