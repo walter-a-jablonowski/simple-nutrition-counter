@@ -316,6 +316,9 @@ class FoodsEventController
     query('#saltSum').textContent     = saltSum
     query('#priceSum').textContent    = priceSum
 
+    // TASK: try query data
+    console.log( queryData('.food-item', ['food']))
+
     // Summary tab
     // (TASK) #code/progress
 /*

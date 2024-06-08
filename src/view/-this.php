@@ -134,7 +134,7 @@ ready( function() {
 
   foodsCrl = new FoodsEventController()
   foodsCrl.date = '<?= $this->date ?>'
-  foodsCrl.updQuickSummary()
+  foodsCrl.updSummary()
 })
 
 </script>

@@ -1,5 +1,3 @@
-// TASK: maybe we already have a lib function #code/advancedData
-
 function queryData( sel, attributes)
 {
   const parentElement = document.querySelector(sel)  // keeping this low level
