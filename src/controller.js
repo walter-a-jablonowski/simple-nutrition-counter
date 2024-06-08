@@ -322,37 +322,31 @@ class FoodsEventController
     // Summary tab
     // TASK: maybe add a simple sum first (no percent) #code/progress
 /*
-    <div class      = "nutrients-entry mb-2"
-          data-name  = "<?= $name ?>"
-          data-ideal = "<?= $val['ideal'] ?>"
-    >
-      <div><?= $name ?></div>
-      <div class="progress w-100" role="progressbar">
-        <div class="progress-bar bg-success" style="width: 80%;">
-          <span><!-- < ?= $name ?> --><span class="progress-label">0 / <?= $val['ideal'] ?></span></span>
-        </div>
-      </div>
-    </div>
-*/
+    let nutrientEntries = query('.nutrients-entry')
+
+    for( const entry of nutrientEntries )
+    {
+      // TASK: looks like dayEntries has short name
+      let currentSum = Number( dayEntries.nutrients.reduce((sum, entry) => sum + Number(entry.dataset.name), 0).toFixed(1))
+      // let tolerance = 0.05  // TASK: advanced
     
-/*
-    let currentSum  = 100  // This should be dynamically set based on the day's sum
-    let recommended = 500
-    let tolerance   = 0.05
+      let percentage = (currentSum / entry.dataset.ideal) * 100
+      percentage = Math.min(percentage, 100)  // ensure it doesn't exceed 100%
 
-    let percentage = (currentSum / recommended) * 100
-    percentage = Math.min(percentage, 100)  // ensure it doesn't exceed 100%
+      // TASK: (advanced)
+      
+      // let progressBarColor = 'bg-secondary'
 
-    let progressBarColor = 'bg-secondary'
+      // if( currentSum >= recommended * (1 - tolerance) && currentSum <= recommended * (1 + tolerance))
+      //   progressBarColor = 'bg-success'
+      // else if(currentSum > recommended * (1 + tolerance))
+      //   progressBarColor = 'bg-danger'
 
-    if( currentSum >= recommended * (1 - tolerance) && currentSum <= recommended * (1 + tolerance))
-      progressBarColor = 'bg-success'
-    else if(currentSum > recommended * (1 + tolerance))
-      progressBarColor = 'bg-danger'
-
-    query('#caloriesProgressBar').style.width   = `${percentage}%`
-    query('#caloriesProgressBar').className     = `progress-bar ${progressBarColor}`
-    query('#caloriesProgressLabel').textContent = `${currentSum}/${recommended}`
+      entry.find('.progress-bar').style.width   = `${percentage}%`
+      // entry.find('.progress-bar').remove('bg-success', 'bg-danger')  // old: entry.find('.progress-bar').className = `progress-bar ${progressBarColor}`
+      // entry.find('.progress-bar').classList.add(progressBarColor)
+      entry.find('.progress-label').textContent = `${currentSum} / ${entry.dataset.ideal}`
+    }
 */
   }
 

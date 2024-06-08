@@ -19,7 +19,7 @@ this is an advanced feature
       >
         <div><?= $name ?></div>
         <div class="progress w-100" role="progressbar">
-          <div class="progress-bar bg-success" style="width: 80%;">
+          <div class="progress-bar bg-success" style="width: 0%;">
             <span><!-- < ?= $name ?> --><span class="progress-label">0 / <?= $val['ideal'] ?></span></span>
           </div>
         </div>
