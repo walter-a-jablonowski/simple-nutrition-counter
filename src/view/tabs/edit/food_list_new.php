@@ -28,6 +28,8 @@
 
   foreach( $this->layout as $groupName => $entries ):
 
+    if( $groupName == '(first_entries)') // TASK
+      continue;
   ?>
     <div class="col">
 
@@ -41,14 +43,10 @@
       
       foreach( $entries as $name ):
       
-        $done[] = $name;  // left over will be printed below (done = foods and recipes n a single list)
-        
-        $type = isset( $this->recipes[$name] ) ? 'recipe' : 'food';
+        $type  = isset( $this->recipes[$name] ) ? 'recipe' : 'food';
+        $entry = $this->modelView->get("$type.$name");
 
-        // if( $type === 'recipe' )
-        //   // TASK: merge nutrients (or do in controller
-
-        $entry = $this->foods[$name];  // or from recipe
+        $done[] = $name;  // left over will be printed below (done = foods and recipes in a single list)
       ?>
 
         <div class="row">
