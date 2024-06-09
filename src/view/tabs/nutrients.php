@@ -1,17 +1,6 @@
-this is an advanced feature
 
 <div class="scrollable-list">
   <div id="">
-<!--
-    < ?php for( $i=0; $i < 4; $i++): ?>
-      <div>Substance < ?= $i ?> <span id="< ?= $i ?>ProgressLabel">100/500</span></div>
-      <div class="d-flex align-items-center mb-2">
-        <div class="progress w-100" role="progressbar" style="margin-right: 20px;">
-          <div id="< ?= $i ?>ProgressBar" class="progress-bar bg-success"  style="width: 80%;">80%</div>
-        </div>
-      </div>
-    < ?php endfor; ?>
--->
     <?php foreach( $this->model->nutrients as $groupShort => $group ): ?>
       <?php // TASK: add collapse ?>
       <?php foreach( $group as $short => $data ): ?>
@@ -20,7 +9,7 @@ this is an advanced feature
             data-short = "<?= $short ?>"
             data-ideal = "<?= $data['ideal'] ?>"
         >
-          <div><?= $data['name'] ?></div>
+          <div><?= $data['name'] ?></div>  <!-- TASK: or right align 80 / 100 -->
           <div class="progress w-100" role="progressbar">
             <div class="progress-bar bg-success" style="width: 0%;">
               <span><!-- < ?= $data['name'] ?> --><span class="progress-label">0 / <?= $val['ideal'] ?></span></span>

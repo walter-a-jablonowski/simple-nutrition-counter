@@ -140,24 +140,20 @@ class FoodsController extends ControllerBase
 
 
     // Summary tab
-// /*
-    // $summary = [];
-
     // TASK: group vals
 
     foreach(['fattyAcids', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $group )
     {
-      foreach( $nutrients[$group] as $name => $attr )
+      foreach( $nutrients[$group] as $name => $attr )  // short is used as id
       {
         if( in_array( $name, ['short', 'unit', 'per', 'comment', 'amounts']))
           continue;
 
-        $a = $attr['amounts'][0];      // TASK: (advanced) currently using first entry only
+        $a = $attr['amounts'][0];      // TASK: use unit for sth?
 
-        // $summary[ $attr['short']] = [
-        $this->model->set("nutrients.$nutrientsShort[$group].$attr[short]", [  // TASK: use unit for sth?
-                                       // TASK: currently short is used as id, unify and use name?
-          'name'  => $name,            
+        $this->model->set("nutrients.$nutrientsShort[$group].$attr[short]", [
+                                       
+          'name'  => $name,            // TASK: (advanced) currently using first entry only
           'group' => $group,
           'lower' => strpos($a['lower'], '%') === false
                   ?  $a['amount'] - $a['lower']
@@ -169,9 +165,6 @@ class FoodsController extends ControllerBase
         ]);
       }
     }
-
-    // $this->summary = $summary;
-// */
 
     // All days tab
     // no model data, kind of report

@@ -150,7 +150,7 @@ Nutrient files (substances.yml and groups.yml)
 
 # Nutrient group data
 
-short:     # short name for group
+short:     # short name for group is used as unique id over all files
 unit:      mg
 per:       day
 comment:   "Increased need if doing sports"
@@ -163,7 +163,7 @@ amounts:
 B 12:
 
   type:       methylcobalamin
-  short:      B12
+  short:      B12              # short name is used as unique id over all files
   unit:       mg
 
   per:        day
