@@ -106,7 +106,7 @@ class FoodsController extends ControllerBase
         ];
 
         foreach([
-          'nutritionalValues' => 'nutriVal',
+          'nutritionalValues' => 'nutriVal',  // TASK: use short name from nutrient files
           'fattyAcids'        => 'fat',
           'aminoAcids'        => 'amino',
           'vitamins'          => 'vit',
