@@ -148,6 +148,18 @@ Nutrient files (substances.yml and groups.yml)
 
 ```yaml
 
+# Nutrient group data
+
+short:     # short name for group
+unit:      mg
+comment:   "Increased need if doing sports"
+per:       day
+amounts:
+
+  # same as below
+
+# Nutrients
+
 B 12:
 
   per:        day
@@ -169,8 +181,9 @@ B 12:
   keeping:    "keep cool"
   amounts:
 
-    - criteria: { gender: male , age: 40 , height: "*" , weight: 70 }  # value mean all >= this
-      amount:                                                          # height might be used to fix weight
+    # value mean all >= this, height might be used to fix weight
+    - criteria: { gender: male , age: 40 , height: "*" , weight: 70, workout: false }
+      amount:
       lower:  4%  # summary view still is green progress if within these bounds
       upper:  8   # percent for some defaut value, number for precise (max is added to amount)
 ```
