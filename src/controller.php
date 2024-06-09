@@ -36,7 +36,6 @@ class FoodsController extends ControllerBase
   /*@
 
   Make all the data
-  we pre calc all values cause it's simpler for recipes
 
   */
   private function makeData()  /*@*/
@@ -78,6 +77,10 @@ class FoodsController extends ControllerBase
 
 
     // This day tab
+
+    // we pre calc all values (model data is a view)
+    // cause it's simpler for recipes and less js code
+
     // make food list with amounts (model)
 
     foreach( $this->foods as $food => $entry )
@@ -140,13 +143,16 @@ class FoodsController extends ControllerBase
 
 
     // Summary tab
+    // TASK: make model usage somewhat more logical
     // TASK: group vals
 
     foreach(['fattyAcids', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $group )
     {
+      $this->model->set("nutrients.$nutrientsShort[$group].name", $nutrients[$group]['name']);
+
       foreach( $nutrients[$group] as $name => $attr )  // short is used as id
       {
-        if( in_array( $name, ['short', 'unit', 'per', 'comment', 'amounts']))
+        if( in_array( $name, ['short', 'name', 'unit', 'per', 'comment', 'amounts']))
           continue;
 
         $a = $attr['amounts'][0];      // TASK: use unit for sth?

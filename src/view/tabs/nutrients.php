@@ -1,5 +1,5 @@
 
-<div class="scrollable-list">
+<div class="scrollable-list rounded">
 
   <!-- TASK: collapse or expand all btn -->
 
@@ -7,15 +7,20 @@
 
     <ul class="list-group">  <!-- TASK: alternative grid ins of list group -->
 
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        <?= $groupShort ?>  <!-- TASK: long name, maybe bg color, rounded -->
-        <a data-bs-toggle="collapse" href="#<?= $groupShort ?>Collapse" class="text-secondary" role="button">
+      <li class = "list-group-item d-flex justify-content-between align-items-center"
+          style = "background-color: #e0e0e0;"
+      >
+        <?= $group['name'] ?>
+        <a data-bs-toggle="collapse" href="#<?= $group['name'] ?>Collapse" class="text-body-secondary" role="button">
           <i class="bi bi-arrow-down-circle"></i>
         </a>
       </li>
       <li id="<?= $groupShort ?>Collapse" class="list-group-item collapse show">
 
-        <?php foreach( $group as $short => $data ): ?>
+        <?php foreach( $group as $short => $data ):
+        
+          if( $short == 'name')  continue;  // group name
+        ?>
 
           <div class     = "nutrients-entry mb-2"
               data-group = "<?= $groupShort ?>"

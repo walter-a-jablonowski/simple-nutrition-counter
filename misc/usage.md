@@ -150,7 +150,8 @@ Nutrient files (substances.yml and groups.yml)
 
 # Nutrient group data
 
-short:     # short name for group is used as unique id over all files
+short:                         # short name for group is used as unique id in daily files (file name is alternative id used in code)
+name:                          # long group name for display
 unit:      mg
 per:       day
 comment:   "Increased need if doing sports"
@@ -160,17 +161,17 @@ amounts:
 
 # Nutrients
 
-B 12:
+B 12:                          # display name
 
-  type:       methylcobalamin
+  type:       methylcobalamin  # sub type
   short:      B12              # short name is used as unique id over all files
   unit:       mg
 
   per:        day
   times:      morning, ...
-  how:        # bio availability
-  limit:      # take how long
-  break:      # min break time
+  how:                         # bio availability
+  limit:                       # take how long
+  break:                       # min break time
 
   comment:    # Advantage
   careful:    false

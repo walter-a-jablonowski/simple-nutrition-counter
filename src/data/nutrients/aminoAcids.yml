@@ -5,6 +5,7 @@
 #
 
 short:     amino
+name:      Amino acids
 unit:      mg
 per:       day
 comment:   "Increased need if doing sports"
