@@ -51,6 +51,15 @@ class FoodsController extends ControllerBase
     $nutrients['minerals']   = Yaml::parse( file_get_contents('data/nutrients/minerals.yml'));
     $nutrients['secondary']  = Yaml::parse( file_get_contents('data/nutrients/secondary.yml'));
 
+    $nutrientsShort = [
+      'nutritionalValues' => 'nutriVal',  // TASK: use short name from nutrient files
+      'fattyAcids'        => 'fat',
+      'aminoAcids'        => 'amino',
+      'vitamins'          => 'vit',
+      'minerals'          => 'min',
+      'secondary'         => 'sec'
+    ];
+
     $this->foodsTxt = file_get_contents('data/foods.yml');
     $this->foods    = Yaml::parse( $this->foodsTxt );
 
@@ -105,13 +114,7 @@ class FoodsController extends ControllerBase
           'price'    => isset($entry['price']) ? round( $entry['price'] * ($weight / $entry['weight']), 2) : 0
         ];
 
-        foreach([
-          'nutritionalValues' => 'nutriVal',  // TASK: use short name from nutrient files
-          'fattyAcids'        => 'fat',
-          'aminoAcids'        => 'amino',
-          'vitamins'          => 'vit',
-          'minerals'          => 'min',
-          'secondary'         => 'sec'] as $group => $sgroup)
+        foreach( $nutrientsShort as $group => $sgroup )
         {
           if( ! isset($entry[$group]) || count($entry[$group]) == 0)
             $perWeight[$sgroup] = [];
@@ -138,7 +141,7 @@ class FoodsController extends ControllerBase
 
     // Summary tab
 // /*
-    $summary = [];
+    // $summary = [];
 
     // TASK: group vals
 
@@ -146,12 +149,13 @@ class FoodsController extends ControllerBase
     {
       foreach( $nutrients[$group] as $name => $attr )
       {
-        if( in_array( $name, ['short', 'unit', 'comment', 'per', 'amounts']))
+        if( in_array( $name, ['short', 'unit', 'per', 'comment', 'amounts']))
           continue;
 
-        $a = $attr['amounts'][0];      // TASK: (advanced) currently
+        $a = $attr['amounts'][0];      // TASK: (advanced) currently using first entry only
 
-        $summary[ $attr['short']] = [  // TASK: use unit for sth?
+        // $summary[ $attr['short']] = [
+        $this->model->set("nutrients.$nutrientsShort[$group].$attr[short]", [  // TASK: use unit for sth?
                                        // TASK: currently short is used as id, unify and use name?
           'name'  => $name,            
           'group' => $group,
@@ -162,11 +166,11 @@ class FoodsController extends ControllerBase
           'upper' => strpos($a['lower'], '%') === false
                   ?  $a['amount'] + $a['upper']
                   :  $a['amount'] + $a['amount'] * (floatval($a['upper']) / 100)   // TASK: prefer calc or just write the val?
-        ];
+        ]);
       }
     }
 
-    $this->summary = $summary;  // TASK: maybe just merge in model
+    // $this->summary = $summary;
 // */
 
     // All days tab
