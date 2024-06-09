@@ -6,8 +6,8 @@
 
 short:     amino
 unit:      mg
-comment:   "Increased need if doing sports"
 per:       day
+comment:   "Increased need if doing sports"
 amounts:   # currently we use the first entry hard coded only
 
   - criteria: { gender: male, age: 40, height: "*", weight: 70, workout: false }

@@ -152,8 +152,8 @@ Nutrient files (substances.yml and groups.yml)
 
 short:     # short name for group
 unit:      mg
-comment:   "Increased need if doing sports"
 per:       day
+comment:   "Increased need if doing sports"
 amounts:
 
   # same as below
@@ -162,23 +162,23 @@ amounts:
 
 B 12:
 
-  per:        day
-
   type:       methylcobalamin
   short:      B12
   unit:       mg
-
-  comment:    # Advantage
-  careful:    false
-  interactions:      
-  sideEffects:      
 
   per:        day
   times:      morning, ...
   how:        # bio availability
   limit:      # take how long
   break:      # min break time
+
+  comment:    # Advantage
+  careful:    false
+  interactions:      
+  sideEffects:      
+
   keeping:    "keep cool"
+
   amounts:
 
     # value mean all >= this, height might be used to fix weight

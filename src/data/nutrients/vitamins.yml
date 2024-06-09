@@ -14,10 +14,11 @@ B12:
   short:      B12
   unit:       
 
-  comment:    
-
   per:        day
   times:      
+
+  comment:    
+
   amounts:    # currently we use the first entry hard coded only
 
     - criteria: { gender: male, age: 40, height: "*", weight: 70 }
@@ -30,10 +31,11 @@ Vitamin E:
   short:      VitE
   unit:       mg
 
-  comment:    
-
   per:        day
   times:      
+
+  comment:    
+
   amounts:    # currently we use the first entry hard coded only
 
     - criteria: { gender: male, age: 40, height: "*", weight: 70 }
