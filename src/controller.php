@@ -15,15 +15,15 @@ class FoodsController extends ControllerBase
   use SaveDayEntriesAjaxController;
   use SaveFoodsAjaxController;
 
-  private bool $devMode;
+  private bool   $devMode;
 
-  private array  $recipes;
-  private array  $foods;
-  private string $foodsTxt;
-  private array  $layout;
+  private        $modelView;
   private string $dayEntriesTxt;
   private array  $dayEntries;
+  private string $foodsTxt;   // old
 
+  private array      $layout;
+  private array      $captions = [];
   private SimpleData $inlineHelp;
 
 
@@ -42,7 +42,20 @@ class FoodsController extends ControllerBase
   {
     $config = config::instance();
 
-    $this->devMode = $config->get('devMode');
+    $this->devMode    = $config->get('devMode');
+    $this->layout     = Yaml::parse( file_get_contents('data/layout.yml'));
+    $this->inlineHelp = new SimpleData( Yaml::parse( file_get_contents('misc/inline_help.yml')));
+
+
+    $this->dayEntriesTxt = trim( @file_get_contents('data/users/' . $config->get('user') . "/days/{$this->date}.tsv") ?: '', "\n");
+    $this->dayEntries    = parse_tsv( $this->dayEntriesTxt );
+
+    foreach( $this->dayEntries as $idx => $entry)
+      $this->dayEntries[$idx][7] = Yaml::parse( $this->dayEntries[$idx][7] );
+
+    $this->foodsTxt = file_get_contents('data/foods.yml');  // TASK: (advanced) we currently don't use the simple food edit
+
+    $this->modelView = new SimpleData();
 
     $nutrients['fattyAcids'] = Yaml::parse( file_get_contents('data/nutrients/fattyAcids.yml'));
     $nutrients['aminoAcids'] = Yaml::parse( file_get_contents('data/nutrients/aminoAcids.yml'));
@@ -59,22 +72,6 @@ class FoodsController extends ControllerBase
       'secondary'         => 'sec'
     ];
 
-    $this->foodsTxt = file_get_contents('data/foods.yml');
-    $this->foods    = Yaml::parse( $this->foodsTxt );
-
-    $this->recipes = [];
-
-    $this->layout = Yaml::parse( file_get_contents('data/layout.yml'));
-
-    $this->dayEntriesTxt = trim( @file_get_contents('data/users/' . $config->get('user') . "/days/{$this->date}.tsv") ?: '', "\n");
-    $this->dayEntries    = parse_tsv( $this->dayEntriesTxt );
-
-    foreach( $this->dayEntries as $idx => $entry)
-      $this->dayEntries[$idx][7] = Yaml::parse( $this->dayEntries[$idx][7] );
-
-    $this->inlineHelp = new SimpleData( Yaml::parse( file_get_contents('misc/inline_help.yml')));
-    $this->model      = new SimpleData();
-
 
     // This day tab
 
@@ -83,7 +80,7 @@ class FoodsController extends ControllerBase
 
     // make food list with amounts (model)
 
-    foreach( $this->foods as $food => $entry )
+    foreach( Yaml::parse( $this->foodsTxt ) as $food => $entry )
     {
       $entry['weight'] = trim( $entry['weight'], "mgl ");  // just for convenience, we don't need the unit here
 
@@ -137,7 +134,7 @@ class FoodsController extends ControllerBase
         $title = str_replace('.', ',', $amount);  // be compatible with amounts like 1.38
         $title = str_pad( $title, 5, ' ', STR_PAD_LEFT) . " $food";  // TASK: improve
 
-        $this->model->set("foods.$title", $perWeight);
+        $this->modelView->set("foods.$title", $perWeight);
       }
     }
 
@@ -148,7 +145,7 @@ class FoodsController extends ControllerBase
 
     foreach(['fattyAcids', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $group )
     {
-      $this->model->set("nutrients.$nutrientsShort[$group].name", $nutrients[$group]['name']);
+      $this->captions[ $nutrientsShort[$group]] = $nutrients[$group]['name'];
 
       foreach( $nutrients[$group] as $name => $attr )  // short is used as id
       {
@@ -157,7 +154,7 @@ class FoodsController extends ControllerBase
 
         $a = $attr['amounts'][0];      // TASK: use unit for sth?
 
-        $this->model->set("nutrients.$nutrientsShort[$group].$attr[short]", [
+        $this->modelView->set("nutrients.$nutrientsShort[$group].$attr[short]", [
                                        
           'name'  => $name,            // TASK: (advanced) currently using first entry only
           'group' => $group,

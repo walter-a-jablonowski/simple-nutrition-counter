@@ -3,24 +3,21 @@
 
   <!-- TASK: collapse or expand all btn -->
 
-  <?php foreach( $this->model->nutrients as $groupShort => $group ): ?>
+  <?php foreach( $this->modelView->nutrients as $groupShort => $group ): ?>
 
     <ul class="list-group">  <!-- TASK: alternative grid ins of list group -->
 
       <li class = "list-group-item d-flex justify-content-between align-items-center"
           style = "background-color: #e0e0e0;"
       >
-        <?= $group['name'] ?>
-        <a data-bs-toggle="collapse" href="#<?= $group['name'] ?>Collapse" class="text-body-secondary" role="button">
+        <?= $this->captions[$groupShort] ?>
+        <a data-bs-toggle="collapse" href="#<?= $groupShort ?>Collapse" class="text-body-secondary" role="button">
           <i class="bi bi-arrow-down-circle"></i>
         </a>
       </li>
       <li id="<?= $groupShort ?>Collapse" class="list-group-item collapse show">
 
-        <?php foreach( $group as $short => $data ):
-        
-          if( $short == 'name')  continue;  // group name
-        ?>
+        <?php foreach( $group as $short => $data ): ?>
 
           <div class     = "nutrients-entry mb-2"
               data-group = "<?= $groupShort ?>"

@@ -91,7 +91,7 @@
 
       <?php
       
-      foreach( $this->model->foods as $name => $entry):  // (TASK) recipes
+      foreach( $this->modelView->foods as $name => $entry):  // (TASK) recipes
     
         if( in_array( $name, $done))
           continue;

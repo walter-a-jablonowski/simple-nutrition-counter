@@ -11,7 +11,7 @@
     </button>
   </li>
   <!-- style   = "font-size: 1.5rem;"-->
-  <?php foreach( $this->model->foods as $food => $entry): ?>
+  <?php foreach( $this->modelView->foods as $food => $entry): ?>
   <?php
           // if( strpos( $food, 'Salt') !== false )  // DEBUG
           // if( $food === '1.38g Salt' )

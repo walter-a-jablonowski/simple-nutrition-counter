@@ -150,8 +150,8 @@ Nutrient files (substances.yml and groups.yml)
 
 # Nutrient group data
 
-short:                         # short name for group is used as unique id in daily files (file name is alternative id used in code)
-name:                          # long group name for display
+short:                         # short name used as short unique id in daily files (file name is alternative id used in code)
+name:                          # display name
 unit:      mg
 per:       day
 comment:   "Increased need if doing sports"
@@ -160,6 +160,7 @@ amounts:
   # same as below
 
 # Nutrients
+# no sub key for the list, just because a bit simpler (handled in code)
 
 B 12:                          # display name
 
