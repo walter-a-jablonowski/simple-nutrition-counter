@@ -18,7 +18,7 @@ B12:
 
   per:        day
   times:      
-  amounts:
+  amounts:    # currently we use the first entry hard coded only
 
     - criteria: { gender: male, age: 40, height: "*", weight: 70 }
       amount: 100 # TASK: dummy entry
@@ -34,7 +34,7 @@ Vitamin E:
 
   per:        day
   times:      
-  amounts:
+  amounts:    # currently we use the first entry hard coded only
 
     - criteria: { gender: male, age: 40, height: "*", weight: 70 }
       amount: 100 # TASK: dummy entry

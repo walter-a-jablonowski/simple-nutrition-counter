@@ -17,7 +17,7 @@ Calcium:
 
   per:        day
   times:     
-  amounts:
+  amounts:    # currently we use the first entry hard coded only
 
     - criteria: { gender: male, age: 40, height: "*", weight: 70 }
       amount: 100 # TASK: dummy entry
@@ -33,7 +33,7 @@ Magnesium:
 
   per:        day
   times:      
-  amounts:
+  amounts:    # currently we use the first entry hard coded only
 
     - criteria: { gender: male, age: 40, height: "*", weight: 70, workout: false }
       amount: 100 # TASK: dummy entry
@@ -52,7 +52,7 @@ Phosphor:
 
   per:        day
   times:      
-  amounts:
+  amounts:    # currently we use the first entry hard coded only
 
     - criteria: { gender: male, age: 40, height: "*", weight: 70 }
       amount: 100 # TASK: dummy entry
