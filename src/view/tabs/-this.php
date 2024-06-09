@@ -1,12 +1,18 @@
 <ul class="nav nav-tabs" role="tablist">
   <li class="nav-item" role="presentation">
-    <a class="nav-link active py-1 px-2 small" data-bs-toggle="tab" href="#inpPane" role="tab">This day</a>
+    <a class="nav-link active py-1 px-2 small" data-bs-toggle="tab" href="#dayPane" role="tab">
+      This day
+    </a>
   </li>
   <li class="nav-item" role="presentation">
-    <a href="#dayPane" class="nav-link py-1 px-2 small" data-bs-toggle="tab" role="tab">Summary</a>
+    <a href="#nutrientsPane" class="nav-link py-1 px-2 small" data-bs-toggle="tab" role="tab">
+      Nutrients
+    </a>
   </li>
   <li class="nav-item" role="presentation">
-    <a href="#lastDaysPane" class="nav-link py-1 px-2 small" data-bs-toggle="tab" role="tab">Last days</a>
+    <a href="#lastDaysPane" class="nav-link py-1 px-2 small" data-bs-toggle="tab" role="tab">
+      Last days
+    </a>
   </li>
 <!--
   <li class="nav-item" role="presentation">
@@ -21,12 +27,12 @@
 </ul>
 
 <div class="tab-content mt-3">
-  <div id="inpPane" class="tab-pane fade show active" role="tabpanel">
+  <div id="dayPane" class="tab-pane fade show active" role="tabpanel">
 
     <?php require( __DIR__ . '/edit/-this.php') ?>
 
   </div>
-  <div id="dayPane" class="tab-pane fade" role="tabpanel">
+  <div id="nutrientsPane" class="tab-pane fade" role="tabpanel">
 
     <?php require( __DIR__ . '/nutrients.php') ?>
 
