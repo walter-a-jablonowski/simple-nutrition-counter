@@ -4,6 +4,7 @@
 # -> usage see readme
 #
 
+short:     amino
 unit:      mg
 comment:   "Increased need if doing sports"
 per:       day
