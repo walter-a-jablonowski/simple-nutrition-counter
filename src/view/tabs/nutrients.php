@@ -1,13 +1,15 @@
 
 <div class="scrollable-list">
 
+  <!-- TASK: collapse or expand all btn -->
+
   <?php foreach( $this->model->nutrients as $groupShort => $group ): ?>
 
     <ul class="list-group">  <!-- TASK: alternative grid ins of list group -->
 
       <li class="list-group-item d-flex justify-content-between align-items-center">
         <a data-bs-toggle="collapse" href="#<?= $groupShort ?>Collapse" role="button">
-          <?= $groupShort ?>  <!-- TASK: use collapse on whole elem ? -->
+          <?= $groupShort ?>  <!-- TASK: long name, maybe bg color, rounded, use collapse on whole elem ? -->
         </a>
         <span>v</span>        <!-- TASK -->
       </li>
