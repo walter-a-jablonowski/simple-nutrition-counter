@@ -8,10 +8,10 @@
     <ul class="list-group">  <!-- TASK: alternative grid ins of list group -->
 
       <li class="list-group-item d-flex justify-content-between align-items-center">
-        <a data-bs-toggle="collapse" href="#<?= $groupShort ?>Collapse" role="button">
-          <?= $groupShort ?>  <!-- TASK: long name, maybe bg color, rounded, use collapse on whole elem ? -->
+        <?= $groupShort ?>  <!-- TASK: long name, maybe bg color, rounded -->
+        <a data-bs-toggle="collapse" href="#<?= $groupShort ?>Collapse" class="text-secondary" role="button">
+          <i class="bi bi-arrow-down-circle"></i>
         </a>
-        <span>v</span>        <!-- TASK -->
       </li>
       <li id="<?= $groupShort ?>Collapse" class="list-group-item collapse show">
 
