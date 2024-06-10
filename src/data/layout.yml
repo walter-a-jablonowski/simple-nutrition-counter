@@ -125,7 +125,7 @@ Fill up missing (color:):
 
   - (i): "... and supplements"
 
-  - Salt
+  # - Salt                      # TASK: removed for debugging layout
   - Amino misc                  # use left over
   - Amino Deca Muscle Gainer
   - Amino NaDuRia Pur

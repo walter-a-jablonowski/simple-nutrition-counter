@@ -4,7 +4,7 @@
   <!-- static #code/staticListEntries -->
   <!-- use diff entries in one line -->
 
-  <div class="col">
+  <div class="col-4">
 
     <div class="row">
       <div class="col-6 p-1" onclick="foodsCrl.newEntryBtn(event)">
@@ -43,16 +43,15 @@
 
   foreach( $this->layout as $groupName => $foodNames ):
 
-    if( $groupName == '(first_entries)' || is_array($foodNames))  // (i) entries
-      continue;
-
-    if( is_null($foodNames))  // no entry
+    if( $groupName == '(first_entries)' || is_null($foodNames))  // no entry
       continue;
   ?>
-    <div class="col">
+    <div class="col-4">
 
       <div class="row">
-        <div class="col-12 p-1 small">
+        <div class = "col-12 p-1 small"
+             style = "background-color: #e0e0e0;"
+        >
           <?= $groupName ?>
         </div>
       </div>
@@ -64,6 +63,9 @@
       
       foreach( $foodNames as $foodName ):
       
+        if( is_array($foodName))  // (i) entries
+          continue;
+
         $type = $this->modelView->has("recipes.$foodName") ? 'recipes' : 'foods';
         $amountData = $this->modelView->get("$type.$foodName");  // for debugging we need modify the key in controller (has amount in front)
 
@@ -106,10 +108,12 @@
   if( $all > count($done)):
   
   ?>
-    <div class="col">
+    <div class="col-4">
 
       <div class="row">
-        <div class="col-12 p-1 small">
+        <div class = "col-12 p-1 small"
+             style = "background-color: #e0e0e0;"
+        >
           Misc foods
         </div>
       </div>
