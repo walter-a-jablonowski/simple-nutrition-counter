@@ -1581,7 +1581,7 @@ Pizza Mag:
   price:             2.99
   weight:            900
   pieces:            3
-  usedAmounts:       [1]
+  usedAmounts:       ["1/4", "1/2", "1"]
 
   calories:          247
   nutritionalValues:
