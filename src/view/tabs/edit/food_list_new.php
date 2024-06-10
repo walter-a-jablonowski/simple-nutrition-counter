@@ -10,16 +10,31 @@
       <div class="col-6 p-1" onclick="foodsCrl.newEntryBtn(event)">
         Enter manually ...
       </div>
+    </div>
+    <div class="row">
       <div class="col-6 p-1" onclick="...">
         Expired food ...  <!-- TASK: make kind of X checkbox instead ? like [ My food |1|2|3| X ] -->
       </div>
-      <!-- TASK: currently used save btn -->
+    </div>
+    <!-- TASK: currently used save btn -->
 <!--
+    <div class="row">
       <div class="col-6 p-1" onclick="foodsCrl.saveDayEntriesBtnClick(event)">
         Save ...
       </div>
--->
     </div>
+-->
+    <!-- TASK: Coffee ... -->
+<!--
+  < ?php foreach( $this->layout['(first_entries)'] as $entry ): ?>
+
+    <div class="row">
+      <div class="col-6 p-1" onclick="foodsCrl.saveDayEntriesBtnClick(event)">
+        < ?= $entry ?>
+      </div>
+    </div>
+  < ?php endforeach; ?>
+-->
   </div>
 
   <?php

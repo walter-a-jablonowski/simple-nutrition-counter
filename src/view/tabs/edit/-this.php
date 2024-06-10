@@ -11,8 +11,8 @@
 <div class="row mt-2">
   <div class="col scrollable-list">
 
-    <?php require( __DIR__ . '/food_list.php') ?>
-    <?php // require( __DIR__ . '/food_list_new.php') ?>
+    <?php // require( __DIR__ . '/food_list.php') ?>
+    <?php require( __DIR__ . '/food_list_new.php') ?>
 
   </div>
 </div>
