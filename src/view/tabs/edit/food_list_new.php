@@ -45,55 +45,63 @@
 
     if( $groupName == '(first_entries)' || is_null($foodNames))  // no entry
       continue;
+    
+    $collapseId = str_replace(' ', '', $groupName);
   ?>
     <div class="col-4">
 
       <div class="row">
-        <div class = "col-12 p-1 small fw-bold"
+        <div class = "col-12 p-1 small fw-bold d-flex justify-content-between align-items-center"
              style = "background-color: #e0e0e0;"
         >
           <?= $groupName ?>
+          <a data-bs-toggle="collapse" href="#<?= $collapseId ?>Collapse" class="text-body-secondary" role="button">
+            <i class="bi bi-arrow-down-circle"></i>
+          </a>
         </div>
       </div>
 
-      <?php
+      <div id="<?= $collapseId ?>Collapse" class="collapse show">
 
-      // if( is_null($foodNames))
-      //   $debug = 'halt';
-      
-      foreach( $foodNames as $idx => $foodName ):
-      
-        if( strpos($idx, '@') === 0)  // attribs
-          continue;
+        <?php
 
-        $type = $this->modelView->has("recipes.$foodName") ? 'recipes' : 'foods';
-        $amountData = $this->modelView->get("$type.$foodName");  // for debugging we need modify the key in controller (has amount in front)
+        // if( is_null($foodNames))
+        //   $debug = 'halt';
+        
+        foreach( $foodNames as $idx => $foodName ):
+        
+          if( strpos($idx, '@') === 0)  // attribs
+            continue;
 
-        $done[] = $foodName;  // left over will be printed below (done = foods and recipes in a single list)
-      ?>
-        <div class="row">
-          <div class="col-6 p-2">
-            <?= $foodName ?>
-          </div>
-          <!-- TASK: Simplify in controller ? default -->
-          <?php foreach( $amountData as $amount => $data ): ?>  <!-- TASK: don't print more than 3 entries (maybe do in controller) -->
-            <div class   = "food-item col-2 p-1"
-                 onclick = "foodsCrl.foodItemClick(event)"
-                 data-food       = "<?= $foodName ?>"
-                 data-calories   = "<?= $data['calories'] ?>"
-                 data-nutrients  = "<?= htmlspecialchars( json_encode( $data['nutriVal'])) ?>"
-                 data-fattyacids = "<?= htmlspecialchars( dump_json( $data['fat'])) ?>"
-                 data-aminoacids = "<?= htmlspecialchars( dump_json( $data['amino'])) ?>"
-                 data-vitamins   = "<?= htmlspecialchars( dump_json( $data['vit'])) ?>"
-                 data-minerals   = "<?= htmlspecialchars( dump_json( $data['min'])) ?>"
-                 data-secondary  = "<?= htmlspecialchars( dump_json( $data['sec'])) ?>"
-                 data-price      = "<?= $data['price'] ?>"
-            >
-              <?= $amount ?>
+          $type = $this->modelView->has("recipes.$foodName") ? 'recipes' : 'foods';
+          $amountData = $this->modelView->get("$type.$foodName");  // for debugging we need modify the key in controller (has amount in front)
+
+          $done[] = $foodName;  // left over will be printed below (done = foods and recipes in a single list)
+        ?>
+          <div class="row">
+            <div class="col-6 p-2">
+              <?= $foodName ?>
             </div>
-          <?php endforeach; ?>
-        </div>
-      <?php endforeach; ?>
+            <!-- TASK: Simplify in controller ? default -->
+            <?php foreach( $amountData as $amount => $data ): ?>  <!-- TASK: don't print more than 3 entries (maybe do in controller) -->
+              <div class   = "food-item col-2 p-1"
+                  onclick = "foodsCrl.foodItemClick(event)"
+                  data-food       = "<?= $foodName ?>"
+                  data-calories   = "<?= $data['calories'] ?>"
+                  data-nutrients  = "<?= htmlspecialchars( json_encode( $data['nutriVal'])) ?>"
+                  data-fattyacids = "<?= htmlspecialchars( dump_json( $data['fat'])) ?>"
+                  data-aminoacids = "<?= htmlspecialchars( dump_json( $data['amino'])) ?>"
+                  data-vitamins   = "<?= htmlspecialchars( dump_json( $data['vit'])) ?>"
+                  data-minerals   = "<?= htmlspecialchars( dump_json( $data['min'])) ?>"
+                  data-secondary  = "<?= htmlspecialchars( dump_json( $data['sec'])) ?>"
+                  data-price      = "<?= $data['price'] ?>"
+              >
+                <?= $amount ?>
+              </div>
+            <?php endforeach; ?>
+          </div>
+        <?php endforeach; ?>
+      </div>
 
     </div>
   <?php endforeach; ?>
@@ -111,53 +119,58 @@
     <div class="col-4">
 
       <div class="row">
-        <div class = "col-12 p-1 small fw-bold"
+        <div class = "col-12 p-1 small fw-bold d-flex justify-content-between align-items-center"
              style = "background-color: #e0e0e0;"
         >
           Misc foods
+          <a data-bs-toggle="collapse" href="#miscCollapse" class="text-body-secondary" role="button">
+            <i class="bi bi-arrow-down-circle"></i>
+          </a>
         </div>
       </div>
 
-      <?php
-          // array_merge( array_keys( $this->modelView->get('recipes'))  // TASK
-      $all = array_keys( $this->modelView->get('foods'));
+      <div id="<?= $groupName ?>Collapse" class="collapse show">
+        <?php
+            // array_merge( array_keys( $this->modelView->get('recipes'))  // TASK
+        $all = array_keys( $this->modelView->get('foods'));
 
-      foreach( $all as $foodName ):
-    
-        if( in_array( $foodName, $done))
-          continue;
+        foreach( $all as $foodName ):
+      
+          if( in_array( $foodName, $done))
+            continue;
 
-        $type = $this->modelView->has("recipes.$foodName") ? 'recipes' : 'foods';
-        $amountData = $this->modelView->get("$type.$foodName");  // for debugging we need modify the key in controller (has amount in front)
-      ?>
-        <div class="row">
-          <div class="col-6 p-2">
-            <?= $foodName ?>
-          </div>
-          <!-- TASK: Simplify in controller ? default -->
-          <?php foreach( $amountData as $amount => $data ): ?>
-          <?php
-          
-            if( ! isset($data['nutriVal']))
-              $debug = 'halt';
-          ?>
-            <div class   = "food-item col-2 p-1"
-                 onclick = "foodsCrl.foodItemClick(event)"
-                 data-food       = "<?= $foodName ?>"
-                 data-calories   = "<?= $data['calories'] ?>"
-                 data-nutrients  = "<?= htmlspecialchars( json_encode( $data['nutriVal'])) ?>"
-                 data-fattyacids = "<?= htmlspecialchars( dump_json( $data['fat'])) ?>"
-                 data-aminoacids = "<?= htmlspecialchars( dump_json( $data['amino'])) ?>"
-                 data-vitamins   = "<?= htmlspecialchars( dump_json( $data['vit'])) ?>"
-                 data-minerals   = "<?= htmlspecialchars( dump_json( $data['min'])) ?>"
-                 data-secondary  = "<?= htmlspecialchars( dump_json( $data['sec'])) ?>"
-                 data-price      = "<?= $data['price'] ?>"
-            >
-              <?= $amount ?>
+          $type = $this->modelView->has("recipes.$foodName") ? 'recipes' : 'foods';
+          $amountData = $this->modelView->get("$type.$foodName");  // for debugging we need modify the key in controller (has amount in front)
+        ?>
+          <div class="row">
+            <div class="col-6 p-2">
+              <?= $foodName ?>
             </div>
-          <?php endforeach; ?>
-        </div>
-      <?php endforeach; ?>
+            <!-- TASK: Simplify in controller ? default -->
+            <?php foreach( $amountData as $amount => $data ): ?>
+            <?php
+            
+              if( ! isset($data['nutriVal']))
+                $debug = 'halt';
+            ?>
+              <div class   = "food-item col-2 p-1"
+                  onclick = "foodsCrl.foodItemClick(event)"
+                  data-food       = "<?= $foodName ?>"
+                  data-calories   = "<?= $data['calories'] ?>"
+                  data-nutrients  = "<?= htmlspecialchars( json_encode( $data['nutriVal'])) ?>"
+                  data-fattyacids = "<?= htmlspecialchars( dump_json( $data['fat'])) ?>"
+                  data-aminoacids = "<?= htmlspecialchars( dump_json( $data['amino'])) ?>"
+                  data-vitamins   = "<?= htmlspecialchars( dump_json( $data['vit'])) ?>"
+                  data-minerals   = "<?= htmlspecialchars( dump_json( $data['min'])) ?>"
+                  data-secondary  = "<?= htmlspecialchars( dump_json( $data['sec'])) ?>"
+                  data-price      = "<?= $data['price'] ?>"
+              >
+                <?= $amount ?>
+              </div>
+            <?php endforeach; ?>
+          </div>
+        <?php endforeach; ?>
+      </div>
     </div>
   <?php endif; ?>
 </div>
