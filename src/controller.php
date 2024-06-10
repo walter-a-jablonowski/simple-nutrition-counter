@@ -43,9 +43,8 @@ class FoodsController extends ControllerBase
     $config = config::instance();
 
     $this->devMode    = $config->get('devMode');
-    $this->layout     = Yaml::parse( file_get_contents('data/layout.yml'));
+    $this->layout     = parse_layout( Yaml::parse( file_get_contents('data/layout.yml')));
     $this->inlineHelp = new SimpleData( Yaml::parse( file_get_contents('misc/inline_help.yml')));
-
 
     $this->dayEntriesTxt = trim( @file_get_contents('data/users/' . $config->get('user') . "/days/{$this->date}.tsv") ?: '', "\n");
     $this->dayEntries    = parse_tsv( $this->dayEntriesTxt );

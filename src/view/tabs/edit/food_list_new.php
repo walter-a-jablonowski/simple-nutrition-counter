@@ -49,7 +49,7 @@
     <div class="col-4">
 
       <div class="row">
-        <div class = "col-12 p-1 small"
+        <div class = "col-12 p-1 small fw-bold"
              style = "background-color: #e0e0e0;"
         >
           <?= $groupName ?>
@@ -61,9 +61,9 @@
       // if( is_null($foodNames))
       //   $debug = 'halt';
       
-      foreach( $foodNames as $foodName ):
+      foreach( $foodNames as $idx => $foodName ):
       
-        if( is_array($foodName))  // (i) entries
+        if( strpos($idx, '@') === 0)  // attribs
           continue;
 
         $type = $this->modelView->has("recipes.$foodName") ? 'recipes' : 'foods';
@@ -111,7 +111,7 @@
     <div class="col-4">
 
       <div class="row">
-        <div class = "col-12 p-1 small"
+        <div class = "col-12 p-1 small fw-bold"
              style = "background-color: #e0e0e0;"
         >
           Misc foods

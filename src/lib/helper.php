@@ -1,5 +1,48 @@
 <?php
 
+function parse_layout( array $layout )
+{
+  $parsedLayout = [];
+
+  foreach( $layout as $key => $val )
+  {
+    $attribs = [];
+
+    // key attribs
+
+    if( preg_match('/\(([^)]+)\)/', $key, $a) && $key != '(first_entries)')
+    {
+      foreach( explode(',', $a[1]) as $attr )
+      {
+        [$left, $right] = explode(':', $attr);
+        $attribs[trim($left)] = trim($right);
+      }
+    }
+
+    // (i) entry
+
+    if( $val ) foreach( $val as $idx => $entry )
+    {
+      if( is_array($entry))
+      {
+        $attribs['(i)'] = $entry['(i)'];
+        unset($val[$idx]);
+      }
+    }
+
+    if( $key != '(first_entries)')
+      // $key = trim( str_replace("($key)", '', $key));
+      $key = trim( preg_replace('/\([^)]+\)/', '', $key));
+
+    $parsedLayout[$key] = $val;
+    
+    if( $attribs )
+      $parsedLayout[$key]['@abbribs'] = $attribs;
+  }
+  
+  return $parsedLayout;
+}
+
 function parse_tsv( $entriesTxt )
 {
   $r = [];
