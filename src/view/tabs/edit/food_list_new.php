@@ -58,12 +58,12 @@
       
       foreach( $entries as $name ):
       
-        $type  = isset( $this->recipes[$name] ) ? 'recipe' : 'food';
-        $entry = $this->modelView->get("$type.$name");
+        $type  = isset( $this->recipes[$name] ) ? 'recipes' : 'foods';
+        $entry = $this->modelView->get("$type.$name");  // TASK: currently there is an amount in front
 
         $done[] = $name;  // left over will be printed below (done = foods and recipes in a single list)
       ?>
-
+  
         <div class="row">
           <div class="col p-2">
             <?= $name ?>
