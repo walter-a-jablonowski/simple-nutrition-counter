@@ -30,11 +30,23 @@
 
 Nuts (color:):
 
-  # - (i): ...
-  # - head:
-  #   comment: ...
-  #   
-  # comment: ...  or use like this and str_replace(), could also keep the comment sign
+  # @attribs:       # TASK: either simplify, or use alternative design below
+  #   (i): ...
+  # 
+  # list:
+
+  # alternative:
+  # 
+  # - keep the comment sign
+  # - add @attrib
+  # - indent by comment sign
+
+  # attribs:  <-- @attrib: here
+  # 
+  # (i): ...  <-- replace comment with space
+  # ...         
+  # 
+  # list:
 
   - Cashew A
   - Cashew E
@@ -62,7 +74,7 @@ Veggie bowl (color:#e1e1e1, some:value):
   - Geb Bohnen
   - Chili vegan
 
-Third meal (color:):            # TASK: similar
+Third meal (color:):
 
   - Avocado                     # TASK: MOV, used kind of standalone
 
@@ -70,7 +82,6 @@ Third meal (color:):            # TASK: similar
 
 Legumes & greens (color:):      # Ingredients
 
-  # TASK: mov
   - (i): Ideal is veggie some chicken fish. We may also need fill up some energy from time to time (carbs).
 
   - Chick R Bio

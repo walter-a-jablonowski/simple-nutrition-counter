@@ -26,6 +26,8 @@ Calcium:
       lower:  5%
       upper:  5%
 
+# TASK: maybe we shoould use a list key here, a bit more easy
+
 Magnesium:
 
   short:      Mg
