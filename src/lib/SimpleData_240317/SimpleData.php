@@ -18,6 +18,12 @@ class SimpleData /*@*/
   }
 
 
+  public function has( string $key ) : bool
+  {
+    return ! is_null( $this->get( $key ));
+  }
+
+
   public function require( string $key )
   {
      $r = $this->get( $key );
