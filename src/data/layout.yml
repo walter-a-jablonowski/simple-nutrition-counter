@@ -26,153 +26,161 @@
 
 (first_entries):    # list of single entries that will be shown before nutrient groups
                     # see (TASK) add entries from layout group first_entries
-  - Coffee
+  list:
+
+    - Coffee
 
 Nuts (color:):
 
-  # @attribs:       # TASK: either simplify, or use alternative design below
-  #   (i): ...
-  # 
-  # list:
+  list:
 
-  # alternative:
-  # 
-  # - keep the comment sign
-  # - add @attrib
-  # - indent by comment sign
-
-  # attribs:  <-- @attrib: here
-  # 
-  # (i): ...  <-- replace comment with space
-  # ...         
-  # 
-  # list:
-
-  - Cashew A
-  - Cashew E
-  - Cashew N
-  - Cashew R Bio
-  - Erdn Salz N big
-  - Mandel N
-  - Mandel R Bio
-  - Nussmisch A
-  - Nussmisch A ger
-  - Nussmisch N
-  - Pistazien
-  - Walnuss R Bio
+    - Cashew A
+    - Cashew E
+    - Cashew N
+    - Cashew R Bio
+    - Erdn Salz N big
+    - Mandel N
+    - Mandel R Bio
+    - Nussmisch A
+    - Nussmisch A ger
+    - Nussmisch N
+    - Pistazien
+    - Walnuss R Bio
 
 Veggie bowl (color:#e1e1e1, some:value):
   
-  # - Veggie L                  # TASK
-  # - Veggie C
-  - Frosta Bratk                # acceptable occasionally
-  - Frosta Frikassee
-  - Frosta Gesch
-  - Frosta Paella
-  - Aldi Bratk
-  - Linsen vegan                # less good
-  - Geb Bohnen
-  - Chili vegan
+  list:
+
+    # - Veggie L                  # TASK
+    # - Veggie C
+    - Frosta Bratk                # acceptable occasionally
+    - Frosta Frikassee
+    - Frosta Gesch
+    - Frosta Paella
+    - Aldi Bratk
+    - Linsen vegan                # less good
+    - Geb Bohnen
+    - Chili vegan
 
 Third meal (color:):
 
-  - Avocado                     # TASK: MOV, used kind of standalone
+  list:
+
+    - Avocado                     # TASK: MOV, used kind of standalone
 
 # Misc meals (color:):
 
-Legumes & greens (color:):      # Ingredients
+Legumes & greens (color:):        # Ingredients
 
-  - (i): Ideal is veggie some chicken fish. We may also need fill up some energy from time to time (carbs).
+  (i): Ideal is veggie some chicken fish. We may also need fill up some energy from time to time (carbs).
 
-  - Chick R Bio
-  - Linsen R Bio
+  list:
 
-  - Brokkoli R
-  - Green beans R
-  - Gemüse R Bio
-  - Gemüse R                    # acceptable occasionally
-  - Artisch R viertel
-  - R Rüben N
+    - Chick R Bio
+    - Linsen R Bio
 
-Greens oil mushrooms (color:):  # Ingredients
+    - Brokkoli R
+    - Green beans R
+    - Gemüse R Bio
+    - Gemüse R                    # acceptable occasionally
+    - Artisch R viertel
+    - R Rüben N
 
-  - Oliven R Bio
-  - Olivenöl
-  - Öl
+Greens oil mushrooms (color:):    # Ingredients
 
-  - Kartoffeltaschen F          # less
-  - Kartoffel Wedges
-  - Pommes                      # acceptable
-  - Pommes R Bio        
-  - Kartoffel Wedges Bio
+  list:
 
-  - Champ mini ganz R
+    - Oliven R Bio
+    - Olivenöl
+    - Öl
 
-Fish, meat, misc (color:):      # Ingredients
+    - Kartoffeltaschen F          # less
+    - Kartoffel Wedges
+    - Pommes                      # acceptable
+    - Pommes R Bio        
+    - Kartoffel Wedges Bio
 
-  - Sardine                     # occasionally
-  - Fischst                     # acceptable occasionally
+    - Champ mini ganz R
 
-  - Salami R                    # less
-  - Lyoner R Bio        
+Fish, meat, misc (color:):        # Ingredients
 
-  - Pumpernickel R Bio          # occasionally
-  - Vollkorn Rhein R            # less
-  - Mehrkornbr
-  - Eiweißbr
+  list:
+
+    - Sardine                     # occasionally
+    - Fischst                     # acceptable occasionally
+
+    - Salami R                    # less
+    - Lyoner R Bio        
+
+    - Pumpernickel R Bio          # occasionally
+    - Vollkorn Rhein R            # less
+    - Mehrkornbr
+    - Eiweißbr
 
 A little taste (color:):
 
-  - (i): Add only a little per meal makes it far more tasty and keeps it healthy
+  (i): Add only a little per meal makes it far more tasty and keeps it healthy
 
-  - Patros 150                  # occasionally
-  - Patros W
-  - Frischk R Bio
-  - Bresso                      # less
-  - Bresso mini
-  - Philadelphia                # less
-  - Philadelphia mini
-  # - Salatsoße                 # (missing)
+  list:
+
+    - Patros 150                  # occasionally
+    - Patros W
+    - Frischk R Bio
+    - Bresso                      # less
+    - Bresso mini
+    - Philadelphia                # less
+    - Philadelphia mini
+    # - Salatsoße                 # (missing)
 
 Fill up missing (color:):
 
-  - (i): "... and supplements"
+  (i): "... and supplements"
 
-  # - Salt                      # TASK: removed for debugging layout
-  - Amino misc                  # use left over
-  - Amino Deca Muscle Gainer
-  - Amino NaDuRia Pur
-  - Riegel Seitenb Sch          # less
-  - Chips light
+  list:
 
-On the go (color:):
+    # - Salt                      # TASK: removed for debugging layout
+    - Amino misc                  # use left over
+    - Amino Deca Muscle Gainer
+    - Amino NaDuRia Pur
+    - Riegel Seitenb Sch          # less
+    - Chips light
 
-  - Falafel                     # occasionally
-  - Kfc Original
-  - Karamalz                    # less
-  - Cappuccino R
-  - Cappuccino Eni
-  - Riegel Deca Basic
+On the go (color:e0e0e0):
+
+  list:
+
+    - Falafel                     # occasionally
+    - Kfc Original
+    - Karamalz                    # less
+    - Cappuccino R
+    - Cappuccino Eni
+    - Riegel Deca Basic
 
 Micro candy or sugar less (color:):
 
-  - (i): "Reduce amount per day (effectively: don't buy more or you will eat it)"
+  (i): "Reduce amount per day (effectively: don't buy more or you will eat it)"
 
-  - Duplo                       # less
-  - Ferrero Kuesschen
-  - Ritter Sp 50%
+  list:
 
-Cheat day (color:):
+    - Duplo                       # less
+    - Ferrero Kuesschen
+    - Ritter Sp 50%
 
-  - Pizza Mag                   # less
-  - Mohnkuchen
-  - Donuts
+Cheat day (color:e0e0e0):
+
+  list:
+
+    - Pizza Mag                   # less
+    - Mohnkuchen
+    - Donuts
 
 Suppl, Brain tuning (color:):
 
-  - Milch H                     # less
-  - Ricola Zitronenm            # occasionally
+  list:
 
-  - Ritter Sp 81%               # used as supplements (currently)
+    - Milch H                     # less
+    - Ricola Zitronenm            # occasionally
 
-Misc expenses (color:):         # finance only
+    - Ritter Sp 81%               # used as supplements (currently)
+
+Misc expenses (color:e0e0e0):     # finance only

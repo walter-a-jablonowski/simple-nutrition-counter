@@ -1,6 +1,6 @@
 <?php
 
-function parse_layout( array $layout )
+function parse_layout( array $layout )  // TASK: (advanced) make reusable
 {
   $parsedLayout = [];
 
@@ -19,16 +19,15 @@ function parse_layout( array $layout )
       }
     }
 
-    // (i) entry
+    // content attribs
 
-    if( $val ) foreach( $val as $idx => $entry )
+    if( isset($val['(i)']))
     {
-      if( is_array($entry))
-      {
-        $attribs['(i)'] = $entry['(i)'];
-        unset($val[$idx]);
-      }
+      $attribs = array_merge( $attribs, ['(i)' => $val['(i)']]);
+      unset($val['(i)']);
     }
+
+    // r
 
     if( $key != '(first_entries)')
       // $key = trim( str_replace("($key)", '', $key));
@@ -37,7 +36,7 @@ function parse_layout( array $layout )
     $parsedLayout[$key] = $val;
     
     if( $attribs )
-      $parsedLayout[$key]['@abbribs'] = $attribs;
+      $parsedLayout[$key]['@attribs'] = $attribs;
   }
   
   return $parsedLayout;

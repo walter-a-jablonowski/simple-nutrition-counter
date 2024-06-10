@@ -1,4 +1,3 @@
-<!-- TASK: needs upd, layout.yml was changed -->
 <div id="foodList" class="row">
 
   <!-- static #code/staticListEntries -->
@@ -42,9 +41,9 @@
 
   $done = [];
 
-  foreach( $this->layout as $groupName => $foodNames ):
+  foreach( $this->layout as $groupName => $def ):
 
-    if( $groupName == '(first_entries)' || is_null($foodNames))  // no entry
+    if( $groupName == '(first_entries)' || ! ($def['list'] ?? []))  // no entry
       continue;
     
     $collapseId = str_replace(' ', '', $groupName);
@@ -69,11 +68,8 @@
         // if( is_null($foodNames))
         //   $debug = 'halt';
         
-        foreach( $foodNames as $idx => $foodName ):
+        foreach( $def['list'] as $idx => $foodName ):
         
-          if( strpos($idx, '@') === 0)  // attribs
-            continue;
-
           $type = $this->modelView->has("recipes.$foodName") ? 'recipes' : 'foods';
           $amountData = $this->modelView->get("$type.$foodName");  // for debugging we need modify the key in controller (has amount in front)
 
