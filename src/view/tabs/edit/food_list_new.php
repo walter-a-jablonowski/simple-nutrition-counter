@@ -11,19 +11,20 @@
         Enter manually ...
       </div>
     </div>
+    <span id="uiMsg"></span>
+<!--
     <div class="row">
       <div class="col-6 p-1" onclick="...">
-        Expired food ...  <!-- TASK: make kind of X checkbox instead ? like [ My food |1|2|3| X ] -->
+        Expired food ...  <!-- TASK: make kind of X checkbox instead ? like [ My food |1|2|3| X ] -- >
       </div>
     </div>
+-->
     <!-- TASK: currently used save btn -->
-<!--
     <div class="row">
       <div class="col-6 p-1" onclick="foodsCrl.saveDayEntriesBtnClick(event)">
         Save ...
       </div>
     </div>
--->
     <!-- TASK: Coffee ... -->
 <!--
   < ?php foreach( $this->layout['(first_entries)'] as $foodName ): ?>
