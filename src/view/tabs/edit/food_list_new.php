@@ -26,11 +26,11 @@
 -->
     <!-- TASK: Coffee ... -->
 <!--
-  < ?php foreach( $this->layout['(first_entries)'] as $entry ): ?>
+  < ?php foreach( $this->layout['(first_entries)'] as $foodName ): ?>
 
     <div class="row">
       <div class="col-6 p-1" onclick="foodsCrl.saveDayEntriesBtnClick(event)">
-        < ?= $entry ?>
+        < ?= $foodName ?>
       </div>
     </div>
   < ?php endforeach; ?>
@@ -41,7 +41,7 @@
 
   $done = [];
 
-  foreach( $this->layout as $groupName => $entries ):
+  foreach( $this->layout as $groupName => $foodNames ):
 
     if( $groupName == '(first_entries)') // TASK
       continue;
@@ -56,31 +56,30 @@
 
       <?php
       
-      foreach( $entries as $name ):
+      foreach( $foodNames as $foodName ):
       
-        $type  = isset( $this->recipes[$name] ) ? 'recipes' : 'foods';
-        $entry = $this->modelView->get("$type.$name");  // TASK: currently there is an amount in front
+        $type = $this->modelView->has("recipes.$foodName") ? 'recipes' : 'foods';
+        $amountData = $this->modelView->get("$type.$foodName");  // for debugging we need modify the key in controller (has amount in front)
 
-        $done[] = $name;  // left over will be printed below (done = foods and recipes in a single list)
+        $done[] = $foodName;  // left over will be printed below (done = foods and recipes in a single list)
       ?>
-  
         <div class="row">
           <div class="col p-2">
-            <?= $name ?>
+            <?= $foodName ?>
           </div>
           <!-- TASK: Simplify in controller ? default -->
-          <?php foreach( $entry['usedAmounts'] as $amount ): ?>
+          <?php foreach( $amountData as $amount => $data ): ?>
             <div class   = "food-item col p-1"
                  onclick = "foodsCrl.foodItemClick(event)"
-                 data-food       = "<?= $name ?>"
-                 data-calories   = "<?= $entry['calories'] ?>"
+                 data-food       = "<?= $foodName ?>"
+                 data-calories   = "<?= $data['calories'] ?>"
                  data-nutrients  = "<?= htmlspecialchars( json_encode( $data['nutriVal'])) ?>"
-                 data-fattyacids = "<?= htmlspecialchars( dump_json( $entry['fat'])) ?>"
-                 data-aminoacids = "<?= htmlspecialchars( dump_json( $entry['amino'])) ?>"
-                 data-vitamins   = "<?= htmlspecialchars( dump_json( $entry['vit'])) ?>"
-                 data-minerals   = "<?= htmlspecialchars( dump_json( $entry['min'])) ?>"
-                 data-secondary  = "<?= htmlspecialchars( dump_json( $entry['sec'])) ?>"
-                 data-price      = "<?= $entry['price'] ?>"
+                 data-fattyacids = "<?= htmlspecialchars( dump_json( $data['fat'])) ?>"
+                 data-aminoacids = "<?= htmlspecialchars( dump_json( $data['amino'])) ?>"
+                 data-vitamins   = "<?= htmlspecialchars( dump_json( $data['vit'])) ?>"
+                 data-minerals   = "<?= htmlspecialchars( dump_json( $data['min'])) ?>"
+                 data-secondary  = "<?= htmlspecialchars( dump_json( $data['sec'])) ?>"
+                 data-price      = "<?= $data['price'] ?>"
             >
               <?= $amount ?>
             </div>
@@ -93,7 +92,14 @@
 
   <!-- left over entries -->
 
-  <?php if( count($foods) > count($done)): ?>
+  <?php
+  
+  $all = count( $this->modelView->get('foods'));
+    // + count( $this->modelView->get('recipes'));  // TASK
+  
+  if( $all > count($done)):
+  
+  ?>
     <div class="col">
 
       <div class="row">
@@ -103,28 +109,34 @@
       </div>
 
       <?php
-      
-      foreach( $this->modelView->foods as $name => $entry):  // (TASK) recipes
+          // array_merge( array_keys( $this->modelView->get('recipes'))  // TASK
+      $all = array_keys( $this->modelView->get('foods'));
+
+      foreach( $all as $foodName ):
     
-        if( in_array( $name, $done))
+        if( in_array( $foodName, $done))
           continue;
+
+        $type = $this->modelView->has("recipes.$foodName") ? 'recipes' : 'foods';
+        $amountData = $this->modelView->get("$type.$foodName");  // for debugging we need modify the key in controller (has amount in front)
       ?>
         <div class="row">
           <div class="col p-2">
-            <?= $name ?>
+            <?= $foodName ?>
           </div>
-          <?php foreach( $entry['usedAmounts'] as $amount ): ?>
-            <div class    = "food-item col p-1"
-                  onclick = "foodsCrl.foodItemClick(event)"
-                  data-food       = "<?= $name ?>"
-                  data-calories   = "<?= $entry['calories'] ?>"
-                  data-nutrients  = "<?= htmlspecialchars( json_encode( $entry['nutriVal'])) ?>"
-                  data-fattyacids = "<?= htmlspecialchars( dump_json( $entry['fat'])) ?>"
-                  data-aminoacids = "<?= htmlspecialchars( dump_json( $entry['amino'])) ?>"
-                  data-vitamins   = "<?= htmlspecialchars( dump_json( $entry['vit'])) ?>"
-                  data-minerals   = "<?= htmlspecialchars( dump_json( $entry['min'])) ?>"
-                  data-secondary  = "<?= htmlspecialchars( dump_json( $entry['sec'])) ?>"
-                  data-price      = "<?= $entry['price'] ?>"
+          <!-- TASK: Simplify in controller ? default -->
+          <?php foreach( $amountData as $amount => $data ): ?>
+            <div class   = "food-item col p-1"
+                 onclick = "foodsCrl.foodItemClick(event)"
+                 data-food       = "<?= $foodName ?>"
+                 data-calories   = "<?= $data['calories'] ?>"
+                 data-nutrients  = "<?= htmlspecialchars( json_encode( $data['nutriVal'])) ?>"
+                 data-fattyacids = "<?= htmlspecialchars( dump_json( $data['fat'])) ?>"
+                 data-aminoacids = "<?= htmlspecialchars( dump_json( $data['amino'])) ?>"
+                 data-vitamins   = "<?= htmlspecialchars( dump_json( $data['vit'])) ?>"
+                 data-minerals   = "<?= htmlspecialchars( dump_json( $data['min'])) ?>"
+                 data-secondary  = "<?= htmlspecialchars( dump_json( $data['sec'])) ?>"
+                 data-price      = "<?= $data['price'] ?>"
             >
               <?= $amount ?>
             </div>
