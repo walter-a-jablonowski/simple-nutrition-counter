@@ -1871,6 +1871,32 @@ Salami R:
   lastUpd:           2024-02-18
   lastPriceUpd:      2024-03-23
 
+Sardine:
+
+  vendor:            Norma
+  acceptable:        occasionally
+  comment:           "careful cause of mercury"
+  ingredients:       "Sonnenblumenöl, Salz"
+
+  price:             
+  weight:            125
+  usedAmounts:       [1]
+
+  calories:          202
+  nutritionalValues:
+
+    fat:             11.6
+    saturatedFat:    3.4
+    carbs:           0.1
+    sugar:           0.1
+    fibre:           0.1
+    amino:           24.5
+    salt:            0.6
+
+  sources:           "Macro nutrients: pack"
+  lastUpd:           2024-06-10
+  lastPriceUpd:      
+
 Vollkorn Rhein R:
 
   vendor:            Rewe

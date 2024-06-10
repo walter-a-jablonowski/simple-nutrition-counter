@@ -108,16 +108,18 @@ Greens oil mushrooms (color:):  # Ingredients
 
   - Champ mini ganz R
 
-Misc, fish, meat (color:):      # Ingredients
+Fish, meat, misc (color:):      # Ingredients
+
+  - Sardine                     # occasionally
+  - Fischst                     # acceptable occasionally
+
+  - Salami R                    # less
+  - Lyoner R Bio        
 
   - Pumpernickel R Bio          # occasionally
   - Vollkorn Rhein R            # less
   - Mehrkornbr
   - Eiweißbr
-
-  - Fischst                     # acceptable occasionally
-  - Salami R                    # less
-  - Lyoner R Bio        
 
 A little taste (color:):
 
