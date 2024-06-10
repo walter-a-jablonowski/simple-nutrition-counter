@@ -31,7 +31,17 @@ class SimpleData /*@*/
 
   public function get( string $key )
   {
-    $r = $this->findKey( $key, $make = false );
+    // $r = $this->findKey( $key, $make = false );
+    $keys = explode('.', $key);  // has own impl cause we can't retrun null from a findKey() function when byref
+    $r = &$this->data;
+
+    foreach( $keys as $key )
+    {
+      if( ! isset( $r[$key]))
+        return null;
+
+      $r = &$r[$key];
+    }
 
     // Replace feature
 
@@ -61,7 +71,7 @@ class SimpleData /*@*/
 
   public function set( string $key, $value ) : void
   {
-    $elem = &$this->findKey( $key, $make = true );
+    $elem = &$this->findKey( $key );
     $elem = $value;
   }
 
@@ -81,14 +91,19 @@ class SimpleData /*@*/
   */
   public function push( string $key, $value )  /*@*/
   {
-    $elem = &$this->findKey( $key, $make = true );
+    $elem = &$this->findKey( $key );
     $elem[$sub][] = $value;
   }
 
 
   // Helper
 
-  private function &findKey( string $key, bool $make = true )
+  /*@
+  
+  we can't use make missing key return null cause error returning null when byref
+
+  */
+  private function &findKey( string $key/*, bool $make = true*/)  /*@*/
   {
     // TASK: keep in this class (reduce dependencies) or move
 
@@ -97,10 +112,10 @@ class SimpleData /*@*/
 
     foreach( $keys as $key )
     {
-      if( ! isset( $r[$key]) && $make)
+      if( ! isset( $r[$key])/*&& $make*/)
         $r[$key] = null;
-      elseif( ! isset( $r[$key]) && ! $make)
-        return null;
+      // elseif( ! isset( $r[$key]) && ! $make)
+      //   return null;
 
       $r = &$r[$key];
     }
