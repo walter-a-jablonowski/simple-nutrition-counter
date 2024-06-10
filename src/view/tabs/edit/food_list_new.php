@@ -72,12 +72,12 @@
         $done[] = $foodName;  // left over will be printed below (done = foods and recipes in a single list)
       ?>
         <div class="row">
-          <div class="col p-2">
+          <div class="col-6 p-2">
             <?= $foodName ?>
           </div>
           <!-- TASK: Simplify in controller ? default -->
-          <?php foreach( $amountData as $amount => $data ): ?>
-            <div class   = "food-item col p-1"
+          <?php foreach( $amountData as $amount => $data ): ?>  <!-- TASK: don't print more than 3 entries (maybe do in controller) -->
+            <div class   = "food-item col-2 p-1"
                  onclick = "foodsCrl.foodItemClick(event)"
                  data-food       = "<?= $foodName ?>"
                  data-calories   = "<?= $data['calories'] ?>"
@@ -131,7 +131,7 @@
         $amountData = $this->modelView->get("$type.$foodName");  // for debugging we need modify the key in controller (has amount in front)
       ?>
         <div class="row">
-          <div class="col p-2">
+          <div class="col-6 p-2">
             <?= $foodName ?>
           </div>
           <!-- TASK: Simplify in controller ? default -->
@@ -141,7 +141,7 @@
             if( ! isset($data['nutriVal']))
               $debug = 'halt';
           ?>
-            <div class   = "food-item col p-1"
+            <div class   = "food-item col-2 p-1"
                  onclick = "foodsCrl.foodItemClick(event)"
                  data-food       = "<?= $foodName ?>"
                  data-calories   = "<?= $data['calories'] ?>"
