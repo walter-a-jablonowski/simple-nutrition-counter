@@ -43,7 +43,10 @@
 
   foreach( $this->layout as $groupName => $foodNames ):
 
-    if( $groupName == '(first_entries)') // TASK
+    if( $groupName == '(first_entries)' || is_array($foodNames))  // (i) entries
+      continue;
+
+    if( is_null($foodNames))  // no entry
       continue;
   ?>
     <div class="col">
@@ -55,6 +58,9 @@
       </div>
 
       <?php
+
+      // if( is_null($foodNames))
+      //   $debug = 'halt';
       
       foreach( $foodNames as $foodName ):
       
@@ -126,6 +132,11 @@
           </div>
           <!-- TASK: Simplify in controller ? default -->
           <?php foreach( $amountData as $amount => $data ): ?>
+          <?php
+          
+            if( ! isset($data['nutriVal']))
+              $debug = 'halt';
+          ?>
             <div class   = "food-item col p-1"
                  onclick = "foodsCrl.foodItemClick(event)"
                  data-food       = "<?= $foodName ?>"
