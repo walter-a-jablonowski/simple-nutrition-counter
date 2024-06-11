@@ -42,7 +42,7 @@
 
       <div class="row">
         <div class = "col-12 p-1 small fw-bold d-flex justify-content-between align-items-center"
-             style = "background-color: #e0e0e0;"
+             style = "background-color: <?= $def['@attribs']['color'] ?? '#e0e0e0' ?>;"
         >
           <?= $groupName ?>
           <a data-bs-toggle="collapse" href="#<?= $collapseId ?>Collapse" class="text-body-secondary" role="button">

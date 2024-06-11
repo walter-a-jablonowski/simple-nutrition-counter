@@ -22,6 +22,7 @@
 #   list:
 #     - ...
 #
+                                            # Color groups
 
 (first_entries):    # list of single entries that will be shown before nutrient groups
                     # see (TASK) add entries from layout group first_entries
@@ -29,7 +30,7 @@
 
     - Coffee
 
-Nuts (color:):
+Nuts (color:#ffa500):                       # Meals  # TASK: on the go diff shade
 
   list:
 
@@ -46,7 +47,7 @@ Nuts (color:):
     - Pistazien
     - Walnuss R Bio
 
-Veggie bowl (color:#e1e1e1, some:value):
+Veggie bowl (color:#ffa500):
   
   list:
 
@@ -61,7 +62,7 @@ Veggie bowl (color:#e1e1e1, some:value):
     - Geb Bohnen
     - Chili vegan
 
-Third meal (color:):
+Third meal (color:#ffa500):
 
   list:
 
@@ -69,7 +70,7 @@ Third meal (color:):
 
 # Misc meals (color:):
 
-Legumes & greens (color:):        # Ingredients
+Legumes & greens (color:#32cd32):           # Ingredients
 
   (i): Ideal is veggie some chicken fish. We may also need fill up some energy from time to time (carbs).
 
@@ -85,7 +86,7 @@ Legumes & greens (color:):        # Ingredients
     - Artisch R viertel
     - R Rüben N
 
-Greens oil mushrooms (color:):    # Ingredients
+Greens oil mushrooms (color:#32cd32):
 
   list:
 
@@ -101,7 +102,7 @@ Greens oil mushrooms (color:):    # Ingredients
 
     - Champ mini ganz R
 
-Fish, meat, misc (color:):        # Ingredients
+Fish, meat, misc (color:#32cd32):
 
   list:
 
@@ -116,7 +117,7 @@ Fish, meat, misc (color:):        # Ingredients
     - Mehrkornbr
     - Eiweißbr
 
-A little taste (color:):
+A little taste (color:#32cd32):
 
   (i): Add only a little per meal makes it far more tasty and keeps it healthy
 
@@ -131,7 +132,7 @@ A little taste (color:):
     - Philadelphia mini
     # - Salatsoße                 # (missing)
 
-Fill up missing (color:):
+Fill up missing (color:#32cd32):
 
   (i): "... and supplements"
 
@@ -144,7 +145,17 @@ Fill up missing (color:):
     - Riegel Seitenb Sch          # less
     - Chips light
 
-On the go (color:e0e0e0):
+Micro candy or sugar less (color:#ff69b4):  # Candy
+
+  (i): "Reduce amount per day (effectively: don't buy more or you will eat it)"
+
+  list:
+
+    - Duplo                       # less
+    - Ferrero Kuesschen
+    - Ritter Sp 50%
+
+On the go (color:#ffa500):                  # Meals (less often)
 
   list:
 
@@ -155,17 +166,7 @@ On the go (color:e0e0e0):
     - Cappuccino Eni
     - Riegel Deca Basic
 
-Micro candy or sugar less (color:):
-
-  (i): "Reduce amount per day (effectively: don't buy more or you will eat it)"
-
-  list:
-
-    - Duplo                       # less
-    - Ferrero Kuesschen
-    - Ritter Sp 50%
-
-Cheat day (color:e0e0e0):
+Cheat day (color:#ffa500):
 
   list:
 
@@ -173,7 +174,7 @@ Cheat day (color:e0e0e0):
     - Mohnkuchen
     - Donuts
 
-Suppl, Brain tuning (color:):
+Suppl, Brain tuning (color:#8a2be2):        # Suppl
 
   list:
 
@@ -182,4 +183,4 @@ Suppl, Brain tuning (color:):
 
     - Ritter Sp 81%               # used as supplements (currently)
 
-Misc expenses (color:e0e0e0):     # finance only
+Misc expenses (color:#e0e0e0):              # Finance only
