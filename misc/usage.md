@@ -158,33 +158,33 @@ amounts:
 
   # same as below
 
-# Nutrients
-# no sub key for the list, just because a bit simpler (handled in code)
 
-B 12:                          # display name
+substances:                      # (required)
 
-  type:       methylcobalamin  # sub type
-  short:      B12              # short name is used as unique id over all files
-  unit:       mg
+  B 12:                          # display name
 
-  per:        day
-  times:      morning, ...
-  how:                         # bio availability
-  limit:                       # take how long
-  break:                       # min break time
+    type:       methylcobalamin  # sub type
+    short:      B12              # short name is used as unique id over all files
+    unit:       mg
 
-  comment:    # Advantage
-  careful:    false
-  interactions:      
-  sideEffects:      
+    per:        day
+    times:      morning, ...
+    how:                         # bio availability
+    limit:                       # take how long
+    break:                       # min break time
 
-  keeping:    "keep cool"
+    comment:    # Advantage
+    careful:    false
+    interactions:      
+    sideEffects:      
 
-  amounts:
+    keeping:    "keep cool"
 
-    # value mean all >= this, height might be used to fix weight
-    - criteria: { gender: male , age: 40 , height: "*" , weight: 70, workout: false }
-      amount:
-      lower:  4%  # summary view still is green progress if within these bounds
-      upper:  8   # percent for some defaut value, number for precise (max is added to amount)
+    amounts:
+
+      # value mean all >= this, height might be used to fix weight
+      - criteria: { gender: male , age: 40 , height: "*" , weight: 70, workout: false }
+        amount:
+        lower:  4%  # summary view still is green progress if within these bounds
+        upper:  8   # percent for some defaut value, number for precise (max is added to amount)
 ```

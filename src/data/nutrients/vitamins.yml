@@ -9,37 +9,39 @@ name:         Vitamins
 unit:         
 comment:      ""
 
-B12:
+substances:
 
-  type:       methylcobalamin
-  short:      B12
-  unit:       
+  B12:
 
-  per:        day
-  times:      
+    type:       methylcobalamin
+    short:      B12
+    unit:       
 
-  comment:    
+    per:        day
+    times:      
 
-  amounts:    # currently we use the first entry hard coded only
+    comment:    
 
-    - criteria: { gender: male, age: 40, height: "*", weight: 70 }
-      amount: 100 # TASK: dummy entry
-      lower:  5%
-      upper:  5%
+    amounts:    # currently we use the first entry hard coded only
 
-Vitamin E:
+      - criteria: { gender: male, age: 40, height: "*", weight: 70 }
+        amount: 100 # TASK: dummy entry
+        lower:  5%
+        upper:  5%
 
-  short:      VitE
-  unit:       mg
+  Vitamin E:
 
-  per:        day
-  times:      
+    short:      VitE
+    unit:       mg
 
-  comment:    
+    per:        day
+    times:      
 
-  amounts:    # currently we use the first entry hard coded only
+    comment:    
 
-    - criteria: { gender: male, age: 40, height: "*", weight: 70 }
-      amount: 100 # TASK: dummy entry
-      lower:  5%
-      upper:  5%
+    amounts:    # currently we use the first entry hard coded only
+
+      - criteria: { gender: male, age: 40, height: "*", weight: 70 }
+        amount: 100 # TASK: dummy entry
+        lower:  5%
+        upper:  5%

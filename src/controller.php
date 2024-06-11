@@ -74,6 +74,8 @@ class FoodsController extends ControllerBase
 
     // This day tab
 
+    // TASK: make somewhat more logical, e.g. rn $entry -> $food or $foodEntry
+
     // we pre calc all values (model data is a view)
     // cause it's simpler for recipes and less js code
 
@@ -124,7 +126,7 @@ class FoodsController extends ControllerBase
               //   $debug = 'halt';
 
               $short = $group === 'nutritionalValues' ? $name
-                     : $nutrients[$group][$name]['short'];
+                     : $nutrients[$group]['substances'][$name]['short'];
 
               $perWeight[$sgroup][$short] = round( $value * ($weight / 100), 1);
             }
@@ -140,22 +142,20 @@ class FoodsController extends ControllerBase
         else
           $this->modelView->set("foods.$food.$amount", $perWeight);  // for debugging new layout
       }
+
+      $debug = 'halt';
     }
 
 
-    // Summary tab
-    // TASK: make model usage somewhat more logical
+    // Nutrients tab
     // TASK: group vals
 
     foreach(['fattyAcids', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $group )
     {
       $this->captions[ $nutrientsShort[$group]] = $nutrients[$group]['name'];
 
-      foreach( $nutrients[$group] as $name => $attr )  // short is used as id
+      foreach( $nutrients[$group]['substances'] as $name => $attr )  // short is used as id
       {
-        if( in_array( $name, ['short', 'name', 'unit', 'per', 'comment', 'amounts']))
-          continue;
-
         $a = $attr['amounts'][0];      // TASK: use unit for sth?
 
         $this->modelView->set("nutrients.$nutrientsShort[$group].$attr[short]", [

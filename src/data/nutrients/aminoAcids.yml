@@ -20,3 +20,5 @@ amounts:   # currently we use the first entry hard coded only
     amount: 100 # TASK: dummy entry # 120
     lower:  5%
     upper:  5%
+
+substances: []
