@@ -231,11 +231,11 @@ class FoodsEventController
       salt:      nutritionalValues.salt,
       price:     price,
       nutrients: {
-        fat:   JSON.parse( target.dataset.fattyacids),
-        amino: JSON.parse( target.dataset.aminoacids),
-        vit:   JSON.parse( target.dataset.vitamins),
-        min:   JSON.parse( target.dataset.minerals),
-        sec:   JSON.parse( target.dataset.secondary)
+        fat:   JSON.parse( target.dataset.fattyacids ),
+        amino: JSON.parse( target.dataset.aminoacids ),
+        vit:   JSON.parse( target.dataset.vitamins ),
+        min:   JSON.parse( target.dataset.minerals ),
+        sec:   JSON.parse( target.dataset.secondary )
       }
     }
 

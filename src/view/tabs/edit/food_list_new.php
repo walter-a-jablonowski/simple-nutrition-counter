@@ -72,16 +72,16 @@
             <!-- TASK: Simplify in controller ? default -->
             <?php foreach( $amountData as $amount => $data ): ?>  <!-- TASK: don't print more than 3 entries (maybe do in controller) -->
               <div class   = "food-item col-2 p-1"
-                  onclick = "foodsCrl.foodItemClick(event)"
-                  data-food       = "<?= $foodName ?>"
-                  data-calories   = "<?= $data['calories'] ?>"
-                  data-nutrients  = "<?= htmlspecialchars( json_encode( $data['nutriVal'])) ?>"
-                  data-fattyacids = "<?= htmlspecialchars( dump_json( $data['fat'])) ?>"
-                  data-aminoacids = "<?= htmlspecialchars( dump_json( $data['amino'])) ?>"
-                  data-vitamins   = "<?= htmlspecialchars( dump_json( $data['vit'])) ?>"
-                  data-minerals   = "<?= htmlspecialchars( dump_json( $data['min'])) ?>"
-                  data-secondary  = "<?= htmlspecialchars( dump_json( $data['sec'])) ?>"
-                  data-price      = "<?= $data['price'] ?>"
+                   onclick = "foodsCrl.foodItemClick(event)"
+                   data-food       = "<?= $foodName ?>"
+                   data-calories   = "<?= $data['calories'] ?>"
+                   data-nutritionalvalues = "<?= htmlspecialchars( json_encode( $data['nutriVal'])) ?>"
+                   data-fattyacids = "<?= htmlspecialchars( dump_json( $data['fat'])) ?>"
+                   data-aminoacids = "<?= htmlspecialchars( dump_json( $data['amino'])) ?>"
+                   data-vitamins   = "<?= htmlspecialchars( dump_json( $data['vit'])) ?>"
+                   data-minerals   = "<?= htmlspecialchars( dump_json( $data['min'])) ?>"
+                   data-secondary  = "<?= htmlspecialchars( dump_json( $data['sec'])) ?>"
+                   data-price      = "<?= $data['price'] ?>"
               >
                 <?= $amount ?>
               </div>
@@ -141,16 +141,16 @@
                 $debug = 'halt';
             ?>
               <div class   = "food-item col-2 p-1"
-                  onclick = "foodsCrl.foodItemClick(event)"
-                  data-food       = "<?= $foodName ?>"
-                  data-calories   = "<?= $data['calories'] ?>"
-                  data-nutrients  = "<?= htmlspecialchars( json_encode( $data['nutriVal'])) ?>"
-                  data-fattyacids = "<?= htmlspecialchars( dump_json( $data['fat'])) ?>"
-                  data-aminoacids = "<?= htmlspecialchars( dump_json( $data['amino'])) ?>"
-                  data-vitamins   = "<?= htmlspecialchars( dump_json( $data['vit'])) ?>"
-                  data-minerals   = "<?= htmlspecialchars( dump_json( $data['min'])) ?>"
-                  data-secondary  = "<?= htmlspecialchars( dump_json( $data['sec'])) ?>"
-                  data-price      = "<?= $data['price'] ?>"
+                   onclick = "foodsCrl.foodItemClick(event)"
+                   data-food       = "<?= $foodName ?>"
+                   data-calories   = "<?= $data['calories'] ?>"
+                   data-nutritionalvalues = "<?= htmlspecialchars( json_encode( $data['nutriVal'])) ?>"
+                   data-fattyacids = "<?= htmlspecialchars( dump_json( $data['fat'])) ?>"
+                   data-aminoacids = "<?= htmlspecialchars( dump_json( $data['amino'])) ?>"
+                   data-vitamins   = "<?= htmlspecialchars( dump_json( $data['vit'])) ?>"
+                   data-minerals   = "<?= htmlspecialchars( dump_json( $data['min'])) ?>"
+                   data-secondary  = "<?= htmlspecialchars( dump_json( $data['sec'])) ?>"
+                   data-price      = "<?= $data['price'] ?>"
               >
                 <?= $amount ?>
               </div>
