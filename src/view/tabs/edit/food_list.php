@@ -38,7 +38,7 @@
     
     $collapseId = str_replace(' ', '', $groupName);
   ?>
-    <div class="col-12 col-md-6 col-lg-4 col-xxl-3">
+    <div class="col-12 col-md-6 col-lg-4 col-xxl-3">  <!-- TASK: use an outer container for the padding -->
 
       <div class="row">
         <div class = "col-12 ms-1 p-1 pe-2 small fw-bold d-flex justify-content-between align-items-center"
