@@ -22,15 +22,15 @@
 #   list:
 #     - ...
 #
-                                            # Color groups
+                                     # Color groups
 
-(first_entries):    # list of single entries that will be shown before nutrient groups
-                    # see (TASK) add entries from layout group first_entries
+(first_entries):                     # list of single entries that will be shown before nutrient groups
+                                     # see (TASK) add entries from layout group first_entries
   list:
 
     - Coffee
 
-Nuts (color:#ffa500):                       # Meals  # TASK: on the go diff shade
+Nuts (color:#ffa500):                # Meals  # TASK: on the go diff shade
 
   list:
 
@@ -51,14 +51,14 @@ Veggie bowl (color:#ffa500):
   
   list:
 
-    # - Veggie L                  # TASK
+    # - Veggie L                     # TASK
     # - Veggie C
-    - Frosta Bratk                # acceptable occasionally
+    - Frosta Bratk                   # acceptable occasionally
     - Frosta Frikassee
     - Frosta Gesch
     - Frosta Paella
     - Aldi Bratk
-    - Linsen vegan                # less good
+    - Linsen vegan                   # less good
     - Geb Bohnen
     - Chili vegan
 
@@ -66,11 +66,11 @@ Third meal (color:#ffa500):
 
   list:
 
-    - Avocado                     # TASK: MOV, used kind of standalone
+    - Avocado                       # TASK: MOV, used kind of standalone
 
 # Misc meals (color:):
 
-Legumes & greens (color:#32cd32):           # Ingredients
+Legumes & greens (color:#32cd32):    # Ingredients
 
   (i): Ideal is veggie some chicken fish. We may also need fill up some energy from time to time (carbs).
 
@@ -82,7 +82,8 @@ Legumes & greens (color:#32cd32):           # Ingredients
     - Brokkoli R
     - Green beans R
     - Gemüse R Bio
-    - Gemüse R                    # acceptable occasionally
+    - Gemüse A
+    - Gemüse R                       # acceptable occasionally
     - Artisch R viertel
     - R Rüben N
 
@@ -94,26 +95,30 @@ Greens oil mushrooms (color:#32cd32):
     - Olivenöl
     - Öl
 
-    - Kartoffeltaschen F          # less
+    - Kartoffeltaschen F             # less
     - Kartoffel Wedges
-    - Pommes                      # acceptable
+    - Pommes                         # acceptable
     - Pommes R Bio        
     - Kartoffel Wedges Bio
 
     - Champ mini ganz R
+    - Champ N
 
 Fish, meat, misc (color:#32cd32):
 
   list:
 
-    - Sardine                     # occasionally
-    - Fischst                     # acceptable occasionally
+    - Sardine                        # occasionally
+    - Fischst                        # acceptable occasionally
 
-    - Salami R                    # less
+    - Salami R                       # less
     - Lyoner R Bio        
 
-    - Pumpernickel R Bio          # occasionally
-    - Vollkorn Rhein R            # less
+    - Käse Gr Sch (all)
+    - Käse Gr W (all)
+
+    - Pumpernickel R Bio             # occasionally
+    - Vollkorn Rhein R               # less
     - Mehrkornbr
     - Eiweißbr
 
@@ -123,14 +128,14 @@ A little taste (color:#32cd32):
 
   list:
 
-    - Patros 150                  # occasionally
+    - Patros 150                     # occasionally
     - Patros W
     - Frischk R Bio
-    - Bresso                      # less
+    - Bresso                         # less
     - Bresso mini
-    - Philadelphia                # less
+    - Philadelphia                   # less
     - Philadelphia mini
-    # - Salatsoße                 # (missing)
+    # - Salatsoße                    # (missing)
 
 Fill up missing (color:#32cd32):
 
@@ -138,11 +143,11 @@ Fill up missing (color:#32cd32):
 
   list:
 
-    # - Salt                      # TASK: removed for debugging layout
-    - Amino misc                  # use left over
+    # - Salt                         # TASK: removed for debugging layout
+    - Amino misc                     # use left over
     - Amino Deca Muscle Gainer
     - Amino NaDuRia Pur
-    - Riegel Seitenb Sch          # less
+    - Riegel Seitenb Sch             # less
     - Chips light
 
 Micro candy or sugar less (color:#ff69b4):  # Candy
@@ -151,17 +156,17 @@ Micro candy or sugar less (color:#ff69b4):  # Candy
 
   list:
 
-    - Duplo                       # less
+    - Duplo                          # less
     - Ferrero Kuesschen
     - Ritter Sp 50%
 
-On the go (color:#ffa500):                  # Meals (less often)
+On the go (color:#ffa500):           # Meals (less often)
 
   list:
 
-    - Falafel                     # occasionally
+    - Falafel                        # occasionally
     - Kfc Original
-    - Karamalz                    # less
+    - Karamalz                       # less
     - Cappuccino R
     - Cappuccino Eni
     - Riegel Deca Basic
@@ -170,17 +175,18 @@ Cheat day (color:#ffa500):
 
   list:
 
-    - Pizza Mag                   # less
+    - Pizza Mag                      # less
     - Mohnkuchen
     - Donuts
 
-Suppl, Brain tuning (color:#8a2be2):        # Suppl
+Suppl, Brain tuning (color:#8a2be2):  # Suppl
 
   list:
 
-    - Milch H                     # less
-    - Ricola Zitronenm            # occasionally
+    - Milch H                        # less
+    - Ricola Zitronenm               # occasionally
+    - Ricola Zitronenm mini
 
-    - Ritter Sp 81%               # used as supplements (currently)
+    - Ritter Sp 81%                  # used as supplements (currently)
 
-Misc expenses (color:#e0e0e0):              # Finance only
+Misc expenses (color:#e0e0e0):       # Finance only
