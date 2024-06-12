@@ -10,15 +10,7 @@
 <div class="row mt-2">
   <div class="col scrollable-list">
 
-    <?php
-    
-      if( ! $this->devMode ):
-        require( __DIR__ . '/food_list.php');
-      else:
-        require( __DIR__ . '/food_list_new.php');  // also use one line in controller (see "for debugging new layout")
-      endif;
-
-    ?>
+    <?php require( __DIR__ . '/food_list.php'); ?>
 
   </div>
 </div>

@@ -135,15 +135,7 @@ class FoodsController extends ControllerBase
           }
         }
 
-        if( ! $this->devMode )                      // new layout
-        {
-          $title = str_replace('.', ',', $amount);  // be compatible with amounts like 1.38
-          $title = str_pad( $title, 5, ' ', STR_PAD_LEFT) . " $foodName";
-
-          $this->modelView->set("foods.$title", $perWeight);
-        }
-        else
-          $this->modelView->set("foods.$foodName.$amount", $perWeight);  // for debugging new layout
+        $this->modelView->set("foods.$foodName.$amount", $perWeight);
       }
 
       // $debug = 'halt';  // DEBUG
