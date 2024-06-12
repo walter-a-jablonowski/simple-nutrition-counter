@@ -45,7 +45,7 @@
 <!--
   <div class="tab-pane fade" id="foodsPane" role="tabpanel">
 
-    < ?php require( __DIR__ . '/foods.php') ?>
+    < ?php require( __DIR__ . '/foods.php')  // data out commented in controller ?>
 
   </div>
 -->

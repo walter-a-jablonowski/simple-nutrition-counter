@@ -20,7 +20,7 @@ class FoodsController extends ControllerBase
   private        $modelView;
   private string $dayEntriesTxt;
   private array  $dayEntries;
-  private string $foodsTxt;   // old
+  // private string $foodsTxt;   // old
 
   private array      $layout;
   private array      $captions = [];
@@ -52,15 +52,14 @@ class FoodsController extends ControllerBase
     foreach( $this->dayEntries as $idx => $entry)
       $this->dayEntries[$idx][7] = Yaml::parse( $this->dayEntries[$idx][7] );
 
-    $this->foodsTxt = file_get_contents('data/foods.yml');  // TASK: (advanced) we currently don't use the simple food edit
-
+    // $this->foodsTxt = file_get_contents('data/foods.yml');  // old
     $this->modelView = new SimpleData();
 
-    $nutrients['fattyAcids'] = Yaml::parse( file_get_contents('data/nutrients/fattyAcids.yml'));
-    $nutrients['aminoAcids'] = Yaml::parse( file_get_contents('data/nutrients/aminoAcids.yml'));
-    $nutrients['vitamins']   = Yaml::parse( file_get_contents('data/nutrients/vitamins.yml'));
-    $nutrients['minerals']   = Yaml::parse( file_get_contents('data/nutrients/minerals.yml'));
-    $nutrients['secondary']  = Yaml::parse( file_get_contents('data/nutrients/secondary.yml'));
+    $nutrientsModel['fattyAcids'] = Yaml::parse( file_get_contents('data/nutrients/fattyAcids.yml'));
+    $nutrientsModel['aminoAcids'] = Yaml::parse( file_get_contents('data/nutrients/aminoAcids.yml'));
+    $nutrientsModel['vitamins']   = Yaml::parse( file_get_contents('data/nutrients/vitamins.yml'));
+    $nutrientsModel['minerals']   = Yaml::parse( file_get_contents('data/nutrients/minerals.yml'));
+    $nutrientsModel['secondary']  = Yaml::parse( file_get_contents('data/nutrients/secondary.yml'));
 
     $nutrientsShort = [
       'nutritionalValues' => 'nutriVal',  // TASK: use short name from nutrient files
@@ -74,76 +73,80 @@ class FoodsController extends ControllerBase
 
     // This day tab
 
-    // TASK: make somewhat more logical, e.g. rn $entry -> $food or $foodEntry
-
     // we pre calc all values (model data is a view)
     // cause it's simpler for recipes and less js code
 
+    // TASK: maybe make more logical, e.g. var naming ... (did one round 2406)
+
     // make food list with amounts (model)
 
-    foreach( Yaml::parse( $this->foodsTxt ) as $food => $entry )
+    foreach( Yaml::parse( file_get_contents('data/foods.yml')) as $foodName => $foodEntry )
     {
-      $entry['weight'] = trim( $entry['weight'], "mgl ");  // just for convenience, we don't need the unit here
+      $foodEntry['weight'] = trim( $foodEntry['weight'], "mgl ");  // just for convenience, we don't need the unit here
 
-      $usage = isset( $entry['usedAmounts']) && ( strpos( $entry['usedAmounts'][0], 'g') !== false || strpos( $entry['usedAmounts'][0], 'ml') !== false)
+      $usage = isset( $foodEntry['usedAmounts']) && (
+                 strpos( $foodEntry['usedAmounts'][0], 'g')  !== false ||
+                 strpos( $foodEntry['usedAmounts'][0], 'ml') !== false
+               )
              ? 'precise' : (
-               isset($entry['pieces'])
+               isset($foodEntry['pieces'])
              ? 'pieces'
              : 'pack'
       );
 
-      $usedAmounts = $entry['usedAmounts'] ?? ( $config->get("foods.defaultAmounts.$usage") ?: 1);
-      // $usedAmounts = $entry['usedAmounts'] ?? ( config::get("foods.defaultAmounts.$usage") ?: 1);
+      $usedAmounts = $foodEntry['usedAmounts'] ?? ( $config->get("foods.defaultAmounts.$usage") ?: 1);
+      // $usedAmounts = $foodEntry['usedAmounts'] ?? ( config::get("foods.defaultAmounts.$usage") ?: 1);
 
       foreach( $usedAmounts as $amount )
       {
-        // if( $food == 'Salt' )  // DEBUG
+        // if( $foodName == 'Salt' )  // DEBUG
         //   $debug = 'halt';
 
         $multipl = trim( $amount, "mglpc ");
         $multipl = (float) eval("return $multipl;");  // 1/2 => 0.5
         // eval("\$multipl = $multipl;");
 
-        $weight = $usage === 'pack'   ? $entry['weight'] * $multipl : (
-                  $usage === 'pieces' ? ($entry['weight'] / $entry['pieces']) * $multipl
+        $weight = $usage === 'pack'   ? $foodEntry['weight'] * $multipl : (
+                  $usage === 'pieces' ? ($foodEntry['weight'] / $foodEntry['pieces']) * $multipl
                 : $multipl  // precise
         );
 
         $perWeight = [
           'weight'   => round( $weight, 1),
-          'calories' => round( $entry['calories'] * ($weight / 100), 1),
-          'price'    => isset($entry['price']) ? round( $entry['price'] * ($weight / $entry['weight']), 2) : 0
+          'calories' => round( $foodEntry['calories'] * ($weight / 100), 1),
+          'price'    => isset($foodEntry['price']) ? round( $foodEntry['price'] * ($weight / $foodEntry['weight']), 2) : 0
         ];
 
-        foreach( $nutrientsShort as $group => $sgroup )
-        {
-          if( ! isset($entry[$group]) || count($entry[$group]) == 0)
-            $perWeight[$sgroup] = [];
-          else
-            foreach( $entry[$group] as $name => $value)
-            {
-              // if( $food == 'Salt' && $name == 'salt' )  // DEBUG
-              //   $debug = 'halt';
+        // nutritinal values for all nutrient groups
 
-              $short = $group === 'nutritionalValues' ? $name
-                     : $nutrients[$group]['substances'][$name]['short'];
+        foreach( $nutrientsShort as $group => $groupShort )          // all nutrient groups first (be sure we have at least an empty entry)
+        {                                                            // (TASK) will be mod (see task nutrientsShort above)
+          if( ! isset($foodEntry[$group]) || count($foodEntry[$group]) == 0)
+            $perWeight[$groupShort] = [];
+          else foreach( $foodEntry[$group] as $nutrient => $value )  // all the sub keys like nutritionalValues, minerals in food.yml
+          {
+            // if( $foodName == 'Salt' && $nutrient == 'salt' )      // DEBUG
+            //   $debug = 'halt';
 
-              $perWeight[$sgroup][$short] = round( $value * ($weight / 100), 1);
-            }
+            $short = $group === 'nutritionalValues' ? $nutrient      // get short name from /nutrients
+                   : $nutrientsModel[$group]['substances'][$nutrient]['short'];
+
+            $perWeight[$groupShort][$short] = round( $value * ($weight / 100), 1);
+          }
         }
 
         if( ! $this->devMode )                      // new layout
         {
           $title = str_replace('.', ',', $amount);  // be compatible with amounts like 1.38
-          $title = str_pad( $title, 5, ' ', STR_PAD_LEFT) . " $food";  // TASK: improve
+          $title = str_pad( $title, 5, ' ', STR_PAD_LEFT) . " $foodName";
 
           $this->modelView->set("foods.$title", $perWeight);
         }
         else
-          $this->modelView->set("foods.$food.$amount", $perWeight);  // for debugging new layout
+          $this->modelView->set("foods.$foodName.$amount", $perWeight);  // for debugging new layout
       }
 
-      $debug = 'halt';
+      // $debug = 'halt';  // DEBUG
     }
 
 
@@ -152,9 +155,9 @@ class FoodsController extends ControllerBase
 
     foreach(['fattyAcids', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $group )
     {
-      $this->captions[ $nutrientsShort[$group]] = $nutrients[$group]['name'];
+      $this->captions[ $nutrientsShort[$group]] = $nutrientsModel[$group]['name'];
 
-      foreach( $nutrients[$group]['substances'] as $name => $attr )  // short is used as id
+      foreach( $nutrientsModel[$group]['substances'] as $name => $attr )  // short is used as id
       {
         $a = $attr['amounts'][0];      // TASK: use unit for sth?
 
