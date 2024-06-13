@@ -10,7 +10,7 @@
 # Sample
 #
 # -- Data --------     -- Layout --------
-#                       ___________________    
+#                       ___________________
 # My nutrient group:   | My nutrient group     # nutrient names are from recipes.yml, foods.yml
 #   list:              |-------------------    # or misc.yml (use multiple times possible)
 #     - Recipe         | Recipe   |
@@ -51,7 +51,7 @@ Nuts (color:#ffa500):                # Meals  # TASK: on the go diff shade
     - Walnuss R Bio
 
 Veggie bowl (color:#ffa500):
-  
+
   list:
 
     # - Veggie L                     # TASK
@@ -75,6 +75,7 @@ Third meal (color:#ffa500):
 
 Legumes & greens (color:#32cd32):    # Ingredients
 
+  # short:                           # TASK: show below group as full row
   (i): Ideal is veggie some chicken fish. We may also need fill up some energy from time to time (carbs).
 
   list:
@@ -101,7 +102,7 @@ Greens oil mushrooms (color:#32cd32):
     - Kartoffeltaschen F             # less
     - Kartoffel Wedges
     - Pommes                         # acceptable
-    - Pommes R Bio        
+    - Pommes R Bio
     - Kartoffel Wedges Bio
 
     - Champ mini ganz R
@@ -115,7 +116,7 @@ Fish, meat, misc (color:#32cd32):
     - Fischst                        # acceptable occasionally
 
     - Salami R                       # less
-    - Lyoner R Bio        
+    - Lyoner R Bio
 
     - Käse Gr Sch (all)
     - Käse Gr W (all)

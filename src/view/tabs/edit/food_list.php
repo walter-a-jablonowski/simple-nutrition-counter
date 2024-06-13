@@ -1,11 +1,23 @@
-<div id="foodList" class="row">
+<!--
+
+Structure overview
+
+- row.foodList
+  - col-12   Static entries   cols break on small devices
+  - cols     Food groups      (see "group col")
+    - row                     per food entry
+      - col                   per amount
+  - cols     Left over foods  same code as food groups
+    - ...
+
+--><div id="foodList" class="row">
 
   <span id="uiMsg"></span>  <!-- TASK: mov -->
 
-  <!-- see #code/staticListEntries -->
+  <!-- Static entries #code/staticListEntries -->
 
-  <div class="col-12">
-    <div class="row">
+  <div class="col-12">  <!-- wrap in col = show above groups -->
+    <div class="row">   <!-- break points same as in food groups below -->
       <div class   = "col-12 col-md-6 col-lg-4 col-xxl-3 p-1"
            onclick = "foodsCrl.newEntryBtn(event)"
       >
@@ -44,6 +56,8 @@
     </div>
   </div>
 
+  <!-- Food groups -->
+
   <?php
 
   $done = [];
@@ -55,7 +69,7 @@
     
     $collapseId = str_replace(' ', '', $groupName);
   ?>
-    <div class="col-12 col-md-6 col-lg-4 col-xxl-3">  <!-- TASK: use an outer container for the padding -->
+    <div class="col-12 col-md-6 col-lg-4 col-xxl-3">  <!-- group col -->  <!-- TASK: use an outer container for the padding -->
 
       <div class="row">
         <div class = "col-12 ms-1 p-1 pe-2 small fw-bold d-flex justify-content-between align-items-center"
@@ -78,7 +92,7 @@
         foreach( $def['list'] as $idx => $foodName ):
         
           $type = $this->modelView->has("recipes.$foodName") ? 'recipes' : 'foods';
-          $amountData = $this->modelView->get("$type.$foodName");  // for debugging we need modify the key in controller (has amount in front)
+          $amountData = $this->modelView->get("$type.$foodName");
 
           $done[] = $foodName;  // left over will be printed below (done = foods and recipes in a single list)
         ?>
@@ -110,7 +124,7 @@
     </div>
   <?php endforeach; ?>
 
-  <!-- left over entries -->
+  <!-- Left over foods -->
 
   <?php
   
@@ -120,7 +134,7 @@
   if( $all > count($done)):
   
   ?>
-    <div class="col-12 col-md-6 col-lg-4 col-xxl-3">
+    <div class="col-12 col-md-6 col-lg-4 col-xxl-3">  <!-- group col -->
 
       <div class="row">
         <div class = "col-12 p-1 ps-2 pe-2 small fw-bold d-flex justify-content-between align-items-center"
@@ -144,7 +158,7 @@
             continue;
 
           $type = $this->modelView->has("recipes.$foodName") ? 'recipes' : 'foods';
-          $amountData = $this->modelView->get("$type.$foodName");  // for debugging we need modify the key in controller (has amount in front)
+          $amountData = $this->modelView->get("$type.$foodName");
         ?>
           <div class="row">
             <div class="col-6 p-2">
