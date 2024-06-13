@@ -35,6 +35,9 @@
 
 Nuts (color:#ffa500):                # Meals  # TASK: on the go diff shade
 
+  short: Imp hint (always visible)   # TASK: we also could add a collapse for larger content
+  (i):   Demo 2                      # TASK: or just enclose in attribs key?
+
   list:
 
     - Cashew A
@@ -75,7 +78,6 @@ Third meal (color:#ffa500):
 
 Legumes & greens (color:#32cd32):    # Ingredients
 
-  # short:                           # TASK: show below group as full row
   (i): Ideal is veggie some chicken fish. We may also need fill up some energy from time to time (carbs).
 
   list:

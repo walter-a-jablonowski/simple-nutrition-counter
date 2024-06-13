@@ -21,6 +21,12 @@ function parse_layout( array $layout )  // TASK: (advanced) make reusable
 
     // content attribs
 
+    if( isset($val['short']))
+    {
+      $attribs = array_merge( $attribs, ['short' => $val['short']]);
+      unset($val['(i)']);
+    }
+
     if( isset($val['(i)']))
     {
       $attribs = array_merge( $attribs, ['(i)' => $val['(i)']]);

@@ -82,6 +82,14 @@ Structure overview
         </div>
       </div>
 
+      <?php if( isset($def['@attribs']['short'])): ?>
+        <div class="row">
+          <div class = "col-12 p-1 ps-2 small">
+            <?= $def['@attribs']['short'] ?>
+          </div>
+        </div>
+      <?php endif; ?>
+
       <div id="<?= $collapseId ?>Collapse" class="collapse show">
 
         <?php
