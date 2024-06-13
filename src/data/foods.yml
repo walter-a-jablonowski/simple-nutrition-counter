@@ -829,7 +829,7 @@ Geb Bohnen:
   lastUpd:           2024-05-11
   lastPriceUpd:      2024-05-11
 
-Gemüse A:
+Gemüse A Bio Sommer:
 
   productName:       "Gemüsepfanne Sommergenuss"
   vendor:            Aldi
@@ -854,6 +854,32 @@ Gemüse A:
   sources:           "Macro nutrients: pack, price: web"
   lastUpd:           2024-05-29
   lastPriceUpd:      2024-05-29
+
+Gemüse A Bio Ital:
+
+  productName:       "Mediterane Art"
+  vendor:            Aldi
+  url:               "https://www.aldi-nord.de/produkt/bio-gemuesepfanne-4398-0-0.article.html"
+
+  bio:               true
+
+  price:             
+  weight:            600
+  usedAmounts:       ["50g", "100g"]
+
+  calories:          43
+  nutritionalValues:
+
+    fat:             2.3
+    saturatedFat:    0.4
+    carbs:           3.3
+    sugar:           2.9
+    amino:           1.4
+    salt:            0.71
+
+  sources:           "Macro nutrients: pack"
+  lastUpd:           2024-06-13
+  lastPriceUpd:      
 
 Gemüse R:
 
