@@ -238,6 +238,7 @@ Brokkoli R:
 
   price:             2.19
   weight:            1000
+  usedAmounts:       ["50g", "100g"]
 
   calories:          24
   nutritionalValues:
@@ -304,7 +305,7 @@ Cashew A:
 
   price:             2.29  # guess
   weight:            200
-  usedAmounts:       ["1/4", "1/2", "1"]
+  usedAmounts:       ["1/4", "1/3", "1/2"]
 
   calories:          603   # same as E
   nutritionalValues:
@@ -332,7 +333,7 @@ Cashew E:
 
   price:             
   weight:            200
-  usedAmounts:       ["1/4", "1/2", "1"]
+  usedAmounts:       ["1/4", "1/3", "1/2"]
 
   calories:          603
   nutritionalValues:
@@ -355,7 +356,7 @@ Cashew N:
 
   price:             2.29
   weight:            200
-  usedAmounts:       ["1/4", "1/2", "1"]
+  usedAmounts:       ["1/4", "1/3", "1/2"]
 
   calories:          603
   nutritionalValues:
@@ -401,6 +402,7 @@ Champ mini ganz R:
 
   price:             
   weight:            115
+  usedAmounts:       ["1/4", "1/3", "1/2"]
 
   calories:          16
   nutritionalValues:
@@ -422,6 +424,7 @@ Champ N:
 
   price:             0.99
   weight:            170
+  usedAmounts:       ["1/8", "1/4", "1/3"]
 
   calories:          20
   nutritionalValues:
@@ -493,6 +496,7 @@ Chick R Bio:
 
   price:             0.85
   weight:            215
+  usedAmounts:       ["1/4", "1/3", "1/2"]
 
   calories:          127
   nutritionalValues:
@@ -688,7 +692,7 @@ Frischk R Bio:
 
   price:             
   weight:            200
-  usedAmounts:       ["1/3", "1/3", "1/2"]
+  usedAmounts:       ["1/4", "1/3", "1/2"]
 
   calories:          91
   nutritionalValues:
@@ -941,6 +945,7 @@ Green beans R:
 
   price:             1.49
   weight:            330
+  usedAmounts:       ["1/4", "1/3", "1/2"]
 
   calories:          25
   nutritionalValues:
@@ -1015,9 +1020,9 @@ Karamalz:
   vendor:            Rewe
   acceptable:        less
 
-  price:             0.75               # price for 0.33 (guess) # (TASK) for 2 variants
-  weight:            500                # larger one
-  usedAmounts:       ["330ml", "500g"]  # smaller and larger ver
+  price:             0.75                # price for 0.33 (guess) # (TASK) for 2 variants
+  weight:            500                 # larger one
+  usedAmounts:       ["330ml", "500ml"]  # smaller and larger ver
 
   calories:          44
   nutritionalValues:
@@ -1143,6 +1148,7 @@ Linsen R Bio:
 
   price:             1.39
   weight:            260
+  usedAmounts:       ["1/4", "1/3", "1/2"]
 
   calories:          92
   nutritionalValues:
@@ -1234,7 +1240,7 @@ Mandel R Bio:
 
   price:             2.29 # 2024-03-30 2.89
   weight:            200
-  usedAmounts:       ["1/4", "1/2", "1"]
+  usedAmounts:       ["1/4", "1/3", "1/2"]
 
   calories:          619
   nutritionalValues:
@@ -1698,7 +1704,7 @@ Pumpernickel R Bio:
   lastUpd:           2024-03-22
   lastPriceUpd:      2024-03-23
 
-Ricola Zitronenm:  # (TASK) currently 2 entries
+Zitronenm:  # (TASK) currently 2 entries
 
   vendor:            DM
   acceptable:        occasionally
@@ -1725,7 +1731,7 @@ Ricola Zitronenm:  # (TASK) currently 2 entries
   lastUpd:           2024-05-06
   lastPriceUpd:      2024-05-15
 
-Ricola Zitronenm mini:  # (TASK) currently 2 entries
+Zitronenm mini:  # (TASK) currently 2 entries
 
   vendor:            Rewe
   acceptable:        occasionally
@@ -1859,6 +1865,7 @@ R Rüben N:
 
   price:             0.99
   weight:            430
+  usedAmounts:       ["1/8", "1/4", "1/3"]
 
   calories:          55
   nutritionalValues:
