@@ -1,14 +1,16 @@
 <?php
 
-function parse_layout( array $layout )  // TASK: (advanced) make reusable
+// TASK: (advanced) make reusable (maybe recursive via AI)
+// TASK: (advanced) we could add a skip keys arg for (first_entries) is we use this
+function parse_attribs( string $attribsKey, array $largeAttribKeys, array $array)
 {
-  $parsedLayout = [];
+  $r = [];
 
-  foreach( $layout as $key => $val )
+  foreach( $array as $key => $val )
   {
     $attribs = [];
 
-    // key attribs
+    // Key attribs
 
     if( preg_match('/\(([^)]+)\)/', $key, $a))  // && $key != '(first_entries)')
     {
@@ -19,33 +21,36 @@ function parse_layout( array $layout )  // TASK: (advanced) make reusable
       }
     }
 
-    // content attribs
+    // Single attrib key (larger content)
 
-    if( isset($val['short']))
+    if( $attribsKey && isset($val[$attribsKey]))
     {
-      $attribs = array_merge( $attribs, ['short' => $val['short']]);
-      unset($val['(i)']);
+      $attribs = array_merge( $attribs, $val[$attribsKey]);
+      unset($val[$attribsKey]);
     }
+    
+    // Multiple attrib keys (larger content)
 
-    if( isset($val['(i)']))
+    foreach( $largeAttribKeys as $key2 )
     {
-      $attribs = array_merge( $attribs, ['(i)' => $val['(i)']]);
-      unset($val['(i)']);
+      if( isset($val[$key2]))
+      {
+        $attribs = array_merge( $attribs, [$key2 => $val[$key2]]);
+        unset($val[$key2]);
+      }
     }
-
-    // r
 
     //if( $key != '(first_entries)')
     // $key = trim( str_replace("($key)", '', $key));
     $key = trim( preg_replace('/\([^)]+\)/', '', $key));
 
-    $parsedLayout[$key] = $val;
+    $r[$key] = $val;
     
     if( $attribs )
-      $parsedLayout[$key]['@attribs'] = $attribs;
+      $r[$key][$attribsKey] = $attribs;
   }
   
-  return $parsedLayout;
+  return $r;
 }
 
 function parse_tsv( $entriesTxt )

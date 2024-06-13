@@ -35,7 +35,7 @@
 
 Nuts (color:#ffa500):                # Meals  # TASK: on the go diff shade
 
-  short: Imp hint (always visible)   # TASK: we also could add a collapse for larger content
+  short: Info (always visible)       # TASK: we also could add a collapse for larger content
   (i):   Demo 2                      # TASK: or just enclose in attribs key?
 
   list:

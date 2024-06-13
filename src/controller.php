@@ -43,7 +43,7 @@ class FoodsController extends ControllerBase
     $config = config::instance();
 
     $this->devMode    = $config->get('devMode');
-    $this->layout     = parse_layout( Yaml::parse( file_get_contents('data/layout.yml')));
+    $this->layout     = parse_attribs('@attribs', ['short', '(i)'], Yaml::parse( file_get_contents('data/layout.yml')));
     $this->inlineHelp = new SimpleData( Yaml::parse( file_get_contents('misc/inline_help.yml')));
 
     // TASK: move settings?
