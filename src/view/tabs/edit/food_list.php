@@ -16,8 +16,8 @@ Structure overview
 
   <!-- Static entries #code/staticListEntries -->
 
-  <div class="col-12">  <!-- wrap in col = show above groups -->
-    <div class="row">   <!-- break points same as in food groups below -->
+  <div class="col-12 mt-1">  <!-- wrap in col = show above groups -->
+    <div class="row">        <!-- break points same as in food groups below -->
       <div class   = "col-12 col-md-6 col-lg-4 col-xxl-3 p-1"
            onclick = "foodsCrl.newEntryBtn(event)"
       >
@@ -69,7 +69,7 @@ Structure overview
     
     $collapseId = str_replace(' ', '', $groupName);
   ?>
-    <div class="col-12 col-md-6 col-lg-4 col-xxl-3">  <!-- group col -->
+    <div class="col-12 col-md-6 col-lg-4 col-xxl-3 mt-2">  <!-- group col -->
 
       <div class="row">            <!-- px: we make the bs default padding smaller to save some space -->
         <div class="col-12 px-1">  <!-- below outer container for the bg color (would be full width without) -->
@@ -144,7 +144,7 @@ Structure overview
   if( $all > count($done)):
   
   ?>
-    <div class="col-12 col-md-6 col-lg-4 col-xxl-3">  <!-- group col -->
+    <div class="col-12 col-md-6 col-lg-4 col-xxl-3 mt-2">  <!-- group col -->
                                    <!-- px: we make the bs default padding smaller to save some space -->
       <div class="row">            <!-- must be 2 here cause headline has inner padding -->
         <div class="col-12 px-2">  <!-- below outer container for the bg color (would be full width without) -->
