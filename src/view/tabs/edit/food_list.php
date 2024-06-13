@@ -69,22 +69,24 @@ Structure overview
     
     $collapseId = str_replace(' ', '', $groupName);
   ?>
-    <div class="col-12 col-md-6 col-lg-4 col-xxl-3">  <!-- group col -->  <!-- TASK: use an outer container for the padding -->
+    <div class="col-12 col-md-6 col-lg-4 col-xxl-3">  <!-- group col -->
 
-      <div class="row">
-        <div class = "col-12 ms-1 p-1 pe-2 small fw-bold d-flex justify-content-between align-items-center"
-             style = "background-color: <?= $def['@attribs']['color'] ?? '#e0e0e0' ?>;"
-        >
-          <?= $groupName ?>
-          <a data-bs-toggle="collapse" href="#<?= $collapseId ?>Collapse" class="text-body-secondary" role="button">
-            <i class="bi bi-arrow-down-circle"></i>
-          </a>
+      <div class="row">            <!-- px: we make the bs default padding smaller to save some space -->
+        <div class="col-12 px-1">  <!-- below outer container for the bg color (would be full width without) -->
+          <div class = "p-1 small fw-bold d-flex justify-content-between align-items-center"
+               style = "background-color: <?= $def['@attribs']['color'] ?? '#e0e0e0' ?>;"
+          >
+            <?= $groupName ?>
+            <a data-bs-toggle="collapse" href="#<?= $collapseId ?>Collapse" class="text-body-secondary" role="button">
+              <i class="bi bi-arrow-down-circle"></i>
+            </a>
+          </div>
         </div>
       </div>
 
       <?php if( isset($def['@attribs']['short'])): ?>
-        <div class="row">
-          <div class = "col-12 p-1 ps-2 small">
+        <div class="row">                    <!-- px: we make the bs default padding smaller to save some space -->
+          <div class = "col-12 px-2 small">  <!-- must be 2 here cause headline has inner padding -->
             <?= $def['@attribs']['short'] ?>
           </div>
         </div>
@@ -105,12 +107,12 @@ Structure overview
           $done[] = $foodName;  // left over will be printed below (done = foods and recipes in a single list)
         ?>
           <div class="row">
-            <div class="col-6 p-2">
-              <?= $foodName ?>
+            <div class="col-6 px-2">  <!-- px: we make the bs default padding smaller to save some space -->
+              <?= $foodName ?>        <!-- must be 2 here cause headline has inner padding -->
             </div>
             <!-- TASK: Simplify in controller ? default -->
             <?php foreach( $amountData as $amount => $data ): ?>  <!-- TASK: don't print more than 3 entries (maybe do in controller) -->
-              <div class   = "food-item col-2 p-1"
+              <div class   = "food-item col-2"
                    onclick = "foodsCrl.foodItemClick(event)"
                    data-food       = "<?= $foodName ?>"
                    data-calories   = "<?= $data['calories'] ?>"
@@ -143,15 +145,17 @@ Structure overview
   
   ?>
     <div class="col-12 col-md-6 col-lg-4 col-xxl-3">  <!-- group col -->
-
-      <div class="row">
-        <div class = "col-12 p-1 ps-2 pe-2 small fw-bold d-flex justify-content-between align-items-center"
-             style = "background-color: #e0e0e0;"
-        >
-          Misc foods
-          <a data-bs-toggle="collapse" href="#miscCollapse" class="text-body-secondary" role="button">
-            <i class="bi bi-arrow-down-circle"></i>
-          </a>
+                                   <!-- px: we make the bs default padding smaller to save some space -->
+      <div class="row">            <!-- must be 2 here cause headline has inner padding -->
+        <div class="col-12 px-2">  <!-- below outer container for the bg color (would be full width without) -->
+          <div class = "p-1 small fw-bold d-flex justify-content-between align-items-center"
+               style = "background-color: #e0e0e0;"
+          >
+            Misc foods
+            <a data-bs-toggle="collapse" href="#miscCollapse" class="text-body-secondary" role="button">
+              <i class="bi bi-arrow-down-circle"></i>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -169,7 +173,7 @@ Structure overview
           $amountData = $this->modelView->get("$type.$foodName");
         ?>
           <div class="row">
-            <div class="col-6 p-2">
+            <div class="col-6 ps-1 pe-1">
               <?= $foodName ?>
             </div>
             <!-- TASK: Simplify in controller ? default -->
@@ -179,7 +183,7 @@ Structure overview
               if( ! isset($data['nutriVal']))
                 $debug = 'halt';
             ?>
-              <div class   = "food-item col-2 p-1"
+              <div class   = "food-item col-2"
                    onclick = "foodsCrl.foodItemClick(event)"
                    data-food       = "<?= $foodName ?>"
                    data-calories   = "<?= $data['calories'] ?>"
