@@ -24,8 +24,8 @@
 #
                                      # Color groups
 
-# (first_entries):                   # this currently is just implemented fix and activated in config settings
-#                                    
+# (first_entries):                   # makes layout highly configureable
+#                                    # simpler may be enough, currently is just implemented fix and activated in config settings
 #   list:
 
 #     - Enter manually ...

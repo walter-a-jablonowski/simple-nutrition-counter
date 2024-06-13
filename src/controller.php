@@ -46,6 +46,9 @@ class FoodsController extends ControllerBase
     $this->layout     = parse_layout( Yaml::parse( file_get_contents('data/layout.yml')));
     $this->inlineHelp = new SimpleData( Yaml::parse( file_get_contents('misc/inline_help.yml')));
 
+    $this->settings   = new SimpleData( $config->get('defaultSettings'));  // TASK: (advanced) merge user settings
+    // $this->settings = new SimpleData( config::get('defaultSettings'));  // alternative
+
     $this->dayEntriesTxt = trim( @file_get_contents('data/users/' . $config->get('user') . "/days/{$this->date}.tsv") ?: '', "\n");
     $this->dayEntries    = parse_tsv( $this->dayEntriesTxt );
 
@@ -94,8 +97,8 @@ class FoodsController extends ControllerBase
              : 'pack'
       );
 
-      $usedAmounts = $foodEntry['usedAmounts'] ?? ( $config->get("foods.defaultAmounts.$usage") ?: 1);
-      // $usedAmounts = $foodEntry['usedAmounts'] ?? ( config::get("foods.defaultAmounts.$usage") ?: 1);
+      // $usedAmounts = $foodEntry['usedAmounts'] ?? ( $config->get("foods.defaultAmounts.$usage") ?: 1);
+      $usedAmounts = $foodEntry['usedAmounts'] ?? ( $this->settings->get("foods.defaultAmounts.$usage") ?: 1);
 
       foreach( $usedAmounts as $amount )
       {

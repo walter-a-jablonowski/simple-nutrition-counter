@@ -25,7 +25,7 @@
       </div>
 -->
 <!--
-      < ?php if( $this->settings->useCoffeeCounter ) ?>
+      < ?php if( $this->settings->get('layout.useCoffeeCounter')) ?>
         <div class   = "col-12 col-md-6 col-lg-4 col-xxl-3 p-1"
              onclick = "..."
         >
@@ -33,7 +33,7 @@
         </div>
       < ?php endif; ?>
 
-      < ?php if( $this->settings->useFillupsCounter ) ?>
+      < ?php if( $this->settings->get('layout.useFillupsCounter')) ?>
         <div class   = "col-12 col-md-6 col-lg-4 col-xxl-3 p-1"
              onclick = "..."
         >

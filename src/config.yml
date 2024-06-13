@@ -2,12 +2,16 @@
 devMode: true
 user:    single_user  # TASK: remove (currently single user)
 
-# default settings
-# see also users > settings.yml
+defaultSettings:      # see also users > settings.yml
 
-foods:
+  layout:
 
-  defaultAmounts:
-    
-    pack:   ["1/4", "1/3", "1"]
-    pieces: [1, 2, 3]
+    useCoffeeCounter:  true
+    useFillupsCounter: true
+
+  foods:
+
+    defaultAmounts:
+      
+      pack:   ["1/4", "1/3", "1"]
+      pieces: [1, 2, 3]
