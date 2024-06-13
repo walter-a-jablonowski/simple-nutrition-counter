@@ -1,31 +1,48 @@
 <div id="foodList" class="row">
 
-  <!-- static #code/staticListEntries -->
-  <!-- use diff entries in one line -->
-
   <span id="uiMsg"></span>  <!-- TASK: mov -->
 
-  <div class="col-6 p-1" onclick="foodsCrl.newEntryBtn(event)">
-    Enter manually ...
-  </div>
-<!--
-  <div class="col-4 p-1" onclick="...">
-    Expired food ...  <!-- TASK: make kind of X checkbox instead ? like [ My food |1|2|3| X ] -- >
-  </div>
--->
-  <!-- TASK: currently used save btn -->
-  <div class="col-6 p-1" onclick="foodsCrl.saveDayEntriesBtnClick(event)">
-    Save ...
-  </div>
-  <!-- TASK: Coffee ... -->
-<!--
-  < ?php foreach( $this->layout['(first_entries)'] as $foodName ): ?>
+  <!-- see #code/staticListEntries -->
 
-    <div class="col-4 p-1" onclick="...">
-      < ?= $foodName ?>
-    </div>
-  < ?php endforeach; ?>
+  <div class="col-12">
+    <div class="row">
+      <div class   = "col-12 col-md-6 col-lg-4 col-xxl-3 p-1"
+           onclick = "foodsCrl.newEntryBtn(event)"
+      >
+        Enter manually ...
+      </div>
+      <!-- TASK: currently used save btn -->
+      <div class   = "col-12 col-md-6 col-lg-4 col-xxl-3 p-1"
+           onclick = "foodsCrl.saveDayEntriesBtnClick(event)"
+      >
+        Save ...
+      </div>
+<!--
+      <div class   = "col-12 col-md-6 col-lg-4 col-xxl-3 p-1"
+           onclick = "..."
+      >
+        Expired food ...
+      </div>
 -->
+<!--
+      < ?php if( $this->settings->useCoffeeCounter ) ?>
+        <div class   = "col-12 col-md-6 col-lg-4 col-xxl-3 p-1"
+             onclick = "..."
+        >
+          Coffee
+        </div>
+      < ?php endif; ?>
+
+      < ?php if( $this->settings->useFillupsCounter ) ?>
+        <div class   = "col-12 col-md-6 col-lg-4 col-xxl-3 p-1"
+             onclick = "..."
+        >
+          Fillup
+        </div>
+      < ?php endif; ?>
+-->
+    </div>
+  </div>
 
   <?php
 

@@ -10,7 +10,7 @@ function parse_layout( array $layout )  // TASK: (advanced) make reusable
 
     // key attribs
 
-    if( preg_match('/\(([^)]+)\)/', $key, $a) && $key != '(first_entries)')
+    if( preg_match('/\(([^)]+)\)/', $key, $a))  // && $key != '(first_entries)')
     {
       foreach( explode(',', $a[1]) as $attr )
       {
@@ -29,9 +29,9 @@ function parse_layout( array $layout )  // TASK: (advanced) make reusable
 
     // r
 
-    if( $key != '(first_entries)')
-      // $key = trim( str_replace("($key)", '', $key));
-      $key = trim( preg_replace('/\([^)]+\)/', '', $key));
+    //if( $key != '(first_entries)')
+    // $key = trim( str_replace("($key)", '', $key));
+    $key = trim( preg_replace('/\([^)]+\)/', '', $key));
 
     $parsedLayout[$key] = $val;
     

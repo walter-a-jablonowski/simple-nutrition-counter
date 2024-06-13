@@ -24,11 +24,14 @@
 #
                                      # Color groups
 
-(first_entries):                     # list of single entries that will be shown before nutrient groups
-                                     # see (TASK) add entries from layout group first_entries
-  list:
+# (first_entries):                   # this currently is just implemented fix and activated in config settings
+#                                    
+#   list:
 
-    - Coffee
+#     - Enter manually ...
+#     - Expired food ...
+#     - Coffee
+#     - ...
 
 Nuts (color:#ffa500):                # Meals  # TASK: on the go diff shade
 
