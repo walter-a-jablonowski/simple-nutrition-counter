@@ -46,6 +46,7 @@ class FoodsController extends ControllerBase
     $this->layout     = parse_layout( Yaml::parse( file_get_contents('data/layout.yml')));
     $this->inlineHelp = new SimpleData( Yaml::parse( file_get_contents('misc/inline_help.yml')));
 
+    // TASK: move settings?
     $this->settings   = new SimpleData( $config->get('defaultSettings'));  // TASK: (advanced) merge user settings
     // $this->settings = new SimpleData( config::get('defaultSettings'));  // alternative
 

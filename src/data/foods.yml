@@ -1877,6 +1877,7 @@ Sardine:
   vendor:            Norma
   acceptable:        occasionally
   comment:           "careful cause of mercury"
+  misc:              {NutriScore: B}
   ingredients:       "Sonnenblumenöl, Salz"
 
   price:             
