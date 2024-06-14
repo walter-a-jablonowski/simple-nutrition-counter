@@ -39,9 +39,9 @@ class FoodsEventController
       }
     })
 
-    // Food modal
+    // Info modal (used for groups and food)
     
-    const modal = document.getElementById('foodModal')  // TASK
+    const modal = document.getElementById('infoModal')  // TASK
 
     modal.addEventListener('show.bs.modal', event => {
 

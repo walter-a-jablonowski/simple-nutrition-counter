@@ -95,7 +95,7 @@ Structure overview
 <!--
       <button type="button" class="btn btn-primary"
               data-bs-toggle = "modal"
-              data-bs-target = "#foodModal"
+              data-bs-target = "#infoModal"
               data-source    = "#<?= $groupId ?>Data"
       >
         <i class="bi bi-info-circle icon-circle"></i>
