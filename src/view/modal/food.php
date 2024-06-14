@@ -1,4 +1,4 @@
-<div id="aboutModal" class="modal fade" tabindex="-1">
+<div id="foodModal" class="modal fade" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
@@ -9,7 +9,7 @@
       </div>
       <div class="modal-body small">
 
-        <?= file_get_contents('misc/about.html') ?>
+        <!-- filled by js -->
 
       </div>
       <div class="modal-footer">

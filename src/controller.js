@@ -17,7 +17,6 @@ class FoodsEventController
 
     let crl = this
 
-
     // BS
 
     this.popoverTriggerList = query('[data-bs-toggle="popover"]')
@@ -40,7 +39,17 @@ class FoodsEventController
       }
     })
 
-    // Modal
+    // Food modal
+    
+    const modal = document.getElementById('foodModal')  // TASK
+
+    modal.addEventListener('show.bs.modal', event => {
+
+      const btn = event.relatedTarget
+      modal.querySelector('.modal-body').innerHTML = document.querySelector( btn.getAttribute('data-source')).innerHTML
+    })
+
+    // New modal
 
     // const myModal = new bootstrap.Modal('#myModal'), options)  // some error
     this.newEntryModal = new bootstrap.Modal( query('#newEntryModal'))
