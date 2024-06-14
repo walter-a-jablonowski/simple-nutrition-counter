@@ -76,7 +76,19 @@ Structure overview
           <div class = "p-1 small fw-bold d-flex justify-content-between align-items-center"
                style = "background-color: <?= $def['@attribs']['color'] ?? '#e0e0e0' ?>;"
           >
-            <?= $groupName ?>
+            <div>
+              <?= $groupName ?>
+              <?php if( isset($def['@attribs']['(i)'])): ?>
+                &nbsp;
+                <button type="button" class="btn btn-primary"
+                        data-bs-toggle = "modal"
+                        data-bs-target = "#infoModal"
+                        data-source    = "#<?= $groupId ?>Data"
+                >
+                  <i class="bi bi-info-circle icon-circle"></i>
+                </button>
+              <?php endif; ?>
+            </div>
             <a data-bs-toggle="collapse" href="#<?= $groupId ?>Collapse" class="text-body-secondary" role="button">
               <i class="bi bi-arrow-down-circle"></i>
             </a>
@@ -91,16 +103,7 @@ Structure overview
           </div>
         </div>
       <?php endif; ?>
-      <!-- TASK -->
-<!--
-      <button type="button" class="btn btn-primary"
-              data-bs-toggle = "modal"
-              data-bs-target = "#infoModal"
-              data-source    = "#<?= $groupId ?>Data"
-      >
-        <i class="bi bi-info-circle icon-circle"></i>
-      </button>
--->
+
       <?php if( isset($def['@attribs']['(i)'])): ?>
         <div id="<?= $groupId ?>Data" class="d-none">
           <?= $def['@attribs']['(i)'] ?>
