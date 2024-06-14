@@ -45,7 +45,7 @@ $data = [
     'calcium' => null,
   ],
   'secondary' => [],
-  'sources' => 'Macro nutrients: web|pack, information on packaging may differ slightly, nutrients: ..., price: ...',
+  'sources' => 'Macro nutrients: web|pack (information on packaging may differ slightly), nutrients: ..., price: ...',
   'lastUpd' => '2024-02-18',
   'lastPriceUpd' => '2024-03-23',
 ];
@@ -63,7 +63,7 @@ function generate_html($key, $data) {
   </head>
   <body>
     <div class="container mt-5">
-      <h1><?= htmlspecialchars($key) ?></h1>
+      <p class="lead fw-bold"><?= htmlspecialchars($key) ?></p>
       <table class="table table-bordered">
         <tbody>
           <tr>
@@ -122,19 +122,18 @@ function generate_html($key, $data) {
           <?php endif; ?>
           <tr>
             <th>Sources</th>
-            <td><?= htmlspecialchars($data['sources']) ?></td>
-          </tr>
-          <tr>
-            <th>Last Update</th>
-            <td><?= htmlspecialchars($data['lastUpd']) ?></td>
-          </tr>
-          <tr>
-            <th>Last Price Update</th>
-            <td><?= htmlspecialchars($data['lastPriceUpd']) ?></td>
+            <td class="small" style="background-color: #e0e0e0 !important;"><?= str_replace(',', '<br>', htmlspecialchars($data['sources'])) ?></td>
           </tr>
         </tbody>
       </table>
-      <h2>Nutritional Values</h2>
+
+      <p class="small">
+        Last Update: <?= htmlspecialchars($data['lastUpd']) ?>
+        Last Price Update: <?= htmlspecialchars($data['lastPriceUpd']) ?>
+      </p>
+
+      <p class="lead fw-bold">Nutritional Values</p>
+
       <table class="table table-bordered">
         <tbody>
           <?php foreach ($data['nutritionalValues'] as $key => $value): ?>
