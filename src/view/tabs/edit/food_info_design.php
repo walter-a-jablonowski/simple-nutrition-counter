@@ -58,7 +58,7 @@ function generate_html($key, $data) {
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="src/lib/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../lib/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Product Info</title>
   </head>
   <body>
@@ -81,45 +81,45 @@ function generate_html($key, $data) {
           <tr>
             <th>Attributes</th>
             <td>
-              <?php if (!empty($data['bio'])) { ?><span class="badge bg-success">Bio</span> <?php } ?>
-              <?php if (!empty($data['vegan'])) { ?><span class="badge bg-success">Vegan</span> <?php } ?>
-              <?php if (!empty($data['misc'])) { ?>
-                <?php foreach ($data['misc'] as $key => $value) { ?>
+              <?php if (!empty($data['bio'])): ?><span class="badge bg-success">Bio</span> <?php endif; ?>
+              <?php if (!empty($data['vegan'])): ?><span class="badge bg-success">Vegan</span> <?php endif; ?>
+              <?php if (!empty($data['misc'])): ?>
+                <?php foreach ($data['misc'] as $key => $value): ?>
                   <span class="badge bg-info"><?= htmlspecialchars($key) ?>: <?= htmlspecialchars($value) ?></span>
-                <?php } ?>
-              <?php } ?>
+                <?php endforeach; ?>
+              <?php endif; ?>
             </td>
           </tr>
-          <?php if (!empty($data['acceptable'])) { ?>
+          <?php if (!empty($data['acceptable'])): ?>
           <tr>
             <th>Acceptable</th>
             <td><?= htmlspecialchars($data['acceptable']) ?></td>
           </tr>
-          <?php } ?>
-          <?php if (!empty($data['comment'])) { ?>
+          <?php endif; ?>
+          <?php if (!empty($data['comment'])): ?>
           <tr>
             <th>Comment</th>
             <td><?= htmlspecialchars($data['comment']) ?></td>
           </tr>
-          <?php } ?>
-          <?php if (!empty($data['ingredients'])) { ?>
+          <?php endif; ?>
+          <?php if (!empty($data['ingredients'])): ?>
           <tr>
             <th>Ingredients</th>
             <td><?= htmlspecialchars($data['ingredients']) ?></td>
           </tr>
-          <?php } ?>
-          <?php if (!empty($data['origin'])) { ?>
+          <?php endif; ?>
+          <?php if (!empty($data['origin'])): ?>
           <tr>
             <th>Origin</th>
             <td><?= htmlspecialchars($data['origin']) ?></td>
           </tr>
-          <?php } ?>
-          <?php if (!empty($data['cookingInstrutions'])) { ?>
+          <?php endif; ?>
+          <?php if (!empty($data['cookingInstrutions'])): ?>
           <tr>
             <th>Cooking Instructions</th>
             <td><pre><?= htmlspecialchars($data['cookingInstrutions']) ?></pre></td>
           </tr>
-          <?php } ?>
+          <?php endif; ?>
           <tr>
             <th>Sources</th>
             <td><?= htmlspecialchars($data['sources']) ?></td>
@@ -137,18 +137,18 @@ function generate_html($key, $data) {
       <h2>Nutritional Values</h2>
       <table class="table table-bordered">
         <tbody>
-          <?php foreach ($data['nutritionalValues'] as $key => $value) { ?>
-            <?php if ($value !== null) { ?>
+          <?php foreach ($data['nutritionalValues'] as $key => $value): ?>
+            <?php if ($value !== null): ?>
             <tr>
               <th><?= htmlspecialchars(ucwords(str_replace('_', ' ', $key))) ?></th>
               <td><?= htmlspecialchars($value) ?></td>
             </tr>
-            <?php } ?>
-          <?php } ?>
+            <?php endif; ?>
+          <?php endforeach; ?>
         </tbody>
       </table>
     </div>
-    <script src="src/lib/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../../lib/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
   </body>
   </html>
   <?php
