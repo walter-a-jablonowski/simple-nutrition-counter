@@ -45,7 +45,7 @@ My food S Bio:                           # (required) display name (also used as
   url:                "..."         
 
   acceptable:         less|occasionally  # highlight less good foods in UI
-  comment:            "..."              # all misc comments
+  comment:            "My comment"       # all misc comments
   bio:                true
   vegan:              true
   misc:               {NutriScore: A}    # misc attributes
@@ -54,7 +54,7 @@ My food S Bio:                           # (required) display name (also used as
 
   cookingInstrutions: |
 
-    ...
+    First ...
 
   price:              1.00               # (required) may be null
   weight:             100g               # (required) of whole pack in case of pieces, unit g or ml is optional
@@ -98,10 +98,10 @@ My food S Bio:                           # (required) display name (also used as
   secondary:                             # secondary plant substances
 
     # ...
-
+                                         # source is (required)
   sources:            "Macro nutrients: web|pack, information on packaging may differ slightly, nutrients: ..., price: ..."
-  lastUpd:            2024-02-18  # all (required)
-  lastPriceUpd:       2024-03-23
+  lastUpd:            2024-02-18         # (required)
+  lastPriceUpd:       2024-03-23         # (required)
 ```
 
 
