@@ -67,7 +67,7 @@ Structure overview
     if( $groupName == '(first_entries)' || ! ($def['list'] ?? []))  // no entry
       continue;
     
-    $collapseId = str_replace(' ', '', $groupName);
+    $groupId = str_replace(' ', '', $groupName);
   ?>
     <div class="col-12 col-md-6 col-lg-4 col-xxl-3 mt-2">  <!-- group col -->
 
@@ -77,7 +77,7 @@ Structure overview
                style = "background-color: <?= $def['@attribs']['color'] ?? '#e0e0e0' ?>;"
           >
             <?= $groupName ?>
-            <a data-bs-toggle="collapse" href="#<?= $collapseId ?>Collapse" class="text-body-secondary" role="button">
+            <a data-bs-toggle="collapse" href="#<?= $groupId ?>Collapse" class="text-body-secondary" role="button">
               <i class="bi bi-arrow-down-circle"></i>
             </a>
           </div>
@@ -91,8 +91,23 @@ Structure overview
           </div>
         </div>
       <?php endif; ?>
+      <!-- TASK -->
+<!--
+      <button type="button" class="btn btn-primary"
+              data-bs-toggle = "modal"
+              data-bs-target = "#foodModal"
+              data-source    = "#<?= $groupId ?>Data"
+      >
+        <i class="bi bi-info-circle icon-circle"></i>
+      </button>
+-->
+      <?php if( isset($def['@attribs']['(i)'])): ?>
+        <div id="<?= $groupId ?>Data" class="d-none">
+          <?= $def['@attribs']['(i)'] ?>
+        </div>
+      <?php endif; ?>
 
-      <div id="<?= $collapseId ?>Collapse" class="collapse show">
+      <div id="<?= $groupId ?>Collapse" class="collapse show">
 
         <?php
 
