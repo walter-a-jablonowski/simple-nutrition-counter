@@ -96,8 +96,8 @@ else:
   <?php require( __DIR__ . '/modal/tips.php') ?>
   <?php require( __DIR__ . '/modal/help.php') ?>
   <?php require( __DIR__ . '/modal/about.php') ?>
-  <?php require( __DIR__ . '/modal/food.php') ?>
   <?php require( __DIR__ . '/modal/new_entry.php') ?>
+  <?php require( __DIR__ . '/modal/info.php') ?>
 
   <div id="errorPage" style="display: none;">
     <?php require( __DIR__ . '/error_page.php') ?>

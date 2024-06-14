@@ -80,7 +80,7 @@ Structure overview
               <?= $groupName ?>
               <?php if( isset($def['@attribs']['(i)'])): ?>
                 &nbsp;
-                <button type="button" class="btn btn-primary"
+                <button type="button" class="border-0 p-0 bg-transparent"
                         data-bs-toggle = "modal"
                         data-bs-target = "#infoModal"
                         data-source    = "#<?= $groupId ?>Data"
