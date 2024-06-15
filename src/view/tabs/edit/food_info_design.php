@@ -78,9 +78,9 @@ $data = [
       // TASK: (advanced) sometimes it isn't the vendor url, no better place for url for now
       
       $side = ! empty($data['vendor']) && ! empty($data['url'])
-            ? "<a href=\"$data[url]\" class=\"text-decoration-none\">$data[vendor]</a>" : (
+            ? "<a href=\"$data[url]\" target=\"_blank\" class=\"text-decoration-none\">$data[vendor]</a>" : (
               empty($data['vendor']) && ! empty($data['url'])
-            ? "<a href=\"$data[url]\" class=\"text-decoration-none\">url</a>" : (
+            ? "<a href=\"$data[url]\" target=\"_blank\" class=\"text-decoration-none\">url</a>" : (
               ! empty($data['vendor']) && empty($data['url'])
             ? $data['vendor']
             : ''
