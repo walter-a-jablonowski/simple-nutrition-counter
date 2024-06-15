@@ -9,6 +9,7 @@
 
 // The yml sample
 
+$currency = '€';
 $key = 'My food S Bio';
 $data = [
   'productName' => '...',
@@ -25,7 +26,7 @@ $data = [
   'price' => 1.00,
   'weight' => '100g',
   'pieces' => 6,
-  'calories' => [],
+  'calories' => 100,
   'nutritionalValues' => [
     'fat' => 100,
     'saturatedFat' => null,
@@ -50,109 +51,128 @@ $data = [
   'lastPriceUpd' => '2024-03-23',
 ];
 
-function generate_html($key, $data) {
-  ob_start();
-  ?>
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../../../lib/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
-    <title>Product Info</title>
-  </head>
-  <body>
-    <div class="container mt-5">
-      <p class="lead fw-bold"><?= htmlspecialchars($key) ?></p>
-      <table class="table table-bordered">
-        <tbody>
+?><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../../../lib/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Product Info</title>
+</head>
+<body>
+  <div class="container mt-5">
+    
+    <p class="lead fw-bold">
+      <?= htmlspecialchars($key) ?> (<?= htmlspecialchars($data['vendor']) ?>)
+    </p>
+    
+    <?php
+    
+    if( ! empty($data['acceptable'])):
+    
+      $color = $data['acceptable'] == 'less' ? 'danger' : 'warning';
+      $text  = $data['acceptable'] == 'less' ? 'less acceptable' : 'acceptable occasionally';
+    ?>
+      <span class="badge bg-<?= $color ?>"><?= $text ?></span>
+    <?php endif; ?>
+    <?php if( ! empty($data['bio'])): ?>
+      <span class="badge bg-success">bio</span>
+    <?php endif; ?>
+    <?php if( ! empty($data['vegan'])): ?>
+      <span class="badge bg-success">vegan</span>
+    <?php endif; ?>
+    <?php if( ! empty($data['misc'])): ?>
+      <?php foreach( $data['misc'] as $key => $value): ?>
+        <span class="badge bg-info"><?= $key ?>: <?= $value ?></span>
+      <?php endforeach; ?>
+    <?php endif; ?>
+    
+    <table class="table table-sm table-bordered">
+      <tbody>
+        <?php if( ! empty($data['productName'])): ?>
           <tr>
-            <th>Vendor</th>
-            <td><?= htmlspecialchars($data['vendor']) ?></td>
+            <th>Product name</th>
+            <td><?= htmlspecialchars($data['productName']) ?></td>
           </tr>
+        <?php endif; ?>
+        <?php if( ! empty($data['url'])): ?>  <!-- TASK: merge somewhere -->
           <tr>
-            <th>Price</th>
-            <td>$<?= htmlspecialchars($data['price']) ?></td>
-          </tr>
-          <tr>
-            <th>Weight</th>
-            <td><?= htmlspecialchars($data['weight']) ?></td>
-          </tr>
-          <tr>
-            <th>Attributes</th>
+            <th>URL</th>
             <td>
-              <?php if (!empty($data['bio'])): ?><span class="badge bg-success">Bio</span> <?php endif; ?>
-              <?php if (!empty($data['vegan'])): ?><span class="badge bg-success">Vegan</span> <?php endif; ?>
-              <?php if (!empty($data['misc'])): ?>
-                <?php foreach ($data['misc'] as $key => $value): ?>
-                  <span class="badge bg-info"><?= htmlspecialchars($key) ?>: <?= htmlspecialchars($value) ?></span>
-                <?php endforeach; ?>
-              <?php endif; ?>
+              <a href="<?= $data['url'] ?>">URL</a>
             </td>
           </tr>
-          <?php if (!empty($data['acceptable'])): ?>
-          <tr>
-            <th>Acceptable</th>
-            <td><?= htmlspecialchars($data['acceptable']) ?></td>
-          </tr>
-          <?php endif; ?>
-          <?php if (!empty($data['comment'])): ?>
+        <?php endif; ?>
+        <?php if( ! empty($data['comment'])): ?>
           <tr>
             <th>Comment</th>
             <td><?= htmlspecialchars($data['comment']) ?></td>
           </tr>
-          <?php endif; ?>
-          <?php if (!empty($data['ingredients'])): ?>
+        <?php endif; ?>
+        <?php if( ! empty($data['ingredients'])): ?>
           <tr>
             <th>Ingredients</th>
             <td><?= htmlspecialchars($data['ingredients']) ?></td>
           </tr>
-          <?php endif; ?>
-          <?php if (!empty($data['origin'])): ?>
+        <?php endif; ?>
+        <?php if( ! empty($data['origin'])): ?>
           <tr>
             <th>Origin</th>
             <td><?= htmlspecialchars($data['origin']) ?></td>
           </tr>
-          <?php endif; ?>
-          <?php if (!empty($data['cookingInstrutions'])): ?>
-          <tr>
-            <th>Cooking Instructions</th>
-            <td><pre><?= htmlspecialchars($data['cookingInstrutions']) ?></pre></td>
-          </tr>
-          <?php endif; ?>
-          <tr>
-            <th>Sources</th>
-            <td class="small" style="background-color: #e0e0e0 !important;"><?= str_replace(',', '<br>', htmlspecialchars($data['sources'])) ?></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p class="small">
-        Last Update: <?= htmlspecialchars($data['lastUpd']) ?>
-        Last Price Update: <?= htmlspecialchars($data['lastPriceUpd']) ?>
-      </p>
-
-      <p class="lead fw-bold">Nutritional Values</p>
-
-      <table class="table table-bordered">
-        <tbody>
-          <?php foreach ($data['nutritionalValues'] as $key => $value): ?>
-            <?php if ($value !== null): ?>
-            <tr>
-              <th><?= htmlspecialchars(ucwords(str_replace('_', ' ', $key))) ?></th>
-              <td><?= htmlspecialchars($value) ?></td>
-            </tr>
+        <?php endif; ?>
+        <tr>
+          <th>Price</th>
+          <td>
+            <?= $currency ?><?= $data['price'] ?>
+            <span class="text-secondary">(<?=$data['lastPriceUpd'] ?>)</span>
+          </td>
+        </tr>
+        <tr>
+          <th>Weight</th>
+          <td>
+            <?= $data['weight'] ?>&nbsp;
+            <?php if( ! empty($data['pieces'])): ?>
+              (<?= $data['pieces'] ?> pieces)
             <?php endif; ?>
-          <?php endforeach; ?>
-        </tbody>
-      </table>
-    </div>
-    <script src="../../../lib/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
-  </body>
-  </html>
-  <?php
-  return ob_get_clean();
-}
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-echo generate_html($key, $data);
-?>
+    <p class="small">
+      <?= str_replace(',', '<br>', htmlspecialchars($data['sources'])) ?>
+      Last Update: <?= $data['lastUpd'] ?>
+    </p>
+
+    <?php if( ! empty($data['cookingInstrutions'])): ?>
+      <div class="p-2" style="background-color: #e0e0e0 !important;">
+        <b>Cooking instructions</b><br>
+        <br>
+        <pre><?= htmlspecialchars($data['cookingInstrutions']) ?></pre>
+      </div>
+    <?php endif; ?>
+
+    <p class="lead fw-bold">Nutritional Values</p>
+
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <th>Calories</th>
+          <td><?= $data['calories'] ?></td>
+        </tr>
+        <tr>
+          <td colspan="2">Nutritional values</td>
+        </tr>
+        <?php foreach( $data['nutritionalValues'] as $key => $value): ?>
+          <tr>
+            <th><?= ucwords( str_replace('_', ' ', $key)) ?></th>
+            <td><?= $value ?></td>
+          </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+  </div>
+  <script src="../../../lib/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
