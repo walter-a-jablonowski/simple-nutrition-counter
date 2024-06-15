@@ -62,7 +62,7 @@ $data = [
 <body>
   <div class="container mt-5">
     
-    <p class="lead fw-bold">
+    <p class="lead mb-1 fw-bold">
       <?= htmlspecialchars($key) ?> (<?= htmlspecialchars($data['vendor']) ?>)
     </p>
     
@@ -86,7 +86,13 @@ $data = [
         <span class="badge bg-info"><?= $key ?>: <?= $value ?></span>
       <?php endforeach; ?>
     <?php endif; ?>
-    
+
+    <?php if( ! empty($data['comment'])): ?>
+      <div class="mt-2 p-2 small" style="background-color: #e0e0e0 !important;">
+        <?= htmlspecialchars($data['comment']) ?>
+      </div>
+    <?php endif; ?>
+
     <table class="table table-sm table-bordered">
       <tbody>
         <?php if( ! empty($data['productName'])): ?>
@@ -101,12 +107,6 @@ $data = [
             <td>
               <a href="<?= $data['url'] ?>">URL</a>
             </td>
-          </tr>
-        <?php endif; ?>
-        <?php if( ! empty($data['comment'])): ?>
-          <tr>
-            <th>Comment</th>
-            <td><?= htmlspecialchars($data['comment']) ?></td>
           </tr>
         <?php endif; ?>
         <?php if( ! empty($data['ingredients'])): ?>
@@ -146,10 +146,10 @@ $data = [
     </p>
 
     <?php if( ! empty($data['cookingInstrutions'])): ?>
-      <div class="p-2" style="background-color: #e0e0e0 !important;">
+      <div class="p-2 small" style="background-color: #e0e0e0 !important;">
         <b>Cooking instructions</b><br>
         <br>
-        <pre><?= htmlspecialchars($data['cookingInstrutions']) ?></pre>
+        <?= $data['cookingInstrutions'] ?>
       </div>
     <?php endif; ?>
 
