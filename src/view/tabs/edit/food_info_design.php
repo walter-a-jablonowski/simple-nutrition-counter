@@ -150,8 +150,8 @@ $data = [
       </tbody>
     </table>
 
-    <p class="small">
-      <?= str_replace(',', '<br>', htmlspecialchars($data['sources'])) ?>
+    <p style="font-size: .75em;">
+      <?= str_replace(',', '<br>', htmlspecialchars($data['sources'])) ?><br>
       Last Update: <?= $data['lastUpd'] ?>
     </p>
 
