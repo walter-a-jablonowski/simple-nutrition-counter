@@ -95,6 +95,18 @@ $data = [
 
     <table class="table table-sm table-bordered">
       <tbody>
+        <?php if( ! empty($data['ingredients'])): ?>
+          <tr>
+            <th>Ingredients</th>
+            <td><?= htmlspecialchars($data['ingredients']) ?></td>
+          </tr>
+        <?php endif; ?>
+        <?php if( ! empty($data['origin'])): ?>
+          <tr>
+            <th>Origin</th>
+            <td><?= htmlspecialchars($data['origin']) ?></td>
+          </tr>
+        <?php endif; ?>
         <?php if( ! empty($data['productName'])): ?>
           <tr>
             <th>Product name</th>
@@ -107,18 +119,6 @@ $data = [
             <td>
               <a href="<?= $data['url'] ?>">URL</a>
             </td>
-          </tr>
-        <?php endif; ?>
-        <?php if( ! empty($data['ingredients'])): ?>
-          <tr>
-            <th>Ingredients</th>
-            <td><?= htmlspecialchars($data['ingredients']) ?></td>
-          </tr>
-        <?php endif; ?>
-        <?php if( ! empty($data['origin'])): ?>
-          <tr>
-            <th>Origin</th>
-            <td><?= htmlspecialchars($data['origin']) ?></td>
           </tr>
         <?php endif; ?>
         <tr>
