@@ -131,7 +131,7 @@ $data = [
             <th>Ingredients</th>
             <td>
               <a data-bs-toggle="collapse" href="#<?= $id ?>IngrCollapse" class="text-decoration-none" role="button">
-                <span class="text-secondary">show</span>
+                <span class="text-secondary small">show</span>
               </a>
             </td>
           </tr>
