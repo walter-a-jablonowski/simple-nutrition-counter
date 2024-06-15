@@ -43,7 +43,7 @@ $data = [
   'aminoAcids' => [],
   'vitamins' => [],
   'minerals' => [
-    'calcium' => null,
+    'calcium' => 1,
   ],
   'secondary' => [],
   'sources' => 'Macro nutrients: web|pack (information on packaging may differ slightly), nutrients: ..., price: ...',
@@ -153,111 +153,87 @@ $data = [
       </div>
     <?php endif; ?>
 
+    <!-- TASK: add a collapsible -->
+
     <p class="lead fw-bold">Nutritional Values</p>
 
     <table class="table table-bordered">
       <tbody>
+
         <tr>
           <th>Calories</th>
           <td><?= $data['calories'] ?></td>
         </tr>
+
         <tr>
-          <td colspan="2">Nutritional values</td>
+          <th colspan="2">Nutritional values</th>
         </tr>
         <?php foreach( $data['nutritionalValues'] as $key => $value): ?>
           <tr>
-            <th><?= ucwords( str_replace('_', ' ', $key)) ?></th>
+            <td><?= ucwords( str_replace('_', ' ', $key)) ?></td>
             <td><?= $value ?></td>
           </tr>
         <?php endforeach; ?>
 
-    <?php if (!empty($data['nutritionalValues'])): ?>
-    <tr>
-      <td colspan="2">Nutritional Values</td>
-    </tr>
-    <?php foreach($data['nutritionalValues'] as $key => $value): ?>
-      <?php if ($value !== null): ?>
-      <tr>
-        <th><?= ucwords(str_replace('_', ' ', $key)) ?></th>
-        <td><?= htmlspecialchars($value) ?></td>
-      </tr>
-      <?php endif; ?>
-    <?php endforeach; ?>
-    <?php endif; ?>
+        <?php if( ! empty($data['fattyAcids'])): ?>
+          <tr>
+            <th colspan="2">Fatty Acids</th>
+          </tr>
+          <?php foreach( $data['fattyAcids'] as $key => $value): ?>
+            <tr>
+              <td><?= ucwords(str_replace('_', ' ', $key)) ?></td>
+              <td><?= $value ?></td>
+            </tr>
+          <?php endforeach; ?>
+        <?php endif; ?>
 
-    <?php if (!empty($data['fattyAcids'])): ?>
-    <tr>
-      <td colspan="2">Fatty Acids</td>
-    </tr>
-    <?php foreach($data['fattyAcids'] as $key => $value): ?>
-      <?php if ($value !== null): ?>
-      <tr>
-        <th><?= ucwords(str_replace('_', ' ', $key)) ?></th>
-        <td><?= htmlspecialchars($value) ?></td>
-      </tr>
-      <?php endif; ?>
-    <?php endforeach; ?>
-    <?php endif; ?>
+        <?php if( ! empty($data['aminoAcids'])): ?>
+          <tr>
+            <th colspan="2">Amino Acids</th>
+          </tr>
+          <?php foreach( $data['aminoAcids'] as $key => $value): ?>
+            <tr>
+              <td><?= ucwords(str_replace('_', ' ', $key)) ?></td>
+              <td><?= $value ?></td>
+            </tr>
+          <?php endforeach; ?>
+        <?php endif; ?>
 
-    <?php if (!empty($data['aminoAcids'])): ?>
-    <tr>
-      <td colspan="2">Amino Acids</td>
-    </tr>
-    <?php foreach($data['aminoAcids'] as $key => $value): ?>
-      <?php if ($value !== null): ?>
-      <tr>
-        <th><?= ucwords(str_replace('_', ' ', $key)) ?></th>
-        <td><?= htmlspecialchars($value) ?></td>
-      </tr>
-      <?php endif; ?>
-    <?php endforeach; ?>
-    <?php endif; ?>
+        <?php if( ! empty($data['vitamins'])): ?>
+          <tr>
+            <th colspan="2">Vitamins</th>
+          </tr>
+          <?php foreach( $data['vitamins'] as $key => $value): ?>
+            <tr>
+              <td><?= ucwords(str_replace('_', ' ', $key)) ?></td>
+              <td><?= $value ?></td>
+            </tr>
+          <?php endforeach; ?>
+        <?php endif; ?>
 
-    <?php if (!empty($data['vitamins'])): ?>
-    <tr>
-      <td colspan="2">Vitamins</td>
-    </tr>
-    <?php foreach($data['vitamins'] as $key => $value): ?>
-      <?php if ($value !== null): ?>
-      <tr>
-        <th><?= ucwords(str_replace('_', ' ', $key)) ?></th>
-        <td><?= htmlspecialchars($value) ?></td>
-      </tr>
-      <?php endif; ?>
-    <?php endforeach; ?>
-    <?php endif; ?>
+        <?php if( ! empty($data['minerals'])): ?>
+          <tr>
+            <th colspan="2">Minerals</th>
+          </tr>
+          <?php foreach( $data['minerals'] as $key => $value): ?>
+            <tr>
+              <td><?= ucwords(str_replace('_', ' ', $key)) ?></td>
+              <td><?= $value ?></td>
+            </tr>
+          <?php endforeach; ?>
+        <?php endif; ?>
 
-    <?php if (!empty($data['minerals'])): ?>
-    <tr>
-      <td colspan="2">Minerals</td>
-    </tr>
-    <?php foreach($data['minerals'] as $key => $value): ?>
-      <?php if ($value !== null): ?>
-      <tr>
-        <th><?= ucwords(str_replace('_', ' ', $key)) ?></th>
-        <td><?= htmlspecialchars($value) ?></td>
-      </tr>
-      <?php endif; ?>
-    <?php endforeach; ?>
-    <?php endif; ?>
-
-    <?php if (!empty($data['secondary'])): ?>
-    <tr>
-      <td colspan="2">Secondary Plant Substances</td>
-    </tr>
-    <?php foreach($data['secondary'] as $key => $value): ?>
-      <?php if ($value !== null): ?>
-      <tr>
-        <th><?= ucwords(str_replace('_', ' ', $key)) ?></th>
-        <td><?= htmlspecialchars($value) ?></td>
-      </tr>
-      <?php endif; ?>
-    <?php endforeach; ?>
-    <?php endif; ?>
-  </tbody>
-</table>
-<?php endif; ?>
-
+        <?php if( ! empty($data['secondary'])): ?>
+          <tr>
+            <th colspan="2">Secondary Plant Substances</th>
+          </tr>
+          <?php foreach( $data['secondary'] as $key => $value): ?>
+            <tr>
+              <td><?= ucwords(str_replace('_', ' ', $key)) ?></td>
+              <td><?= $value ?></td>
+            </tr>
+          <?php endforeach; ?>
+        <?php endif; ?>
 
       </tbody>
     </table>
