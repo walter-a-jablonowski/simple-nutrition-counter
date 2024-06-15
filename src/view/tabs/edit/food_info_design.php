@@ -171,11 +171,28 @@ $data = [
     </table>
 
     <!-- TASK: maybe split sources in inline array in yml (use AI) -->
+    <!-- TASK: collapse sources, leave upd? -->
 
-    <p style="font-size: .75em;">
-      <?= str_replace(',', '<br>', htmlspecialchars($data['sources'])) ?><br>
-      Last update: <?= $data['lastUpd'] ?>
-    </p>
+    <?php $sources = explode(',', htmlspecialchars($data['sources'])) ?>
+
+    <table class="table" style="font-size: .75em;">
+      <tbody>
+
+        <tr>
+          <td colspan="2" class="p-0 fw-bold">Data sources</td>
+        </tr>
+        <?php foreach( $sources as $line ): ?>
+          <tr>
+            <td class="p-0"><?= explode(':', $line)[0] ?></td>
+            <td class="p-0"><?= explode(':', $line)[1] ?></td>
+          </tr>
+        <?php endforeach; ?>
+        <tr>
+          <td colspan="2" class="p-0">Last update: <?= $data['lastUpd'] ?></td>
+        </tr>
+
+      </tbody>
+    </table>
 
     <?php if( ! empty($data['cookingInstrutions'])): ?>
       <div class="p-2 small" style="background-color: #e0e0e0 !important;">
