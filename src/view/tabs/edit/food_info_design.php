@@ -66,7 +66,7 @@ $data = [
     
     <h6 class="mb-1 fw-bold d-flex justify-content-between align-items-center">
       <span><?= htmlspecialchars($key) ?> (<?= htmlspecialchars($data['vendor']) ?>)</span>
-      <i class="bi bi-pencil-square text-black"></i>  <!-- TASK: vendor smaller -->
+      <i class="bi bi-pencil-square text-black"></i>  <!-- TASK: vendor smaller -->  <!-- TASK: (advanced) or make all editable on typ -->
     </h6>
     
     <?php
