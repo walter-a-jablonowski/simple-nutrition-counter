@@ -9,12 +9,21 @@
 
 // The yml sample
 
-$currency = '€';
+$nutrientsShort = [
+  'nutritionalValues' => 'nutriVal',  // TASK: use from controller
+  'fattyAcids'        => 'fat',
+  'aminoAcids'        => 'amino',
+  'vitamins'          => 'vit',
+  'minerals'          => 'min',
+  'secondary'         => 'sec'
+];
+
+$currency = '€';  // TASK: from settings
 $key = 'My food S Bio';
 $id  = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $key));  // TASK: maybe we need prefix this so that no Ids get confused?
 $data = [
   'productName' => '...',
-  'vendor' => 'My vendor',
+  'vendor' => 'Aldi',
   'url' => '...',
   'acceptable' => 'less',
   'comment' => 'My comment My comment My comment My comment My comment My comment My comment My comment My comment My comment My comment',
@@ -64,9 +73,28 @@ $data = [
 <body>
   <div class="container mt-5">
     
+    <?php
+
+      // TASK: (advanced) sometimes it isn't the vendor url, no better place for url for now
+      
+      $side = ! empty($data['vendor']) && ! empty($data['url'])
+            ? "<a href=\"$data[url]\" class=\"text-decoration-none\">$data[vendor]</a>" : (
+              empty($data['vendor']) && ! empty($data['url'])
+            ? "<a href=\"$data[url]\" class=\"text-decoration-none\">url</a>" : (
+              ! empty($data['vendor']) && empty($data['url'])
+            ? $data['vendor']
+            : ''
+      ));
+    ?>
+
     <h6 class="mb-1 fw-bold d-flex justify-content-between align-items-center">
-      <span><?= htmlspecialchars($key) ?> (<?= htmlspecialchars($data['vendor']) ?>)</span>
-      <i class="bi bi-pencil-square text-black"></i>  <!-- TASK: vendor smaller -->  <!-- TASK: (advanced) or make all editable on typ -->
+      <span>
+        <?= htmlspecialchars($key) ?>
+        <?php if( $side ): ?>
+          <span class="fw-normal small">(<?= $side ?>)</span>
+        <?php endif; ?>
+      </span>
+      <i class="bi bi-pencil-square text-black"></i>  <!-- TASK: (advanced) or make all editable on typ -->
     </h6>
     
     <?php
@@ -102,8 +130,8 @@ $data = [
           <tr>
             <th>Ingredients</th>
             <td>
-              <a data-bs-toggle="collapse" href="#<?= $id ?>IngrCollapse" role="button">
-                <span class="badge bg-secondary">show</span>
+              <a data-bs-toggle="collapse" href="#<?= $id ?>IngrCollapse" class="text-decoration-none" role="button">
+                <span class="text-secondary">show</span>
               </a>
             </td>
           </tr>
@@ -123,19 +151,11 @@ $data = [
             <td><?= htmlspecialchars($data['productName']) ?></td>
           </tr>
         <?php endif; ?>
-        <?php if( ! empty($data['url'])): ?>  <!-- TASK: merge somewhere -->
-          <tr>
-            <th>URL</th>
-            <td>
-              <a href="<?= $data['url'] ?>">URL</a>
-            </td>
-          </tr>
-        <?php endif; ?>
         <tr>
           <th>Price</th>
           <td>
-            <?= $currency ?><?= $data['price'] ?>  <!-- TASK: upd smaller -->
-            <span class="text-secondary">(<?=$data['lastPriceUpd'] ?>)</span>
+            <?= $currency ?><?= $data['price'] ?>
+            <span class="text-secondary small">on <?=$data['lastPriceUpd'] ?></span>
           </td>
         </tr>
         <tr>
@@ -150,6 +170,8 @@ $data = [
       </tbody>
     </table>
 
+    <!-- TASK: maybe split sources in inline array in yml (use AI) -->
+
     <p style="font-size: .75em;">
       <?= str_replace(',', '<br>', htmlspecialchars($data['sources'])) ?><br>
       Last update: <?= $data['lastUpd'] ?>
@@ -162,8 +184,6 @@ $data = [
         <?= $data['cookingInstrutions'] ?>
       </div>
     <?php endif; ?>
-
-    <!-- TASK: add a collapsible -->
 
     <ul class="list-group mt-3">
 
@@ -183,15 +203,6 @@ $data = [
           'vitamins'   => 'Vitamins',
           'minerals'   => 'Minerals',
           'secondary'  => 'Secondary plant substances'
-        ];
-
-        $nutrientsShort = [
-          'nutritionalValues' => 'nutriVal',  // TASK: use from controller
-          'fattyAcids'        => 'fat',
-          'aminoAcids'        => 'amino',
-          'vitamins'          => 'vit',
-          'minerals'          => 'min',
-          'secondary'         => 'sec'
         ];
 
         foreach(['nutritionalValues', 'fattyAcids', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $group):
