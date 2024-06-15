@@ -66,7 +66,7 @@ $data = [
     
     <h6 class="mb-1 fw-bold d-flex justify-content-between align-items-center">
       <span><?= htmlspecialchars($key) ?> (<?= htmlspecialchars($data['vendor']) ?>)</span>
-      <i class="bi bi-pencil-square text-black"></i>
+      <i class="bi bi-pencil-square text-black"></i>  <!-- TASK: vendor smaller -->
     </h6>
     
     <?php
@@ -134,7 +134,7 @@ $data = [
         <tr>
           <th>Price</th>
           <td>
-            <?= $currency ?><?= $data['price'] ?>
+            <?= $currency ?><?= $data['price'] ?>  <!-- TASK: upd smaller -->
             <span class="text-secondary">(<?=$data['lastPriceUpd'] ?>)</span>
           </td>
         </tr>
@@ -152,7 +152,7 @@ $data = [
 
     <p style="font-size: .75em;">
       <?= str_replace(',', '<br>', htmlspecialchars($data['sources'])) ?><br>
-      Last Update: <?= $data['lastUpd'] ?>
+      Last update: <?= $data['lastUpd'] ?>
     </p>
 
     <?php if( ! empty($data['cookingInstrutions'])): ?>
