@@ -191,7 +191,7 @@ $data = [
             style = "background-color: #e0e0e0;"
         >
           <span>Calories</span>
-          <span><?= $data['calories'] ?></span>
+          <span><?= $data['calories'] ?> kcal</span>
         </li>
 
       <?php
