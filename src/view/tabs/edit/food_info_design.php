@@ -11,7 +11,7 @@
 
 $currency = '€';
 $key = 'My food S Bio';
-$id  = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $key));
+$id  = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $key));  // TASK: maybe we need prefix this so that no Ids get confused?
 $data = [
   'productName' => '...',
   'vendor' => 'My vendor',
@@ -101,9 +101,13 @@ $data = [
         <?php if( ! empty($data['ingredients'])): ?>
           <tr>
             <th>Ingredients</th>
-            <td>&nbsp;</td>
+            <td>
+              <a data-bs-toggle="collapse" href="#<?= $id ?>IngrCollapse" role="button">
+                <span class="badge bg-secondary">show</span>
+              </a>
+            </td>
           </tr>
-          <tr>
+          <tr id="<?= $id ?>IngrCollapse" class="collapse">
             <td colspan="2" class="text-wrap" style="white-space: pre-wrap;"><?= htmlspecialchars($data['ingredients']) ?></td>
           </tr>
         <?php endif; ?>
