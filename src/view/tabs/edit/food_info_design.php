@@ -155,7 +155,7 @@ $data = [
 
     <!-- TASK: add a collapsible -->
 
-    <p class="lead fw-bold">Nutritional Values</p>
+    <p class="lead fw-bold">Nutritional values</p>
 
     <table class="table table-bordered">
       <tbody>
@@ -177,7 +177,7 @@ $data = [
 
         <?php if( ! empty($data['fattyAcids'])): ?>
           <tr>
-            <th colspan="2">Fatty Acids</th>
+            <th colspan="2">Fatty acids</th>
           </tr>
           <?php foreach( $data['fattyAcids'] as $key => $value): ?>
             <tr>
@@ -189,7 +189,7 @@ $data = [
 
         <?php if( ! empty($data['aminoAcids'])): ?>
           <tr>
-            <th colspan="2">Amino Acids</th>
+            <th colspan="2">Amino acids</th>
           </tr>
           <?php foreach( $data['aminoAcids'] as $key => $value): ?>
             <tr>
