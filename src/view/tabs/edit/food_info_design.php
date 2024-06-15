@@ -16,11 +16,11 @@ $data = [
   'vendor' => 'My vendor',
   'url' => '...',
   'acceptable' => 'less',
-  'comment' => 'My comment',
+  'comment' => 'My comment My comment My comment My comment My comment My comment My comment My comment My comment My comment My comment',
   'bio' => true,
   'vegan' => false,
   'misc' => ['NutriScore' => 'A'],
-  'ingredients' => '...',
+  'ingredients' => 'some long text some long text some long text some long text some long text some long text some long text some long text',
   'origin' => '...',
   'cookingInstrutions' => 'First ...',
   'price' => 1.00,
@@ -57,14 +57,16 @@ $data = [
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../../../lib/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../../lib/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <title>Product Info</title>
 </head>
 <body>
   <div class="container mt-5">
     
-    <p class="lead mb-1 fw-bold">
-      <?= htmlspecialchars($key) ?> (<?= htmlspecialchars($data['vendor']) ?>)
-    </p>
+    <h6 class="mb-1 fw-bold d-flex justify-content-between align-items-center">
+      <span><?= htmlspecialchars($key) ?> (<?= htmlspecialchars($data['vendor']) ?>)</span>
+      <i class="bi bi-pencil-square text-black"></i>
+    </h6>
     
     <?php
     
@@ -98,7 +100,10 @@ $data = [
         <?php if( ! empty($data['ingredients'])): ?>
           <tr>
             <th>Ingredients</th>
-            <td><?= htmlspecialchars($data['ingredients']) ?></td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="text-wrap" style="white-space: pre-wrap;"><?= htmlspecialchars($data['ingredients']) ?></td>
           </tr>
         <?php endif; ?>
         <?php if( ! empty($data['origin'])): ?>
