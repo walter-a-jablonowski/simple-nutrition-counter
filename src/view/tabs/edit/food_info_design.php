@@ -18,7 +18,7 @@ $data = [
   'acceptable' => 'less',
   'comment' => 'My comment',
   'bio' => true,
-  'vegan' => true,
+  'vegan' => false,
   'misc' => ['NutriScore' => 'A'],
   'ingredients' => '...',
   'origin' => '...',
@@ -75,10 +75,10 @@ $data = [
     ?>
       <span class="badge bg-<?= $color ?>"><?= $text ?></span>
     <?php endif; ?>
-    <?php if( ! empty($data['bio'])): ?>
+    <?php if( ! empty($data['bio']) && $data['bio']): ?>
       <span class="badge bg-success">bio</span>
     <?php endif; ?>
-    <?php if( ! empty($data['vegan'])): ?>
+    <?php if( ! empty($data['vegan']) && $data['vegan']): ?>
       <span class="badge bg-success">vegan</span>
     <?php endif; ?>
     <?php if( ! empty($data['misc'])): ?>
