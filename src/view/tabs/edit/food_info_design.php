@@ -171,7 +171,7 @@ $data = [
     </table>
 
     <!-- TASK: maybe split sources in inline array in yml (use AI) -->
-    <!-- TASK: collapse sources, leave upd? -->
+    <!-- TASK: collapse sources, leave upd (right align)? -->
 
     <?php $sources = explode(',', htmlspecialchars($data['sources'])) ?>
 
