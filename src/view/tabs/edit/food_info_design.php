@@ -11,6 +11,7 @@
 
 $currency = '€';
 $key = 'My food S Bio';
+$id  = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $key));
 $data = [
   'productName' => '...',
   'vendor' => 'My vendor',
@@ -160,89 +161,73 @@ $data = [
 
     <!-- TASK: add a collapsible -->
 
-    <p class="lead fw-bold">Nutritional values</p>
+    <ul class="list-group mt-3">
 
-    <table class="table table-bordered">
-      <tbody>
+        <li class = "list-group-item d-flex justify-content-between align-items-center"
+            style = "background-color: #e0e0e0;"
+        >
+          <span>Calories</span>
+          <span><?= $data['calories'] ?></span>
+        </li>
 
-        <tr>
-          <th>Calories</th>
-          <td><?= $data['calories'] ?></td>
-        </tr>
+      <?php
 
-        <tr>
-          <th colspan="2">Nutritional values</th>
-        </tr>
-        <?php foreach( $data['nutritionalValues'] as $key => $value): ?>
-          <tr>
-            <td><?= ucwords( str_replace('_', ' ', $key)) ?></td>
-            <td><?= $value ?></td>
-          </tr>
-        <?php endforeach; ?>
+        $headlines = [
+          'nutritionalValues' => 'Nutritional values',
+          'fattyAcids' => 'Fatty acids',
+          'aminoAcids' => 'Amino acids',
+          'vitamins'   => 'Vitamins',
+          'minerals'   => 'Minerals',
+          'secondary'  => 'Secondary plant substances'
+        ];
 
-        <?php if( ! empty($data['fattyAcids'])): ?>
-          <tr>
-            <th colspan="2">Fatty acids</th>
-          </tr>
-          <?php foreach( $data['fattyAcids'] as $key => $value): ?>
-            <tr>
-              <td><?= ucwords(str_replace('_', ' ', $key)) ?></td>
-              <td><?= $value ?></td>
-            </tr>
-          <?php endforeach; ?>
+        $nutrientsShort = [
+          'nutritionalValues' => 'nutriVal',  // TASK: use from controller
+          'fattyAcids'        => 'fat',
+          'aminoAcids'        => 'amino',
+          'vitamins'          => 'vit',
+          'minerals'          => 'min',
+          'secondary'         => 'sec'
+        ];
+
+        foreach(['nutritionalValues', 'fattyAcids', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $group):
+
+          $collapseId = $id . ucwords( $nutrientsShort[$group]) . 'Collapse';
+      ?>
+
+        <?php if( ! empty($data[$group])): ?>
+
+          <li class = "list-group-item d-flex justify-content-between align-items-center"
+              style = "background-color: #e0e0e0;"
+          >
+            <?= $headlines[$group] ?>
+            <a data-bs-toggle="collapse" href="#<?= $collapseId ?>" class="text-body-secondary" role="button">
+              <i class="bi bi-arrow-down-circle"></i>
+            </a>
+          </li>
+
+          <li id="<?= $collapseId ?>" class="list-group-item collapse">
+
+            <table class="table table-bordered">
+              <tbody>
+
+                <?php foreach( $data[$group] as $key => $value): ?>
+                  <tr>
+                    <td><?= ucwords( str_replace('_', ' ', $key)) ?></td>
+                    <td><?= $value ?></td>
+                  </tr>
+                <?php endforeach; ?>
+
+              </tbody>
+            </table>
+          </li>
         <?php endif; ?>
-
-        <?php if( ! empty($data['aminoAcids'])): ?>
-          <tr>
-            <th colspan="2">Amino acids</th>
-          </tr>
-          <?php foreach( $data['aminoAcids'] as $key => $value): ?>
-            <tr>
-              <td><?= ucwords(str_replace('_', ' ', $key)) ?></td>
-              <td><?= $value ?></td>
-            </tr>
-          <?php endforeach; ?>
-        <?php endif; ?>
-
-        <?php if( ! empty($data['vitamins'])): ?>
-          <tr>
-            <th colspan="2">Vitamins</th>
-          </tr>
-          <?php foreach( $data['vitamins'] as $key => $value): ?>
-            <tr>
-              <td><?= ucwords(str_replace('_', ' ', $key)) ?></td>
-              <td><?= $value ?></td>
-            </tr>
-          <?php endforeach; ?>
-        <?php endif; ?>
-
-        <?php if( ! empty($data['minerals'])): ?>
-          <tr>
-            <th colspan="2">Minerals</th>
-          </tr>
-          <?php foreach( $data['minerals'] as $key => $value): ?>
-            <tr>
-              <td><?= ucwords(str_replace('_', ' ', $key)) ?></td>
-              <td><?= $value ?></td>
-            </tr>
-          <?php endforeach; ?>
-        <?php endif; ?>
-
-        <?php if( ! empty($data['secondary'])): ?>
-          <tr>
-            <th colspan="2">Secondary Plant Substances</th>
-          </tr>
-          <?php foreach( $data['secondary'] as $key => $value): ?>
-            <tr>
-              <td><?= ucwords(str_replace('_', ' ', $key)) ?></td>
-              <td><?= $value ?></td>
-            </tr>
-          <?php endforeach; ?>
-        <?php endif; ?>
-
-      </tbody>
-    </table>
+      <?php endforeach; ?>
+    </ul>
   </div>
+
+  &nbsp;  <!-- spacer -->
+
   <script src="../../../lib/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
