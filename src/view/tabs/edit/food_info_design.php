@@ -170,6 +170,95 @@ $data = [
             <td><?= $value ?></td>
           </tr>
         <?php endforeach; ?>
+
+    <?php if (!empty($data['nutritionalValues'])): ?>
+    <tr>
+      <td colspan="2">Nutritional Values</td>
+    </tr>
+    <?php foreach($data['nutritionalValues'] as $key => $value): ?>
+      <?php if ($value !== null): ?>
+      <tr>
+        <th><?= ucwords(str_replace('_', ' ', $key)) ?></th>
+        <td><?= htmlspecialchars($value) ?></td>
+      </tr>
+      <?php endif; ?>
+    <?php endforeach; ?>
+    <?php endif; ?>
+
+    <?php if (!empty($data['fattyAcids'])): ?>
+    <tr>
+      <td colspan="2">Fatty Acids</td>
+    </tr>
+    <?php foreach($data['fattyAcids'] as $key => $value): ?>
+      <?php if ($value !== null): ?>
+      <tr>
+        <th><?= ucwords(str_replace('_', ' ', $key)) ?></th>
+        <td><?= htmlspecialchars($value) ?></td>
+      </tr>
+      <?php endif; ?>
+    <?php endforeach; ?>
+    <?php endif; ?>
+
+    <?php if (!empty($data['aminoAcids'])): ?>
+    <tr>
+      <td colspan="2">Amino Acids</td>
+    </tr>
+    <?php foreach($data['aminoAcids'] as $key => $value): ?>
+      <?php if ($value !== null): ?>
+      <tr>
+        <th><?= ucwords(str_replace('_', ' ', $key)) ?></th>
+        <td><?= htmlspecialchars($value) ?></td>
+      </tr>
+      <?php endif; ?>
+    <?php endforeach; ?>
+    <?php endif; ?>
+
+    <?php if (!empty($data['vitamins'])): ?>
+    <tr>
+      <td colspan="2">Vitamins</td>
+    </tr>
+    <?php foreach($data['vitamins'] as $key => $value): ?>
+      <?php if ($value !== null): ?>
+      <tr>
+        <th><?= ucwords(str_replace('_', ' ', $key)) ?></th>
+        <td><?= htmlspecialchars($value) ?></td>
+      </tr>
+      <?php endif; ?>
+    <?php endforeach; ?>
+    <?php endif; ?>
+
+    <?php if (!empty($data['minerals'])): ?>
+    <tr>
+      <td colspan="2">Minerals</td>
+    </tr>
+    <?php foreach($data['minerals'] as $key => $value): ?>
+      <?php if ($value !== null): ?>
+      <tr>
+        <th><?= ucwords(str_replace('_', ' ', $key)) ?></th>
+        <td><?= htmlspecialchars($value) ?></td>
+      </tr>
+      <?php endif; ?>
+    <?php endforeach; ?>
+    <?php endif; ?>
+
+    <?php if (!empty($data['secondary'])): ?>
+    <tr>
+      <td colspan="2">Secondary Plant Substances</td>
+    </tr>
+    <?php foreach($data['secondary'] as $key => $value): ?>
+      <?php if ($value !== null): ?>
+      <tr>
+        <th><?= ucwords(str_replace('_', ' ', $key)) ?></th>
+        <td><?= htmlspecialchars($value) ?></td>
+      </tr>
+      <?php endif; ?>
+    <?php endforeach; ?>
+    <?php endif; ?>
+  </tbody>
+</table>
+<?php endif; ?>
+
+
       </tbody>
     </table>
   </div>
