@@ -102,7 +102,7 @@ $data = [
     if( ! empty($data['acceptable'])):
     
       $color = $data['acceptable'] == 'less' ? 'danger' : 'warning';
-      $text  = $data['acceptable'] == 'less' ? 'less acceptable' : 'acceptable occasionally';
+      $text  = $data['acceptable'] == 'less' ? 'less good' : 'occasionally';
     ?>
       <span class="badge bg-<?= $color ?>"><?= $text ?></span>
     <?php endif; ?>
