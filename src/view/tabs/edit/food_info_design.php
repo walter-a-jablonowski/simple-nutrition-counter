@@ -9,6 +9,14 @@
 
 // The yml sample
 
+function iif( $if, $true, $false = '' ) /*@*/
+{
+  if( $if || $if === 0 || $if === 0.0 || $if === "0" )
+    return $true;
+  else
+    return $false;
+}
+
 $nutrientsShort = [
   'nutritionalValues' => 'nutriVal',  // TASK: use from controller
   'fattyAcids'        => 'fat',
@@ -93,21 +101,17 @@ $data = [
       <i class="bi bi-pencil-square text-black"></i>  <!-- TASK: (advanced) or make all editable on typ -->
     </h6>
     
-    <?php
-    
-    if( ! empty($data['acceptable'])):
-    
-      $color = $data['acceptable'] == 'less' ? 'danger' : 'warning';
-      $text  = $data['acceptable'] == 'less' ? 'less good' : 'occasionally';
-    ?>
-      <span class="badge bg-<?= $color ?>"><?= $text ?></span>
+    <?php if( ! empty($data['acceptable'])): ?>
+      <span class="badge bg-<?= iif( $data['acceptable'] == 'less', 'danger', 'warning') ?>">
+        <?= iif( $data['acceptable'] == 'less', 'less good', 'occasionally') ?>
+      </span>
     <?php endif; ?>
-    <?php if( ! empty($data['bio']) && $data['bio']): ?>
-      <span class="badge bg-success">bio</span>
-    <?php endif; ?>
-    <?php if( ! empty($data['vegan']) && $data['vegan']): ?>
-      <span class="badge bg-success">vegan</span>
-    <?php endif; ?>
+    <span class="badge bg-<?= iif( ! empty($data['bio']), 'success', 'secondary') ?>">
+      <?= iif( ! empty($data['bio']), 'bio', 'non-bio') ?>
+    </span>
+    <span class="badge bg-<?= iif( ! empty($data['vegan']), 'success', 'secondary') ?>">
+      <?= iif( ! empty($data['vegan']), 'vegan', 'non-vegan') ?>
+    </span>
     <?php if( ! empty($data['misc'])): ?>
       <?php foreach( $data['misc'] as $key => $value): ?>
         <span class="badge bg-info"><?= $key ?>: <?= $value ?></span>
