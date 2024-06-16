@@ -73,25 +73,21 @@ $data = [
 <body>
   <div class="container mt-5">
     
-    <?php
-
-      // TASK: (advanced) sometimes it isn't the vendor url, no better place for url for now
-      
-      $side = ! empty($data['vendor']) && ! empty($data['url'])
-            ? "<a href=\"$data[url]\" target=\"_blank\" class=\"text-decoration-none\">$data[vendor]</a>" : (
-              empty($data['vendor']) && ! empty($data['url'])
-            ? "<a href=\"$data[url]\" target=\"_blank\" class=\"text-decoration-none\">url</a>" : (
-              ! empty($data['vendor']) && empty($data['url'])
-            ? $data['vendor']
-            : ''
-      ));
-    ?>
+    <!-- TASK: (advanced) sometimes it isn't the vendor url, no better place for url for now -->
 
     <h6 class="mb-1 fw-bold d-flex justify-content-between align-items-center">
       <span>
         <?= htmlspecialchars($key) ?>
-        <?php if( $side ): ?>
-          <span class="fw-normal small">(<?= $side ?>)</span>
+        <?php if( ! empty($data['vendor']) || ! empty($data['url'])): ?>
+          <span class="fw-normal small">
+            <?php if( ! empty($data['vendor']) && ! empty($data['url'])): ?>
+              (<a href="<?= $data['url'] ?>" target="_blank" class="text-decoration-none"><?= $data['vendor'] ?></a>)
+            <?php elseif( empty($data['vendor']) && ! empty($data['url'])): ?>
+              (<a href="<?= $data['url'] ?>" target="_blank" class="text-decoration-none">url</a>)
+            <?php elseif( ! empty($data['vendor']) && empty($data['url'])): ?>
+              (<?= $data['vendor'] ?>)
+            <?php endif; ?>
+          </span>
         <?php endif; ?>
       </span>
       <i class="bi bi-pencil-square text-black"></i>  <!-- TASK: (advanced) or make all editable on typ -->
