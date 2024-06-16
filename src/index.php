@@ -7,6 +7,7 @@ require_once 'vendor/autoload.php';
 require_once 'lib/SimpleData_240317/SimpleData.php';
 require_once 'lib/ConfigStatic_240323/config.php';
 // require_once 'lib/Routing_240324/Routing.php';
+require_once 'lib/Controller_240323/ControllerBase.php';
 require_once 'controller.php';
 
 
@@ -34,7 +35,22 @@ if( ! $isAjax )
   //
   // $router->run();
 
-  $controller = new FoodsController();
+  if( config::get('devMode') && config::get('tryDesign'))
+  {
+    $controller = new class extends ControllerBase {
+      public function render()
+      {
+        $this->devMode = true;
+
+        ob_start();
+        require 'view/tabs/edit/food_info_design.php';
+        return ob_get_clean();
+      }
+    };
+  }
+  else
+    $controller = new FoodsController();
+
   echo $controller->render();
 }
 else

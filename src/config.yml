@@ -1,5 +1,7 @@
 
-devMode: true
+devMode:   true
+tryDesign: true
+
 user:    single_user  # TASK: remove (currently single user)
 
 defaultSettings:      # see also users > settings.yml

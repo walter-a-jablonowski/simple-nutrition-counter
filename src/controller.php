@@ -48,7 +48,6 @@ class FoodsController extends ControllerBase
 
     // TASK: move settings?
     $this->settings   = new SimpleData( $config->get('defaultSettings'));  // TASK: (advanced) merge user settings
-    // $this->settings = new SimpleData( config::get('defaultSettings'));  // alternative
 
     $this->dayEntriesTxt = trim( @file_get_contents('data/users/' . $config->get('user') . "/days/{$this->date}.tsv") ?: '', "\n");
     $this->dayEntries    = parse_tsv( $this->dayEntriesTxt );

@@ -9,14 +9,6 @@
 
 // The yml sample
 
-function iif( $if, $true, $false = '' ) /*@*/
-{
-  if( $if || $if === 0 || $if === 0.0 || $if === "0" )
-    return $true;
-  else
-    return $false;
-}
-
 $nutrientsShort = [
   'nutritionalValues' => 'nutriVal',  // TASK: use from controller
   'fattyAcids'        => 'fat',
@@ -74,8 +66,8 @@ $data = [
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="../../../lib/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../../../lib/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="lib/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="lib/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <title>Product Info</title>
 </head>
 <body>
@@ -98,19 +90,21 @@ $data = [
           </span>
         <?php endif; ?>
       </span>
-      <i class="bi bi-pencil-square text-black"></i>  <!-- TASK: (advanced) or make all editable on typ -->
+      <?php if( $this->devMode ): ?>
+        <i class="bi bi-pencil-square text-black"></i>  <!-- TASK: (advanced) or make all editable on typ -->
+      <?php endif; ?>
     </h6>
     
     <?php if( ! empty($data['acceptable'])): ?>
-      <span class="badge bg-<?= iif( $data['acceptable'] == 'less', 'danger', 'warning') ?>">
-        <?= iif( $data['acceptable'] == 'less', 'less good', 'occasionally') ?>
+      <span class="badge bg-<?= $this->iif( $data['acceptable'] == 'less', 'danger', 'warning') ?>">
+        <?= $this->iif( $data['acceptable'] == 'less', 'less good', 'occasionally') ?>
       </span>
     <?php endif; ?>
-    <span class="badge bg-<?= iif( ! empty($data['bio']), 'success', 'secondary') ?>">
-      <?= iif( ! empty($data['bio']), 'bio', 'non-bio') ?>
+    <span class="badge bg-<?= $this->iif( ! empty($data['bio']), 'success', 'secondary') ?>">
+      <?= $this->iif( ! empty($data['bio']), 'bio', 'non-bio') ?>
     </span>
-    <span class="badge bg-<?= iif( ! empty($data['vegan']), 'success', 'secondary') ?>">
-      <?= iif( ! empty($data['vegan']), 'vegan', 'non-vegan') ?>
+    <span class="badge bg-<?= $this->iif( ! empty($data['vegan']), 'success', 'secondary') ?>">
+      <?= $this->iif( ! empty($data['vegan']), 'vegan', 'non-vegan') ?>
     </span>
     <?php if( ! empty($data['misc'])): ?>
       <?php foreach( $data['misc'] as $key => $value): ?>
@@ -260,6 +254,6 @@ $data = [
 
   &nbsp;  <!-- spacer -->
 
-  <script src="../../../lib/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
