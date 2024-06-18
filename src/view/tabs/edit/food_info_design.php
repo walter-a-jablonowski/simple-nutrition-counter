@@ -56,7 +56,7 @@ $data = [
     'calcium' => 1,
   ],
   'secondary' => [],
-  'sources' => ['macroNutrients' => 'web|pack (information on packaging may differ slightly)', 'nutrients' => '...', 'price' => '...'],
+  'sources' => ['nutriVal' => 'web|pack (information on packaging may differ slightly)', 'nutrients' => '...', 'price' => '...'],
   'lastUpd' => '2024-02-18',
   'lastPriceUpd' => '2024-03-23',
 ];
@@ -173,7 +173,7 @@ $data = [
           <td colspan="2" class="p-0 fw-bold">Data sources</td>
         </tr>
         <?php
-          $headlines = ['macroNutrients' => 'Macro nutrients', 'nutrients' => 'Nutrients', 'price' => 'Price'];
+          $headlines = ['nutriVal' => 'Nutri values', 'nutrients' => 'Nutrients', 'price' => 'Price'];
         ?>
         <?php foreach( $data['sources'] as $key => $source ): ?>
           <tr>
