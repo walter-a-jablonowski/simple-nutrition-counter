@@ -99,7 +99,7 @@ My food S Bio:                           # (required) display name (also used as
 
     # ...
                                          # source is (required)
-  sources:            "Macro nutrients: web|pack (information on packaging may differ slightly), nutrients: ..., price: ..."
+  sources:            { macroNutrients: "web|pack (information on packaging may differ slightly)", nutrients: "...", price: "..." }
   lastUpd:            2024-02-18         # (required)
   lastPriceUpd:       2024-03-23         # (required)
 ```
