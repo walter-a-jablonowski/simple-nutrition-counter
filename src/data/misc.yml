@@ -1,39 +1,64 @@
 #
 # All misc counters
 #
-# - water
-# - beverages
+# - Water
+# - Coffee
 # - misc expenses that are no food
 #
 
-# key is type
+Water:  # key is type
 
-Water:
+  Large:
+  
+    price:        1.74
+    weight:
+    pieces:       6
+    lastPriceUpd: 2024-06-18
 
-  price:        1.74
-  lastPriceUpd: 2024-03-30
+  Small:
 
-Beverages:
+    price:        0.90
+    weight:
+    pieces:       6
+    lastPriceUpd: 2024-06-18
 
-  Coffee:
+Coffee:
 
-    price:             4.99
+  Dallmayr classic:
+
+    price:             6.49
     weight:            
-    usedAmounts:       ["50ml", ...]
+    usedAmounts:       ["50g", ...]
 
-    calories:          0
     nutrients:
 
       water:           99
       caffeine:
 
-    sources:           "price: deal price"
+    sources:           {}
+    lastUpd:           
+    lastPriceUpd:      2024-06-01
+
+  Dallmayr deal:
+
+    price:             4.99
+    weight:            
+    usedAmounts:       ["50g", ...]
+
+    nutrients:
+
+      water:           99
+      caffeine:
+
+    sources:           { price: "deal price" }
     lastUpd:           
     lastPriceUpd:      2024-05-11
 
 # All misc expenses that are no food (variable expenses spent on daily basis)
 
-Expenses:
+expenses:
 
-  Rollen: [ price: 3.49, lastUpd: 2024-06-04 ]
-  Waschm: [ price: 4.89, lastUpd: 2024-05-06 ]
+  Rollen:         { price: 3.49, lastUpd: 2024-06-04 }
+  Waschm:         { price: 4.89, lastUpd: 2024-05-06 }
+  Becher:         { price: 2.29, pieces: 15, lastUpd: 2024-06-18 }
+  Kaffeefilter N: { price: 0.79, lastUpd: 2024-06-18 }

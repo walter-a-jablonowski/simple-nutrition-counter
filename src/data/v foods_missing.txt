@@ -6,7 +6,7 @@ Aldi Linsenchips   1.35 2024-05-13
 Norma Gr Bohnen    0.99 2024-06-01
 Norma Kohl Pack    1.19 2024-06-01
 Rewe  Frischk Bio  0.99 2024-06-01 deal
-Dallmayr classic   6.49 2024-06-01
+Thunfisch          1.49 2024-06-18
 
 Frosta Bratk (price is a guess)
 
@@ -62,7 +62,6 @@ rosenkohl
 kürbis
 sonnenblumenkerne
 pinienkerne
-champignons R
 bohnen
 gurken R
 apfelkohl R

@@ -1963,7 +1963,7 @@ Sardine:
   misc:              {NutriScore: B}
   ingredients:       "Sonnenblumenöl, Salz"
 
-  price:             
+  price:             0.99
   weight:            125
   usedAmounts:       [1]
 
@@ -1980,7 +1980,7 @@ Sardine:
 
   sources:           { nutriVal: "pack" }
   lastUpd:           2024-06-10
-  lastPriceUpd:      
+  lastPriceUpd:      2024-06-18
 
 Vollkorn Rhein R:
 
