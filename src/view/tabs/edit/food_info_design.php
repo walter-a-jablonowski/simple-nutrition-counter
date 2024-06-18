@@ -56,7 +56,7 @@ $data = [
     'calcium' => 1,
   ],
   'secondary' => [],
-  'sources' => 'Macro nutrients: web|pack (information on packaging may differ slightly), nutrients: ..., price: ...',
+  'sources' => ['macroNutrients' => 'web|pack (information on packaging may differ slightly)', 'nutrients' => '...', 'price' => '...'],
   'lastUpd' => '2024-02-18',
   'lastPriceUpd' => '2024-03-23',
 ];
@@ -68,7 +68,7 @@ $data = [
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="lib/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="lib/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-  <title>Product Info</title>
+  <title>Food info</title>
 </head>
 <body>
   <div class="container mt-5">
@@ -164,27 +164,26 @@ $data = [
       </tbody>
     </table>
 
-    <!-- TASK: maybe split sources in inline array in yml (use AI) -->
     <!-- TASK: collapse sources, leave upd (right align)? -->
-
-    <?php $sources = explode(',', htmlspecialchars($data['sources'])) ?>
+    <!-- TASK: rm the borcer -->
 
     <table class="table" style="font-size: .75em;">
       <tbody>
-
         <tr>
           <td colspan="2" class="p-0 fw-bold">Data sources</td>
         </tr>
-        <?php foreach( $sources as $line ): ?>
+        <?php
+          $headlines = ['macroNutrients' => 'Macro nutrients', 'nutrients' => 'Nutrients', 'price' => 'Price'];
+        ?>
+        <?php foreach( $data['sources'] as $key => $source ): ?>
           <tr>
-            <td class="p-0"><?= explode(':', $line)[0] ?></td>
-            <td class="p-0"><?= explode(':', $line)[1] ?></td>
+            <td class="p-0"><?= $headlines[ $key ] ?></td>
+            <td class="p-0"><?= $source ?></td>
           </tr>
         <?php endforeach; ?>
         <tr>
           <td colspan="2" class="p-0">Last update: <?= $data['lastUpd'] ?></td>
         </tr>
-
       </tbody>
     </table>
 
