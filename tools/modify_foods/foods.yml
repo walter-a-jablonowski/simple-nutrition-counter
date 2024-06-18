@@ -27,7 +27,7 @@ Amino misc:
     amino:           20
     salt:            0.02
 
-  sources:           {macroNutrients: "Asked Alexa for avg"}
+  sources:           "Macro nutrients: Asked Alexa for avg"
   lastUpd:           2024-04-24
   lastPriceUpd:      
 
@@ -50,7 +50,7 @@ Amino misc:
 #     amino:           0
 #     salt:            100
 
-#   sources:           {}
+#   sources:           ""
 #   lastUpd:           2024-06-05
 #   lastPriceUpd:      
 
@@ -73,7 +73,7 @@ Amino Deca Muscle Gainer:
     amino:           36
     salt:            0.3
 
-  sources:           {macroNutrients: "web (information on packaging may differ slightly)"}
+  sources:           "Macro nutrients: web (information on packaging may differ slightly)"
   lastUpd:           2024-04-24
   lastPriceUpd:      2024-04-24
 
@@ -97,7 +97,7 @@ Amino NaDuRia Pur:
     amino:           57
     salt:            0.02
 
-  sources:           {macroNutrients: "web (information on packaging may differ slightly)"}
+  sources:           "Macro nutrients: web (information on packaging may differ slightly)"
   lastUpd:           2024-03-13
   lastPriceUpd:      
 
@@ -120,7 +120,7 @@ Aldi Bratk:
     amino:           5
     salt:            0.6
 
-  sources:           {macroNutrients: "pack"}
+  sources:           "Macro nutrients: pack"
   lastUpd:           2024-05-13
   lastPriceUpd:      2024-05-13
 
@@ -146,7 +146,7 @@ Artisch R viertel:
     amino:           1.9
     salt:            1
 
-  sources:           {macroNutrients: "pack"}
+  sources:           "Macro nutrients: pack"
   lastUpd:           2024-04-28
   lastPriceUpd:      2024-04-28
 
@@ -182,7 +182,7 @@ Avocado:
     # Kalium
     # Magnesium
 
-  sources:           {macroNutrients: "ChatGPT (vals on websites differ"}  # TASK: nutrients good source?
+  sources:           "Macro nutrients: ChatGPT (vals on websites differ, TASK: good source?)"
   lastUpd:           2024-04-19
   lastPriceUpd:      2024-04-28
 
@@ -205,7 +205,7 @@ Bresso:
     amino:           9.2
     salt:            1.2
 
-  sources:           {macroNutrients: "web (information on packaging may differ)"}
+  sources:           "Macro nutrients: web (information on packaging may differ)"
   lastUpd:           2024-04-20
   lastPriceUpd:      
 
@@ -228,7 +228,7 @@ Bresso mini:
     amino:           9.2
     salt:            1.2
 
-  sources:           {macroNutrients: "web (information on packaging may differ)", price: "deal"}
+  sources:           "Macro nutrients: web (information on packaging may differ), price: deal"
   lastUpd:           2024-04-20
   lastPriceUpd:      2024-06-04
 
@@ -251,7 +251,7 @@ Brokkoli R:
     amino:           3
     salt:            0
 
-  sources:           {macroNutrients: "web (information on packaging may differ slightly)"}
+  sources:           "Macro nutrients: web (information on packaging may differ slightly)"
   lastUpd:           2024-03-13
   lastPriceUpd:      2024-03-23
 
@@ -273,7 +273,7 @@ Cappuccino R:  # TASK: fix, is just a cp of Eni
     amino:           2.7
     salt:            0.08
 
-  sources:           {}
+  sources:           "Macro nutrients: web (kind of impossible, third party), weight is a guess"
   lastUpd:           2024-04-30
   lastPriceUpd:      2024-04-30
 
@@ -295,7 +295,7 @@ Cappuccino Eni:
     amino:           2.7
     salt:            0.08
 
-  sources:           {macroNutrients: "web (kind of impossible - third party - weight is a guess}"}
+  sources:           "Macro nutrients: web (kind of impossible, third party), weight is a guess"
   lastUpd:           2024-04-30
   lastPriceUpd:      2024-04-30
 
@@ -322,7 +322,7 @@ Cashew A:
 
     Magnesium:       258
 
-  sources:           {macroNutrients: "pack"}
+  sources:           "Macro nutrients: pack"
   lastUpd:           2024-05-29
   lastPriceUpd:      2024-05-29
 
@@ -346,7 +346,7 @@ Cashew E:
     amino:           21
     salt:            0
 
-  sources:           {macroNutrients: "pack"}
+  sources:           "Macro nutrients: pack"
   lastUpd:           2024-02-18
   lastPriceUpd:      
 
@@ -369,7 +369,7 @@ Cashew N:
     amino:           21
     salt:            0
 
-  sources:           {macroNutrients: "pack", price: "2.39"}
+  sources:           "Macro nutrients: pack, price: 2.39"
   lastUpd:           2024-02-18
   lastPriceUpd:      2024-04-06
 
@@ -392,7 +392,7 @@ Cashew R Bio:
     amino:           20.7
     salt:            0.01
 
-  sources:           {macroNutrients: "web (information on packaging differs slightly)"}
+  sources:           "Macro nutrients: web (information on packaging differs slightly)"
   lastUpd:           2024-05-06
   lastPriceUpd:      2024-05-06
 
@@ -414,7 +414,7 @@ Champ mini ganz R:
     amino:           2.5
     salt:            0.4
 
-  sources:           {macroNutrients: "pack"}
+  sources:           "Macro nutrients: pack"
   lastUpd:           2024-04-20
   lastPriceUpd:      
 
@@ -436,7 +436,7 @@ Champ N:
     amino:           2.3
     salt:            1
 
-  sources:           {macroNutrients: "pack"}
+  sources:           "Macro nutrients: pack"
   lastUpd:           2024-05-11
   lastPriceUpd:      2024-05-11
 
@@ -462,7 +462,7 @@ Chili vegan:
     amino:           5.9
     salt:            0.85
 
-  sources:           {macroNutrients: "web (information on packaging may differ slightly)", price: "web"}
+  sources:           "Macro nutrients: web (information on packaging may differ slightly), price: web"
   lastUpd:           2024-05-11
   lastPriceUpd:      2024-05-11
 
@@ -485,7 +485,7 @@ Chips light:
     amino:           6.4
     salt:            2.5
 
-  sources:           {macroNutrients: "web"}
+  sources:           "Macro nutrients: web"
   lastUpd:           2024-02-18
   lastPriceUpd:      2024-03-23
 
@@ -508,7 +508,7 @@ Chick R Bio:
     amino:           7.1
     salt:            0.35
 
-  sources:           {macroNutrients: "web (information on packaging differs slightly)"}
+  sources:           "Macro nutrients: web (information on packaging differs slightly)"
   lastUpd:           2024-03-13
   lastPriceUpd:      2024-03-23
 
@@ -533,7 +533,7 @@ Donuts:
     amino:           6.4
     salt:            0.95
 
-  sources:           {macroNutrients: "pack"}
+  sources:           "Macro nutrients: pack"
   lastUpd:           2024-05-16
   lastPriceUpd:      2024-05-16
 
@@ -556,7 +556,7 @@ Duplo:
     amino:           6.1
     salt:            0.191
 
-  sources:           {macroNutrients: "web (information on packaging may differ slightly)", price: "D"}
+  sources:           "Macro nutrients: web (information on packaging may differ slightly), price: D"
   lastUpd:           2024-04-24
   lastPriceUpd:      2024-04-24
 
@@ -581,7 +581,7 @@ Durchstarter:
     amino:           20
     salt:            0.01
 
-  sources:           {macroNutrients: "pack"}
+  sources:           "Macro nutrients: pack"
   lastUpd:           2024-06-16
   lastPriceUpd:      2024-06-16
 
@@ -606,7 +606,7 @@ Eiweißbr:
     amino:           23.3
     salt:            1.38
 
-  sources:           {macroNutrients: "pack"}
+  sources:           "Macro nutrients: pack"
   lastUpd:           2024-05-11
   lastPriceUpd:      2024-05-11
 
@@ -629,7 +629,7 @@ Erdn Salz N big:
     amino:           24
     salt:            1
 
-  sources:           {macroNutrients: "pack"}
+  sources:           "Macro nutrients: pack"
   lastUpd:           2024-03-13
   lastPriceUpd:      2024-03-30
 
@@ -652,7 +652,7 @@ Falafel:
     amino:           7
     salt:            1.8
 
-  sources:           {macroNutrients: "pack"}
+  sources:           "Macro nutrients: pack"
   lastUpd:           2024-05-06
   lastPriceUpd:      
 
@@ -677,7 +677,7 @@ Ferrero Kuesschen:
     amino:           8.4
     salt:            0.125
 
-  sources:           {macroNutrients: "web", price: "1.39 - 30% 0.42 (?)"}
+  sources:           "Macro nutrients: web, price: 1,39 - 30% 0,42 (?)"
   lastUpd:           2024-05-06
   lastPriceUpd:      2024-05-06
 
@@ -702,7 +702,7 @@ Fischst:
     amino:           12
     salt:            0.75
 
-  sources:           {macroNutrients: "pack"}
+  sources:           "Macro nutrients: pack"
   lastUpd:           2024-04-28
   lastPriceUpd:      2024-04-28
 
@@ -729,7 +729,7 @@ Frischk R Bio:
     amino:           12.7
     salt:            0.7
 
-  sources:           {macroNutrients: "web"}
+  sources:           "Macro nutrients: web"
   lastUpd:           2024-06-01
   lastPriceUpd:      
 
@@ -753,7 +753,7 @@ Frosta Bratk:
     amino:           4.8
     salt:            0.74
 
-  sources:           {macroNutrients: "pack", price: "deal ca"}
+  sources:           "Macro nutrients: pack, price: deal ca"
   lastUpd:           2024-04-24
   lastPriceUpd:      2024-04-24
 
@@ -778,7 +778,7 @@ Frosta Frikassee:
     amino:           6.1
     salt:            0.99
 
-  sources:           {macroNutrients: "web", price: "deal price"}
+  sources:           "Macro nutrients: web, price: deal price"
   lastUpd:           2024-06-04
   lastPriceUpd:      2024-06-04
 
@@ -802,7 +802,7 @@ Frosta Gesch:
     amino:           6.7
     salt:            1.18
 
-  sources:           {macroNutrients: "pack", price: "web"}
+  sources:           "Macro nutrients: pack, price: web"
   lastUpd:           2024-02-18
   lastPriceUpd:      2024-03-23
 
@@ -828,7 +828,7 @@ Frosta Paella:
     amino:           6.1
     salt:            1.01
 
-  sources:           {macroNutrients: "pack", price: "deal"}
+  sources:           "Macro nutrients: pack, price: deal"
   lastUpd:           2024-05-01
   lastPriceUpd:      2024-06-04
 
@@ -854,7 +854,7 @@ Geb Bohnen:
     amino:           4.6
     salt:            0.45
 
-  sources:           {macroNutrients: "web (information on packaging may differ slightly)", price: "web"}
+  sources:           "Macro nutrients: web (information on packaging may differ slightly), price: web"
   lastUpd:           2024-05-11
   lastPriceUpd:      2024-05-11
 
@@ -880,7 +880,7 @@ Gemüse A Bio Sommer:
     amino:           1.6
     salt:            0.78
 
-  sources:           {macroNutrients: "pack", price: "web"}
+  sources:           "Macro nutrients: pack, price: web"
   lastUpd:           2024-05-29
   lastPriceUpd:      2024-05-29
 
@@ -906,7 +906,7 @@ Gemüse A Bio Ital:
     amino:           1.4
     salt:            0.71
 
-  sources:           {macroNutrients: "pack"}
+  sources:           "Macro nutrients: pack"
   lastUpd:           2024-06-13
   lastPriceUpd:      
 
@@ -933,7 +933,7 @@ Gemüse R:
     amino:           1.4
     salt:            0.93
 
-  sources:           {macroNutrients: "web (information on packaging may differ slightly)", price: "web"}
+  sources:           "Macro nutrients: web (information on packaging may differ slightly), price: web"
   lastUpd:           2024-05-17
   lastPriceUpd:      2024-05-17
 
@@ -960,7 +960,7 @@ Gemüse R Bio:
     amino:           1.4
     salt:            0.98
 
-  sources:           {macroNutrients: "web (information on packaging may differ slightly)", price: "web"}
+  sources:           "Macro nutrients: web (information on packaging may differ slightly), price: web"
   lastUpd:           2024-05-17
   lastPriceUpd:      2024-05-17
 
@@ -982,7 +982,7 @@ Green beans R:
     amino:           1.2
     salt:            0.6
 
-  sources:           {macroNutrients: "pack"}
+  sources:           "Macro nutrients: pack"
   lastUpd:           2024-04-24
   lastPriceUpd:      2024-04-24
 
@@ -1009,7 +1009,7 @@ Käse Gr Sch (all):
 
     Calcium:         850
 
-  sources:           {macroNutrients: "web", price: "deal price"}
+  sources:           "Macro nutrients: web, price: deal price"
   lastUpd:           2024-05-24
   lastPriceUpd:      2024-06-04
 
@@ -1036,7 +1036,7 @@ Käse Gr W (all):
 
     Calcium:         850
 
-  sources:           {macroNutrients: "web", price: "deal price"}
+  sources:           "Macro nutrients: web, price: deal price"
   lastUpd:           2024-05-24
   lastPriceUpd:      
 
@@ -1059,7 +1059,7 @@ Karamalz:
     amino:           0.4
     salt:            0.01
 
-  sources:           {macroNutrients: "web", price: "web"}
+  sources:           "Macro nutrients: web, price: web"
   lastUpd:           2024-04-17
   lastPriceUpd:      2024-05-15
 
@@ -1084,7 +1084,7 @@ Kartoffeltaschen F:
     amino:           2.5
     salt:            1.3
 
-  sources:           {macroNutrients: "web (information on packaging may differ slightly)"}
+  sources:           "Macro nutrients: web (information on packaging may differ slightly)"
   lastUpd:           2024-04-16
   lastPriceUpd:      
 
@@ -1108,7 +1108,7 @@ Kartoffel Wedges:
     amino:           2.6
     salt:            0.53
 
-  sources:           {macroNutrients: "web (information on packaging may differ slightly)", price: "web"}
+  sources:           "Macro nutrients: web (information on packaging may differ slightly), price: web"
   lastUpd:           2024-04-28
   lastPriceUpd:      2024-04-28
 
@@ -1136,7 +1136,7 @@ Kartoffel Wedges Bio:
     amino:           2.4
     salt:            0.08
 
-  sources:           {macroNutrients: "web"}
+  sources:           "Macro nutrients: web"
   lastUpd:           2024-05-16
   lastPriceUpd:      2024-05-16
 
@@ -1162,7 +1162,7 @@ Kfc Original:
     amino:           19
     salt:            2.5
 
-  sources:           {macroNutrients: "web"}
+  sources:           "Macro nutrients: web"
   lastUpd:           2024-04-17
   lastPriceUpd:      2024-04-17
 
@@ -1185,7 +1185,7 @@ Linsen R Bio:
     amino:           7.5
     salt:            0
 
-  sources:           {macroNutrients: "web (information on packaging differs slightly)"}
+  sources:           "Macro nutrients: web (information on packaging differs slightly)"
   lastUpd:           2024-03-13
   lastPriceUpd:      2024-03-23
 
@@ -1208,7 +1208,7 @@ Linsen vegan:
     amino:           3.7
     salt:            0.95
 
-  sources:           {macroNutrients: "pack"}
+  sources:           "Macro nutrients: pack"
   lastUpd:           2024-04-19
   lastPriceUpd:      
 
@@ -1231,7 +1231,7 @@ Lyoner R Bio:
     amino:           13.3
     salt:            2.5
 
-  sources:           {macroNutrients: "web (information on packaging may differ slightly)"}
+  sources:           "Macro nutrients: web (information on packaging may differ slightly)"
   lastUpd:           2024-03-22
   lastPriceUpd:      2024-03-23
 
@@ -1254,7 +1254,7 @@ Mandel N:
     amino:           27.0
     salt:            0.7
 
-  sources:           {macroNutrients: "pack", price: "1.99"}
+  sources:           "Macro nutrients: pack, price: 1.99"
   lastUpd:           2024-02-18
   lastPriceUpd:      2024-04-06
 
@@ -1278,7 +1278,7 @@ Mandel R Bio:
     amino:           24
     salt:            0.01
 
-  sources:           {macroNutrients: "pack"}
+  sources:           "Macro nutrients: pack"
   lastUpd:           2024-03-30
   lastPriceUpd:      2024-04-28
 
@@ -1303,7 +1303,7 @@ Mehrkornbr:
     amino:           7.6
     salt:            1.34
 
-  sources:           {macroNutrients: "pack"}
+  sources:           "Macro nutrients: pack"
   lastUpd:           2024-04-23
   lastPriceUpd:      
 
@@ -1331,7 +1331,7 @@ Milch H:
 
     Calcium:         120
 
-  sources:           {macroNutrients: "web", nutrients: "nutrients: calcium also from vendors page online", price: "price: web"}
+  sources:           "Macro nutrients: web, nutrients: calcium also from vendors page online, price: web"
   lastUpd:           2024-04-11
   lastPriceUpd:      2024-05-15
 
@@ -1354,7 +1354,7 @@ Mohnkuchen:
     amino:           7.8
     salt:            0.78
 
-  sources:           {macroNutrients: "pack", price: "web"}
+  sources:           "Macro nutrients: pack, price: web"
   lastUpd:           2024-04-23
   lastPriceUpd:      2024-05-15
 
@@ -1386,7 +1386,7 @@ Nussmisch A:      # big pack
     Magnesium:       195
     Phosphor:        364
 
-  sources:           {macroNutrients: "pack"}
+  sources:           "Macro nutrients: pack"
   lastUpd:           2024-05-29
   lastPriceUpd:      
 
@@ -1409,7 +1409,7 @@ Nussmisch A ger:  # small pack
     amino:           25
     salt:            0.98
 
-  sources:           {macroNutrients: "pack"}
+  sources:           "Macro nutrients: pack"
   lastUpd:           2024-02-29
   lastPriceUpd:      
 
@@ -1434,7 +1434,7 @@ Nussmisch N:
     amino:           19.2
     salt:            0
 
-  sources:           {macroNutrients: "pack", price: "2.89"}
+  sources:           "Macro nutrients: pack, price: 2,89"
   lastUpd:           2024-02-18
   lastPriceUpd:      2024-04-06
 
@@ -1458,7 +1458,7 @@ Oliven R Bio:
     amino:           0.9
     salt:            3
 
-  sources:           {macroNutrients: "pack (fibre is from web)"}
+  sources:           "Macro nutrients: pack (fibre is from web)"
   lastUpd:           2024-04-28
   lastPriceUpd:      2024-04-28
 
@@ -1482,7 +1482,7 @@ Olivenöl:
     amino:           0
     salt:            0
 
-  sources:           {macroNutrients: "pack"}
+  sources:           "Macro nutrients: pack"
   lastUpd:           2024-04-08
   lastPriceUpd:      2024-04-24
 
@@ -1508,7 +1508,7 @@ Olivenöl:
 
     Vitamin E:	     30 # mg
 
-  sources:           {macroNutrients: "web", price: "guess"}
+  sources:           "Macro nutrients: web, price: guess"
   lastUpd:           2024-04-24
   lastPriceUpd:      2024-05-01
 
@@ -1531,7 +1531,7 @@ Patros 150:
     amino:           15
     salt:            3
 
-  sources:           {macroNutrients: "Vendor online (Variants differ only slightly)", price: "deal price (2.99)"}
+  sources:           "Macro nutrients: Vendor online (Variants differ only slightly), price: deal price (2.99)"
   lastUpd:           2024-04-01
   lastPriceUpd:      2024-04-28
 
@@ -1554,7 +1554,7 @@ Patros W:
     amino:           19
     salt:            3
 
-  sources:           {macroNutrients: "Vendor online (variants differ only slightly)", price: "online"}
+  sources:           "Macro nutrients: Vendor online, Variants differ only slightly, price: online"
   lastUpd:           2024-04-01
   lastPriceUpd:      2024-04-11
 
@@ -1579,7 +1579,7 @@ Pfannegem A Ital:
     amino:           1.2
     salt:            0.88
 
-  sources:           {macroNutrients: "pack"}
+  sources:           "Macro nutrients: pack"
   lastUpd:           2024-06-16
   lastPriceUpd:      2024-06-16
 
@@ -1604,7 +1604,7 @@ Philadelphia:
     amino:           5.4
     salt:            0.75
 
-  sources:           {macroNutrients: "web (information on packaging may differ)", price: "deal (web)"}
+  sources:           "Macro nutrients: web (information on packaging may differ), price: deal (web)"
   lastUpd:           2024-04-20
   lastPriceUpd:      2024-06-01
 
@@ -1629,7 +1629,7 @@ Philadelphia mini:
     amino:           5.4
     salt:            0.75
 
-  sources:           {macroNutrients: "web (information on packaging may differ)"}
+  sources:           "Macro nutrients: web (information on packaging may differ)"
   lastUpd:           2024-04-20
   lastPriceUpd:      
 
@@ -1652,7 +1652,7 @@ Pistazien:
     amino:           26.5
     salt:            0.03
 
-  sources:           {macroNutrients: "pack"}
+  sources:           "Macro nutrients: pack"
   lastUpd:           2024-05-29
   lastPriceUpd:      
 
@@ -1677,7 +1677,7 @@ Pizza Mag:
     amino:           8.4
     salt:            0.8
 
-  sources:           {macroNutrients: "pack"}
+  sources:           "Macro nutrients: pack"
   lastUpd:           2024-05-06
   lastPriceUpd:      2024-05-06
 
@@ -1701,7 +1701,7 @@ Pommes:
     amino:           2.8
     salt:            0.06
 
-  sources:           {macroNutrients: "web (information on packaging may differ slightly)", price: "web"}
+  sources:           "Macro nutrients: web (information on packaging may differ slightly), price: web"
   lastUpd:           2024-04-16
   lastPriceUpd:      2024-05-11
 
@@ -1726,7 +1726,7 @@ Pommes R Bio:
     amino:           2.5
     salt:            0.03
 
-  sources:           {macroNutrients: "web (information on packaging may differ slightly)", price: "web"}
+  sources:           "Macro nutrients: web (information on packaging may differ slightly), price: web"
   lastUpd:           2024-05-11
   lastPriceUpd:      2024-05-11
 
@@ -1750,7 +1750,7 @@ Pumpernickel R Bio:
     amino:           4.6
     salt:            1
 
-  sources:           {macroNutrients: "web (information on packaging may differ slightly)"}
+  sources:           "Macro nutrients: web (information on packaging may differ slightly)"
   lastUpd:           2024-03-22
   lastPriceUpd:      2024-03-23
 
@@ -1777,7 +1777,7 @@ Zitronenm:  # (TASK) currently 2 entries
     amino:           0
     salt:            0
 
-  sources:           {macroNutrients: "web", price: "web"}
+  sources:           "Macro nutrients: web, price: web"
   lastUpd:           2024-05-06
   lastPriceUpd:      2024-05-15
 
@@ -1804,7 +1804,7 @@ Zitronenm mini:  # (TASK) currently 2 entries
     amino:           0
     salt:            0
 
-  sources:           {macroNutrients: "web", price: "web"}
+  sources:           "Macro nutrients: web, price: web"
   lastUpd:           2024-05-06
   lastPriceUpd:      2024-05-15
 
@@ -1833,7 +1833,7 @@ Riegel Seitenb Sch:
 
     Calcium:         360
 
-  sources:           {macroNutrients: "web", nutrients: "calcium also from vendors page online"}
+  sources:           "Macro nutrients: web, nutrients: calcium also from vendors page online"
   lastUpd:           2024-02-18
   lastPriceUpd:      2024-03-23
 
@@ -1857,7 +1857,7 @@ Riegel Deca Basic:
     amino:           28
     salt:            0.33
 
-  sources:           {macroNutrients: "web"}
+  sources:           "Macro nutrients: web"
   lastUpd:           2024-04-24
   lastPriceUpd:      2024-04-24
 
@@ -1881,7 +1881,7 @@ Ritter Sp 50%:
     amino:           8.5
     salt:            0.14
 
-  sources:           {macroNutrients: "web"}
+  sources:           "Macro nutrients: web"
   lastUpd:           2024-04-16
   lastPriceUpd:      2024-04-16
 
@@ -1904,7 +1904,7 @@ Ritter Sp 81%:
     amino:           9.4
     salt:            0
 
-  sources:           {macroNutrients: "web"}
+  sources:           "Macro nutrients: web"
   lastUpd:           2024-04-24
   lastPriceUpd:      2024-04-24
 
@@ -1928,7 +1928,7 @@ R Rüben N:
     amino:           1
     salt:            1.2
 
-  sources:           {macroNutrients: "pack"}
+  sources:           "Macro nutrients: pack"
   lastUpd:           2024-05-11
   lastPriceUpd:      2024-05-11
 
@@ -1951,7 +1951,7 @@ Salami R:
     amino:           25
     salt:            3.9
 
-  sources:           {macroNutrients: "web"}
+  sources:           "Macro nutrients: web"
   lastUpd:           2024-02-18
   lastPriceUpd:      2024-03-23
 
@@ -1978,7 +1978,7 @@ Sardine:
     amino:           24.5
     salt:            0.6
 
-  sources:           {macroNutrients: "pack"}
+  sources:           "Macro nutrients: pack"
   lastUpd:           2024-06-10
   lastPriceUpd:      
 
@@ -2002,7 +2002,7 @@ Vollkorn Rhein R:
     amino:           5.1
     salt:            1.1
 
-  sources:           {macroNutrients: "pack"}
+  sources:           "Macro nutrients: pack"
   lastUpd:           2024-04-20
   lastPriceUpd:      
 
@@ -2025,6 +2025,6 @@ Walnuss R Bio:
     amino:           16
     salt:            0.1
 
-  sources:           {macroNutrients: "web (information on packaging may differ slightly)"}
+  sources:           "Macro nutrients: web (information on packaging may differ slightly)"
   lastUpd:           2024-04-28
   lastPriceUpd:      2024-04-28
