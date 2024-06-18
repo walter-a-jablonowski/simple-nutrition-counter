@@ -1,6 +1,6 @@
 
-devMode:   true
-tryDesign: true
+devMode:   true       # show new ui elems that are in dev
+tryDesign: true       # try new UI (see controller.php)
 
 user:    single_user  # TASK: remove (currently single user)
 
