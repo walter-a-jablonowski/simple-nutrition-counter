@@ -1,10 +1,10 @@
 
-devMode:   true       # show new ui elems that are in dev
-tryDesign: true       # try new UI (see controller.php)
+devMode:   true         # show new ui elems that are in dev
+tryDesign: true         # try new UI (see controller.php)
 
-user:    single_user  # TASK: remove (currently single user)
+user:      single_user
 
-defaultSettings:      # see also users > settings.yml
+defaultSettings:        # see also users > settings.yml
 
   layout:
 
