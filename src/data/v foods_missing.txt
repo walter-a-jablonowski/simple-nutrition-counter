@@ -30,11 +30,9 @@ foods
 
 körnerbr N
 roggenvollkorn N
-sardine
 thunfisch
 senf
 gurken N
-rüben N
 apfelkohl N
 kokos
 walnüsse N
@@ -65,7 +63,6 @@ pinienkerne
 bohnen
 gurken R
 apfelkohl R
-pilze R
 oliven
 rüben R
 pepperoni
