@@ -1745,6 +1745,31 @@ Pumpernickel R Bio:
   lastUpd:           2024-03-22
   lastPriceUpd:      2024-03-23
 
+Thunfisch N:
+
+  vendor:            Norma
+  acceptable:        occasionally
+  properties:        { NutriScore: B }
+  comment:           "may contain mercury"
+
+  price:             1.49
+  weight:            140
+  usedAmounts:       [1]
+
+  calories:          156
+  nutritionalValues:
+
+    fat:             5.4
+    saturatedFat:    0.8
+    carbs:           0
+    sugar:           0
+    amino:           27
+    salt:            0.95
+
+  sources:           { nutriVal: "pack" }
+  lastUpd:           2024-06-18
+  lastPriceUpd:      2024-06-18
+
 Zitronenm:  # (TASK) currently 2 entries
 
   vendor:            DM
