@@ -129,6 +129,12 @@ Structure overview
               <?= $foodName ?>        <!-- must be 2 here cause headline has inner padding -->
             </div>
             <!-- TASK: Simplify in controller ? default -->
+            <?php
+            
+            // if( stripos( $foodName, 'Amino misc') !== false )  // DEBUG
+            //   $debug = 'halt';
+            
+            ?>
             <?php foreach( $amountData as $amount => $data ): ?>  <!-- TASK: don't print more than 3 entries (maybe do in controller) -->
               <div class   = "food-item col-2"
                    onclick = "foodsCrl.foodItemClick(event)"
