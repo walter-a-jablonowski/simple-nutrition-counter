@@ -303,7 +303,7 @@ Cashew A:
 
   vendor:            Aldi
 
-  price:             2.29  # guess
+  price:             2.29
   weight:            200
   usedAmounts:       ["1/4", "1/3", "1/2"]
 
@@ -889,7 +889,7 @@ Gemüse A Bio Ital:
   url:               "https://www.aldi-nord.de/produkt/bio-gemuesepfanne-4398-0-0.article.html"
   properties:        { bio: true }
 
-  price:             
+  price:             2.49
   weight:            600
   usedAmounts:       ["50g", "100g"]
 
@@ -905,7 +905,7 @@ Gemüse A Bio Ital:
 
   sources:           { nutriVal: "pack" }
   lastUpd:           2024-06-13
-  lastPriceUpd:      
+  lastPriceUpd:      2024-06-18
 
 Gemüse R:
 
@@ -1355,7 +1355,7 @@ Nussmisch A:      # big pack
 
   vendor:            Aldi
 
-  price:             
+  price:             2.79  # price from "Nussvariationen", maybe the right one
   weight:            200
   usedAmounts:       ["1/8", "1/4", "1/3"]
 
@@ -1381,7 +1381,7 @@ Nussmisch A:      # big pack
 
   sources:           { nutriVal: "pack" }
   lastUpd:           2024-05-29
-  lastPriceUpd:      
+  lastPriceUpd:      2024-06-18
 
 Nussmisch A ger:  # small pack
 
@@ -1459,7 +1459,7 @@ Olivenöl:
 
   vendor:            Denns
 
-  price:             16.99
+  price:             17.49  # last 16.99 2024-04-24
   weight:            500ml
   usedAmounts:       ["30ml", "60ml"]
 
@@ -1477,7 +1477,7 @@ Olivenöl:
 
   sources:           { nutriVal: "pack" }
   lastUpd:           2024-04-08
-  lastPriceUpd:      2024-04-24
+  lastPriceUpd:      2024-06-18
 
 Öl:
 
