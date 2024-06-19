@@ -147,7 +147,7 @@ $data = [
     
     <!-- Table -->
 
-    <table class="table table-sm table-bordered">
+    <table class="table table-sm table-bordered m-0">
       <tbody>
         <?php if( ! empty($data['ingredients'])): ?>
           <tr>
@@ -194,37 +194,33 @@ $data = [
     </table>
 
     <!-- Sources -->
-    <!-- TASK: collapse sources, leave upd (right align)? -->
-    <!-- TASK: rm the borcer -->
 
-    <table class="table" style="font-size: .75em;">
+    <div class="d-flex justify-content-between align-items-center mt-1">
+      <a data-bs-toggle="collapse" href="#<?= $id ?>SourcesCollapse" class="text-secondary text-decoration-none" style="font-size: .75em;" role="button">
+        &nbsp;Data sources <i class="bi bi-caret-down"></i>
+      </a>
+      <span class="text-secondary" style="font-size: .75em;">Last update: <?= $data['lastUpd'] ?></span>
+    </div>
+    <table id="<?= $id ?>SourcesCollapse" class="table collapse" style="font-size: .75em;">
       <tbody>
-        <tr>
-          <td colspan="2" class="p-0 fw-bold">Data sources</td>
-        </tr>
-        <?php
-          $headlines = ['nutriVal' => 'Nutri values', 'nutrients' => 'Nutrients', 'price' => 'Price'];
-        ?>
         <?php foreach( $data['sources'] as $key => $source ): ?>
           <tr>
-            <td class="p-0"><?= $headlines[ $key ] ?></td>
-            <td class="p-0"><?= $source ?></td>
+            <?php $headlines = ['nutriVal' => 'Nutri values', 'nutrients' => 'Nutrients', 'price' => 'Price']; ?>
+            <td class="border-0 p-0">&nbsp;<?= $headlines[ $key ] ?></td>
+            <td class="border-0 p-0 text-nowrap" style="max-width: 150px; overflow: hidden; text-overflow: ellipsis;">
+              <?= $source ?>
+            </td>
           </tr>
         <?php endforeach; ?>
-        <tr>
-          <td colspan="2" class="p-0">Last update: <?= $data['lastUpd'] ?></td>
-        </tr>
       </tbody>
     </table>
-
-    <!-- Last update -->
 
     <!-- TASK -->
 
     <!-- Cooking instructions -->
 
     <?php if( ! empty($data['cookingInstrutions'])): ?>
-      <div class="p-2 small" style="background-color: #e0e0e0 !important;">
+      <div class="mt-3 p-2 small" style="background-color: #e0e0e0 !important;">
         <b>Cooking instructions</b><br>
         <br>
         <?= $data['cookingInstrutions'] ?>
