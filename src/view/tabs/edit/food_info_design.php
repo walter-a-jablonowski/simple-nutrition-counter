@@ -30,7 +30,7 @@ $data = [
   'bio' => true,
   'vegan' => false,
   'misc' => ['NutriScore' => 'A'],
-  'ingredients' => 'some long text some long text some long text some long text some long text some long text some long text some long text',
+  'ingredients' => 'some long Weizen text some long text some long text some long text some long text some long text some long text some long text',
   'origin' => '...',
   'cookingInstrutions' => 'First ...',
   'price' => 1.00,
@@ -38,7 +38,7 @@ $data = [
   'pieces' => 6,
   'calories' => 100,
   'nutritionalValues' => [
-    'fat' => 100,
+    'fat' => 101,
     'saturatedFat' => null,
     'monoUnsaturated' => null,
     'polyUnsaturated' => null,
@@ -73,6 +73,7 @@ $data = [
 <body>
   <div class="container mt-5">
     
+    <!-- headline -->
     <!-- TASK: (advanced) sometimes it isn't the vendor url, no better place for url for now -->
 
     <h6 class="mb-1 fw-bold d-flex justify-content-between align-items-center">
@@ -94,7 +95,9 @@ $data = [
         <i class="bi bi-pencil-square text-black"></i>  <!-- TASK: (advanced) or make all editable on typ -->
       <?php endif; ?>
     </h6>
-    
+
+    <!-- badges -->
+
     <?php if( ! empty($data['acceptable'])): ?>
       <span class="badge bg-<?= $this->iif( $data['acceptable'] == 'less', 'danger', 'warning') ?>">
         <?= $this->iif( $data['acceptable'] == 'less', 'less good', 'occasionally') ?>
@@ -112,11 +115,40 @@ $data = [
       <?php endforeach; ?>
     <?php endif; ?>
 
+    <!-- high fat ... -->
+    <!-- TASK: add -->
+
+    <?php if( $data['nutritionalValues']['fat'] > config::get('highIntake.fat')): ?>
+      <span class="badge bg-danger">fatty</span>
+    <?php endif; ?>
+
+    <!-- gluten and similar from ingredients list -->
+    <!-- TASK: maybe also add a flag gluten: true in food data where you can add it manually -->
+
+    <?php if( ! empty($data['ingredients'])): ?>
+      <?php foreach( config::get('substances.gluten') as $s ): ?>
+        <?php if( stripos( $data['ingredients'], $s) !== false): ?>
+          <span class="badge bg-danger">gluten</span>
+        <?php endif; ?>
+      <?php endforeach; ?>
+    <?php endif; ?>
+    <?php if( ! empty($data['ingredients'])): ?>
+      <?php foreach( config::get('substances.lactose') as $s ): ?>
+        <?php if( stripos( $data['ingredients'], $s) !== false): ?>
+          <span class="badge bg-danger">lactose</span>
+        <?php endif; ?>
+      <?php endforeach; ?>
+    <?php endif; ?>
+
+    <!-- comment -->
+
     <?php if( ! empty($data['comment'])): ?>
       <div class="mt-2 p-2 small" style="background-color: #e0e0e0 !important;">
         <?= htmlspecialchars($data['comment']) ?>
       </div>
     <?php endif; ?>
+    
+    <!-- table -->
 
     <table class="table table-sm table-bordered">
       <tbody>
@@ -164,6 +196,7 @@ $data = [
       </tbody>
     </table>
 
+    <!-- sources -->
     <!-- TASK: collapse sources, leave upd (right align)? -->
     <!-- TASK: rm the borcer -->
 
@@ -187,6 +220,10 @@ $data = [
       </tbody>
     </table>
 
+    <!-- last update -->
+
+    <!-- cooking instructions -->
+
     <?php if( ! empty($data['cookingInstrutions'])): ?>
       <div class="p-2 small" style="background-color: #e0e0e0 !important;">
         <b>Cooking instructions</b><br>
@@ -194,6 +231,8 @@ $data = [
         <?= $data['cookingInstrutions'] ?>
       </div>
     <?php endif; ?>
+
+    <!-- substances foldable -->
 
     <ul class="list-group mt-3">
 
