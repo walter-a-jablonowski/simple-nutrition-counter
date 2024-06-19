@@ -13,8 +13,8 @@ require_once 'vendor/autoload.php';
 
 // TASK: AI suggests "layout.yml might contain duplicate entries under different categories"
 
-$foods  = array_keys( Yaml::parse( file_get_contents('data/foods.yml')));
-$layout = Yaml::parse( file_get_contents('data/layout.yml'));
+$foods  = array_keys( Yaml::parse( file_get_contents('data/bundles/Veggie_DESouth_1/foods.yml')));
+$layout = Yaml::parse( file_get_contents('data/bundles/Veggie_DESouth_1/layout.yml'));
 
 $layoutFoods = [];
 

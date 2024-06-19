@@ -48,7 +48,7 @@ class FoodsController extends ControllerBase
     $config = config::instance();
 
     $this->devMode    = $config->get('devMode');
-    $this->layout     = parse_attribs('@attribs', ['short', '(i)'], Yaml::parse( file_get_contents('data/layout.yml')));
+    $this->layout     = parse_attribs('@attribs', ['short', '(i)'], Yaml::parse( file_get_contents('data/bundles/Veggie_DESouth_1/layout.yml')));
     $this->inlineHelp = new SimpleData( Yaml::parse( file_get_contents('misc/inline_help.yml')));
 
     // TASK: move settings?
@@ -60,7 +60,7 @@ class FoodsController extends ControllerBase
     foreach( $this->dayEntries as $idx => $entry)
       $this->dayEntries[$idx][7] = Yaml::parse( $this->dayEntries[$idx][7] );
 
-    // $this->foodsTxt = file_get_contents('data/foods.yml');  // old
+    // $this->foodsTxt = file_get_contents('data/bundles/Veggie_DESouth_1/foods.yml');  // old
     $this->modelView = new SimpleData();
 
     $nutrientsModel['fattyAcids'] = Yaml::parse( file_get_contents('data/nutrients/fattyAcids.yml'));
@@ -88,7 +88,7 @@ class FoodsController extends ControllerBase
 
     // make food list with amounts (model)
 
-    foreach( Yaml::parse( file_get_contents('data/foods.yml')) as $foodName => $foodEntry )
+    foreach( Yaml::parse( file_get_contents('data/bundles/Veggie_DESouth_1/foods.yml')) as $foodName => $foodEntry )
     {
       $foodEntry['weight'] = trim( $foodEntry['weight'], "mgl ");  // just for convenience, we don't need the unit here
 
