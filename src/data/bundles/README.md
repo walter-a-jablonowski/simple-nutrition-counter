@@ -9,6 +9,12 @@ TASK: change naming scheme?
 - put ids inside file
 
 
+Bundle
+----------------------------------------------------------
+
+- we use a speaking id: combination of name (unique per user), and see above
+
+
 /nutrients
 ----------------------------------------------------------
 

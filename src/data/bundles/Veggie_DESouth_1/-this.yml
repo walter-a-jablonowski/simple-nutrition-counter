@@ -1,8 +1,8 @@
-id:
-region:
-user:
+name:   Veggie
+region: DE/south
+user:   single_user  # usually mail and time (see users), single_user is a special user
 
 comment: |
 
-  Includes products from Rewe, Norma, Edeka, Aldi, Denn's Bio and maybe online
+  Includes products primarily from Rewe, Norma, Edeka, Aldi, as well as Denn's Bio and maybe online
  

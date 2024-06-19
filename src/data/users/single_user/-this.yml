@@ -1,1 +1,4 @@
-id:
+
+name: single_user  # special user
+mail: single_user
+id:   1
