@@ -27,7 +27,7 @@ $data = [
   'url' => '...',
   'acceptable' => 'less',
   'comment' => 'My comment My comment My comment My comment My comment My comment My comment My comment My comment My comment My comment',
-  'attribs' => ['bio' => true, 'vegan' => false, 'NutriScore' => 'A'],
+  'properties' => ['bio' => true, 'vegan' => false, 'NutriScore' => 'A'],
   'ingredients' => 'some long Weizen text some long text some long text some long text some long text some long text some long text some long text',
   'origin' => '...',
   'cookingInstrutions' => 'First ...',
@@ -101,13 +101,13 @@ $data = [
         <?= $this->iif( $data['acceptable'] == 'less', 'less good', 'occasionally') ?>
       </span>
     <?php endif; ?>
-    <span class="badge bg-<?= $this->iif( ! empty($data['attribs']['bio']), 'success', 'secondary') ?>">
-      <?= $this->iif( ! empty($data['attribs']['bio']), 'bio', '<s>bio</s>') ?>  <!-- TASK: non working -->
+    <span class="badge bg-<?= $this->iif( ! empty($data['properties']['bio']), 'success', 'secondary') ?>">
+      <?= $this->iif( ! empty($data['properties']['bio']), 'bio', '<s>bio</s>') ?>  <!-- TASK: non working -->
     </span>
-    <span class="badge bg-<?= $this->iif( ! empty($data['attribs']['vegan']), 'success', 'secondary') ?>">
-      <?= $this->iif( ! empty($data['attribs']['vegan']), 'vegan', '<s>vegan</s>') ?>
+    <span class="badge bg-<?= $this->iif( ! empty($data['properties']['vegan']), 'success', 'secondary') ?>">
+      <?= $this->iif( ! empty($data['properties']['vegan']), 'vegan', '<s>vegan</s>') ?>
     </span>
-    <?php if( ! empty($data['attribs']['NutriScore'])): ?>
+    <?php if( ! empty($data['properties']['NutriScore'])): ?>
       <span class="badge bg-info">NutriScore</span>
     <?php endif; ?>
 
