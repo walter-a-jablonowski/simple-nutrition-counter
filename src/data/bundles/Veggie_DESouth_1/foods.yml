@@ -560,6 +560,31 @@ Donuts:
   lastUpd:           2024-05-16
   lastPriceUpd:      2024-05-16
 
+Donuts mini A:
+
+  vendor:            Aldi
+  acceptable:        less
+  properties:        { NutriScore: E }
+
+  price:             2.19
+  weight:            162
+  pieces:            6
+  usedAmounts:       [2, 4, 6]
+
+  calories:          407  # TASK: calories unknown value from upper
+  nutritionalValues:
+
+    fat:             28
+    saturatedFat:    16
+    carbs:           43
+    sugar:           13
+    amino:           5.4
+    salt:            1.2
+
+  sources:           { nutriVal: "pack" }
+  lastUpd:           2024-06-18
+  lastPriceUpd:      2024-06-18
+
 Duplo:
 
   vendor:            Rewe
