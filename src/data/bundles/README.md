@@ -1,5 +1,6 @@
 
 Naming scheme
+----------------------------------------------------------
 
 TASK: nicer name for bundles?
 TASK: change naming scheme?
@@ -8,4 +9,7 @@ TASK: change naming scheme?
 - put ids inside file
 
 
-/nutrients may override default
+/nutrients
+----------------------------------------------------------
+
+may override default
