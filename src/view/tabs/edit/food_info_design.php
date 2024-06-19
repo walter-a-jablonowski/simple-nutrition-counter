@@ -126,14 +126,14 @@ $data = [
       <?php foreach( config::get('substances.gluten') as $s ): ?>
         <?php if( stripos( $data['ingredients'], $s) !== false): ?>
           <span class="badge bg-danger">gluten</span>
-        <?php endif; ?>
+        <?php break; endif; ?>
       <?php endforeach; ?>
     <?php endif; ?>
     <?php if( ! empty($data['ingredients'])): ?>
       <?php foreach( config::get('substances.lactose') as $s ): ?>
         <?php if( stripos( $data['ingredients'], $s) !== false): ?>
           <span class="badge bg-danger">lactose</span>
-        <?php endif; ?>
+        <?php break; endif; ?>
       <?php endforeach; ?>
     <?php endif; ?>
 
