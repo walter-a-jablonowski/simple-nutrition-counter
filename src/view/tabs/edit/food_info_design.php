@@ -120,6 +120,7 @@ $data = [
 
     <!-- Gluten and similar from ingredients list -->
     <!-- TASK: maybe also add a flag gluten: true in food data where you can add it manually -->
+    <!-- TASK: (advanced) add high calcium ... -->
 
     <?php if( ! empty($data['ingredients'])): ?>
       <?php foreach( config::get('substances.gluten') as $s ): ?>
