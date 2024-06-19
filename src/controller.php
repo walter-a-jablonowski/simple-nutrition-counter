@@ -143,6 +143,7 @@ class FoodsController extends ControllerBase
           }
         }
 
+        // $id = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $foodName));  // TASK: shorten
         $this->modelView->set("foods.$foodName.$amount", $perWeight);
       }
 
