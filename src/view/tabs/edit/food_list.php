@@ -67,7 +67,7 @@ Structure overview
     if( $groupName == '(first_entries)' || ! ($def['list'] ?? []))  // no entry
       continue;
     
-    $groupId = str_replace(' ', '', $groupName);
+    $groupId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $groupName));
   ?>
     <div class="col-12 col-md-6 col-lg-4 col-xxl-3 mt-2">  <!-- group col -->
 
