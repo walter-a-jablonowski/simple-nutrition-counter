@@ -253,7 +253,32 @@ Brokkoli R:
   lastUpd:           2024-03-13
   lastPriceUpd:      2024-03-23
 
-Cappuccino R:  # TASK: fix, is just a cp of Eni
+Burrito A:
+
+  vendor:            Aldi
+  acceptable:        less
+  properties:        { NutriScore: C }
+
+  price:             2.99
+  weight:            300
+  usedAmounts:       ["1"]
+
+  calories:          189
+  nutritionalValues:
+
+    fat:             7.1
+    saturatedFat:    1.6
+    carbs:           22.1
+    sugar:           3.3
+    fibre:           2.6
+    amino:           7.9
+    salt:            1.26
+
+  sources:           { nutriVal: "pack" }
+  lastUpd:           2024-06-18
+  lastPriceUpd:      2024-06-18
+
+Cappuccino R:
 
   vendor:            Eni
   acceptable:        less
@@ -271,7 +296,7 @@ Cappuccino R:  # TASK: fix, is just a cp of Eni
     amino:           2.7
     salt:            0.08
 
-  sources:           {}
+  sources:           { nutriVal: "is just a cp of Eni" }  # TASK: fix
   lastUpd:           2024-04-30
   lastPriceUpd:      2024-04-30
 
