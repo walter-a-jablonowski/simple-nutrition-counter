@@ -27,9 +27,7 @@ $data = [
   'url' => '...',
   'acceptable' => 'less',
   'comment' => 'My comment My comment My comment My comment My comment My comment My comment My comment My comment My comment My comment',
-  'bio' => true,
-  'vegan' => false,
-  'misc' => ['NutriScore' => 'A'],
+  'attribs' => ['bio' => true, 'vegan' => false, 'NutriScore' => 'A'],
   'ingredients' => 'some long Weizen text some long text some long text some long text some long text some long text some long text some long text',
   'origin' => '...',
   'cookingInstrutions' => 'First ...',
@@ -73,7 +71,7 @@ $data = [
 <body>
   <div class="container mt-5">
     
-    <!-- headline -->
+    <!-- Headline -->
     <!-- TASK: (advanced) sometimes it isn't the vendor url, no better place for url for now -->
 
     <h6 class="mb-1 fw-bold d-flex justify-content-between align-items-center">
@@ -96,33 +94,31 @@ $data = [
       <?php endif; ?>
     </h6>
 
-    <!-- badges -->
+    <!-- Badges -->
 
     <?php if( ! empty($data['acceptable'])): ?>
       <span class="badge bg-<?= $this->iif( $data['acceptable'] == 'less', 'danger', 'warning') ?>">
         <?= $this->iif( $data['acceptable'] == 'less', 'less good', 'occasionally') ?>
       </span>
     <?php endif; ?>
-    <span class="badge bg-<?= $this->iif( ! empty($data['bio']), 'success', 'secondary') ?>">
-      <?= $this->iif( ! empty($data['bio']), 'bio', 'non-bio') ?>
+    <span class="badge bg-<?= $this->iif( ! empty($data['attribs']['bio']), 'success', 'secondary') ?>">
+      <?= $this->iif( ! empty($data['attribs']['bio']), 'bio', '<s>bio</s>') ?>  <!-- TASK: non working -->
     </span>
-    <span class="badge bg-<?= $this->iif( ! empty($data['vegan']), 'success', 'secondary') ?>">
-      <?= $this->iif( ! empty($data['vegan']), 'vegan', 'non-vegan') ?>
+    <span class="badge bg-<?= $this->iif( ! empty($data['attribs']['vegan']), 'success', 'secondary') ?>">
+      <?= $this->iif( ! empty($data['attribs']['vegan']), 'vegan', '<s>vegan</s>') ?>
     </span>
-    <?php if( ! empty($data['misc'])): ?>
-      <?php foreach( $data['misc'] as $key => $value): ?>
-        <span class="badge bg-info"><?= $key ?>: <?= $value ?></span>
-      <?php endforeach; ?>
+    <?php if( ! empty($data['attribs']['NutriScore'])): ?>
+      <span class="badge bg-info">NutriScore</span>
     <?php endif; ?>
 
-    <!-- high fat ... -->
+    <!-- High fat ... -->
     <!-- TASK: add -->
 
     <?php if( $data['nutritionalValues']['fat'] > config::get('highIntake.fat')): ?>
       <span class="badge bg-danger">fatty</span>
     <?php endif; ?>
 
-    <!-- gluten and similar from ingredients list -->
+    <!-- Gluten and similar from ingredients list -->
     <!-- TASK: maybe also add a flag gluten: true in food data where you can add it manually -->
 
     <?php if( ! empty($data['ingredients'])): ?>
@@ -140,7 +136,7 @@ $data = [
       <?php endforeach; ?>
     <?php endif; ?>
 
-    <!-- comment -->
+    <!-- Comment -->
 
     <?php if( ! empty($data['comment'])): ?>
       <div class="mt-2 p-2 small" style="background-color: #e0e0e0 !important;">
@@ -148,7 +144,7 @@ $data = [
       </div>
     <?php endif; ?>
     
-    <!-- table -->
+    <!-- Table -->
 
     <table class="table table-sm table-bordered">
       <tbody>
@@ -196,7 +192,7 @@ $data = [
       </tbody>
     </table>
 
-    <!-- sources -->
+    <!-- Sources -->
     <!-- TASK: collapse sources, leave upd (right align)? -->
     <!-- TASK: rm the borcer -->
 
@@ -220,9 +216,11 @@ $data = [
       </tbody>
     </table>
 
-    <!-- last update -->
+    <!-- Last update -->
 
-    <!-- cooking instructions -->
+    <!-- TASK -->
+
+    <!-- Cooking instructions -->
 
     <?php if( ! empty($data['cookingInstrutions'])): ?>
       <div class="p-2 small" style="background-color: #e0e0e0 !important;">
@@ -232,7 +230,7 @@ $data = [
       </div>
     <?php endif; ?>
 
-    <!-- substances foldable -->
+    <!-- Foldable -->
 
     <ul class="list-group mt-3">
 

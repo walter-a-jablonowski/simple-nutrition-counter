@@ -7,7 +7,7 @@
 
 # some German foods
 
-Amino misc:
+Amino attribs:
 
   vendor:            none
   comment:           "use for some left over nuts"
@@ -376,7 +376,7 @@ Cashew N:
 Cashew R Bio:
 
   vendor:            Rewe
-  bio:               true
+  attribs:           { bio: true }
 
   price:             2.99
   weight:            250
@@ -445,7 +445,7 @@ Chili vegan:
   vendor:            Rewe
 
   acceptable:        less
-  misc:              {NutriScore: A}
+  attribs:           { NutriScore: A }
   ingredients:       "Bohnen 31%, Wasser, Tomatenmark, Tomaten, Paprika, Mais, Zwiebeln, texturiertes SOJAPROTEIN 3%, Rapsöl, Speisesalz, Gewürze, Zucker, modifizierte Stärke, Verdickungsmittel (Guarkernmehl), färbendes Lebensmittel (Paprikaextrakt), WEIZENMEHL"
 
   price:             1.89
@@ -492,7 +492,7 @@ Chips light:
 Chick R Bio:
 
   vendor:            Rewe
-  bio:               true
+  attribs:           { bio: true }
 
   price:             0.85
   weight:            215
@@ -564,7 +564,7 @@ Durchstarter:
 
   productName:       "Durchstarter Gut & Günstig"
   vendor:            Edeka
-  misc:              {NutriScore: B}
+  attribs:           { NutriScore: B }
 
   price:             2.99
   weight:            200
@@ -712,8 +712,7 @@ Frischk R Bio:
   url:               "https://shop.rewe.de/p/rewe-bio-koerniger-frischkaese-200g/1906432"
 
   acceptable:        occasionally
-  bio:               true
-  misc:              {NutriScore: B}
+  attribs:           { bio: true, NutriScore: B }
 
   price:             
   weight:            200
@@ -836,7 +835,7 @@ Geb Bohnen:
 
   vendor:            Rewe
   acceptable:        less
-  misc:              {NutriScore: A}
+  attribs:           { NutriScore: A }
   ingredients:       "Bohnen 51%, Wasser, Tomatenmark dreifach konzentriert 4,6%, Zucker, modifizierte Maisstärke, Salz, Weißweinessig, Zwiebelpulver, Paprikapulver, Rapsöl, Gewürzextrakte, natürliche Aromen"
 
   price:             1.39
@@ -863,8 +862,7 @@ Gemüse A Bio Sommer:
   productName:       "Gemüsepfanne Sommergenuss"
   vendor:            Aldi
   url:               "https://www.aldi-nord.de/produkt/bio-gemuesepfanne-4398-0-0.article.html"
-
-  bio:               true
+  attribs:           { bio: true }
 
   price:             2.49
   weight:            600
@@ -889,8 +887,7 @@ Gemüse A Bio Ital:
   productName:       "Mediterane Art"
   vendor:            Aldi
   url:               "https://www.aldi-nord.de/produkt/bio-gemuesepfanne-4398-0-0.article.html"
-
-  bio:               true
+  attribs:           { bio: true }
 
   price:             
   weight:            600
@@ -916,7 +913,7 @@ Gemüse R:
   url:               "https://shop.rewe.de/p/rewe-beste-wahl-italienisches-pfannengemuese-500g/7075825"
   
   acceptable:        occasionally
-  misc:              {NutriScore: A}
+  attribs:           { NutriScore: A }
   ingredients:       "92 % (Brechbohnen, gegrillte Zucchini, rote Paprika, gelbe Paprika, vorgebackene Zwiebel (Zwiebel, Sonnenblumenöl)), Wasser, Speisesalz, Tomatenpüree, Zucker, Rapsöl, Olivenöl, Gemüsebrühe (Speisesalz, Glukosesirup, Gemüsepulver (Zwiebeln, Karotten, Tomaten), Zucker, Sonnenblumenöl, Gewürze), Gewürze, Petersilie, Glukosesirup, Champignonpulver, Karottenpulver, Reisstärke"
 
   price:             1.99
@@ -941,9 +938,7 @@ Gemüse R Bio:
 
   vendor:            Rewe
   url:               "https://shop.rewe.de/p/rewe-bio-gemuesepfanne-mediterrane-art-450g/7321580"
-  
-  bio:               true
-  misc:              {NutriScore: A}
+  attribs:           { bio: true, NutriScore: A }
   ingredients:       "Gemüsemischung 91% (Zucchini* 25%, Broccoli* 20%, Karotten* 15%, gelbe Karotten* 13%, Cherrytomaten* 12%, Zwiebeln*), Kräuter (Basilikum*, Oregano*), BUTTER*, Meersalz, Sonnenblumenöl*, Stärke*, Honig*, Gewürze*, Olivenöl*"
 
   price:             1.99
@@ -1115,10 +1110,8 @@ Kartoffel Wedges:
 Kartoffel Wedges Bio:
 
   vendor:            Rewe
-
   acceptable:        occasionally
-  bio:               true
-  misc:              {NutriScore: A}
+  attribs:           { bio: true, NutriScore: A }
   ingredients:       "Kartoffeln 96,5%, Sonnenblumenöl"
 
   price:             2.69
@@ -1169,7 +1162,7 @@ Kfc Original:
 Linsen R Bio:
 
   vendor:            Rewe
-  bio:               true
+  attribs:           { bio: true }
 
   price:             1.39
   weight:            260
@@ -1216,7 +1209,7 @@ Lyoner R Bio:
 
   vendor:            Rewe
   acceptable:        less
-  bio:               true
+  attribs:           { bio: true }
 
   price:             1.39
   weight:            70
@@ -1261,7 +1254,7 @@ Mandel N:
 Mandel R Bio:
 
   vendor:            Rewe
-  bio:               true
+  attribs:           { bio: true }
 
   price:             2.29 # 2024-03-30 2.89
   weight:            200
@@ -1441,7 +1434,7 @@ Nussmisch N:
 Oliven R Bio:
 
   vendor:            Rewe
-  bio:               true
+  attribs:           { bio: true }
 
   price:             1.89
   weight:            180
@@ -1562,7 +1555,7 @@ Pfannegem A Ital:
 
   vendor:            Aldi
   url:               "https://www.aldi-nord.de/produkt/pfannengemuese-6986-0-0.article.html"
-  misc:              {NutriScore: A}
+  attribs:           { NutriScore: A }
 
   price:             1.99
   weight:            750
@@ -1709,7 +1702,7 @@ Pommes R Bio:
 
   vendor:            Rewe
   acceptable:        occasionally
-  bio:               true
+  attribs:           { bio: true }
   ingredients:       "Kartoffeln 96%, Sonnenblumenöl"
 
   price:             2.49
@@ -1734,7 +1727,7 @@ Pumpernickel R Bio:
 
   vendor:            Rewe
   acceptable:        occasionally
-  bio:               true
+  attribs:           { bio: true }
 
   price:             1.09
   weight:            250
@@ -1960,7 +1953,7 @@ Sardine:
   vendor:            Norma
   acceptable:        occasionally
   comment:           "careful cause of mercury"
-  misc:              {NutriScore: B}
+  attribs:           { NutriScore: B }
   ingredients:       "Sonnenblumenöl, Salz"
 
   price:             0.99
@@ -2009,7 +2002,7 @@ Vollkorn Rhein R:
 Walnuss R Bio:
 
   vendor:            Rewe
-  bio:               true
+  attribs:           { bio: true }
 
   price:             2.99
   weight:            200

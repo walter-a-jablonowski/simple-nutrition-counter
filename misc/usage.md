@@ -46,10 +46,9 @@ My food S Bio:                           # (required) display name (also used as
 
   acceptable:         less|occasionally  # highlight less good foods in UI
   comment:            "My comment"       # all misc comments (we can use html here)
-  bio:                true
-  vegan:              true
-  misc:               {NutriScore: A}    # misc attributes
+  attribs:            { bio: true, vegan: true, NutriScore: A }  # misc attributes
   ingredients:        "..."              # ingredients that you want to be aware of
+                                         #   (food info will derive badges for gluten ...)
   origin:             "..."              # country of origin, if you want to be aware of
 
   cookingInstrutions: |                  # (we can use html here)
