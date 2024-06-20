@@ -95,6 +95,7 @@ $data = [
     </h6>
 
     <!-- Badges -->
+    <!-- TASK: add { oekotest: "sehr gut" } -->
 
     <?php if( ! empty($data['acceptable'])): ?>
       <span class="badge bg-<?= $this->iif( $data['acceptable'] == 'less', 'danger', 'warning') ?>">

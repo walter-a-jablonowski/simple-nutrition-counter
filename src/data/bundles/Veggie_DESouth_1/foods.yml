@@ -1820,6 +1820,31 @@ Thunfisch N:
   lastUpd:           2024-06-18
   lastPriceUpd:      2024-06-18
 
+Tofu N:
+
+  vendor:            Norma
+  url:               "https://www.norma-online.de/at/sortiment/bio-sonne-t-181/vegane-bio-spezialitaeten-i-403"
+  properties:        { NutriScore: A, oekotest: "sehr gut" }
+
+  price:             2.19
+  weight:            400
+  usedAmounts:       ["50g", "100g"]
+
+  calories:          137
+  nutritionalValues:
+
+    fat:             8
+    saturatedFat:    1.4
+    carbs:           0.7
+    sugar:           0.5
+    fibre:           1
+    amino:           16.5
+    salt:            0.03
+
+  sources:           { nutriVal: "pack" }
+  lastUpd:           2024-06-18
+  lastPriceUpd:      2024-06-18
+
 Zitronenm:  # (TASK) currently 2 entries
 
   vendor:            DM
