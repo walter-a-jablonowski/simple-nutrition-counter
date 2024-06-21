@@ -119,9 +119,10 @@ Fish, meat, tofu (color:#32cd32):
 
   list:
 
-    - Sardine                        # occasionally
-    - Thunfisch N
+    - Seelachs N
     - Fischst                        # acceptable occasionally
+    - Thunfisch N
+    - Sardine                        # occasionally
 
     - Salami R                       # less
     - Lyoner R Bio

@@ -2143,6 +2143,31 @@ Sardine:
   lastUpd:           2024-06-10
   lastPriceUpd:      2024-06-18
 
+Seelachs N:
+
+  vendor:            Norma
+  url:               "https://www.norma-online.de/de/sortiment/transparente-fischerei-t-184/alaska-seelachs-i-264"
+  properties:        { NutriScore: A }
+
+  price:             2.79 
+  weight:            400
+  pieces:            4
+  usedAmounts:       [2, 4]
+
+  calories:          75
+  nutritionalValues:
+
+    fat:             0.8
+    saturatedFat:    0.1
+    carbs:           0
+    sugar:           0
+    amino:           17
+    salt:            0.3
+
+  sources:           { nutriVal: "pack" }
+  lastUpd:           2024-06-18
+  lastPriceUpd:      2024-06-18
+
 Vollkorn Rhein R:
 
   vendor:            Rewe
