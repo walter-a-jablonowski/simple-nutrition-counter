@@ -21,8 +21,8 @@ Structure overview
       <div class   = "col-12 col-md-6 col-lg-4 col-xxl-3 p-1"
            onclick = "foodsCrl.newEntryBtn(event)"
       >
-        Enter manually ...  <!-- TASK: also add month var and buyings here (maybe use some select that changes sub forms) -->
-      </div>
+        Enter manually ...  <!-- TASK: also buyings here (maybe use some select that changes sub forms) -->
+      </div>                <!-- month var: we have a layout group for this -->
       <!-- TASK: currently used save btn -->
       <div class   = "col-12 col-md-6 col-lg-4 col-xxl-3 p-1"
            onclick = "foodsCrl.saveDayEntriesBtnClick(event)"
