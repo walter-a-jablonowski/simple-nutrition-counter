@@ -13,4 +13,10 @@
   <li>enables adding entries to last calendar day (for night owls)</li>
 </ul>
 
+<b>Food info</b>
+
+<ul class="no-indent">
+  <li>click on a food name to see details</li>
+</ul>
+
 <b>Disclaimer:</b> Use the app and recommendations included in it at your own risk. This app is in developemt, the recommended amounts might be wrong.
