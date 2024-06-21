@@ -121,6 +121,7 @@ Layout file (layout.yml)
 
 - for upper part of nutrients list
 - left over recipes nutrients will be attached below
+- you can add each food multiple times
 
 ```yaml
 

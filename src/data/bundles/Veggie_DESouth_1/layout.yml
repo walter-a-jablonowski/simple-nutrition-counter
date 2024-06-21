@@ -61,6 +61,18 @@ Veggie bowl (color:#ffa500):
 
     # - Veggie L                     # TASK
     # - Veggie C
+    - Brokkoli R
+    - Chick R Bio
+    - Linsen R Bio
+    - Olivenöl
+    - Öl
+
+Third meals (color:#ffa500):
+
+  list:
+
+    - Avocado
+    - Avocado gr
     - Frosta Bratk                   # acceptable occasionally
     - Frosta Frikassee
     - Frosta Gesch
@@ -70,41 +82,28 @@ Veggie bowl (color:#ffa500):
     - Geb Bohnen
     - Chili vegan
 
-Third meal (color:#ffa500):
-
-  list:
-
-    - Avocado                       # TASK: MOV, used kind of standalone
-    - Avocado gr
-
-# Misc meals (color:):
-
 Legumes & greens (color:#32cd32):    # Ingredients
 
   (i): Ideal is veggie some chicken fish. We may also need fill up some energy from time to time (carbs).
 
   list:
 
-    - Chick R Bio
-    - Linsen R Bio
-
-    - Brokkoli R
     - Green beans R
+    - R Rüben N
+    - Oliven R Bio
     - Gemüse R Bio
     - Gemüse A Bio Sommer
     - Gemüse A Bio Ital
     - Gemüse R                       # acceptable occasionally
     - Pfannegem A Ital
     - Artisch R viertel
-    - R Rüben N
 
-Greens oil mushrooms (color:#32cd32):
+Mushrooms, misc (color:#32cd32):
 
   list:
 
-    - Oliven R Bio
-    - Olivenöl
-    - Öl
+    - Champ mini ganz R
+    - Champ N
 
     - Kartoffeltaschen F             # less
     - Kartoffel Wedges
@@ -112,10 +111,12 @@ Greens oil mushrooms (color:#32cd32):
     - Pommes R Bio
     - Kartoffel Wedges Bio
 
-    - Champ mini ganz R
-    - Champ N
+    - Pumpernickel R Bio             # occasionally
+    - Vollkorn Rhein R               # less
+    - Mehrkornbr
+    - Eiweißbr
 
-Fish, meat, misc (color:#32cd32):
+Fish, meat, dairy (color:#32cd32):
 
   list:
 
@@ -129,11 +130,6 @@ Fish, meat, misc (color:#32cd32):
 
     - Käse Gr Sch (all)
     - Käse Gr W (all)
-
-    - Pumpernickel R Bio             # occasionally
-    - Vollkorn Rhein R               # less
-    - Mehrkornbr
-    - Eiweißbr
 
 A little taste (color:#32cd32):
 
@@ -149,6 +145,8 @@ A little taste (color:#32cd32):
     - Philadelphia                   # less
     - Philadelphia mini
     # - Salatsoße                    # (missing)
+
+# Misc meals (color:):
 
 Fill up missing (color:#32cd32):
 
@@ -183,8 +181,9 @@ On the go (color:#ffa500):           # Meals (less often)
     - Karamalz
     - Cappuccino R
     - Cappuccino Eni
-    - Donuts mini A
+    - Riegel Seitenb Sch             # less (duplicate)
     - Riegel Deca Basic
+    - Donuts mini A
 
 Cheat day (color:#ffa500):
 
@@ -193,6 +192,7 @@ Cheat day (color:#ffa500):
     - Pizza Mag                      # less
     - Mohnkuchen
     - Donuts
+    - Donuts mini A                  # (duplicate)
 
 Suppl, Brain tuning (color:#8a2be2):  # Suppl
 
