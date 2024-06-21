@@ -98,7 +98,7 @@ Legumes & greens (color:#32cd32):    # Ingredients
     - Pfannegem A Ital
     - Artisch R viertel
 
-Mushrooms, misc (color:#32cd32):
+Still greens, mushrooms, misc (color:#32cd32):
 
   list:
 
@@ -114,13 +114,11 @@ Mushrooms, misc (color:#32cd32):
     - Pumpernickel R Bio             # occasionally
     - Vollkorn Rhein R               # less
     - Mehrkornbr
-    - Eiweißbr
 
-Fish, meat, dairy (color:#32cd32):
+Fish, meat, tofu (color:#32cd32):
 
   list:
 
-    - Tofu N
     - Sardine                        # occasionally
     - Thunfisch N
     - Fischst                        # acceptable occasionally
@@ -128,8 +126,7 @@ Fish, meat, dairy (color:#32cd32):
     - Salami R                       # less
     - Lyoner R Bio
 
-    - Käse Gr Sch (all)
-    - Käse Gr W (all)
+    - Tofu N
 
 A little taste (color:#32cd32):
 
@@ -144,9 +141,12 @@ A little taste (color:#32cd32):
     - Bresso mini
     - Philadelphia                   # less
     - Philadelphia mini
+    - Käse Gr Sch (all)
+    - Käse Gr W (all)
+    - Eiweißbr
     # - Salatsoße                    # (missing)
 
-# Misc meals (color:):
+# Misc meals (less good) (color:):
 
 Fill up missing (color:#32cd32):
 
