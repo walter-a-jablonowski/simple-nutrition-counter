@@ -42,9 +42,9 @@ if( ! $isAjax )
       {
         $this->devMode = true;
 
-        ob_start();
-        require 'view/tabs/edit/food_info_design.php';
-        return ob_get_clean();
+        // ob_start();
+        // require 'view/tabs/edit/food_info_design.php';
+        // return ob_get_clean();
       }
     };
   }
