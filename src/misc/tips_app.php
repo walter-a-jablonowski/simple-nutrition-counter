@@ -1,8 +1,10 @@
-<b>Edit settings first (see <i class="bi bi-arrow-right"></i> <i class="bi bi-gear-fill"></i></b>)
+<?php if( $this->devMode ): ?>
+  <b>Edit settings first (see <i class="bi bi-arrow-right"></i> <i class="bi bi-gear-fill"></i></b>)
 
-<ul class="no-indent">
-  <li>used for calculating the right nutrient amounts</li>
-</ul>
+  <ul class="no-indent">
+    <li>used for calculating the right nutrient amounts</li>
+  </ul>
+<?php endif; ?>
 
 <b>Date switch (beside app title)</b>
 

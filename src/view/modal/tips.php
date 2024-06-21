@@ -48,17 +48,17 @@
         <div class="tab-content mt-3">
           <div id="tipsAppPane" class="tab-pane fade show active" role="tabpanel">
 
-            <?= file_get_contents('misc/tips_app.html') ?>
+            <?php require('misc/tips_app.php') ?>
 
           </div>
           <div id="tipsNutritionPane" class="tab-pane fade" role="tabpanel">
 
-            <?= file_get_contents('misc/tips_nutrition.html') ?>
+            <?php require('misc/tips_nutrition.php') ?>
 
           </div>
           <div id="tipsMissionPane" class="tab-pane fade" role="tabpanel">
 
-            <?= file_get_contents('misc/tips_mission.html') ?>
+            <?php require('misc/tips_mission.php') ?>
 
           </div>
         </div>

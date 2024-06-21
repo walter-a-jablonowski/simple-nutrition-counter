@@ -28,7 +28,7 @@
         <div class="tab-content mt-3">
           <div id="helpPane" class="tab-pane fade show active" role="tabpanel">
 
-            <?= file_get_contents('misc/help.html') ?>
+            <?php require('misc/help.php') ?>
 
           </div>
           <div id="helpMiscPane" class="tab-pane fade" role="tabpanel">

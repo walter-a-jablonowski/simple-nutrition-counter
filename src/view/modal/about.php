@@ -9,7 +9,7 @@
 -->
       <div class="modal-body small">
 
-        <?= file_get_contents('misc/about.html') ?>
+        <?php require('misc/about.php') ?>
 
       </div>
       <div class="modal-footer">
