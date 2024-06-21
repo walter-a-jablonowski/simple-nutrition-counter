@@ -51,7 +51,8 @@ $nutrientsShort = [
     <tr>
       <th>Price</th>
       <td>
-        <?= $this->settings->get('defaultSettings.currency') ?><?= $data['price'] ?>
+        <?= $this->settings->get('currency') ?>
+        <?= $data['price'] ?>
         <?php if( $data['lastPriceUpd'] ): ?>
           <span class="text-secondary small">
             on <?= date('Y-m-d', $data['lastPriceUpd'] ) ?>
