@@ -137,8 +137,8 @@ Structure overview
 
                 $data = $this->model->get("foods.$foodName");  // TASK: improve?
 
-                ob_start();  // TASK: mov file? food_list/-this & food_list/info
-                require 'view/tabs/edit/food_info.php';
+                ob_start();
+                require __DIR__ . '/food_info.php';
                 print ob_get_clean();
 
               ?>
