@@ -4,7 +4,7 @@
 <!--
       <div class="modal-header">
         <h6 class="modal-title">Tips</h6>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        <button data-bs-dismiss="modal" class="btn-close" type="button"></button>
       </div>
 -->
       <div class="modal-body small">
@@ -29,7 +29,7 @@
           </li>
 -->
           <li class="nav-item ms-auto" role="presentation">
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            <button data-bs-dismiss="modal" class="btn-close" type="button"></button>
             <!-- TASK: Btn design alternatives -->
 <!-- 
             <button type="button" class="border-0" data-bs-dismiss="modal">

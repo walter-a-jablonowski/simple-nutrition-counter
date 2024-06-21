@@ -87,6 +87,10 @@ Structure overview
                 >
                   <i class="bi bi-info-circle icon-circle"></i>
                 </button>
+
+                <div id="<?= $groupId ?>Data" class="d-none">
+                  <?= $def['@attribs']['(i)'] ?>
+                </div>
               <?php endif; ?>
             </div>
             <a data-bs-toggle="collapse" href="#<?= $groupId ?>Collapse" class="text-body-secondary" role="button">
@@ -104,12 +108,6 @@ Structure overview
         </div>
       <?php endif; ?>
 
-      <?php if( isset($def['@attribs']['(i)'])): ?>
-        <div id="<?= $groupId ?>Data" class="d-none">
-          <?= $def['@attribs']['(i)'] ?>
-        </div>
-      <?php endif; ?>
-
       <div id="<?= $groupId ?>Collapse" class="collapse show">
 
         <?php
@@ -120,13 +118,30 @@ Structure overview
         foreach( $def['list'] as $idx => $foodName ):
         
           $type = $this->modelView->has("recipes.$foodName") ? 'recipes' : 'foods';
-          $amountData = $this->modelView->get("$type.$foodName");
+          $amountData = $this->modelView->get("$type.$foodName");  // TASK: rename
 
           $done[] = $foodName;  // left over will be printed below (done = foods and recipes in a single list)
-        ?>
-          <div class="row">
-            <div class="col-6 px-2">  <!-- px: we make the bs default padding smaller to save some space -->
-              <?= $foodName ?>        <!-- must be 2 here cause headline has inner padding -->
+          // TASK: maybe we need prefix this so that no Ids get confused?
+          $foodId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $foodName));  // TASK: use food id from SimpleData key as soon as upd
+        ?>                             <!-- px: we make the bs default padding smaller to save some space -->
+          <div class="row">            <!-- must be 2 here cause headline has inner padding -->
+            <div class = "col-6 px-2"
+                 data-bs-toggle = "modal"
+                 data-bs-target = "#infoModal"
+                 data-source    = "#<?= $foodId ?>Data"
+            >
+              <?= $foodName ?>
+            </div>
+            <div id="<?= $foodId ?>Data" class="d-none">
+              <?php
+
+                $data = $this->model->get("foods.$foodId");  // TASK: improve?
+
+                ob_start();  // TASK: mov file? food_list/-this & food_list/info
+                require 'view/tabs/edit/food_info.php';
+                print ob_get_clean();
+
+              ?>
             </div>
             <!-- TASK: Simplify in controller ? default -->
             <?php

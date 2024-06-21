@@ -4,7 +4,7 @@
 <!--
       <div class="modal-header">
         <h6 class="modal-title">New entry</h6>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        <button data-bs-dismiss="modal" class="btn-close" type="button"></button>
       </div>
 -->
       <div class="modal-body small">

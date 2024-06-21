@@ -10,7 +10,7 @@
 // The yml sample
 
 $nutrientsShort = [
-  'nutritionalValues' => 'nutriVal',  // TASK: use from controller
+  'nutritionalValues' => 'nutriVal',
   'fattyAcids'        => 'fat',
   'aminoAcids'        => 'amino',
   'vitamins'          => 'vit',
@@ -18,9 +18,9 @@ $nutrientsShort = [
   'secondary'         => 'sec'
 ];
 
-$currency = '€';  // TASK: from settings
+$currency = '€';
 $key = 'My food S Bio';
-$id  = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $key));  // TASK: maybe we need prefix this so that no Ids get confused?
+$id  = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $key));
 $data = [
   'productName' => '...',
   'vendor' => 'Aldi',
@@ -72,7 +72,6 @@ $data = [
   <div class="container mt-5">
     
     <!-- Headline -->
-    <!-- TASK: (advanced) sometimes it isn't the vendor url, no better place for url for now -->
 
     <h6 class="mb-1 fw-bold d-flex justify-content-between align-items-center">
       <span>
@@ -90,12 +89,11 @@ $data = [
         <?php endif; ?>
       </span>
       <?php if( $this->devMode ): ?>
-        <i class="bi bi-pencil-square text-black"></i>  <!-- TASK: (advanced) or make all editable on typ -->
+        <i class="bi bi-pencil-square text-black"></i>
       <?php endif; ?>
     </h6>
 
     <!-- Badges -->
-    <!-- TASK: add { oekotest: "sehr gut" } -->
 
     <?php if( ! empty($data['acceptable'])): ?>
       <span class="badge bg-<?= $this->iif( $data['acceptable'] == 'less', 'danger', 'warning') ?>">
@@ -103,7 +101,7 @@ $data = [
       </span>
     <?php endif; ?>
     <span class="badge bg-<?= $this->iif( ! empty($data['properties']['bio']), 'success', 'secondary') ?>">
-      <?= $this->iif( ! empty($data['properties']['bio']), 'bio', '<s>bio</s>') ?>  <!-- TASK: non working -->
+      <?= $this->iif( ! empty($data['properties']['bio']), 'bio', '<s>bio</s>') ?>
     </span>
     <span class="badge bg-<?= $this->iif( ! empty($data['properties']['vegan']), 'success', 'secondary') ?>">
       <?= $this->iif( ! empty($data['properties']['vegan']), 'vegan', '<s>vegan</s>') ?>
@@ -113,15 +111,12 @@ $data = [
     <?php endif; ?>
 
     <!-- High fat ... -->
-    <!-- TASK: add -->
 
     <?php if( $data['nutritionalValues']['fat'] > config::get('highIntake.fat')): ?>
       <span class="badge bg-danger">fatty</span>
     <?php endif; ?>
 
     <!-- Gluten and similar from ingredients list -->
-    <!-- TASK: maybe also add a flag gluten: true in food data where you can add it manually -->
-    <!-- TASK: (advanced) add high calcium ... -->
 
     <?php if( ! empty($data['ingredients'])): ?>
       <?php foreach( config::get('substances.gluten') as $s ): ?>
@@ -215,8 +210,6 @@ $data = [
         <?php endforeach; ?>
       </tbody>
     </table>
-
-    <!-- TASK -->
 
     <!-- Cooking instructions -->
 

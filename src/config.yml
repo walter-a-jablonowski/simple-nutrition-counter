@@ -4,8 +4,8 @@ tryDesign: false        # try new UI (see controller.php)
 
 user:      single_user
 
-substances:             # TASK: rename
-
+substances:             # TASK: maybe move in nutrients
+                        # TASK: rename
   gluten:  ['weizen']
   lactose: ['milch']
 
@@ -14,6 +14,8 @@ highIntake:             # TASK: maybe move in nutrients
   fat: 100
 
 defaultSettings:        # see also users > settings.yml
+
+  currency: "€"
 
   layout:
 

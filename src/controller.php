@@ -61,8 +61,13 @@ class FoodsController extends ControllerBase
       $this->dayEntries[$idx][7] = Yaml::parse( $this->dayEntries[$idx][7] );
 
     // $this->foodsTxt = file_get_contents('data/bundles/Veggie_DESouth_1/foods.yml');  // old
+
+    $this->model = new SimpleData();
+    $this->model->set('foods', Yaml::parse( file_get_contents('data/bundles/Veggie_DESouth_1/foods.yml')));
+
     $this->modelView = new SimpleData();
 
+    // TASK: move in model
     $nutrientsModel['fattyAcids'] = Yaml::parse( file_get_contents('data/nutrients/fattyAcids.yml'));
     $nutrientsModel['aminoAcids'] = Yaml::parse( file_get_contents('data/nutrients/aminoAcids.yml'));
     $nutrientsModel['vitamins']   = Yaml::parse( file_get_contents('data/nutrients/vitamins.yml'));
@@ -88,7 +93,8 @@ class FoodsController extends ControllerBase
 
     // make food list with amounts (model)
 
-    foreach( Yaml::parse( file_get_contents('data/bundles/Veggie_DESouth_1/foods.yml')) as $foodName => $foodEntry )
+    // foreach( Yaml::parse( file_get_contents('data/bundles/Veggie_DESouth_1/foods.yml')) as $foodName => $foodEntry )
+    foreach( $this->model->get('foods') as $foodName => $foodEntry )
     {
       $foodEntry['weight'] = trim( $foodEntry['weight'], "mgl ");  // just for convenience, we don't need the unit here
 
