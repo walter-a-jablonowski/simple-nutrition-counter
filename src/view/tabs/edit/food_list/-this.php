@@ -83,6 +83,7 @@ Structure overview
                 <button type="button" class="border-0 p-0 bg-transparent"
                         data-bs-toggle = "modal"
                         data-bs-target = "#infoModal"
+                        data-title     = "<?= $groupName ?>"
                         data-source    = "#<?= $groupId ?>Data"
                 >
                   <i class="bi bi-info-circle icon-circle"></i>
@@ -128,6 +129,7 @@ Structure overview
             <div class = "col-6 px-2"
                  data-bs-toggle = "modal"
                  data-bs-target = "#infoModal"
+                 data-title     = "<?= $foodName ?>"
                  data-source    = "#<?= $foodId ?>Data"
             >
               <?= $foodName ?>

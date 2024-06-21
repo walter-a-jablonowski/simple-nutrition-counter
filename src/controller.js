@@ -46,7 +46,13 @@ class FoodsEventController
     modal.addEventListener('show.bs.modal', event => {
 
       const btn = event.relatedTarget
-      modal.querySelector('.modal-body').innerHTML = document.querySelector( btn.getAttribute('data-source')).innerHTML
+      
+      if( btn.getAttribute('data-title').startsWith('#'))
+        modal.querySelector('.modal-title').innerHTML = document.querySelector( btn.getAttribute('data-title')).innerHTML
+      else
+        modal.querySelector('.modal-title').innerHTML = btn.getAttribute('data-title')
+      
+      modal.querySelector('.modal-body').innerHTML  = document.querySelector( btn.getAttribute('data-source')).innerHTML
     })
 
     // New modal
