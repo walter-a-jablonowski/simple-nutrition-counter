@@ -49,6 +49,26 @@ abstract class ControllerBase
   }
 
 
+  // same as inc() be able use class context via $this
+
+  /*@
+
+  inc
+
+  - must be non static
+  - if needed use extract( $args ) yourself
+
+  */
+  public function inc( string $INC_VIEW, $args = null ) /*@*/
+  {
+    ob_start();                   // alternative: $s = require()
+    require($INC_VIEW);
+    $INC_STR_R = ob_get_clean();  // var has unusual name
+
+    return $INC_STR_R;
+  }
+
+
   // from damn-small-engine (append() simplified)
 
   /*@

@@ -15,21 +15,21 @@ class FoodsController extends ControllerBase
   use SaveDayEntriesAjaxController;
   use SaveFoodsAjaxController;
 
-  private bool       $devMode;
+  protected bool       $devMode;
 
-  private SimpleData $settings;
-  private string     $mode;
-  private string     $date;
+  protected SimpleData $settings;
+  protected string     $mode;
+  protected string     $date;
 
-  private            $modelView;
-  private string     $dayEntriesTxt;
-  private array      $dayEntries;
-  // private string  $foodsTxt;   // old
-  private array      $lastDaysSums;
+  protected            $modelView;
+  protected string     $dayEntriesTxt;
+  protected array      $dayEntries;
+  // protected string  $foodsTxt;   // old
+  protected array      $lastDaysSums;
 
-  private array      $layout;
-  private array      $captions = [];
-  private SimpleData $inlineHelp;
+  protected array      $layout;
+  protected array      $captions = [];
+  protected SimpleData $inlineHelp;
 
 
   public function __construct(/*$model = null, $view = null*/)

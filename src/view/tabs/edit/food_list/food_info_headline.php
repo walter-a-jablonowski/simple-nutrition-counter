@@ -1,3 +1,11 @@
+<?php
+
+extract($args);
+
+$data = $this->model->get("foods.$foodName");
+
+?>
+
 <!-- TASK: (advanced) sometimes it isn't the vendor url, no better place for url for now -->
 
 <div class="mb-1 fw-bold">

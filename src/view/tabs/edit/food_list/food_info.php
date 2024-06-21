@@ -1,5 +1,9 @@
 <?php
 
+extract($args);
+
+$data = $this->model->get("foods.$foodName");
+
 $nutrientsShort = [
   'nutritionalValues' => 'nutriVal',  // TASK: use from controller
   'fattyAcids'        => 'fat',

@@ -137,21 +137,19 @@ Structure overview
             <div id="<?= $foodId ?>Headline" class="d-none">
               <?php
 
-                $data = $this->model->get("foods.$foodName");  // TASK: improve?
-
-                ob_start();
-                require __DIR__ . '/food_info_headline.php';
-                print ob_get_clean();
-
+                print $this->inc( __DIR__ . '/food_info_headline.php', [
+                  'foodId'   => $foodId,
+                  'foodName' => $foodName
+                ]);
               ?>
             </div>
             <div id="<?= $foodId ?>Data" class="d-none">
               <?php
 
-                ob_start();
-                require __DIR__ . '/food_info.php';
-                print ob_get_clean();
-
+                print $this->inc( __DIR__ . '/food_info.php', [
+                  'foodId'   => $foodId,
+                  'foodName' => $foodName
+                ]);
               ?>
             </div>
             <!-- TASK: Simplify in controller ? default -->
