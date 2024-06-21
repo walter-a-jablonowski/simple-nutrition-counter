@@ -129,15 +129,24 @@ Structure overview
             <div class = "col-6 px-2"
                  data-bs-toggle = "modal"
                  data-bs-target = "#infoModal"
-                 data-title     = "<?= $foodName ?>"
+                 data-title     = "#<?= $foodId ?>Headline"
                  data-source    = "#<?= $foodId ?>Data"
             >
               <?= $foodName ?>
             </div>
-            <div id="<?= $foodId ?>Data" class="d-none">
+            <div id="<?= $foodId ?>Headline" class="d-none">
               <?php
 
                 $data = $this->model->get("foods.$foodName");  // TASK: improve?
+
+                ob_start();
+                require __DIR__ . '/food_info_headline.php';
+                print ob_get_clean();
+
+              ?>
+            </div>
+            <div id="<?= $foodId ?>Data" class="d-none">
+              <?php
 
                 ob_start();
                 require __DIR__ . '/food_info.php';
