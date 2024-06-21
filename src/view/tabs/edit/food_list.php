@@ -135,7 +135,7 @@ Structure overview
             <div id="<?= $foodId ?>Data" class="d-none">
               <?php
 
-                $data = $this->model->get("foods.$foodId");  // TASK: improve?
+                $data = $this->model->get("foods.$foodName");  // TASK: improve?
 
                 ob_start();  // TASK: mov file? food_list/-this & food_list/info
                 require 'view/tabs/edit/food_info.php';
