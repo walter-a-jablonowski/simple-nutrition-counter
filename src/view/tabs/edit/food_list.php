@@ -21,7 +21,7 @@ Structure overview
       <div class   = "col-12 col-md-6 col-lg-4 col-xxl-3 p-1"
            onclick = "foodsCrl.newEntryBtn(event)"
       >
-        Enter manually ...
+        Enter manually ...  <!-- TASK: also add month var and buyings here (or sep btn) -->
       </div>
       <!-- TASK: currently used save btn -->
       <div class   = "col-12 col-md-6 col-lg-4 col-xxl-3 p-1"
