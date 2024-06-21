@@ -52,7 +52,11 @@ $nutrientsShort = [
       <th>Price</th>
       <td>
         <?= $this->settings->get('defaultSettings.currency') ?><?= $data['price'] ?>
-        <span class="text-secondary small">on <?=$data['lastPriceUpd'] ?></span>
+        <?php if( $data['lastPriceUpd'] ): ?>
+          <span class="text-secondary small">
+            on <?= date('Y-m-d', $data['lastPriceUpd'] ) ?>
+          </span>
+        <?php endif; ?>
       </td>
     </tr>
     <tr>
@@ -73,7 +77,9 @@ $nutrientsShort = [
   <a data-bs-toggle="collapse" href="#<?= $foodId ?>SourcesCollapse" class="text-secondary text-decoration-none" style="font-size: .75em;" role="button">
     &nbsp;Data sources <i class="bi bi-caret-down"></i>
   </a>
-  <span class="text-secondary" style="font-size: .75em;">Last update: <?= $data['lastUpd'] ?></span>
+  <span class="text-secondary" style="font-size: .75em;">
+    Last update: <?= date('Y-m-d', $data['lastUpd'] ) ?>
+  </span>
 </div>
 <table id="<?= $foodId ?>SourcesCollapse" class="table collapse" style="font-size: .75em;">
   <tbody>
