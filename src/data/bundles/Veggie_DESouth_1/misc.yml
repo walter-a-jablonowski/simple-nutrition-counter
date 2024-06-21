@@ -56,7 +56,7 @@ Coffee:
 
 # All misc expenses that are no food (variable expenses spent on daily basis)
 
-expenses:
+expenses:  # monthly variable (UI also adds buyings)
 
   Rollen:         { price: 3.49, lastUpd: 2024-06-04 }
   Waschm:         { price: 4.89, lastUpd: 2024-05-06 }
