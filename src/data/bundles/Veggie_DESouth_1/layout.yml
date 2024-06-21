@@ -175,15 +175,15 @@ On the go (color:#ffa500):           # Meals (less often)
 
   list:
 
-    - Falafel                        # occasionally
-    - Kfc Original
-    - Burrito A                      # less
-    - Karamalz
     - Cappuccino R
     - Cappuccino Eni
     - Riegel Seitenb Sch             # less (duplicate)
+    - Karamalz
+    - Kfc Original
     - Riegel Deca Basic
+    - Burrito A                      # less
     - Donuts mini A
+    - Falafel                        # occasionally
 
 Cheat day (color:#ffa500):
 
@@ -198,10 +198,10 @@ Suppl, Brain tuning (color:#8a2be2):  # Suppl
 
   list:
 
+    - Ritter Sp 81%                  # used as supplements (currently)
+
     - Milch H                        # less
     - Zitronenm                      # occasionally
     - Zitronenm mini
-
-    - Ritter Sp 81%                  # used as supplements (currently)
 
 Misc expenses (color:#e0e0e0):       # Finance only
