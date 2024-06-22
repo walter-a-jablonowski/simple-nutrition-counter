@@ -33,10 +33,10 @@
 #     - Coffee
 #     - ...
 
-Nuts (color:#ffa500):                # Meals  # TASK: on the go diff shade
+Nuts (color:#ffa500):               # Meals  # TASK: on the go diff shade
 
-  short: Info (always visible)       # TASK: we also could add a collapse for larger content
-  (i):   Demo 2                      # alternative: enclose in attribs key (see function)
+  short: "Info (always visible)"    # TASK: we also could add a collapse for larger content
+  (i):   "Demo 2"                   # alternative: enclose in attribs key (see function)
 
   list:
 
@@ -57,6 +57,8 @@ Nuts (color:#ffa500):                # Meals  # TASK: on the go diff shade
 
 Veggie bowl (color:#ffa500):
 
+  (i): "Ideal is veggie some chicken fish. We may also need fill up some energy from time to time (carbs)."
+
   list:
 
     # - Veggie L                     # TASK
@@ -66,6 +68,10 @@ Veggie bowl (color:#ffa500):
     - Linsen R Bio
     - Olivenöl
     - Öl
+    - Gemüse R Bio
+    - Gemüse A Bio Sommer
+    - Gemüse A Bio Ital
+    - Gemüse R                       # acceptable occasionally
 
 Third meals (color:#ffa500):
 
@@ -84,17 +90,11 @@ Third meals (color:#ffa500):
 
 Legumes & greens (color:#32cd32):    # Ingredients
 
-  (i): Ideal is veggie some chicken fish. We may also need fill up some energy from time to time (carbs).
-
   list:
 
     - Green beans R
     - R Rüben N
     - Oliven R Bio
-    - Gemüse R Bio
-    - Gemüse A Bio Sommer
-    - Gemüse A Bio Ital
-    - Gemüse R                       # acceptable occasionally
     - Pfannegem A Ital
     - Artisch R viertel
 
@@ -132,7 +132,7 @@ Fish, meat, tofu (color:#32cd32):
 
 A little taste (color:#32cd32):
 
-  (i): Add only a little per meal makes it far more tasty and keeps it healthy
+  (i): "Add only a little per meal makes it far more tasty and keeps it healthy"
 
   list:
 
