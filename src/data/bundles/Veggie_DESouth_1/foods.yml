@@ -513,7 +513,8 @@ Chicken Nugg N:
 
   vendor:            Norma
   acceptable:        occasionally
-  cookingInstrutions: ""
+
+  cookingInstrutions: "2.5 min & 2 mehr"
 
   price:             2.29
   weight:            250  # 300 is with dip
