@@ -2149,6 +2149,8 @@ Seelachs N:
   url:               "https://www.norma-online.de/de/sortiment/transparente-fischerei-t-184/alaska-seelachs-i-264"
   properties:        { NutriScore: A }
 
+  cookingInstrutions: ">= 12 min"
+
   price:             2.79 
   weight:            400
   pieces:            4
