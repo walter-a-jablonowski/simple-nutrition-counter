@@ -1255,7 +1255,6 @@ Kfc Original:
 
 Lindt caramel:
 
-  vendor:            Kfc
   url:               "https://www.lindt.de/hello-salted-caramel-stick-39g"
 
   acceptable:        less
@@ -1941,60 +1940,6 @@ Tofu N:
   lastUpd:           2024-06-18
   lastPriceUpd:      2024-06-18
 
-Zitronenm:  # (TASK) currently 2 entries
-
-  vendor:            DM
-  acceptable:        occasionally
-  comment:           "Andorn Bibernelle Ehrenpreis Eibisch Frauenmantel Holunder Malve Pfefferminze Salbei Schafgarbe Schlüsselblume Spitzwegerich Thymian"
-  ingredients:       "Süßungsmittel (Isomalt), Säuerungsmittel (Citronensäure), Kräuterauszug (0,3%) aus Zitronenmelisse sowie Spitzwegerich, Eibisch, Pfefferminze, Thymian, Salbei, Frauenmantel, Schafgarbe, Bibernelle, Malve, Holunderblüten, Schlüsselblume, Ehrenpreis und Andorn, natürliches Citrusaroma, Karottensaftkonzentrat, Süßungsmittel (Steviolglycoside aus Stevia, Thaumatin), Pfefferminzöl, Minzöl, Menthol"
-
-  price:             1.75  
-  weight:            75g   
-  pieces:            20    # manual count for small pack, TASK: assuming the same for large pack
-  usedAmounts:       [1]
-
-  calories:          235
-  nutritionalValues:
-
-    fat:             0
-    saturatedFat:    0
-    carbs:           96
-    sugar:           0
-    sugarAlcohol:    96
-    amino:           0
-    salt:            0
-
-  sources:           { nutriVal: "web", price: "web" }
-  lastUpd:           2024-05-06
-  lastPriceUpd:      2024-05-15
-
-Zitronenm mini:  # (TASK) currently 2 entries
-
-  vendor:            Rewe
-  acceptable:        occasionally
-  comment:           "Andorn Bibernelle Ehrenpreis Eibisch Frauenmantel Holunder Malve Pfefferminze Salbei Schafgarbe Schlüsselblume Spitzwegerich Thymian"
-  ingredients:       "Süßungsmittel (Isomalt), Säuerungsmittel (Citronensäure), Kräuterauszug (0,3%) aus Zitronenmelisse sowie Spitzwegerich, Eibisch, Pfefferminze, Thymian, Salbei, Frauenmantel, Schafgarbe, Bibernelle, Malve, Holunderblüten, Schlüsselblume, Ehrenpreis und Andorn, natürliches Citrusaroma, Karottensaftkonzentrat, Süßungsmittel (Steviolglycoside aus Stevia, Thaumatin), Pfefferminzöl, Minzöl, Menthol"
-
-  price:             1.65
-  weight:            50g
-  pieces:            20    # manual count for small pack, TASK: assuming the same for large pack
-  usedAmounts:       [1]
-
-  calories:          235
-  nutritionalValues:
-
-    fat:             0
-    saturatedFat:    0
-    carbs:           96
-    sugar:           0
-    sugarAlcohol:    96
-    amino:           0
-    salt:            0
-
-  sources:           { nutriVal: "web", price: "web" }
-  lastUpd:           2024-05-06
-  lastPriceUpd:      2024-05-15
-
 Riegel Seitenb Sch:
 
   vendor:            Rewe
@@ -2242,3 +2187,57 @@ Walnuss R Bio:
   sources:           { nutriVal: "web (information on packaging may differ slightly)" }
   lastUpd:           2024-04-28
   lastPriceUpd:      2024-04-28
+
+Zitronenm:  # (TASK) currently 2 entries
+
+  vendor:            DM
+  acceptable:        occasionally
+  comment:           "Andorn Bibernelle Ehrenpreis Eibisch Frauenmantel Holunder Malve Pfefferminze Salbei Schafgarbe Schlüsselblume Spitzwegerich Thymian"
+  ingredients:       "Süßungsmittel (Isomalt), Säuerungsmittel (Citronensäure), Kräuterauszug (0,3%) aus Zitronenmelisse sowie Spitzwegerich, Eibisch, Pfefferminze, Thymian, Salbei, Frauenmantel, Schafgarbe, Bibernelle, Malve, Holunderblüten, Schlüsselblume, Ehrenpreis und Andorn, natürliches Citrusaroma, Karottensaftkonzentrat, Süßungsmittel (Steviolglycoside aus Stevia, Thaumatin), Pfefferminzöl, Minzöl, Menthol"
+
+  price:             1.75  
+  weight:            75g   
+  pieces:            20    # manual count for small pack, TASK: assuming the same for large pack
+  usedAmounts:       [1]
+
+  calories:          235
+  nutritionalValues:
+
+    fat:             0
+    saturatedFat:    0
+    carbs:           96
+    sugar:           0
+    sugarAlcohol:    96
+    amino:           0
+    salt:            0
+
+  sources:           { nutriVal: "web", price: "web" }
+  lastUpd:           2024-05-06
+  lastPriceUpd:      2024-05-15
+
+Zitronenm mini:  # (TASK) currently 2 entries
+
+  vendor:            Rewe
+  acceptable:        occasionally
+  comment:           "Andorn Bibernelle Ehrenpreis Eibisch Frauenmantel Holunder Malve Pfefferminze Salbei Schafgarbe Schlüsselblume Spitzwegerich Thymian"
+  ingredients:       "Süßungsmittel (Isomalt), Säuerungsmittel (Citronensäure), Kräuterauszug (0,3%) aus Zitronenmelisse sowie Spitzwegerich, Eibisch, Pfefferminze, Thymian, Salbei, Frauenmantel, Schafgarbe, Bibernelle, Malve, Holunderblüten, Schlüsselblume, Ehrenpreis und Andorn, natürliches Citrusaroma, Karottensaftkonzentrat, Süßungsmittel (Steviolglycoside aus Stevia, Thaumatin), Pfefferminzöl, Minzöl, Menthol"
+
+  price:             1.65
+  weight:            50g
+  pieces:            20    # manual count for small pack, TASK: assuming the same for large pack
+  usedAmounts:       [1]
+
+  calories:          235
+  nutritionalValues:
+
+    fat:             0
+    saturatedFat:    0
+    carbs:           96
+    sugar:           0
+    sugarAlcohol:    96
+    amino:           0
+    salt:            0
+
+  sources:           { nutriVal: "web", price: "web" }
+  lastUpd:           2024-05-06
+  lastPriceUpd:      2024-05-15
