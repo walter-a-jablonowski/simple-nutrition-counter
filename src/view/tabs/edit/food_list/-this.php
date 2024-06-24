@@ -15,22 +15,24 @@ Structure overview
   <span id="uiMsg"></span>  <!-- TASK: mov -->
 
   <!-- Static entries #code/staticListEntries -->
+  <!-- 3 col: col-12 col-md-6 col-lg-4 col-xxl-3 -->
+  <!-- 2 col: col-12 col-md-6 col-xxl-4 -->
 
   <div class="col-12 mt-1">  <!-- wrap in col = show above groups -->
     <div class="row">        <!-- break points same as in food groups below -->
-      <div class   = "col-12 col-md-6 col-xxl-4 p-1"
+      <div class   = "col-12 col-md-6 col-xxl-4 p-2 py-1"
            onclick = "foodsCrl.newEntryBtn(event)"
       >
         Enter manually ...  <!-- TASK: also buyings here (maybe use some select that changes sub forms) -->
       </div>                <!-- month var: we have a layout group for this -->
       <!-- TASK: currently used save btn -->
-      <div class   = "col-12 col-md-6 col-xxl-4 p-1"
+      <div class   = "col-12 col-md-6 col-xxl-4 p-2 py-1"
            onclick = "foodsCrl.saveDayEntriesBtnClick(event)"
       >
         Save ...
       </div>
 <!--
-      <div class   = "col-12 col-md-6 col-xxl-4 p-1"
+      <div class   = "col-12 col-md-6 col-xxl-4 p-2 py-1"
            onclick = "..."
       >
         Expired food ...
@@ -38,7 +40,7 @@ Structure overview
 -->
 <!--
       < ?php if( $this->settings->get('layout.useCoffeeCounter')) ?>
-        <div class   = "col-12 col-md-6 col-xxl-4 p-1"
+        <div class   = "col-12 col-md-6 col-xxl-4 p-2 py-1"
              onclick = "..."
         >
           Coffee
@@ -71,8 +73,8 @@ Structure overview
   ?>
     <div class="col-12 col-md-6 col-xxl-4 mt-2">  <!-- group col -->
 
-      <div class="row">            <!-- px: we make the bs default padding smaller to save some space -->
-        <div class="col-12 px-1">  <!-- below outer container for the bg color (would be full width without) -->
+      <div class="row">
+        <div class="col-12 px-2">  <!-- below outer container for the bg color (would be full width without) -->
           <div class = "p-1 small fw-bold d-flex justify-content-between align-items-center"
                style = "background-color: <?= $def['@attribs']['color'] ?? '#e0e0e0' ?>;"
           >
@@ -102,7 +104,7 @@ Structure overview
       </div>
 
       <?php if( isset($def['@attribs']['short'])): ?>
-        <div class="row">                    <!-- px: we make the bs default padding smaller to save some space -->
+        <div class="row">                    
           <div class = "col-12 px-2 small">  <!-- must be 2 here cause headline has inner padding -->
             <?= $def['@attribs']['short'] ?>
           </div>
@@ -124,7 +126,7 @@ Structure overview
           $done[] = $foodName;  // left over will be printed below (done = foods and recipes in a single list)
           // TASK: maybe we need prefix this so that no Ids get confused?
           $foodId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $foodName));  // TASK: use food id from SimpleData key as soon as upd
-        ?>                             <!-- px: we make the bs default padding smaller to save some space -->
+        ?>                             
           <div class="row">            <!-- must be 2 here cause headline has inner padding -->
             <div class = "col-6 px-2"
                  data-bs-toggle = "modal"
@@ -193,7 +195,7 @@ Structure overview
   
   ?>
     <div class="col-12 col-md-6 col-xxl-4 mt-2">  <!-- group col -->
-                                   <!-- px: we make the bs default padding smaller to save some space -->
+                                   
       <div class="row">            <!-- must be 2 here cause headline has inner padding -->
         <div class="col-12 px-2">  <!-- below outer container for the bg color (would be full width without) -->
           <div class = "p-1 small fw-bold d-flex justify-content-between align-items-center"
