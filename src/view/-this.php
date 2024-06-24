@@ -105,7 +105,7 @@ else:
 
   <?php if( $this->devMode ): ?>
     <script>
-      document.write('<p>(dev info: ' + window.innerWidth + 'px x ' + window.innerHeight + 'px, dpr: ' + window.devicePixelRatio + ')</p>')
+      document.write('<p>(dev info: ' + window.innerWidth + ' x ' + window.innerHeight + 'px, dpr: ' + window.devicePixelRatio + ')</p>')
     </script>
   <?php endif; ?>
 
