@@ -754,6 +754,32 @@ Erdn Salz N big:
   lastUpd:           2024-03-13
   lastPriceUpd:      2024-03-30
 
+Espresso Stick:
+
+  vendor:            Denns
+  acceptable:        less
+  properties:        { bio: true }
+  ingredients:       "Zucker* (Rohrzucker*, Vollrohrzucker*), Kakaomasse*, Kakaobutter*, HASELNÜSSE*, Sonnenblumenöl*, Kaffeepulver*(5,00%), Kakaopulver*, VOLLMILCHPULVER*, BUTTERREINFETT*, Emulgator Sonnenblumenlecithin*, Bourbon Vanille"
+
+  price:             0.99  # guess
+  weight:            
+  usedAmounts:       ["1"]
+
+  calories:          563
+  nutritionalValues:
+
+    fat:             36
+    saturatedFat:    15
+    carbs:           50
+    sugar:           44
+    fibre:           8.2
+    amino:           5.8
+    salt:            0.03
+
+  sources:           { nutriVal: "web" }
+  lastUpd:           2024-06-18
+  lastPriceUpd:      2024-06-18
+
 Falafel:
 
   vendor:            Bavaria
