@@ -120,6 +120,9 @@ class FoodsController extends ControllerBase
         $multipl = (float) eval("return $multipl;");  // 1/2 => 0.5
         // eval("\$multipl = $multipl;");
 
+        // if( $foodName == 'Espresso Stick' )  // DEBUG
+        //   $debug = 'halt';
+
         $weight = $usage === 'pack'   ? $foodEntry['weight'] * $multipl : (
                   $usage === 'pieces' ? ($foodEntry['weight'] / $foodEntry['pieces']) * $multipl
                 : $multipl  // precise
@@ -128,7 +131,7 @@ class FoodsController extends ControllerBase
         $perWeight = [
           'weight'   => round( $weight, 1),
           'calories' => round( $foodEntry['calories'] * ($weight / 100), 1),
-          'price'    => isset($foodEntry['price']) ? round( $foodEntry['price'] * ($weight / $foodEntry['weight']), 2) : 0
+          'price'    => isset( $foodEntry['price']) ? round( $foodEntry['price'] * ($weight / $foodEntry['weight']), 2) : 0
         ];
 
         // nutritinal values for all nutrient groups
