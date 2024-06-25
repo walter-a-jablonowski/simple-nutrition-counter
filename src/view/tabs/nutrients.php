@@ -1,4 +1,17 @@
 
+<!-- TASK: just cp from somewhere, make better -->
+
+<?php if( $this->devMode ): ?>
+  <div class="d-flex w-100 justify-content-between">
+    <div class="form-check">
+      <input id="offLimitCheck" type="checkbox" value="" class="form-check-input">
+      <label class="form-check-label small" for="offLimitCheck">
+        off limit only
+      </label>
+    </div>
+  </div>
+<?php endif; ?>
+
 <div class="scrollable-list rounded">
 
   <!-- TASK: collapse or expand all btn -->
