@@ -190,7 +190,7 @@ Avocado gr:
 
   price:             1.29
   weight:            260g
-  usedAmounts:       [1]
+  usedAmounts:       ["1/2", "1"]
 
   calories:          160  # TASK: same as Avocado, right (via ChatGPT)?
   nutritionalValues:
@@ -1432,7 +1432,7 @@ Linsen vegan:
 Löschzwerg R:
 
   acceptable:        less
-  ingredients:       "(Wasser, GERSTENMALZ, Hopfen), natürliches Mineralwasser, Glucose-Fruktose-Sirup, Zucker, Zitronenkonzentrat (Zitrone, Zitronensaftkonzentrat, Zitronenöl), Kohlensäure, Konservierungsstoff, Kaliumsorbat, Antioxidationsmittel Ascorbinsäure, natürliches Aroma, Stabilisator Johannisbrotkernmehl"
+  ingredients:       "Bier (Wasser, GERSTENMALZ, Hopfen), natürliches Mineralwasser, Glucose-Fruktose-Sirup, Zucker, Zitronenkonzentrat (Zitrone, Zitronensaftkonzentrat, Zitronenöl), Kohlensäure, Konservierungsstoff, Kaliumsorbat, Antioxidationsmittel Ascorbinsäure, natürliches Aroma, Stabilisator Johannisbrotkernmehl"
 
   price:             
   weight:            330ml
