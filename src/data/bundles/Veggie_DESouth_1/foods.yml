@@ -658,6 +658,32 @@ Donuts mini A:
   lastUpd:           2024-06-18
   lastPriceUpd:      2024-06-18
 
+Döner 1:
+
+  acceptable:        occasionally
+  comment:           "values roughly"
+
+  price:             6.50
+  weight:            350
+  usedAmounts:       [1]
+
+  calories:          164
+  nutritionalValues:
+
+    fat:             2.6
+    # saturatedFat:  
+    carbs:           22
+    sugar:           1
+    fibre:           2
+    amino:           12.8
+    salt:            0.45
+
+    # TASK: maybe Vit C A iron rouhgly
+
+  sources:           { nutriVal: "web (third party, verified 2 sources but may differ)" }
+  lastUpd:           2024-06-18
+  lastPriceUpd:      2024-06-18
+
 Duplo:
 
   vendor:            Rewe
@@ -1401,6 +1427,31 @@ Linsen vegan:
 
   sources:           { nutriVal: "pack" }
   lastUpd:           2024-04-19
+  lastPriceUpd:      
+
+Löschzwerg R:
+
+  acceptable:        less
+  ingredients:       "(Wasser, GERSTENMALZ, Hopfen), natürliches Mineralwasser, Glucose-Fruktose-Sirup, Zucker, Zitronenkonzentrat (Zitrone, Zitronensaftkonzentrat, Zitronenöl), Kohlensäure, Konservierungsstoff, Kaliumsorbat, Antioxidationsmittel Ascorbinsäure, natürliches Aroma, Stabilisator Johannisbrotkernmehl"
+
+  price:             
+  weight:            330ml
+  usedAmounts:       [1]
+
+  calories:          27
+  nutritionalValues:
+
+    # TASK: alcohol 2.6%
+
+    fat:             0
+    saturatedFat:    0
+    carbs:           6.1
+    sugar:           5.9
+    amino:           0
+    salt:            0.002
+
+  sources:           { nutriVal: "web (third party, may differ, vendor has none even on pack)" }
+  lastUpd:           2024-06-18
   lastPriceUpd:      
 
 Lyoner R Bio:
