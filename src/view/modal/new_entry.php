@@ -118,8 +118,8 @@
           <!-- TASK: add a dev config and hide -->
           <!-- TASK: (very advanced) -->
           <div class="form-check">
-            <input id="flexCheckDefault" type="checkbox" value="" class="form-check-input">
-            <label class="form-check-label small" for="flexCheckDefault">
+            <input id="saveNewFood" type="checkbox" value="" class="form-check-input">
+            <label class="form-check-label small" for="saveNewFood">
               Save as new food
             </label>
           </div>
