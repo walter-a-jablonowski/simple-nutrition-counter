@@ -32,10 +32,10 @@ Structure overview
       >
         Save ...
       </div>
-<!-- TASK: prefer move these in layout group that has a special attrib -->
+<!-- TASK: maybe leave above as a shortcut? see also (first_entries) -->
 <!--
       <div class   = "col-12 col-md-6 col-xxl-4 p-2 py-1"
-            onclick = "..."
+           onclick = "..."
       >
         Coffee
       </div>
