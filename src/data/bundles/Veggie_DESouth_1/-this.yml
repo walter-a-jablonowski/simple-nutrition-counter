@@ -2,14 +2,14 @@ name:   Veggie
 region: DE/south
 user:   single_user  # usually mail and time (see users), single_user is a special user
 
-comment: |
+strategy: |
 
   Healthy menu maily nuts, vegetables, fish, tofu and some chicken. Garlic, herbs, ...
   For fun: Includes one cheat day per week as well as "micro candy" (reduce sugar amount).
   On the go the best food that is available is used.
   
-  No processed foods as far as possible, no bread, low corn and dairy. Energy source is
-  legumes (complex carbs) and oil, trying to reduce carbs as far as possible.
+  No processed foods, no bread, low corn and dairy. Energy source is legumes (complex carbs)
+  and oil, trying to reduce carbs as far as possible.
 
 regionalAvailability: |
 
