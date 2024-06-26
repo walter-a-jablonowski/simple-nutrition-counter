@@ -41,7 +41,7 @@ Structure overview
       </div>
 
       < ?php if( $this->config->get('special')) ?>
-        <div class   = "col-12 col-md-6 col-xxl-4 p-1"
+        <div class   = "col-12 col-md-6 col-xxl-4 p-2 py-1"
              onclick = "..."
         >
           Fillup
@@ -59,7 +59,7 @@ Structure overview
 
   foreach( $this->layout as $groupName => $def ):
 
-    if( $groupName == '(first_entries)' || ! ($def['list'] ?? []))  // no entry
+    if( $groupName == '(first_entries)' || ! ($def['list'] ?? []))  // no entry  // TASK: first_entries currently no use
       continue;
     
     $groupId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $groupName));
@@ -75,7 +75,7 @@ Structure overview
               <?= $groupName ?>
               <?php if( isset($def['@attribs']['(i)'])): ?>
                 &nbsp;
-                <button type="button" class="border-0 p-0 bg-transparent"
+                <button type="button" class="border-0 p-1 bg-transparent"
                         data-bs-toggle = "modal"
                         data-bs-target = "#infoModal"
                         data-title     = "<?= $groupName ?>"
@@ -97,7 +97,7 @@ Structure overview
       </div>
 
       <?php if( isset($def['@attribs']['short'])): ?>
-        <div class="row">                    
+        <div class="row mt-1">                    
           <div class = "col-12 px-2 small">  <!-- must be 2 here cause headline has inner padding -->
             <?= $def['@attribs']['short'] ?>
           </div>
@@ -121,7 +121,7 @@ Structure overview
           $foodId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $foodName));  // TASK: use food id from SimpleData key as soon as upd
         ?>                             
           <div class="row">            <!-- must be 2 here cause headline has inner padding -->
-            <div class = "col-6 px-2"
+            <div class = "col-6 p-1 px-2"
                  data-bs-toggle = "modal"
                  data-bs-target = "#infoModal"
                  data-title     = "#<?= $foodId ?>Headline"
@@ -155,7 +155,7 @@ Structure overview
             
             ?>
             <?php foreach( $amountData as $amount => $data ): ?>  <!-- TASK: don't print more than 3 entries (maybe do in controller) -->
-              <div class   = "food-item col-1"
+              <div class   = "food-item col-1 p-1"
                    onclick = "foodsCrl.foodItemClick(event)"
                    data-food       = "<?= $foodName ?>"
                    data-calories   = "<?= $data['calories'] ?>"
@@ -226,7 +226,7 @@ Structure overview
           $amountData = $this->modelView->get("$type.$foodName");
         ?>
           <div class="row">
-            <div class="col-6 ps-1 pe-1">
+            <div class="col-6 p-1 px-2">
               <?= $foodName ?>
             </div>
             <!-- TASK: Simplify in controller ? default -->
@@ -236,7 +236,7 @@ Structure overview
               if( ! isset($data['nutriVal']))
                 $debug = 'halt';
             ?>
-              <div class   = "food-item col-1"
+              <div class   = "food-item col-1 p-1"
                    onclick = "foodsCrl.foodItemClick(event)"
                    data-food       = "<?= $foodName ?>"
                    data-calories   = "<?= $data['calories'] ?>"
