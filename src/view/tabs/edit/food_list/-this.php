@@ -32,13 +32,6 @@ Structure overview
         Save ...
       </div>
 <!--
-      <div class   = "col-12 col-md-6 col-xxl-4 p-2 py-1"
-           onclick = "..."
-      >
-        Expired food ...
-      </div>
--->
-<!--
       < ?php if( $this->settings->get('layout.useCoffeeCounter')) ?>
         <div class   = "col-12 col-md-6 col-xxl-4 p-2 py-1"
              onclick = "..."
@@ -162,7 +155,7 @@ Structure overview
             
             ?>
             <?php foreach( $amountData as $amount => $data ): ?>  <!-- TASK: don't print more than 3 entries (maybe do in controller) -->
-              <div class   = "food-item col-2"
+              <div class   = "food-item col-1"
                    onclick = "foodsCrl.foodItemClick(event)"
                    data-food       = "<?= $foodName ?>"
                    data-calories   = "<?= $data['calories'] ?>"
@@ -177,6 +170,16 @@ Structure overview
                 <?= $amount ?>
               </div>
             <?php endforeach; ?>
+            <!-- Spacer -->
+            <?php for( $i=count($amountData)+1; $i < 4; $i++ ):  // plus one is the food menu ?>
+              <div class="col-1">&nbsp;</div>
+            <?php endfor; ?>
+            <!-- Food menu -->
+            <div class   = "food-menu col-1"
+                 onclick = ""
+            >
+              ...  <!-- TASK: Expired food, ... -->
+            </div>
           </div>
         <?php endforeach; ?>
       </div>
@@ -233,7 +236,7 @@ Structure overview
               if( ! isset($data['nutriVal']))
                 $debug = 'halt';
             ?>
-              <div class   = "food-item col-2"
+              <div class   = "food-item col-1"
                    onclick = "foodsCrl.foodItemClick(event)"
                    data-food       = "<?= $foodName ?>"
                    data-calories   = "<?= $data['calories'] ?>"
@@ -248,6 +251,16 @@ Structure overview
                 <?= $amount ?>
               </div>
             <?php endforeach; ?>
+            <!-- Spacer -->
+            <?php for( $i=count($amountData)+1; $i < 4; $i++ ):  // plus one is the food menu ?>
+              <div class="col-1">&nbsp;</div>
+            <?php endfor; ?>
+            <!-- Food menu -->
+            <div class   = "food-menu col-1"
+                 onclick = ""
+            >
+              ...  <!-- TASK: Expired food, ... -->
+            </div>
           </div>
         <?php endforeach; ?>
       </div>
