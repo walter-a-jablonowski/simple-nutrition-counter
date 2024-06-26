@@ -27,7 +27,7 @@
 # (first_entries):                   # makes layout highly configureable
 #                                    # simpler may be enough, currently is just implemented fix and activated in config settings
 #   list:
-
+#
 #     - Enter manually ...
 #     - Expired food ...
 #     - Coffee
@@ -212,4 +212,8 @@ Suppl, Brain tuning (color:#8a2be2):  # Suppl
     - Zitronenm                      # occasionally
     - Zitronenm mini
 
-Misc expenses (color:#e0e0e0):       # Finance only
+Housewares (color:#e0e0e0, housewares:true):   # Finance only
+
+  (i): "counts as consumed as soon as a pieces is taken out"
+
+Misc expenses (color:#e0e0e0, expenses:true):  # misc monthly variable
