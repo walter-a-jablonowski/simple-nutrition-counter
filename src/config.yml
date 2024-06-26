@@ -1,6 +1,7 @@
 
 devMode:   true         # show new ui elems that are in dev
 tryDesign: false        # try new UI (see controller.php)
+special:   true         # show waj only functions (var-buy and similar)
 
 user:      single_user
 
