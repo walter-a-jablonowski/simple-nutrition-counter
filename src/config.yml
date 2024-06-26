@@ -18,11 +18,6 @@ defaultSettings:        # see also users > settings.yml
 
   currency: "€"
 
-  layout:
-
-    useCoffeeCounter:  true
-    useFillupsCounter: true
-
   foods:
 
     defaultAmounts:

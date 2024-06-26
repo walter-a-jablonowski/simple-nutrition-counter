@@ -15,6 +15,7 @@ Structure overview
   <span id="uiMsg"></span>  <!-- TASK: mov -->
 
   <!-- Static entries #code/staticListEntries -->
+  <!-- maybe use: smartphone 1 col, tabl 2 col, large 3 or col -->
   <!-- 3 col: col-12 col-md-6 col-lg-4 col-xxl-3 -->
   <!-- 2 col: col-12 col-md-6 col-xxl-4 -->
 
@@ -31,16 +32,15 @@ Structure overview
       >
         Save ...
       </div>
+<!-- TASK: prefer move these in layout group that has a special attrib -->
 <!--
-      < ?php if( $this->settings->get('layout.useCoffeeCounter')) ?>
-        <div class   = "col-12 col-md-6 col-xxl-4 p-2 py-1"
-             onclick = "..."
-        >
-          Coffee
-        </div>
-      < ?php endif; ?>
+      <div class   = "col-12 col-md-6 col-xxl-4 p-2 py-1"
+            onclick = "..."
+      >
+        Coffee
+      </div>
 
-      < ?php if( $this->settings->get('layout.useFillupsCounter')) ?>
+      < ?php if( $this->config->get('special')) ?>
         <div class   = "col-12 col-md-6 col-xxl-4 p-1"
              onclick = "..."
         >
