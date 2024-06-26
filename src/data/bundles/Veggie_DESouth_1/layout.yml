@@ -214,6 +214,10 @@ Suppl, Brain tuning (color:#8a2be2):  # Suppl
 
 Housewares (color:#e0e0e0, housewares:true):   # Finance only
 
-  (i): "counts as consumed as soon as a pieces is taken out"
+  (i): |
+  
+    All the non food stuff bought regularly like coffee filters, batteries ...
+    Counts as consumed as soon as one pack/piece is taken out of the patry.
+    The coffee filters aren't consumed all at once, but the error is only a few cents.
 
 Misc expenses (color:#e0e0e0, expenses:true):  # misc monthly variable
