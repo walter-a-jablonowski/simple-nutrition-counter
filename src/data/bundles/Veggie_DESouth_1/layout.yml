@@ -29,14 +29,16 @@
 #   list:
 #
 #     - Enter manually ...
-#     - Expired food ...
 #     - Coffee
+#     - Fullup
 #     - ...
 
-Nuts (color:#ffa500):               # Meals  # TASK: on the go diff shade
+# Supplements (color:#e0e0e0, fold:true):
 
-  short: "Info (always visible)"    # TASK: we also could add a collapse for larger content
-  (i):   "Demo 2"                   # alternative: enclose in attribs key (see function)
+Nuts (color:#ffa500):                  # Meals  # TASK: on the go diff shade
+
+  short: "Info (always visible)"       # TASK: we also could add a collapse for larger content
+  (i):   "Demo 2"                      # alternative: enclose in attribs key (see function)
 
   list:
 
@@ -61,7 +63,7 @@ Veggie bowl (color:#ffa500):
 
   list:
 
-    # - Veggie L                     # TASK
+    # - Veggie L                       # TASK
     # - Veggie C
     - Chick R Bio
     - Linsen R Bio
@@ -69,7 +71,7 @@ Veggie bowl (color:#ffa500):
     - Gemüse R Bio
     - Gemüse A Bio Sommer
     - Gemüse A Bio Ital
-    - Gemüse R                       # acceptable occasionally
+    - Gemüse R
     - Olivenöl
     - Öl
 
@@ -79,16 +81,16 @@ Third meals (color:#ffa500):
 
     - Avocado
     - Avocado gr
-    - Frosta Bratk                   # acceptable occasionally
+    - Frosta Bratk
     - Frosta Frikassee
     - Frosta Gesch
     - Frosta Paella
     - Aldi Bratk
-    - Linsen vegan                   # less good
+    - Linsen vegan
     - Geb Bohnen
     - Chili vegan
 
-Legumes & greens (color:#32cd32):    # Ingredients
+Legumes & greens (color:#32cd32):      # Ingredients
 
   list:
 
@@ -105,14 +107,14 @@ Still greens, mushrooms, misc (color:#32cd32):
     - Champ mini ganz R
     - Champ N
 
-    - Kartoffeltaschen F             # less
+    - Kartoffeltaschen F
     - Kartoffel Wedges
-    - Pommes                         # acceptable
+    - Pommes
     - Pommes R Bio
     - Kartoffel Wedges Bio
 
-    - Pumpernickel R Bio             # occasionally
-    - Vollkorn Rhein R               # less
+    - Pumpernickel R Bio
+    - Vollkorn Rhein R
     - Mehrkornbr
 
 Fish, meat, tofu (color:#32cd32):
@@ -120,14 +122,14 @@ Fish, meat, tofu (color:#32cd32):
   list:
 
     - Seelachs N
-    - Fischst                        # acceptable occasionally
+    - Fischst
     - Thunfisch N
-    - Sardine                        # occasionally
+    - Sardine
 
     - Chicken Nugg N
     - Tofu N
     
-    - Salami R                       # less
+    - Salami R
     - Lyoner R Bio
 
 A little taste (color:#32cd32):
@@ -136,17 +138,17 @@ A little taste (color:#32cd32):
 
   list:
 
-    - Patros 150                     # occasionally
+    - Patros 150
     - Patros W
     - Frischk R Bio
-    - Bresso                         # less
+    - Bresso
     - Bresso mini
-    - Philadelphia                   # less
+    - Philadelphia
     - Philadelphia mini
     - Käse Gr Sch (all)
     - Käse Gr W (all)
     - Eiweißbr
-    # - Salatsoße                    # (missing)
+    # - Salatsoße                      # (missing)
 
 # Misc meals (less good) (color:):
 
@@ -156,11 +158,11 @@ Fill up missing (color:#32cd32):
 
   list:
 
-    # - Salt                         # TASK: removed for debugging layout
-    - Amino misc                     # use left over
+    # - Salt                           # TASK: removed for debugging layout
+    - Amino misc                       # use left over
     - Amino Deca Muscle Gainer
     - Amino NaDuRia Pur
-    - Riegel Seitenb Sch             # less
+    - Riegel Seitenb Sch
     - Chips light
 
 Micro candy or sugar less (color:#ff69b4):  # Candy
@@ -169,26 +171,26 @@ Micro candy or sugar less (color:#ff69b4):  # Candy
 
   list:
 
-    - Duplo                          # less
+    - Duplo
     - Ferrero Kuesschen
     - Ritter Sp 50%
     - Hanuta
 
-On the go (color:#ffa500):           # Meals (less often)
+On the go (color:#ffa500):             # Meals (less often)
 
   list:
 
     - Cappuccino R
     - Cappuccino Eni
-    - Riegel Seitenb Sch             # less (duplicate)
+    - Riegel Seitenb Sch               # (duplicate)
     - Karamalz
     - Löschzwerg R
     - Döner 1
     - Kfc Original
-    - Falafel                        # occasionally
+    - Falafel
     - Hanuta
     - Espresso Stick
-    - Burrito A                      # less
+    - Burrito A
     - Donuts mini A
     - Riegel Deca Basic
 
@@ -196,28 +198,29 @@ Cheat day (color:#ffa500):
 
   list:
 
-    - Pizza Mag                      # less
+    - Pizza Mag
     - Lindt caramel
     - Mohnkuchen
     - Donuts
-    - Donuts mini A                  # (duplicate)
+    - Donuts mini A                    # (duplicate)
 
-Suppl, Brain tuning (color:#8a2be2):  # Suppl
+Suppl, Brain tuning (color:#8a2be2):   # Suppl
 
   list:
 
-    - Ritter Sp 81%                  # used as supplements (currently)
+    - Ritter Sp 81%                    # used as supplements (currently)
 
-    - Milch H                        # less
-    - Zitronenm                      # occasionally
+    - Milch H
+    - Zitronenm
     - Zitronenm mini
 
-Housewares (color:#e0e0e0, housewares:true):   # Finance only
+Housewares (color:#e0e0e0):            # Finance only
 
   (i): |
   
     All the non food stuff bought regularly like coffee filters, batteries ...
     Counts as consumed as soon as one pack/piece is taken out of the pantry.
-    Coffee filters aren't consumed all at once of course, but the error is only a few cents.
+    Coffee filters aren't consumed all at once of course, but the error is only
+    a few cents.
 
-Misc expenses (color:#e0e0e0, expenses:true):  # misc monthly variable
+Misc expenses (color:#e0e0e0):         # misc monthly variable

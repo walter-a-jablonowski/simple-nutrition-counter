@@ -2,12 +2,13 @@
 
 - [Install](install)
 - [Common usage](#common-usage)
-- [Settings file (settings.yml)](#settings-file-settingsyml)
-- [Foods file (foods.yml)](#foods-file-foodsyml)
-- [Recipes file (recipes.yml)](#recipes-file-recipesyml)
-- [Layout file (layout.yml)](#layout-file-layoutyml)
-- [Misc counters (misc.yml)](#misc-counters-miscyml)
-- [Nutrient files (nutrients.yml)](#nutrient-files-substancesyml-and-groupsyml)
+- [Settings file](#settings-file-settingsyml)
+- [Foods file](#foods-file-foodsyml)
+- [Supplements file](#supplements-file-foodsyml)
+- [Recipes file](#recipes-file-recipesyml)
+- [Layout file](#layout-file-layoutyml)
+- [Misc (misc.yml)](#misc-counters-miscyml)
+- [Nutrient files](#nutrient-files-substancesyml-and-groupsyml)
 
 
 Install
@@ -27,11 +28,11 @@ Common usage
 Data files below see /data
 
 
-Settings file (settings.yml)
+Settings file
 ----------------------------------------------------------
 
 
-Foods file (foods.yml)
+Foods file
 ----------------------------------------------------------
 
 Currently we enter the values once in data/foods.yml. Simpler than doing manual calculations (partially used ingredients).
@@ -104,7 +105,13 @@ My food S Bio:                           # (required) display name (also used as
 ```
 
 
-Recipes file (recipes.yml)
+Supplements file
+----------------------------------------------------------
+
+nearly same as foods
+
+
+Recipes file
 ----------------------------------------------------------
 
 ```yaml
@@ -116,7 +123,7 @@ My recipe:
   Olivenöl:          # or with "g" (100g), "ml" (100ml)
 ```
 
-Layout file (layout.yml)
+Layout file
 ----------------------------------------------------------
 
 - for upper part of nutrients list
@@ -140,7 +147,7 @@ My nutrient group (color:#e0e0e0):  # Visually group with color
 ```
 
 
-Misc counters (misc.yml)
+Misc (misc.yml)
 ----------------------------------------------------------
 
 all misc counters
@@ -150,7 +157,7 @@ all misc counters
 - misc expenses that are no food
 
 
-Nutrient files (substances.yml and groups.yml)
+Nutrient files
 ----------------------------------------------------------
 
 (advanced feature)

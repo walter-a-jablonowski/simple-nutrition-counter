@@ -1,3 +1,4 @@
+<!-- TASK: maybe use 6 col for tabl -->
 <div id="#quickSummary" class="row px-2">
   <div class="col-6 col-md-4 col-xxl-2 mt-2 px-1">
     <div style="background-color: #eb6864;">

@@ -15,7 +15,7 @@ Structure overview
   <span id="uiMsg"></span>  <!-- TASK: mov -->
 
   <!-- Static entries #code/staticListEntries -->
-  <!-- maybe use: smartphone 1 col, tabl 2 col, large 3 or col -->
+  <!-- TASK: maybe use: smartphone 1 col, tabl 2 col, large 3 or col -->
   <!-- 3 col: col-12 col-md-6 col-lg-4 col-xxl-3 -->
   <!-- 2 col: col-12 col-md-6 col-xxl-4 -->
 
