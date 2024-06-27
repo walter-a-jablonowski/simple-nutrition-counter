@@ -17,7 +17,12 @@ function parse_attribs( string $attribsKey, array $largeAttribKeys, array $array
       foreach( explode(',', $a[1]) as $attr )
       {
         [$left, $right] = explode(':', $attr);
-        $attribs[trim($left)] = trim($right);
+
+        $right = in_array( $right, ['true', 'false'])
+               ? boolval($right)
+               : trim($right);
+
+        $attribs[trim($left)] = $right;
       }
     }
 

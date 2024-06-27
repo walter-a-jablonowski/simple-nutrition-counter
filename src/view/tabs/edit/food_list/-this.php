@@ -104,7 +104,7 @@ Structure overview
         </div>
       <?php endif; ?>
 
-      <div id="<?= $groupId ?>Collapse" class="collapse show">
+      <div id="<?= $groupId ?>Collapse" class="collapse<?= self::iif( ! ($def['@attribs']['fold'] ?? false), ' show') ?>">
 
         <?php
 

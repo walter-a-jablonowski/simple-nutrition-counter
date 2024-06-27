@@ -194,7 +194,7 @@ On the go (color:#ffa500):             # Meals (less often)
     - Donuts mini A
     - Riegel Deca Basic
 
-Cheat day (color:#ffa500):
+Cheat day (color:#ffa500, fold:true):
 
   list:
 
@@ -204,7 +204,7 @@ Cheat day (color:#ffa500):
     - Donuts
     - Donuts mini A                    # (duplicate)
 
-Suppl, Brain tuning (color:#8a2be2):   # Suppl
+Suppl, Brain tuning (color:#8a2be2, fold:true):   # Suppl
 
   list:
 
