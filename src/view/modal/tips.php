@@ -1,4 +1,9 @@
-<div id="tipsModal" class="modal info-modal fade" tabindex="-1">
+<?php
+
+use Symfony\Component\Yaml\Yaml;
+use Symfony\Component\Yaml\Exception\ParseException;
+
+?><div id="tipsModal" class="modal info-modal fade" tabindex="-1">
   <div class="modal-dialog modal-dialog-scrollable" style="height: 100vh;">
     <div class="modal-content" style="height: 90%;">
 <!--
@@ -11,8 +16,8 @@
 
         <ul class="nav nav-tabs" role="tablist">
           <li class="nav-item" role="presentation">
-            <a href="#tipsAppPane" class="nav-link active py-1 px-2 small" data-bs-toggle="tab" role="tab">
-              App help
+            <a href="#tipsMenuPane" class="nav-link active py-1 px-2 small" data-bs-toggle="tab" role="tab">
+              Menu
             </a>
           </li>
           <li class="nav-item" role="presentation">
@@ -20,7 +25,12 @@
               Nutrition tips
             </a>
           </li>
-          <!-- TASK: -->
+          <li class="nav-item" role="presentation">
+            <a href="#tipsAppPane" class="nav-link py-1 px-2 small" data-bs-toggle="tab" role="tab">
+              App tips
+            </a>
+          </li>
+          <!-- TASK -->
 <!-- 
           <li class="nav-item" role="presentation">
             <a href="#tipsMissionPane" class="nav-link py-1 px-2 small" data-bs-toggle="tab" role="tab">
@@ -46,14 +56,28 @@
         </ul>
 
         <div class="tab-content mt-3">
-          <div id="tipsAppPane" class="tab-pane fade show active" role="tabpanel">
+          <div id="tipsMenuPane" class="tab-pane fade show active" role="tabpanel">
 
-            <?php require('misc/tips_app.php') ?>
+            <b>Currently active menu (food list)</b><br>
+            <br>
+
+            <?php
+            
+              $a = Yaml::parse( file_get_contents('data/bundles/Veggie_DESouth_1/-this.yml'));
+
+              print "$a[spec]<br>\n<br>\n$a[regionalAvailability]";
+
+            ?>
 
           </div>
           <div id="tipsNutritionPane" class="tab-pane fade" role="tabpanel">
 
             <?php require('misc/tips_nutrition.php') ?>
+
+          </div>
+          <div id="tipsAppPane" class="tab-pane fade" role="tabpanel">
+
+            <?php require('misc/tips_app.php') ?>
 
           </div>
           <div id="tipsMissionPane" class="tab-pane fade" role="tabpanel">

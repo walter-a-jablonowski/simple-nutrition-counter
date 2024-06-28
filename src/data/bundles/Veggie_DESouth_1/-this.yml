@@ -2,16 +2,19 @@ name:   Veggie
 region: DE/south
 user:   single_user  # usually mail and time (see users), single_user is a special user
 
-strategy: |
+forkedFrom:
+forkedDate:
+
+spec: |
 
   Healthy menu maily nuts, vegetables, fish, tofu and some chicken. Garlic, herbs, ...
   For fun: Includes one cheat day per week as well as "micro candy" (reduce sugar amount).
-  On the go the best food that is available is used.
-  
+  On the go the best food that is available is used.<br>
+  <br>  
   No processed foods, no bread, low corn and dairy. Energy source is nuts, legumes (complex carbs)
   and oil, trying to reduce carbs as far as possible. If doing sports higher amounts of amino acids
   and magnesium are used.
 
 regionalAvailability: |
 
-  Includes products primarily from Rewe, Norma, Edeka, Aldi, as well as Denn's Bio and maybe online
+  Products available in south Germany. Includes products primarily from Rewe, Norma, Edeka, Aldi, as well as Denn's Bio and maybe online
