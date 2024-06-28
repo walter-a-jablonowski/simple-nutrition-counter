@@ -64,7 +64,7 @@ use Symfony\Component\Yaml\Exception\ParseException;
 
             ?>
 
-            <b>Currently selected food list:</b> <?= $a['name'] ?><br>
+            <b>Currently selected food list:</b> <?= $a['name'] ?> (<?= $a['user'] ?>)<br>
             <br>
             <?= $a['spec'] ?><br>
             <br>
