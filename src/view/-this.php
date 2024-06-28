@@ -13,8 +13,8 @@
   <link href="lib/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css"> -->
   <link rel="stylesheet" href="lib/jquery-ui-1.13.3/jquery-ui.min.css">
-  <link href="style/fixes.css" rel="stylesheet">
-  <link href="style/app.css"   rel="stylesheet">
+  <link href="style/fixes.css?v=<?= time() ?>" rel="stylesheet">
+  <link href="style/app.css?v=<?= time() ?>"   rel="stylesheet">
 
 </head>
 <body>
@@ -125,7 +125,7 @@ else:
 <script src="lib/YAMLish_240508.js"></script>
 <script src="lib/send_240420.js"></script>
 <script src="lib/fade_230808.js"></script>
-<script src="controller.js"></script>
+<script src="controller.js?v=<?= time() ?>"></script>
 <script>
 
 // ajax.file = 'ajax.php'
