@@ -1,6 +1,4 @@
 
-<!-- TASK: just cp from somewhere, make better -->
-
 <?php if( $this->devMode ): ?>
   <div class="mb-2 d-flex w-100 justify-content-between">
     <div class="form-check">
