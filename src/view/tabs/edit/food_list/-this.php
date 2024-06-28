@@ -68,7 +68,7 @@ Structure overview
 
       <div class="row">
         <div class="col-12 px-2">  <!-- below outer container for the bg color (would be full width without) -->
-          <div class = "p-1 small fw-bold d-flex justify-content-between align-items-center"
+          <div class = "p-1 px-2 small fw-bold d-flex justify-content-between align-items-center"
                style = "background-color: <?= $def['@attribs']['color'] ?? '#e0e0e0' ?>;"
           >
             <div>
@@ -98,13 +98,13 @@ Structure overview
 
       <?php if( isset($def['@attribs']['short'])): ?>
         <div class="row mt-1">                    
-          <div class = "col-12 px-2 small">  <!-- must be 2 here cause headline has inner padding -->
-            <?= $def['@attribs']['short'] ?>
+          <div class = "col-12 px-2 small">         <!-- must be 2 here cause headline has inner padding -->
+            &nbsp;<?= $def['@attribs']['short'] ?>  <!-- simple spacer -->
           </div>
         </div>
       <?php endif; ?>
 
-      <div id="<?= $groupId ?>Collapse" class="collapse<?= self::iif( ! ($def['@attribs']['fold'] ?? false), ' show') ?>">
+      <div id="<?= $groupId ?>Collapse" class="p-1 collapse<?= self::iif( ! ($def['@attribs']['fold'] ?? false), ' show') ?>">
 
         <?php
 
@@ -201,7 +201,7 @@ Structure overview
                                    
       <div class="row">            <!-- must be 2 here cause headline has inner padding -->
         <div class="col-12 px-2">  <!-- below outer container for the bg color (would be full width without) -->
-          <div class = "p-1 small fw-bold d-flex justify-content-between align-items-center"
+          <div class = "p-1 px-2 small fw-bold d-flex justify-content-between align-items-center"
                style = "background-color: #e0e0e0;"
           >
             Misc foods
@@ -212,7 +212,7 @@ Structure overview
         </div>
       </div>
 
-      <div id="<?= $groupName ?>Collapse" class="collapse show">
+      <div id="<?= $groupName ?>Collapse" class="p-1 collapse show">
         <?php
             // array_merge( array_keys( $this->modelView->get('recipes'))  // TASK
         $all = array_keys( $this->modelView->get('foods'));
