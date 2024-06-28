@@ -1,8 +1,22 @@
-/*
-.popover-cus {
-  max-width: 400px;
+/* TASK: MOV */
+
+.blink-yellow {
+  transition: background-color 0.3s ease;
 }
-*/
+
+.blink-yellow:active {
+  background-color: yellow;
+}
+
+.scrollable-list {
+  /* height: 100vh; */ /* 100% of the viewport height */
+  overflow-y: auto;
+  border: 1px solid #ddd;
+}
+
+.no-indent {
+  padding-left: 20px;
+}
 
 /* Font sizes */
 /* in BS 5.3 this is made with styles */
@@ -36,6 +50,14 @@
   #quickSummary .value { font-size: 1rem; }
   #foodList .food-item  { font-size: 1rem; }
 }
+
+/* BS */
+
+/*
+.popover-cus {
+  max-width: 400px;
+}
+*/
 
 /* Quick summary val view */
 
@@ -77,18 +99,6 @@
 
 .info-modal a:not(.active) {
   color: #888 !important;
-}
-
-/* Tools */
-
-.scrollable-list {
-  /* height: 100vh; */ /* 100% of the viewport height */
-  overflow-y: auto;
-  border: 1px solid #ddd;
-}
-
-.no-indent {
-  padding-left: 20px;
 }
 
 /* Ext page */

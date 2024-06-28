@@ -155,7 +155,7 @@ Structure overview
             
             ?>
             <?php foreach( $amountData as $amount => $data ): ?>  <!-- TASK: don't print more than 3 entries (maybe do in controller) -->
-              <div class   = "col-1 p-1"
+              <div class   = "col-1 p-1 blink-yellow"
                    onclick = "foodsCrl.foodItemClick(event)"
                    data-food       = "<?= $foodName ?>"
                    data-calories   = "<?= $data['calories'] ?>"
@@ -233,10 +233,10 @@ Structure overview
             <?php foreach( $amountData as $amount => $data ): ?>
             <?php
             
-              if( ! isset($data['nutriVal']))
-                $debug = 'halt';
+              // if( ! isset($data['nutriVal']))
+              //   $debug = 'halt';
             ?>
-              <div class   = "food-item col-1 p-1"
+              <div class   = "col-1 p-1 blink-yellow"
                    onclick = "foodsCrl.foodItemClick(event)"
                    data-food       = "<?= $foodName ?>"
                    data-calories   = "<?= $data['calories'] ?>"
