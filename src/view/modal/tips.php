@@ -12,7 +12,7 @@ use Symfony\Component\Yaml\Exception\ParseException;
         <button data-bs-dismiss="modal" class="btn-close" type="button"></button>
       </div>
 -->
-      <div class="modal-body small">
+      <div class="modal-body">
 
         <ul class="nav nav-tabs" role="tablist">
           <li class="nav-item" role="presentation">

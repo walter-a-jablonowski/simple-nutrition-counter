@@ -1,22 +1,22 @@
 <ul class="nav nav-tabs" role="tablist">
   <li class="nav-item" role="presentation">
-    <a class="nav-link active py-1 px-2 small" data-bs-toggle="tab" href="#dayPane" role="tab">
+    <a class="nav-link active py-1 px-2" data-bs-toggle="tab" href="#dayPane" role="tab">
       This day
     </a>
   </li>
   <li class="nav-item" role="presentation">
-    <a href="#nutrientsPane" class="nav-link py-1 px-2 small" data-bs-toggle="tab" role="tab">
+    <a href="#nutrientsPane" class="nav-link py-1 px-2" data-bs-toggle="tab" role="tab">
       Nutrients
     </a>
   </li>
   <li class="nav-item" role="presentation">
-    <a href="#lastDaysPane" class="nav-link py-1 px-2 small" data-bs-toggle="tab" role="tab">
+    <a href="#lastDaysPane" class="nav-link py-1 px-2" data-bs-toggle="tab" role="tab">
       Last days
     </a>
   </li>
 <!--
   <li class="nav-item" role="presentation">
-    <a href="#foodsPane" class="nav-link py-1 px-2 small" data-bs-toggle="tab" role="tab">Foods</a>
+    <a href="#foodsPane" class="nav-link py-1 px-2" data-bs-toggle="tab" role="tab">Foods</a>
   </li>
 -->
   <li class="nav-item ms-auto" role="presentation">

@@ -27,16 +27,16 @@
 /* list: col-12 col-md-6 col-xxl-4 */
 
 @media( max-width: 576px) {   /* xs < 576px */
-  #quickSummary .value { font-size: 1.5rem; }
-  #foodList .food-item { font-size: 1.5rem; }
+  #quickSummary .value { font-size: 1.25rem; }
+  #foodList .food-item { font-size: 1.25rem; }
 }
 /*
 @media( min-width: 576px) {   /* sm > 576px * /
 }
 */
 @media( min-width: 768px) {   /* md > 768px */
-  #quickSummary .value { font-size: 1.5rem; }
-  #foodList .food-item  { font-size: 1.5rem; }
+  #quickSummary .value { font-size: 1.25rem; }
+  #foodList .food-item  { font-size: 1.25rem; }
 }
 /*
 @media( min-width: 992px) {   /* lg > 992px * /
