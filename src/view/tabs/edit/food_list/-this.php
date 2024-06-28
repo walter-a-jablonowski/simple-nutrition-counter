@@ -120,7 +120,7 @@ Structure overview
           // TASK: maybe we need prefix this so that no Ids get confused?
           $foodId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $foodName));  // TASK: use food id from SimpleData key as soon as upd
         ?>                             
-          <div class="row">            <!-- must be 2 here cause headline has inner padding -->
+          <div class="food-item row">            <!-- must be 2 here cause headline has inner padding -->
             <div class = "col-6 p-1 px-2"
                  data-bs-toggle = "modal"
                  data-bs-target = "#infoModal"
@@ -155,7 +155,7 @@ Structure overview
             
             ?>
             <?php foreach( $amountData as $amount => $data ): ?>  <!-- TASK: don't print more than 3 entries (maybe do in controller) -->
-              <div class   = "food-item col-1 p-1"
+              <div class   = "col-1 p-1"
                    onclick = "foodsCrl.foodItemClick(event)"
                    data-food       = "<?= $foodName ?>"
                    data-calories   = "<?= $data['calories'] ?>"
@@ -225,7 +225,7 @@ Structure overview
           $type = $this->modelView->has("recipes.$foodName") ? 'recipes' : 'foods';
           $amountData = $this->modelView->get("$type.$foodName");
         ?>
-          <div class="row">
+          <div class="food-item row">
             <div class="col-6 p-1 px-2">
               <?= $foodName ?>
             </div>

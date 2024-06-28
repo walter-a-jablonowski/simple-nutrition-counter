@@ -235,7 +235,7 @@ class FoodsEventController
     let nutritionalValues = JSON.parse(target.dataset.nutritionalvalues)
 
     // new version
-    // console.log( queryData('.food-item', ['food']))
+    // console.log( queryData('.food-item ...', ['food']))
 
     let entry = {
       food:      food,  // TASK: rename

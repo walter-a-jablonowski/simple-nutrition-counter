@@ -9,36 +9,33 @@
 
 /* Default font size may be xs */
 
-@media( min-width: 576px) {   /* sm (landscape phones, 576px and up) */
-  #quickSummary .value { font-size: 1.25rem; }
-  #foodList li  { font-size: 1.25rem; }
-}
-@media( min-width: 768px) {   /* md (tablets, 768px and up) */
+/* summary: col-6 col-md-4 col-xxl-2 */
+/* list: col-12 col-md-6 col-xxl-4 */
+
+@media( max-width: 576px) {   /* xs < 576px */
   #quickSummary .value { font-size: 1.5rem; }
-  #foodList li  { font-size: 1.5rem; }
+  #foodList .food-item { font-size: 1.5rem; }
 }
-/* lg (desktops, 992px and up) */
 /*
-@media( min-width: 992px) {
-  .responsive-text {
-    font-size: 1.75rem;
-  }
+@media( min-width: 576px) {   /* sm > 576px * /
+}
+*/
+@media( min-width: 768px) {   /* md > 768px */
+  #quickSummary .value { font-size: 1.5rem; }
+  #foodList .food-item  { font-size: 1.5rem; }
+}
+/*
+@media( min-width: 992px) {   /* lg > 992px * /
 }
 */
 /*
-@media( min-width: 1200px) {  /* xl (large desktops, 1200px and up) * /
-  .responsive-text {
-    font-size: 2rem;
-  }
+@media( min-width: 1200px) {  /* xl > 1200px * /
 }
 */
-/* 
-@media( min-width: 1200px) {  /* xxl (1400px and up) * /
-  .responsive-text {
-    font-size: 2rem;
-  }
+@media( min-width: 1400px ) { /* xxl > 1400px */
+  #quickSummary .value { font-size: 1rem; }
+  #foodList .food-item  { font-size: 1rem; }
 }
-*/
 
 /* Quick summary val view */
 
