@@ -58,16 +58,17 @@ use Symfony\Component\Yaml\Exception\ParseException;
         <div class="tab-content mt-3">
           <div id="tipsMenuPane" class="tab-pane fade show active" role="tabpanel">
 
-            <b>Currently active menu (food list)</b><br>
-            <br>
-
             <?php
             
               $a = Yaml::parse( file_get_contents('data/bundles/Veggie_DESouth_1/-this.yml'));
 
-              print "$a[spec]<br>\n<br>\n$a[regionalAvailability]";
-
             ?>
+
+            <b>Currently selected food list:</b> <?= $a['name'] ?><br>
+            <br>
+            <?= $a['spec'] ?><br>
+            <br>
+            <b>Region:</b> <?= $a['region'] ?> - <?= lcfirst( trim($a['productAvailability'])) ?>
 
           </div>
           <div id="tipsNutritionPane" class="tab-pane fade" role="tabpanel">
