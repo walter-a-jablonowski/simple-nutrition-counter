@@ -2,13 +2,18 @@
 
 - [Install](install)
 - [Common usage](#common-usage)
-- [Settings file](#settings-file-settingsyml)
-- [Foods file](#foods-file-foodsyml)
-- [Supplements file](#supplements-file-foodsyml)
-- [Recipes file](#recipes-file-recipesyml)
-- [Layout file](#layout-file-layoutyml)
-- [Misc (misc.yml)](#misc-counters-miscyml)
-- [Nutrient files](#nutrient-files-substancesyml-and-groupsyml)
+- [Users](#users)
+  - [Settings file](#settings-file)
+  - [days](#days)
+  - [User nutrient files](#user-nutrient-files)
+- [Bundles](#bundles)
+  - [Foods file](#foods-file)
+  - [Supplements file](#supplements-file)
+  - [Recipes file](#recipes-file)
+  - [Sports](#sports)
+  - [Layout file](#layout-file)
+  - [misc.yml](#miscyml)
+- [Nutrient files](#nutrient-files)
 
 
 Install
@@ -28,8 +33,40 @@ Common usage
 Data files below see /data
 
 
+Users
+----------------------------------------------------------
+
+/users/USER/-this.yml
+
+see also [readme](../src/data/users/README.md)
+
+
 Settings file
 ----------------------------------------------------------
+
+(advanced feature)
+
+
+days
+----------------------------------------------------------
+
+(fill me)
+
+
+User nutrient files
+----------------------------------------------------------
+
+(advanced feature)
+
+Same as [Nutrient files](#nutrient-files), overrides settings.
+
+
+Bundles
+----------------------------------------------------------
+
+/bundes/BUNDLE/-this.yml
+
+see also [readme](../src/data/bundles/README.md)
 
 
 Foods file
@@ -123,6 +160,13 @@ My recipe:
   Olivenöl:          # or with "g" (100g), "ml" (100ml)
 ```
 
+
+Sports
+----------------------------------------------------------
+
+(advanced feature)
+
+
 Layout file
 ----------------------------------------------------------
 
@@ -147,7 +191,7 @@ My nutrient group (color:#e0e0e0):  # Visually group with color
 ```
 
 
-Misc (misc.yml)
+misc.yml
 ----------------------------------------------------------
 
 all misc counters
@@ -161,6 +205,8 @@ Nutrient files
 ----------------------------------------------------------
 
 (advanced feature)
+
+see also [readme](../src/data/nutrients/README.md)
 
 ```yaml
 

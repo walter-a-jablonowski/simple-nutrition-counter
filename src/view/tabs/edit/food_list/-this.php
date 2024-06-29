@@ -120,7 +120,7 @@ Structure overview
           // TASK: maybe we need prefix this so that no Ids get confused?
           $foodId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $foodName));  // TASK: use food id from SimpleData key as soon as upd
         ?>                             
-          <div class="food-item row">            <!-- must be 2 here cause headline has inner padding -->
+          <div class="food-item row">  <!-- must be 2 here cause headline has inner padding -->
             <div class = "col-6 p-1 px-2"
                  data-bs-toggle = "modal"
                  data-bs-target = "#infoModal"
