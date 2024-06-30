@@ -395,6 +395,33 @@ Cashew A:
   lastUpd:           2024-05-29
   lastPriceUpd:      2024-05-29
 
+Cashew A Cranb:
+
+  productName:       "Cashew Cranberry Mix"
+  vendor:            Aldi
+  acceptable:        occasionally  
+  comment:           "4.3g sugar per 1/8"
+  properties:        { NutriScore: D }
+
+  price:             
+  weight:            200
+  usedAmounts:       ["1/8", "1/4", "1/3"]
+
+  calories:          469
+  nutritionalValues:
+
+    fat:             27.4
+    saturatedFat:    4.1
+    carbs:           47.9
+    sugar:           35.9
+    fibre:           4.6
+    amino:           10.8
+    salt:            0.03
+
+  sources:           { nutriVal: "pack" }
+  lastUpd:           2024-06-18
+  lastPriceUpd:      
+
 Cashew E:
 
   vendor:            Edeka
