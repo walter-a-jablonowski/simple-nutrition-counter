@@ -96,9 +96,9 @@ abstract class ControllerBase
   public static function iif( $if, $true, $false = '' ) /*@*/
   {
     if( $if || $if === 0 || $if === 0.0 || $if === "0" )
-      return ' ' . trim($true);
+      return $true;
     else
-      return ' ' . trim($false);
+      return $false;
   }
 }
 
