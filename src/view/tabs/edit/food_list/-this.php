@@ -117,10 +117,17 @@ Structure overview
           $amountData = $this->modelView->get("$type.$foodName");  // TASK: rename
 
           $done[] = $foodName;  // left over will be printed below (done = foods and recipes in a single list)
+
           // TASK: maybe we need prefix this so that no Ids get confused?
           $foodId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $foodName));  // TASK: use food id from SimpleData key as soon as upd
+
+          // if( $foodName == 'Hanuta' )  // DEBUG
+          //   $debug = 'halt';
+
+          $accepColor = $this->model->get("foods.$foodName.acceptable") ?? 'n/a';
+          $accepColor = ['less' => '#ffcccc', 'occasionally' => '#ffff88', 'n/a' => 'inherit'][$accepColor];
         ?>                             
-          <div class="food-item row">  <!-- must be 2 here cause headline has inner padding -->
+          <div class="food-item row" style="background-color: <?= $accepColor ?>;">  <!-- must be 2 here cause headline has inner padding -->
             <div class = "col-6 p-1 px-2"
                  data-bs-toggle = "modal"
                  data-bs-target = "#infoModal"

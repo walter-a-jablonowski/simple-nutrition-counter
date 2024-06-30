@@ -121,9 +121,6 @@ class FoodsController extends ControllerBase
         $multipl = (float) eval("return $multipl;");  // 1/2 => 0.5
         // eval("\$multipl = $multipl;");
 
-        // if( $foodName == 'Espresso Stick' )  // DEBUG
-        //   $debug = 'halt';
-
         $weight = $usage === 'pack'   ? $foodEntry['weight'] * $multipl : (
                   $usage === 'pieces' ? ($foodEntry['weight'] / $foodEntry['pieces']) * $multipl
                 : $multipl  // precise
@@ -156,8 +153,6 @@ class FoodsController extends ControllerBase
         // $id = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $foodName));  // TASK: shorten
         $this->modelView->set("foods.$foodName.$amount", $perWeight);
       }
-
-      // $debug = 'halt';  // DEBUG
     }
 
 
