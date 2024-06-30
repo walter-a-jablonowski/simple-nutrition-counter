@@ -13,6 +13,13 @@
   <li>enables adding entries to last calendar day (for night owls)</li>
 </ul>
 
+<b>Food list</b>
+
+<ul class="no-indent">
+  <li>foods that can be used occasionlly are highlighted yellow</li>
+  <li>less good foods are highlightes red</li>
+</ul>
+
 <b>Food info</b>
 
 <ul class="no-indent">
