@@ -124,6 +124,7 @@ Structure overview
           // if( $foodName == 'Hanuta' )  // DEBUG
           //   $debug = 'halt';
 
+          // TASK: colors also below, mov somewhere?
           $accepColor = $this->model->get("foods.$foodName.acceptable") ?? 'n/a';
           $accepColor = ['less' => '#ffcccc', 'occasionally' => '#ffff88', 'n/a' => 'inherit'][$accepColor];
         ?>                             
@@ -231,8 +232,11 @@ Structure overview
 
           $type = $this->modelView->has("recipes.$foodName") ? 'recipes' : 'foods';
           $amountData = $this->modelView->get("$type.$foodName");
+
+          $accepColor = $this->model->get("foods.$foodName.acceptable") ?? 'n/a';
+          $accepColor = ['less' => '#ffcccc', 'occasionally' => '#ffff88', 'n/a' => 'inherit'][$accepColor];
         ?>
-          <div class="food-item row">
+          <div class="food-item row" style="background-color: <?= $accepColor ?>;">
             <div class="col-6 p-1 px-2">
               <?= $foodName ?>
             </div>
