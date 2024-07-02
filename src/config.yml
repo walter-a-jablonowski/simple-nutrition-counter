@@ -17,6 +17,7 @@ highIntake:             # TASK: maybe move in nutrients
 defaultSettings:        # see also users > settings.yml
 
   currency: "€"
+  cheap:    0.50        # per 100 g or ml
   expensiv: 1.00        # per 100 g or ml
 
   foods:
