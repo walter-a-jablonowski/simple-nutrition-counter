@@ -122,13 +122,20 @@ Structure overview
 
           $done[] = $foodName;  // left over will be printed below (done = foods and recipes in a single list)
 
-          $accepColor = $this->model->get("foods.$foodName.acceptable") ?? 'n/a';  // TASK: colors also below, merge by using a class
-          $accepColor = ['less' => '#ffcccc', 'occasionally' => '#ffff88', 'n/a' => 'inherit'][$accepColor];
+          $accepColor  = $this->model->get("foods.$foodName.acceptable") ?? 'n/a';  // TASK: colors also below, merge by using a class
+          $accepColor  = ['less' => '#ffcccc', 'occasionally' => '#ffff88', 'n/a' => 'inherit'][$accepColor];
 
-          $pricePer100 = $this->model->get("foods.$foodName.price") /
-                       ( trim( $this->model->get("foods.$foodName.weight"), "mgl ") / 100.0);
-          $showInfo    = $pricePer100 < $this->settings->get('cheap') || $pricePer100 >= $this->settings->get('expensiv')
-                       ? true : false;
+          $price       = $this->model->get("foods.$foodName.price");
+          $pricePer100 = $price / ( trim( $this->model->get("foods.$foodName.weight"), "mgl ") / 100.0);
+
+          if( $price )
+          {
+            $veryCheap = $pricePer100 <  $this->settings->get('veryCheap');
+            $expensiv  = $pricePer100 >= $this->settings->get('expensiv');
+          }
+
+          // $showInfo = // use for all the rest that has no icon
+          //           ? true : false;
         ?>                             
           <div class="food-item row" style="background-color: <?= $accepColor ?>;">  <!-- must be 2 here cause headline has inner padding -->
             <div class = "col-6 p-1 px-2"
@@ -137,7 +144,13 @@ Structure overview
                  data-title     = "#<?= $foodId ?>Headline"
                  data-source    = "#<?= $foodId ?>Data"
             >
-              <?= $foodName ?> <?= self::iif( $showInfo, '<i class="bi bi-info-circle small text-secondary"></i>') ?>
+              <?= $foodName ?>
+              <?= self::iif( $price && $veryCheap, '<i class="bi bi-currency-exchange small text-secondary"></i>') ?>
+              <?= self::iif( $price && $expensiv,  self::switch( $this->settings->get('currency'), [
+                'EUR' => '<i class="bi bi-currency-euro small text-secondary"></i>',
+                'USD' => '<i class="bi bi-currency-dollar small text-secondary"></i>'
+              ])) ?>
+              <!-- < ?= self::iif( $showInfo, '<i class="bi bi-info-circle small text-secondary"></i>') ?> -->
             </div>
             <div id="<?= $foodId ?>Headline" class="d-none">
               <?php

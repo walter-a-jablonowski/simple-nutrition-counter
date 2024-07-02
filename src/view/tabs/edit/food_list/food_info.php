@@ -55,19 +55,21 @@ $nutrientsShort = [
     <tr>
       <th>Price</th>
       <td>
-        <?= $this->settings->get('currency') ?>
-        <!-- price (highlight expensiv and cheap) -->
-        <?php if( $pricePer100 >= $this->settings->get('expensiv')): ?>
-          <span style="color: red;"><?= $data['price'] ?></span>
-        <?php elseif( $pricePer100 <  $this->settings->get('cheap')): ?>
-          <span style="color: green;"><?= $data['price'] ?></span>
-        <?php else: ?>
-          <?= $data['price'] ?>
-        <?php endif; ?>
-        <?php if( $data['lastPriceUpd'] ): ?>
-          <span class="text-secondary small">
-            on <?= date('Y-m-d', $data['lastPriceUpd'] ) ?>
-          </span>
+        <?php if( ! empty($data['price'])): ?>
+          <?= $this->settings->get('currencySymbol') ?>
+          <!-- price (highlight expensiv and cheap) -->
+          <?php if( $pricePer100 >= $this->settings->get('expensiv')): ?>
+            <span style="color: red;"><?= $data['price'] ?></span>
+          <?php elseif( $pricePer100 <  $this->settings->get('cheap')): ?>
+            <span style="color: green;"><?= $data['price'] ?></span>
+          <?php else: ?>
+            <?= $data['price'] ?>
+          <?php endif; ?>
+          <?php if( $data['lastPriceUpd'] ): ?>
+            <span class="text-secondary small">
+              on <?= date('Y-m-d', $data['lastPriceUpd'] ) ?>
+            </span>
+          <?php endif; ?>
         <?php endif; ?>
       </td>
     </tr>

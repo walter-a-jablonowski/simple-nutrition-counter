@@ -95,7 +95,7 @@ My food S Bio:                           # (required) display name (also used as
 
     First ...
 
-  price:              1.00               # (required) may be null
+  price:              1.00               # may be null
   weight:             100g               # (required) of whole pack in case of pieces, unit g or ml is optional
   pieces:             6                  # number of pieces in a pack (if any)
   usedAmounts:        ["1/4", ...]       # enter fraction, pieces or precise (you can't mix these, chosse one)

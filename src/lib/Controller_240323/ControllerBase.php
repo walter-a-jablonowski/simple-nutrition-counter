@@ -100,6 +100,18 @@ abstract class ControllerBase
     else
       return $false;
   }
+
+  /*@
+
+  */
+  public static function switch( $value, $arr ) /*@*/
+  {
+    if( isset( $arr[$value]))  // &&  ($arr[$or] || $arr[$or] === 0 || $arr[$or] === 0.0 || $arr[$or] === "0"))
+      return $arr[$value];
+    else
+      // return $default;
+      return null;
+  }
 }
 
 ?>
