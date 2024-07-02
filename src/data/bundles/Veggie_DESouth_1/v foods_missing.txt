@@ -6,6 +6,7 @@ Aldi Linsenchips   1.35 2024-05-13
 Norma Gr Bohnen    0.99 2024-06-01
 Norma Kohl Pack    1.19 2024-06-01
 Rewe  Frischk Bio  0.99 2024-06-01 deal
+Süßk Pommes        2.69 2024-07-01
 
 Walnusskerne E     2.49 2024-06-18
 Cola mini R        0.67 2024-06-18

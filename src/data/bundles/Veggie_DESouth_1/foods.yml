@@ -286,7 +286,7 @@ Brokkoli R:
 
   sources:           { nutriVal: "web (information on packaging may differ slightly)" }
   lastUpd:           2024-03-13
-  lastPriceUpd:      2024-03-23
+  lastPriceUpd:      2024-07-01  # stable since 2024-03-23
 
 Burrito A:
 
@@ -617,7 +617,7 @@ Chick R Bio:
   vendor:            Rewe
   properties:        { bio: true }
 
-  price:             0.85
+  price:             0.99  # 0.85 2024-03-23
   weight:            215
   usedAmounts:       ["1/4", "1/3", "1/2"]
 
@@ -633,7 +633,7 @@ Chick R Bio:
 
   sources:           { nutriVal: "web (information on packaging differs slightly)" }
   lastUpd:           2024-03-13
-  lastPriceUpd:      2024-03-23
+  lastPriceUpd:      2024-07-01
 
 Donuts:
 
@@ -1456,7 +1456,7 @@ Linsen R Bio:
 
   sources:           { nutriVal: "web (information on packaging differs slightly)" }
   lastUpd:           2024-03-13
-  lastPriceUpd:      2024-03-23
+  lastPriceUpd:      2024-07-01  # stable since 2024-03-23
 
 Linsen vegan:
 
@@ -2021,7 +2021,7 @@ Pommes:
 
   sources:           { nutriVal: "web (information on packaging may differ slightly)", price: "web" }
   lastUpd:           2024-04-16
-  lastPriceUpd:      2024-05-11
+  lastPriceUpd:      2024-07-01  # stable since 2024-05-11
 
 Pommes R Bio:
 
@@ -2177,7 +2177,6 @@ Riegel Deca Basic:
 
 Ritter Sp 50%:
 
-  vendor:            Rewe
   acceptable:        less
 
   price:             1.69
@@ -2199,14 +2198,39 @@ Ritter Sp 50%:
   lastUpd:           2024-04-16
   lastPriceUpd:      2024-04-16
 
-Ritter Sp 81%:
+Ritter Sp 61%:
 
-  vendor:            Rewe
+  acceptable:        less
+  comment:           "Nicaragua (Cadmium)"
+  origin:            "Nicaragua"
 
   price:             1.69
   weight:            100
   pieces:            25
-  usedAmounts:       [1,2,4]
+  usedAmounts:       [1, 2, 4]
+
+  calories:          660
+  nutritionalValues:
+
+    fat:             45
+    saturatedFat:    28
+    carbs:           40
+    sugar:           37
+    amino:           5.6
+    salt:            0
+
+  sources:           { nutriVal: "web" }
+  lastUpd:           2024-06-18
+  lastPriceUpd:      2024-06-18
+
+Ritter Sp 81%:
+
+  acceptable:        occasionally
+
+  price:             1.69
+  weight:            100
+  pieces:            25
+  usedAmounts:       [1, 2, 4]
 
   calories:          609
   nutritionalValues:

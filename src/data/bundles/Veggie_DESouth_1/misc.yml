@@ -41,7 +41,7 @@ Coffee:
 
   Dallmayr deal:
 
-    price:             4.99
+    price:             5.39  # 4.99 2024-05-11
     weight:            
     usedAmounts:       ["50g", ...]
 
@@ -52,7 +52,7 @@ Coffee:
 
     sources:           { price: "deal price" }
     lastUpd:           
-    lastPriceUpd:      2024-05-11
+    lastPriceUpd:      2024-07-01
 
 # All misc expenses that are no food (variable expenses spent on daily basis)
 
