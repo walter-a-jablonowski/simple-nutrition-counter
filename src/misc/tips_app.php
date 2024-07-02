@@ -16,8 +16,8 @@
 <b>Food list</b>
 
 <ul class="no-indent">
-  <li>foods that can be used occasionally are highlighted yellow</li>
-  <li>less good foods are highlightes red</li>
+  <li>foods that can be used occasionally are highlighted <span class="p-1 py-0" style="background-color: #ffff88;">yellow</span></li>
+  <li>less good foods are highlighted <span class="p-1 py-0" style="background-color: #ffcccc;">red</span></li>
   <li>
     <i class="bi bi-currency-euro small text-secondary"></i> or
     <i class="bi bi-currency-dollar small text-secondary"></i>
@@ -25,10 +25,13 @@
   </li>
   <li>
     <i class="bi bi-currency-exchange small text-secondary"></i>
-    is cheap food
+    is cheap food (depends on user setting)
   </li>
-  <li>can be modified in settings</li>
-  <li>click on a food name to see details</li>
+  <li>
+    <i class="bi bi-info-circle small text-secondary"></i>
+    means important things in food info
+  </li>
+  <li>click on each food name to see food info</li>
 </ul>
 
 <b>Disclaimer:</b> Use the app and recommendations included in it at your own risk. This app is in developemt, the recommended amounts might be wrong.

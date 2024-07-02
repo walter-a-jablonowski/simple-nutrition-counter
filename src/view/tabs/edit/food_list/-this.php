@@ -122,7 +122,7 @@ Structure overview
 
           $done[] = $foodName;  // left over will be printed below (done = foods and recipes in a single list)
 
-          $accepColor  = $this->model->get("foods.$foodName.acceptable") ?? 'n/a';  // TASK: colors also below, merge by using a class
+          $accepColor  = $this->model->get("foods.$foodName.acceptable") ?? 'n/a';  // TASK: colors also below, merge by using a class (also in app tips)
           $accepColor  = ['less' => '#ffcccc', 'occasionally' => '#ffff88', 'n/a' => 'inherit'][$accepColor];
 
           $price       = $this->model->get("foods.$foodName.price");
@@ -134,8 +134,10 @@ Structure overview
             $expensiv = $pricePer100 >= $this->settings->get('expensiv');
           }
 
-          // $showInfo = // use for all the rest that has no icon
-          //           ? true : false;
+          // use for all the rest that has no icon
+
+          $showInfo = $this->model->get("foods.$foodName.comment")  // has comment might mean sth important
+                    ? true : false;
         ?>                             
           <div class="food-item row" style="background-color: <?= $accepColor ?>;">  <!-- must be 2 here cause headline has inner padding -->
             <div class = "col-6 p-1 px-2"
@@ -150,7 +152,7 @@ Structure overview
                 'EUR' => '<i class="bi bi-currency-euro small text-secondary"></i>',
                 'USD' => '<i class="bi bi-currency-dollar small text-secondary"></i>'
               ])) ?>
-              <!-- < ?= self::iif( $showInfo, '<i class="bi bi-info-circle small text-secondary"></i>') ?> -->
+              <?= self::iif( $showInfo, '<i class="bi bi-info-circle small text-secondary"></i>') ?>
             </div>
             <div id="<?= $foodId ?>Headline" class="d-none">
               <?php
@@ -261,8 +263,10 @@ Structure overview
             $expensiv = $pricePer100 >= $this->settings->get('expensiv');
           }
 
-          // $showInfo = // use for all the rest that has no icon
-          //           ? true : false;
+          // use for all the rest that has no icon
+
+          $showInfo = $this->model->get("foods.$foodName.comment")  // has comment might mean sth important
+                    ? true : false;
         ?>
           <div class="food-item row" style="background-color: <?= $accepColor ?>;">
             <div class="col-6 p-1 px-2">
@@ -272,7 +276,7 @@ Structure overview
                 'EUR' => '<i class="bi bi-currency-euro small text-secondary"></i>',
                 'USD' => '<i class="bi bi-currency-dollar small text-secondary"></i>'
               ])) ?>
-              <!-- < ?= self::iif( $showInfo, '<i class="bi bi-info-circle small text-secondary"></i>') ?> -->
+              <?= self::iif( $showInfo, '<i class="bi bi-info-circle small text-secondary"></i>') ?>
             </div>
             <!-- TASK: Simplify in controller ? default -->
             <?php foreach( $amountData as $amount => $data ): ?>
