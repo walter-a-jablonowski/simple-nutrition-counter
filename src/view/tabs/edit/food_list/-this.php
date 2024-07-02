@@ -112,21 +112,23 @@ Structure overview
         //   $debug = 'halt';
         
         foreach( $def['list'] as $idx => $foodName ):
-        
-          $type = $this->modelView->has("recipes.$foodName") ? 'recipes' : 'foods';
-          $amountData = $this->modelView->get("$type.$foodName");  // TASK: rename
-
-          $done[] = $foodName;  // left over will be printed below (done = foods and recipes in a single list)
-
-          // TASK: maybe we need prefix this so that no Ids get confused?
-          $foodId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $foodName));  // TASK: use food id from SimpleData key as soon as upd
 
           // if( $foodName == 'Hanuta' )  // DEBUG
           //   $debug = 'halt';
 
-          // TASK: colors also below, merge by using a class
-          $accepColor = $this->model->get("foods.$foodName.acceptable") ?? 'n/a';
+          $foodId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $foodName));  // TASK: use food id from SimpleData key as soon as upd, maybe we need prefix this so that no Ids get confused?
+          $type   = $this->modelView->has("recipes.$foodName") ? 'recipes' : 'foods';
+          $amountData = $this->modelView->get("$type.$foodName");  // TASK: rename
+
+          $done[] = $foodName;  // left over will be printed below (done = foods and recipes in a single list)
+
+          $accepColor = $this->model->get("foods.$foodName.acceptable") ?? 'n/a';  // TASK: colors also below, merge by using a class
           $accepColor = ['less' => '#ffcccc', 'occasionally' => '#ffff88', 'n/a' => 'inherit'][$accepColor];
+
+          $pricePer100 = $this->model->get("foods.$foodName.price") /
+                       ( trim( $this->model->get("foods.$foodName.weight"), "mgl ") / 100.0);
+          $showInfo    = $pricePer100 < $this->settings->get('cheap') || $pricePer100 >= $this->settings->get('expensiv')
+                       ? true : false;
         ?>                             
           <div class="food-item row" style="background-color: <?= $accepColor ?>;">  <!-- must be 2 here cause headline has inner padding -->
             <div class = "col-6 p-1 px-2"
@@ -135,7 +137,7 @@ Structure overview
                  data-title     = "#<?= $foodId ?>Headline"
                  data-source    = "#<?= $foodId ?>Data"
             >
-              <?= $foodName ?>
+              <?= $foodName ?> <?= self::iif( $showInfo, '<i class="bi bi-info-circle small text-secondary"></i>') ?>
             </div>
             <div id="<?= $foodId ?>Headline" class="d-none">
               <?php
@@ -150,8 +152,9 @@ Structure overview
               <?php
 
                 print $this->inc( __DIR__ . '/food_info.php', [
-                  'foodId'   => $foodId,
-                  'foodName' => $foodName
+                  'foodId'      => $foodId,
+                  'foodName'    => $foodName,
+                  'pricePer100' => $pricePer100
                 ]);
               ?>
             </div>
