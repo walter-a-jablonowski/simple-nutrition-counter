@@ -251,10 +251,28 @@ Structure overview
 
           $accepColor = $this->model->get("foods.$foodName.acceptable") ?? 'n/a';
           $accepColor = ['less' => '#ffcccc', 'occasionally' => '#ffff88', 'n/a' => 'inherit'][$accepColor];
+
+          $price       = $this->model->get("foods.$foodName.price");
+          $pricePer100 = $price / ( trim( $this->model->get("foods.$foodName.weight"), "mgl ") / 100.0);
+
+          if( $price )
+          {
+            $cheap    = $pricePer100 <  $this->settings->get('cheap');
+            $expensiv = $pricePer100 >= $this->settings->get('expensiv');
+          }
+
+          // $showInfo = // use for all the rest that has no icon
+          //           ? true : false;
         ?>
           <div class="food-item row" style="background-color: <?= $accepColor ?>;">
             <div class="col-6 p-1 px-2">
               <?= $foodName ?>
+              <?= self::iif( $price && $cheap,    '<i class="bi bi-currency-exchange small text-secondary"></i>') ?>
+              <?= self::iif( $price && $expensiv, self::switch( $this->settings->get('currency'), [
+                'EUR' => '<i class="bi bi-currency-euro small text-secondary"></i>',
+                'USD' => '<i class="bi bi-currency-dollar small text-secondary"></i>'
+              ])) ?>
+              <!-- < ?= self::iif( $showInfo, '<i class="bi bi-info-circle small text-secondary"></i>') ?> -->
             </div>
             <!-- TASK: Simplify in controller ? default -->
             <?php foreach( $amountData as $amount => $data ): ?>
