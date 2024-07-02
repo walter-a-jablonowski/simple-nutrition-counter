@@ -130,8 +130,8 @@ Structure overview
 
           if( $price )
           {
-            $veryCheap = $pricePer100 <  $this->settings->get('veryCheap');
-            $expensiv  = $pricePer100 >= $this->settings->get('expensiv');
+            $cheap    = $pricePer100 <  $this->settings->get('cheap');
+            $expensiv = $pricePer100 >= $this->settings->get('expensiv');
           }
 
           // $showInfo = // use for all the rest that has no icon
@@ -145,8 +145,8 @@ Structure overview
                  data-source    = "#<?= $foodId ?>Data"
             >
               <?= $foodName ?>
-              <?= self::iif( $price && $veryCheap, '<i class="bi bi-currency-exchange small text-secondary"></i>') ?>
-              <?= self::iif( $price && $expensiv,  self::switch( $this->settings->get('currency'), [
+              <?= self::iif( $price && $cheap,    '<i class="bi bi-currency-exchange small text-secondary"></i>') ?>
+              <?= self::iif( $price && $expensiv, self::switch( $this->settings->get('currency'), [
                 'EUR' => '<i class="bi bi-currency-euro small text-secondary"></i>',
                 'USD' => '<i class="bi bi-currency-dollar small text-secondary"></i>'
               ])) ?>

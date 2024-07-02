@@ -18,9 +18,8 @@ defaultSettings:        # see also users > settings.yml
 
   currency:  "EUR"      # currently EUR or USD
   currencySymbol: "€"
-  veryCheap: 0.25       # per 100 g or ml
-  cheap:     0.50
-  expensiv:  1.00
+  cheap:     0.40       # per 100 g or ml
+  expensiv:  0.80
 
   foods:
 
