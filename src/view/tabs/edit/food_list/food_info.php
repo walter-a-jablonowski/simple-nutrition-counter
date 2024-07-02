@@ -56,7 +56,10 @@ $nutrientsShort = [
       <th>Price</th>
       <td>
         <?= $this->settings->get('currency') ?>
-        <?= $data['price'] ?>
+        <?= self::iif( $data['price'] / (trim( $data['weight'], "mgl ") / 100.0) >= $this->settings->get('expensiv'),
+                       "<span style=\"color: red;\">$data[price]</span>",
+                       $data['price'] )
+        ?>
         <?php if( $data['lastPriceUpd'] ): ?>
           <span class="text-secondary small">
             on <?= date('Y-m-d', $data['lastPriceUpd'] ) ?>
