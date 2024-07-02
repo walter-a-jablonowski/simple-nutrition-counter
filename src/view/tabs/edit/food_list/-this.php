@@ -14,7 +14,7 @@ Structure overview
 
   <span id="uiMsg"></span>  <!-- TASK: mov -->
 
-  <!-- TASK: add a collapse expand all -->
+  <!-- TASK: add a collapse expand all (single btn) -->
 
   <!-- Static entries #code/staticListEntries -->
   <!-- TASK: maybe use: smartphone 1 col, tabl 2 col, large 3 or col -->
