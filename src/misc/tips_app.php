@@ -16,13 +16,18 @@
 <b>Food list</b>
 
 <ul class="no-indent">
-  <li>foods that can be used occasionlly are highlighted yellow</li>
+  <li>foods that can be used occasionally are highlighted yellow</li>
   <li>less good foods are highlightes red</li>
-</ul>
-
-<b>Food info</b>
-
-<ul class="no-indent">
+  <li>
+    <i class="bi bi-currency-euro small text-secondary"></i> or
+    <i class="bi bi-currency-dollar small text-secondary"></i>
+    highlights expensiv foods
+  </li>
+  <li>
+    <i class="bi bi-currency-exchange small text-secondary"></i>
+    is cheap food
+  </li>
+  <li>can be modified in settings</li>
   <li>click on a food name to see details</li>
 </ul>
 
