@@ -88,7 +88,7 @@ My food S Bio:                           # (required) display name (also used as
   comment:            "My comment"       # all misc comments (we can use html here)
   properties:         { bio: true, vegan: true, NutriScore: A, oekotest: "sehr gut" }  # misc attributes
   ingredients:        "..."              # ingredients that you want to be aware of
-                                         #   (food info will derive badges for gluten ...)
+  allergy:            "..."              
   origin:             "..."              # country of origin, if you want to be aware of
 
   cookingInstrutions: |                  # (we can use html here)

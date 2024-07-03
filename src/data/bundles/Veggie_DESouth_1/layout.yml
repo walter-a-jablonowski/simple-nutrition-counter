@@ -107,6 +107,8 @@ Still greens, mushrooms, misc (color:#32cd32):
     - Champ mini ganz R
     - Champ N
 
+    - Toasties R Bio
+    
     - Kartoffeltaschen F
     - Kartoffel Wedges
     - Pommes
@@ -130,6 +132,7 @@ Fish, meat, tofu (color:#32cd32):
     - Tofu N
     
     - Salami R
+    - Salami R Wilt
     - Lyoner R Bio
 
 A little taste (color:#32cd32):
@@ -211,6 +214,7 @@ Suppl, Brain tuning (color:#8a2be2, fold:true):   # Suppl
   list:
 
     - Ritter Sp 81%                    # used as supplements (currently)
+    - Ritter Sp 74%
 
     - Milch H
     - Zitronenm

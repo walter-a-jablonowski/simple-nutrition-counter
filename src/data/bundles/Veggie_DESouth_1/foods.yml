@@ -536,6 +536,29 @@ Champ N:
   lastUpd:           2024-05-11
   lastPriceUpd:      2024-05-11
 
+Chick R Bio:
+
+  vendor:            Rewe
+  properties:        { bio: true }
+
+  price:             0.99  # 0.85 2024-03-23
+  weight:            215
+  usedAmounts:       ["1/4", "1/3", "1/2"]
+
+  calories:          127
+  nutritionalValues:
+
+    fat:             2.7
+    saturatedFat:    0.3
+    carbs:           15
+    sugar:           0.4
+    amino:           7.1
+    salt:            0.35
+
+  sources:           { nutriVal: "web (information on packaging differs slightly)" }
+  lastUpd:           2024-03-13
+  lastPriceUpd:      2024-07-01
+
 Chicken Nugg N:
 
   vendor:            Norma
@@ -612,28 +635,31 @@ Chips light:
   lastUpd:           2024-02-18
   lastPriceUpd:      2024-03-23
 
-Chick R Bio:
+Döner 1:
 
-  vendor:            Rewe
-  properties:        { bio: true }
+  acceptable:        occasionally
+  comment:           "values roughly"
 
-  price:             0.99  # 0.85 2024-03-23
-  weight:            215
-  usedAmounts:       ["1/4", "1/3", "1/2"]
+  price:             6.50
+  weight:            350
+  usedAmounts:       [1]
 
-  calories:          127
+  calories:          164
   nutritionalValues:
 
-    fat:             2.7
-    saturatedFat:    0.3
-    carbs:           15
-    sugar:           0.4
-    amino:           7.1
-    salt:            0.35
+    fat:             2.6
+    # saturatedFat:  
+    carbs:           22
+    sugar:           1
+    fibre:           2
+    amino:           12.8
+    salt:            0.45
 
-  sources:           { nutriVal: "web (information on packaging differs slightly)" }
-  lastUpd:           2024-03-13
-  lastPriceUpd:      2024-07-01
+    # TASK: maybe Vit C A iron rouhgly
+
+  sources:           { nutriVal: "web (third party, verified 2 sources but may differ)" }
+  lastUpd:           2024-06-18
+  lastPriceUpd:      2024-06-18
 
 Donuts:
 
@@ -682,32 +708,6 @@ Donuts mini A:
     salt:            1.2
 
   sources:           { nutriVal: "pack" }
-  lastUpd:           2024-06-18
-  lastPriceUpd:      2024-06-18
-
-Döner 1:
-
-  acceptable:        occasionally
-  comment:           "values roughly"
-
-  price:             6.50
-  weight:            350
-  usedAmounts:       [1]
-
-  calories:          164
-  nutritionalValues:
-
-    fat:             2.6
-    # saturatedFat:  
-    carbs:           22
-    sugar:           1
-    fibre:           2
-    amino:           12.8
-    salt:            0.45
-
-    # TASK: maybe Vit C A iron rouhgly
-
-  sources:           { nutriVal: "web (third party, verified 2 sources but may differ)" }
   lastUpd:           2024-06-18
   lastPriceUpd:      2024-06-18
 
@@ -1057,31 +1057,6 @@ Geb Bohnen:
   lastUpd:           2024-05-11
   lastPriceUpd:      2024-05-11
 
-Gemüse A Bio Sommer:
-
-  productName:       "Gemüsepfanne Sommergenuss"
-  vendor:            Aldi
-  url:               "https://www.aldi-nord.de/produkt/bio-gemuesepfanne-4398-0-0.article.html"
-  properties:        { bio: true }
-
-  price:             2.49
-  weight:            600
-  usedAmounts:       ["50g", "100g"]
-
-  calories:          53
-  nutritionalValues:
-
-    fat:             2.1
-    saturatedFat:    0.3
-    carbs:           6.0
-    sugar:           3.1
-    amino:           1.6
-    salt:            0.78
-
-  sources:           { nutriVal: "pack", price: "web" }
-  lastUpd:           2024-05-29
-  lastPriceUpd:      2024-05-29
-
 Gemüse A Bio Ital:
 
   productName:       "Mediterane Art"
@@ -1106,6 +1081,31 @@ Gemüse A Bio Ital:
   sources:           { nutriVal: "pack" }
   lastUpd:           2024-06-13
   lastPriceUpd:      2024-06-18
+
+Gemüse A Bio Sommer:
+
+  productName:       "Gemüsepfanne Sommergenuss"
+  vendor:            Aldi
+  url:               "https://www.aldi-nord.de/produkt/bio-gemuesepfanne-4398-0-0.article.html"
+  properties:        { bio: true }
+
+  price:             2.49
+  weight:            600
+  usedAmounts:       ["50g", "100g"]
+
+  calories:          53
+  nutritionalValues:
+
+    fat:             2.1
+    saturatedFat:    0.3
+    carbs:           6.0
+    sugar:           3.1
+    amino:           1.6
+    salt:            0.78
+
+  sources:           { nutriVal: "pack", price: "web" }
+  lastUpd:           2024-05-29
+  lastPriceUpd:      2024-05-29
 
 Gemüse R:
 
@@ -1284,31 +1284,6 @@ Karamalz:
   lastUpd:           2024-04-17
   lastPriceUpd:      2024-05-15
 
-Kartoffeltaschen F:
-
-  vendor:            Rewe
-  acceptable:        less
-  comment:           "TASK: Fix quantity"
-  ingredients:       "Kartoffeln 70%, FRISCHKÄSE 19%, Sonnenblumenöl, modifizierte Stärke, Kartoffelstärke, Speisesalz, Gewürze, Kräuter, Dextrose"
-
-  price:             
-  weight:            600
-  pieces:            10
-
-  calories:          182
-  nutritionalValues:
-
-    fat:             10
-    saturatedFat:    3.9
-    carbs:           19.5
-    sugar:           1.5
-    amino:           2.5
-    salt:            1.3
-
-  sources:           { nutriVal: "web (information on packaging may differ slightly)" }
-  lastUpd:           2024-04-16
-  lastPriceUpd:      
-
 Kartoffel Wedges:
 
   vendor:            Rewe
@@ -1358,6 +1333,31 @@ Kartoffel Wedges Bio:
   sources:           { nutriVal: "web" }
   lastUpd:           2024-05-16
   lastPriceUpd:      2024-05-16
+
+Kartoffeltaschen F:
+
+  vendor:            Rewe
+  acceptable:        less
+  comment:           "TASK: Fix quantity"
+  ingredients:       "Kartoffeln 70%, FRISCHKÄSE 19%, Sonnenblumenöl, modifizierte Stärke, Kartoffelstärke, Speisesalz, Gewürze, Kräuter, Dextrose"
+
+  price:             
+  weight:            600
+  pieces:            10
+
+  calories:          182
+  nutritionalValues:
+
+    fat:             10
+    saturatedFat:    3.9
+    carbs:           19.5
+    sugar:           1.5
+    amino:           2.5
+    salt:            1.3
+
+  sources:           { nutriVal: "web (information on packaging may differ slightly)" }
+  lastUpd:           2024-04-16
+  lastPriceUpd:      
 
 Kfc Chili Cheese:
 
@@ -1684,6 +1684,30 @@ Nussmisch A:      # big pack
   lastUpd:           2024-05-29
   lastPriceUpd:      2024-06-18
 
+Nussmisch N:
+
+  productName:       "Premium 3 Nuss Mix"
+  vendor:            Norma
+
+  price:             2.89
+  weight:            200
+  usedAmounts:       ["1/4", "1/3", "1/2"]
+
+  calories:          623
+  nutritionalValues:
+
+    fat:             53.3
+    saturatedFat:    5.4
+    carbs:           8.4
+    sugar:           4.8
+    fibre:           7.2
+    amino:           23.7
+    salt:            0.02
+
+  sources:           { nutriVal: "pack" }
+  lastUpd:           2024-06-18
+  lastPriceUpd:      2024-06-18
+
 Nussmisch A ger:  # small pack
 
   vendor:            Aldi
@@ -1732,28 +1756,30 @@ Nussmisch N old:
   lastUpd:           2024-02-18
   lastPriceUpd:      2024-04-06
 
-Nussmisch N:
+Öl:
 
-  productName:       "Premium 3 Nuss Mix"
-  vendor:            Norma
+  vendor:            Rewe
 
-  price:             2.89
-  weight:            200
-  usedAmounts:       ["1/4", "1/3", "1/2"]
+  price:             1.49  # last 1.99 2024-05-01
+  weight:            500ml
+  usedAmounts:       ["30ml", "60ml"]
 
-  calories:          623
+  calories:          823
   nutritionalValues:
 
-    fat:             53.3
-    saturatedFat:    5.4
-    carbs:           8.4
-    sugar:           4.8
-    fibre:           7.2
-    amino:           23.7
-    salt:            0.02
+    fat:             91.4
+    saturatedFat:    6.3
+    carbs:           0
+    sugar:           0
+    amino:           0
+    salt:            0.03
 
-  sources:           { nutriVal: "pack" }
-  lastUpd:           2024-06-18
+  vitamins:
+
+    Vitamin E:	     30 # mg
+
+  sources:           { nutriVal: "web", price: "guess" }
+  lastUpd:           2024-04-24
   lastPriceUpd:      2024-06-18
 
 Oliven R Bio:
@@ -1784,7 +1810,7 @@ Olivenöl:
 
   vendor:            Denns
 
-  price:             17.49  # last 16.99 2024-04-24
+  price:             18.49  # 17.49 2024-06-18 16.99 2024-04-24
   weight:            500ml
   usedAmounts:       ["30ml", "60ml"]
 
@@ -1802,33 +1828,7 @@ Olivenöl:
 
   sources:           { nutriVal: "pack" }
   lastUpd:           2024-04-08
-  lastPriceUpd:      2024-06-18
-
-Öl:
-
-  vendor:            Rewe
-
-  price:             1.49  # last 1.99 2024-05-01
-  weight:            500ml
-  usedAmounts:       ["30ml", "60ml"]
-
-  calories:          823
-  nutritionalValues:
-
-    fat:             91.4
-    saturatedFat:    6.3
-    carbs:           0
-    sugar:           0
-    amino:           0
-    salt:            0.03
-
-  vitamins:
-
-    Vitamin E:	     30 # mg
-
-  sources:           { nutriVal: "web", price: "guess" }
-  lastUpd:           2024-04-24
-  lastPriceUpd:      2024-06-18
+  lastPriceUpd:      2024-07-01
 
 Patros 150:
 
@@ -2072,55 +2072,53 @@ Pumpernickel R Bio:
   lastUpd:           2024-03-22
   lastPriceUpd:      2024-03-23
 
-Thunfisch N:
+R Rüben N:
 
   vendor:            Norma
-  acceptable:        occasionally
-  properties:        { NutriScore: B }
-  comment:           "may contain mercury"
+  # acceptable:      occasionally  # currently no alternative
 
-  price:             1.49
-  weight:            140
+  price:             0.99
+  weight:            430
+  usedAmounts:       ["1/8", "1/4", "1/3"]
+
+  calories:          55
+  nutritionalValues:
+
+    fat:             0.5
+    saturatedFat:    0.1
+    carbs:           11.2
+    sugar:           11.2
+    fibre:           1.6
+    amino:           1
+    salt:            1.2
+
+  sources:           { nutriVal: "pack" }
+  lastUpd:           2024-05-11
+  lastPriceUpd:      2024-05-11
+
+Riegel Deca Basic:
+
+  vendor:            Deca
+  acceptable:        less
+  comment:           "still processed food ..."
+
+  price:             1.99
+  weight:            60
   usedAmounts:       [1]
 
-  calories:          156
+  calories:          385
   nutritionalValues:
 
-    fat:             5.4
-    saturatedFat:    0.8
-    carbs:           0
-    sugar:           0
-    amino:           27
-    salt:            0.95
+    fat:             9.8
+    saturatedFat:    7
+    carbs:           44
+    sugar:           28
+    amino:           28
+    salt:            0.33
 
-  sources:           { nutriVal: "pack" }
-  lastUpd:           2024-06-18
-  lastPriceUpd:      2024-06-18
-
-Tofu N:
-
-  vendor:            Norma
-  url:               "https://www.norma-online.de/at/sortiment/bio-sonne-t-181/vegane-bio-spezialitaeten-i-403"
-  properties:        { NutriScore: A, oekotest: "sehr gut" }
-
-  price:             2.19
-  weight:            400
-  usedAmounts:       ["1/8", "1/4", "1/2"]
-
-  calories:          137
-  nutritionalValues:
-
-    fat:             8
-    saturatedFat:    1.4
-    carbs:           0.7
-    sugar:           0.5
-    fibre:           1
-    amino:           16.5
-    salt:            0.03
-
-  sources:           { nutriVal: "pack" }
-  lastUpd:           2024-06-18
-  lastPriceUpd:      2024-06-18
+  sources:           { nutriVal: "web" }
+  lastUpd:           2024-04-24
+  lastPriceUpd:      2024-04-24
 
 Riegel Seitenb Sch:
 
@@ -2150,30 +2148,6 @@ Riegel Seitenb Sch:
   sources:           { nutriVal: "web", nutrients: "calcium also from vendors page online" }
   lastUpd:           2024-02-18
   lastPriceUpd:      2024-03-23
-
-Riegel Deca Basic:
-
-  vendor:            Deca
-  acceptable:        less
-  comment:           "still processed food ..."
-
-  price:             1.99
-  weight:            60
-  usedAmounts:       [1]
-
-  calories:          385
-  nutritionalValues:
-
-    fat:             9.8
-    saturatedFat:    7
-    carbs:           44
-    sugar:           28
-    amino:           28
-    salt:            0.33
-
-  sources:           { nutriVal: "web" }
-  lastUpd:           2024-04-24
-  lastPriceUpd:      2024-04-24
 
 Ritter Sp 50%:
 
@@ -2223,6 +2197,31 @@ Ritter Sp 61%:
   lastUpd:           2024-06-18
   lastPriceUpd:      2024-06-18
 
+Ritter Sp 74%:
+
+  acceptable:        less
+  comment:           "Nicaragua (Cadmium)"
+  origin:            "Nicaragua"
+
+  price:             1.69
+  weight:            100
+  pieces:            25
+  usedAmounts:       [1, 2, 4]
+
+  calories:          627
+  nutritionalValues:
+
+    fat:             50
+    saturatedFat:    32
+    carbs:           27
+    sugar:           24
+    amino:           7
+    salt:            0.01
+
+  sources:           { nutriVal: "web" }
+  lastUpd:           2024-06-18
+  lastPriceUpd:      2024-06-18
+
 Ritter Sp 81%:
 
   acceptable:        occasionally
@@ -2246,30 +2245,6 @@ Ritter Sp 81%:
   lastUpd:           2024-04-24
   lastPriceUpd:      2024-04-24
 
-R Rüben N:
-
-  vendor:            Norma
-  # acceptable:      occasionally  # currently no alternative
-
-  price:             0.99
-  weight:            430
-  usedAmounts:       ["1/8", "1/4", "1/3"]
-
-  calories:          55
-  nutritionalValues:
-
-    fat:             0.5
-    saturatedFat:    0.1
-    carbs:           11.2
-    sugar:           11.2
-    fibre:           1.6
-    amino:           1
-    salt:            1.2
-
-  sources:           { nutriVal: "pack" }
-  lastUpd:           2024-05-11
-  lastPriceUpd:      2024-05-11
-
 Salami R:
 
   vendor:            Rewe
@@ -2292,6 +2267,32 @@ Salami R:
   sources:           { nutriVal: "web" }
   lastUpd:           2024-02-18
   lastPriceUpd:      2024-03-23
+
+Salami R Wilt:
+
+  productName:       "Bio Geflügel-Salami mit Pflanzenfett"
+  vendor:            Rewe
+  acceptable:        less
+  comment:           "Innens"
+  properties:        { bio: true }
+  ingredients:       "Hähnchen, Pute, Palmfett, Meersalz, Traubenzucker, Gewürze, Antiox: Natriumascorbat, Konserv: Natriumnitrit, Reifekulturen, Buchenholzrauch"
+
+  price:             2.79
+  weight:            80
+
+  calories:          273
+  nutritionalValues:
+
+    fat:             19
+    saturatedFat:    8.5
+    carbs:           1
+    sugar:           1
+    amino:           24
+    salt:            3.5
+
+  sources:           { nutriVal: "pack" }
+  lastUpd:           2024-06-18
+  lastPriceUpd:      2024-06-18
 
 Sardine:
 
@@ -2342,6 +2343,84 @@ Seelachs N:
     sugar:           0
     amino:           17
     salt:            0.3
+
+  sources:           { nutriVal: "pack" }
+  lastUpd:           2024-06-18
+  lastPriceUpd:      2024-06-18
+
+Thunfisch N:
+
+  vendor:            Norma
+  acceptable:        occasionally
+  properties:        { NutriScore: B }
+  comment:           "may contain mercury"
+
+  price:             1.49
+  weight:            140
+  usedAmounts:       [1]
+
+  calories:          156
+  nutritionalValues:
+
+    fat:             5.4
+    saturatedFat:    0.8
+    carbs:           0
+    sugar:           0
+    amino:           27
+    salt:            0.95
+
+  sources:           { nutriVal: "pack" }
+  lastUpd:           2024-06-18
+  lastPriceUpd:      2024-06-18
+
+Toasties R Bio:
+
+  vendor:            Rewe
+  url:               "https://shop.rewe.de/p/rewe-bio-finn-toasties-260g/8061857?sv1=affiliate&sv_campaign_id=101248&awc=11652_1720030488_a4823a6b0726daf8b301522bca051f27&ecid=aff_awin_101248_takeads.com_0_nn_nn_nn_pm01&zanpid=11652_1720030488_a4823a6b0726daf8b301522bca051f27"
+  acceptable:        occasionally
+  properties:        { bio: true, NutriScore: A }
+  ingredients:       "Wasser, WEIZENMEHL*, ROGGENMEHL*, Roggengrütze*, ROGGENFLOCKEN*, Weizengrütze*, Zucker*, Kartoffelflocken*, Meersalz 1,1%, GERSTENMALZMEHL*, WEIZENGLUTEN*, Hefe"
+  allergy:           "Glutenhaltiges Getreide (Weizen, Gerste, Roggen, Hafer, Dinkel, Kamut oder Hybridstämme)"              
+
+  price:             0.95
+  weight:            260
+  pieces:            4
+  usedAmounts:       [1, 2]
+
+  calories:          224
+  nutritionalValues:
+
+    fat:             1.4
+    saturatedFat:    0.2
+    carbs:           42.3
+    sugar:           3
+    amino:           7.4
+    salt:            1.2
+
+  sources:           { nutriVal: "web" }
+  lastUpd:           2024-06-18
+  lastPriceUpd:      2024-06-18
+
+Tofu N:
+
+  vendor:            Norma
+  url:               "https://www.norma-online.de/at/sortiment/bio-sonne-t-181/vegane-bio-spezialitaeten-i-403"
+  properties:        { NutriScore: A, oekotest: "sehr gut" }
+
+  price:             2.19
+  weight:            400
+  usedAmounts:       ["1/8", "1/4", "1/2"]
+
+  calories:          137
+  nutritionalValues:
+
+    fat:             8
+    saturatedFat:    1.4
+    carbs:           0.7
+    sugar:           0.5
+    fibre:           1
+    amino:           16.5
+    salt:            0.03
 
   sources:           { nutriVal: "pack" }
   lastUpd:           2024-06-18
