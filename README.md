@@ -11,8 +11,6 @@ Improves general health, brain function and life quality by improving daily nutr
   - [Model](misc/dev_info.md#model)
 - [License](#license)
 
-**Disclaimer:** Use the app and recommendations included in it at your own risk. This app is in development, the recommended amounts might be wrong.
-
 
 Mission
 ----------------------------------------------------------
@@ -26,6 +24,7 @@ Improve [x] Food --------> Improves general --> Improves brain --> Multiples pro
         [ ] Sleep                                    |
         [ ] No stress                                 -----------> Improves life quality
             ...
+        [x] Supplements
 
         [x] and we also count finance (to ensure affordability)
 
