@@ -78,7 +78,7 @@ Currently we enter the values once in data/foods.yml. Simpler than doing manual 
 
 My food S Bio:                           # (required) display name (also used as id)
                                          #   S = short for store if needed (save some space)
-  removed:            false              # hide in UI (unused food)
+  removed:            false              # hide in UI (unused food): currently no function, just rm in layout (this highlights it in food list)
   
   productName:        "..."              # precise product name
   vendor:             My vendor          
