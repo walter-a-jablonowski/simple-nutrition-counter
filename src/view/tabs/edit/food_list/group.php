@@ -6,6 +6,7 @@ $return['done'] = [];
 
 // TASK: (advanced) merge with misc_foods if possible
 //       alterenative: food-item in sep fil and leave the food groups (cause diff code)
+//       food info is missing in misc foods, fill up first
 
 ?><div class="col-12 col-md-6 col-xxl-4 mt-2">  <!-- group col -->
 
