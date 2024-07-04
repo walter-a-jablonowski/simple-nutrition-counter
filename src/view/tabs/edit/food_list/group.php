@@ -101,7 +101,7 @@ $return['done'] = [];
         <div id="<?= $foodId ?>Headline" class="d-none">
           <?php
 
-            print $this->inc( __DIR__ . '/food_info_headline.php', [
+            print $this->inc( __DIR__ . '/food_info/headline.php', [
               'foodId'   => $foodId,
               'foodName' => $foodName
             ]);
@@ -110,7 +110,7 @@ $return['done'] = [];
         <div id="<?= $foodId ?>Data" class="d-none">
           <?php
 
-            print $this->inc( __DIR__ . '/food_info.php', [
+            print $this->inc( __DIR__ . '/food_info/content.php', [
               'foodId'      => $foodId,
               'foodName'    => $foodName,
               'pricePer100' => $pricePer100

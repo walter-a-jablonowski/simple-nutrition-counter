@@ -56,7 +56,14 @@ abstract class ControllerBase
   inc
 
   - must be non static
-  - if needed use extract( $args ) yourself
+
+  **included fil**
+
+  ```php
+  extract($args);
+
+  $return['done'] = [];
+  ```
 
   */
   public function inc( string $INC_VIEW, $args = null, &$return = null ) /*@*/
