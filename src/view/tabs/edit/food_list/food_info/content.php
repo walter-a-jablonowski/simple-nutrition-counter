@@ -122,12 +122,10 @@ $nutrientsShort = [
   </tbody>
 </table>
 
-<!-- TASK -->
-
 <!-- Cooking instructions -->
 
 <?php if( ! empty($data['cookingInstructions'])): ?>
-  <div class="mt-3 p-2 small" style="background-color: #e0e0e0 !important;">
+  <div class="mt-3 p-2 small" style="background-color: #D3B79C !important;">
     <b>Cooking instructions</b><br>
     <br>
     <?= $data['cookingInstructions'] ?>
