@@ -2268,12 +2268,11 @@ Salami R:
   lastUpd:           2024-02-18
   lastPriceUpd:      2024-03-23
 
-Salami R Wilt:
+Salami R Wilt (Innens):
 
   productName:       "Bio Geflügel-Salami mit Pflanzenfett"
   vendor:            Rewe
   acceptable:        less
-  comment:           "Innens"
   properties:        { bio: true }
   ingredients:       "Hähnchen, Pute, Palmfett, Meersalz, Traubenzucker, Gewürze, Antiox: Natriumascorbat, Konserv: Natriumnitrit, Reifekulturen, Buchenholzrauch"
 
