@@ -59,7 +59,7 @@ abstract class ControllerBase
   - if needed use extract( $args ) yourself
 
   */
-  public function inc( string $INC_VIEW, $args = null ) /*@*/
+  public function inc( string $INC_VIEW, $args = null, &$return = null ) /*@*/
   {
     ob_start();                   // alternative: $s = require()
     require($INC_VIEW);

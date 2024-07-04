@@ -27,6 +27,7 @@ $data = $this->model->get("foods.$foodName");
 </div>
 
 <!-- Badges -->
+<!-- TASK: but iif() is a static function -->
 <!-- TASK: add { oekotest: "sehr gut" } -->
 
 <?php if( ! empty($data['acceptable'])): ?>
