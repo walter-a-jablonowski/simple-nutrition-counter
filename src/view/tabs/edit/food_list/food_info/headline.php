@@ -27,7 +27,6 @@ $data = $this->model->get("foods.$foodName");
 </div>
 
 <!-- Badges -->
-<!-- TASK: add { oekotest: "sehr gut" } -->
 
 <?php if( ! empty($data['acceptable'])): ?>
   <span class="badge bg-<?= self::iif( $data['acceptable'] == 'less', 'danger', 'warning') ?>">
@@ -40,6 +39,9 @@ $data = $this->model->get("foods.$foodName");
 <span class="badge bg-<?= self::iif( ! empty($data['properties']['vegan']), 'success', 'secondary') ?>">
   <?= self::iif( ! empty($data['properties']['vegan']), 'vegan', '<s>vegan</s>') ?>
 </span>
+<?php if( ! empty($data['properties']['oekotest'])): ?>
+  <span class="badge bg-info">oekotest: <?= $data['properties']['oekotest'] ?></span>
+<?php endif; ?>
 <?php if( ! empty($data['properties']['NutriScore'])): ?>
   <span class="badge bg-info">NutriScore</span>
 <?php endif; ?>
