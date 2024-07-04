@@ -28,7 +28,7 @@ Improve [x] Food --------> Improves general --> Improves brain --> Multiples pro
 
         [x] and we also count finance (to ensure affordability)
 
-* = humans were designed for movement
+* = humans were designed for movement and short term stress (minutes)
 x = can be counted with this app (manually impossible, far too much substances)
 ```
 
@@ -40,7 +40,7 @@ Even if you eat healthy, having a perfect supply is nearly impossible. For examp
 
 **The problem with supplements**
 
-B12 cyanocobalamin isn't the real B12 but a cheap synthetic form, dosage while production often goes wrong and unexplored plant substances are missing. Of course it might make sense to use some supplements if you can't get enough from food. But in general food is the more natural (better) source (if free of substances like pesticides).
+B12 cyanocobalamin isn't the real B12 but a cheap synthetic form, dosage while production often goes wrong and unexplored plant substances are missing. Of course it might make sense to use some supplements if you can't get enough from food. But in general food is the more natural (better) source, as long as it is free of substances like pesticides.
 
 **Long term goal**
 
