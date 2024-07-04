@@ -565,7 +565,7 @@ Chicken Nugg N:
   acceptable:        occasionally
   comment:           "looks a bit like fast food, made from some mix? see ingredients"
 
-  cookingInstrutions: "2.5 min & 2 mehr"
+  cookingInstructions: "2.5 min & 2 mehr"
 
   price:             2.29
   weight:            250  # 300 is with dip
@@ -2326,7 +2326,7 @@ Seelachs N:
   url:               "https://www.norma-online.de/de/sortiment/transparente-fischerei-t-184/alaska-seelachs-i-264"
   properties:        { NutriScore: A }
 
-  cookingInstrutions: ">= 12 min"
+  cookingInstructions: ">= 12 min"
 
   price:             2.79 
   weight:            400
@@ -2380,6 +2380,8 @@ Toasties R Bio:
   properties:        { bio: true, NutriScore: A }
   ingredients:       "Wasser, WEIZENMEHL*, ROGGENMEHL*, Roggengrütze*, ROGGENFLOCKEN*, Weizengrütze*, Zucker*, Kartoffelflocken*, Meersalz 1,1%, GERSTENMALZMEHL*, WEIZENGLUTEN*, Hefe"
   allergy:           "Glutenhaltiges Getreide (Weizen, Gerste, Roggen, Hafer, Dinkel, Kamut oder Hybridstämme)"              
+
+  # cookingInstructions: Demo
 
   price:             0.95
   weight:            260

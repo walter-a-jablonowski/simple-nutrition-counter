@@ -91,7 +91,7 @@ My food S Bio:                           # (required) display name (also used as
   allergy:            "..."              
   origin:             "..."              # country of origin, if you want to be aware of
 
-  cookingInstrutions: |                  # (we can use html here)
+  cookingInstructions: |                  # (we can use html here)
 
     First ...
 

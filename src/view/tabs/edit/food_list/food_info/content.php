@@ -126,11 +126,11 @@ $nutrientsShort = [
 
 <!-- Cooking instructions -->
 
-<?php if( ! empty($data['cookingInstrutions'])): ?>
+<?php if( ! empty($data['cookingInstructions'])): ?>
   <div class="mt-3 p-2 small" style="background-color: #e0e0e0 !important;">
     <b>Cooking instructions</b><br>
     <br>
-    <?= $data['cookingInstrutions'] ?>
+    <?= $data['cookingInstructions'] ?>
   </div>
 <?php endif; ?>
 
