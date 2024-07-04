@@ -43,7 +43,7 @@ $data = $this->model->get("foods.$foodName");
   <span class="badge bg-info">oekotest: <?= $data['properties']['oekotest'] ?></span>
 <?php endif; ?>
 <?php if( ! empty($data['properties']['NutriScore'])): ?>
-  <span class="badge bg-info">NutriScore</span>
+  <span class="badge bg-info">NutriScore: <?= $data['properties']['NutriScore'] ?></span>
 <?php endif; ?>
 
 <!-- High fat ... -->
