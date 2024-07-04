@@ -34,4 +34,4 @@
   <li>click on each food name to see food info</li>
 </ul>
 
-<b>Disclaimer:</b> Use the app and recommendations included in it at your own risk. This app is in developemt, the recommended amounts might be wrong.
+<b>Disclaimer:</b> Use the app and recommendations included in it at your own risk. This app is in development, the recommended amounts might be wrong.

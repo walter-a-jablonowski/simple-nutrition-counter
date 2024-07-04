@@ -41,7 +41,7 @@ substances:
     amounts:    # currently we use the first entry hard coded only
 
       - criteria: { gender: male, age: 40, height: "*", weight: 70, workout: false }
-        amount: 100 # TASK: dummy entry
+        amount: 400 # TASK: dummy entry
         lower:  5%
         upper:  5%
 

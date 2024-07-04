@@ -80,6 +80,8 @@ function parse_tsv( $entriesTxt )
 
 /*@
 
+TASK: mov in some lib
+
 - compatibility: YML needs more blanks (behind colon)
 - empty array as js obj
 

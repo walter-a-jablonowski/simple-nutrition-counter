@@ -334,21 +334,20 @@ class FoodsEventController
     query('#saltSum').textContent     = saltSum
     query('#priceSum').textContent    = priceSum
 
-    // Summary tab
+    // Nutrients tab
     // TASK: maybe add a simple sum first (no percent) #code/progress
-/*
+// /*
     let nutrientEntries = query('.nutrients-entry')
 
     for( const entry of nutrientEntries )
     {
       // TASK: looks like dayEntries has short name
-      let group = entry.dataset.group
-      let short = entry.dataset.short
-      let currentSum = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.nutrients[group][short]), 0).toFixed(1))
-      // let tolerance = 0.05  // TASK: advanced
+      const group = entry.dataset.group
+      const short = entry.dataset.short
+      const currentSum = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.nutrients[group]?.[short] ?? 0), 0).toFixed(1))
+      // let tolerance = 0.05  // TASK: advanced           // Magn Cash A 1/2 + Nuss A 1/8 = 306.8
     
-      let percentage = (currentSum / entry.dataset.ideal) * 100
-      percentage = Math.min(percentage, 100)  // ensure it doesn't exceed 100%
+      let percentage = Math.min( (currentSum / entry.dataset.ideal) * 100, 100)  // min: ensure it doesn't exceed 100%
 
       // TASK: (advanced)
       
@@ -364,7 +363,7 @@ class FoodsEventController
       // entry.find('.progress-bar').classList.add(progressBarColor)
       entry.find('.progress-label').textContent = `${currentSum} / ${entry.dataset.ideal}`
     }
-*/
+// */
   }
 
   #saveDayEntries( uiMsg = false )
