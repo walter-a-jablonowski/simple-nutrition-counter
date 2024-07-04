@@ -28,7 +28,7 @@ Improve [x] Food --------> Improves general --> Improves brain --> Multiples pro
 
         [x] and we also count finance (to ensure affordability)
 
-* = humans were designed for movement and short term stress (minutes)
+* = humans were designed for movement and short term stress only (minutes)
 x = can be counted with this app (manually impossible, far too much substances)
 ```
 
