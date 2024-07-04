@@ -2404,7 +2404,7 @@ Tofu N:
 
   vendor:            Norma
   url:               "https://www.norma-online.de/at/sortiment/bio-sonne-t-181/vegane-bio-spezialitaeten-i-403"
-  properties:        { NutriScore: A, oekotest: "1" }
+  properties:        { NutriScore: A, oekotest: 1 }
 
   price:             2.19
   weight:            400
