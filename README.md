@@ -32,7 +32,7 @@ Improve [x] Food --------> Improves general --> Improves brain --> Multiples pro
 x = can be counted with this app (manually impossible, far too much substances)
 ```
 
-There are many vitamins, minerals, fatty acids, amino acids... It is likely that one is deficient in more than one substance, just because there are so many substances.
+There are many vitamins, minerals, fatty acids, amino acids... It is likely that one is deficient in more than one substance, just because there are so many. Well known samples of deficiencies: Magnesium, zinc, vitamin D, omega 3, but the list is much longer ...
 
 All of these substances are needed for something. Being able to have perfect supply on a daily basis may make a big difference for general health and brain function.
 
