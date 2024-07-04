@@ -22,7 +22,7 @@ Mission
 Improve [x] Food --------> Improves general --> Improves brain --> Multiples productivity
         [x] Movement *     health               function           (all your projects)
         [ ] Sleep                                    |
-        [ ] No stress                                 -----------> Improves life quality
+        [ ] No stress *                               -----------> Improves life quality
             ...
         [x] Supplements
 
