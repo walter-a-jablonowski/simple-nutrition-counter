@@ -1,15 +1,53 @@
 # Simple nutrition counter
 
-Counts nutrients as simple as possible (one tap per ingredient). Helps improving your daily nutrient intake to improve general health and brain function. It also calculates partially used ingredients.
+Improves general health, brain function and life quality by improving daily nutrients as simple as possible, see [mission](#mission).
 
-- [Project state](#project-state)
+**State:** Usable for single user, but still in development, see [project state](#project-state)
+
 - [Mission](#mission)
+- [Project state](#project-state)
 - [Usage](misc/usage.md)
 - [Developer information](misc/dev_info.md)
   - [Model](misc/dev_info.md#model)
 - [License](#license)
 
 **Disclaimer:** Use the app and recommendations included in it at your own risk. This app is in development, the recommended amounts might be wrong.
+
+
+Mission
+----------------------------------------------------------
+
+```
+                                                Special supplements
+                                                   |  (but general health more important)
+                                                   v
+Improve [x] Food --------> Improves general --> Improves brain --> Multiples productivity
+        [x] Movement *     health               function           (all your projects)
+        [ ] Sleep                                    |
+        [ ] No stress                                 -----------> Improves life quality
+            ...
+
+        [x] and we also count finance (to ensure affordability)
+
+* = humans were designed for movement
+x = can be counted with this app (manually impossible, far too much substances)
+```
+
+There are many vitamins, minerals, fatty acids, amino acids... It is likely that one is deficient in more than one substance, just because there are so many substances.
+
+All of these substances are needed for something. Being able to have perfect supply on a daily basis may make a big difference for general health and brain function.
+
+Even if you eat healthy, having a perfect supply is nearly impossible. For example, plant-based nutrition can lead to salt deficiency. Neurons need salt to function.
+
+**The problem with supplements**
+
+B12 cyanocobalamin isn't the real B12 but a cheap synthetic form, dosage while production often goes wrong and unexplored plant substances are missing. Of course it might make sense to use some supplements if you can't get enough from food. But in general food is the more natural (better) source (if free of substances like pesticides).
+
+**Long term goal**
+
+Handle all minimal daily logging in a single app as simple as possible (with as few clicks as possible). Primarily nutrients, but this isn't necessarily nutrition only but only all that can't be handled easier.
+
+( This kind of project might be AI proof because AI solution would be: it watches you while cooking and counts the calories. Do you want that? )
 
 
 Project state
@@ -26,6 +64,7 @@ In use on a daily basis as a single user app since months, but it is still in de
 - [ ] Code improvements
 - When this is done food and nutrients data will be entered, and a few useful minor features may be added
 - [ ] Maybe: The simple textarea might be replaced with a sortable html list (that already exists)
+- [ ] Maybe: Basic error handling
 
 **Limitations**
 
@@ -58,18 +97,6 @@ Currently I am saving time for different projects by skipping features that I do
     </td>
   </tr>
 </table>
-
-
-Mission
-----------------------------------------------------------
-
-Most people are deficient in one or more than one substance e.g. zinc, vitamin D, iron, ... 50% of US citizens are deficient in Magnesium, 30% are deficient in ... What if supply could be perfect? All of these substances are needed for something. Being able to track all vitamins, minerals, amino acids, fatty acids separately may make a big difference for general health and brain function. For example, Plant-based nutrition can lead to salt deficiency. Neurons need salt to function. There are may examples like this.
-
-The problem with supplements: B12 cyanocobalamin isn't the real B12 but a cheap synthetic form, dosage while production often goes wrong and unexplored plant substances are missing. Of course it might make sense to use some supplements if you can't get enough from food. But in general food is the more natural (better) source (if free of substances like pesticides).
-
-**Long term goal:** Handle all minimal daily logging in a single app as simple as possible (with as few clicks as possible). This isn't necessarily nutrition only but only all that can't be handled easier (most likely nutrition and daily expenses = actual consumption).
-
-This kind of project might be AI proof because AI solution would be: it watches you while cooking and counts the calories. Do you want that?
 
 
 LICENSE
