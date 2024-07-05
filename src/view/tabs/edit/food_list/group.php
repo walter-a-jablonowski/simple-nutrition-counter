@@ -10,7 +10,7 @@ $return['done'] = [];
 
 ?><div class="col-12 col-md-6 col-xxl-4 mt-2">  <!-- group col -->
 
-  <div class="row">
+  <div class="row">            <!-- must be 2 here cause headline has inner padding -->
     <div class="col-12 px-2">  <!-- below outer container for the bg color (would be full width without) -->
       <div class = "p-1 px-2 fw-bold d-flex justify-content-between align-items-center"
             style = "background-color: <?= $def['@attribs']['color'] ?? '#e0e0e0' ?>;"
@@ -52,8 +52,6 @@ $return['done'] = [];
 
     <?php
 
-    // if( is_null($foodNames))
-    //   $debug = 'halt';
     
     foreach( $def['list'] as $idx => $foodName ):
 
@@ -64,7 +62,6 @@ $return['done'] = [];
       $type   = $this->modelView->has("recipes.$foodName") ? 'recipes' : 'foods';
       $amountData = $this->modelView->get("$type.$foodName");  // TASK: rename
 
-      // $done[] = $foodName;
       $return['done'][] = $foodName;  // left over will be printed below (done = foods and recipes in a single list)
 
       $accepColor  = $this->model->get("foods.$foodName.acceptable") ?? 'n/a';  // TASK: colors also below, merge by using a class (also in app tips)
@@ -119,13 +116,14 @@ $return['done'] = [];
           ?>
         </div>
         <!-- TASK: Simplify in controller ? default -->
+        <?php foreach( $amountData as $amount => $data ): ?>  <!-- TASK: don't print more than 3 entries (maybe do in controller) -->
         <?php
         
         // if( stripos( $foodName, 'Amino misc') !== false )  // DEBUG
+        // if( ! isset($data['nutriVal']))
         //   $debug = 'halt';
         
         ?>
-        <?php foreach( $amountData as $amount => $data ): ?>  <!-- TASK: don't print more than 3 entries (maybe do in controller) -->
           <div class   = "col-1 p-1 blink-yellow"
                 onclick = "foodsCrl.foodItemClick(event)"
                 data-food       = "<?= $foodName ?>"

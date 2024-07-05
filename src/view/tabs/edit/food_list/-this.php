@@ -68,7 +68,7 @@
   $all = count( $this->modelView->get('foods'));
     // + count( $this->modelView->get('recipes'));  // TASK
   
-  if( $all > count($done))
+  if( $all > count( array_unique($done)))  // foods can appear in layout multiple times
   {
     print $this->inc( __DIR__ . '/misc_foods.php', [
       'done' => $done

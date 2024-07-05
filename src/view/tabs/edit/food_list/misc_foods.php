@@ -26,11 +26,15 @@ extract($args);
   
       if( in_array( $foodName, $done))
         continue;
+        
+      // if( $foodName == 'Hanuta' )  // DEBUG
+      //   $debug = 'halt';
 
+      $foodId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $foodName));  // TASK: use food id from SimpleData key as soon as upd, maybe we need prefix this so that no Ids get confused?
       $type = $this->modelView->has("recipes.$foodName") ? 'recipes' : 'foods';
-      $amountData = $this->modelView->get("$type.$foodName");
+      $amountData = $this->modelView->get("$type.$foodName");  // TASK: rename
 
-      $accepColor = $this->model->get("foods.$foodName.acceptable") ?? 'n/a';
+      $accepColor = $this->model->get("foods.$foodName.acceptable") ?? 'n/a';  // TASK: colors also below, merge by using a class (also in app tips)
       $accepColor = ['less' => '#ffcccc', 'occasionally' => '#ffff88', 'n/a' => 'inherit'][$accepColor];
 
       $price       = $this->model->get("foods.$foodName.price");
@@ -48,7 +52,12 @@ extract($args);
                 ? true : false;
     ?>
       <div class="food-item row" style="background-color: <?= $accepColor ?>;">
-        <div class="col-6 p-1 px-2">
+        <div class="col-6 p-1 px-2"
+              data-bs-toggle = "modal"
+              data-bs-target = "#infoModal"
+              data-title     = "#<?= $foodId ?>Headline"
+              data-source    = "#<?= $foodId ?>Data"
+        >
           <?= $foodName ?>
           <?= self::iif( $price && $cheap,    '<i class="bi bi-currency-exchange small text-secondary"></i>') ?>
           <?= self::iif( $price && $expensiv, self::switch( $this->settings->get('currency'), [
@@ -56,6 +65,25 @@ extract($args);
             'USD' => '<i class="bi bi-currency-dollar small text-secondary"></i>'
           ])) ?>
           <?= self::iif( $showInfo, '<i class="bi bi-info-circle small text-secondary"></i>') ?>
+        </div>
+        <div id="<?= $foodId ?>Headline" class="d-none">
+          <?php
+
+            print $this->inc( __DIR__ . '/food_info/headline.php', [
+              'foodId'   => $foodId,
+              'foodName' => $foodName
+            ]);
+          ?>
+        </div>
+        <div id="<?= $foodId ?>Data" class="d-none">
+          <?php
+
+            print $this->inc( __DIR__ . '/food_info/content.php', [
+              'foodId'      => $foodId,
+              'foodName'    => $foodName,
+              'pricePer100' => $pricePer100
+            ]);
+          ?>
         </div>
         <!-- TASK: Simplify in controller ? default -->
         <?php foreach( $amountData as $amount => $data ): ?>
