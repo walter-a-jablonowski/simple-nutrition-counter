@@ -68,6 +68,8 @@
       // array_merge( array_keys( $this->modelView->get('recipes')),  // TASK
   $all = array_keys( $this->modelView->get('foods'));
 
+  // TASK: (advanced) merge with misc_foods
+
   if( count($all) > count( array_unique($done)))  // foods can appear in layout multiple times
   {
     $groupId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $groupName));
