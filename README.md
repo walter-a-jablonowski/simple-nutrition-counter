@@ -40,6 +40,8 @@ All of these substances are needed for something. Being able to have perfect sup
 
 Even if you eat healthy, having a perfect supply is nearly impossible. For example, plant-based nutrition can lead to salt deficiency. Neurons need salt to function.
 
+Movement sample: activates sectors in the brain that are switched off while sitting. This is because we are designed to be active only while moving. Physical movement activates the brain makes us intelligent.
+
 **The problem with supplements**
 
 B12 cyanocobalamin isn't the real B12 but a cheap synthetic form, dosage while production often goes wrong and unexplored plant substances are missing. Of course it might make sense to use some supplements if you can't get enough from food. But in general food is the more natural (better) source, as long as it is free of substances like pesticides.
