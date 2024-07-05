@@ -23,7 +23,7 @@ Improve [x] Nutrients  --> Improves general --> Improves brain --> Multiples pro
         [x] Sports *       health               function           (all your projects)
         [ ] Sleep             |                       |
         [ ] No stress *       |                        ----------> Improves life quality,
-            ...               |                                    feel better
+            ...               |                                    perception, feel better
                               |
         [x] Supplements        ----------------------------------> Longevity & healthspan
 
