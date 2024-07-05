@@ -16,20 +16,21 @@ Mission
 ----------------------------------------------------------
 
 ```
-                                                Special supplements
-                                                   |  (but general health more important)
-                                                   v
+                                                Special supplements  Powerful methods
+                                                   |                   |
+                                                   v                   v
 Improve [x] Nutrients  --> Improves general --> Improves brain --> Multiples productivity
-        [x] Movement *     health               function           (all your projects)
-        [ ] Sleep                                    |
-        [ ] No stress *                               -----------> Improves life quality
-            ...
-        [x] Supplements
+        [x] Sports *       health               function           (all your projects)
+        [ ] Sleep             |                       |
+        [ ] No stress *       |                        ----------> Improves life quality,
+            ...               |                                    feel better
+                              |
+        [x] Supplements        ----------------------------------> Longevity & healthspan
 
-        [x] and we also count finance (to ensure affordability)
+        [x] we also count finance and all minimal needed in one app
 
 * = humans were designed for movement and short term stress only (minutes)
-x = can be counted with this app (manually impossible, far too much substances)
+x = can be counted with this app (nutrients manually impossible, far too many)
 ```
 
 There are many vitamins, minerals, fatty acids, amino acids... It is likely that one is deficient in more than one substance, just because there are so many. Well known samples of deficiencies: Magnesium, zinc, vitamin D, omega 3, but the list is much longer ...
