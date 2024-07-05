@@ -40,7 +40,7 @@ All of these substances are needed for something. Being able to have perfect sup
 
 Even if you eat healthy, having a perfect supply is nearly impossible. For example, plant-based nutrition can lead to salt deficiency. Neurons need salt to function.
 
-Movement sample: activates sectors in the brain that are switched off while sitting. This is because we are designed to be active only while moving. Physical movement activates the brain makes us intelligent.
+Movement sample: activates sectors in the brain that are switched off while sitting. This is because we are designed to be active only while moving. Physical movement activates the brain.
 
 **The problem with supplements**
 
