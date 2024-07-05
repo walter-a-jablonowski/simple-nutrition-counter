@@ -23,13 +23,14 @@ Improve [x] Nutrients  --> Improves general --> Improves brain --> Multiples pro
         [x] Sports *       health               function           (all your projects)
         [ ] Sleep             |                       |
         [ ] No stress *       |                        ----------> Improves life quality,
-            ...               |                                    perception, feel better
+            ... *             |                                    perception, feel better
                               |
         [x] Supplements        ----------------------------------> Longevity & healthspan
 
         [x] we also count finance and all minimal needed in one app
 
 * = humans were designed for movement and short term stress only (minutes)
+    also consider: air quality, amount of sunlight, ... and so on
 x = can be counted with this app (nutrients manually impossible, far too many)
 ```
 
