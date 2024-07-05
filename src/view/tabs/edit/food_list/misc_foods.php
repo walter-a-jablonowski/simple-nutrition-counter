@@ -19,13 +19,11 @@ extract($args);
 
   <div id="miscCollapse" class="p-1 collapse show">
     <?php
-        // array_merge( array_keys( $this->modelView->get('recipes'))  // TASK
-    $all = array_keys( $this->modelView->get('foods'));
 
-    foreach( $all as $foodName ):
+    foreach( $def['list'] as $idx => $foodName ):
   
-      if( in_array( $foodName, $done))
-        continue;
+      // if( in_array( $foodName, $done))
+      //   continue;
         
       // if( $foodName == 'Hanuta' )  // DEBUG
       //   $debug = 'halt';

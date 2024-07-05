@@ -52,7 +52,6 @@ $return['done'] = [];
 
     <?php
 
-    
     foreach( $def['list'] as $idx => $foodName ):
 
       // if( $foodName == 'Hanuta' )  // DEBUG
