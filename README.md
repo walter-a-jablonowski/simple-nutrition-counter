@@ -16,7 +16,7 @@ Mission
 ----------------------------------------------------------
 
 ```
-                                                Special supplements  Powerful methods
+                                                Special supplements  Powerful methods, AI, tools
                                                    |                   |
                                                    v                   v
 Improve [x] Nutrients  --> Improves general --> Improves brain --> Multiples productivity
