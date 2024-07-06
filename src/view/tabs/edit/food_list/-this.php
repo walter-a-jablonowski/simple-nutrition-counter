@@ -75,6 +75,7 @@
     $groupId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $groupName));
     // $def = array_diff_key( $all, array_flip($done));
     $def['list'] = array_diff( $all, $done);
+    ksort($def['list']);
     
     print $this->inc( __DIR__ . '/misc_foods.php', [
       // 'done' => $done,
