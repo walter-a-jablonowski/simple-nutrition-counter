@@ -27,7 +27,7 @@ Improve [x] Nutrients  --> Improves general --> Improves brain --> Multiples pro
                               |
         [x] Supplements        ----------------------------------> Longevity & healthspan
 
-        [x] we also count finance and all minimal needed in one app
+        [x] we also count finance in a single app
 
 * = humans were designed for movement and short term stress only (minutes)
     also consider: air quality, amount of sunlight, ... and so on
