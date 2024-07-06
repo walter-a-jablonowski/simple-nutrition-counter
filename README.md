@@ -84,19 +84,26 @@ Currently I am saving time for different projects by skipping features that I do
 
 <table>
   <tr>
-    <td>Older</td>
-    <td>Plan (will be nicer ;)</td>
-    <td>&nbsp;</td>
+    <td>Currently</td>
+    <td>Nutrients</td>
   </tr>
   <tr>
     <td>
-      <img src="misc/img.png" width="200">
-    </td>
-    <td>
-      <img src="misc/design_1.png" width="200">
+      <img src="misc/img.png" width="400">
     </td>
     <td>
       <img src="misc/design_2.png" width="200">
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td>Improved list design</td>
+  </tr>
+  <tr>
+    <td>
+      <img src="misc/design_1.png" width="200">
     </td>
   </tr>
 </table>
