@@ -50,7 +50,7 @@ B12 cyanocobalamin isn't the real B12 but a cheap synthetic form, dosage while p
 
 Handle all minimal daily logging in a single app as simple as possible (with as few clicks as possible). Primarily nutrients, but this isn't necessarily nutrition only but only all that can't be handled easier.
 
-( This kind of project might be AI proof because AI solution would be: it watches you while cooking and counts the calories. Do you want that? )
+( This kind of project might be AI proof because AI solution would be: it watches you while cooking and counts the nutrients. Do you want that? )
 
 
 Project state

@@ -346,6 +346,33 @@ Cappuccino R:
   lastUpd:           2024-04-30
   lastPriceUpd:      2024-04-30
 
+Cappu Denns:
+
+  productName:       "Bio Cappuccino"
+  vendor:            Denns
+  url:               "https://www.schrozberger-milchbauern.de/produkte/cappuccino"
+  acceptable:        less
+  properties:        { bio: true }
+  ingredients:       "Vollmilch*, Rohrohrzucker*, 0,6% Löskaffee*, Maisstärke*, Verdickungsmittel: Johannisbrotkernmehl"
+
+  price:             1.19  # TASK: price is a guess
+  weight:            230ml
+  usedAmounts:       ["1"]
+
+  calories:          73
+  nutritionalValues:
+
+    fat:             3.5
+    saturatedFat:    2.2
+    carbs:           7.1
+    sugar:           6.7
+    amino:           3.25
+    salt:            0.12
+
+  sources:           { nutriVal: "pack" }
+  lastUpd:           2024-06-08
+  lastPriceUpd:      2024-06-08
+
 Cappuccino Eni:
 
   vendor:            Eni
@@ -1684,9 +1711,11 @@ Mohnkuchen:
 
 Nussmisch A:      # big pack
 
+  productName:       "Feinste Nussvariationen"
   vendor:            Aldi
+  properties:        { NutriScore: A }
 
-  price:             2.79  # price from "Nussvariationen", maybe the right one
+  price:             2.79
   weight:            200
   usedAmounts:       ["1/8", "1/4", "1/3"]
 
@@ -2306,7 +2335,7 @@ Salami R Wilt (Innens):
   properties:        { bio: true }
   ingredients:       "Hähnchen, Pute, Palmfett, Meersalz, Traubenzucker, Gewürze, Antiox: Natriumascorbat, Konserv: Natriumnitrit, Reifekulturen, Buchenholzrauch"
 
-  price:             2.79
+  price:             2.79  # TASK: Aldi 2.19 2024-06-08
   weight:            80
 
   calories:          273
