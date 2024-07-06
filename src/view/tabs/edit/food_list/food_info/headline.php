@@ -13,9 +13,13 @@ $data = $this->model->get("foods.$foodName");
   <?php if( ! empty($data['vendor']) || ! empty($data['url'])): ?>
     <span class="fw-normal small">
       <?php if( ! empty($data['vendor']) && ! empty($data['url'])): ?>
-        (<a href="<?= $data['url'] ?>" target="_blank" class="text-decoration-none"><?= $data['vendor'] ?></a>)
+        (<a href="<?= self::iif( is_string($data['url']), $data['url'], $data['url'][0]) ?>" target="_blank" class="text-decoration-none">
+          <?= $data['vendor'] ?>
+        </a>)
       <?php elseif( empty($data['vendor']) && ! empty($data['url'])): ?>
-        (<a href="<?= $data['url'] ?>" target="_blank" class="text-decoration-none">url</a>)
+        (<a href="<?= self::iif( is_string($data['url']), $data['url'], $data['url'][0]) ?>" target="_blank" class="text-decoration-none">
+          url
+        </a>)
       <?php elseif( ! empty($data['vendor']) && empty($data['url'])): ?>
         (<?= $data['vendor'] ?>)
       <?php endif; ?>

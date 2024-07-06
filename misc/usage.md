@@ -82,7 +82,7 @@ My food S Bio:                           # (required) display name (also used as
   
   productName:        "..."              # precise product name
   vendor:             My vendor          
-  url:                "..."         
+  url:                string|array       # single or multiple urls (first will be used as primary if multiple)
 
   acceptable:         less|occasionally  # highlight less good foods in UI
   comment:            "My comment"       # all misc comments (we can use html here)

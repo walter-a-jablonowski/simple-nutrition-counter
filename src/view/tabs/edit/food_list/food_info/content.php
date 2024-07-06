@@ -65,6 +65,23 @@ $nutrientsShort = [
         <td><?= htmlspecialchars($data['productName']) ?></td>
       </tr>
     <?php endif; ?>
+    <?php if( ! empty($data['url']) && is_array($data['url'])): ?>
+      <tr>
+        <th>Urls</th>
+        <td>
+          <a data-bs-toggle="collapse" href="#<?= $foodId ?>UrlCollapse" class="text-decoration-none" role="button">
+            <span class="text-secondary small">show</span>
+          </a>
+        </td>
+      </tr>
+      <tr id="<?= $foodId ?>UrlCollapse" class="collapse">
+        <td colspan="2" class="text-nowrap" style="white-space: no-wrap;">
+          <?php foreach( $data['url'] as $url ): ?>
+            - <a href="<?= $url ?>" target="_blank" class="text-decoration-none"><?= $url ?></a><br>
+          <?php endforeach; ?>
+        </td>
+      </tr>
+    <?php endif; ?>
     <tr>
       <th>Price</th>
       <td>
