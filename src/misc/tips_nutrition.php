@@ -16,6 +16,17 @@
   <li>Sample: veggie bowl with broccoli, lentils or chickpeas, olive oil, a little bit of feta cheese for the taste, spices and whatever greens you want to add ...</li>
 </ul>
 
+<b>Minimize harmful substances in food</b>
+
+<ul class="no-indent">
+  <li>Buy food that is tested independently on a regular basis</li>
+  <li>Buy brands that are certified or known for testing their own products</li>
+  <li>buy organic food</li>
+  <li>buy same product from alternating vendors if you are unsure</li>
+  <li>buy from vendors that you trust</li>
+  <li>be aware that some foods often have problems: e.g. coffee, cocoa, olive oil, ...</li>
+</ul>
+
 <b>Supplements</b>
 
 <ul class="no-indent">
