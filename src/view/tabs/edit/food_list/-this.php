@@ -82,7 +82,6 @@
 
     ksort($def['list']);
     
-    // print $this->inc( __DIR__ . '/misc_foods.php', [
     print $this->inc( __DIR__ . '/group.php', [
       'groupId'   => lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', 'Misc foods')),
       'groupName' => 'Misc foods',
