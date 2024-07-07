@@ -1,5 +1,7 @@
 <?php
 
+// TASK: replaced by group.php, just rm me
+
 extract($args);
 
 ?><div class="col-12 col-md-6 col-xxl-4 mt-2">  <!-- group col -->
@@ -10,6 +12,21 @@ extract($args);
             style = "background-color: #e0e0e0;"
       >
         Misc foods
+        <?php if( isset($def['@attribs']['(i)'])): ?>
+          &nbsp;
+          <button type="button" class="border-0 p-1 bg-transparent"
+                  data-bs-toggle = "modal"
+                  data-bs-target = "#infoModal"
+                  data-title     = "<?= $groupName ?>"
+                  data-source    = "#<?= $groupId ?>Data"
+          >
+            <i class="bi bi-info-circle icon-circle"></i>
+          </button>
+
+          <div id="<?= $groupId ?>Data" class="d-none">
+            <?= $def['@attribs']['(i)'] ?>
+          </div>
+        <?php endif; ?>
         <a data-bs-toggle="collapse" href="#miscCollapse" class="text-body-secondary" role="button">
           <i class="bi bi-arrow-down-circle"></i>
         </a>

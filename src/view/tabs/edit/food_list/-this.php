@@ -68,19 +68,24 @@
       // array_merge( array_keys( $this->modelView->get('recipes')),  // TASK
   $all = array_keys( $this->modelView->get('foods'));
 
-  // TASK: (advanced) merge with misc_foods
-
   if( count($all) > count( array_unique($done)))  // foods can appear in layout multiple times
   {
-    $groupId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $groupName));
-    // $def = array_diff_key( $all, array_flip($done));
-    $def['list'] = array_diff( $all, $done);
+    $def = [
+      '@attribs' => [
+        'short' => null,
+        '(i))'  => null,
+        // 'color' =>     // currently just default, see group.php
+        'fold'  => true
+      ],
+      'list'  => array_diff( $all, $done)
+    ];
+
     ksort($def['list']);
     
-    print $this->inc( __DIR__ . '/misc_foods.php', [
-      // 'done' => $done,
-      // 'groupId'   => $groupId,
-      // 'groupName' => 'Misc foods',
+    // print $this->inc( __DIR__ . '/misc_foods.php', [
+    print $this->inc( __DIR__ . '/group.php', [
+      'groupId'   => lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', 'Misc foods')),
+      'groupName' => 'Misc foods',
       'def'       => $def
     ]);
   }
