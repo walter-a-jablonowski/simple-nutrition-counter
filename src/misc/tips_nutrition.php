@@ -21,9 +21,8 @@
 <ul class="no-indent">
   <li>Buy food that is tested independently on a regular basis</li>
   <li>Buy brands that are certified or known for testing their own products</li>
-  <li>buy organic food</li>
-  <li>buy same product from alternating vendors if you are unsure</li>
-  <li>buy from vendors that you trust</li>
+  <li>no tests available: buy organic food from vendors where you've seen good quality and they make an effort</li>
+  <li>if unsure: buy same product from alternating vendors</li>
   <li>be aware that some foods often have problems: e.g. coffee, cocoa, olive oil, ...</li>
 </ul>
 
