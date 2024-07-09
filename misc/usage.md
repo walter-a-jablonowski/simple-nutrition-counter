@@ -89,8 +89,9 @@ My food S Bio:                           # (required) display name (also used as
   properties:         { bio: true, vegan: true, NutriScore: A, oekotest: 1 }  # misc attributes
   ingredients:        "..."              # ingredients that you want to be aware of
   allergy:            "..."              
-  origin:             "..."              # country of origin, if you want to be aware of
-
+  mayContain:         "..."
+  origin:             "n/a"              # country of origin, if you want to be aware of
+                                         #   n/a = information unavailable
   cookingInstructions: |                 # (we can use html here)
 
     First ...

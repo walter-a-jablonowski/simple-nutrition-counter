@@ -53,6 +53,19 @@ $nutrientsShort = [
         <td colspan="2" class="text-wrap" style="white-space: pre-wrap;"><?= htmlspecialchars($data['allergy']) ?></td>
       </tr>
     <?php endif; ?>
+    <?php if( ! empty($data['mayContain'])): ?>
+      <tr>
+        <th>May contain</th>
+        <td>
+          <a data-bs-toggle="collapse" href="#<?= $foodId ?>MaybeCollapse" class="text-decoration-none" role="button">
+            <span class="text-secondary small">show</span>
+          </a>
+        </td>
+      </tr>
+      <tr id="<?= $foodId ?>MaybeCollapse" class="collapse">
+        <td colspan="2" class="text-wrap" style="white-space: pre-wrap;"><?= htmlspecialchars($data['mayContain']) ?></td>
+      </tr>
+    <?php endif; ?>
     <?php if( ! empty($data['origin'])): ?>
       <tr>
         <th>Origin</th>
