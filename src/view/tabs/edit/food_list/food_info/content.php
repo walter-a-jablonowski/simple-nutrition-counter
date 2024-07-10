@@ -135,7 +135,7 @@ $nutrientsShort = [
     &nbsp;Data sources <i class="bi bi-caret-down"></i>
   </a>
   <span class="text-secondary" style="font-size: .75em;">
-    Last update: <?= date('Y-m-d', $data['lastUpd'] ) ?>
+    Last update: <?= date('Y-m-d', $data['lastUpd'] ) ?> (<?= $data['state'] ?>)
   </span>
 </div>
 <table id="<?= $foodId ?>SourcesCollapse" class="table collapse" style="font-size: .75em;">

@@ -140,7 +140,8 @@ My food S Bio:                           # (required) display name (also used as
     # ...
                                          # source is (required)
   sources:            { nutriVal: "web|pack (information on packaging may differ slightly)", nutrients: "...", price: "..." }
-  lastUpd:            2024-02-18         # (required)
+  state:              most|all           # (required) added most or all nutritional data
+  lastUpd:            2024-02-18         # (required) last upd nutritional data
   lastPriceUpd:       2024-03-23
 ```
 
