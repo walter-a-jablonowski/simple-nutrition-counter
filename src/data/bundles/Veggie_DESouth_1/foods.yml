@@ -292,7 +292,7 @@ Burrito A:
 
   vendor:            Aldi
   acceptable:        less
-  properties:        { NutriScore: C }
+  certificates:      { NutriScore: C }
   ingredients: |
 
     via AI from pack (shortened strange only)
@@ -352,7 +352,7 @@ Cappu Denns:
   vendor:            Denns
   url:               "https://www.schrozberger-milchbauern.de/produkte/cappuccino"
   acceptable:        less
-  properties:        { bio: true }
+  certificates:      { bio: true }
   ingredients:       "Vollmilch*, Rohrohrzucker*, 0,6% Löskaffee*, Maisstärke*, Verdickungsmittel: Johannisbrotkernmehl"
 
   price:             1.19  # TASK: price is a guess
@@ -428,7 +428,7 @@ Cashew A Cranb:
   vendor:            Aldi
   acceptable:        occasionally  
   comment:           "4.3g sugar per 1/8"
-  properties:        { NutriScore: D }
+  certificates:      { NutriScore: D }
 
   price:             
   weight:            200
@@ -499,7 +499,7 @@ Cashew N:
 Cashew R Bio:
 
   vendor:            Rewe
-  properties:        { bio: true }
+  certificates:      { bio: true }
 
   price:             2.99
   weight:            250
@@ -566,7 +566,7 @@ Champ N:
 Chick R Bio:
 
   vendor:            Rewe
-  properties:        { bio: true }
+  certificates:      { bio: true }
 
   price:             0.99  # 0.85 2024-03-23
   weight:            215
@@ -618,7 +618,7 @@ Chili vegan:
   vendor:            Rewe
 
   acceptable:        less
-  properties:        { NutriScore: A }
+  certificates:      { NutriScore: A }
   ingredients:       "Bohnen 31%, Wasser, Tomatenmark, Tomaten, Paprika, Mais, Zwiebeln, texturiertes SOJAPROTEIN 3%, Rapsöl, Speisesalz, Gewürze, Zucker, modifizierte Stärke, Verdickungsmittel (Guarkernmehl), färbendes Lebensmittel (Paprikaextrakt), WEIZENMEHL"
 
   price:             1.89
@@ -717,7 +717,7 @@ Donuts mini A:
 
   vendor:            Aldi
   acceptable:        less
-  properties:        { NutriScore: E }
+  certificates:      { NutriScore: E }
 
   price:             2.19
   weight:            162
@@ -765,7 +765,7 @@ Durchstarter:
 
   productName:       "Durchstarter Gut & Günstig"
   vendor:            Edeka
-  properties:        { NutriScore: B }
+  certificates:      { NutriScore: B }
 
   price:             2.99
   weight:            200
@@ -838,7 +838,7 @@ Espresso Stick:
 
   vendor:            Denns
   acceptable:        less
-  properties:        { bio: true }
+  certificates:      { bio: true }
   ingredients:       "Zucker* (Rohrzucker*, Vollrohrzucker*), Kakaomasse*, Kakaobutter*, HASELNÜSSE*, Sonnenblumenöl*, Kaffeepulver*(5,00%), Kakaopulver*, VOLLMILCHPULVER*, BUTTERREINFETT*, Emulgator Sonnenblumenlecithin*, Bourbon Vanille"
 
   price:             0.99
@@ -938,7 +938,7 @@ Flatbr Sandwich:
   productName:       "Flatbread Sandwich Vollkorn"
   vendor:            Aldi
   acceptable:        less
-  properties:        { NutriScore: A }
+  certificates:      { NutriScore: A }
   ingredients:       ""
 
   price:             1.39
@@ -968,7 +968,7 @@ Frischk R Bio:
   url:               "https://shop.rewe.de/p/rewe-bio-koerniger-frischkaese-200g/1906432"
 
   acceptable:        occasionally
-  properties:        { bio: true, NutriScore: B }
+  certificates:      { bio: true, NutriScore: B }
 
   price:             
   weight:            200
@@ -995,7 +995,7 @@ Frischk R Bio 2:
   url:               "https://shop.rewe.de/p/rewe-bio-frischkaese-doppelrahmstufe-175g/200397"
 
   acceptable:        less
-  properties:        { bio: true, NutriScore: D }
+  certificates:      { bio: true, NutriScore: D }
   ingredients:       "MILCH*, Speisesalz, MILCHsäurekulturen, mikrobielles"
   allergy:           "Milch und Milcherzeugnisse (einschließlich Lactose)"              
 
@@ -1120,7 +1120,7 @@ Geb Bohnen:
 
   vendor:            Rewe
   acceptable:        less
-  properties:        { NutriScore: A }
+  certificates:      { NutriScore: A }
   ingredients:       "Bohnen 51%, Wasser, Tomatenmark dreifach konzentriert 4,6%, Zucker, modifizierte Maisstärke, Salz, Weißweinessig, Zwiebelpulver, Paprikapulver, Rapsöl, Gewürzextrakte, natürliche Aromen"
 
   price:             1.39
@@ -1147,7 +1147,7 @@ Gemüse A Bio Ital:
   productName:       "Mediterane Art"
   vendor:            Aldi
   url:               "https://www.aldi-nord.de/produkt/bio-gemuesepfanne-4398-0-0.article.html"
-  properties:        { bio: true }
+  certificates:      { bio: true }
 
   price:             2.49
   weight:            600
@@ -1172,7 +1172,7 @@ Gemüse A Bio Sommer:
   productName:       "Gemüsepfanne Sommergenuss"
   vendor:            Aldi
   url:               "https://www.aldi-nord.de/produkt/bio-gemuesepfanne-4398-0-0.article.html"
-  properties:        { bio: true }
+  certificates:      { bio: true }
 
   price:             2.49
   weight:            600
@@ -1198,7 +1198,7 @@ Gemüse R:
   url:               "https://shop.rewe.de/p/rewe-beste-wahl-italienisches-pfannengemuese-500g/7075825"
   
   acceptable:        occasionally
-  properties:        { NutriScore: A }
+  certificates:      { NutriScore: A }
   ingredients:       "92 % (Brechbohnen, gegrillte Zucchini, rote Paprika, gelbe Paprika, vorgebackene Zwiebel (Zwiebel, Sonnenblumenöl)), Wasser, Speisesalz, Tomatenpüree, Zucker, Rapsöl, Olivenöl, Gemüsebrühe (Speisesalz, Glukosesirup, Gemüsepulver (Zwiebeln, Karotten, Tomaten), Zucker, Sonnenblumenöl, Gewürze), Gewürze, Petersilie, Glukosesirup, Champignonpulver, Karottenpulver, Reisstärke"
 
   price:             1.99
@@ -1223,7 +1223,7 @@ Gemüse R Bio:
 
   vendor:            Rewe
   url:               "https://shop.rewe.de/p/rewe-bio-gemuesepfanne-mediterrane-art-450g/7321580"
-  properties:        { bio: true, NutriScore: A }
+  certificates:      { bio: true, NutriScore: A }
   ingredients:       "Gemüsemischung 91% (Zucchini* 25%, Broccoli* 20%, Karotten* 15%, gelbe Karotten* 13%, Cherrytomaten* 12%, Zwiebeln*), Kräuter (Basilikum*, Oregano*), BUTTER*, Meersalz, Sonnenblumenöl*, Stärke*, Honig*, Gewürze*, Olivenöl*"
 
   price:             1.99
@@ -1397,7 +1397,7 @@ Kartoffel Wedges Bio:
 
   vendor:            Rewe
   acceptable:        occasionally
-  properties:        { bio: true, NutriScore: A }
+  certificates:      { bio: true, NutriScore: A }
   ingredients:       "Kartoffeln 96,5%, Sonnenblumenöl"
 
   price:             2.69
@@ -1523,7 +1523,7 @@ Lindt caramel:
 Linsen R Bio:
 
   vendor:            Rewe
-  properties:        { bio: true }
+  certificates:      { bio: true }
 
   price:             1.39
   weight:            260
@@ -1595,7 +1595,7 @@ Lyoner R Bio:
 
   vendor:            Rewe
   acceptable:        less
-  properties:        { bio: true }
+  certificates:      { bio: true }
 
   price:             1.39
   weight:            70
@@ -1640,7 +1640,7 @@ Mandel N:
 Mandel R Bio:
 
   vendor:            Rewe
-  properties:        { bio: true }
+  certificates:      { bio: true }
 
   price:             2.29 # 2024-03-30 2.89
   weight:            200
@@ -1741,7 +1741,7 @@ Nussmisch A:      # big pack
 
   productName:       "Feinste Nussvariationen"
   vendor:            Aldi
-  properties:        { NutriScore: A }
+  certificates:      { NutriScore: A }
 
   price:             2.79
   weight:            200
@@ -1872,7 +1872,7 @@ Nussmisch N old:
 Oliven R Bio:
 
   vendor:            Rewe
-  properties:        { bio: true }
+  certificates:      { bio: true }
 
   price:             1.89
   weight:            180
@@ -1967,7 +1967,7 @@ Pfannegem A Ital:
 
   vendor:            Aldi
   url:               "https://www.aldi-nord.de/produkt/pfannengemuese-6986-0-0.article.html"
-  properties:        { NutriScore: A }
+  certificates:      { NutriScore: A }
 
   price:             1.99
   weight:            750
@@ -2114,7 +2114,7 @@ Pommes R Bio:
 
   vendor:            Rewe
   acceptable:        occasionally
-  properties:        { bio: true }
+  certificates:      { bio: true }
   ingredients:       "Kartoffeln 96%, Sonnenblumenöl"
 
   price:             2.49
@@ -2139,7 +2139,7 @@ Pumpernickel R Bio:
 
   vendor:            Rewe
   acceptable:        occasionally
-  properties:        { bio: true }
+  certificates:      { bio: true }
 
   price:             1.09
   weight:            250
@@ -2360,7 +2360,7 @@ Salami R Wilt (Innens):
   productName:       "Bio Geflügel-Salami mit Pflanzenfett"
   vendor:            Rewe
   acceptable:        less
-  properties:        { bio: true }
+  certificates:      { bio: true }
   ingredients:       "Hähnchen, Pute, Palmfett, Meersalz, Traubenzucker, Gewürze, Antiox: Natriumascorbat, Konserv: Natriumnitrit, Reifekulturen, Buchenholzrauch"
 
   price:             2.79  # TASK: Aldi 2.19 2024-06-08
@@ -2385,7 +2385,7 @@ Sardine:
   vendor:            Norma
   acceptable:        occasionally
   comment:           "careful cause of mercury"
-  properties:        { NutriScore: B }
+  certificates:      { NutriScore: B }
   ingredients:       "Sonnenblumenöl, Salz"
 
   price:             0.99
@@ -2411,7 +2411,7 @@ Seelachs N:
 
   vendor:            Norma
   url:               "https://www.norma-online.de/de/sortiment/transparente-fischerei-t-184/alaska-seelachs-i-264"
-  properties:        { NutriScore: A }
+  certificates:      { NutriScore: A }
 
   cookingInstructions: ">= 12 min"
 
@@ -2438,7 +2438,7 @@ Süßk Pommes:
 
   vendor:            Rewe
   url:               "https://shop.rewe.de/p/rewe-beste-wahl-suesskartoffel-pommes-500g/7057887?sv1=affiliate&sv_campaign_id=101248&awc=11652_1720180225_9ab4aad1d3be21d98d349a5974995cf4&ecid=aff_awin_101248_takeads.com_0_nn_nn_nn_pm01&zanpid=11652_1720180225_9ab4aad1d3be21d98d349a5974995cf4"
-  properties:        { NutriScore: B }
+  certificates:      { NutriScore: B }
   ingredients:       "Süßkartoffeln 89%, Sonnenblumenöl, Würzung 4% (modifizierte Stärke, Reismehl, Dextrin, Speisesalz, Gewürze (Paprika, schwarzer Pfeffer), Knoblauchpulver, Zwiebelpulver, Backtriebmittel (Diphosphate, Natriumcarbonate), Verdickungsmittel (Xanthan), Paprikaextrakt)"
 
   price:             2.69
@@ -2463,7 +2463,7 @@ Thunfisch N:
 
   vendor:            Norma
   acceptable:        occasionally
-  properties:        { NutriScore: B }
+  certificates:      { NutriScore: B }
   comment:           "may contain mercury"
 
   price:             1.49
@@ -2489,7 +2489,7 @@ Toasties R Bio:
   vendor:            Rewe
   url:               "https://shop.rewe.de/p/rewe-bio-finn-toasties-260g/8061857?sv1=affiliate&sv_campaign_id=101248&awc=11652_1720030488_a4823a6b0726daf8b301522bca051f27&ecid=aff_awin_101248_takeads.com_0_nn_nn_nn_pm01&zanpid=11652_1720030488_a4823a6b0726daf8b301522bca051f27"
   acceptable:        occasionally
-  properties:        { bio: true, NutriScore: A }
+  certificates:      { bio: true, NutriScore: A }
   ingredients:       "Wasser, WEIZENMEHL*, ROGGENMEHL*, Roggengrütze*, ROGGENFLOCKEN*, Weizengrütze*, Zucker*, Kartoffelflocken*, Meersalz 1,1%, GERSTENMALZMEHL*, WEIZENGLUTEN*, Hefe"
   allergy:           "Glutenhaltiges Getreide (Weizen, Gerste, Roggen, Hafer, Dinkel, Kamut oder Hybridstämme)"              
 
@@ -2516,7 +2516,7 @@ Tofu N:
 
   vendor:            Norma
   url:               "https://www.norma-online.de/at/sortiment/bio-sonne-t-181/vegane-bio-spezialitaeten-i-403"
-  properties:        { NutriScore: A, oekotest: 1 }
+  certificates:      { NutriScore: A, oekotest: 1 }
 
   price:             2.19
   weight:            400
@@ -2564,7 +2564,7 @@ Vollkorn Rhein R:
 Walnuss R Bio:
 
   vendor:            Rewe
-  properties:        { bio: true }
+  certificates:      { bio: true }
 
   price:             2.99
   weight:            200

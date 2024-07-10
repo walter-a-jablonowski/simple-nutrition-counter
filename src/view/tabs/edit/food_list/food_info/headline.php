@@ -37,17 +37,17 @@ $data = $this->model->get("foods.$foodName");
     <?= self::iif( $data['acceptable'] == 'less', 'less good', 'occasionally') ?>
   </span>
 <?php endif; ?>
-<span class="badge bg-<?= self::iif( ! empty($data['properties']['bio']), 'success', 'secondary') ?>">
-  <?= self::iif( ! empty($data['properties']['bio']), 'bio', '<s>bio</s>') ?>  <!-- TASK: non working -->
+<span class="badge bg-<?= self::iif( ! empty($data['certificates']['bio']), 'success', 'secondary') ?>">
+  <?= self::iif( ! empty($data['certificates']['bio']), 'bio', '<s>bio</s>') ?>  <!-- TASK: non working -->
 </span>
-<span class="badge bg-<?= self::iif( ! empty($data['properties']['vegan']), 'success', 'secondary') ?>">
-  <?= self::iif( ! empty($data['properties']['vegan']), 'vegan', '<s>vegan</s>') ?>
+<span class="badge bg-<?= self::iif( ! empty($data['certificates']['vegan']), 'success', 'secondary') ?>">
+  <?= self::iif( ! empty($data['certificates']['vegan']), 'vegan', '<s>vegan</s>') ?>
 </span>
-<?php if( ! empty($data['properties']['oekotest'])): ?>
-  <span class="badge bg-info">oekotest: <?= $data['properties']['oekotest'] ?></span>
+<?php if( ! empty($data['certificates']['oekotest'])): ?>
+  <span class="badge bg-info">oekotest: <?= $data['certificates']['oekotest'] ?></span>
 <?php endif; ?>
-<?php if( ! empty($data['properties']['NutriScore'])): ?>
-  <span class="badge bg-info">NutriScore: <?= $data['properties']['NutriScore'] ?></span>
+<?php if( ! empty($data['certificates']['NutriScore'])): ?>
+  <span class="badge bg-info">NutriScore: <?= $data['certificates']['NutriScore'] ?></span>
 <?php endif; ?>
 
 <!-- High fat ... -->

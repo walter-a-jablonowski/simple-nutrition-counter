@@ -86,7 +86,7 @@ My food S Bio:                           # (required) display name (also used as
 
   acceptable:         less|occasionally  # highlight less good foods in UI
   comment:            "My comment"       # all misc comments (we can use html here)
-  properties:         { bio: true, vegan: true, NutriScore: A, oekotest: 1 }  # misc attributes
+  certificates:       { bio: true, vegan: true, NutriScore: A, oekotest: 1 }  # misc attributes
   ingredients:        "..."              # ingredients that you want to be aware of
   allergy:            "..."              
   mayContain:         "..."
