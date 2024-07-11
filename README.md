@@ -97,6 +97,7 @@ Currently I am saving time for different projects by skipping features that I do
 necessarily need as a single user.
 
 - All multi user function like login, session, settings ...
+  - a simplified version is in development where you add a new user just by adding a file sys folder
 - Forms for editing all the data (can be done im yml)
 - Advanced features like importing food data via smartphone cam and AI (most likely
   this would cost fees)

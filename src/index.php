@@ -13,6 +13,8 @@ require_once 'controller.php';
 
 config::instance( new SimpleData( Yaml::parse( file_get_contents('config.yml'))));
 
+session_start();
+
 // Current simple solution #code/routing
 
 $isAjax = ! empty( $_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower( $_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';

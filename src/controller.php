@@ -16,6 +16,8 @@ class FoodsController extends ControllerBase
   use SaveFoodsAjaxController;
 
   protected SimpleData $config;
+  protected string     $user;
+  protected array      $users;
   protected bool       $devMode;  // TASK: rm
 
   protected SimpleData $settings;
@@ -47,8 +49,16 @@ class FoodsController extends ControllerBase
   private function makeData()  /*@*/
   {
     $config = $this->config = config::instance();
+    $this->devMode = $config->get('devMode');  // TASK: just use config in view
 
-    $this->devMode    = $config->get('devMode');  // TASK: just use config in view
+    // TASK: simple version of user mngm (mov in index ?)
+
+    $this->users = array_filter( scandir('data/users'),
+      fn($fil) => is_dir("data/users/$fil") && ! in_array( $fil, ['.', '..'])
+    );
+
+    $this->user = $_SESSION['user'] ?? 'single_user';
+
     $this->layout     = parse_attribs('@attribs', ['short', '(i)'], Yaml::parse( file_get_contents('data/bundles/Veggie_DESouth_1/layout.yml')));
     $this->inlineHelp = new SimpleData( Yaml::parse( file_get_contents('misc/inline_help.yml')));
 
