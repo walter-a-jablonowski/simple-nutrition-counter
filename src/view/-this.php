@@ -43,7 +43,7 @@ else:
 
         <div class="text-white">  <!-- removed navbar-brand padding and stuff only -->
 
-          <i class="bi bi-egg-fried"></i>  <!-- some app logo -->
+          <i class="bi bi-app"></i>  <!-- some app logo -->
 
           <select id="userSelect" class="bg-transparent border-0 text-white">
             <?php foreach( $this->users as $user => $name ): ?>
