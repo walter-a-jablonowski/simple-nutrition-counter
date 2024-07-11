@@ -41,7 +41,7 @@ else:
 -->
         <!-- Simplified -->
 
-        <div class="text-white">
+        <div class="text-white">  <!-- removed navbar-brand padding and stuff only -->
 
           <i class="bi bi-egg-fried"></i>  <!-- some app logo -->
 
