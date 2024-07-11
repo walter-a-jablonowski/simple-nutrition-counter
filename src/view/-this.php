@@ -42,7 +42,14 @@ else:
         <!-- Simplified -->
 
         <div>
-          <a class="navbar-brand text-white" href="#"><?= $this->userName ?></a>
+
+          <select id="userSelect" class="navbar-brand bg-transparent border-0 text-white">
+            <?php foreach( $this->users as $user => $name ): ?>
+              <option value="<?= $user ?>"<?= self::iif( $user == $this->user, ' selected') ?>>
+                <?= $name ?>
+              </option>
+            <?php endforeach; ?>
+          </select>
 
           <button onclick="foodsCrl.lastDayBtnClick(event)"
             data-sel = "<?= $this->mode ?>"

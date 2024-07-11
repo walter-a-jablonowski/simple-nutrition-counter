@@ -17,7 +17,7 @@ class FoodsController extends ControllerBase
 
   protected SimpleData $config;
   protected string     $user;
-  protected array      $users;
+  protected array      $users = [];
   protected bool       $devMode;  // TASK: rm
 
   protected SimpleData $settings;
@@ -53,9 +53,12 @@ class FoodsController extends ControllerBase
 
     // TASK: simple version of user mngm (mov in index ?)
 
-    $this->users = array_filter( scandir('data/users'),
+    $users = array_filter( scandir('data/users'),
       fn($fil) => is_dir("data/users/$fil") && ! in_array( $fil, ['.', '..'])
     );
+
+    foreach( $users as $user )
+      $this->users[$user] = Yaml::parse( file_get_contents("data/users/$user/-this.yml"))['name'];
 
     $this->user = $_SESSION['user'] ?? 'single_user';
     $this->userName = Yaml::parse( file_get_contents('data/users/' . $this->user . '/-this.yml'))['name'];
