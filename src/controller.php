@@ -58,6 +58,7 @@ class FoodsController extends ControllerBase
     );
 
     $this->user = $_SESSION['user'] ?? 'single_user';
+    $this->userName = Yaml::parse( file_get_contents('data/users/' . $this->user . '/-this.yml'))['name'];
 
     $this->layout     = parse_attribs('@attribs', ['short', '(i)'], Yaml::parse( file_get_contents('data/bundles/Veggie_DESouth_1/layout.yml')));
     $this->inlineHelp = new SimpleData( Yaml::parse( file_get_contents('misc/inline_help.yml')));

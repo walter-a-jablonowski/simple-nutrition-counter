@@ -42,7 +42,7 @@ else:
         <!-- Simplified -->
 
         <div>
-          <a class="navbar-brand text-white" href="#">Nutri Counter</a>
+          <a class="navbar-brand text-white" href="#"><?= $this->userName ?></a>
 
           <button onclick="foodsCrl.lastDayBtnClick(event)"
             data-sel = "<?= $this->mode ?>"

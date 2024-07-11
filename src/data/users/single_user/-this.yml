@@ -1,4 +1,6 @@
 
-name: single_user  # special user
-mail: single_user
-id:   1
+# id is folder name
+# single user is a default special user
+
+name: Single user  # display name
+mail: 
