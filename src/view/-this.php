@@ -55,7 +55,7 @@ else:
 
           <button onclick="foodsCrl.lastDayBtnClick(event)"
             data-sel = "<?= $this->mode ?>"
-            class    = "btn btn-sm btn-secondary mb-1"
+            class    = "btn btn-sm ms-1 mb-1 text-white p-1 py-0 border-light"
           >
             <?php
               $weekdays = ['Mon' => 'Mo', 'Tue' => 'Tu', 'Wed' => 'We', 'Thu' => 'Th', 'Fri' => 'Fr', 'Sat' => 'Sa', 'Sun' => 'Su'];
@@ -65,10 +65,10 @@ else:
           </button>
         </div>
         <div>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tipsModal">
+          <button data-bs-toggle="modal" data-bs-target="#tipsModal" class="btn btn-sm text-white" type="button">
             <i class="bi bi-info-circle icon-circle"></i>
           </button>
-          <button id="settingsBtn" onclick="foodsCrl.settingsBtnClick(event)" type="button" class="btn btn-sm">
+          <button id="settingsBtn" onclick="foodsCrl.settingsBtnClick(event)" class="btn btn-sm" type="button">
             <i class="bi bi-gear-fill text-white"></i>
           </button>
         </div>
