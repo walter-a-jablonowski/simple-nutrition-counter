@@ -41,9 +41,11 @@ else:
 -->
         <!-- Simplified -->
 
-        <div>
+        <div class="text-white">
 
-          <select id="userSelect" class="navbar-brand bg-transparent border-0 text-white">
+          <i class="bi bi-egg-fried"></i>  <!-- some app logo -->
+
+          <select id="userSelect" class="bg-transparent border-0 text-white">
             <?php foreach( $this->users as $user => $name ): ?>
               <option value="<?= $user ?>"<?= self::iif( $user == $this->user, ' selected') ?>>
                 <?= $name ?>
