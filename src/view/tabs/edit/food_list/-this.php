@@ -1,6 +1,6 @@
 <div id="foodList" class="row">
 
-  <span id="uiMsg"></span>  <!-- TASK: mov -->
+  <span id="uiMsg"></span>  <!-- TASK: mov somewhere outside tab or one msg per tab -->
 
   <!-- TASK: add a collapse expand all (single btn) -->
 
