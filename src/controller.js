@@ -6,6 +6,7 @@ class FoodsEventController
 
     // Binding
 
+    this.userSelectChange       = this.userSelectChange.bind(this)
     this.lastDayBtnClick        = this.lastDayBtnClick.bind(this)
     // this.nextDayBtnClick     = this.nextDayBtnClick.bind(this)
     // this.thisDayBtnClick     = this.thisDayBtnClick.bind(this)
@@ -87,6 +88,20 @@ class FoodsEventController
     // })
     //    
     // $('#dayEntries').disableSelection()
+  }
+
+
+  // Change user
+
+  userSelectChange(event)
+  {
+    ajax.send('changeUser', { user: event.target.value }, function( result, data ) {
+
+      if( result === 'success')
+        query('#foodsUIMsg').innerHTML = 'Saved'
+      else
+        query('#foodsUIMsg').innerHTML = result.message
+    })
   }
 
 
