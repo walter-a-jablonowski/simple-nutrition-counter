@@ -1,13 +1,3 @@
-<ul class="list-group">
-  <li class="list-group-item px-1" onclick="" style="cursor: pointer;">
-    <div class="row">
-      <label for="userSelect" class="col-sm-2 col-form-label fw-bold">User</label>
-      <div class="col-sm-10 col-md-3">
-      </div>
-    </div>
-  </li>
-</ul>
-
 <?php if( $this->devMode ): ?>
   <ul class="list-group">
     <li class="list-group-item px-1">
