@@ -41,7 +41,7 @@ else:
 -->
         <!-- Simplified -->
 
-        <div class="text-white">  <!-- removed navbar-brand padding and stuff only -->
+        <div class="navbar-brand text-white">  <!-- div for flex align -->
 
           <i class="bi bi-app"></i>  <!-- some app logo -->
 
@@ -64,11 +64,12 @@ else:
             <?= self::iif( $this->mode === 'current', $day, "-1 day") ?>
           </button>
         </div>
-        <div>
-          <button data-bs-toggle="modal" data-bs-target="#tipsModal" class="btn btn-sm text-white" type="button">
+        
+        <div class="navbar-brand me-1">   <!-- div for flex align, currently just added a sec navbar-brand and mb for same paddings -->
+          <button data-bs-toggle="modal" data-bs-target="#tipsModal" class="btn btn-sm mb-1 text-white" type="button">
             <i class="bi bi-info-circle icon-circle"></i>
           </button>
-          <button id="settingsBtn" onclick="foodsCrl.settingsBtnClick(event)" class="btn btn-sm" type="button">
+          <button id="settingsBtn" onclick="foodsCrl.settingsBtnClick(event)" class="btn btn-sm mb-1" type="button">
             <i class="bi bi-gear-fill text-white"></i>
           </button>
         </div>
