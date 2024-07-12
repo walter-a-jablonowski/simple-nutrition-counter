@@ -12,7 +12,7 @@ class FoodsEventController
     // this.thisDayBtnClick     = this.thisDayBtnClick.bind(this)
     this.saveDayEntriesBtnClick = this.saveDayEntriesBtnClick.bind(this)
     this.foodItemClick          = this.foodItemClick.bind(this)
-    this.saveFoodsBtnClick      = this.saveFoodsBtnClick.bind(this)
+    // this.saveFoodsBtnClick   = this.saveFoodsBtnClick.bind(this)
     this.updSummary             = this.updSummary.bind(this)
     // this.#saveDayEntries     = this.#saveDayEntries.bind(this)  // TASK: can't be done
 
@@ -272,16 +272,19 @@ class FoodsEventController
     this.#addDayEntry( entry )
   }
 
-  saveFoodsBtnClick(event)
-  {
-    ajax.send('saveFoods', { data: query('#foods').value }, function( result, data ) {
 
-      if( result === 'success')
-        query('#foodsUIMsg').innerHTML = 'Saved'
-      else
-        query('#foodsUIMsg').innerHTML = result.message
-    })
-  }
+  // Save foods (yml) unused
+
+  // saveFoodsBtnClick(event)
+  // {
+  //   ajax.send('saveFoods', { data: query('#foods').value }, function( result, data ) {
+  //
+  //     if( result === 'success')
+  //       query('#foodsUIMsg').innerHTML = 'Saved'
+  //     else
+  //       query('#foodsUIMsg').innerHTML = result.message
+  //   })
+  // }
 
 
   // Helper
