@@ -13,12 +13,13 @@ require_once 'lib/helper.php';
 class FoodsController extends ControllerBase
 {
   use SaveDayEntriesAjaxController;
-  use SaveFoodsAjaxController;
+  // use SaveFoodsAjaxController;  // unused
+  use ChangeUserAjaxController;
 
   protected SimpleData $config;
   protected string     $user;
   protected array      $users = [];
-  protected bool       $devMode;  // TASK: rm
+  protected bool       $devMode;   // TASK: rm
 
   protected SimpleData $settings;
   protected string     $mode;
@@ -60,7 +61,8 @@ class FoodsController extends ControllerBase
     foreach( $users as $user )
       $this->users[$user] = Yaml::parse( file_get_contents("data/users/$user/-this.yml"))['name'];
 
-    $this->user = $_SESSION['user'] ?? 'single_user';
+    $_SESSION['user'] = $_SESSION['user'] ?? 'single_user';
+    $this->user = $_SESSION['user'];
     $this->userName = Yaml::parse( file_get_contents('data/users/' . $this->user . '/-this.yml'))['name'];
 
     $this->layout     = parse_attribs('@attribs', ['short', '(i)'], Yaml::parse( file_get_contents('data/bundles/Veggie_DESouth_1/layout.yml')));

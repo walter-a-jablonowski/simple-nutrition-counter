@@ -98,9 +98,8 @@ class FoodsEventController
     ajax.send('changeUser', { user: event.target.value }, function( result, data ) {
 
       if( result === 'success')
-        query('#foodsUIMsg').innerHTML = 'Saved'
-      else
-        query('#foodsUIMsg').innerHTML = result.message
+        window.location.reload()
+      // else
     })
   }
 
