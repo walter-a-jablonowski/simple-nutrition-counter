@@ -92,6 +92,8 @@ My food S Bio:                           # (required) display name (also used as
   mayContain:         "..."
   origin:             "n/a"              # country of origin, if you want to be aware of
                                          #   n/a = information unavailable
+  packaging:          "plastic,...|..."
+
   cookingInstructions: |                 # (we can use html here)
 
     First ...
