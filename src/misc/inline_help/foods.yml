@@ -7,29 +7,40 @@
 (main_key):          "(required) Display name like \"My food S Bio\",
                       also used as id, S = short for store if needed (save some space)"
 
-removed:
+# TASK: improved version for UI
+#   
+#   sample: true|false (non required)
+#   some usage ...
 
-  # TASK: improved version for UI
-  #   
-  #   sample: true|false (non required)
-  #   some usage ...
+# TASK: MOV advanced: design for verification, some fields missing
 
-  required: false
-  type:     "bool"
-  usage:    "hide in UI (unused food), currently no function (just rm in layout)"
+# url:                 { usage: "Single or multiple urls, first will be used as primary if multiple",
+#                          required: false, type: "string|array(string)", string: {format: "url"}, array(string): {format: "url"}}
+# acceptable:          { usage: "Highlights less good foods in UI",
+#                          required: false, type: "string(array)", allowed: "less|occasionally" }
+# certificates:        { usage: "like { bio: true, vegan: true, NutriScore: A, oekotest: 1 }",
+#                          required: false, type: "obj", obj: { bio: "bool", vegan: "bool", NutriScore: {type: "string", format: "A-F"}, oekotest: {type: "int", format: "1-6"} }}
+# origin:              { usage: "Country of origin, if you want to be aware of",
+#                          required: false, type: "string", allowed: "country|n/a" }
+# packaging:           { usage: "",
+#                          required: false, type: "obj", obj: {inner: {type: "string(array)", allowed: "plastic,..."}, outer: {type: "string(array)", allowed: "plastic,..."}}}
 
-productName:         "Precise product name"
-vendor:              "Vendor name"
-url:                 "Single or multiple urls (string|array), first will be used as primary if multiple"
+removed:             { usage: "hide in UI (unused food), currently no function (just rm in layout)",
+                         required: false, type: "bool"}
 
-acceptable:          "less|occasionally, highlight less good foods in UI"
-comment:             "All misc comments (we can use html here)"
-certificates:        "like { bio: true, vegan: true, NutriScore: A, oekotest: 1 }"
-ingredients:         "Ingredients that you want to be aware of"
-allergy:             "Ingredients that may cause allergy"
-mayContain:          "Ingredients that may be contained cause of production"
-origin:              "Country of origin or n/a, if you want to be aware of"
-packaging:           "plastic,...|..."
+productName:         { usage: "Precise product name", required: false, type: "string" }
+vendor:              { usage: "Vendor name",          required: false, type: "string" }
+url:                 { usage: "Single or multiple urls, first will be used as primary if multiple",
+                         required: false, type: "string|array(string)" }
+
+acceptable:          { usage: "Highlights less good foods in UI",         required: false, type: "string" }
+comment:             { usage: "All misc comments (we can use html here)", required: false, type: "string" }
+certificates:        { usage: "like { bio: true, vegan: true, NutriScore: A, oekotest: 1 }", required: false, type: "obj" }
+ingredients:         { usage: "Ingredients that you want to be aware of", required: false, type: "string" }
+allergy:             { usage: "Ingredients that may cause allergy",       required: false, type: "string" }
+mayContain:          { usage: "Ingredients that may be contained cause of production", required: false, type: "string" }
+origin:              { usage: "Country of origin, if you want to be aware of", required: false, type: "string" }
+packaging:           { usage: "", required: false, type: "obj" }
 
 cookingInstructions: "We can use html here or multi line using yml syntax"
 
