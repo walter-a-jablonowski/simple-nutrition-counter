@@ -6,7 +6,8 @@ use Symfony\Component\Yaml\Exception\ParseException;
 require_once 'lib/SimpleData_240317/SimpleData.php';
 require_once 'lib/Controller_240323/ControllerBase.php';
 require_once 'ajax/save_day_entries.php';
-require_once 'ajax/save_foods.php';
+// require_once 'ajax/save_foods.php';  // unused
+require_once 'ajax/change_user.php';
 require_once 'lib/helper.php';
 
 
