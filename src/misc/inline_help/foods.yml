@@ -28,7 +28,7 @@ certificates:        { usage: "like { bio: true, vegan: true, NutriScore: A, oek
 ingredients:         { usage: "Ingredients that you want to be aware of", required: false, type: "string" }
 allergy:             { usage: "Ingredients that may cause allergy",       required: false, type: "string" }
 mayContain:          { usage: "Ingredients that may be contained cause of production", required: false, type: "string" }
-origin:              { usage: "Country of origin, if you want to be aware of", required: false, type: "string" }
+origin:              { usage: "Country of origin or n/a, if you want to be aware of", required: false, type: "string" }
 packaging:           { usage: "", required: false, type: "obj" }
 
 cookingInstructions: "We can use html here or multi line using yml syntax"
