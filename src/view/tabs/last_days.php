@@ -1,3 +1,16 @@
+<div class="row ps-2 mb-2">
+  <div class="col-12 d-flex justify-content-between">
+    <div class="fw-bold">Price avg</div>
+    <div>
+      <?= number_format( $this->priceAvg, 2) ?>
+      <?= $this->settings->get('currencySymbol') ?>
+    </div>
+  </div>
+  <div class="col-12 d-flex justify-content-between">
+    <div class="fw-bold">Week avg</div>
+    <div>(maybe)</div>
+  </div>
+</div>
 <div class="row ps-2 mb-2 small">
   <div class="col-2 fw-bold">kcal</div>
   <div class="col-2 fw-bold">Carbs</div>

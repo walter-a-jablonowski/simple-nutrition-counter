@@ -31,6 +31,7 @@ class FoodsController extends ControllerBase
   protected array      $dayEntries;
   // protected string  $foodsTxt;   // old
   protected array      $lastDaysSums;
+  protected float      $priceAvg;
 
   protected array      $layout;
   protected array      $captions = [];
@@ -202,10 +203,14 @@ class FoodsController extends ControllerBase
     // All days tab
     // no model data, kind of report
 
+    $priceSumAll = 0; $days = 0;
+    
     foreach( scandir('data/users/' . $config->get('user') . '/days', SCANDIR_SORT_DESCENDING) as $file)
     {
       if( pathinfo($file, PATHINFO_EXTENSION) !== 'tsv')
         continue;
+      
+      $days++;
 
       $dat     = pathinfo($file, PATHINFO_FILENAME);
       $entries = parse_tsv( file_get_contents('data/users/' . $config->get('user') . "/days/$file"));
@@ -221,7 +226,11 @@ class FoodsController extends ControllerBase
         'saltSum'     => ! $entries ? 0 : array_sum( array_column($entries, 5)),
         'priceSum'    => ! $entries ? 0 : array_sum( array_column($entries, 6))
       ];
+  
+      $priceSumAll += ! $entries ? 0 : array_sum( array_column($entries, 6));
     }
+    
+    $this->priceAvg = ! $priceSumAll ? 0.0 : $priceSumAll / $days;
   }
 
 
