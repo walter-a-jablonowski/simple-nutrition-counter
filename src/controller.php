@@ -18,11 +18,11 @@ class FoodsController extends ControllerBase
   use ChangeUserAjaxController;
 
   protected SimpleData $config;
+  protected SimpleData $settings;
   protected string     $user;
   protected array      $users = [];
   protected bool       $devMode;   // TASK: rm
 
-  protected SimpleData $settings;
   protected string     $mode;
   protected string     $date;
 
@@ -54,6 +54,9 @@ class FoodsController extends ControllerBase
     $config = $this->config = config::instance();
     $this->devMode = $config->get('devMode');  // TASK: just use config in view
 
+    // TASK: move settings?
+    $this->settings = new SimpleData( $config->get('defaultSettings'));  // TASK: (advanced) merge user settings
+
     // TASK: simple version of user mngm (mov in index ?)
 
     $users = array_filter( scandir('data/users'),
@@ -68,10 +71,9 @@ class FoodsController extends ControllerBase
     $this->userName = Yaml::parse( file_get_contents('data/users/' . $this->user . '/-this.yml'))['name'];
 
     $this->layout     = parse_attribs('@attribs', ['short', '(i)'], Yaml::parse( file_get_contents('data/bundles/Veggie_DESouth_1/layout.yml')));
-    $this->inlineHelp = new SimpleData( Yaml::parse( file_get_contents('misc/inline_help/app.yml')));
-
-    // TASK: move settings?
-    $this->settings   = new SimpleData( $config->get('defaultSettings'));  // TASK: (advanced) merge user settings
+    $this->inlineHelp = new SimpleData();
+    $this->inlineHelp->set('app',   Yaml::parse( file_get_contents('misc/inline_help/app.yml')));
+    $this->inlineHelp->set('foods', Yaml::parse( file_get_contents('misc/inline_help/foods.yml')));
 
     $this->dayEntriesTxt = trim( @file_get_contents('data/users/' . $config->get('user') . "/days/{$this->date}.tsv") ?: '', "\n");
     $this->dayEntries    = parse_tsv( $this->dayEntriesTxt );

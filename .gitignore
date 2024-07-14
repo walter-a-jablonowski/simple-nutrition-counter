@@ -1,6 +1,7 @@
 desktop.ini
 *.ini
 try.php
+try.html
 debug.php
 composer.lock
 vendor/

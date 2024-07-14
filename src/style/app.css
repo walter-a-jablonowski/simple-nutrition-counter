@@ -53,11 +53,11 @@
 
 /* BS */
 
-/*
 .popover-cus {
-  max-width: 400px;
+  /* max-width: 400px; */
+  z-index: 1060;
 }
-*/
+
 
 /* Quick summary val view */
 

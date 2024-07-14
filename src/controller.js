@@ -20,15 +20,38 @@ class FoodsEventController
 
     // BS
 
+    // Manual version (didn't work with modal for some reason)
+/*
     this.popoverTriggerList = query('[data-bs-toggle="popover"]')
-    // popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
     this.popoverList = [...this.popoverTriggerList].map( popoverTriggerEl => new bootstrap.Popover( popoverTriggerEl, {
       html: true
-      // customClass: 'popover-cus'
+      customClass: 'popover-cus'
     }))
-    // popoverList = popoverTriggerList.map( function(popoverTriggerEl) {
+*/
+    // AI Version
+
+    this.popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    this.popoverList = this.popoverTriggerList.map( function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl, {
+        html: true,
+        customClass: 'popover-cus'
+      })
+    })
+
+    // Sample
+    //
+    // <div class="popover popover-cus bs-popover-auto fade show"
+    //      role="tooltip" id="popover653960"
+    //      style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(103.2px, 66.4px, 0px);"
+    //      data-popper-placement="right"
+    // >
+    //   <div class="popover-arrow" style="position: absolute; top: 0px; transform: translate3d(0px, 49.6px, 0px);"></div>
+    //   <div class="popover-body">These seeting are used for calculating the right nutrient amounts</div>
+    // </div>
 
     // if click was outside the popover and its trigger close
+    // TASK: alternative maybe: https://getbootstrap.com/docs/5.3/components/popovers/#dismiss-on-next-click
+    // see also upd in modal below
     
     document.addEventListener('click', function(e) {
     
@@ -38,6 +61,12 @@ class FoodsEventController
           if( popover ) popover.hide()
         })
       }
+    })
+
+    // TASK: maybe also use this (from manual)
+
+    const popover = new bootstrap.Popover('.info-popover', {
+      container: '#infoModal .modal-body'
     })
 
     // Info modal (used for groups and food)
@@ -53,7 +82,16 @@ class FoodsEventController
       else
         modal.querySelector('.modal-title').innerHTML = btn.getAttribute('data-title')
       
-      modal.querySelector('.modal-body').innerHTML  = document.querySelector( btn.getAttribute('data-source')).innerHTML
+      modal.querySelector('.modal-body').innerHTML = document.querySelector( btn.getAttribute('data-source')).innerHTML
+
+      crl.popoverList.forEach( function(popover) {  // upd needed for some reason (by AI)
+        popover.update()
+      })
+      
+      // or
+      // var popover = bootstrap.Popover.getInstance(document.querySelector('[data-bs-toggle="popover"]'))
+      // if( popover )
+      //   popover.update()
     })
 
     // New modal

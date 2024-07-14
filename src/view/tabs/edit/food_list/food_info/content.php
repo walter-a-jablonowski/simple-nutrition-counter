@@ -29,7 +29,17 @@ $nutrientsShort = [
   <tbody>
     <?php if( ! empty($data['ingredients'])): ?>
       <tr>
-        <th>Ingredients</th>
+        <th>
+          <div
+            class           = "info-popover"
+            data-bs-toggle  = "popover"
+            data-bs-content = "<?= htmlspecialchars( $this->inlineHelp->get('foods.ingredients.usage')) ?>"
+            data-bs-trigger = "click"
+          >
+            <!-- data-bs-container = "#infoModal" -->
+            Ingredients
+          </div>
+        </th>
         <td>
           <a data-bs-toggle="collapse" href="#<?= $foodId ?>IngrCollapse" class="text-decoration-none" role="button">
             <span class="text-secondary small">show</span>

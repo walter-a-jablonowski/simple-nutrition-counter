@@ -3,7 +3,7 @@
     <li class="list-group-item px-1">
       <span class="fw-bold">Me</span>
       <button type="button" class="btn btn-sm text-secondary" data-bs-toggle="popover"
-              data-bs-content = "<?= htmlspecialchars( $this->inlineHelp->get('settings.me') ) ?>">
+              data-bs-content = "<?= htmlspecialchars( $this->inlineHelp->get('app.settings.me')) ?>">
         <i class="bi bi-info-circle mt-4"></i>
       </button>
       (advanced feature)
