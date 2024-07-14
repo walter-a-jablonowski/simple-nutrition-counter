@@ -849,7 +849,7 @@ Erdn Salz N big:
 
   price:             2.39
   weight:            500
-  usedAmounts:       ["50g", "100g"]
+  usedAmounts:       ["25g", "50g", "100g"]
 
   calories:          615
   nutritionalValues:
