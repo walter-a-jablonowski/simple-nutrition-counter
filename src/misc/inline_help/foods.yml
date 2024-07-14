@@ -1,0 +1,63 @@
+# My food S Bio
+
+(main_key):          "(required) Display name like \"My food S Bio\",
+                      also used as id, S = short for store if needed (save some space)"
+
+removed:             "false hide in UI (unused food), currently no function, just rm in layout"
+
+productName:         "Precise product name"
+vendor:              "Vendor name"
+url:                 "Single or multiple urls (string|array), first will be used as primary if multiple"
+
+acceptable:          "less|occasionally, highlight less good foods in UI"
+comment:             "All misc comments (we can use html here)"
+certificates:        "like { bio: true, vegan: true, NutriScore: A, oekotest: 1 }"
+ingredients:         "Ingredients that you want to be aware of"
+allergy:             "Ingredients that may cause allergy"
+mayContain:          "Ingredients that may be contained cause of production"
+origin:              "Country of origin or n/a, if you want to be aware of"
+packaging:           "plastic,...|..."
+
+cookingInstructions: "We can use html here or multi line using yml syntax"
+
+price:               "like 1.00 may be null"
+weight:              "(required) like 100g of whole pack in case of pieces, unit g or ml is optional"
+pieces:              "number of pieces in a pack (if any)"
+usedAmounts:         |
+
+  enter fraction, pieces or precise (you can't mix these, chosse one)
+  - default  "1/4", "1/3", 1 * weight            if pieces unset
+  -      or  1, 1pc, 2, 3    * (weight / pieces) if pieces set
+  - or use   10g or 50ml
+  consumed as a single piece: use 1
+
+calories:            "(required) per 100g or 100ml in grams or ml (depends on weight)"
+nutritionalValues:
+
+  fat:               "(required)"
+  saturatedFat:
+  monoUnsaturated:   "a few foods have that data"
+  polyUnsaturated:                   
+  carbs:             "(required)"
+  sugar:             "(required)"
+  sugarAlcohol:                   
+  fibre:        
+  amino:             "(required)"
+  salt:              "(required)"
+
+fattyAcids:          "..."
+
+aminoAcids:          "..."
+
+vitamins:            "..."
+
+minerals:
+
+  calcium:           "same unit as in /nutrients"
+
+secondary:           "secondary plant substances"
+
+sources:             "(required) like { nutriVal: \"web|pack (information on packaging may differ slightly)\", nutrients: \"...\", price: \"...\" }"
+state:               "(required) most|all, added most or all nutritional data"
+lastUpd:             "(required) like 2024-02-18, last upd nutritional data"
+lastPriceUpd:        "like 2024-02-18"

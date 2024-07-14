@@ -72,80 +72,10 @@ see also [readme](../src/data/bundles/README.md)
 Foods file
 ----------------------------------------------------------
 
-Currently we enter the values once in data/foods.yml. Simpler than doing manual calculations (partially used ingredients).
+Currently we enter the values once in data/bundles/BUNDLE/foods.yml. Simpler
+than doing manual calculations (partially used ingredients).
 
-```yaml
-
-My food S Bio:                           # (required) display name (also used as id)
-                                         #   S = short for store if needed (save some space)
-  removed:            false              # hide in UI (unused food): currently no function, just rm in layout (this highlights it in food list)
-  
-  productName:        "..."              # precise product name
-  vendor:             My vendor          
-  url:                string|array       # single or multiple urls (first will be used as primary if multiple)
-
-  acceptable:         less|occasionally  # highlight less good foods in UI
-  comment:            "My comment"       # all misc comments (we can use html here)
-  certificates:       { bio: true, vegan: true, NutriScore: A, oekotest: 1 }  # misc attributes
-  ingredients:        "..."              # ingredients that you want to be aware of
-  allergy:            "..."              
-  mayContain:         "..."
-  origin:             "n/a"              # country of origin, if you want to be aware of
-                                         #   n/a = information unavailable
-  packaging:          "plastic,...|..."
-
-  cookingInstructions: |                 # (we can use html here)
-
-    First ...
-
-  price:              1.00               # may be null
-  weight:             100g               # (required) of whole pack in case of pieces, unit g or ml is optional
-  pieces:             6                  # number of pieces in a pack (if any)
-  usedAmounts:        ["1/4", ...]       # enter fraction, pieces or precise (you can't mix these, chosse one)
-                                         # - default  "1/4", "1/3", 1 * weight            if pieces unset
-                                         # -      or  1, 1pc, 2, 3    * (weight / pieces) if pieces set
-                                         # - or use   10g or 50ml
-                                         # consumed as a single piece: use 1
-
-  calories:                              # (required) per 100g or 100ml in grams or ml (depends on weight)
-  nutritionalValues:                     # (required) usually from food packaging
-
-    fat:              100                # (required)
-    saturatedFat:
-    monoUnsaturated:                     # a few foods have that data
-    polyUnsaturated:                   
-    carbs:                               # (required)
-    sugar:                               # (required)
-    sugarAlcohol:                   
-    fibre:        
-    amino:                               # (required)
-    salt:             1.0                # (required) TASK: technically is a single substance
-
-  fattyAcids:
-
-    # ...
-
-  aminoAcids:
-  
-    # ...
-
-  vitamins:
-
-    # ...
-  
-  minerals:
-
-    calcium:                             # same unit as in /nutrients
-
-  secondary:                             # secondary plant substances
-
-    # ...
-                                         # source is (required)
-  sources:            { nutriVal: "web|pack (information on packaging may differ slightly)", nutrients: "...", price: "..." }
-  state:              most|all           # (required) added most or all nutritional data
-  lastUpd:            2024-02-18         # (required) last upd nutritional data
-  lastPriceUpd:       2024-03-23
-```
+Field info available in app as well (in development), see def file [inline_help/foods.yml](../src/misc/inline_help/foods.yml)
 
 
 Supplements file
