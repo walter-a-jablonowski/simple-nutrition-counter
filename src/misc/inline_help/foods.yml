@@ -12,18 +12,7 @@
 #   sample: true|false (non required)
 #   some usage ...
 
-# TASK: MOV advanced: design for verification, some fields missing
-
-# url:                 { usage: "Single or multiple urls, first will be used as primary if multiple",
-#                          required: false, type: "string|array(string)", string: {format: "url"}, array(string): {format: "url"}}
-# acceptable:          { usage: "Highlights less good foods in UI",
-#                          required: false, type: "string(array)", allowed: "less|occasionally" }
-# certificates:        { usage: "like { bio: true, vegan: true, NutriScore: A, oekotest: 1 }",
-#                          required: false, type: "obj", obj: { bio: "bool", vegan: "bool", NutriScore: {type: "string", format: "A-F"}, oekotest: {type: "int", format: "1-6"} }}
-# origin:              { usage: "Country of origin, if you want to be aware of",
-#                          required: false, type: "string", allowed: "country|n/a" }
-# packaging:           { usage: "",
-#                          required: false, type: "obj", obj: {inner: {type: "string(array)", allowed: "plastic,..."}, outer: {type: "string(array)", allowed: "plastic,..."}}}
+# verification design see advanced tasks
 
 removed:             { usage: "hide in UI (unused food), currently no function (just rm in layout)",
                          required: false, type: "bool"}
