@@ -1,9 +1,22 @@
-# My food S Bio
+#
+# Main key like
+# 
+# My food S Bio:
+#
 
 (main_key):          "(required) Display name like \"My food S Bio\",
                       also used as id, S = short for store if needed (save some space)"
 
-removed:             "false hide in UI (unused food), currently no function, just rm in layout"
+removed:
+
+  # TASK: improved version for UI
+  #   
+  #   sample: true|false (non required)
+  #   some usage ...
+
+  required: false
+  type:     "bool"
+  usage:    "hide in UI (unused food), currently no function (just rm in layout)"
 
 productName:         "Precise product name"
 vendor:              "Vendor name"
@@ -61,3 +74,4 @@ sources:             "(required) like { nutriVal: \"web|pack (information on pac
 state:               "(required) most|all, added most or all nutritional data"
 lastUpd:             "(required) like 2024-02-18, last upd nutritional data"
 lastPriceUpd:        "like 2024-02-18"
+
