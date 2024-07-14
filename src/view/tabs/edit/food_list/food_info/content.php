@@ -72,6 +72,12 @@ $nutrientsShort = [
         <td><?= htmlspecialchars($data['origin']) ?></td>
       </tr>
     <?php endif; ?>
+    <?php if( ! empty($data['packaging'])): ?>
+      <tr>
+        <th>Packaging</th>
+        <td><?= $data['packaging'] ?></td>
+      </tr>
+    <?php endif; ?>
     <?php if( ! empty($data['productName'])): ?>
       <tr>
         <th>Product name</th>
