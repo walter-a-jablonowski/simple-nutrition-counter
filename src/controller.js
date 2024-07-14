@@ -59,7 +59,8 @@ class FoodsEventController
     // TASK: alternative maybe: https://getbootstrap.com/docs/5.3/components/popovers/#dismiss-on-next-click
     // see also upd in modal below
     
-    document.addEventListener('click', function(e) {  // TASK: event()
+    // document.addEventListener('click', function(e) {
+    event('click', function(e) {
     
       if( ! e.target.closest('.popover') && ! e.target.closest('[data-bs-toggle="popover"]')) {
         crl.popoverTriggerList.forEach( function(popoverTriggerEl) {
@@ -76,7 +77,8 @@ class FoodsEventController
     // Info modal (used for groups and food)
     
     const modal = query('#infoModal')
-    modal.addEventListener('show.bs.modal', event => {
+    // modal.addEventListener('show.bs.modal', event => {
+    event('show.bs.modal', event => {
 
       const btn = event.relatedTarget
       
@@ -87,7 +89,9 @@ class FoodsEventController
       
       modal.find('.modal-body').innerHTML = query( btn.getAttribute('data-source')).innerHTML
 
-      crl.popoverList.forEach( function(popover) {  // upd needed for some reason (by AI)
+      // upd needed for some reason (by AI)
+
+      crl.popoverList.forEach( function(popover) {
         popover.update()
       })
       
@@ -104,7 +108,8 @@ class FoodsEventController
     // myModal.show()  // also, you can pass a DOM element as an argument that can be received in the modal events (as the relatedTarget property). (i.e. const modalToggle = document.getElementById('toggleMyModal'); myModal.show(modalToggle)
     // $('#newEntryModal').modal('hide')
 
-    query('#newEntryModal').addEventListener('show.bs.modal', event => {
+    // query('#newEntryModal').addEventListener('show.bs.modal', event => {
+    query('#newEntryModal').event('show.bs.modal', event => {
       
       query('#modalNameInput').value     = 'Misc entry'  // default
       query('#modalWeightInput').value   = ''
