@@ -20,6 +20,11 @@ class FoodsEventController
 
     // BS
 
+    // TASK: make ingredients popover in food in work
+    // - Settings > Me popover is working, most likely there is a problem with z-index or sth in modal
+    // - currently using event on a div, maybe must be a btn
+    // - see also code below
+
     // Manual version (didn't work with modal for some reason)
 /*
     this.popoverTriggerList = query('[data-bs-toggle="popover"]')
@@ -62,8 +67,6 @@ class FoodsEventController
         })
       }
     })
-
-    // TASK: maybe also use this (from manual)
 
     const popover = new bootstrap.Popover('.info-popover', {
       container: '#infoModal .modal-body'
