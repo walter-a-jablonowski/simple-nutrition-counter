@@ -35,7 +35,8 @@ class FoodsEventController
 */
     // AI Version
 
-    this.popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    // this.popoverTriggerList = [].slice.call( document.querySelectorAll('[data-bs-toggle="popover"]'))
+    this.popoverTriggerList = [].slice.call( query('[data-bs-toggle="popover"]'))
     this.popoverList = this.popoverTriggerList.map( function (popoverTriggerEl) {
       return new bootstrap.Popover(popoverTriggerEl, {
         html: true,
@@ -58,7 +59,7 @@ class FoodsEventController
     // TASK: alternative maybe: https://getbootstrap.com/docs/5.3/components/popovers/#dismiss-on-next-click
     // see also upd in modal below
     
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function(e) {  // TASK: event()
     
       if( ! e.target.closest('.popover') && ! e.target.closest('[data-bs-toggle="popover"]')) {
         crl.popoverTriggerList.forEach( function(popoverTriggerEl) {
@@ -74,18 +75,17 @@ class FoodsEventController
 
     // Info modal (used for groups and food)
     
-    const modal = document.getElementById('infoModal')  // TASK
-
+    const modal = query('#infoModal')
     modal.addEventListener('show.bs.modal', event => {
 
       const btn = event.relatedTarget
       
       if( btn.getAttribute('data-title').startsWith('#'))
-        modal.querySelector('.modal-title').innerHTML = document.querySelector( btn.getAttribute('data-title')).innerHTML
+        modal.find('.modal-title').innerHTML = query( btn.getAttribute('data-title')).innerHTML
       else
-        modal.querySelector('.modal-title').innerHTML = btn.getAttribute('data-title')
+        modal.find('.modal-title').innerHTML = btn.getAttribute('data-title')
       
-      modal.querySelector('.modal-body').innerHTML = document.querySelector( btn.getAttribute('data-source')).innerHTML
+      modal.find('.modal-body').innerHTML = query( btn.getAttribute('data-source')).innerHTML
 
       crl.popoverList.forEach( function(popover) {  // upd needed for some reason (by AI)
         popover.update()
@@ -140,7 +140,8 @@ class FoodsEventController
 
       if( result === 'success')
         window.location.reload()
-      // else
+      else
+        alert('error')  // TASK
     })
   }
 
