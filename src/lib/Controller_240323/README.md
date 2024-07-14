@@ -39,6 +39,9 @@ class SampleController extends ControllerBase
   use SomeAjaxController;  // trait (partial class if long)
 
   private $modelView;      // use if data is pre generated (like an sql view)
+  // private $foodsView;
+  // private $thisView;
+  // private $thatView;
 
   public function __constuct( $model = null, $view = null )
   // public function __constuct()  // or

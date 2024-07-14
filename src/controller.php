@@ -14,22 +14,22 @@ require_once 'lib/helper.php';
 class FoodsController extends ControllerBase
 {
   use SaveDayEntriesAjaxController;
-  // use SaveFoodsAjaxController;  // unused
+  // use SaveFoodsAjaxController;       // unused
   use ChangeUserAjaxController;
 
-  protected SimpleData $config;
+  protected SimpleData $config;         // TASK: sort semantically
   protected SimpleData $settings;
   protected string     $user;
   protected array      $users = [];
-  protected bool       $devMode;   // TASK: rm
+  protected bool       $devMode;        // TASK: rm
 
   protected string     $mode;
   protected string     $date;
 
-  protected            $modelView;
+  protected            $modelView;      // TASK: name $foodsView
   protected string     $dayEntriesTxt;
   protected array      $dayEntries;
-  // protected string  $foodsTxt;   // old
+  // protected string  $foodsTxt;       // old
   protected array      $lastDaysSums;
   protected float      $priceAvg;
 
