@@ -52,7 +52,7 @@ class FoodsEventController
     //      data-popper-placement="right"
     // >
     //   <div class="popover-arrow" style="position: absolute; top: 0px; transform: translate3d(0px, 49.6px, 0px);"></div>
-    //   <div class="popover-body">These seeting are used for calculating the right nutrient amounts</div>
+    //   <div class="popover-body">These settings are used for calculating the right nutrient amounts</div>
     // </div>
 
     // if click was outside the popover and its trigger close
