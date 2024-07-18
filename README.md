@@ -17,6 +17,18 @@ Mission
 ----------------------------------------------------------
 
 ```
+Day --> you do much stuff --X--> you don't remember --> Chaos, errors
+        much stuff happens
+                       |
+                       | (instead)
+                       v
+                    Track it --> you see what happened (Feedback, reminder)
+                                  |
+                                  v
+                    only by seeing it immediately you can improve it
+```
+
+```
                                                 Special supplements  Powerful methods, AI, tools
                                                    |                   |
                                                    v                   v
