@@ -17,15 +17,15 @@ Mission
 ----------------------------------------------------------
 
 ```
-Day --> you do much stuff --X--> you don't remember --> Chaos, errors
+Day --> you do much stuff  --X--> you don't remember all --> Chaos, errors
         much stuff happens
-                       |
-                       | (instead)
-                       v
-                    Track it --> you see what happened (Feedback, reminder)
-                                  |
-                                  v
-                    only by seeing it immediately you can improve it
+                |
+                | (instead)
+                v
+              Track it --> you see what happened (feedback, reminder)
+                            |
+                            v
+              only by seeing it immediately you can improve it
 ```
 
 ```
