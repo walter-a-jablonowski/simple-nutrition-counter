@@ -16,7 +16,7 @@
 
   <?php foreach( $this->modelView->nutrients as $groupShort => $group ): ?>
 
-    <ul class="list-group">  <!-- TASK: alternative grid ins of list group -->
+    <ul class="list-group">
 
       <li class = "list-group-item d-flex justify-content-between align-items-center"
           style = "background-color: #e0e0e0;"
