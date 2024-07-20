@@ -385,17 +385,19 @@ class FoodsEventController
     // Quick summary
 
     let caloriesSum = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.calories), 0).toFixed(1))
-    let carbsSum    = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.carbs),    0).toFixed(1))
-    let fatSum      = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.fat),      0).toFixed(1))
     let aminoSum    = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.amino),    0).toFixed(1))
+    // let fibreSum = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.fibre),    0).toFixed(1))
     let saltSum     = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.salt),     0).toFixed(1))
+    let fatSum      = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.fat),      0).toFixed(1))
+    let carbsSum    = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.carbs),    0).toFixed(1))
     let priceSum    = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.price),    0).toFixed(2))
 
     query('#caloriesSum').textContent = caloriesSum
-    query('#carbsSum').textContent    = carbsSum
-    query('#fatSum').textContent      = fatSum
     query('#aminoSum').textContent    = aminoSum
+    // query('#fibreSum').textContent = fibreSum
     query('#saltSum').textContent     = saltSum
+    query('#fatSum').textContent      = fatSum
+    query('#carbsSum').textContent    = carbsSum
     query('#priceSum').textContent    = priceSum
 
     // Nutrients tab
