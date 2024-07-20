@@ -64,7 +64,7 @@ class FoodsController extends ControllerBase
     foreach( $users as $user )
       $this->users[$user] = Yaml::parse( file_get_contents("data/users/$user/-this.yml"))['name'];
 
-    $_SESSION['user'] = $_SESSION['user'] ?? 'single_user';
+    $_SESSION['user'] = $_SESSION['user'] ?? 'single_user';  // TASK: move out
     $this->user = $_SESSION['user'];
     $this->userName = Yaml::parse( file_get_contents('data/users/' . $this->user . '/-this.yml'))['name'];
 
