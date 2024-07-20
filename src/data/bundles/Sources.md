@@ -26,6 +26,7 @@ Basic
 
 - Misc (companies)
 
+  - Ask AI or google per food => more precise articles
   - https://www.codecheck.info
-  - https://yazio.com
+  - https://www.yazio.com/de/kalorientabelle (looks less precise)
     - some data is made by users

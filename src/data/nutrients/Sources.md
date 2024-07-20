@@ -1,8 +1,6 @@
 
 TASK: quick list, merge in activity tree
 
-Was sind online Datenbanken mit Nährwertangaben zu Lebensmitteln, geordnet nach Seriösität (Verlässlichkeit der Angaben) absteigend?
-
 
 Common
 ----------------------------------------------------------
