@@ -14,7 +14,7 @@
 
   <!-- TASK: collapse or expand all btn -->
 
-  <?php foreach( $this->modelView->nutrients as $groupShort => $group ): ?>
+  <?php foreach( $this->foodsView->nutrients as $groupShort => $group ): ?>
 
     <ul class="list-group">
 

@@ -54,8 +54,8 @@ $return['done'] = [];
       //   $debug = 'halt';
 
       $foodId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $foodName));  // TASK: use food id from SimpleData key as soon as upd, maybe we need prefix this so that no Ids get confused?
-      $type   = $this->modelView->has("recipes.$foodName") ? 'recipes' : 'foods';
-      $amountData = $this->modelView->get("$type.$foodName");  // TASK: rename
+      $type   = $this->foodsView->has("recipes.$foodName") ? 'recipes' : 'foods';
+      $amountData = $this->foodsView->get("$type.$foodName");  // TASK: rename
 
       $return['done'][] = $foodName;  // left over will be printed below (done = foods and recipes in a single list)
 

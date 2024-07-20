@@ -26,7 +26,7 @@ class FoodsController extends ControllerBase
   protected string     $mode;
   protected string     $date;
 
-  protected            $modelView;      // TASK: name $foodsView
+  protected            $foodsView;
   protected string     $dayEntriesTxt;
   protected array      $dayEntries;
   // protected string  $foodsTxt;       // old
@@ -86,7 +86,7 @@ class FoodsController extends ControllerBase
     $this->model = new SimpleData();
     $this->model->set('foods', Yaml::parse( file_get_contents('data/bundles/Veggie_DESouth_1/foods.yml')));
 
-    $this->modelView = new SimpleData();
+    $this->foodsView = new SimpleData();
 
     // TASK: move in model
     $nutrientsModel['fattyAcids'] = Yaml::parse( file_get_contents('data/nutrients/fattyAcids.yml'));
@@ -171,7 +171,7 @@ class FoodsController extends ControllerBase
         }
 
         // $id = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $foodName));  // TASK: shorten
-        $this->modelView->set("foods.$foodName.$amount", $perWeight);
+        $this->foodsView->set("foods.$foodName.$amount", $perWeight);
       }
     }
 
@@ -187,7 +187,7 @@ class FoodsController extends ControllerBase
       {
         $a = $attr['amounts'][0];      // TASK: use unit for sth?
 
-        $this->modelView->set("nutrients.$nutrientsShort[$group].$attr[short]", [
+        $this->foodsView->set("nutrients.$nutrientsShort[$group].$attr[short]", [
                                        
           'name'  => $name,            // TASK: (advanced) currently using first entry only
           'group' => $group,
