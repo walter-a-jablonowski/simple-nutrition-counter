@@ -113,7 +113,7 @@
         </div>
       </div>
       <div class="modal-footer">
-      <?php if( $this->devMode ): ?>
+      <?php if( config::get('devMode') ): ?>
         <div class="d-flex w-100 justify-content-between">
           <!-- TASK: add a dev config and hide -->
           <!-- TASK: (very advanced) -->
@@ -131,7 +131,7 @@
             <button onclick="foodsCrl.newEntrySaveBtn()" class="btn btn-sm btn-primary" type="button">
               Add entry
             </button>
-      <?php if( $this->devMode ): ?>
+      <?php if( config::get('devMode') ): ?>
           </div>
         </div>
       <?php endif; ?>

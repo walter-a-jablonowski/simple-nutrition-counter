@@ -25,7 +25,7 @@ $data = $this->model->get("foods.$foodName");
       <?php endif; ?>
     </span>
   <?php endif; ?>
-  <?php if( $this->devMode ): ?>
+  <?php if( config::get('devMode') ): ?>
     &nbsp;&nbsp;&nbsp;<i class="bi bi-pencil-square text-black"></i>  <!-- TASK: (advanced) or make all editable on typ -->
   <?php endif; ?>
 </div>

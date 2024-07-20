@@ -42,7 +42,6 @@ if( ! $isAjax )
     $controller = new class extends ControllerBase {
       public function render()
       {
-        $this->devMode = true;
 
         // ob_start();
         // require 'view/tabs/edit/food_info_design.php';

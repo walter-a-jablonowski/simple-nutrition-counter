@@ -18,10 +18,9 @@ class FoodsController extends ControllerBase
   use ChangeUserAjaxController;
 
   protected SimpleData $config;         // TASK: sort semantically
-  protected SimpleData $settings;
+  protected SimpleData $settings;       // TASK: rm config and use class (or use member in view) ?
   protected string     $user;
   protected array      $users = [];
-  protected bool       $devMode;        // TASK: rm
 
   protected string     $mode;
   protected string     $date;
@@ -52,7 +51,6 @@ class FoodsController extends ControllerBase
   private function makeData()  /*@*/
   {
     $config = $this->config = config::instance();
-    $this->devMode = $config->get('devMode');  // TASK: just use config in view
 
     // TASK: move settings?
     $this->settings = new SimpleData( $config->get('defaultSettings'));  // TASK: (advanced) merge user settings
