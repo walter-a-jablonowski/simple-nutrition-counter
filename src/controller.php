@@ -18,8 +18,8 @@ class FoodsController extends ControllerBase
   use ChangeUserAjaxController;
 
   protected SimpleData $config;         // TASK: sort semantically
-  protected SimpleData $settings;       // TASK: rm config and use class (or use member in view) ?
-  protected string     $user;
+  protected SimpleData $settings;       // TASK: rm config and use class ?
+  protected string     $user;           //   settings: similar config
   protected array      $users = [];
 
   protected string     $mode;
