@@ -1,4 +1,4 @@
-<?php if( config::get('devMode') ): ?>
+<?php if( $this->config->get('devMode') ): ?>
   <b>Edit settings first (see <i class="bi bi-arrow-right"></i> <i class="bi bi-gear-fill"></i></b>)
 
   <ul class="no-indent">

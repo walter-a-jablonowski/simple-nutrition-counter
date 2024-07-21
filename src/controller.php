@@ -18,8 +18,8 @@ class FoodsController extends ControllerBase
   use ChangeUserAjaxController;
 
   protected SimpleData $config;         // TASK: sort semantically
-  protected SimpleData $settings;       // TASK: rm config and use class ?
-  protected string     $user;           //   settings: similar config
+  protected SimpleData $settings;       // TASK: similar config
+  protected string     $user;           
   protected array      $users = [];
 
   protected string     $mode;
@@ -37,7 +37,7 @@ class FoodsController extends ControllerBase
   protected SimpleData $inlineHelp;
 
 
-  public function __construct(/*$model = null, $view = null*/)
+  public function __construct(/* $model = null, $view = null */)
   {
     parent::__construct();
   }
@@ -52,10 +52,10 @@ class FoodsController extends ControllerBase
   {
     $config = $this->config = config::instance();
 
-    // TASK: move settings?
     $this->settings = new SimpleData( $config->get('defaultSettings'));  // TASK: (advanced) merge user settings
 
-    // TASK: simple version of user mngm (mov in index ?)
+    // User (currently less important)
+    // just get it from session, currently no User obj
 
     $users = array_filter( scandir('data/users'),
       fn($fil) => is_dir("data/users/$fil") && ! in_array( $fil, ['.', '..'])
@@ -64,16 +64,21 @@ class FoodsController extends ControllerBase
     foreach( $users as $user )
       $this->users[$user] = Yaml::parse( file_get_contents("data/users/$user/-this.yml"))['name'];
 
-    $_SESSION['user'] = $_SESSION['user'] ?? 'single_user';  // TASK: move out
+    $_SESSION['user'] = $_SESSION['user'] ?? $config->get('defaultUser');
     $this->user = $_SESSION['user'];
     $this->userName = Yaml::parse( file_get_contents('data/users/' . $this->user . '/-this.yml'))['name'];
 
-    $this->layout     = parse_attribs('@attribs', ['short', '(i)'], Yaml::parse( file_get_contents('data/bundles/Veggie_DESouth_1/layout.yml')));
+    // Help
+
     $this->inlineHelp = new SimpleData();
     $this->inlineHelp->set('app',   Yaml::parse( file_get_contents('misc/inline_help/app.yml')));
     $this->inlineHelp->set('foods', Yaml::parse( file_get_contents('misc/inline_help/foods.yml')));
 
-    $this->dayEntriesTxt = trim( @file_get_contents('data/users/' . $config->get('user') . "/days/{$this->date}.tsv") ?: '', "\n");
+    // Data
+
+    $this->layout = parse_attribs('@attribs', ['short', '(i)'], Yaml::parse( file_get_contents('data/bundles/Veggie_DESouth_1/layout.yml')));
+
+    $this->dayEntriesTxt = trim( @file_get_contents('data/users/' . $config->get('defaultUser') . "/days/{$this->date}.tsv") ?: '', "\n");
     $this->dayEntries    = parse_tsv( $this->dayEntriesTxt );
 
     foreach( $this->dayEntries as $idx => $entry)
@@ -205,7 +210,7 @@ class FoodsController extends ControllerBase
 
     $priceSumAll = 0; $days = 0;
     
-    foreach( scandir('data/users/' . $config->get('user') . '/days', SCANDIR_SORT_DESCENDING) as $file)
+    foreach( scandir('data/users/' . $config->get('defaultUser') . '/days', SCANDIR_SORT_DESCENDING) as $file)
     {
       if( pathinfo($file, PATHINFO_EXTENSION) !== 'tsv')
         continue;
@@ -213,7 +218,7 @@ class FoodsController extends ControllerBase
       $days++;
 
       $dat     = pathinfo($file, PATHINFO_FILENAME);
-      $entries = parse_tsv( file_get_contents('data/users/' . $config->get('user') . "/days/$file"));
+      $entries = parse_tsv( file_get_contents('data/users/' . $config->get('defaultUser') . "/days/$file"));
 
       // foreach( $entries as $idx => $entry)
       //   $entries[$idx][7] = Yaml::parse( $entries[$idx][7] );

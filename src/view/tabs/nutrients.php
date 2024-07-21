@@ -1,5 +1,5 @@
 
-<?php if( config::get('devMode') ): ?>
+<?php if( $this->config->get('devMode') ): ?>
   <div class="mb-2 d-flex w-100 justify-content-between">
     <div class="form-check">
       <input id="offLimitCheck" type="checkbox" value="" class="form-check-input">

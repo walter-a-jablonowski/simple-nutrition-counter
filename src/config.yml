@@ -1,24 +1,24 @@
 
-devMode:   true         # show new ui elems that are in dev
-tryDesign: false        # try new UI (see controller.php)
-special:   true         # show waj only functions (var-buy and similar)
+devMode:     true         # show new ui elems that are in dev
+tryDesign:   false        # try new UI (see controller.php)
+special:     true         # show waj only functions (var-buy and similar)
 
-user:      single_user
+defaultUser: single_user
 
-substances:             # TASK: maybe move in nutrients
-                        # TASK: rename
+substances:               # TASK: maybe move in nutrients
+                          # TASK: rename
   gluten:  ['weizen']
   lactose: ['milch']
 
-highIntake:             # TASK: maybe move in nutrients
+highIntake:               # TASK: maybe move in nutrients
 
   fat: 100
 
-defaultSettings:        # see also users > settings.yml
+defaultSettings:          # see also users > settings.yml
 
-  currency:  "EUR"      # currently EUR or USD
+  currency:  "EUR"        # currently EUR or USD
   currencySymbol: "€"
-  cheap:     0.40       # per 100 g or ml
+  cheap:     0.40         # per 100 g or ml
   expensiv:  0.80
 
   foods:
