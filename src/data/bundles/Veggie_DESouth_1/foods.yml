@@ -1960,7 +1960,7 @@ Nussmisch N old:
 
   vendor:            Rewe
 
-  price:             1.49  # last 1.99 2024-05-01
+  price:             1.39  # last 1.49 2024-06-18 1.99 2024-05-01
   weight:            500ml
   usedAmounts:       ["30ml", "60ml"]
 
@@ -1981,7 +1981,7 @@ Nussmisch N old:
   sources:           { nutriVal: "web", price: "guess" }
   state:             most
   lastUpd:           2024-04-24
-  lastPriceUpd:      2024-06-18
+  lastPriceUpd:      2024-07-20
 
 Oliven R Bio:
 
@@ -2032,6 +2032,33 @@ Olivenöl:
   state:             most
   lastUpd:           2024-04-08
   lastPriceUpd:      2024-07-01
+
+Parmesan Bio R:
+
+  productName:       "Parmareggio Bio"
+  vendor:            Rewe
+  acceptable:        occasionally
+  certificates:      { bio: true }
+  packaging:         plastic
+
+  price:             
+  weight:            50
+  usedAmounts:       ["5g", "10g", "15g"]
+
+  calories:          402
+  nutritionalValues:
+
+    fat:             30
+    saturatedFat:    20
+    carbs:           0
+    sugar:           0
+    amino:           32
+    salt:            1.6
+
+  sources:           { nutriVal: "pack" }
+  state:             most
+  lastUpd:           2024-07-20
+  lastPriceUpd:      
 
 Patros 150:
 
@@ -2139,7 +2166,7 @@ Philadelphia mini:
   url:               "https://shop.rewe.de/p/philadelphia-natur-doppelrahmstufe-6x16-7g/5349729"
   acceptable:        less
 
-  price:             
+  price:             0.95  # deal
   weight:            100.02
   pieces:            6
 
@@ -2154,10 +2181,10 @@ Philadelphia mini:
     amino:           5.4
     salt:            0.75
 
-  sources:           { nutriVal: "web (information on packaging may differ)" }
+  sources:           { nutriVal: "web (information on packaging may differ)", price: "deal price" }
   state:             most
   lastUpd:           2024-04-20
-  lastPriceUpd:      
+  lastPriceUpd:      2024-07-20
 
 Pistazien:
 
