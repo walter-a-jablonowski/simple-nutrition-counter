@@ -32,7 +32,7 @@
   <div class="col-6 col-md-2 col-xxl-2 mt-2 px-1">
     <div class = "d-flex justify-content-center align-items-center"
          style = "background-color: #79fe28; font-size: 1.8rem;">
-      &euro; <span id="priceSum">0</span>
+      <?= $this->settings->get('currencySymbol') ?> <span id="priceSum">0</span>
     </div>
   </div>
 </div>

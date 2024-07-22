@@ -21,7 +21,7 @@
   <li>
     <i class="bi bi-currency-euro small text-secondary"></i> or
     <i class="bi bi-currency-dollar small text-secondary"></i>
-    highlights expensiv foods
+    highlights expensive foods
   </li>
   <li>
     <i class="bi bi-currency-exchange small text-secondary"></i>

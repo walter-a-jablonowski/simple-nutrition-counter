@@ -56,6 +56,7 @@ class FoodsController extends ControllerBase
 
     // User (currently less important)
     // just get it from session, currently no User obj
+    // DEV: maybe mov in App class over single or static => have a centrl point where things can be modified
 
     $users = array_filter( scandir('data/users'),
       fn($fil) => is_dir("data/users/$fil") && ! in_array( $fil, ['.', '..'])

@@ -5,21 +5,22 @@ special:     true         # show waj only functions (var-buy and similar)
 
 defaultUser: single_user
 
-substances:               # TASK: maybe move in nutrients
-                          # TASK: rename
+substances:                 # TASK: maybe move in nutrients
+                            # TASK: rename
   gluten:  ['weizen']
   lactose: ['milch']
 
-highIntake:               # TASK: maybe move in nutrients
+highIntake:                 # TASK: maybe move in nutrients
 
   fat: 100
 
-defaultSettings:          # see also users > settings.yml
+defaultSettings:            # see also users > settings.yml
 
-  currency:  "EUR"        # currently EUR or USD
-  currencySymbol: "€"
-  cheap:     0.40         # per 100 g or ml
-  expensiv:  0.80
+  currency:  "EUR"          # currently EUR or USD
+  currencySymbol: "&euro;"
+  # currencySymbol: "<i class="bi bi-currency-euro small text-secondary"></i>"
+  cheap:     0.40           # per 100 g or ml
+  expensive: 0.80
 
   foods:
 

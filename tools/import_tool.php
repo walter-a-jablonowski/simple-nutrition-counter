@@ -83,8 +83,8 @@ if( $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inputText']))
         },
         body: `inputText=${encodeURIComponent(inputText)}`
       })
-      .then(response => response.json())
-      .then(data => {
+      .then( response => response.json())
+      .then( data => {
         document.getElementById('output').innerHTML = data.result
       })
       .catch(error => alert('Error: ' + error.message))
