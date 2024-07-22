@@ -1,21 +1,20 @@
+<div class="scrollable-list">
 
-<ul class="list-group">
-  <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
-    <div>Price avg</div>
-    <div>
-      <?= number_format( $this->priceAvg, 2) ?>
-      <?= $this->settings->get('currencySymbol') ?>
-    </div>
-  </li>
-  <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
-    <div>Week avg</div>
-    <div>(maybe)</div>
-  </li>
-</ul>
+  <ul class="list-group">
+    <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
+      <div>Price avg</div>
+      <div>
+        <?= number_format( $this->priceAvg, 2) ?>
+        <?= $this->settings->get('currencySymbol') ?>
+      </div>
+    </li>
+    <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
+      <div>Week avg</div>
+      <div>(maybe)</div>
+    </li>
+  </ul>
 
-<div class="scrollable-list mt-3">
-
-  <div class="list-group">
+  <div class="list-group mt-3">
 
     <?php foreach( $this->lastDaysSums as $day => $sums): ?>
 
@@ -23,7 +22,7 @@
           style = "background-color: #e0e0e0;"
       >
 
-        <!-- TASK: maybe use some multi col o save some space -->
+        <!-- TASK: maybe use some ios like save some space -->
         <!-- <div class="col-12 col-md-6 col-xxl-4 mt-2"> -->
 
         <?php $weekdays = ['Mon' => 'Mo', 'Tue' => 'Tu', 'Wed' => 'We', 'Thu' => 'Th', 'Fri' => 'Fr', 'Sat' => 'Sa', 'Sun' => 'Su']; ?>
