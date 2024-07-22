@@ -1,16 +1,18 @@
 
 <?php if( $this->config->get('devMode') ): ?>
-  <div class="mb-2 d-flex w-100 justify-content-between">
-    <div class="form-check">
-      <input id="offLimitCheck" type="checkbox" value="" class="form-check-input">
-      <label class="form-check-label small" for="offLimitCheck">
-        off limit only
-      </label>
-    </div>
-  </div>
+  <ul class="list-group">
+    <li class="list-group-item px-2 py-1 small">
+      <div class="form-check">
+        <input id="offLimitCheck" type="checkbox" value="" class="form-check-input">
+        <label class="form-check-label small" for="offLimitCheck">
+          off limit only
+        </label>
+      </div>
+    </li>
+  </ul>
 <?php endif; ?>
 
-<div class="scrollable-list rounded">
+<div class="scrollable-list rounded mt-2">
 
   <!-- TASK: collapse or expand all btn -->
 

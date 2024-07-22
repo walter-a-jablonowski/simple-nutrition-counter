@@ -26,7 +26,7 @@
   </li>
 </ul>
 
-<div class="tab-content mt-3">
+<div class="tab-content mt-2">
   <div id="dayPane" class="tab-pane fade show active" role="tabpanel">
 
     <?php require( __DIR__ . '/edit/-this.php') ?>
