@@ -75,53 +75,7 @@ Veggie bowl (color:#ffa500):
     - Olivenöl
     - Öl
 
-Third meals (color:#ffa500):
-
-  list:
-
-    - Avocado
-    - Avocado gr
-    - Banane (mid)
-    - Frosta Bratk
-    - Frosta Frikassee
-    - Frosta Gesch
-    - Frosta Paella
-    - Aldi Bratk
-    - Linsen vegan
-    - Geb Bohnen
-    - Chili vegan
-
-Legumes & greens (color:#32cd32):      # Ingredients
-
-  list:
-
-    - Green beans R
-    - R Rüben N
-    - Oliven R Bio
-    - Pfannegem A Ital
-    - Artisch R viertel
-
-Still greens, mushrooms, misc (color:#32cd32):
-
-  list:
-
-    - Champ mini ganz R
-    - Champ N
-
-    - Süßk Pommes
-    - Kartoffeltaschen F
-    - Kartoffel Wedges
-    - Pommes
-    - Pommes R Bio
-    - Kartoffel Wedges Bio
-
-    - Pumpernickel R Bio
-    - Vollkorn Rhein R
-    - Flatbr Sandwich
-    - Toasties R Bio
-    - Mehrkornbr
-
-Fish, meat, tofu (color:#32cd32):
+Fish, meat, tofu (color:#ffa500):
 
   list:
 
@@ -136,6 +90,22 @@ Fish, meat, tofu (color:#32cd32):
     - Salami R
     - Salami R Wilt (Innens)
     - Lyoner R Bio
+
+Greens, legumes, mushr (color:#32cd32):      # Ingredients
+
+  list:
+
+    - Avocado
+    - Avocado gr
+    - Oliven R Bio
+    - Pfannegem A Ital
+    - Green beans R
+    - R Rüben N
+    - Süßk Pommes
+    - Pommes R Bio
+    - Artisch R viertel
+    - Champ mini ganz R
+    - Champ N
 
 A little taste (color:#32cd32):
 
@@ -157,20 +127,41 @@ A little taste (color:#32cd32):
     - Eiweißbr
     # - Salatsoße                      # (missing)
 
-# Misc meals (less good) (color:):
-
-Fill up missing (color:#32cd32):
-
-  (i): "... and supplements"
+Misc starch, corn (color:#ffa500):
 
   list:
 
-    # - Salt                           # TASK: removed for debugging layout
-    - Amino misc                       # use left over
-    - Amino Deca Muscle Gainer
-    - Amino NaDuRia Pur
-    - Riegel Seitenb Sch
-    - Chips light
+    - Kartoffeltaschen F
+    - Kartoffel Wedges
+    - Pommes
+    - Kartoffel Wedges Bio
+
+    - Pumpernickel R Bio
+    - Vollkorn Rhein R
+    - Flatbr Sandwich
+    - Toasties R Bio
+    - Mehrkornbr
+
+Misc meals (color:#ffa500):
+
+  list:
+
+    - Frosta Bratk
+    - Frosta Gesch
+    - Aldi Bratk
+    - Linsen vegan
+    - Geb Bohnen
+    - Chili vegan
+
+Cheat day (color:#ffa500):
+
+  list:
+
+    - Pizza Mag
+    - Lindt caramel
+    - Mohnkuchen
+    - Donuts
+    - Donuts mini A                    # (duplicate)
 
 Micro candy or sugar-less (color:#ff69b4):  # Candy
 
@@ -184,7 +175,35 @@ Micro candy or sugar-less (color:#ff69b4):  # Candy
     - Ritter Sp 61%
     - Hanuta
 
-On the go (color:#ffa500):             # Meals (less often)
+Fill up missing (color:#8a2be2):
+
+  (i): "... and supplements"
+
+  list:
+
+    # - Salt                           # TASK: removed for debugging layout
+    - Amino misc                       # use left over
+    - Amino Deca Muscle Gainer
+    - Amino NaDuRia Pur
+    - Riegel Seitenb Sch
+    - Frosta Frikassee
+    - Frosta Paella
+    - Banane (mid)
+    - Chips light
+
+Suppl, Brain tuning (color:#8a2be2, fold:true):   # Suppl
+
+  list:
+
+    - Ritter Sp 81%                    # used as supplements (currently)
+    - Ritter Sp 74%
+
+    - Milch H
+    - Zitronenm
+    - Zitronenm mini
+    - Cashew A Cranb
+
+On the go (color:#ffa500, fold:true):  # Meals (less often)
 
   list:
 
@@ -205,28 +224,6 @@ On the go (color:#ffa500):             # Meals (less often)
     - Burrito A
     - Donuts mini A
     - Riegel Deca Basic
-
-Cheat day (color:#ffa500, fold:true):
-
-  list:
-
-    - Pizza Mag
-    - Lindt caramel
-    - Mohnkuchen
-    - Donuts
-    - Donuts mini A                    # (duplicate)
-
-Suppl, Brain tuning (color:#8a2be2, fold:true):   # Suppl
-
-  list:
-
-    - Ritter Sp 81%                    # used as supplements (currently)
-    - Ritter Sp 74%
-
-    - Milch H
-    - Zitronenm
-    - Zitronenm mini
-    - Cashew A Cranb
 
 Housewares (color:#e0e0e0):            # Finance only
 
