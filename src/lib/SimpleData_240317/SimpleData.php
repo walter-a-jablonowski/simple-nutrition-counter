@@ -7,7 +7,7 @@ Simple data class
 */
 class SimpleData /*@*/
 {
-  
+
   private array $data = [];
 
 
@@ -32,6 +32,21 @@ class SimpleData /*@*/
        throw new \Exception("$key missing");
 
      return $r;
+  }
+
+  /*@
+
+  Be able use in for loops like
+
+  alternative: Iterator interface (but this is simpler and speaking)
+
+  ```
+  <?php foreach( $this->lastDaysView as $day => $sums): ?>
+  ```
+  */
+  public function all()  /*@*/
+  {
+    return $this->data;
   }
 
 

@@ -29,7 +29,7 @@ class FoodsController extends ControllerBase
   protected string     $dayEntriesTxt;
   protected array      $dayEntries;
   // protected string  $foodsTxt;       // old
-  protected array      $lastDaysSums;
+  protected SimpleData $lastDaysView;
   protected float      $priceAvg;
 
   protected array      $layout;
@@ -209,8 +209,11 @@ class FoodsController extends ControllerBase
     // All days tab
     // no model data, kind of report
 
+    $this->lastDaysView = new SimpleData();
     $priceSumAll = 0; $days = 0;
-    
+
+    // TASK: remove current day
+
     foreach( scandir('data/users/' . $config->get('defaultUser') . '/days', SCANDIR_SORT_DESCENDING) as $file)
     {
       if( pathinfo($file, PATHINFO_EXTENSION) !== 'tsv')
@@ -218,20 +221,22 @@ class FoodsController extends ControllerBase
       
       $days++;
 
-      $dat     = pathinfo($file, PATHINFO_FILENAME);
+      $dat     = pathinfo( $file, PATHINFO_FILENAME);
       $entries = parse_tsv( file_get_contents('data/users/' . $config->get('defaultUser') . "/days/$file"));
 
       // foreach( $entries as $idx => $entry)
       //   $entries[$idx][7] = Yaml::parse( $entries[$idx][7] );
+      
+      // TASK: (advanced) unit from data?
 
-      $this->lastDaysSums[$dat] = [
-        'caloriesSum' => ! $entries ? 0 : array_sum( array_column($entries, 1)),
-        'carbsSum'    => ! $entries ? 0 : array_sum( array_column($entries, 2)),
-        'fatSum'      => ! $entries ? 0 : array_sum( array_column($entries, 3)),
-        'aminoSum'    => ! $entries ? 0 : array_sum( array_column($entries, 4)),
-        'saltSum'     => ! $entries ? 0 : array_sum( array_column($entries, 5)),
-        'priceSum'    => ! $entries ? 0 : array_sum( array_column($entries, 6))
-      ];
+      $this->lastDaysView->set( $dat, [
+        'Calories'    => ( ! $entries ? 0 : array_sum( array_column($entries, 1))) . ' kcal',
+        'Carbs'       => ( ! $entries ? 0 : array_sum( array_column($entries, 2))) . 'g',
+        'Fat'         => ( ! $entries ? 0 : array_sum( array_column($entries, 3))) . 'g',
+        'Amino acids' => ( ! $entries ? 0 : array_sum( array_column($entries, 4))) . 'g',
+        'Salt'        => ( ! $entries ? 0 : array_sum( array_column($entries, 5))) . 'g',
+        'Price'       => ( ! $entries ? 0 : array_sum( array_column($entries, 6))) . ' ' . $this->settings->get('currencySymbol')
+      ]);
   
       $priceSumAll += ! $entries ? 0 : array_sum( array_column($entries, 6));
     }

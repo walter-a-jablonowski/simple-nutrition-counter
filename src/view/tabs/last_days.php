@@ -1,4 +1,4 @@
-<div class="scrollable-list">
+<div class="scrollable-list border-0 mt-3">
 
   <ul class="list-group">
     <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
@@ -16,7 +16,7 @@
 
   <div class="list-group mt-3">
 
-    <?php foreach( $this->lastDaysSums as $day => $sums): ?>
+    <?php foreach( $this->lastDaysView->all() as $day => $sums ): ?>
 
       <li class = "list-group-item d-flex justify-content-between align-items-center"
           style = "background-color: #e0e0e0;"
@@ -26,18 +26,20 @@
         <!-- <div class="col-12 col-md-6 col-xxl-4 mt-2"> -->
 
         <?php $weekdays = ['Mon' => 'Mo', 'Tue' => 'Tu', 'Wed' => 'We', 'Thu' => 'Th', 'Fri' => 'Fr', 'Sat' => 'Sa', 'Sun' => 'Su']; ?>
-        <small class="text-body-secondary mb-1"><b><?= $weekdays[ date('D', strtotime($day))] ?></b>
-        &nbsp;<?= $day ?></small>
         <small class="text-body-secondary mb-1">
-          <b><?= $sums['priceSum'] ?> <?= $this->settings->get('currencySymbol') ?></b>
+          <b><?= $weekdays[ date('D', strtotime($day))] ?></b>&nbsp;<?= $day ?>
+        </small>
+        <small class="text-body-secondary mb-1">
+          <b><?= $sums['Price'] ?></b>
         </small>
       </li>
 
-      <?php foreach(['caloriesSum', 'fatSum', 'carbsSum', 'aminoSum', 'saltSum'] as $type): ?>
+      <?php foreach( $sums as $label => $sum): ?>
+      <?php   if( $label == 'Price')  continue; ?>
 
         <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span><?= $type ?></span>
-          <span><?= $sums[$type] ?></span>  <!-- TASK: name, kcal or g -->
+          <span><?= $label ?></span>
+          <span><?= $sum ?></span>  <!-- TASK: name, kcal or g -->
         </li>
       <?php endforeach; ?>
     <?php endforeach; ?>

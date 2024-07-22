@@ -1,6 +1,6 @@
 
 <?php if( $this->config->get('devMode') ): ?>
-  <ul class="list-group">
+  <ul class="list-group mt-3">
     <li class="list-group-item px-2 py-1 small">
       <div class="form-check">
         <input id="offLimitCheck" type="checkbox" value="" class="form-check-input">
@@ -12,7 +12,7 @@
   </ul>
 <?php endif; ?>
 
-<div class="scrollable-list rounded mt-2">
+<div class="scrollable-list border-0 mt-3">
 
   <!-- TASK: collapse or expand all btn -->
 
