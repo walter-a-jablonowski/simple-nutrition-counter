@@ -77,7 +77,7 @@ class FoodsController extends ControllerBase
 
     // Data
 
-    $this->layout = parse_attribs('@attribs', ['short', '(i)'], Yaml::parse( file_get_contents('data/bundles/Veggie_DESouth_1/layout.yml')));
+    $this->layout = parse_attribs('@attribs', ['short', '(i)'], Yaml::parse( file_get_contents('data/bundles/Veggie_DESouth_1/layouts/-this.yml')));
 
     $this->dayEntriesTxt = trim( @file_get_contents('data/users/' . $config->get('defaultUser') . "/days/{$this->date}.tsv") ?: '', "\n");
     $this->dayEntries    = parse_tsv( $this->dayEntriesTxt );
