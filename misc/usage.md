@@ -122,6 +122,7 @@ My nutrient group:   | My nutrient group     # nutrient names are from recipes.y
 
 My nutrient group (color:#e0e0e0):  # Visually group with color
   (i):                              # Comment (i) switch in UI
+  short:                            # always visible
   list:
     - ...
 ```

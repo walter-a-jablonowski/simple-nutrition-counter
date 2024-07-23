@@ -46,7 +46,7 @@
       <li class="list-group-item">
         <div class="row">
           <div class="col-6">
-            <span><?= $sums['Fat'] ?> / <?= $sums['Carbs'] ?></span>
+            <span><?= $sums['Fat'] ?> / <?= $sums['Carbs'] ?> g</span>
           </div>
           <div class="col-6">
             <span><?= $sums['Calories'] ?></span>

@@ -19,6 +19,7 @@
 #
 # My nutrient group (color:#e0e0e0):  # Visually group with color
 #   (i):                              # Comment (i) switch in UI
+#   short:                            # always visible
 #   list:
 #     - ...
 #
@@ -33,12 +34,12 @@
 #     - Fullup
 #     - ...
 
-# Morning supplements (color:#e0e0e0, fold:true):
+# Morning supplements (color:#ff69b4, fold:true):
 
-Nuts (color:#ffa500):                  # Meals  # TASK: on the go diff shade
+Nuts, seeds (color:#ffa500):                 # Meals  # TASK: on the go diff shade
 
-  short: "Info (always visible)"       # TASK: we also could add a collapse for larger content
-  (i):   "Demo 2"                      # alternative: enclose in attribs key (see function)
+  (i):   "Demo 2"                            # TASK: we also could add a collapse for larger content
+  short: "Info (always visible)"             # alternative: enclose in attribs key (see function)
 
   list:
 
@@ -57,13 +58,14 @@ Nuts (color:#ffa500):                  # Meals  # TASK: on the go diff shade
     - Pistazien
     - Walnuss R Bio
 
-Veggie bowl (color:#ffa500):
+Veggie bowl, high fibre (color:#ffa500):
 
-  (i): "Ideal is veggie some chicken fish. We may also need fill up some energy from time to time (carbs)."
+  (i):   "Ideal is nuts, veggie high in fibre some chicken, fish"  # TASK: move
+  short: "add [ A little taste ] and [ Greens ] ..."  # TASK: add url
 
   list:
 
-    # - Veggie L                       # TASK
+    # - Veggie L                             # TASK
     # - Veggie C
     - Chick R Bio
     - Linsen R Bio
@@ -91,21 +93,21 @@ Fish, meat, tofu (color:#ffa500):
     - Salami R Wilt (Innens)
     - Lyoner R Bio
 
-Greens, legumes, mushr (color:#32cd32):      # Ingredients
+Desserts & micro or sugar-less candy (color:#ffa500):  #
+
+  (i): "Candy: Reduce amount per day (effectively: don't buy more or you will eat it)"
 
   list:
 
-    - Avocado
-    - Avocado gr
-    - Oliven R Bio
-    - Pfannegem A Ital
-    - Green beans R
-    - R Rüben N
-    - Süßk Pommes
-    - Pommes R Bio
-    - Artisch R viertel
-    - Champ mini ganz R
-    - Champ N
+    # - Joghurt  # TASK
+    - Ritter Sp 81%      
+    - Ritter Sp 74%
+
+    - Duplo              # less
+    - Ferrero Kuesschen
+    - Ritter Sp 50%
+    - Ritter Sp 61%
+    - Hanuta
 
 A little taste (color:#32cd32):
 
@@ -125,7 +127,22 @@ A little taste (color:#32cd32):
     - Käse Gr Sch (all)
     - Käse Gr W (all)
     - Eiweißbr
-    # - Salatsoße                      # (missing)
+
+Greens, legumes, mushr (color:#32cd32):      # Ingredients
+
+  list:
+
+    - Avocado
+    - Avocado gr
+    - Oliven R Bio
+    - Pfannegem A Ital
+    - Green beans R
+    - R Rüben N
+    - Süßk Pommes
+    - Pommes R Bio
+    - Artisch R viertel
+    - Champ mini ganz R
+    - Champ N
 
 Misc starch, corn (color:#ffa500):
 
@@ -153,36 +170,13 @@ Misc meals (color:#ffa500):
     - Geb Bohnen
     - Chili vegan
 
-Cheat day (color:#ffa500):
-
-  list:
-
-    - Pizza Mag
-    - Lindt caramel
-    - Mohnkuchen
-    - Donuts
-    - Donuts mini A                    # (duplicate)
-
-Micro candy or sugar-less (color:#ff69b4):  # Candy
-
-  (i): "Reduce amount per day (effectively: don't buy more or you will eat it)"
-
-  list:
-
-    - Duplo
-    - Ferrero Kuesschen
-    - Ritter Sp 50%
-    - Ritter Sp 61%
-    - Hanuta
-
 Fill up missing (color:#8a2be2):
 
-  (i): "... and supplements"
+  (i): "We may also need fill up some energy from time to time"
 
   list:
 
-    # - Salt                           # TASK: removed for debugging layout
-    - Amino misc                       # use left over
+    - Amino misc                             # use left over
     - Amino Deca Muscle Gainer
     - Amino NaDuRia Pur
     - Riegel Seitenb Sch
@@ -191,26 +185,50 @@ Fill up missing (color:#8a2be2):
     - Banane (mid)
     - Chips light
 
-Suppl, Brain tuning (color:#8a2be2, fold:true):   # Suppl
+Cheat day (color:#ffa500):
 
   list:
 
-    - Ritter Sp 81%                    # used as supplements (currently)
-    - Ritter Sp 74%
+    - Pizza Mag
+    - Lindt caramel
+    - Mohnkuchen
+    - Donuts
+    - Donuts mini A                          # (duplicate)
+
+Housewares (color:#e0e0e0):                  # Finance only
+
+  (i): |
+  
+    All the non food stuff bought regularly like coffee filters, batteries ...
+    Counts as consumed as soon as one pack/piece is taken out of the pantry.
+    Coffee filters aren't consumed all at once of course, but the error is only
+    a few cents.
+
+Misc expenses (color:#e0e0e0):               # Misc monthly variable
+
+Variable Suppl, Brain tuning (color:#ff69b4, fold:true):  # Suppl
+
+  list:
+
+Evening Supplements, fill up (color:#ff69b4, fold:true):
+
+  list:
+
+    # - Salt                                 # TASK: removed for debugging layout
 
     - Milch H
     - Zitronenm
     - Zitronenm mini
     - Cashew A Cranb
 
-On the go (color:#ffa500, fold:true):  # Meals (less often)
+On the go (color:#ffa500, fold:true):        # On the go
 
   list:
 
     - Cappuccino R
     - Cappu Denns
     - Cappuccino Eni
-    - Riegel Seitenb Sch               # (duplicate)
+    - Riegel Seitenb Sch                     # (duplicate)
     - Karamalz
     - Löschzwerg R
     - Döner 1
@@ -224,14 +242,3 @@ On the go (color:#ffa500, fold:true):  # Meals (less often)
     - Burrito A
     - Donuts mini A
     - Riegel Deca Basic
-
-Housewares (color:#e0e0e0):            # Finance only
-
-  (i): |
-  
-    All the non food stuff bought regularly like coffee filters, batteries ...
-    Counts as consumed as soon as one pack/piece is taken out of the pantry.
-    Coffee filters aren't consumed all at once of course, but the error is only
-    a few cents.
-
-Misc expenses (color:#e0e0e0):         # misc monthly variable

@@ -231,8 +231,8 @@ class FoodsController extends ControllerBase
 
       $this->lastDaysView->set( $dat, [
         'Calories'    => ( ! $entries ? 0 : array_sum( array_column($entries, 1))) . ' kcal',
-        'Carbs'       => ( ! $entries ? 0 : array_sum( array_column($entries, 2))) . ' g',
-        'Fat'         => ( ! $entries ? 0 : array_sum( array_column($entries, 3))) . ' g',
+        'Carbs'       => ( ! $entries ? 0 : array_sum( array_column($entries, 2))),
+        'Fat'         => ( ! $entries ? 0 : array_sum( array_column($entries, 3))),
         'Amino acids' => ( ! $entries ? 0 : array_sum( array_column($entries, 4))) . ' g',
         'Salt'        => ( ! $entries ? 0 : array_sum( array_column($entries, 5))) . ' g',
         'Price'       => ( ! $entries ? 0 : array_sum( array_column($entries, 6))) . ' ' . $this->settings->get('currencySymbol')

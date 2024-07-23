@@ -11,7 +11,8 @@ function parse_attribs( string $attribsKey, array $largeAttribKeys, array $array
     $attribs = [];
 
     // Key attribs
-
+    // TASK: use last ( ) in string, so we can use () in text or use curly
+    
     if( preg_match('/\(([^)]+)\)/', $key, $a))  // && $key != '(first_entries)')
     {
       foreach( explode(',', $a[1]) as $attr )
