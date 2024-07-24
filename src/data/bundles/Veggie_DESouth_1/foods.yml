@@ -2041,7 +2041,7 @@ Parmesan Bio R:
   certificates:      { bio: true }
   packaging:         plastic
 
-  price:             
+  price:             1.79
   weight:            50
   usedAmounts:       ["5g", "10g", "15g"]
 
@@ -2058,7 +2058,7 @@ Parmesan Bio R:
   sources:           { nutriVal: "pack" }
   state:             most
   lastUpd:           2024-07-20
-  lastPriceUpd:      
+  lastPriceUpd:      2024-07-20
 
 Patros 150:
 
