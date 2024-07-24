@@ -232,7 +232,7 @@ Banane (mid):
   url:               "https://www.geo.de/wissen/ernaehrung/vitamin-lexikon/20293-rtkl-bananen-diese-vitamine-stecken-drin"
   acceptable:        less
 
-  price:             
+  price:             # N fair trade 1.99/kg 146 g = mid, R Bio 1.99/kg 226 g
   weight:            150
   usedAmounts:       ["1"]
 
@@ -760,7 +760,7 @@ Donuts:
   vendor:            Norma
   acceptable:        less
 
-  price:             2.89
+  price:             2.69  # 2024-05-16 2.89
   weight:            330
   pieces:            6
   usedAmounts:       [1, 2, 3]
@@ -779,7 +779,7 @@ Donuts:
   sources:           { nutriVal: "pack" }
   state:             most
   lastUpd:           2024-05-16
-  lastPriceUpd:      2024-05-16
+  lastPriceUpd:      2024-07-20
 
 Donuts mini A:
 

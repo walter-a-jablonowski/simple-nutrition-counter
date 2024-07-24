@@ -10,6 +10,14 @@ Walnusskerne E     2.49 2024-06-18
 Cola mini R        0.67 2024-06-18
 Frosta Bratk       price is a guess
 Petersilie         0.99 2024-06-18
+Apfelessig R klar  1.49 2024-07-20
+
+Gr beens (lang)    1.79 2024-07-20
+H Kebab            2.49 2024-07-20  deal
+
+Magn               2.99 2024-07-20
+Stäbchen           0.70 2024-07-20
+Schm               0.55 2024-07-20
 
 ( made via missing_prices.php )
 
