@@ -1383,6 +1383,31 @@ Hanuta:
   lastUpd:           2024-06-18
   lastPriceUpd:      2024-06-18
 
+Hähnchen Kebab:
+
+  productName:       "Spreke Hähnchen Kebab"
+  vendor:            "Norma"
+  packaging:         plastic  # inner
+
+  price:             2.49     # TASK: deal, add normal
+  weight:            500
+  usedAmounts:       ["50g", "100g", "200g"]
+
+  calories:          157
+  nutritionalValues:
+
+    fat:             9
+    saturatedFat:    3.4
+    carbs:           2
+    sugar:           0.5
+    amino:           17
+    salt:            1.8
+
+  sources:           { nutriVal: "web", price: "deal" }
+  state:             most
+  lastUpd:           2024-07-20
+  lastPriceUpd:      2024-07-20
+
 Käse Gr Sch (all):
 
   vendor:            Rewe
