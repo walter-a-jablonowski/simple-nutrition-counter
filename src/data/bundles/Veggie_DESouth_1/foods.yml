@@ -1393,6 +1393,8 @@ Hähnchen Kebab:
   weight:            500
   usedAmounts:       ["50g", "100g", "200g"]
 
+  cookingInstructions: "> 6 min"
+
   calories:          157
   nutritionalValues:
 
