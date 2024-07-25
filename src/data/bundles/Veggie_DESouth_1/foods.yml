@@ -1385,8 +1385,10 @@ Hanuta:
 
 Hähnchen Kebab:
 
-  productName:       "Spreke Hähnchen Kebab"
+  productName:       "Sprehe Hähnchen Kebab"
   vendor:            "Norma"
+  ingredients:       "Hähnchen, Wasser Stärke, Salz, Gewürze, Kräuter, Dextrose, Karamelzuckersirup, Gewürzextrakt"
+  mayContain:        "Gluten, Milch, Sellerie, Senf"
   packaging:         plastic  # inner
 
   price:             2.49     # TASK: deal, add normal
