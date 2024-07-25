@@ -58,6 +58,7 @@ Amino Deca Muscle Gainer:
 
   vendor:            Deca
   acceptable:        occasionally
+  packaging:         plastic
 
   price:             17.99
   weight:            700g
@@ -82,6 +83,7 @@ Amino NaDuRia Pur:
 
   vendor:            multiple
   comment:           "2 Meßlöffel orange = 20g"
+  packaging:         cardboard
 
   price:             
   weight:            300g
@@ -107,6 +109,7 @@ Aldi Bratk:
 
   vendor:            Aldi
   acceptable:        occasionally
+  packaging:         plastic
 
   price:             2.89
   weight:            600g
@@ -131,9 +134,9 @@ Artisch R viertel:
 
   vendor:            Rewe
   # acceptable:      occasionally  # currently no alternative
-
   productName:       "Gegrillte Artischockenviertel in Sonnenblumenöl mit Kräutern"
   comment:           "kein Abtropfgewicht"
+  packaging:         glass,rubber
   
   price:             2.29
   weight:            280
@@ -271,6 +274,7 @@ Bresso:
 
   vendor:            Rewe
   acceptable:        less
+  packaging:         plastic,alu
 
   price:             
   weight:            150
@@ -295,6 +299,7 @@ Bresso mini:
 
   vendor:            Rewe
   acceptable:        less
+  packaging:         alu
 
   price:             1.11  # deal price, 2024-04-20 1.19
   weight:            120
@@ -318,6 +323,7 @@ Bresso mini:
 Brokkoli R:
 
   vendor:            Rewe
+  packaging:         plastic
 
   price:             2.19
   weight:            1000
@@ -356,6 +362,8 @@ Burrito A:
     Hefe
     ...
 
+  packaging:         cardboard,plastic
+
   price:             2.99
   weight:            300
   usedAmounts:       ["1"]
@@ -380,6 +388,7 @@ Cappuccino R:
 
   vendor:            Eni
   acceptable:        less
+  packaging:         cardboard
 
   price:             1.00
   weight:            200ml
@@ -407,6 +416,7 @@ Cappu Denns:
   acceptable:        less
   certificates:      { bio: true }
   ingredients:       "Vollmilch*, Rohrohrzucker*, 0,6% Löskaffee*, Maisstärke*, Verdickungsmittel: Johannisbrotkernmehl"
+  packaging:         plastic,alu
 
   price:             1.19  # TASK: price is a guess
   weight:            230ml
@@ -431,6 +441,7 @@ Cappuccino Eni:
 
   vendor:            Eni
   acceptable:        less
+  packaging:         cardboard
 
   price:             2.39
   weight:            200ml  # TASK: just a guess
@@ -453,6 +464,7 @@ Cappuccino Eni:
 Cashew A:
 
   vendor:            Aldi
+  packaging:         plastic (maybe)
 
   price:             2.29
   weight:            200
@@ -485,6 +497,7 @@ Cashew A Cranb:
   acceptable:        occasionally  
   comment:           "4.3g sugar per 1/8"
   certificates:      { NutriScore: D }
+  packaging:         plastic
 
   price:             
   weight:            200
@@ -510,6 +523,7 @@ Cashew E:
 
   vendor:            Edeka
   url:               "https://www.edeka.de/unsere-marken/produkte/gut-guenstig-cashewkerne-naturbelassen-4311501627150.jsp"
+  packaging:         alu (maybe)
 
   price:             
   weight:            200
@@ -534,6 +548,7 @@ Cashew E:
 Cashew N:
 
   vendor:            Norma
+  packaging:         plastic (maybe)
 
   price:             2.29
   weight:            200
@@ -559,6 +574,7 @@ Cashew R Bio:
 
   vendor:            Rewe
   certificates:      { bio: true }
+  packaging:         plastic (maybe)
 
   price:             2.99
   weight:            250
@@ -582,6 +598,7 @@ Cashew R Bio:
 Champ mini ganz R:
 
   vendor:            Rewe
+  packaging:         glass,rubber
 
   price:             
   weight:            115
@@ -605,6 +622,7 @@ Champ mini ganz R:
 Champ N:
 
   vendor:            Norma
+  packaging:         glass,rubber
 
   price:             0.99
   weight:            170
@@ -629,6 +647,7 @@ Chick R Bio:
 
   vendor:            Rewe
   certificates:      { bio: true }
+  packaging:         glass,rubber
 
   price:             0.99  # 0.85 2024-03-23
   weight:            215
@@ -654,6 +673,7 @@ Chicken Nugg N:
   vendor:            Norma
   acceptable:        occasionally
   comment:           "looks a bit like fast food, made from some mix? see ingredients"
+  packaging:         plastic
 
   cookingInstructions: "2.5 min & 2 mehr"
 
@@ -684,6 +704,7 @@ Chili vegan:
   acceptable:        less
   certificates:      { NutriScore: A }
   ingredients:       "Bohnen 31%, Wasser, Tomatenmark, Tomaten, Paprika, Mais, Zwiebeln, texturiertes SOJAPROTEIN 3%, Rapsöl, Speisesalz, Gewürze, Zucker, modifizierte Stärke, Verdickungsmittel (Guarkernmehl), färbendes Lebensmittel (Paprikaextrakt), WEIZENMEHL"
+  packaging:         alu
 
   price:             1.89
   weight:            400
@@ -708,6 +729,7 @@ Chips light:
 
   vendor:            Rewe
   acceptable:        less
+  packaging:         alu (maybe)
 
   price:             2.19
   weight:            80
@@ -759,6 +781,7 @@ Donuts:
 
   vendor:            Norma
   acceptable:        less
+  packaging:         plastic
 
   price:             2.69  # 2024-05-16 2.89
   weight:            330
@@ -786,6 +809,7 @@ Donuts mini A:
   vendor:            Aldi
   acceptable:        less
   certificates:      { NutriScore: E }
+  packaging:         plastic
 
   price:             2.19
   weight:            162
@@ -811,6 +835,7 @@ Duplo:
 
   vendor:            Rewe
   acceptable:        less
+  packaging:         plastic,alu,cardboard
 
   price:             0.55
   weight:            18.2
@@ -836,6 +861,7 @@ Durchstarter:
   productName:       "Durchstarter Gut & Günstig"
   vendor:            Edeka
   certificates:      { NutriScore: B }
+  packaging:         alu (maybe)
 
   price:             2.99
   weight:            200
@@ -862,6 +888,7 @@ Eiweißbr:
   vendor:            Norma
   acceptable:        less
   comment:           "2 smaller pieces count as one, one big as 2"
+  packaging:         plastic,cardboard
 
   price:             1.89
   weight:            500g
@@ -886,6 +913,7 @@ Eiweißbr:
 Erdn Salz N big:
 
   vendor:            Norma
+  packaging:         alu (maybe)
 
   price:             2.39
   weight:            500
@@ -913,6 +941,7 @@ Espresso Stick:
   acceptable:        less
   certificates:      { bio: true }
   ingredients:       "Zucker* (Rohrzucker*, Vollrohrzucker*), Kakaomasse*, Kakaobutter*, HASELNÜSSE*, Sonnenblumenöl*, Kaffeepulver*(5,00%), Kakaopulver*, VOLLMILCHPULVER*, BUTTERREINFETT*, Emulgator Sonnenblumenlecithin*, Bourbon Vanille"
+  packaging:         plastic (maybe)
 
   price:             0.99
   weight:            22
@@ -938,6 +967,7 @@ Falafel:
 
   vendor:            Bavaria
   acceptable:        occasionally
+  packaging:         plastic,cardboard
 
   price:             
   weight:            190
@@ -963,6 +993,7 @@ Ferrero Kuesschen:
   vendor:            Rewe
   acceptable:        less
   ingredients:       "MILCHSCHOKOLADE 31 % (Zucker, Kakaomasse, Kakaobutter, VOLLMILCHPULVER, BUTTERREINFETT, Emulgator Lecithine (SOJA), Vanillin), HASELNÜSSE (26,5 %), Halbbitterschokolade 15 % (Zucker, Kakaomasse, Kakaobutter, Emulgator Lecithine (SOJA), Vanillin), Palmöl, Zucker, MAGERMILCHPULVER, fettarmer Kakao, Vanillin. Kann GLUTEN und MANDELN enthalten"
+  packaging:         plastic,alu,cardboard
 
   price:             0.97
   weight:            44
@@ -988,6 +1019,7 @@ Fischst:
 
   vendor:            Norma
   acceptable:        occasionally
+  packaging:         cardboard
 
   price:             2.79
   weight:            450
@@ -1017,6 +1049,7 @@ Flatbr Sandwich:
   acceptable:        less
   certificates:      { NutriScore: A }
   ingredients:       ""
+  packaging:         plastic
 
   price:             1.39
   weight:            210g
@@ -1044,9 +1077,9 @@ Frischk R Bio:
   productName:       "REWE Bio Körniger Frischkäse"
   vendor:            Rewe
   url:               "https://shop.rewe.de/p/rewe-bio-koerniger-frischkaese-200g/1906432"
-
   acceptable:        occasionally
   certificates:      { bio: true, NutriScore: B }
+  packaging:         plastic,alu
 
   price:             
   weight:            200
@@ -1072,11 +1105,11 @@ Frischk R Bio 2:
   productName:       "REWE Bio Frischkäse Doppelrahmstufe"
   vendor:            Rewe
   url:               "https://shop.rewe.de/p/rewe-bio-frischkaese-doppelrahmstufe-175g/200397"
-
   acceptable:        less
   certificates:      { bio: true, NutriScore: D }
   ingredients:       "MILCH*, Speisesalz, MILCHsäurekulturen, mikrobielles"
   allergy:           "Milch und Milcherzeugnisse (einschließlich Lactose)"              
+  packaging:         plastic,alu
 
   price:             0.99  # deal
   weight:            175
@@ -1101,6 +1134,7 @@ Frosta Bratk:
 
   vendor:            Rewe
   acceptable:        occasionally
+  packaging:         plastic
 
   price:             2.99  # deal ca
   weight:            500
@@ -1127,6 +1161,7 @@ Frosta Frikassee:
   vendor:            Rewe
   url:               "https://www.frosta.de/produkte/schnelle-gerichte/huehner-frikassee"
   acceptable:        occasionally
+  packaging:         plastic
 
   price:             2.99  # deal
   weight:            500
@@ -1152,6 +1187,7 @@ Frosta Gesch:
 
   vendor:            Rewe
   acceptable:        occasionally
+  packaging:         plastic
 
   price:             3.49
   weight:            375
@@ -1177,8 +1213,8 @@ Frosta Paella:
 
   productName:       "Hähnchen Paella"
   vendor:            Rewe
-
   acceptable:        occasionally
+  packaging:         plastic
 
   price:             2.99
   weight:            500
@@ -1206,6 +1242,7 @@ Geb Bohnen:
   acceptable:        less
   certificates:      { NutriScore: A }
   ingredients:       "Bohnen 51%, Wasser, Tomatenmark dreifach konzentriert 4,6%, Zucker, modifizierte Maisstärke, Salz, Weißweinessig, Zwiebelpulver, Paprikapulver, Rapsöl, Gewürzextrakte, natürliche Aromen"
+  packaging:         alu
 
   price:             1.39
   weight:            420
@@ -1233,6 +1270,7 @@ Gemüse A Bio Ital:
   vendor:            Aldi
   url:               "https://www.aldi-nord.de/produkt/bio-gemuesepfanne-4398-0-0.article.html"
   certificates:      { bio: true }
+  packaging:         plastic
 
   price:             2.49
   weight:            600
@@ -1259,6 +1297,7 @@ Gemüse A Bio Sommer:
   vendor:            Aldi
   url:               "https://www.aldi-nord.de/produkt/bio-gemuesepfanne-4398-0-0.article.html"
   certificates:      { bio: true }
+  packaging:         plastic
 
   price:             2.49
   weight:            600
@@ -1283,10 +1322,10 @@ Gemüse R:
 
   vendor:            Rewe
   url:               "https://shop.rewe.de/p/rewe-beste-wahl-italienisches-pfannengemuese-500g/7075825"
-  
   acceptable:        occasionally
   certificates:      { NutriScore: A }
   ingredients:       "92 % (Brechbohnen, gegrillte Zucchini, rote Paprika, gelbe Paprika, vorgebackene Zwiebel (Zwiebel, Sonnenblumenöl)), Wasser, Speisesalz, Tomatenpüree, Zucker, Rapsöl, Olivenöl, Gemüsebrühe (Speisesalz, Glukosesirup, Gemüsepulver (Zwiebeln, Karotten, Tomaten), Zucker, Sonnenblumenöl, Gewürze), Gewürze, Petersilie, Glukosesirup, Champignonpulver, Karottenpulver, Reisstärke"
+  packaging:         plastic
 
   price:             1.99
   weight:            500
@@ -1313,6 +1352,7 @@ Gemüse R Bio:
   url:               "https://shop.rewe.de/p/rewe-bio-gemuesepfanne-mediterrane-art-450g/7321580"
   certificates:      { bio: true, NutriScore: A }
   ingredients:       "Gemüsemischung 91% (Zucchini* 25%, Broccoli* 20%, Karotten* 15%, gelbe Karotten* 13%, Cherrytomaten* 12%, Zwiebeln*), Kräuter (Basilikum*, Oregano*), BUTTER*, Meersalz, Sonnenblumenöl*, Stärke*, Honig*, Gewürze*, Olivenöl*"
+  packaging:         plastic
 
   price:             1.99
   weight:            450
@@ -1340,6 +1380,7 @@ Green beans R:
   price:             1.49
   weight:            330
   usedAmounts:       ["1/4", "1/3", "1/2"]
+  packaging:         glass,rubber
 
   calories:          25
   nutritionalValues:
@@ -1362,6 +1403,7 @@ Hanuta:
   url:               "https://www.hanuta.de/hanuta/zutaten"
   acceptable:        less
   ingredients:       "Zucker, pflanzliche Fette (Palm, Shea), WEIZENMEHL (13,5 %), HASELNÜSSE (13 %), SÜSSMOLKENPULVER, fettarmer Kakao, VOLLMILCHSCHOKOLADE (Zucker, VOLLMILCHPULVER, Kakaobutter, Kakaomasse, Emulgator Lecithine (SOJA), Vanillin), MAGERMILCHPULVER, BUTTERREINFETT, Salz, Halbbitterschokolade (Zucker, Kakaomasse, Kakaobutter, Emulgator Lecithine (SOJA), Vanillin), Emulgator Lecithine (SOJA), Aromen, Traubenzucker, Backtriebmittel Natriumhydrogencarbonat, Vanillin"
+  packaging:         alu,cardboard
 
   price:             0.99
   weight:            44
@@ -1387,7 +1429,7 @@ Hähnchen Kebab:
 
   productName:       "Sprehe Hähnchen Kebab"
   vendor:            "Norma"
-  ingredients:       "Hähnchen, Wasser Stärke, Salz, Gewürze, Kräuter, Dextrose, Karamelzuckersirup, Gewürzextrakt"
+  ingredients:       "Hähnchen, Wasser, Stärke, Salz, Gewürze, Kräuter, Dextrose, Karamelzuckersirup, Gewürzextrakt"
   mayContain:        "Gluten, Milch, Sellerie, Senf"
   packaging:         plastic  # inner
 
@@ -1416,6 +1458,7 @@ Käse Gr Sch (all):
 
   vendor:            Rewe
   acceptable:        less
+  packaging:         plastic
 
   price:             1.39  # 2024-05-24 1.49
   weight:            120g
@@ -1444,6 +1487,7 @@ Käse Gr W (all):
 
   vendor:            Rewe
   acceptable:        less
+  packaging:         plastic
 
   price:             
   weight:            120g  
@@ -1472,6 +1516,7 @@ Karamalz:
 
   vendor:            Rewe
   acceptable:        less
+  packaging:         glass,rubber
 
   price:             0.75                # price for 0.33 (guess) # (TASK) for 2 variants
   weight:            500                 # larger one
@@ -1523,6 +1568,7 @@ Kartoffel Wedges Bio:
   acceptable:        occasionally
   certificates:      { bio: true, NutriScore: A }
   ingredients:       "Kartoffeln 96,5%, Sonnenblumenöl"
+  packaging:         plastic
 
   price:             2.69
   weight:            600
@@ -1550,6 +1596,7 @@ Kartoffeltaschen F:
   acceptable:        less
   comment:           "TASK: Fix quantity"
   ingredients:       "Kartoffeln 70%, FRISCHKÄSE 19%, Sonnenblumenöl, modifizierte Stärke, Kartoffelstärke, Speisesalz, Gewürze, Kräuter, Dextrose"
+  packaging:         plastic
 
   price:             
   weight:            600
@@ -1573,9 +1620,9 @@ Kartoffeltaschen F:
 Kfc Chili Cheese:
 
   vendor:            Kfc
-
   acceptable:        less
   ingredients:       "(shortened strange only) Weizengeb 45 %, Zucker, Salz, Emulgator Mono- Diacetylweinsäureester E472e, Stabilisator Calciumsulfat E516, Hähnchenbrust 29 %, Sonnenblumenöl, Maisstärke, Hefeextrakt, Gewürzextrakte (Sellerie), Reisstärke, Zwiebelpulver, Säureregulator Natriumcarbonate/E500, Backtriebmittel Diphosphate E450, angereichertes Weizenmehl (Calcium, Eisen, Niacin, Thiamin), Dextrose, Aroma, modifizierte Stärke, Käse, Chiliextrakt, Gewürzextrakte, Säuerungsmittel Milchsäure E270, Verdickungsmittel Xanthan 415, Konservierungsstoff Kaliumsorbat/E202, Aroma"
+  packaging:         cardboard
 
   price:             1.99
   weight:            116
@@ -1599,10 +1646,10 @@ Kfc Chili Cheese:
 Kfc Original:
 
   vendor:            Kfc
-
   acceptable:        occasionally
   comment:           "weight is from a third party source (kfc source unclear)"
   ingredients:       "Hähnchenfleischerzeugnis aus flüssiggewürztem Hähnchenbrustfleisch, paniert, gegart. 100 g Produkt werden aus 79 g Hähnchenbrustfleisch hergestellt. Hähnchenbrustfleisch, Weizenmehl, pflanzliche Öle (Sonnenblume, Raps), Speisesalz, Maisstärke, Säureregulator Natriumhydrogencarbonat/E500(ii), Geschmacksverstärker Mononatriumglutamat/E621, Gewürze, Magermilchpulver, Süßmolkenpulver (enthält Milch), Eieralbuminpulver"
+  packaging:         cardboard
 
   price:             5.99
   weight:            147
@@ -1626,9 +1673,9 @@ Kfc Original:
 Lindt caramel:
 
   url:               "https://www.lindt.de/hello-salted-caramel-stick-39g"
-
   acceptable:        less
   ingredients:       "Zucker, Glukosesirup, Kakaobutter, Vollmilchpulver, Butterreinfett, Kakaomasse, Vollmilch, Traubenzucker, Magermilchpulver, Salz, Emulgator (Sojalecithin), natürliches Aroma, Aroma"
+  packaging:         alu
   
   price:             1.19
   weight:            39
@@ -1653,6 +1700,7 @@ Linsen R Bio:
 
   vendor:            Rewe
   certificates:      { bio: true }
+  packaging:         glass,rubber
 
   price:             1.39
   weight:            260
@@ -1677,6 +1725,7 @@ Linsen vegan:
 
   vendor:            Rewe
   acceptable:        less
+  packaging:         alu
 
   price:             
   weight:            400
@@ -1701,6 +1750,7 @@ Löschzwerg R:
 
   acceptable:        less
   ingredients:       "Bier (Wasser, GERSTENMALZ, Hopfen), natürliches Mineralwasser, Glucose-Fruktose-Sirup, Zucker, Zitronenkonzentrat (Zitrone, Zitronensaftkonzentrat, Zitronenöl), Kohlensäure, Konservierungsstoff, Kaliumsorbat, Antioxidationsmittel Ascorbinsäure, natürliches Aroma, Stabilisator Johannisbrotkernmehl"
+  packaging:         glass,rubber
 
   price:             
   weight:            330ml
@@ -1728,6 +1778,7 @@ Lyoner R Bio:
   vendor:            Rewe
   acceptable:        less
   certificates:      { bio: true }
+  packaging:         plastic
 
   price:             1.39
   weight:            70
@@ -1750,6 +1801,7 @@ Lyoner R Bio:
 Mandel N:
 
   vendor:            Norma
+  packaging:         plastic (maybe)
 
   price:             1.89
   weight:            150
@@ -1775,6 +1827,7 @@ Mandel R Bio:
 
   vendor:            Rewe
   certificates:      { bio: true }
+  packaging:         plastic (maybe)
 
   price:             2.29 # 2024-03-30 2.89
   weight:            200
@@ -1801,6 +1854,7 @@ Mehrkornbr:
   vendor:            Norma
   acceptable:        less
   comment:           "2 smaller pieces count as one"
+  packaging:         plastic,cardboard
 
   price:             
   weight:            500g
@@ -1827,6 +1881,7 @@ Milch H:
   vendor:            Rewe
   acceptable:        less
   comment:           "Sometimes nice for good mood"
+  packaging:         plastic (maybe)
 
   price:             1.49
   weight:            1000
@@ -1855,6 +1910,7 @@ Mohnkuchen:
 
   vendor:            Norma
   acceptable:        less
+  packaging:         alu,plastic
 
   price:             2.89
   weight:            400g
@@ -1880,6 +1936,7 @@ Nussmisch A:      # big pack
   productName:       "Feinste Nussvariationen"
   vendor:            Aldi
   certificates:      { NutriScore: A }
+  packaging:         plastic (maybe)
 
   price:             2.79
   weight:            200
@@ -1914,6 +1971,7 @@ Nussmisch N:
 
   productName:       "Premium 3 Nuss Mix"
   vendor:            Norma
+  packaging:         plastic (maybe)
 
   price:             2.89
   weight:            200
@@ -1938,6 +1996,7 @@ Nussmisch N:
 Nussmisch A ger:  # small pack
 
   vendor:            Aldi
+  packaging:         plastic (maybe)
 
   price:             
   weight:            150
@@ -1962,6 +2021,7 @@ Nussmisch A ger:  # small pack
 Nussmisch N old:
 
   vendor:            Norma
+  packaging:         plastic (maybe)
 
   price:             2.79
   weight:            200
@@ -1988,6 +2048,7 @@ Nussmisch N old:
 Öl:
 
   vendor:            Rewe
+  packaging:         glass,rubber
 
   price:             1.39  # last 1.49 2024-06-18 1.99 2024-05-01
   weight:            500ml
@@ -2016,6 +2077,7 @@ Oliven R Bio:
 
   vendor:            Rewe
   certificates:      { bio: true }
+  packaging:         glass,rubber
 
   price:             1.89
   weight:            180
@@ -2040,6 +2102,7 @@ Oliven R Bio:
 Olivenöl:
 
   vendor:            Denns
+  packaging:         glass,rubber
 
   price:             18.49  # 17.49 2024-06-18 16.99 2024-04-24
   weight:            500ml
@@ -2093,6 +2156,7 @@ Patros 150:
 
   vendor:            Rewe
   acceptable:        occasionally
+  packaging:         plastic
 
   price:             1.69  # deal price
   weight:            150
@@ -2117,6 +2181,7 @@ Patros W:
 
   vendor:            Rewe
   acceptable:        occasionally
+  packaging:         plastic
 
   price:             2.99
   weight:            135
@@ -2142,6 +2207,7 @@ Pfannegem A Ital:
   vendor:            Aldi
   url:               "https://www.aldi-nord.de/produkt/pfannengemuese-6986-0-0.article.html"
   certificates:      { NutriScore: A }
+  packaging:         plastic
 
   price:             1.99
   weight:            750
@@ -2168,6 +2234,7 @@ Philadelphia:
   vendor:            Rewe
   url:               "https://shop.rewe.de/p/philadelphia-natur-doppelrahmstufe-175g/575043"
   acceptable:        less
+  packaging:         plastic,alu
 
   price:             1.49  # deal price
   weight:            175
@@ -2194,6 +2261,7 @@ Philadelphia mini:
   vendor:            Rewe
   url:               "https://shop.rewe.de/p/philadelphia-natur-doppelrahmstufe-6x16-7g/5349729"
   acceptable:        less
+  packaging:         plastic,alu
 
   price:             0.95  # deal
   weight:            100.02
@@ -2218,6 +2286,7 @@ Philadelphia mini:
 Pistazien:
 
   vendor:            Aldi
+  packaging:         plastic
 
   price:             
   weight:            250
@@ -2243,6 +2312,7 @@ Pizza Mag:
 
   vendor:            Norma
   acceptable:        less
+  packaging:         plastic,cardboard
 
   price:             2.99
   weight:            900
@@ -2270,6 +2340,7 @@ Pommes:
   vendor:            Rewe
   acceptable:        occasionally
   ingredients:       "Kartoffeln 95%, Sonnenblumenöl 4,5 %, Dextrose"
+  packaging:         plastic
 
   price:             1.89
   weight:            1000
@@ -2296,6 +2367,7 @@ Pommes R Bio:
   acceptable:        occasionally
   certificates:      { bio: true }
   ingredients:       "Kartoffeln 96%, Sonnenblumenöl"
+  packaging:         plastic
 
   price:             2.49
   weight:            750
@@ -2321,6 +2393,7 @@ Pumpernickel R Bio:
   vendor:            Rewe
   acceptable:        occasionally
   certificates:      { bio: true }
+  packaging:         plastic
 
   price:             1.09
   weight:            250
@@ -2345,6 +2418,7 @@ R Rüben N:
 
   vendor:            Norma
   # acceptable:      occasionally  # currently no alternative
+  packaging:         glass,rubber
 
   price:             0.99
   weight:            430
@@ -2371,6 +2445,7 @@ Riegel Deca Basic:
   vendor:            Deca
   acceptable:        less
   comment:           "still processed food ..."
+  packaging:         plastic
 
   price:             1.99
   weight:            60
@@ -2396,6 +2471,7 @@ Riegel Seitenb Sch:
   vendor:            Rewe
   acceptable:        less
   comment:           "still processed food ..."
+  packaging:         alu
 
   price:             1.99
   weight:            60
@@ -2424,6 +2500,7 @@ Riegel Seitenb Sch:
 Ritter Sp 50%:
 
   acceptable:        less
+  packaging:         plastic
 
   price:             1.69
   weight:            100
@@ -2450,6 +2527,7 @@ Ritter Sp 61%:
   acceptable:        less
   comment:           "Nicaragua (Cadmium)"
   origin:            "Nicaragua"
+  packaging:         plastic
 
   price:             1.69
   weight:            100
@@ -2476,6 +2554,7 @@ Ritter Sp 74%:
   acceptable:        less
   comment:           "Nicaragua (Cadmium)"
   origin:            "Nicaragua"
+  packaging:         plastic
 
   price:             1.69
   weight:            100
@@ -2500,6 +2579,7 @@ Ritter Sp 74%:
 Ritter Sp 81%:
 
   acceptable:        occasionally
+  packaging:         plastic
 
   price:             1.69
   weight:            100
@@ -2525,6 +2605,7 @@ Salami R:
 
   vendor:            Rewe
   acceptable:        less
+  packaging:         plastic
 
   price:             1.79
   weight:            70
@@ -2552,6 +2633,7 @@ Salami R Wilt (Innens):
   acceptable:        less
   certificates:      { bio: true }
   ingredients:       "Hähnchen, Pute, Palmfett, Meersalz, Traubenzucker, Gewürze, Antiox: Natriumascorbat, Konserv: Natriumnitrit, Reifekulturen, Buchenholzrauch"
+  packaging:         plastic,cardboard
 
   price:             2.79  # TASK: Aldi 2.19 2024-06-08
   weight:            80
@@ -2578,6 +2660,7 @@ Sardine:
   comment:           "careful cause of mercury"
   certificates:      { NutriScore: B }
   ingredients:       "Sonnenblumenöl, Salz"
+  packaging:         alu
 
   price:             0.99
   weight:            125
@@ -2604,6 +2687,7 @@ Seelachs N:
   vendor:            Norma
   url:               "https://www.norma-online.de/de/sortiment/transparente-fischerei-t-184/alaska-seelachs-i-264"
   certificates:      { NutriScore: A }
+  packaging:         cardboard
 
   cookingInstructions: ">= 12 min"
 
@@ -2661,6 +2745,7 @@ Süßk Pommes:
   url:               "https://shop.rewe.de/p/rewe-beste-wahl-suesskartoffel-pommes-500g/7057887?sv1=affiliate&sv_campaign_id=101248&awc=11652_1720180225_9ab4aad1d3be21d98d349a5974995cf4&ecid=aff_awin_101248_takeads.com_0_nn_nn_nn_pm01&zanpid=11652_1720180225_9ab4aad1d3be21d98d349a5974995cf4"
   certificates:      { NutriScore: B }
   ingredients:       "Süßkartoffeln 89%, Sonnenblumenöl, Würzung 4% (modifizierte Stärke, Reismehl, Dextrin, Speisesalz, Gewürze (Paprika, schwarzer Pfeffer), Knoblauchpulver, Zwiebelpulver, Backtriebmittel (Diphosphate, Natriumcarbonate), Verdickungsmittel (Xanthan), Paprikaextrakt)"
+  packaging:         plastic
 
   price:             2.69
   weight:            500
@@ -2687,6 +2772,7 @@ Thunfisch N:
   acceptable:        occasionally
   certificates:      { NutriScore: B }
   comment:           "may contain mercury"
+  packaging:         alu
 
   price:             1.49
   weight:            140
@@ -2715,6 +2801,7 @@ Toasties R Bio:
   certificates:      { bio: true, NutriScore: A }
   ingredients:       "Wasser, WEIZENMEHL*, ROGGENMEHL*, Roggengrütze*, ROGGENFLOCKEN*, Weizengrütze*, Zucker*, Kartoffelflocken*, Meersalz 1,1%, GERSTENMALZMEHL*, WEIZENGLUTEN*, Hefe"
   allergy:           "Glutenhaltiges Getreide (Weizen, Gerste, Roggen, Hafer, Dinkel, Kamut oder Hybridstämme)"              
+  packaging:         plastic
 
   price:             0.95
   weight:            260
@@ -2741,6 +2828,7 @@ Tofu N:
   vendor:            Norma
   url:               "https://www.norma-online.de/at/sortiment/bio-sonne-t-181/vegane-bio-spezialitaeten-i-403"
   certificates:      { NutriScore: A, oekotest: 1 }
+  packaging:         plastic
 
   price:             2.19
   weight:            400
@@ -2766,6 +2854,7 @@ Vollkorn Rhein R:
 
   vendor:            Rewe
   acceptable:        less
+  packaging:         plastic
 
   price:             
   weight:            250
@@ -2791,6 +2880,7 @@ Walnuss R Bio:
 
   vendor:            Rewe
   certificates:      { bio: true }
+  packaging:         plastic (maybe)
 
   price:             2.99
   weight:            200
@@ -2819,6 +2909,7 @@ Wrap Falafel A:
   ingredients:       "(shortened strange only) 50 % Spinat-Weizenfladen, Backtriebsmitel: Diphosphate, Natriumcarbonate, Traubenzucker, Säuerungsmittel: Apfelsäure, Kichererbsen, Zucker, elsesalz, Zitronensaft aus Zitronensaftkonzentrat, Verdickungsmite Nanthan; Sauerungsmittel: Essigsäure, Citronensäure, Stärke, Eigelb, modifizierte Stärke, Branntwein - sig, Verdickungsmittel: Guarkernmehl, Speisesal abilisator: Calciumchlorid"
   allergy:           "Eier, Gluten"
   mayContain:        "Sesam, Sellerie, Schalen - früchten, Lupinen, Soja, Senf, Milch und Fisch enthalten"
+  packaging:         plastic,cardboard
 
   price:             1.99  # TASK: deal
   weight:            190
@@ -2845,6 +2936,7 @@ Zitronenm:  # (TASK) currently 2 entries
   acceptable:        occasionally
   comment:           "Andorn Bibernelle Ehrenpreis Eibisch Frauenmantel Holunder Malve Pfefferminze Salbei Schafgarbe Schlüsselblume Spitzwegerich Thymian"
   ingredients:       "Süßungsmittel (Isomalt), Säuerungsmittel (Citronensäure), Kräuterauszug (0,3%) aus Zitronenmelisse sowie Spitzwegerich, Eibisch, Pfefferminze, Thymian, Salbei, Frauenmantel, Schafgarbe, Bibernelle, Malve, Holunderblüten, Schlüsselblume, Ehrenpreis und Andorn, natürliches Citrusaroma, Karottensaftkonzentrat, Süßungsmittel (Steviolglycoside aus Stevia, Thaumatin), Pfefferminzöl, Minzöl, Menthol"
+  packaging:         cardboard
 
   price:             1.75  
   weight:            75g   
@@ -2873,6 +2965,7 @@ Zitronenm mini:  # (TASK) currently 2 entries
   acceptable:        occasionally
   comment:           "Andorn Bibernelle Ehrenpreis Eibisch Frauenmantel Holunder Malve Pfefferminze Salbei Schafgarbe Schlüsselblume Spitzwegerich Thymian"
   ingredients:       "Süßungsmittel (Isomalt), Säuerungsmittel (Citronensäure), Kräuterauszug (0,3%) aus Zitronenmelisse sowie Spitzwegerich, Eibisch, Pfefferminze, Thymian, Salbei, Frauenmantel, Schafgarbe, Bibernelle, Malve, Holunderblüten, Schlüsselblume, Ehrenpreis und Andorn, natürliches Citrusaroma, Karottensaftkonzentrat, Süßungsmittel (Steviolglycoside aus Stevia, Thaumatin), Pfefferminzöl, Minzöl, Menthol"
+  packaging:         cardboard
 
   price:             1.65
   weight:            50g
