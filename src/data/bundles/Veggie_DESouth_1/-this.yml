@@ -17,23 +17,23 @@ spec: |
 
   <table>
     <tr>
-      <td><b>Avoid:</b></td>
-      <td>All corn, cereals, milk products</td>
+      <td valign="top"><b>Avoid:</b></td>
+      <td valign="top">All corn, cereals, milk products</td>
     </tr>
     <tr>
-      <td><b>Plants:</b></td>
-      <td>Nuts, seeds, vegetables, legumes (complex carbs), herbs</td>
+      <td valign="top"><b>Plants:</b></td>
+      <td valign="top">Nuts, seeds, vegetables, legumes (complex carbs), herbs</td>
     </tr>
     <tr>
-      <td><b>Meat:</b></td>
-      <td>Seems to be necessary (currently fish and some chicken)</td>
+      <td valign="top"><b>Meat:</b></td>
+      <td valign="top">Seems to be necessary (currently fish and some chicken)</td>
     </tr>
     <tr>
-      <td><b>Misc:</b></td>
-      <td>Garlic, olive oil</td>
+      <td valign="top"><b>Misc:</b></td>
+      <td valign="top">Garlic, olive oil</td>
     </tr>
     <tr>
-      <td colspan="2">Don't use too much from one of these on a daily basis, kind of unnatural.</td>
+      <td valign="top" colspan="2">Don't use too much from one of these on a daily basis, kind of unnatural.</td>
     </tr>
   </table>
 
