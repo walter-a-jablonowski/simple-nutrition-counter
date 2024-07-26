@@ -36,23 +36,18 @@ class FoodsController extends ControllerBase
   protected array      $captions = [];
   protected SimpleData $inlineHelp;
 
+  // TASK: MOVE
+
+  protected array $nutrientsModel;
+  protected array $nutrientsShort;
+
 
   public function __construct(/* $model = null, $view = null */)
   {
     parent::__construct();
-  }
 
-
-  /*@
-
-  Make all the data
-
-  */
-  private function makeData()  /*@*/
-  {
-    $config = $this->config = config::instance();
-
-    $this->settings = new SimpleData( $config->get('defaultSettings'));  // TASK: (advanced) merge user settings
+    $this->config   = config::instance();  // member cause used in more than one methods
+    $this->settings = new SimpleData( $this->config->get('defaultSettings'));  // TASK: (advanced) merge user settings
 
     // User (currently less important)
     // just get it from session, currently no User obj
@@ -65,7 +60,7 @@ class FoodsController extends ControllerBase
     foreach( $users as $user )
       $this->users[$user] = Yaml::parse( file_get_contents("data/users/$user/-this.yml"))['name'];
 
-    $_SESSION['user'] = $_SESSION['user'] ?? $config->get('defaultUser');
+    $_SESSION['user'] = $_SESSION['user'] ?? $this->config->get('defaultUser');
     $this->user = $_SESSION['user'];
     $this->userName = Yaml::parse( file_get_contents('data/users/' . $this->user . '/-this.yml'))['name'];
 
@@ -74,32 +69,33 @@ class FoodsController extends ControllerBase
     $this->inlineHelp = new SimpleData();
     $this->inlineHelp->set('app',   Yaml::parse( file_get_contents('misc/inline_help/app.yml')));
     $this->inlineHelp->set('foods', Yaml::parse( file_get_contents('misc/inline_help/foods.yml')));
+  }
 
-    // Data
+
+  public function render(/*$request*/)
+  {
+    $this->date = $_GET['date'] ?? date('Y-m-d');
+    $this->mode = isset($_GET['date']) ? 'last' : 'current';
 
     $this->layout = parse_attribs('@attribs', ['short', '(i)'], Yaml::parse( file_get_contents('data/bundles/Veggie_DESouth_1/layouts/-this.yml')));
 
-    $this->dayEntriesTxt = trim( @file_get_contents('data/users/' . $config->get('defaultUser') . "/days/{$this->date}.tsv") ?: '', "\n");
+    // Day entries
+
+    $this->dayEntriesTxt = trim( @file_get_contents('data/users/' . $this->config->get('defaultUser') . "/days/{$this->date}.tsv") ?: '', "\n");
     $this->dayEntries    = parse_tsv( $this->dayEntriesTxt );
 
     foreach( $this->dayEntries as $idx => $entry)
       $this->dayEntries[$idx][7] = Yaml::parse( $this->dayEntries[$idx][7] );
 
-    // $this->foodsTxt = file_get_contents('data/bundles/Veggie_DESouth_1/foods.yml');  // old
-
-    $this->model = new SimpleData();
-    $this->model->set('foods', Yaml::parse( file_get_contents('data/bundles/Veggie_DESouth_1/foods.yml')));
-
-    $this->foodsView = new SimpleData();
-
     // TASK: move in model
-    $nutrientsModel['fattyAcids'] = Yaml::parse( file_get_contents('data/nutrients/fattyAcids.yml'));
-    $nutrientsModel['aminoAcids'] = Yaml::parse( file_get_contents('data/nutrients/aminoAcids.yml'));
-    $nutrientsModel['vitamins']   = Yaml::parse( file_get_contents('data/nutrients/vitamins.yml'));
-    $nutrientsModel['minerals']   = Yaml::parse( file_get_contents('data/nutrients/minerals.yml'));
-    $nutrientsModel['secondary']  = Yaml::parse( file_get_contents('data/nutrients/secondary.yml'));
 
-    $nutrientsShort = [
+    $this->nutrientsModel['fattyAcids'] = Yaml::parse( file_get_contents('data/nutrients/fattyAcids.yml'));
+    $this->nutrientsModel['aminoAcids'] = Yaml::parse( file_get_contents('data/nutrients/aminoAcids.yml'));
+    $this->nutrientsModel['vitamins']   = Yaml::parse( file_get_contents('data/nutrients/vitamins.yml'));
+    $this->nutrientsModel['minerals']   = Yaml::parse( file_get_contents('data/nutrients/minerals.yml'));
+    $this->nutrientsModel['secondary']  = Yaml::parse( file_get_contents('data/nutrients/secondary.yml'));
+
+    $this->nutrientsShort = [
       'nutritionalValues' => 'nutriVal',  // TASK: use short name from nutrient files
       'fattyAcids'        => 'fat',
       'aminoAcids'        => 'amino',
@@ -108,17 +104,31 @@ class FoodsController extends ControllerBase
       'secondary'         => 'sec'
     ];
 
+    // unused
 
-    // This day tab
+    // $this->foodsTxt = file_get_contents('data/bundles/Veggie_DESouth_1/foods.yml');  // old
+
+    $this->makeFoodsView();
+    $this->makeNutrientsView();
+    $this->makeDaysView();
+
+    ob_start();
+    require 'view/-this.php';
+    return ob_get_clean();    // echo is done in index
+  }
+
+  private function makeFoodsView()
+  {
+    $this->model = new SimpleData();
+    $this->model->set('foods', Yaml::parse( file_get_contents('data/bundles/Veggie_DESouth_1/foods.yml')));
+
+    $this->foodsView = new SimpleData();
 
     // we pre calc all values (model data is a view)
     // cause it's simpler for recipes and less js code
 
     // TASK: maybe make more logical, e.g. var naming ... (did one round 2406)
 
-    // make food list with amounts (model)
-
-    // foreach( Yaml::parse( file_get_contents('data/bundles/Veggie_DESouth_1/foods.yml')) as $foodName => $foodEntry )
     foreach( $this->model->get('foods') as $foodName => $foodEntry )
     {
       $foodEntry['weight'] = trim( $foodEntry['weight'], "mgl ");  // just for convenience, we don't need the unit here
@@ -133,7 +143,6 @@ class FoodsController extends ControllerBase
              : 'pack'
       );
 
-      // $usedAmounts = $foodEntry['usedAmounts'] ?? ( $config->get("foods.defaultAmounts.$usage") ?: 1);
       $usedAmounts = $foodEntry['usedAmounts'] ?? ( $this->settings->get("foods.defaultAmounts.$usage") ?: 1);
 
       foreach( $usedAmounts as $amount )
@@ -156,9 +165,9 @@ class FoodsController extends ControllerBase
           'price'    => isset( $foodEntry['price']) ? round( $foodEntry['price'] * ($weight / $foodEntry['weight']), 2) : 0
         ];
 
-        // nutritinal values for all nutrient groups
+        // nutritional values for all nutrient groups
 
-        foreach( $nutrientsShort as $group => $groupShort )          // all nutrient groups first (be sure we have at least an empty entry)
+        foreach( $this->nutrientsShort as $group => $groupShort )    // all nutrient groups first (be sure we have at least an empty entry)
         {                                                            // (TASK) will be mod (see task nutrientsShort above)
           if( ! isset($foodEntry[$group]) || count($foodEntry[$group]) == 0)
             $perWeight[$groupShort] = [];
@@ -168,7 +177,7 @@ class FoodsController extends ControllerBase
             //   $debug = 'halt';
 
             $short = $group === 'nutritionalValues' ? $nutrient      // get short name from /nutrients
-                   : $nutrientsModel[$group]['substances'][$nutrient]['short'];
+                   : $this->nutrientsModel[$group]['substances'][$nutrient]['short'];
 
             $perWeight[$groupShort][$short] = round( $value * ($weight / 100), 1);
           }
@@ -178,20 +187,23 @@ class FoodsController extends ControllerBase
         $this->foodsView->set("foods.$foodName.$amount", $perWeight);
       }
     }
+  }
 
 
-    // Nutrients tab
+  private function makeNutrientsView()
+  {
+    // TASK: make a sep view
     // TASK: group vals
 
     foreach(['fattyAcids', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $group )
     {
-      $this->captions[ $nutrientsShort[$group]] = $nutrientsModel[$group]['name'];
+      $this->captions[ $this->nutrientsShort[$group]] = $this->nutrientsModel[$group]['name'];
 
-      foreach( $nutrientsModel[$group]['substances'] as $name => $attr )  // short is used as id
+      foreach( $this->nutrientsModel[$group]['substances'] as $name => $attr )  // short is used as id
       {
         $a = $attr['amounts'][0];      // TASK: use unit for sth?
 
-        $this->foodsView->set("nutrients.$nutrientsShort[$group].$attr[short]", [
+        $this->foodsView->set('nutrients.' . $this->nutrientsShort[$group] . ".$attr[short]", [
                                        
           'name'  => $name,            // TASK: (advanced) currently using first entry only
           'group' => $group,
@@ -205,16 +217,17 @@ class FoodsController extends ControllerBase
         ]);
       }
     }
+  }
 
-    // All days tab
-    // no model data, kind of report
 
+  private function makeDaysView()
+  {
     $this->lastDaysView = new SimpleData();
     $priceSumAll = 0; $days = 0;
 
     // TASK: remove current day
 
-    foreach( scandir('data/users/' . $config->get('defaultUser') . '/days', SCANDIR_SORT_DESCENDING) as $file)
+    foreach( scandir('data/users/' . $this->config->get('defaultUser') . '/days', SCANDIR_SORT_DESCENDING) as $file)
     {
       if( pathinfo($file, PATHINFO_EXTENSION) !== 'tsv')
         continue;
@@ -222,7 +235,7 @@ class FoodsController extends ControllerBase
       $days++;
 
       $dat     = pathinfo( $file, PATHINFO_FILENAME);
-      $entries = parse_tsv( file_get_contents('data/users/' . $config->get('defaultUser') . "/days/$file"));
+      $entries = parse_tsv( file_get_contents('data/users/' . $this->config->get('defaultUser') . "/days/$file"));
 
       // foreach( $entries as $idx => $entry)
       //   $entries[$idx][7] = Yaml::parse( $entries[$idx][7] );
@@ -242,19 +255,6 @@ class FoodsController extends ControllerBase
     }
     
     $this->priceAvg = ! $priceSumAll ? 0.0 : $priceSumAll / $days;
-  }
-
-
-  public function render(/*$request*/)
-  {
-    $this->date = $_GET['date'] ?? date('Y-m-d');
-    $this->mode = isset($_GET['date']) ? 'last' : 'current';
-
-    $this->makeData();
-
-    ob_start();
-    require 'view/-this.php';
-    return ob_get_clean();    // echo is done in index
   }
 }
 
