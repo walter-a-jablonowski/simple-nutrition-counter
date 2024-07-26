@@ -235,10 +235,10 @@ Banane (mid):
   url:               "https://www.geo.de/wissen/ernaehrung/vitamin-lexikon/20293-rtkl-bananen-diese-vitamine-stecken-drin"
   acceptable:        less
 
-  price:             # N fair trade 1.99/kg 146 g = mid, R Bio 1.99/kg 226 g
-  weight:            150
-  usedAmounts:       ["1"]
-
+  price:             0.44  # price from larger one
+  weight:            220
+  usedAmounts:       ["120g", "150g", "220g"]  # mini, mid, large
+                     # N fair trade 1.29/kg 122 g, N 1.99/kg 146 g = mid, R Bio 1.99/kg 226 g
   calories:          93
   nutritionalValues:
 
@@ -252,7 +252,7 @@ Banane (mid):
     fibre:           2
     salt:            0
 
-  # vitamins:  // TASK
+  # vitamins:  # TASK
 
   #   Vitamin A:  5 μg
   #   Vitamin B1: 44 μg
