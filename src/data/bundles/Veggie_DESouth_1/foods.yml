@@ -2827,6 +2827,8 @@ Tofu N:
 
   vendor:            Norma
   url:               "https://www.norma-online.de/at/sortiment/bio-sonne-t-181/vegane-bio-spezialitaeten-i-403"
+  acceptable:        occasionally
+  comment:           "Careful, soy based prducts have some bad reputation"
   certificates:      { NutriScore: A, oekotest: 1 }
   packaging:         plastic
 
