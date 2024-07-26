@@ -1,0 +1,245 @@
+#
+# Layout
+#
+# - for upper part of nutrients list
+# - left over recipes nutrients will be attached below
+# - see also -> readme
+#
+
+#
+# Sample
+#
+# -- Data --------     -- Layout --------
+#                       ___________________
+# My nutrient group:   | My nutrient group     # nutrient names are from recipes.yml, foods.yml
+#   list:              |-------------------    # or misc.yml (use multiple times possible)
+#     - Recipe         | Recipe   |
+#     - or nutrient    | Nutrient | 1/4 | ...  < amounts as defined in
+#     - ...            |          |              foods.yml
+#
+# My nutrient group (color:#e0e0e0):  # Visually group with color
+#   (i):                              # Comment (i) switch in UI
+#   short:                            # always visible
+#   list:
+#     - ...
+#
+                                     # Color groups
+
+# (first_entries):                   # makes layout highly configureable
+#                                    # simpler may be enough, currently is just implemented fix and activated in config settings
+#   list:
+#
+#     - Enter manually ...
+#     - Coffee
+#     - Fullup
+#     - ...
+
+# Morning supplements (color:#ff69b4, fold:true):
+
+Nuts, seeds (color:#ffa500):                 # Meals  # TASK: on the go diff shade
+
+  (i):   "Demo 2"                            # TASK: we also could add a collapse for larger content
+  short: "Info (always visible)"             # alternative: enclose in attribs key (see function)
+
+  list:
+
+    - Cashew A
+    - Cashew E
+    - Cashew N
+    - Cashew R Bio
+    - Durchstarter
+    - Erdn Salz N big
+    - Mandel N
+    - Mandel R Bio
+    - Nussmisch A
+    - Nussmisch A ger
+    - Nussmisch N
+    - Nussmisch N old
+    - Pistazien
+    - Walnuss R Bio
+
+Veggie bowl, high fibre (color:#ffa500):
+
+  (i):   "Ideal is nuts, veggie high in fibre some chicken, fish"  # TASK: move
+  short: "add [ A little taste ] and [ Greens ] ..."  # TASK: add url
+
+  list:
+
+    # - Veggie L                             # TASK
+    # - Veggie C
+    - Chick R Bio
+    - Linsen R Bio
+    - Brokkoli R
+    - Gemüse R Bio
+    - Gemüse A Bio Sommer
+    - Gemüse A Bio Ital
+    - Gemüse R
+    - Olivenöl
+    - Öl
+
+Fish, meat, tofu (color:#ffa500):
+
+  list:
+
+    - Seelachs N
+    - Fischst
+    - Thunfisch N
+    - Sardine
+
+    - Hähnchen Kebab
+    - Chicken Nugg N
+    - Tofu N
+    
+    - Salami R
+    - Salami R Wilt (Innens)
+    - Lyoner R Bio
+
+Desserts & micro or sugar-less candy (color:#ffa500):  #
+
+  (i): "Candy: Reduce amount per day (effectively: don't buy more or you will eat it)"
+
+  list:
+
+    # - Joghurt  # TASK
+    - Ritter Sp 81%      
+    - Ritter Sp 74%
+
+    - Duplo              # less
+    - Ferrero Kuesschen
+    - Ritter Sp 50%
+    - Ritter Sp 61%
+    - Hanuta
+
+A little taste (color:#32cd32):
+
+  (i): "Add only a little per meal makes it far more tasty and keeps it healthy"
+
+  list:
+
+    - Parmesan Bio R
+    - Patros 150
+    - Patros W
+    - Frischk R Bio
+    - Frischk R Bio 2
+    - Bresso
+    - Bresso mini
+    - Philadelphia
+    - Philadelphia mini
+    - Käse Gr Sch (all)
+    - Käse Gr W (all)
+    - Eiweißbr
+
+Greens, legumes, mushr (color:#32cd32):      # Ingredients
+
+  list:
+
+    - Avocado
+    - Avocado gr
+    - Oliven R Bio
+    - Pfannegem A Ital
+    - Green beans R
+    - R Rüben N
+    - Süßk Pommes
+    - Pommes R Bio
+    - Artisch R viertel
+    - Champ mini ganz R
+    - Champ N
+
+Misc starch, corn (color:#ffa500):
+
+  list:
+
+    - Kartoffeltaschen F
+    - Kartoffel Wedges
+    - Pommes
+    - Kartoffel Wedges Bio
+
+    - Pumpernickel R Bio
+    - Vollkorn Rhein R
+    - Flatbr Sandwich
+    - Toasties R Bio
+    - Mehrkornbr
+
+Misc meals (color:#ffa500):
+
+  list:
+
+    - Frosta Bratk
+    - Frosta Gesch
+    - Aldi Bratk
+    - Linsen vegan
+    - Geb Bohnen
+    - Chili vegan
+
+Fill up missing (color:#8a2be2):
+
+  (i): "We may also need fill up some energy from time to time"
+
+  list:
+
+    - Amino misc                             # use left over
+    - Amino Deca Muscle Gainer
+    - Amino NaDuRia Pur
+    - Riegel Seitenb Sch
+    - Frosta Frikassee
+    - Frosta Paella
+    - Banane (mid)
+    - Chips light
+
+Cheat day (color:#ffa500):
+
+  list:
+
+    - Pizza Mag
+    - Lindt caramel
+    - Mohnkuchen
+    - Donuts
+    - Donuts mini A                          # (duplicate)
+
+Housewares (color:#e0e0e0):                  # Finance only
+
+  (i): |
+  
+    All the non food stuff bought regularly like coffee filters, batteries ...
+    Counts as consumed as soon as one pack/piece is taken out of the pantry.
+    Coffee filters aren't consumed all at once of course, but the error is only
+    a few cents.
+
+Misc expenses (color:#e0e0e0):               # Misc monthly variable
+
+Variable Suppl, Brain tuning (color:#ff69b4, fold:true):  # Suppl
+
+  list:
+
+Evening Supplements, fill up (color:#ff69b4, fold:true):
+
+  list:
+
+    # - Salt                                 # TASK: removed for debugging layout
+
+    - Milch H
+    - Zitronenm
+    - Zitronenm mini
+    - Cashew A Cranb
+
+On the go (color:#ffa500, fold:true):        # On the go
+
+  list:
+
+    - Cappuccino R
+    - Cappu Denns
+    - Cappuccino Eni
+    - Riegel Seitenb Sch                     # (duplicate)
+    - Karamalz
+    - Löschzwerg R
+    - Döner 1
+    - Kfc Original
+    - Kfc Chili Cheese
+    - Wrap Falafel A
+    - Falafel
+    - Hanuta
+    - Snickers
+    - Espresso Stick
+    - Burrito A
+    - Donuts mini A
+    - Riegel Deca Basic
