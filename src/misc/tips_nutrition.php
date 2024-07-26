@@ -11,7 +11,7 @@
 
 <ul class="no-indent">
   <li>Put stuff in a bowl</li>
-  <li>Make some of the igredients warm in a mini oven or microwave</li>
+  <li>Make some of the ingredients warm in a mini oven or microwave</li>
   <li>Add more ingredients => ready in under 10 minutes</li>
   <li>Sample: veggie bowl with broccoli, lentils or chickpeas, olive oil, a little bit of feta cheese for the taste, spices and whatever greens you want to add ...</li>
 </ul>

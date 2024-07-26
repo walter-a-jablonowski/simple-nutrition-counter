@@ -5,7 +5,12 @@ user:   single_user  # usually mail and time (see users), single_user is a speci
 forkedFrom:
 forkedDate:
 
+vendors: Rewe, Norma, Edeka, Aldi, Denn's, online
+
 spec: |
+
+
+  <b>Concept</b>
 
   <ul class="no-indent">
     <li>Avoid all mass produced that humans weren't meant to eat</li>
@@ -52,7 +57,3 @@ sources:
   Sten Ekberg:
   Bryan Johnson:
   Rhonda Patrick:
-
-productAvailability: |
-
-  Includes products primarily from Rewe, Norma, Edeka, Aldi, as well as Denn's Bio and maybe online

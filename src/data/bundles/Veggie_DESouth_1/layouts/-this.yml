@@ -203,10 +203,9 @@ Housewares (color:#e0e0e0):                  # Finance only
 
   (i): |
   
-    All the non food stuff bought regularly like coffee filters, batteries ...
+    Hunt hidden costly non food stuff, like coffee filters, batteries ...
     Counts as consumed as soon as one pack/piece is taken out of the pantry.
-    Coffee filters aren't consumed all at once of course, but the error is only
-    a few cents.
+    The error is only a few cents and can be ignored.
 
 Misc expenses (color:#e0e0e0):               # Misc monthly variable
 

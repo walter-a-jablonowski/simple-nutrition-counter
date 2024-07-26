@@ -64,11 +64,24 @@ use Symfony\Component\Yaml\Exception\ParseException;
 
             ?>
 
-            <b>Currently selected food list:</b> <?= $a['name'] ?> (<?= $a['user'] ?>)<br>
-            <br>
-            <?= $a['spec'] ?><br>
-            <br>
-            <b>Region:</b> <?= $a['region'] ?> - <?= lcfirst( trim($a['productAvailability'])) ?>
+            <h6>
+              <b>Current food list:</b> <?= $a['name'] ?> (<?= $a['user'] ?>)
+            </h6>
+
+            <table class="mt-2" style="border: 0;">
+              <tr>
+                <td valign="top" class="text-secondary small"><b>availability:&nbsp;</b></td>
+                <td valign="top" class="text-secondary small"><?= $a['region'] ?></td>
+              </tr>
+              <tr>
+                <td valign="top" class="text-secondary small"><b>vendors:</b></td>
+                <td valign="top" class="text-secondary small"><?= trim($a['vendors']) ?></td>
+              </tr>
+            </table>
+
+            <p class="mt-2">
+              <?= $a['spec'] ?>
+            </p>
 
           </div>
           <div id="tipsNutritionPane" class="tab-pane fade" role="tabpanel">
