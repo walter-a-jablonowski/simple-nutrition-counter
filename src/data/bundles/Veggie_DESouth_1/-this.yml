@@ -25,19 +25,23 @@ spec: |
       <td valign="top">All corn, cereals, milk products</td>
     </tr>
     <tr>
+      <td valign="top"><b>Limit:</b></td>
+      <td valign="top">Fruits have some good substances but too much fructose, only sometimes (use vegetables), few eggs only</td>
+    </tr>
+    <tr>
       <td valign="top"><b>Plants:</b></td>
       <td valign="top">Nuts, seeds, vegetables, legumes (complex carbs), herbs</td>
     </tr>
     <tr>
       <td valign="top"><b>Meat:</b></td>
-      <td valign="top">Seems to be necessary (currently fish and some chicken), very few eggs</td>
+      <td valign="top">Seems to be necessary (currently fish and some chicken)</td>
     </tr>
     <tr>
       <td valign="top"><b>Misc:</b></td>
       <td valign="top">Garlic, olive oil</td>
     </tr>
     <tr>
-      <td valign="top" colspan="2">Don't use too much from one of these on a daily basis, kind of unnatural. Maybe daily meat if blue zones many of amino from it (pork). TASK: Must be verified (older as well ?)</td>
+      <td valign="top" colspan="2">Don't use too much from one of these on a daily basis, unnatural behavior. Maybe daily meat if in blue zones many of amino from it (pork). TASK: Must be verified (older as well ?)</td>
     </tr>
   </table>
 
