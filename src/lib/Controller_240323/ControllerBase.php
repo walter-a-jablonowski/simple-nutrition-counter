@@ -110,6 +110,8 @@ abstract class ControllerBase
 
   /*@
 
+  - doesn't work for bool or float keys
+
   */
   public static function switch( $value, $arr ) /*@*/
   {

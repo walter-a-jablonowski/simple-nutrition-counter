@@ -84,13 +84,13 @@ $return['done'] = [];
               data-source    = "#<?= $foodId ?>Data"
         >
           <?= $foodName ?>
-          <?= self::iif( $price && $cheap,     '<i class="bi bi-currency-exchange small text-secondary"></i>') ?>
+          <?= self::iif( $showInfo,        '<span class="badge" style="background-color: orange; padding: 2px 5px 4px 5px !important;">info</span>') ?>
+          <?= self::iif( $price && $cheap, '<i class="bi bi-currency-exchange small text-secondary"></i>') ?>
           <!-- TASK: use &euro; or the icon in config -->
           <?= self::iif( $price && $expensive, self::switch( settings::get('currency'), [
             'EUR' => '<i class="bi bi-currency-euro small text-secondary"></i>',
             'USD' => '<i class="bi bi-currency-dollar small text-secondary"></i>'
           ])) ?>
-          <?= self::iif( $showInfo, '<i class="bi bi-info-circle small text-secondary"></i>') ?>
         </div>
         <div id="<?= $foodId ?>Headline" class="d-none">
           <?php
@@ -121,16 +121,16 @@ $return['done'] = [];
         
         ?>
           <div class   = "col-1 p-1 blink-yellow"
-                onclick = "foodsCrl.foodItemClick(event)"
-                data-food       = "<?= $foodName ?>"
-                data-calories   = "<?= $data['calories'] ?>"
-                data-nutritionalvalues = "<?= htmlspecialchars( json_encode( $data['nutriVal'])) ?>"
-                data-fattyacids = "<?= htmlspecialchars( dump_json( $data['fat'])) ?>"
-                data-aminoacids = "<?= htmlspecialchars( dump_json( $data['amino'])) ?>"
-                data-vitamins   = "<?= htmlspecialchars( dump_json( $data['vit'])) ?>"
-                data-minerals   = "<?= htmlspecialchars( dump_json( $data['min'])) ?>"
-                data-secondary  = "<?= htmlspecialchars( dump_json( $data['sec'])) ?>"
-                data-price      = "<?= $data['price'] ?>"
+               onclick = "foodsCrl.foodItemClick(event)"
+               data-food       = "<?= $foodName ?>"
+               data-calories   = "<?= $data['calories'] ?>"
+               data-nutritionalvalues = "<?= htmlspecialchars( json_encode( $data['nutriVal'])) ?>"
+               data-fattyacids = "<?= htmlspecialchars( dump_json( $data['fat'])) ?>"
+               data-aminoacids = "<?= htmlspecialchars( dump_json( $data['amino'])) ?>"
+               data-vitamins   = "<?= htmlspecialchars( dump_json( $data['vit'])) ?>"
+               data-minerals   = "<?= htmlspecialchars( dump_json( $data['min'])) ?>"
+               data-secondary  = "<?= htmlspecialchars( dump_json( $data['sec'])) ?>"
+               data-price      = "<?= $data['price'] ?>"
           >
             <?= $amount ?>
           </div>
