@@ -25,7 +25,7 @@ spec: |
     <li>~3l water daily</li>
   </ul>
 
-  <p>Food list os made in a way so that these foods can easily be chosen</p>
+  <p style="color: orange;">Food list is made in a way so that these foods can easily be chosen</p>
 
   <table>
     <tr>
