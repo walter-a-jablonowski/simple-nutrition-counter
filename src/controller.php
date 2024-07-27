@@ -5,6 +5,8 @@ use Symfony\Component\Yaml\Exception\ParseException;
 
 require_once 'lib/SimpleData_240317/SimpleData.php';
 require_once 'lib/Controller_240323/ControllerBase.php';
+require_once 'lib/ConfigStatic_240323/config.php';
+require_once 'lib/settings.php';
 require_once 'ajax/save_day_entries.php';
 // require_once 'ajax/save_foods.php';  // unused
 require_once 'ajax/change_user.php';
@@ -18,7 +20,6 @@ class FoodsController extends ControllerBase
   use ChangeUserAjaxController;
 
   protected SimpleData $config;         // TASK: sort semantically
-  protected SimpleData $settings;       // TASK: similar config
   protected string     $user;           
   protected array      $users = [];
 
@@ -46,12 +47,13 @@ class FoodsController extends ControllerBase
   {
     parent::__construct();
 
-    $this->config   = config::instance();  // member cause used in more than one methods
-    $this->settings = new SimpleData( $this->config->get('defaultSettings'));  // TASK: (advanced) merge user settings
+    $this->config = config::instance();  // member cause used in more than one methods
+    $settings = settings::instance();
 
     // User (currently less important)
     // just get it from session, currently no User obj
-    // DEV: maybe mov in App class over single or static => have a centrl point where things can be modified
+    // DEV: maybe mov in App class over single or static => have a central point where things can be modified
+    //   for now just single
 
     $users = array_filter( scandir('data/users'),
       fn($fil) => is_dir("data/users/$fil") && ! in_array( $fil, ['.', '..'])
@@ -119,6 +121,8 @@ class FoodsController extends ControllerBase
 
   private function makeFoodsView()
   {
+    $settings = settings::instance();
+
     $this->model = new SimpleData();
     $this->model->set('foods', Yaml::parse( file_get_contents('data/bundles/Veggie_DESouth_1/foods.yml')));
 
@@ -143,7 +147,7 @@ class FoodsController extends ControllerBase
              : 'pack'
       );
 
-      $usedAmounts = $foodEntry['usedAmounts'] ?? ( $this->settings->get("foods.defaultAmounts.$usage") ?: 1);
+      $usedAmounts = $foodEntry['usedAmounts'] ?? ( $settings->get("foods.defaultAmounts.$usage") ?: 1);
 
       foreach( $usedAmounts as $amount )
       {
@@ -222,6 +226,8 @@ class FoodsController extends ControllerBase
 
   private function makeDaysView()
   {
+    $settings = settings::instance();
+
     $this->lastDaysView = new SimpleData();
     $priceSumAll = 0; $days = 0;
 
@@ -248,7 +254,7 @@ class FoodsController extends ControllerBase
         'Fat'         => ( ! $entries ? 0 : array_sum( array_column($entries, 3))),
         'Amino acids' => ( ! $entries ? 0 : array_sum( array_column($entries, 4))) . ' g',
         'Salt'        => ( ! $entries ? 0 : array_sum( array_column($entries, 5))) . ' g',
-        'Price'       => ( ! $entries ? 0 : array_sum( array_column($entries, 6))) . ' ' . $this->settings->get('currencySymbol')
+        'Price'       => ( ! $entries ? 0 : array_sum( array_column($entries, 6))) . ' ' . $settings->get('currencySymbol')
       ]);
   
       $priceSumAll += ! $entries ? 0 : array_sum( array_column($entries, 6));

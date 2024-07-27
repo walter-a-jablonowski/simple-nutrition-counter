@@ -67,8 +67,8 @@ $return['done'] = [];
 
       if( $price )
       {
-        $cheap     = $pricePer100 <  $this->settings->get('cheap');
-        $expensive = $pricePer100 >= $this->settings->get('expensive');
+        $cheap     = $pricePer100 <  settings::get('cheap');
+        $expensive = $pricePer100 >= settings::get('expensive');
       }
 
       // use for all the rest that has no icon
@@ -86,7 +86,7 @@ $return['done'] = [];
           <?= $foodName ?>
           <?= self::iif( $price && $cheap,     '<i class="bi bi-currency-exchange small text-secondary"></i>') ?>
           <!-- TASK: use &euro; or the icon in config -->
-          <?= self::iif( $price && $expensive, self::switch( $this->settings->get('currency'), [
+          <?= self::iif( $price && $expensive, self::switch( settings::get('currency'), [
             'EUR' => '<i class="bi bi-currency-euro small text-secondary"></i>',
             'USD' => '<i class="bi bi-currency-dollar small text-secondary"></i>'
           ])) ?>

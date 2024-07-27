@@ -115,11 +115,11 @@ $nutrientsShort = [
       <th>Price</th>
       <td>
         <?php if( ! empty($data['price'])): ?>
-          <?= $this->settings->get('currencySymbol') ?>
+          <?= settings::get('currencySymbol') ?>
           <!-- price (highlight expensive and cheap) -->
-          <?php if( $pricePer100 >= $this->settings->get('expensive')): ?>
+          <?php if( $pricePer100 >= settings::get('expensive')): ?>
             <span style="color: red;"><?= $data['price'] ?></span>
-          <?php elseif( $pricePer100 <  $this->settings->get('cheap')): ?>
+          <?php elseif( $pricePer100 <  settings::get('cheap')): ?>
             <span style="color: green;"><?= $data['price'] ?></span>
           <?php else: ?>
             <?= $data['price'] ?>

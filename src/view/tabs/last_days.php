@@ -5,7 +5,7 @@
       <div>Price avg</div>
       <div>
         <?= number_format( $this->priceAvg, 2) ?>
-        <?= $this->settings->get('currencySymbol') ?>
+        <?= settings::get('currencySymbol') ?>
       </div>
     </li>
     <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
