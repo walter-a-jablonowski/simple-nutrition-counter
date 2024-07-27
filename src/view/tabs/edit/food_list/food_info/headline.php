@@ -25,7 +25,7 @@ $data = $this->model->get("foods.$foodName");
       <?php endif; ?>
     </span>
   <?php endif; ?>
-  <?php if( $this->config->get('devMode') ): ?>
+  <?php if( config::get('devMode') ): ?>
     &nbsp;&nbsp;&nbsp;<i class="bi bi-pencil-square text-black"></i>  <!-- TASK: (advanced) or make all editable on typ -->
   <?php endif; ?>
 </div>
@@ -53,7 +53,7 @@ $data = $this->model->get("foods.$foodName");
 <!-- High fat ... -->
 <!-- TASK: add -->
 
-<?php if( $data['nutritionalValues']['fat'] > $this->config->get('highIntake.fat')): ?>
+<?php if( $data['nutritionalValues']['fat'] > config::get('highIntake.fat')): ?>
   <span class="badge bg-danger">fatty</span>
 <?php endif; ?>
 
@@ -62,14 +62,14 @@ $data = $this->model->get("foods.$foodName");
 <!-- TASK: (advanced) add high calcium ... -->
 
 <?php if( ! empty($data['ingredients'])): ?>
-  <?php foreach( $this->config->get('substances.gluten') as $s ): ?>
+  <?php foreach( config::get('substances.gluten') as $s ): ?>
     <?php if( stripos( $data['ingredients'], $s) !== false): ?>
       <span class="badge bg-danger">gluten</span>
     <?php break; endif; ?>
   <?php endforeach; ?>
 <?php endif; ?>
 <?php if( ! empty($data['ingredients'])): ?>
-  <?php foreach( $this->config->get('substances.lactose') as $s ): ?>
+  <?php foreach( config::get('substances.lactose') as $s ): ?>
     <?php if( stripos( $data['ingredients'], $s) !== false): ?>
       <span class="badge bg-danger">lactose</span>
     <?php break; endif; ?>

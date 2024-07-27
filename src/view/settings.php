@@ -1,4 +1,4 @@
-<?php if( $this->config->get('devMode') ): ?>
+<?php if( config::get('devMode') ): ?>
   <ul class="list-group">
     <li class="list-group-item px-1">
       <span class="fw-bold">Me</span>
@@ -67,7 +67,7 @@
   </ul>
 <?php endif; ?>
 
-<?php if( $this->config->get('devMode') ): ?>
+<?php if( config::get('devMode') ): ?>
   <ul class="list-group">
     <li class="list-group-item px-1">
       <span class="fw-bold">Foods</span> (advanced feature)

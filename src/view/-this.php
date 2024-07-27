@@ -113,7 +113,7 @@ else:
     <?php require( __DIR__ . '/error_page.php') ?>
   </div>
 
-  <?php if( $this->config->get('devMode') ): ?>
+  <?php if( config::get('devMode') ): ?>
     <script>
       document.write('<p>(dev info: ' + window.innerWidth + ' x ' + window.innerHeight + 'px, dpr: ' + window.devicePixelRatio + ')</p>')
     </script>

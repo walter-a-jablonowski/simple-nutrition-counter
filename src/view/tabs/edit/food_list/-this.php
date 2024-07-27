@@ -30,7 +30,7 @@
         Coffee
       </div>
 
-      < ?php if( $this->config->get('special')) ?>
+      < ?php if( config::get('special')) ?>
         <div class   = "col-12 col-md-6 col-xxl-4 p-2 py-1"
              onclick = "..."
         >

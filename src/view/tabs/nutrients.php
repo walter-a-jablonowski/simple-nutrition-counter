@@ -1,5 +1,5 @@
 
-<?php if( $this->config->get('devMode') ): ?>
+<?php if( config::get('devMode') ): ?>
   <ul class="list-group mt-3">
     <li class="list-group-item px-2 py-1 small">
       <div class="form-check">

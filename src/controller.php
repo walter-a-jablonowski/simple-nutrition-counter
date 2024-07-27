@@ -19,8 +19,7 @@ class FoodsController extends ControllerBase
   // use SaveFoodsAjaxController;       // unused
   use ChangeUserAjaxController;
 
-  protected SimpleData $config;         // TASK: sort semantically
-  protected string     $user;           
+  protected string     $user;           // TASK: sort semantically
   protected array      $users = [];
 
   protected string     $mode;
@@ -47,7 +46,7 @@ class FoodsController extends ControllerBase
   {
     parent::__construct();
 
-    $this->config = config::instance();  // member cause used in more than one methods
+    $config   = config::instance();
     $settings = settings::instance();
 
     // User (currently less important)
@@ -62,7 +61,7 @@ class FoodsController extends ControllerBase
     foreach( $users as $user )
       $this->users[$user] = Yaml::parse( file_get_contents("data/users/$user/-this.yml"))['name'];
 
-    $_SESSION['user'] = $_SESSION['user'] ?? $this->config->get('defaultUser');
+    $_SESSION['user'] = $_SESSION['user'] ?? $config->get('defaultUser');
     $this->user = $_SESSION['user'];
     $this->userName = Yaml::parse( file_get_contents('data/users/' . $this->user . '/-this.yml'))['name'];
 
@@ -76,6 +75,8 @@ class FoodsController extends ControllerBase
 
   public function render(/*$request*/)
   {
+    $config = config::instance();
+
     $this->date = $_GET['date'] ?? date('Y-m-d');
     $this->mode = isset($_GET['date']) ? 'last' : 'current';
 
@@ -83,7 +84,7 @@ class FoodsController extends ControllerBase
 
     // Day entries
 
-    $this->dayEntriesTxt = trim( @file_get_contents('data/users/' . $this->config->get('defaultUser') . "/days/{$this->date}.tsv") ?: '', "\n");
+    $this->dayEntriesTxt = trim( @file_get_contents('data/users/' . $config->get('defaultUser') . "/days/{$this->date}.tsv") ?: '', "\n");
     $this->dayEntries    = parse_tsv( $this->dayEntriesTxt );
 
     foreach( $this->dayEntries as $idx => $entry)
@@ -226,6 +227,7 @@ class FoodsController extends ControllerBase
 
   private function makeDaysView()
   {
+    $config   = config::instance();
     $settings = settings::instance();
 
     $this->lastDaysView = new SimpleData();
@@ -233,7 +235,7 @@ class FoodsController extends ControllerBase
 
     // TASK: remove current day
 
-    foreach( scandir('data/users/' . $this->config->get('defaultUser') . '/days', SCANDIR_SORT_DESCENDING) as $file)
+    foreach( scandir('data/users/' . $config->get('defaultUser') . '/days', SCANDIR_SORT_DESCENDING) as $file)
     {
       if( pathinfo($file, PATHINFO_EXTENSION) !== 'tsv')
         continue;
@@ -241,7 +243,7 @@ class FoodsController extends ControllerBase
       $days++;
 
       $dat     = pathinfo( $file, PATHINFO_FILENAME);
-      $entries = parse_tsv( file_get_contents('data/users/' . $this->config->get('defaultUser') . "/days/$file"));
+      $entries = parse_tsv( file_get_contents('data/users/' . $config->get('defaultUser') . "/days/$file"));
 
       // foreach( $entries as $idx => $entry)
       //   $entries[$idx][7] = Yaml::parse( $entries[$idx][7] );
