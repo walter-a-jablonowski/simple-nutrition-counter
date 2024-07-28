@@ -28,7 +28,8 @@
     is cheap food (depends on user setting)
   </li>
   <li>
-    <i class="bi bi-info-circle small text-secondary"></i>
+    <!-- <i class="bi bi-info-circle small text-secondary"></i> -->
+    <i class="bi bi-info-circle-fill small" style="color: orange;"></i>
     means important things in food info
   </li>
   <li>click on each food name to see food info</li>
