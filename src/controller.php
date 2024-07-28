@@ -6,6 +6,7 @@ use Symfony\Component\Yaml\Exception\ParseException;
 require_once 'lib/SimpleData_240317/SimpleData.php';
 require_once 'lib/Controller_240323/ControllerBase.php';
 require_once 'lib/ConfigStatic_240323/config.php';
+require_once 'lib/User.php';
 require_once 'lib/settings.php';
 require_once 'ajax/save_day_entries.php';
 // require_once 'ajax/save_foods.php';  // unused
@@ -19,10 +20,7 @@ class FoodsController extends ControllerBase
   // use SaveFoodsAjaxController;       // unused
   use ChangeUserAjaxController;
 
-  protected string     $user;           // TASK: sort semantically
-  protected array      $users = [];
-
-  protected string     $mode;
+  protected string     $mode;           // TASK: sort semantically
   protected string     $date;
 
   protected            $foodsView;
@@ -48,28 +46,6 @@ class FoodsController extends ControllerBase
 
     $config   = config::instance();
     $settings = settings::instance();
-
-    // User (currently less important)
-    // just get it from session, currently no User obj
-    // DEV: maybe mov in App class over single or static => have a central point where things can be modified
-    //   for now just single
-
-    // Symfony: UserRepository with query like functions
-    // Laravel: similar but simpler User::where() User::all()
-    //                              use functions as wrapper for static auth()->user()
-    // NET:     UserManager
-    // Java:    System.getProperty("user.name") or similar
-
-    $users = array_filter( scandir('data/users'),
-      fn($fil) => is_dir("data/users/$fil") && ! in_array( $fil, ['.', '..'])
-    );
-
-    foreach( $users as $user )
-      $this->users[$user] = Yaml::parse( file_get_contents("data/users/$user/-this.yml"))['name'];
-
-    $_SESSION['user'] = $_SESSION['user'] ?? $config->get('defaultUser');
-    $this->user = $_SESSION['user'];
-    $this->userName = Yaml::parse( file_get_contents('data/users/' . $this->user . '/-this.yml'))['name'];
 
     // Help
 

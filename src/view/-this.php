@@ -46,9 +46,9 @@ else:
           <i class="bi bi-app"></i>  <!-- some app logo -->
 
           <select id="userSelect" onchange="foodsCrl.userSelectChange(this)" class="bg-transparent border-0 text-white">
-            <?php foreach( $this->users as $user => $name ): ?>
-              <option value="<?= $user ?>"<?= self::iif( $user == $this->user, ' selected') ?>>
-                <?= $name ?>
+            <?php foreach( User::getAll() as $userId ): ?>
+              <option value="<?= $id ?>"<?= self::iif( $userId == User::current('id'), ' selected') ?>>
+                <?= User::byId( $userId )->get('name') ?>
               </option>
             <?php endforeach; ?>
           </select>

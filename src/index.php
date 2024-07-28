@@ -12,10 +12,17 @@ require_once 'lib/Controller_240323/ControllerBase.php';
 require_once 'controller.php';
 
 
+// TASK: maybe use SimpleData inside cause static methods depend on the class
+
 config::instance(   new SimpleData( Yaml::parse( file_get_contents('config.yml'))));
 settings::instance( new SimpleData( config::get('defaultSettings')));  // TASK: (advanced) merge user settings
 
 session_start();
+
+// User (currently less important)
+// just get it from session, currently no User obj
+
+$_SESSION['userId'] = $_SESSION['userId'] ?? config::get('defaultUser');
 
 // Current simple solution #code/routing
 
