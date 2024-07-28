@@ -1798,6 +1798,32 @@ Lyoner R Bio:
   lastUpd:           2024-03-22
   lastPriceUpd:      2024-03-23
 
+Mandel A ger:
+
+  vendor:            Aldi
+  certificates:      { NutriScore: B }
+  packaging:         alu
+
+  price:             
+  weight:            150
+  usedAmounts:       ["25g", "50g", "100g"]
+
+  calories:          634
+  nutritionalValues:
+
+    fat:             55
+    saturatedFat:    4.7
+    carbs:           7.3
+    sugar:           4.7
+    fibre:           7.9
+    amino:           25
+    salt:            1.2
+
+  sources:           { nutriVal: "pack" }
+  state:             most
+  lastUpd:           2024-07-20
+  lastPriceUpd:      2024-07-20
+
 Mandel N:
 
   vendor:            Norma
