@@ -54,6 +54,12 @@ class FoodsController extends ControllerBase
     // DEV: maybe mov in App class over single or static => have a central point where things can be modified
     //   for now just single
 
+    // Symfony: UserRepository with query like functions
+    // Laravel: similar but simpler User::where() User::all()
+    //                              use functions as wrapper for static auth()->user()
+    // NET:     UserManager
+    // Java:    System.getProperty("user.name") or similar
+
     $users = array_filter( scandir('data/users'),
       fn($fil) => is_dir("data/users/$fil") && ! in_array( $fil, ['.', '..'])
     );
