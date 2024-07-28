@@ -31,6 +31,7 @@ class FoodsController extends ControllerBase
   protected float      $priceAvg;
 
   protected array      $layout;
+  protected array      $goals;
   protected array      $captions = [];
   protected SimpleData $inlineHelp;
 
@@ -62,7 +63,8 @@ class FoodsController extends ControllerBase
     $this->date = $_GET['date'] ?? date('Y-m-d');
     $this->mode = isset($_GET['date']) ? 'last' : 'current';
 
-    $this->layout = parse_attribs('@attribs', ['short', '(i)'], Yaml::parse( file_get_contents('data/bundles/Veggie_DESouth_1/layouts/-this.yml')));
+    $this->layout = parse_attribs('@attribs', ['short', '(i)'], Yaml::parse( file_get_contents('data/bundles/Veggie_DESouth_1/layouts/food.yml')));
+    $this->goals  = Yaml::parse( file_get_contents('data/bundles/Veggie_DESouth_1/layouts/goals.yml'));
 
     // Day entries
 

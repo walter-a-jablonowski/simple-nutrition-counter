@@ -1,0 +1,5 @@
+calories: { label: "",            calc: "" }
+fatAmino: { label: "(2:1)",       calc: "" }
+carbs:    { label: "&le; 50g",    calc: "" }
+fibre:    { label: "&ge; 2 cups", calc: "" }
+salt:     { label: "4-6g",        calc: "" }
