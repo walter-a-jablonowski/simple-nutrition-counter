@@ -7,8 +7,8 @@
     </div>
   </div>
   <div class="col-6 col-md-2 col-xxl-2 mt-2 px-1">
-    <div class="ps-1 bg-secondary text-white">Fat / Carbs</div>
-    <div class="value ps-1"><span id="carbsSum">0</span> / <span id="fatSum">0</span> g</div>
+    <div class="ps-1 bg-secondary text-white">Fat / Amino (2:1)</div>
+    <div class="value ps-1"><span id="fatSum">0</span> / <span id="aminoSum">0</span> g</div>
   </div>
   <!-- (TASK) space saving quick summary design -->
 <!-- 
@@ -18,15 +18,15 @@
   </div>
 -->
   <div class="col-6 col-md-2 col-xxl-2 mt-2 px-1">
-    <div class="px-1 bg-secondary text-white">Amino</div>
-    <div class="value ps-1"><span id="aminoSum">0</span> g</div>
+    <div class="px-1 bg-secondary text-white">Carbs &le; 50g</div>
+    <div class="value ps-1"><span id="carbsSum">0</span> g</div>
   </div>
   <div class="col-6 col-md-2 col-xxl-2 mt-2 px-1">
-    <div class="px-1 bg-secondary text-white">Fibre</div>
+    <div class="px-1 bg-secondary text-white">Fibre ?</div>
     <div class="value ps-1"><!-- <span id="fibreSum">0</span> --> g</div>
   </div>
   <div class="col-6 col-md-2 col-xxl-2 mt-2 px-1">
-    <div class="px-1 bg-secondary text-white">Salt</div>
+    <div class="px-1 bg-secondary text-white">Salt 4-6g</div>
     <div class="value ps-1"><span id="saltSum">0</span> g</div>
   </div>
   <div class="col-6 col-md-2 col-xxl-2 mt-2 px-1">
