@@ -69,7 +69,7 @@ class FoodsController extends ControllerBase
     foreach( $this->layout as $group => &$layout )
     {
       if( isset($layout['@attribs']['short']) )
-        $layout['@attribs']['short'] = preg_replace('/\{(#[a-zA-Z0-9]+)\}/', '<a href="$1">$1</a>', $layout['@attribs']['short']);
+        $layout['@attribs']['short'] = preg_replace('/\{(#[a-zA-Z0-9]+)\|([a-zA-Z0-9 ]+)\}/', '<a href="$1">$2</a>', $layout['@attribs']['short']);
     }
 
     // Day entries
