@@ -208,7 +208,7 @@ class FoodsController extends ControllerBase
           'ideal' => $a['amount'],
           'upper' => strpos($a['lower'], '%') === false
                   ?  $a['amount'] + $a['upper']
-                  :  $a['amount'] + $a['amount'] * (floatval($a['upper']) / 100)   // TASK: prefer calc or just write the val?
+                  :  $a['amount'] + $a['amount'] * (floatval($a['upper']) / 100)
         ]);
       }
     }

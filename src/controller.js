@@ -402,7 +402,7 @@ class FoodsEventController
 
     // Nutrients tab
     // TASK: maybe add a simple sum first (no percent) #code/progress
-// /*
+
     let nutrientEntries = query('.nutrients-entry')
 
     for( const entry of nutrientEntries )
@@ -411,25 +411,24 @@ class FoodsEventController
       const group = entry.dataset.group
       const short = entry.dataset.short
       const currentSum = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.nutrients[group]?.[short] ?? 0), 0).toFixed(1))
-      // let tolerance = 0.05  // TASK: advanced           // Magn Cash A 1/2 + Nuss A 1/8 = 306.8
+      // Magn Cash A 1/2 + Nuss A 1/8 = 306.8
     
       let percentage = Math.min( (currentSum / entry.dataset.ideal) * 100, 100)  // min: ensure it doesn't exceed 100%
 
-      // TASK: (advanced)
+      // TASK:
       
       // let progressBarColor = 'bg-secondary'
 
-      // if( currentSum >= recommended * (1 - tolerance) && currentSum <= recommended * (1 + tolerance))
+      // if( currentSum >= entry.dataset.lower && currentSum <= entry.dataset.upper )
       //   progressBarColor = 'bg-success'
-      // else if(currentSum > recommended * (1 + tolerance))
+      // else
       //   progressBarColor = 'bg-danger'
 
       entry.find('.progress-bar').style.width   = `${percentage}%`
-      // entry.find('.progress-bar').remove('bg-success', 'bg-danger')  // old: entry.find('.progress-bar').className = `progress-bar ${progressBarColor}`
-      // entry.find('.progress-bar').classList.add(progressBarColor)
       entry.find('.progress-label').textContent = `${currentSum} / ${entry.dataset.ideal}`
+      // entry.find('.progress-bar').remove('bg-secondary', 'bg-success', 'bg-danger')
+      // entry.find('.progress-bar').classList.add(progressBarColor)
     }
-// */
   }
 
   #saveDayEntries( uiMsg = false )
