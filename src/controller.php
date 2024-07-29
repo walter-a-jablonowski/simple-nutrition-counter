@@ -66,6 +66,12 @@ class FoodsController extends ControllerBase
     $this->layout = parse_attribs('@attribs', ['short', '(i)'], Yaml::parse( file_get_contents('data/bundles/Veggie_DESouth_1/layouts/food.yml')));
     $this->goals  = Yaml::parse( file_get_contents('data/bundles/Veggie_DESouth_1/layouts/goals.yml'));
 
+    foreach( $this->layout as $group => &$layout )
+    {
+      if( isset($layout['@attribs']['short']) )
+        $layout['@attribs']['short'] = preg_replace('/\{(#[a-zA-Z0-9]+)\}/', '<a href="$1">$1</a>', $layout['@attribs']['short']);
+    }
+
     // Day entries
 
     $this->dayEntriesTxt = trim( @file_get_contents('data/users/' . $config->get('defaultUser') . "/days/{$this->date}.tsv") ?: '', "\n");

@@ -8,8 +8,9 @@ $return['done'] = [];
 
   <div class="row">            <!-- must be 2 here cause headline has inner padding -->
     <div class="col-12 px-2">  <!-- below outer container for the bg color (would be full width without) -->
-      <div class = "p-1 px-2 fw-bold d-flex justify-content-between align-items-center"
-            style = "background-color: <?= $def['@attribs']['color'] ?? '#e0e0e0' ?>;"
+      <div id    = "<?= $groupId ?>Group"
+           class = "p-1 px-2 fw-bold d-flex justify-content-between align-items-center"
+           style = "background-color: <?= $def['@attribs']['color'] ?? '#e0e0e0' ?>;"
       >
         <div>
           <?= $groupName ?>

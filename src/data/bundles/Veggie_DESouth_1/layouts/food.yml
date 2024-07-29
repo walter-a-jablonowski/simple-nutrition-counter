@@ -61,8 +61,8 @@ Nuts, seeds (color:#ffa500):                 # Meals  # TASK: on the go diff sha
 
 Veggie bowl, high fibre (color:#ffa500):
 
-  (i):   "Ideal is nuts, veggie high in fibre some chicken, fish"  # TASK: move
-  short: "add [ A little taste ] and [ Greens ] ..."  # TASK: add url
+  (i):   "Ideal is nuts, veggie high in fibre some chicken, fish"       # TASK: move
+  short: "add {#alittletasteGroup} and {#greenslegumesmushrGroup} ..."
 
   list:
 
