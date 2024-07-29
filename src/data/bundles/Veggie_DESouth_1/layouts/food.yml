@@ -140,8 +140,6 @@ Greens, legumes, mushr (color:#32cd32):      # Ingredients
     - Pfannegem A Ital
     - Green beans R
     - R Rüben N
-    - Süßk Pommes
-    - Pommes R Bio
     - Artisch R viertel
     - Champ mini ganz R
     - Champ N
@@ -153,15 +151,17 @@ Misc starch, corn (color:#ffa500):
 
   list:
 
-    - Kartoffeltaschen F
-    - Kartoffel Wedges
+    - Süßk Pommes
+    - Pommes R Bio
     - Pommes
     - Kartoffel Wedges Bio
+    - Kartoffel Wedges
+    - Kartoffeltaschen F
 
     - Pumpernickel R Bio
     - Vollkorn Rhein R
-    - Flatbr Sandwich
     - Toasties R Bio
+    - Flatbr Sandwich
     - Mehrkornbr
 
 Misc meals (color:#ffa500):
