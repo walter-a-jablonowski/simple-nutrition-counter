@@ -36,6 +36,8 @@
 
 # Morning supplements (color:#ff69b4, fold:true):
 
+# #8a2be2
+
 Nuts, seeds (color:#ffa500):                 # Meals  # TASK: on the go diff shade
 
   (i):   "Demo 2"                            # TASK: we also could add a collapse for larger content
@@ -95,23 +97,7 @@ Fish, meat, tofu (color:#ffa500):
     - Salami R Wilt (Innens)
     - Lyoner R Bio
 
-Desserts & micro or sugar-less candy (color:#ffa500):  #
-
-  (i): "Candy: Reduce amount per day (effectively: don't buy more or you will eat it)"
-
-  list:
-
-    # - Joghurt  # TASK
-    - Ritter Sp 81%      
-    - Ritter Sp 74%
-
-    - Duplo              # less
-    - Ferrero Kuesschen
-    - Ritter Sp 50%
-    - Ritter Sp 61%
-    - Hanuta
-
-A little taste (color:#32cd32):
+A little taste (color:#ffa500):
 
   (i): "Add only a little per meal makes it far more tasty and keeps it healthy"
 
@@ -130,6 +116,22 @@ A little taste (color:#32cd32):
     - Käse Gr W (all)
     - Eiweißbr
 
+Desserts & micro or sugar-less candy (color:#ffa500):  #
+
+  (i): "Candy: Reduce amount per day (effectively: don't buy more or you will eat it)"
+
+  list:
+
+    # - Joghurt  # TASK
+    - Ritter Sp 81%      
+    - Ritter Sp 74%
+
+    - Duplo              # less
+    - Ferrero Kuesschen
+    - Ritter Sp 50%
+    - Ritter Sp 61%
+    - Hanuta
+
 Greens, legumes, mushr (color:#32cd32):      # Ingredients
 
   list:
@@ -144,7 +146,7 @@ Greens, legumes, mushr (color:#32cd32):      # Ingredients
     - Champ mini ganz R
     - Champ N
 
-Misc starch, corn (color:#ffa500):
+Misc starch, corn (color:#32cd32):
 
   (i):   "Avoid all mass produced that humans weren't meant to eat, even whole grains"
   short: "Careful, even whole grains"
@@ -164,7 +166,17 @@ Misc starch, corn (color:#ffa500):
     - Flatbr Sandwich
     - Mehrkornbr
 
-Misc meals (color:#ffa500):
+Cheat day (color:#32cd32):
+
+  list:
+
+    - Pizza Mag
+    - Lindt caramel
+    - Mohnkuchen
+    - Donuts
+    - Donuts mini A                          # (duplicate)
+
+Misc meals (color:#32cd32):
 
   list:
 
@@ -175,7 +187,7 @@ Misc meals (color:#ffa500):
     - Geb Bohnen
     - Chili vegan
 
-Fill up missing (color:#8a2be2):
+Fill up missing (color:#ff69b4):
 
   (i): "We may also need fill up some energy from time to time"
 
@@ -189,16 +201,6 @@ Fill up missing (color:#8a2be2):
     - Frosta Paella
     - Banane (mid)
     - Chips light
-
-Cheat day (color:#ffa500):
-
-  list:
-
-    - Pizza Mag
-    - Lindt caramel
-    - Mohnkuchen
-    - Donuts
-    - Donuts mini A                          # (duplicate)
 
 Housewares (color:#e0e0e0):                  # Finance only
 
@@ -225,7 +227,7 @@ Evening Supplements, fill up (color:#ff69b4, fold:true):
     - Zitronenm mini
     - Cashew A Cranb
 
-On the go (color:#ffa500, fold:true):        # On the go
+On the go (color:#ff69b4, fold:true):        # On the go
 
   list:
 
