@@ -206,7 +206,7 @@ class FoodsController extends ControllerBase
                   ?  $a['amount'] - $a['lower']
                   :  $a['amount'] - $a['amount'] * (floatval($a['lower']) / 100),  // floatval removes the percent
           'ideal' => $a['amount'],
-          'upper' => strpos($a['lower'], '%') === false
+          'upper' => strpos($a['upper'], '%') === false
                   ?  $a['amount'] + $a['upper']
                   :  $a['amount'] + $a['amount'] * (floatval($a['upper']) / 100)
         ]);

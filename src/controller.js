@@ -416,18 +416,20 @@ class FoodsEventController
       let percentage = Math.min( (currentSum / entry.dataset.ideal) * 100, 100)  // min: ensure it doesn't exceed 100%
 
       // TASK:
-      
-      // let progressBarColor = 'bg-secondary'
+// /*      
+      let progressBarColor = 'bg-secondary'
 
-      // if( currentSum >= entry.dataset.lower && currentSum <= entry.dataset.upper )
-      //   progressBarColor = 'bg-success'
-      // else
-      //   progressBarColor = 'bg-danger'
-
+      if( currentSum >= entry.dataset.lower && currentSum <= entry.dataset.upper )
+        progressBarColor = 'bg-success'
+      else
+        progressBarColor = 'bg-danger'
+// */
       entry.find('.progress-bar').style.width   = `${percentage}%`
       entry.find('.progress-label').textContent = `${currentSum} / ${entry.dataset.ideal}`
-      // entry.find('.progress-bar').remove('bg-secondary', 'bg-success', 'bg-danger')
-      // entry.find('.progress-bar').classList.add(progressBarColor)
+// /*      
+      entry.find('.progress-bar').classList.remove('bg-secondary', 'bg-success', 'bg-danger')
+      entry.find('.progress-bar').classList.add(progressBarColor)
+// */
     }
   }
 
