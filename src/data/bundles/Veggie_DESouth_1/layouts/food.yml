@@ -202,17 +202,7 @@ Fill up missing (color:#ff69b4):
     - Banane (mid)
     - Chips light
 
-Housewares (color:#e0e0e0):                  # Finance only
-
-  (i): |
-  
-    Hunt hidden costly non food stuff, like coffee filters, batteries ...
-    Counts as consumed as soon as one pack/piece is taken out of the pantry.
-    The error is only a few cents and can be ignored.
-
-Misc expenses (color:#e0e0e0):               # Misc monthly variable
-
-Variable Suppl, Brain tuning (color:#ff69b4, fold:true):  # Suppl
+Variable Suppl, Brain tuning (color:#ff69b4, fold:true):
 
   list:
 
@@ -227,7 +217,7 @@ Evening Supplements, fill up (color:#ff69b4, fold:true):
     - Zitronenm mini
     - Cashew A Cranb
 
-On the go (color:#ff69b4, fold:true):        # On the go
+On the go (color:#ff69b4, fold:true):
 
   list:
 
@@ -248,3 +238,13 @@ On the go (color:#ff69b4, fold:true):        # On the go
     - Burrito A
     - Donuts mini A
     - Riegel Deca Basic
+
+Housewares (color:#e0e0e0):                  # Finance only
+
+  (i): |
+  
+    Hunt hidden costly non food stuff, like coffee filters, batteries ...
+    Counts as consumed as soon as one pack/piece is taken out of the pantry.
+    The error is only a few cents and can be ignored.
+
+Misc expenses (color:#e0e0e0):               # Misc monthly variable
