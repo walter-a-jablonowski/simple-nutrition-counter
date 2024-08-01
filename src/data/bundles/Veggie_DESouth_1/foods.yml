@@ -1961,6 +1961,7 @@ Mini Schoko (bigger):
 
   vendor:            Denns
   acceptable:        less
+  certificates:      { bio: true }
   packaging:         plastic,alu,cardboard
 
   price:             
