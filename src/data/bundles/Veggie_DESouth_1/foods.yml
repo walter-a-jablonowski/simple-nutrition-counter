@@ -1957,6 +1957,31 @@ Milch H:
   lastUpd:           2024-04-11
   lastPriceUpd:      2024-05-15
 
+Mini Schoko (bigger):
+
+  vendor:            Denns
+  acceptable:        less
+  packaging:         plastic,alu,cardboard
+
+  price:             
+  weight:            12.5
+  usedAmounts:       ["1"]
+
+  calories:          578
+  nutritionalValues:
+
+    fat:             39
+    saturatedFat:    24
+    carbs:           49
+    sugar:           48
+    amino:           7.5
+    salt:            0.23
+
+  sources:           { nutriVal: "pack" }
+  state:             most
+  lastUpd:           2024-04-23
+  lastPriceUpd:      
+
 Mohnkuchen:
 
   vendor:            Norma

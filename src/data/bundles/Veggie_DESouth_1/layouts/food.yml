@@ -222,23 +222,30 @@ On the go (color:#ff69b4, fold:true):
 
   list:
 
-    - Cappuccino R
-    - Cappu Denns
-    - Cappuccino Eni
+    - Cappuccino R                           # sorted by place
     - Riegel Seitenb Sch                     # (duplicate)
-    - Karamalz
     - Löschzwerg R
+    - Karamalz
+
+    - Cappuccino Eni
+    - Hanuta
+
+    - Mini Schoko (bigger)
+    - Cappu Denns
+    - Espresso Stick
+
     - Döner 1
+
     - Kfc Original
     - Kfc Chili Cheese
+
     - Wrap Falafel A
-    - Falafel
-    - Hanuta
-    - Snickers
-    - Espresso Stick
     - Burrito A
     - Donuts mini A
+
     - Riegel Deca Basic
+    - Falafel
+    - Snickers
 
 Housewares (color:#e0e0e0):                  # Finance only
 
