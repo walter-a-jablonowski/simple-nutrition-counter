@@ -28,7 +28,7 @@ landscape like smartphone below
 |                  |                 |                   |
 |                  |                 |                   |
 |--------------------------------------------------------|
-| This day | Nutrients | Last days                       |  <-- Tab bar
+| This day    | Nutrients    | Last days    | ...        |  <-- Tab bar
  --------------------------------------------------------
 ```
 
@@ -67,7 +67,9 @@ Grid structure food page
 row
   col      day list
   col
-    row    goals
+    row    
+      col  goals
+    row    
       col  food list
 
         ... food list grid ...
