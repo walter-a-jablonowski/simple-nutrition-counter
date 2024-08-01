@@ -1,6 +1,6 @@
 # Usage
 
-- [Install](install)
+- [Install](#install)
 - [Common usage](#common-usage)
 - [Users](#users)
   - [Settings file](#settings-file)

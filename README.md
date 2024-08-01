@@ -145,6 +145,8 @@ necessarily need as a single user.
   </tr>
 </table>
 
+Design for full app see [UI design](misc/UI_Design.md)
+
 
 LICENSE
 ----------------------------------------------------------
