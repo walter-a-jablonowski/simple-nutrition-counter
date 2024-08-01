@@ -1,0 +1,105 @@
+
+substances:
+
+  # Claude 2408
+
+  # Essential Fatty Acids
+  # - Omega-3 fatty acids
+
+  Eicosapentaenoic acid:
+    short:      EPA
+    comment:    "GPT 2408: Fish (salmon, mackerel, sardines), fish oil, krill oil, and algae oil"
+  Docosahexaenoic acid:
+    short:      DHA
+    comment:    "GPT 2408: Fish (salmon, mackerel, sardines), fish oil, krill oil, and algae oil"
+
+  # - Omega-6 fatty acids
+
+  Arachidonic acid:
+    short:      AA
+    comment:    "GPT 2408: Meat, poultry, eggs, and fish"
+
+  # Conditionally Essential Fatty Acids
+
+  Gamma-linolenic acid:
+    short:      GLA
+    comment:    "GPT 2408: Primrose oil, borage oil, and black currant seed oil"
+  Eicosatetraenoic acid:
+    short:      ETA
+    comment:    ""
+
+  # Non-essential but beneficial fatty acids
+  # - Monounsaturated fatty acids
+
+  Oleic acid:
+    short:      OA  # own id
+    comment:    "GPT 2408: Olive oil, avocados, and nuts"
+  Palmitoleic acid:
+    short:      PL  # own id
+    comment:    "GPT 2408: Macadamia oil, sea buckthorn oil, and some animal fats"
+
+  # - Saturated fatty acids
+
+  Stearic acid:
+    short:      ST  # own id
+    comment:    "GPT 2408: Meat, cocoa butter, and dairy products"
+  Palmitic acid:
+    short:      PM  # own id
+    comment:    "GPT 2408: Palm oil, meat, dairy products, and some processed foods"
+  Lauric acid:
+    short:      LA  # own id
+    comment:    "GPT 2408: Coconut oil, palm kernel oil, and breast milk"
+  Myristic acid:
+    short:      MC  # own id
+    comment:    "GPT 2408: Coconut oil, palm kernel oil, butterfat, and some fish oils"
+
+  # Misc polyunsaturated fatty acids
+
+  Conjugated linoleic acid:
+    short:      CLA
+
+
+  # Added by GPT 2408
+
+  Eicosatrienoic Acid:
+    short:      ETE
+    comment:    "GPT 2408: Found in small amounts in some vegetable oils and animal fats"
+  Mead Acid:
+    short:      ME  # own id
+    comment:    "GPT 2408: Produced by the body, rare in food sources"
+
+  # More GPT 2408
+
+  # 1. **Misc Omega-3 Fatty Acids:**
+  #   - **Stearidonic Acid (SDA):**
+  #     - Sources: Hemp oil, blackcurrant seed oil, and certain fish.
+
+  # 2. **Misc Omega-6 Fatty Acids:**
+  #   - **Dihomo-Gamma-Linolenic Acid (DGLA):**
+  #     - Sources: Small amounts in animal fats and some plants.
+  #   - **Adrenic Acid:**
+  #     - Sources: Found in trace amounts in animal products.
+
+  # 3. **Misc Saturated Fatty Acids:**
+  #   - **Caproic Acid:**
+  #     - Sources: Goat milk, cow milk, and certain cheeses.
+  #   - **Caprylic Acid:**
+  #     - Sources: Coconut oil, palm kernel oil, and goat milk.
+  #   - **Capric Acid:**
+  #     - Sources: Coconut oil, palm kernel oil, and goat milk.
+
+  # 4. **Misc Monounsaturated Fatty Acids:**
+  #   - **Gadoleic Acid:**
+  #     - Sources: Found in fish oils.
+  #   - **Cetoleic Acid:**
+  #     - Sources: Herring and misc fish oils.
+
+  # 5. **Misc Polyunsaturated Fatty Acids (PUFAs):**
+  #   - **Eicosadienoic Acid:**
+  #     - Sources: Found in some fish oils.
+  #   - **Docosapentaenoic Acid (DPA) (n-3 and n-6):**
+  #     - Sources: Fish oil, marine oils, and animal fats.
+
+  # 6. **Trans Fatty Acids (Naturally Occurring):**
+  #   - **Vaccenic Acid:**
+  #     - Sources: Found in dairy products and meat from ruminants.

@@ -6,6 +6,9 @@ Common
 ----------------------------------------------------------
 
 - https://en.wikipedia.org/wiki/Dietary_Reference_Value
+- Wiki
+  - https://en.wikipedia.org/wiki/Category:Nutrients
+  - https://de.wikipedia.org/wiki/Kategorie:N%C3%A4hrstoff
 
 
 Priority: Scientists

@@ -149,11 +149,12 @@ see also [readme](../src/data/nutrients/README.md)
 
 # Nutrient group data
 
-short:                         # short name used as short unique id in daily files (file name is alternative id used in code)
-name:                          # display name
+short:                           # short name used as short unique id in daily files (file name is alternative id used in code)
+name:                            # display name
 unit:      mg
 per:       day
 comment:   "Increased need if doing sports"
+sources:   ""                    # source of information
 amounts:
 
   # same as below
@@ -166,6 +167,7 @@ substances:                      # (required)
     type:       methylcobalamin  # sub type
     short:      B12              # short name is used as unique id over all files
     unit:       mg
+    sources:    ""               # source of information
 
     per:        day
     times:      morning, ...

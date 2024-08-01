@@ -16,4 +16,47 @@ amounts:    # currently we use the first entry hard coded only
     lower:  5%
     upper:  5%
 
-substances: []
+substances:
+
+  # TASK: 2 AIs say that only ALA and LA must be from food and the body can make the rest
+  #       but:
+  #       - this is only acc to current science
+  #       - doesn't necessarily mean that enough can be made
+  #       - e.g. DHA is missing here (there are recommendations for it per day)
+  #       - see list attached: "Conditionally Essential"
+
+  # TASK: there are possibly unexplored ones
+
+  # -- Essential Fatty Acids --------
+
+  # Omega-3 fatty acids
+
+  Alpha-linolenic acid:  # polyUnsaturated
+    
+    short:      ALA
+    unit:       g
+    comment:    "GPT 2408: Flaxseeds, chia seeds, walnuts, canola oil, and soybeans"
+    sources:    "GPT and Claude 2408 for now"
+
+    amounts:    # currently we use the first entry hard coded only
+
+      - criteria: { gender: male, age: 40, height: "*", weight: 70 }
+        amount: 1.6
+        lower:  5%
+        upper:  5%
+
+  # Omega-6 fatty acids
+
+  Linoleic acid:         # polyUnsaturated
+    
+    short:      LA
+    unit:       g
+    comment:    "GPT 2408: Vegetable oils (sunflower, safflower, corn, soybean), nuts, and seeds"
+    sources:    "GPT and Claude 2408 for now"
+
+    amounts:    # currently we use the first entry hard coded only
+
+      - criteria: { gender: male, age: 40, height: "*", weight: 70 }
+        amount: 17
+        lower:  5%
+        upper:  5%
