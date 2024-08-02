@@ -19,7 +19,7 @@ landscape like smartphone below
 |                  |-------------------------------------|
 |                  | [Add food|v] ...                    |  maybe use some split btn save space
 |                  | (Food) (Suppl) ...                  |    [Food] [Suppl] [On the go] [Fin] [Haush] [Misc]
-|                  |                 |                   |  maybe use a tab
+|                  |                                     |  maybe use a tab
 |                  | Food list       |                   |
 |                  |                 |                   |
 |                  |                 |                   |
@@ -52,7 +52,7 @@ no landscape version
 | Goals             v |  maybe foldable (expand up)
 |---------------------|
 | [ Add food |v]      |  simple: just the list as above and also scroll day entries
-| (Food) ...          |  better: btn only and open food list in modal
+| (Food) ...          |  better: btn only and open food list in modal (space for day list)
 |                     |
 |                     |  
  ---------------------   
