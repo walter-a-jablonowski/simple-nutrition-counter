@@ -7,6 +7,7 @@ as simple as possible, see [mission](#mission).
 
 - [Mission](#mission)
 - [Project state](#project-state)
+- [Upcoming features](#upcoming-features)
 - [Usage](misc/usage.md)
 - [Developer information](misc/dev_info.md)
   - [Model](misc/dev_info.md#model)
@@ -17,15 +18,18 @@ Mission
 ----------------------------------------------------------
 
 ```
-Day --> you do much stuff  --X--> you don't remember all --> Chaos, errors
-        much stuff happens
-                |
-                | (instead)
-                v
-              Track it --> you see what happened (feedback, reminder)
-                            |
+                            \ /
+Day --> you do much stuff  --/--> you don't remember all --> Chaos, errors <-
+        much stuff happens  / \   you can't handle all        |              | even worse
+                |                                             v              | 
+                | (instead)                                  Wrong food -----
+                |                                            missing sleep
+                |                                            ...
+                v 
+              Track it --> you see what needs 2 be (feedback, reminder)
+                            |  improved
                             v
-              only by seeing it immediately you can improve it
+              only by seeing it you can improve it
 ```
 
 ```
@@ -65,8 +69,6 @@ often goes wrong and unexplored plant substances are missing. Of course it might
 to use some supplements if you can't get enough from food. But in general food is the more
 natural (better) source, as long as it is free of substances like pesticides.
 
-**Water:** Can be tracked easier (just use a 2-3 l jug)
-
 ### Movement (sports)
 
 Humans were designed for movement. Sample: activates sectors in the brain that are
@@ -91,17 +93,6 @@ Project state
 ----------------------------------------------------------
 
 In use on a daily basis as a single user app since months, but it is still in development...
-
-**Upcoming features**
-
-- [ ] Improve food list **(started)**
-- [ ] Finish nutrients tab **(started)**
-- [ ] Code extensions like types per day entry
-- [ ] Improve UI and make nicer **(started)**
-- [ ] Code improvements
-- When this is done food and nutrients data will be entered, and a few useful minor features may be added
-- [ ] Maybe: The simple textarea might be replaced with a sortable html list (that already exists)
-- [ ] Maybe: Basic error handling
 
 **Limitations**
 
@@ -134,6 +125,21 @@ necessarily need as a single user.
   </tr>
 </table>
 
+
+Upcoming features
+----------------------------------------------------------
+
+- [ ] Improve food list **(started)**
+- [ ] Finish nutrients tab **(started)**
+- [ ] Code extensions like types per day entry
+- [ ] Improve UI and make nicer **(started)**
+- [ ] Code improvements
+- When this is done food and nutrients data will be entered, and a few useful minor features may be added
+- [ ] Maybe: The simple textarea might be replaced with a sortable html list (that already exists)
+- [ ] Maybe: Basic error handling
+
+Full UI design see [UI design](misc/UI_Design.md)
+
 <table>
   <tr>
     <td>Improved list design</td>
@@ -144,8 +150,6 @@ necessarily need as a single user.
     </td>
   </tr>
 </table>
-
-Design for full app see [UI design](misc/UI_Design.md)
 
 
 LICENSE
