@@ -16,7 +16,7 @@ spec: |
       Avoid all mass produced that humans weren't meant to eat,
       prefer what evolution made use for before invention of agriculture
     </li><li>
-      Stay low carb ~50g, fat:amino maybe 2:1, ~3l water daily
+      Stay low carb ~50g, TASK: fat:amino 2:1, ~3l water daily
     </li><li>
       Change some food daily, don't use too much of one on a daily basis
     </li><li>
@@ -35,7 +35,7 @@ spec: |
     </tr>
     <tr>
       <td valign="top"><b>Limit</b></td>
-      <td valign="top">Only a few: Fruits (good substances but too much fructose), starches, eggs, joghurt, fermented like sauerkraut ?</td>
+      <td valign="top">Only a few fruits (good substances but too much fructose), starches, eggs, joghurt, TASK: fermented like sauerkraut ?</td>
     </tr>
     <tr>
       <td valign="top"><b>Plants</b></td>
@@ -43,7 +43,7 @@ spec: |
     </tr>
     <tr>
       <td valign="top"><b>Meat</b></td>
-      <td valign="top">Seems to be necessary (no vegan only), currently (fatty) fish and chicken (maybe daily: TASK: blue zones how much amino get older from fish, pork?)</td>
+      <td valign="top">Seems to be necessary, currently (fatty) fish and chicken (maybe daily) TASK: blue zones how much amino get older from fish, pork?</td>
     </tr>
     <tr>
       <td valign="top"><b>Misc</b></td>
@@ -61,10 +61,26 @@ spec: |
 
   <p>If doing sports higher amounts of amino acids and magnesium are used.</p>
 
-sources:
+sources:  # inspired by
 
   David Sinclair:
-  Sten Ekberg:     # Paleo, Keto, X  https://youtu.be/8yG3bWazlPE?si=WLQO7rUGRq3H1YCI
+
+    Fastening, activate defenses:
+
+  Sten Ekberg:
+
+    Meat:
+      # url: Paleo, Keto, X  https://youtu.be/8yG3bWazlPE?si=WLQO7rUGRq3H1YCI
+      # sub: 
+
   Bryan Johnson:
+
+    Daily veggie bowl (fibre):
+
   Rhonda Patrick:
-  # Paleo https://youtu.be/xTJ9O18ZqyI?si=wefriji2wmtNFv7c
+
+  Misc:
+
+    Paleo:
+      # url:  Paleo https://youtu.be/xTJ9O18ZqyI?si=wefriji2wmtNFv7c
+      # sub: 
