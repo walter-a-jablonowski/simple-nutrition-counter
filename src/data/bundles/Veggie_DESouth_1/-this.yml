@@ -66,21 +66,36 @@ sources:  # inspired by
   David Sinclair:
 
     Fastening, activate defenses:
+    
+    More info:
+
+      - url: https://fastlifehacks.com/category/david-sinclair
 
   Sten Ekberg:
 
-    Meat:
-      # url: Paleo, Keto, X  https://youtu.be/8yG3bWazlPE?si=WLQO7rUGRq3H1YCI
-      # sub: 
+    Meat:  # TASK: recommends Paleo, Keto, and X ?
+      
+      - url: https://youtu.be/8yG3bWazlPE?si=WLQO7rUGRq3H1YCI
+        sub: 
 
   Bryan Johnson:
 
     Daily veggie bowl (fibre):
 
+    More info:
+
+      - url: https://fastlifehacks.com/category/bryan-johnson
+
   Rhonda Patrick:
+    
+    More info:
+
+      - url: https://fastlifehacks.com/category/rhonda-patrick
+      - url: https://www.youtube.com/@FoundMyFitness
 
   Misc:
 
     Paleo:
-      # url:  Paleo https://youtu.be/xTJ9O18ZqyI?si=wefriji2wmtNFv7c
-      # sub: 
+      
+      - url: https://youtu.be/xTJ9O18ZqyI?si=wefriji2wmtNFv7c
+        sub: 
