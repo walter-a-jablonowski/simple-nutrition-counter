@@ -2156,7 +2156,7 @@ Oliven R Bio:
   certificates:      { bio: true }
   packaging:         glass,rubber
 
-  price:             1.89
+  price:             1.69
   weight:            180
   usedAmounts:       ["1/8", "1/4", "1/3"]
 
@@ -2173,8 +2173,8 @@ Oliven R Bio:
 
   sources:           { nutriVal: "pack (fibre is from web)" }
   state:             most
-  lastUpd:           2024-04-28
-  lastPriceUpd:      2024-04-28
+  lastUpd:           2024-08-01
+  lastPriceUpd:      2024-08-01
 
 Olivenöl:
 
