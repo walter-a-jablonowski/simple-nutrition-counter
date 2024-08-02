@@ -71,7 +71,7 @@ substances:
     
     short:      LA
     group:      PolyUnsaturated
-    subGroup:   omega-3
+    subGroup:   omega-6
     essential:  true
     unit:       g
     comment:    "GPT 2408: Vegetable oils (sunflower, safflower, corn, soybean), nuts, and seeds"
