@@ -17,6 +17,9 @@ landscape like smartphone below
 |--------------------------------------------------------|
 | Day list         | Goals (quick summary)             v |  maybe foldable
 |                  |-------------------------------------|
+|                  | [Add food|v] ...                    |  maybe use some split btn save space
+|                  | (Food) (Suppl) ...                  |    [Food] [Suppl] [On the go] [Fin] [Haush] [Misc]
+|                  |                 |                   |  maybe use a tab
 |                  | Food list       |                   |
 |                  |                 |                   |
 |                  |                 |                   |
@@ -24,11 +27,8 @@ landscape like smartphone below
 |                  |                 |                   |
 |                  |                 |                   |
 |                  |                 |                   |
-|                  |                 |                   |
-|                  |                 |                   |
-|                  |                 |                   |
 |--------------------------------------------------------|
-| This day    | Nutrients    | Last days    | ...        |  <-- Tab bar
+| This day    | Nutrients    | Last days    | ...        |  Tab bar
  --------------------------------------------------------
 ```
 
@@ -46,15 +46,16 @@ no landscape version
 |                     |
 |                     |
 |                     |
-|---------------------|
-| Goals             v |  maybe foldable
-|---------------------|
-| [Foods]     [Suppl] |  <-- Btns open food list in
-| [On the go] [Fin]   |      modal
-| [Haush]     [Misc]  |
+|                     |  
 |                     |
+|---------------------|
+| Goals             v |  maybe foldable (expand up)
 |                     |
- ---------------------
+|                     |  
+|                     |
+|---------------------|
+| [ Add food |v]      |  maybe use split btn (save space)
+ ---------------------   opens food list in modal
 | This day | ...      |
  ---------------------
 ```
