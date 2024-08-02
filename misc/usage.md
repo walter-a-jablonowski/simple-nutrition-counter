@@ -206,7 +206,7 @@ type:       methylcobalamin  # sub type
 TASK:
 
 ```yaml
-group:      saturated|monoUnsaturated|polyUnsaturated      TASK: Medium-chain fatty acids, Short-chain fatty acids
+group:      Saturated|MonoUnsaturated|PolyUnsaturated      TASK: Medium-chain fatty acids, Short-chain fatty acids
 subGroup:   omega-3|omega-6|omega-9 TASK: omega-5|omega-7  # all unsaturated mono: 7 9, poly: 3 5 6
 essential:  true             #                             TASK: saturated devide in long chain, short chain, ... 
 ```
