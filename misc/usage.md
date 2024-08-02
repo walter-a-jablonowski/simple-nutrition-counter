@@ -143,7 +143,8 @@ Nutrient files
 
 (advanced feature)
 
-see also [readme](../src/data/nutrients/README.md)
+- see also [readme](../src/data/nutrients/README.md)
+- derived see below
 
 ```yaml
 
@@ -164,7 +165,6 @@ substances:                      # (required)
 
   B 12:                          # display name
 
-    type:       methylcobalamin  # sub type
     short:      B12              # short name is used as unique id over all files
     unit:       mg
     sources:    ""               # source of information
@@ -189,4 +189,24 @@ substances:                      # (required)
         amount:
         lower:  4%  # summary view still is green progress if within these bounds
         upper:  8   # percent for some defaut value, number for precise (max is added to amount)
+```
+
+
+### Vitamins (derived)
+
+all of the above attributes and
+
+```yaml
+type:       methylcobalamin  # sub type
+```
+
+
+### Fat (derived)
+
+TASK:
+
+```yaml
+group:      saturated|monoUnsaturated|polyUnsaturated      TASK: Medium-chain fatty acids, Short-chain fatty acids
+subGroup:   omega-3|omega-6|omega-9 TASK: omega-5|omega-7  # all unsaturated mono: 7 9, poly: 3 5 6
+essential:  true             #                             TASK: saturated devide in long chain, short chain, ... 
 ```

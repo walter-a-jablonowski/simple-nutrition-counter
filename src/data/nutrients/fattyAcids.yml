@@ -23,7 +23,7 @@ substances:
   #       - this is only acc to current science
   #       - doesn't necessarily mean that enough can be made
   #       - e.g. DHA is missing here (there are recommendations for it per day)
-  #       - see list attached: "Conditionally Essential"
+  #       - most likely we must have all essential, see list attached: "Conditionally Essential"
 
   # TASK: there are possibly unexplored ones
 
@@ -31,9 +31,12 @@ substances:
 
   # Omega-3 fatty acids
 
-  Alpha-linolenic acid:  # polyUnsaturated
+  Alpha-linolenic acid:
     
     short:      ALA
+    group:      PolyUnsaturated
+    subGroup:   omega-3
+    essential:  true
     unit:       g
     comment:    "GPT 2408: Flaxseeds, chia seeds, walnuts, canola oil, and soybeans"
     sources:    "GPT and Claude 2408 for now"
@@ -45,11 +48,31 @@ substances:
         lower:  5%
         upper:  5%
 
+  Docosahexaenoic acid:
+
+    short:      DHA
+    group:      PolyUnsaturated
+    subGroup:   omega-3
+    essential:  true
+    unit:       g
+    comment:    "GPT 2408: Fish (salmon, mackerel, sardines), fish oil, krill oil, and algae oil"
+    sources:    "GPT and Claude 2408 for now"
+
+    amounts:    # currently we use the first entry hard coded only
+
+      - criteria: { gender: male, age: 40, height: "*", weight: 70 }
+        amount: 250
+        lower:  200
+        upper:  300
+
   # Omega-6 fatty acids
 
-  Linoleic acid:         # polyUnsaturated
+  Linoleic acid:
     
     short:      LA
+    group:      PolyUnsaturated
+    subGroup:   omega-3
+    essential:  true
     unit:       g
     comment:    "GPT 2408: Vegetable oils (sunflower, safflower, corn, soybean), nuts, and seeds"
     sources:    "GPT and Claude 2408 for now"

@@ -9,9 +9,6 @@ substances:
   Eicosapentaenoic acid:
     short:      EPA
     comment:    "GPT 2408: Fish (salmon, mackerel, sardines), fish oil, krill oil, and algae oil"
-  Docosahexaenoic acid:
-    short:      DHA
-    comment:    "GPT 2408: Fish (salmon, mackerel, sardines), fish oil, krill oil, and algae oil"
 
   # - Omega-6 fatty acids
 
