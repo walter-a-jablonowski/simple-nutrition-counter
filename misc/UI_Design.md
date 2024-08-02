@@ -50,12 +50,12 @@ no landscape version
 |                     |
 |---------------------|
 | Goals             v |  maybe foldable (expand up)
+|---------------------|
+| [ Add food |v]      |  simple: just the list as above and also scroll day entries
+| (Food) ...          |  better: btn only and open food list in modal
 |                     |
 |                     |  
-|                     |
-|---------------------|
-| [ Add food |v]      |  maybe use split btn (save space)
- ---------------------   opens food list in modal
+ ---------------------   
 | This day | ...      |
  ---------------------
 ```
