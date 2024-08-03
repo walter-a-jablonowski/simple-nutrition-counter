@@ -50,7 +50,7 @@ hierarchical logical tree. For this we use index files for folders `-this.yml`.
 
 Objects can start anywhere in the tree, outside or inside YML files.
 
-- **Naming:** Camel, entity identifier e.g. type start with upper case
+- **Naming:** camelCase, entity identifier e.g. type start with upper case
 - **Types:**  Entries may have an implicit type field `@type: food`
 - **Ids:**    Speaking, readable (see readme files)
 
