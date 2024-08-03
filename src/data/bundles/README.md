@@ -2,8 +2,7 @@
 Naming scheme
 ----------------------------------------------------------
 
-TASK: nicer name for bundles?
-TASK: change naming scheme?
+TASK: change naming scheme? rm user
 
 - speaking name (unique): BUNDLENAME_REGION_USERID or similar
 

@@ -13,8 +13,8 @@ Common
 - Code is minimalistic intentionally
   - we use only: PHP, js, bootstrap, maybe a view styles
   - no database, just parsable text files
-- view.php is for including in a larger app
-  - html ids have a prefix
+- We try to make intuitive, fluent, natural code and data files
+
 
 Model
 ----------------------------------------------------------
@@ -43,47 +43,28 @@ Model
 
 
 
-### Yaml represantation
+### YML representation
 
-We use yaml and (at least currently) tsv as our database
+We use YML and (at least currently) tsv as our database. We save objects in a
+hierarchical logical tree. For this we use index files for folders `-this.yml`.
 
-```yaml
-- 
-  name:   My food S Bio
-  weight: 
-  # ...
+Objects can start anywhere in the tree, outside or inside YML files.
 
--
-  name:   calories
-  amount: 
-  # ...
+- **Naming:** Camel, entity identifier e.g. type start with upper case
+- **Types:**  Entries may have an implicit type field `@type: food`
+- **Ids:**    Speaking, readable (see readme files)
 
-- 
-  name:   My food S Bio
-  amountMale:
-```
+- Ids may be used as file name or saved inside the file
+  - in files we prefer that the key is the id
+- Link classes can be saved inline for simplicity
 
-For a more intuitive, fluent, natural usage in this format/representation of the model we define that:
+  ```yaml
 
-- the name should be used as id with no numeric ids
-- it should written in the key
-- and the link class/table should be saved inline in foods under a key nutrients (view like)
-- all entries in the foods file implicit have the field "type: food"
+  My food S Bio:
 
-Currently ignored cause we don't know in foods: How do we use the sub type B 12 methylcobalamin ? (kind of combined key name + type)
-
-
-```yaml
-
-My food S Bio:
-
-  weight: 
-  # ...
-
-  nutrients:
-
-    "@inline": ident -> amount  # some syntax could be used 2 highlight that the link class is saved inline
-
-    fat:
     # ...
-```
+
+    nutritionalValues:
+
+      fat:  11  # fat = object ident of fattyAcids (short) -> amount
+  ```
