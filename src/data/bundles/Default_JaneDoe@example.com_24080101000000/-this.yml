@@ -1,6 +1,6 @@
-name:   Veggie
-region: DE/south
-user:   single_user  # usually mail and time (see users), single_user is a special user
+name:    Default
+region:  DE/south
+userId2: JaneDoe@example.com_24080101000000
 
 forkedFrom:
 forkedDate:
