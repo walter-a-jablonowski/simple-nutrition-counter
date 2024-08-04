@@ -9,11 +9,11 @@
   <!-- 3 col: col-12 col-md-6 col-lg-4 col-xxl-3 -->
   <!-- 2 col: col-12 col-md-6 col-xxl-4 -->
 
-  <?php if( $comment = User::current('foodList.personalComment')): ?>
+  <?php if( User::current()->has('foodList.personalComment')): ?>
   
     <div class="col-12 mt-1">
       <div class="col-12 p-2 py-1">
-        <?= $comment ?>
+        <?= User::current()->get('foodList.personalComment') ?>
       </div>
     </div>
   <?php endif; ?>
