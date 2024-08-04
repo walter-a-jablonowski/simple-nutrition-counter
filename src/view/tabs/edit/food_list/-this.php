@@ -9,6 +9,15 @@
   <!-- 3 col: col-12 col-md-6 col-lg-4 col-xxl-3 -->
   <!-- 2 col: col-12 col-md-6 col-xxl-4 -->
 
+  <?php if( $comment = User::current('foodList.personalComment')): ?>
+  
+    <div class="col-12 mt-1">
+      <div class="col-12 p-2 py-1">
+        <?= $comment ?>
+      </div>
+    </div>
+  <?php endif; ?>
+
   <div class="col-12 mt-1">  <!-- wrap in col = show above groups -->
     <div class="row">        <!-- break points same as in food groups below -->
       <div class   = "col-12 col-md-6 col-xxl-4 p-2 py-1"
@@ -30,7 +39,7 @@
         Coffee
       </div>
 
-      < ?php if( config::get('special')) ?>
+      < ?php if( config::get('special')): ?>
         <div class   = "col-12 col-md-6 col-xxl-4 p-2 py-1"
              onclick = "..."
         >

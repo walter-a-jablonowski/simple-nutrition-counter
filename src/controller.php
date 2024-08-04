@@ -23,12 +23,12 @@ class FoodsController extends ControllerBase
   protected string     $mode;           // TASK: sort semantically
   protected string     $date;
 
-  protected            $foodsView;
   protected string     $dayEntriesTxt;
   protected array      $dayEntries;
-  // protected string  $foodsTxt;       // old
-  protected SimpleData $lastDaysView;
+  protected            $foodsView;
   protected float      $priceAvg;
+  protected SimpleData $lastDaysView;
+  // protected string  $foodsTxt;       // old
 
   protected array      $layout;
   protected array      $goals;

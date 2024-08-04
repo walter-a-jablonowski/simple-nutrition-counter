@@ -1,3 +1,6 @@
 
-name: Single user  # display name
+name: Walter  # display name
 mail: 
+
+foodList:
+  personalComment: Meat x mon
