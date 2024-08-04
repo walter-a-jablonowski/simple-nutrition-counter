@@ -2,16 +2,9 @@
 Naming scheme
 ----------------------------------------------------------
 
-TASK: change naming scheme? rpl numeric id with login and time?
+- **Ids**
 
-- speaking name (unique): NAME_CITY_USERID or similar
-- put ids inside file
-
-
-User
-----------------------------------------------------------
-
-- we can use a combination of mail and time as unique id
-- we also have a numeric id cause shorter in combined names (bundles)
-
-- "single_user" is a special user
+  - fld name = speaking id: NAME_CITY_USERID2(numeric)
+    - TASK: we can use a combination of login and time as unique id
+  - numeric second id:      in file
+    - we also have a numeric id cause shorter in combined names (bundles)

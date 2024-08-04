@@ -2,15 +2,11 @@
 Naming scheme
 ----------------------------------------------------------
 
-TASK: change naming scheme? rm user
+- **Ids**
 
-- speaking name (unique): BUNDLENAME_REGION_USERID or similar
-
-
-Bundle
-----------------------------------------------------------
-
-- we use a speaking id: combination of name (unique per user), and see above
+  - fld name = speaking id: BUNDLENAME_USERID2(numeric)
+  - numeric second id:      in file
+    - we also have a numeric id cause shorter in combined names (bundles)
 
 
 /nutrients

@@ -1,6 +1,7 @@
 
+id2:  1       # numeric short id
 name: Walter  # display name
 mail: 
 
 foodList:
-  personalComment: Meat x mon
+  personalComment: Meat 2-3 mon from 2408 & winter

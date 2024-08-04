@@ -60,7 +60,7 @@ use Symfony\Component\Yaml\Exception\ParseException;
 
             <?php
             
-              $a = Yaml::parse( file_get_contents('data/bundles/Veggie_DESouth_1/-this.yml'));
+              $a = Yaml::parse( file_get_contents('data/bundles/Default_1/-this.yml'));
 
             ?>
 
