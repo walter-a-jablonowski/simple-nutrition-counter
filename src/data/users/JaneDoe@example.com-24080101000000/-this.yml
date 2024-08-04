@@ -2,5 +2,10 @@
 name: Jane Doe
 mail: 
 
-foodList:
-  personalComment: Meat 2-3 mon from 2408 & winter
+myStrategy:
+  
+  headline: Meat 2-3 mon from 2408 & winter
+  content:  |  # use html here
+
+    some longer content
+

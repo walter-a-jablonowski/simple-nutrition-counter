@@ -9,11 +9,24 @@
   <!-- 3 col: col-12 col-md-6 col-lg-4 col-xxl-3 -->
   <!-- 2 col: col-12 col-md-6 col-xxl-4 -->
 
-  <?php if( User::current()->has('foodList.personalComment')): ?>
+  <?php if( User::current()->has('myStrategy.headline')): ?>
   
     <div class="col-12 mt-1">
-      <div class="col-12 p-2 py-1">
-        <?= User::current()->get('foodList.personalComment') ?>
+      <div class="col-12 p-2 py-1" style="background-color: #ffff88;">
+        
+        <?= User::current()->get('myStrategy.headline') ?>
+        
+        <button type="button" class="border-0 p-1 bg-transparent"
+                data-bs-toggle = "modal"
+                data-bs-target = "#infoModal"
+                data-title     = "<?= User::current()->get('myStrategy.headline') ?>"
+                data-source    = "#myStrategyData"
+        >
+          <i class="bi bi-info-circle icon-circle"></i>
+        </button>
+        <div id="myStrategyData" class="d-none">
+          <?= User::current()->get('myStrategy.content') ?>
+        </div>
       </div>
     </div>
   <?php endif; ?>
