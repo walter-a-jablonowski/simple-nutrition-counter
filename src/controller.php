@@ -63,8 +63,8 @@ class FoodsController extends ControllerBase
     $this->date = $_GET['date'] ?? date('Y-m-d');
     $this->mode = isset($_GET['date']) ? 'last' : 'current';
 
-    $this->layout = parse_attribs('@attribs', ['short', '(i)'], Yaml::parse( file_get_contents('data/bundles/Default_JaneDoe@example.com_24080101000000/layouts/food.yml')));
-    $this->goals  = Yaml::parse( file_get_contents('data/bundles/Default_JaneDoe@example.com_24080101000000/layouts/goals.yml'));
+    $this->layout = parse_attribs('@attribs', ['short', '(i)'], Yaml::parse( file_get_contents('data/bundles/Default_JaneDoe@example.com-24080101000000/layouts/food.yml')));
+    $this->goals  = Yaml::parse( file_get_contents('data/bundles/Default_JaneDoe@example.com-24080101000000/layouts/goals.yml'));
 
     foreach( $this->layout as $group => &$layout )
     {
@@ -99,7 +99,7 @@ class FoodsController extends ControllerBase
 
     // unused
 
-    // $this->foodsTxt = file_get_contents('data/bundles/Default_JaneDoe@example.com_24080101000000/foods.yml');  // old
+    // $this->foodsTxt = file_get_contents('data/bundles/Default_JaneDoe@example.com-24080101000000/foods.yml');  // old
 
     $this->makeFoodsView();
     $this->makeNutrientsView();
@@ -115,7 +115,7 @@ class FoodsController extends ControllerBase
     $settings = settings::instance();
 
     $this->model = new SimpleData();
-    $this->model->set('foods', Yaml::parse( file_get_contents('data/bundles/Default_JaneDoe@example.com_24080101000000/foods.yml')));
+    $this->model->set('foods', Yaml::parse( file_get_contents('data/bundles/Default_JaneDoe@example.com-24080101000000/foods.yml')));
 
     $this->foodsView = new SimpleData();
 

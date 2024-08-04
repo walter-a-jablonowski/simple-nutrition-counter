@@ -2,4 +2,4 @@
 Naming scheme
 ----------------------------------------------------------
 
-- **Id:** speaking `JaneDoe@example.com_24080101000000`
+- **Id:** speaking `JaneDoe@example.com-24080101000000`

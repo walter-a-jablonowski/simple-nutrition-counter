@@ -13,7 +13,7 @@ require_once 'vendor/autoload.php';
 define('OLD_PRICE', 6 * 30);
 
 
-$foods = Yaml::parse( file_get_contents('data/bundles/Default_JaneDoe@example.com_24080101000000/foods.yml'));
+$foods = Yaml::parse( file_get_contents('data/bundles/Default_JaneDoe@example.com-24080101000000/foods.yml'));
 $r = [];
 
 foreach( $foods as $key => $food)

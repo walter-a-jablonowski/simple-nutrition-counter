@@ -9,7 +9,7 @@ $min_date = null;
 // $min_date = '2024-05-16';  // very old prioes only
 $out_file = 'price_list.tsv';
 
-$foods = Yaml::parseFile('../src/data/bundles/Default_JaneDoe@example.com_24080101000000/foods.yml');
+$foods = Yaml::parseFile('../src/data/bundles/Default_JaneDoe@example.com-24080101000000/foods.yml');
 $r = [];
 
 foreach( $foods as $food => $data )

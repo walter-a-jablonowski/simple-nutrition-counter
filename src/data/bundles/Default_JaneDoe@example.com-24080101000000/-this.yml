@@ -1,6 +1,6 @@
-name:    Default
-region:  DE/south
-userId2: JaneDoe@example.com_24080101000000
+name:   Default
+region: DE/south
+userId: JaneDoe@example.com-24080101000000
 
 forkedFrom:
 forkedDate:

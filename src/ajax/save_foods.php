@@ -12,7 +12,7 @@ trait SaveFoodsAjaxController
     // if( ! backup_fil( $groupsFil ))  // prefer cause we have on backup form for all dools
     //   return ['result' => 'error', 'message' => 'Error making backup'];
 
-    if( ! file_put_contents('data/bundles/Default_JaneDoe@example.com_24080101000000/foods.yml', $request['data']))
+    if( ! file_put_contents('data/bundles/Default_JaneDoe@example.com-24080101000000/foods.yml', $request['data']))
       return ['result' => 'error', 'message' => 'Error saving'];
 
     return ['result' => 'success'];
