@@ -56,15 +56,18 @@ class AppController extends ControllerBase
   public function render(/*$request*/)
   {
     $config = config::instance();
+    $user   = User::current();
 
     $this->date = $_GET['date'] ?? date('Y-m-d');
     $this->mode = isset($_GET['date']) ? 'last' : 'current';
 
+    // TASK: maybe make a wrapper around bundle similar user? rm, the hard coded Default everywhere
+
     $this->layout = parse_attribs('@attribs', ['short', '(i)'],
-      Yaml::parse( file_get_contents('data/bundles/Default_JaneDoe@example.com-24080101000000/layouts/food.yml'))
+      Yaml::parse( file_get_contents("data/bundles/Default_$user->id/layouts/food.yml"))
     );
     
-    $this->goals  = Yaml::parse( file_get_contents('data/bundles/Default_JaneDoe@example.com-24080101000000/layouts/goals.yml'));
+    $this->goals  = Yaml::parse( file_get_contents("data/bundles/Default_$user->id/layouts/goals.yml"));
 
     foreach( $this->layout as $group => &$layout )
     {
@@ -109,9 +112,10 @@ class AppController extends ControllerBase
   private function makeFoodsView()
   {
     $settings = settings::instance();
+    $user     = User::current();
 
     $this->model = new SimpleData();
-    $this->model->set('foods', Yaml::parse( file_get_contents('data/bundles/Default_JaneDoe@example.com-24080101000000/foods.yml')));
+    $this->model->set('foods', Yaml::parse( file_get_contents("data/bundles/Default_$user->id/foods.yml")));
 
     $this->foodsView = new SimpleData();
 

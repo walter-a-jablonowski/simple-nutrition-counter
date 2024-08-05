@@ -59,13 +59,14 @@ use Symfony\Component\Yaml\Exception\ParseException;
           <div id="tipsMenuPane" class="tab-pane fade show active" role="tabpanel">
 
             <?php
-            
-              $a = Yaml::parse( file_get_contents('data/bundles/Default_JaneDoe@example.com-24080101000000/-this.yml'));
+
+              // $a = Yaml::parse( file_get_contents('data/bundles/Default_JaneDoe@example.com-24080101000000/-this.yml'));
+              $a = Yaml::parse( file_get_contents('data/bundles/Default_' . User::current('id') . '/-this.yml'));
 
             ?>
 
             <h6>
-              <b>Current food list:</b> <?= $a['name'] ?> (<?= $a['user'] ?>)
+              <b>Current food list:</b> <?= $a['name'] ?> (<?= $a['userId'] ?>)
             </h6>
 
             <table class="mt-2" style="border: 0;">

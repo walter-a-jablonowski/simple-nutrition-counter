@@ -43,11 +43,9 @@ class User extends SimpleData  /*@*/
   {
     $user = self::byId( $_SESSION['userId'] );
 
-    // if( ! is_null($key))
     if( is_null($key))
       return $user;
     else
-      // return $user->byId($key);
       return $user->get($key);
   }
 }
