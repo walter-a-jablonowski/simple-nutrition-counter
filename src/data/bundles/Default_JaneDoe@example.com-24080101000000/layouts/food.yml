@@ -82,7 +82,7 @@ Veggie bowl, high fibre (color:#ffa500):
     - Olivenöl
     - Öl
 
-Fish, meat, tofu (color:#ffa500):
+Fish, meat, tofu, butter (color:#ffa500):
 
   list:
 
@@ -93,11 +93,12 @@ Fish, meat, tofu (color:#ffa500):
 
     - Hähnchen Kebab
     - Chicken Nugg N
-    - Tofu N
-    
     - Salami R
     - Salami R Wilt (Innens)
     - Lyoner R Bio
+
+    - Tofu N
+    - Butter N unges
 
 A little taste (color:#ffa500):
 
@@ -179,7 +180,7 @@ Cheat day (color:#32cd32):
     - Donuts
     - Donuts mini A                          # (duplicate)
 
-Misc meals (color:#32cd32):
+Misc (color:#32cd32):
 
   list:
 

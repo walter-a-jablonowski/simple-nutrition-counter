@@ -60,7 +60,10 @@ class AppController extends ControllerBase
     $this->date = $_GET['date'] ?? date('Y-m-d');
     $this->mode = isset($_GET['date']) ? 'last' : 'current';
 
-    $this->layout = parse_attribs('@attribs', ['short', '(i)'], Yaml::parse( file_get_contents('data/bundles/Default_JaneDoe@example.com-24080101000000/layouts/food.yml')));
+    $this->layout = parse_attribs('@attribs', ['short', '(i)'],
+      Yaml::parse( file_get_contents('data/bundles/Default_JaneDoe@example.com-24080101000000/layouts/food.yml'))
+    );
+    
     $this->goals  = Yaml::parse( file_get_contents('data/bundles/Default_JaneDoe@example.com-24080101000000/layouts/goals.yml'));
 
     foreach( $this->layout as $group => &$layout )

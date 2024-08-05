@@ -384,6 +384,31 @@ Burrito A:
   lastUpd:           2024-06-18
   lastPriceUpd:      2024-06-18
 
+Butter N unges:
+
+  vendor:            Norma
+  acceptable:        occasionally
+  packaging:         plastic
+
+  price:             1.99
+  weight:            250g
+  usedAmounts:       ["5g", "10g", "15g"]
+
+  calories:          681
+  nutritionalValues:
+
+    fat:             75
+    saturatedFat:    38.1
+    carbs:           0.8
+    sugar:           0.8
+    amino:           0.7
+    salt:            0.03
+
+  sources:           { nutriVal: "pack" }
+  state:             most
+  lastUpd:           2024-08-01
+  lastPriceUpd:      2024-08-01
+
 Cappuccino R:
 
   vendor:            Eni
@@ -397,7 +422,7 @@ Cappuccino R:
   calories:          63
   nutritionalValues:
 
-    fat:             1.2
+    fat:             1.2  # TASK: saturatedFat ?
     carbs:           12
     sugar:           10.8
     amino:           2.7
