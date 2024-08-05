@@ -129,11 +129,11 @@ else:
 <script src="lib/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
 <!-- <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> -->
 <script src="lib/jquery-ui-1.13.3/jquery-ui.min.js"></script>
-<script src="lib/events_240321.js"></script>
-<script src="lib/query_240321.js"></script>
-<script src="lib/query_data_240328.js"></script>
-<script src="lib/YAMLish_240508.js"></script>
-<script src="lib/send_240420.js"></script>
+<script src="lib/frm/events_240321.js"></script>
+<script src="lib/frm/query_240321.js"></script>
+<script src="lib/frm/query_data_240328.js"></script>
+<script src="lib/frm/YAMLish_240508.js"></script>
+<script src="lib/frm/send_240420.js"></script>
 <script src="lib/fade_230808.js"></script>
 <script src="controller/MainController.js?v=<?= time() ?>"></script>
 <!-- <script src="controller/SettingsController.js?v=<?= time() ?>"></script> -->

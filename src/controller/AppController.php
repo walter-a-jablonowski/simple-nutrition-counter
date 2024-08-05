@@ -3,10 +3,10 @@
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Yaml\Exception\ParseException;
 
-require_once 'lib/SimpleData_240317/SimpleData.php';
-require_once 'lib/Controller_240323/ControllerBase.php';
-require_once 'lib/ConfigStatic_240323/config.php';
-require_once 'lib/User.php';
+require_once 'lib/frm/SimpleData_240317/SimpleData.php';
+require_once 'lib/frm/Controller_240323/ControllerBase.php';
+require_once 'lib/frm/ConfigStatic_240323/config.php';
+require_once 'lib/frm/User.php';
 require_once 'lib/settings.php';
 require_once 'ajax/save_day_entries.php';
 require_once 'ajax/change_user.php';
