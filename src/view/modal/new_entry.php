@@ -128,7 +128,7 @@
             <button data-bs-dismiss="modal" class="btn btn-sm btn-secondary" type="button">
               Cancel
             </button>
-            <button onclick="foodsCrl.newEntrySaveBtn()" class="btn btn-sm btn-primary" type="button">
+            <button onclick="mainCrl.newEntrySaveBtn()" class="btn btn-sm btn-primary" type="button">
               Add entry
             </button>
       <?php if( config::get('devMode') ): ?>

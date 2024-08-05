@@ -4,7 +4,7 @@
     <textarea id="foods" class="form-control" wrap="off" style="font-family: monospace; font-size: 15px;" rows="18"
     ><?= $this->foodsTxt ?></textarea>
 
-    <button onclick="foodsCrl.saveFoodsBtnClick(event)" class="btn btn-sm btn-primary mt-2">Save</button>
+    <button onclick="mainCrl.saveFoodsBtnClick(event)" class="btn btn-sm btn-primary mt-2">Save</button>
     <span id="foodsUIMsg"></span>
 
   </div>

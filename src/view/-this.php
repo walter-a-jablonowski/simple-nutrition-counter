@@ -34,9 +34,9 @@ else:
         <!-- Multiple days version -->
 <!--
         <div class="d-flex justify-content-center align-items-center">
-          <button onclick="foodsCrl.lasrDayBtnClick(event)" class="btn btn-primary mx-2">&lt;</button>
+          <button onclick="mainCrl.lasrDayBtnClick(event)" class="btn btn-primary mx-2">&lt;</button>
           <div id="dateDisplay" class="mx-2">2024-04-18</div>
-          <button onclick="foodsCrl.lastDayBtnClick(event)" class="btn btn-primary mx-2">&gt;</button>
+          <button onclick="mainCrl.lastDayBtnClick(event)" class="btn btn-primary mx-2">&gt;</button>
         </div>
 -->
         <!-- Simplified -->
@@ -45,7 +45,7 @@ else:
 
           <i class="bi bi-app"></i>  <!-- some app logo -->
 
-          <select id="userSelect" onchange="foodsCrl.userSelectChange(this)" class="bg-transparent border-0 text-white">
+          <select id="userSelect" onchange="mainCrl.userSelectChange(this)" class="bg-transparent border-0 text-white">
             <?php foreach( User::getAll() as $userId ): ?>
               <option value="<?= $userId ?>"<?= self::iif( $userId == User::current('id'), ' selected') ?>>
                 <?= User::byId( $userId )->get('name') ?>
@@ -53,7 +53,7 @@ else:
             <?php endforeach; ?>
           </select>
 
-          <button onclick="foodsCrl.lastDayBtnClick(event)"
+          <button onclick="mainCrl.lastDayBtnClick(event)"
             data-sel = "<?= $this->mode ?>"
             class    = "btn btn-sm ms-1 mb-1 text-white p-1 py-0 border-light"
           >
@@ -69,7 +69,7 @@ else:
           <button data-bs-toggle="modal" data-bs-target="#tipsModal" class="btn btn-sm mb-1 text-white" type="button">
             <i class="bi bi-info-circle icon-circle"></i>
           </button>
-          <button id="settingsBtn" onclick="foodsCrl.settingsBtnClick(event)" class="btn btn-sm mb-1" type="button">
+          <button id="settingsBtn" onclick="mainCrl.settingsBtnClick(event)" class="btn btn-sm mb-1" type="button">
             <i class="bi bi-gear-fill text-white"></i>
           </button>
         </div>
@@ -141,7 +141,7 @@ else:
 
 // ajax.file = 'ajax.php'
 
-var dayEntries, foodsCrl
+var dayEntries, mainCrl
 
 ready( function() {
 
@@ -151,9 +151,9 @@ ready( function() {
     <?php endforeach; ?>
   ]
 
-  foodsCrl = new MainController()
-  foodsCrl.date = '<?= $this->date ?>'
-  foodsCrl.updSummary()
+  mainCrl = new MainController()
+  mainCrl.date = '<?= $this->date ?>'
+  mainCrl.updSummary()
 })
 
 </script>

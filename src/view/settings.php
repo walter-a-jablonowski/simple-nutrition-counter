@@ -108,6 +108,6 @@
   </li>
 </ul>
 
-<button onclick="foodsCrl.settingsBtnClick(event)" class="btn btn-sm btn-primary mt-3">
+<button onclick="mainCrl.settingsBtnClick(event)" class="btn btn-sm btn-primary mt-3">
   Done
 </button>

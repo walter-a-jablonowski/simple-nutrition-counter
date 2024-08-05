@@ -128,7 +128,7 @@ $return['done'] = [];
         
         ?>
           <div class   = "col-1 p-1 blink-yellow"
-               onclick = "foodsCrl.foodItemClick(event)"
+               onclick = "mainCrl.foodItemClick(event)"
                data-food       = "<?= $foodName ?>"
                data-calories   = "<?= $data['calories'] ?>"
                data-nutritionalvalues = "<?= htmlspecialchars( json_encode( $data['nutriVal'])) ?>"
