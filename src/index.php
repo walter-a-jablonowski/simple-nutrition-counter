@@ -22,7 +22,9 @@ session_start();
 // User (currently less important)
 // just get it from session, currently no User obj
 
-$_SESSION['userId'] = $_SESSION['userId'] ?? config::get('defaultUser');
+$user = $_SESSION['userId'] ?? config::get('defaultUser');  // v fallback in case user was renamed (no need for deleting the cookie)
+$user = in_array( $user, User::getAll())  ?  $user  :  config::get('defaultUser');
+$_SESSION['userId'] = $user;
 
 // Current simple solution #code/routing
 
