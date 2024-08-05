@@ -1,0 +1,7 @@
+class SettingsController
+{
+  constructor(args)
+  {
+
+  }
+}

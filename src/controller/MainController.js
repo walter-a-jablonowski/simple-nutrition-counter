@@ -1,4 +1,4 @@
-class FoodsEventController
+class MainController
 {
   constructor(args)
   {

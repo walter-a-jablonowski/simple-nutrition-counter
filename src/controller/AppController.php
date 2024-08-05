@@ -14,7 +14,7 @@ require_once 'ajax/change_user.php';
 require_once 'lib/helper.php';
 
 
-class FoodsController extends ControllerBase
+class AppController extends ControllerBase
 {
   use SaveDayEntriesAjaxController;
   // use SaveFoodsAjaxController;       // unused

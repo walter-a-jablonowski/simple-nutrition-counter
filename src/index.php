@@ -9,7 +9,7 @@ require_once 'lib/ConfigStatic_240323/config.php';
 require_once 'lib/settings.php';
 // require_once 'lib/Routing_240324/Routing.php';
 require_once 'lib/Controller_240323/ControllerBase.php';
-require_once 'controller.php';
+require_once 'controller/AppController.php';
 
 
 // TASK: maybe use SimpleData inside cause static methods depend on the class
@@ -40,7 +40,7 @@ if( ! $isAjax )
   //   array_shift($identifier);
   //   $args['identifier'] = implode('/', $identifier);
   //
-  //   $controller = new FoodsController();
+  //   $controller = new AppController();
   //   echo $controller->dispatch($args);
   // });
   //
@@ -59,7 +59,7 @@ if( ! $isAjax )
     };
   }
   else
-    $controller = new FoodsController();
+    $controller = new AppController();
 
   echo $controller->render();
 }
@@ -67,7 +67,7 @@ else
 {
   $args = json_decode( file_get_contents('php://input'), true);
 
-  $controller = new FoodsController();
+  $controller = new AppController();
   echo json_encode( $controller->dispatch($args));
 }
 

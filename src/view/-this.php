@@ -135,7 +135,8 @@ else:
 <script src="lib/YAMLish_240508.js"></script>
 <script src="lib/send_240420.js"></script>
 <script src="lib/fade_230808.js"></script>
-<script src="controller.js?v=<?= time() ?>"></script>
+<script src="controller/MainController.js?v=<?= time() ?>"></script>
+<!-- <script src="controller/SettingsController.js?v=<?= time() ?>"></script> -->
 <script>
 
 // ajax.file = 'ajax.php'
@@ -150,7 +151,7 @@ ready( function() {
     <?php endforeach; ?>
   ]
 
-  foodsCrl = new FoodsEventController()
+  foodsCrl = new MainController()
   foodsCrl.date = '<?= $this->date ?>'
   foodsCrl.updSummary()
 })
