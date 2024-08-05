@@ -9,7 +9,6 @@ require_once 'lib/ConfigStatic_240323/config.php';
 require_once 'lib/User.php';
 require_once 'lib/settings.php';
 require_once 'ajax/save_day_entries.php';
-// require_once 'ajax/save_foods.php';  // unused
 require_once 'ajax/change_user.php';
 require_once 'lib/helper.php';
 
