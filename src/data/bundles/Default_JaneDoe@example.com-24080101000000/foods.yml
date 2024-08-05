@@ -1833,6 +1833,7 @@ Lyoner R Bio:
 
   price:             1.39
   weight:            70
+  usedAmounts:       ["1/4", "1/2", "1"]
 
   calories:          230
   nutritionalValues:
@@ -2712,6 +2713,7 @@ Salami R:
 
   price:             1.79
   weight:            70
+  usedAmounts:       ["1/4", "1/2", "1"]
 
   calories:          275
   nutritionalValues:
@@ -2740,6 +2742,7 @@ Salami R Wilt (Innens):
 
   price:             2.79  # TASK: Aldi 2.19 2024-06-08
   weight:            80
+  usedAmounts:       ["1/4", "1/2", "1"]
 
   calories:          273
   nutritionalValues:
