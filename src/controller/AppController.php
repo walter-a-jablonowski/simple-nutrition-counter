@@ -17,7 +17,6 @@ require_once 'lib/helper.php';
 class AppController extends ControllerBase
 {
   use SaveDayEntriesAjaxController;
-  // use SaveFoodsAjaxController;       // unused
   use ChangeUserAjaxController;
 
   protected string     $mode;           // TASK: sort semantically
@@ -28,7 +27,6 @@ class AppController extends ControllerBase
   protected            $foodsView;
   protected float      $priceAvg;
   protected SimpleData $lastDaysView;
-  // protected string  $foodsTxt;       // old
 
   protected array      $layout;
   protected array      $goals;
@@ -96,10 +94,6 @@ class AppController extends ControllerBase
       'minerals'          => 'min',
       'secondary'         => 'sec'
     ];
-
-    // unused
-
-    // $this->foodsTxt = file_get_contents('data/bundles/Default_JaneDoe@example.com-24080101000000/foods.yml');  // old
 
     $this->makeFoodsView();
     $this->makeNutrientsView();

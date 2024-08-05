@@ -42,11 +42,4 @@
     <?php require( __DIR__ . '/last_days.php') ?>
 
   </div>
-<!--
-  <div class="tab-pane fade" id="foodsPane" role="tabpanel">
-
-    < ?php require( __DIR__ . '/foods.php')  // data out commented in controller ?>
-
-  </div>
--->
 </div>
