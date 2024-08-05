@@ -16,17 +16,20 @@
         
         <?= User::current()->get('myStrategy.headline') ?>
         
-        <button type="button" class="border-0 p-1 bg-transparent"
-                data-bs-toggle = "modal"
-                data-bs-target = "#infoModal"
-                data-title     = "<?= User::current()->get('myStrategy.headline') ?>"
-                data-source    = "#myStrategyData"
-        >
-          <i class="bi bi-info-circle icon-circle"></i>
-        </button>
-        <div id="myStrategyData" class="d-none">
-          <?= User::current()->get('myStrategy.content') ?>
-        </div>
+        <?php if( User::current()->has('myStrategy.content')): ?>
+        
+          <button type="button" class="border-0 p-1 bg-transparent"
+                  data-bs-toggle = "modal"
+                  data-bs-target = "#infoModal"
+                  data-title     = "<?= User::current()->get('myStrategy.headline') ?>"
+                  data-source    = "#myStrategyData"
+          >
+            <i class="bi bi-info-circle icon-circle"></i>
+          </button>
+          <div id="myStrategyData" class="d-none">
+            <?= User::current()->get('myStrategy.content') ?>
+          </div>
+        <?php endif; ?>
       </div>
     </div>
 
