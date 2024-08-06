@@ -67,8 +67,6 @@ class AppController extends ControllerBase
       Yaml::parse( file_get_contents("data/bundles/Default_$user->id/layouts/food.yml"))
     );
     
-    $this->goals  = Yaml::parse( file_get_contents("data/bundles/Default_$user->id/layouts/goals.yml"));
-
     foreach( $this->layout as $group => &$layout )
     {
       if( isset($layout['@attribs']['short']) )

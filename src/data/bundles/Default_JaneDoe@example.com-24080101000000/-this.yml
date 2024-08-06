@@ -55,15 +55,50 @@ spec: |
     </tr>
   </table>
 
+  <table>
+    <tr>
+      <td valign="top"><b>kcal</b></td>
+      <td valign="top">
+        1800: calories reduced for a few days<br>
+        2200: normal<br>
+        2500: eat more
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>fat amino</b></td>
+      <td valign="top">
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>carbs</b></td>
+      <td valign="top">
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>fibre</b></td>
+      <td valign="top">
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>salt</b></td>
+      <td valign="top">
+      </td>
+    </tr>
+  </table>
+
   <br>
 
   <p><b>On the go</b> the best food that is available is used.</p>
 
   <p>If doing sports higher amounts of amino acids and magnesium are used.</p>
 
-limits:
-  
-  carbs: { min: 0, max: 50 }
+goals:  # TASK: maybe merge texts above in here
+
+  calories: { label: "18-25k",      calc: "" }
+  fatAmino: { label: "(2:1)",       calc: "" }
+  carbs:    { label: "&le; 50g",    calc: "", min: 0, max: 50 }  # TASK: limits
+  fibre:    { label: "&ge; 2 cups", calc: "" }
+  salt:     { label: "4-6g",        calc: "" }
 
 sources:  # inspired by
 

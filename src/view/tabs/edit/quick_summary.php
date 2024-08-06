@@ -1,13 +1,22 @@
+<?php
+
+  use Symfony\Component\Yaml\Yaml;
+  use Symfony\Component\Yaml\Exception\ParseException;
+
+  // $a = Yaml::parse( file_get_contents('data/bundles/Default_JaneDoe@example.com-24080101000000/-this.yml'));
+  $a = Yaml::parse( file_get_contents('data/bundles/Default_' . User::current('id') . '/-this.yml'));
+
+?>
 <!-- 3 col for tab is col-6 col-md-4 col-xxl-2 -->
 <div id="#quickSummary" class="row px-2">
   <div class="col-6 col-md-2 col-xxl-2 mt-2 px-1">
-    <div style="background-color: #eb6864;">
-      <div class="ps-1 fw-bold">kcal <?= $this->goals['calories']['label'] ?></div>
+    <div style="background-color: #eb6864;" data-bs-toggle="modal" data-bs-target="#tipsModal">
+      <div class="ps-1 fw-bold">kcal <?= $a['goals']['calories']['label'] ?></div>
       <div id="caloriesSum" class="ps-1">0</div>
     </div>
   </div>
-  <div class="col-6 col-md-2 col-xxl-2 mt-2 px-1">
-    <div class="ps-1 bg-secondary text-white">Fat / Amino <?= $this->goals['fatAmino']['label'] ?></div>
+  <div class="col-6 col-md-2 col-xxl-2 mt-2 px-1" data-bs-toggle="modal" data-bs-target="#tipsModal">
+    <div class="ps-1 bg-secondary text-white">Fat / Amino <?= $a['goals']['fatAmino']['label'] ?></div>
     <div class="value ps-1"><span id="fatSum">0</span> / <span id="aminoSum">0</span> g</div>
   </div>
   <!-- (TASK) space saving quick summary design -->
@@ -17,16 +26,16 @@
     <div class="value"><span id="carbsSum">0</span> g</div>
   </div>
 -->
-  <div class="col-6 col-md-2 col-xxl-2 mt-2 px-1">
-    <div class="px-1 bg-secondary text-white">Carbs <?= $this->goals['carbs']['label'] ?></div>
+  <div class="col-6 col-md-2 col-xxl-2 mt-2 px-1" data-bs-toggle="modal" data-bs-target="#tipsModal">
+    <div class="px-1 bg-secondary text-white">Carbs <?= $a['goals']['carbs']['label'] ?></div>
     <div class="value ps-1"><span id="carbsSum">0</span> g</div>
   </div>
-  <div class="col-6 col-md-2 col-xxl-2 mt-2 px-1">
-    <div class="px-1 bg-secondary text-white">Fibre <?= $this->goals['fibre']['label'] ?></div>
+  <div class="col-6 col-md-2 col-xxl-2 mt-2 px-1" data-bs-toggle="modal" data-bs-target="#tipsModal">
+    <div class="px-1 bg-secondary text-white">Fibre <?= $a['goals']['fibre']['label'] ?></div>
     <div class="value ps-1"><span id="fibreSum">0</span> g</div>
   </div>
-  <div class="col-6 col-md-2 col-xxl-2 mt-2 px-1">
-    <div class="px-1 bg-secondary text-white">Salt <?= $this->goals['salt']['label'] ?></div>
+  <div class="col-6 col-md-2 col-xxl-2 mt-2 px-1" data-bs-toggle="modal" data-bs-target="#tipsModal">
+    <div class="px-1 bg-secondary text-white">Salt <?= $a['goals']['salt']['label'] ?></div>
     <div class="value ps-1"><span id="saltSum">0</span> g</div>
   </div>
   <div class="col-6 col-md-2 col-xxl-2 mt-2 px-1">

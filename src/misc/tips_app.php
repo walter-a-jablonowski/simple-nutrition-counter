@@ -13,6 +13,21 @@
   <li>enables adding entries to last calendar day (for night owls)</li>
 </ul>
 
+<b>App usage</b>
+
+<ul class="no-indent">
+  <!-- <li>On this day's tab you see the list of consumed items first (above or left), then a bar with primary nutrition goals and current sums, below controls for entering foods ...</li> -->
+  <li>
+    On this day's tab you see
+    <ul class="no-indent">
+      <li>the list of consumed items first (above or left)</li>
+      <li>then a bar with primary nutrition goals and current sums</li>
+      <li>below controls for entering foods ...</li>
+    </ul>
+  </li>
+  <li>On the Nutrients tab you can see all nutrient's state in case you want to fill up one with a supplement</li>
+</ul>
+
 <b>Food list</b>
 
 <ul class="no-indent">
