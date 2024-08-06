@@ -9,7 +9,7 @@ require_once 'lib/frm/SimpleData_240317/SimpleData.php';
 /*
 
 */
-class User extends SimpleData  /*@*/
+class User extends SimpleData  /*@*/  // TASK: extends needed?
 {
   // TASK: improve
 
