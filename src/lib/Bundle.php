@@ -51,19 +51,48 @@ class Bundle extends SimpleData  /*@*/
 
   public function get( string $key )
   {
-    if( strpos( $key, '/') !== false )  // TASK: improve?
-    {                                   // TASK: -this
-      $id = array_key_last( explode('/', $key));
-      
-      return SimpleData( array_merge(
+    if( [$file, $id, $key] = self::getFile( $key ))
+    {
+      $data = SimpleData( array_merge(
         ['id' => $id],
-        Yaml::parse( file_get_contents("data/bundles/$key.yml"))
+        Yaml::parse( file_get_contents("data/bundles/$file.yml"))
       ));
+
+      return $data->get( $key );
     }
     else
     {
-      parent::get( $key );
+      return parent::get( $key );
     }
+  }
+
+  public function getFile( string $key )
+  {
+    $keys = explode('.', $key);
+    $file = null; $id = null; $key = null;
+    $fil  = '';
+
+    while( $key = array_shift($keys))  // TASK
+    {
+      $fil .= "/$key";
+      
+      if( file_exists("data/bundles/$fil.yml"))
+      {
+        $file = "data/bundles/$fil";
+        $id   = $fil;
+        $key  = implode('.', $keys);
+        break;
+      }
+      elseif( file_exists("data/bundles/$fil/-this.yml"))
+      {
+        $file = "data/bundles/$fil/-this.yml";
+        $id   = $fil;
+        $key  = implode('.', $keys);
+        break;
+      }
+    }
+
+    return [$file, $id, $key];
   }
 }
 
