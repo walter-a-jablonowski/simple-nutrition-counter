@@ -55,6 +55,8 @@ spec: |
     </tr>
   </table>
 
+  <br>
+
   <table>
     <tr>
       <td valign="top"><b>kcal</b></td>
@@ -92,7 +94,7 @@ spec: |
 
   <p>If doing sports higher amounts of amino acids and magnesium are used.</p>
 
-goals:  # TASK: maybe merge texts above in here
+primaryGoals:  # TASK: maybe merge texts above in here
 
   calories: { label: "18-25k",      calc: "" }
   fatAmino: { label: "(2:1)",       calc: "" }

@@ -11,12 +11,12 @@
 <div id="#quickSummary" class="row px-2">
   <div class="col-6 col-md-2 col-xxl-2 mt-2 px-1">
     <div style="background-color: #eb6864;" data-bs-toggle="modal" data-bs-target="#tipsModal">
-      <div class="ps-1 fw-bold">kcal <?= $a['goals']['calories']['label'] ?></div>
+      <div class="ps-1 fw-bold">kcal <?= $a['primaryGoals']['calories']['label'] ?></div>
       <div id="caloriesSum" class="ps-1">0</div>
     </div>
   </div>
   <div class="col-6 col-md-2 col-xxl-2 mt-2 px-1" data-bs-toggle="modal" data-bs-target="#tipsModal">
-    <div class="ps-1 bg-secondary text-white">Fat / Amino <?= $a['goals']['fatAmino']['label'] ?></div>
+    <div class="ps-1 bg-secondary text-white">Fat / Amino <?= $a['primaryGoals']['fatAmino']['label'] ?></div>
     <div class="value ps-1"><span id="fatSum">0</span> / <span id="aminoSum">0</span> g</div>
   </div>
   <!-- (TASK) space saving quick summary design -->
@@ -27,15 +27,15 @@
   </div>
 -->
   <div class="col-6 col-md-2 col-xxl-2 mt-2 px-1" data-bs-toggle="modal" data-bs-target="#tipsModal">
-    <div class="px-1 bg-secondary text-white">Carbs <?= $a['goals']['carbs']['label'] ?></div>
+    <div class="px-1 bg-secondary text-white">Carbs <?= $a['primaryGoals']['carbs']['label'] ?></div>
     <div class="value ps-1"><span id="carbsSum">0</span> g</div>
   </div>
   <div class="col-6 col-md-2 col-xxl-2 mt-2 px-1" data-bs-toggle="modal" data-bs-target="#tipsModal">
-    <div class="px-1 bg-secondary text-white">Fibre <?= $a['goals']['fibre']['label'] ?></div>
+    <div class="px-1 bg-secondary text-white">Fibre <?= $a['primaryGoals']['fibre']['label'] ?></div>
     <div class="value ps-1"><span id="fibreSum">0</span> g</div>
   </div>
   <div class="col-6 col-md-2 col-xxl-2 mt-2 px-1" data-bs-toggle="modal" data-bs-target="#tipsModal">
-    <div class="px-1 bg-secondary text-white">Salt <?= $a['goals']['salt']['label'] ?></div>
+    <div class="px-1 bg-secondary text-white">Salt <?= $a['primaryGoals']['salt']['label'] ?></div>
     <div class="value ps-1"><span id="saltSum">0</span> g</div>
   </div>
   <div class="col-6 col-md-2 col-xxl-2 mt-2 px-1">
