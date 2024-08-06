@@ -28,7 +28,6 @@ class AppController extends ControllerBase
   protected SimpleData $lastDaysView;
 
   protected array      $layout;
-  protected array      $goals;
   protected array      $captions = [];
   protected SimpleData $inlineHelp;
 
