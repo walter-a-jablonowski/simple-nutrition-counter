@@ -4,6 +4,12 @@
 # -> usage see readme
 #
 
+# TASK:
+
+# Amino acids (male ~75kg)
+# Std:    0.8g per kg body weight = 60
+# Sports: 1.6,1.8-2.2g = min 126, 135 - 165
+
 short:     amino
 name:      Amino acids
 unit:      mg
