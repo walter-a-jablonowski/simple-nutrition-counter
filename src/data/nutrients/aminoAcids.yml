@@ -14,8 +14,8 @@ amounts:   # currently we use the first entry hard coded only
   # added date from interview
 
   - criteria: { gender: male, age: 40, height: "*", weight: 75, workout: false }
-    amount: 60     # 0.8g per kg body weight
     lower:  5%
+    amount: 60     # 0.8g per kg body weight
     upper:  5%
 
   - criteria: { gender: male, age: 40, height: "*", weight: 75, workout: true }
