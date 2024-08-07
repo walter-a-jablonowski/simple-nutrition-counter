@@ -4,12 +4,6 @@
 # -> usage see readme
 #
 
-# TASK:
-
-# Amino acids (male ~75kg)
-# Std:    0.8g per kg body weight = 60
-# Sports: 1.6,1.8-2.2g = min 126, 135 - 165
-
 short:     amino
 name:      Amino acids
 unit:      mg
@@ -17,14 +11,16 @@ per:       day
 comment:   "Increased need if doing sports"
 amounts:   # currently we use the first entry hard coded only
 
-  - criteria: { gender: male, age: 40, height: "*", weight: 70, workout: false }
-    amount: 100 # TASK: dummy entry # 50
+  # added date from interview
+
+  - criteria: { gender: male, age: 40, height: "*", weight: 75, workout: false }
+    amount: 60     # 0.8g per kg body weight
     lower:  5%
     upper:  5%
 
-  - criteria: { gender: male, age: 40, height: "*", weight: 70, workout: true }
-    amount: 100 # TASK: dummy entry # 120
-    lower:  5%
-    upper:  5%
+  - criteria: { gender: male, age: 40, height: "*", weight: 75, workout: true }
+    lower:  120
+    amount: 142.5  # 1.6,1.8-2.2g = min 120, 135 - 165
+    upper:  165
 
 substances: []
