@@ -45,7 +45,7 @@ else:
 
           <i class="bi bi-app"></i>  <!-- some app logo -->
 
-          <select id="userSelect" onchange="mainCrl.userSelectChange(this)" class="bg-transparent border-0 text-white">
+          <select id="userSelect" onchange="mainCrl.userSelectChange(event)" class="bg-transparent border-0 text-white">
             <?php foreach( User::getAll() as $userId ): ?>
               <option value="<?= $userId ?>"<?= self::iif( $userId == User::current('id'), ' selected') ?>>
                 <?= User::byId( $userId )->get('name') ?>
