@@ -2016,7 +2016,7 @@ Mohnkuchen:
   acceptable:        less
   packaging:         alu,plastic
 
-  price:             2.89
+  price:             2.49  # 2.89 2024-05-15
   weight:            400g
   usedAmounts:       ["1/8", "1/4", "1/2"]
 
@@ -2033,7 +2033,7 @@ Mohnkuchen:
   sources:           { nutriVal: "pack", price: "web" }
   state:             most
   lastUpd:           2024-04-23
-  lastPriceUpd:      2024-05-15
+  lastPriceUpd:      2024-08-01
 
 Nussmisch A:      # big pack
 
@@ -2705,10 +2705,37 @@ Ritter Sp 81%:
   lastUpd:           2024-04-24
   lastPriceUpd:      2024-04-24
 
+Salami N:
+
+  productName:       "Geflügel Salami"
+  vendor:            Norma
+  acceptable:        occasionally
+  packaging:         plastic
+
+  price:             1.89
+  weight:            130
+  usedAmounts:       ["1/4", "1/2", "1"]
+
+  calories:          219
+  nutritionalValues:
+
+    fat:             14
+    saturatedFat:    6.5
+    carbs:           1
+    sugar:           0.5
+    fibre:           0.4
+    amino:           22
+    salt:            3.25
+
+  sources:           { nutriVal: "pack" }
+  state:             most
+  lastUpd:           2024-08-01
+  lastPriceUpd:      2024-08-01
+
 Salami R:
 
   vendor:            Rewe
-  acceptable:        less
+  acceptable:        occasionally
   packaging:         plastic
 
   price:             1.79
@@ -2735,7 +2762,7 @@ Salami R Wilt (Innens):
 
   productName:       "Bio Geflügel-Salami mit Pflanzenfett"
   vendor:            Rewe
-  acceptable:        less
+  acceptable:        occasionally
   certificates:      { bio: true }
   ingredients:       "Hähnchen, Pute, Palmfett, Meersalz, Traubenzucker, Gewürze, Antiox: Natriumascorbat, Konserv: Natriumnitrit, Reifekulturen, Buchenholzrauch"
   packaging:         plastic,cardboard
