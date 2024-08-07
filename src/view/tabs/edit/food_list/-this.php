@@ -21,13 +21,13 @@
           <button type="button" class="border-0 p-1 bg-transparent"
                   data-bs-toggle = "modal"
                   data-bs-target = "#infoModal"
-                  data-title     = "<?= User::current()->get('myStrategy.headline') ?>"
+                  data-title     = "&#x3C;span class=&#x22;fs-4&#x22;&#x3E;<?= User::current()->get('myStrategy.headline') ?>&#x3C;/span&#x3E;"
                   data-source    = "#myStrategyData"
           >
             <i class="bi bi-info-circle icon-circle"></i>
           </button>
           <div id="myStrategyData" class="d-none">
-            <?= User::current()->get('myStrategy.content') ?>
+            <span class="fs-5"><?= User::current()->get('myStrategy.content') ?></span>
           </div>
         <?php endif; ?>
       </div>
