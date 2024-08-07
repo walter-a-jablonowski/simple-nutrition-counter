@@ -494,7 +494,7 @@ Cashew A:
 
   price:             2.29
   weight:            200
-  usedAmounts:       ["1/4", "1/3", "1/2"]
+  usedAmounts:       ["1/4", "1/2"]
 
   calories:          603   # same as E
   nutritionalValues:
@@ -527,7 +527,7 @@ Cashew A Cranb:
 
   price:             
   weight:            200
-  usedAmounts:       ["1/8", "1/4", "1/3"]
+  usedAmounts:       ["10g", "25g", "50g"]
 
   calories:          469
   nutritionalValues:
@@ -553,7 +553,7 @@ Cashew E:
 
   price:             
   weight:            200
-  usedAmounts:       ["1/4", "1/3", "1/2"]
+  usedAmounts:       ["1/4", "1/2"]
 
   calories:          603
   nutritionalValues:
@@ -578,7 +578,7 @@ Cashew N:
 
   price:             2.29
   weight:            200
-  usedAmounts:       ["1/4", "1/3", "1/2"]
+  usedAmounts:       ["1/4", "1/2"]
 
   calories:          603
   nutritionalValues:
@@ -604,7 +604,7 @@ Cashew R Bio:
 
   price:             2.99
   weight:            250
-  usedAmounts:       ["50g", "100g"]
+  usedAmounts:       ["1/4", "1/2"]
 
   calories:          600
   nutritionalValues:
@@ -891,7 +891,7 @@ Durchstarter:
 
   price:             2.99
   weight:            200
-  usedAmounts:       ["50g", "100g"]
+  usedAmounts:       ["1/4", "1/2"]
 
   calories:          635
   nutritionalValues:
@@ -1883,7 +1883,7 @@ Mandel N:
 
   price:             1.89
   weight:            150
-  usedAmounts:       ["50g", "100g"]
+  usedAmounts:       ["1/4", "1/2"]
 
   calories:          618
   nutritionalValues:
@@ -1909,7 +1909,7 @@ Mandel R Bio:
 
   price:             2.29 # 2024-03-30 2.89
   weight:            200
-  usedAmounts:       ["1/4", "1/3", "1/2"]
+  usedAmounts:       ["1/4", "1/2"]
 
   calories:          619
   nutritionalValues:
@@ -2044,7 +2044,7 @@ Nussmisch A:      # big pack
 
   price:             2.79
   weight:            200
-  usedAmounts:       ["1/8", "1/4", "1/3"]
+  usedAmounts:       ["25g", "50g", "100g"]
 
   calories:          657
   nutritionalValues:
@@ -2079,7 +2079,7 @@ Nussmisch N:
 
   price:             2.89
   weight:            200
-  usedAmounts:       ["1/4", "1/3", "1/2"]
+  usedAmounts:       ["25g", "50g", "100g"]
 
   calories:          623
   nutritionalValues:
@@ -2104,7 +2104,7 @@ Nussmisch A ger:  # small pack
 
   price:             
   weight:            150
-  usedAmounts:       ["50g", "100g"]
+  usedAmounts:       ["25g", "50g", "100g"]
 
   calories:          614
   nutritionalValues:
@@ -2129,7 +2129,7 @@ Nussmisch N old:
 
   price:             2.79
   weight:            200
-  usedAmounts:       ["1/8", "1/4", "1/3"]
+  usedAmounts:       ["25g", "50g", "100g"]
 
   calories:          653
   nutritionalValues:
@@ -2394,7 +2394,7 @@ Pistazien:
 
   price:             
   weight:            250
-  usedAmounts:       ["1/8", "1/4", "1/3"]
+  usedAmounts:       ["25g", "50g", "100g"]
 
   calories:          605
   nutritionalValues:
@@ -3020,7 +3020,7 @@ Walnuss R Bio:
 
   price:             2.99
   weight:            200
-  usedAmounts:       ["1/8", "1/4", "1/2"]
+  usedAmounts:       ["25g", "50g", "100g"]
 
   calories:          711
   nutritionalValues:

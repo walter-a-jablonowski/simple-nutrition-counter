@@ -211,16 +211,15 @@ Variable Suppl, Brain tuning (color:#ff69b4, fold:true):
 
   list:
 
-Evening Supplements, fill up (color:#ff69b4, fold:true):
-
-  list:
-
     # - Salt                                 # TASK: removed for debugging layout
-
     - Milch H
     - Zitronenm
     - Zitronenm mini
     - Cashew A Cranb
+
+Evening Supplements, fill up (color:#ff69b4, fold:true):
+
+  list:
 
 On the go (color:#ff69b4, fold:true):
 
