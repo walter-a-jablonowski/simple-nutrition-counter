@@ -85,7 +85,7 @@ use Symfony\Component\Yaml\Exception\ParseException;
             </p>
 
             <p class="mt-2">
-              Reference
+              <b>Reference (inspired by)</b>
 
               <ul class="no-indent">
                 <?php foreach( $a['sources'] as $idx => $entry ): ?>
@@ -95,7 +95,7 @@ use Symfony\Component\Yaml\Exception\ParseException;
                     <?php else: ?>
                       <?= $entry['title'] ?>
                     <?php endif; ?>
-                    <?php if (!empty($entry['sub'])): ?>
+                    <?php if( ! empty($entry['sub'])): ?>
                       &gt; <?= $entry['sub'] ?>
                     <?php endif; ?>
                   </li>
