@@ -89,7 +89,7 @@ use Symfony\Component\Yaml\Exception\ParseException;
 
               <table>
                 <?php foreach( $a['sources'] as $idx => $entry ): ?>
-                  <tr>
+                  <tr id="ref-<?= $idx ?>">
                     <td class="pe-1">(<?= $idx ?>)</td>
                     <td>
                       <?php if( filter_var($entry['source'], FILTER_VALIDATE_URL)): ?>
