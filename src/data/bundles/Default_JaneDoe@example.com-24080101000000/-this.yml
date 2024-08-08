@@ -104,39 +104,27 @@ primaryGoals:  # TASK: maybe merge texts above in here
 
 sources:  # inspired by
 
-  David Sinclair:
+  1:
+    title:  David Sinclair  # Fastening, activate defenses
+    source:                 # https://fastlifehacks.com/category/david-sinclair
+    sub:
 
-    Fastening, activate defenses:
-    
-    More info:
+  2:
+    title:  Sten Ekberg     # Meat  # TASK: recommends Paleo, Keto, and X ?
+    source: https://youtu.be/8yG3bWazlPE?si=WLQO7rUGRq3H1YCI
+    sub: 
 
-      - url: https://fastlifehacks.com/category/david-sinclair
+  2:
+    title:  Bryan Johnson   # Daily veggie bowl (fibre)
+    source:                 # https://fastlifehacks.com/category/bryan-johnson
+    sub: 
 
-  Sten Ekberg:
+  4:
+    title:  Rhonda Patrick  # https://fastlifehacks.com/category/rhonda-patrick
+    source:                 # https://www.youtube.com/@FoundMyFitness
+    sub: 
 
-    Meat:  # TASK: recommends Paleo, Keto, and X ?
-      
-      - url: https://youtu.be/8yG3bWazlPE?si=WLQO7rUGRq3H1YCI
-        sub: 
-
-  Bryan Johnson:
-
-    Daily veggie bowl (fibre):
-
-    More info:
-
-      - url: https://fastlifehacks.com/category/bryan-johnson
-
-  Rhonda Patrick:
-    
-    More info:
-
-      - url: https://fastlifehacks.com/category/rhonda-patrick
-      - url: https://www.youtube.com/@FoundMyFitness
-
-  Misc:
-
-    Paleo:
-      
-      - url: https://youtu.be/xTJ9O18ZqyI?si=wefriji2wmtNFv7c
-        sub: 
+  5:
+    title:  Paleo
+    source: https://youtu.be/xTJ9O18ZqyI?si=wefriji2wmtNFv7c
+    sub: 
