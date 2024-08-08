@@ -87,7 +87,7 @@ use Symfony\Component\Yaml\Exception\ParseException;
             <p class="mt-2">
               <b>Reference (inspired by)</b>
 
-              <ul class="no-indent">
+              <ul class="no-indent small">
                 <?php foreach( $a['sources'] as $idx => $entry ): ?>
                   <li>
                     <?php if( filter_var( $entry['source'], FILTER_VALIDATE_URL)): ?>

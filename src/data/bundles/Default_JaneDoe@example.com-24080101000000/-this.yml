@@ -105,19 +105,19 @@ primaryGoals:  # TASK: maybe merge texts above in here
 sources:  # inspired by
 
   1:
-    title:  David Sinclair  # Fastening, activate defenses
-    source:                 # https://fastlifehacks.com/category/david-sinclair
+    title:  "David Sinclair: Fastening, activate defenses"
+    source:                       # TASK: https://fastlifehacks.com/category/david-sinclair
     sub:
 
   2:
-    title:  Sten Ekberg     # Meat  # TASK: recommends Paleo, Keto, and X ?
+    title:  "Sten Ekberg:  Meat"  # TASK: recommends Paleo, Keto, and X ?
     source: https://youtu.be/8yG3bWazlPE?si=WLQO7rUGRq3H1YCI
     sub: 
 
   3:
-    title:  Bryan Johnson   # Daily veggie bowl (fibre)
-    source:                 # https://fastlifehacks.com/category/bryan-johnson
-    sub: 
+    title:  "Bryan Johnson: Daily veggie bowl (fibre)"
+    source:                       # https://fastlifehacks.com/category/bryan-johnson
+    sub:    
 
   4:
     title:  Rhonda Patrick  # https://fastlifehacks.com/category/rhonda-patrick
