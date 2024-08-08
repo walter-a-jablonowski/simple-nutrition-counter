@@ -87,20 +87,23 @@ use Symfony\Component\Yaml\Exception\ParseException;
             <p class="mt-2">
               <b>Reference (inspired by)</b>
 
-              <ul class="no-indent small">
+              <table>
                 <?php foreach( $a['sources'] as $idx => $entry ): ?>
-                  <li>
-                    <?php if( filter_var( $entry['source'], FILTER_VALIDATE_URL)): ?>
-                      (<?= $idx ?>) <a href="<?= $entry['source'] ?>" target="_blank"><?= $entry['title'] ?></a>
-                    <?php else: ?>
-                      (<?= $idx ?>) <?= $entry['title'] ?>
-                    <?php endif; ?>
-                    <?php if( ! empty($entry['sub'])): ?>
-                      &gt; <?= $entry['sub'] ?>
-                    <?php endif; ?>
-                  </li>
+                  <tr>
+                    <td class="pe-1">(<?= $idx ?>)</td>
+                    <td>
+                      <?php if( filter_var($entry['source'], FILTER_VALIDATE_URL)): ?>
+                        <a href="<?= $entry['source'] ?>" target="_blank"><?= $entry['title'] ?></a>
+                      <?php else: ?>
+                        <?= $entry['title'] ?>
+                      <?php endif; ?>
+                      <?php if( ! empty($entry['sub'])): ?>
+                        &gt; <?= $entry['sub'] ?>
+                      <?php endif; ?>
+                    </td>
+                  </tr>
                 <?php endforeach; ?>
-              </ul>
+              </table>
             </p>
 
           </div>
