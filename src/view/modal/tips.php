@@ -91,7 +91,7 @@ use Symfony\Component\Yaml\Exception\ParseException;
                 <?php foreach( $a['sources'] as $idx => $entry ): ?>
                   <li>
                     <?php if( filter_var( $entry['source'], FILTER_VALIDATE_URL)): ?>
-                      (<?= $idx ?>) <a href="<?= $entry['source'] ?>"><?= $entry['title'] ?></a>
+                      (<?= $idx ?>) <a href="<?= $entry['source'] ?>" target="_blank"><?= $entry['title'] ?></a>
                     <?php else: ?>
                       (<?= $idx ?>) <?= $entry['title'] ?>
                     <?php endif; ?>
