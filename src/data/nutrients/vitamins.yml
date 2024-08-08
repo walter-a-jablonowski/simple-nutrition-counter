@@ -25,8 +25,8 @@ substances:
     amounts:    # currently we use the first entry hard coded only
 
       - criteria: { gender: male, age: 40, height: "*", weight: 70 }
-        amount: 100 # TASK: dummy entry
         lower:  5%
+        amount: 100 # TASK: dummy entry
         upper:  5%
 
   Vitamin E:
@@ -42,6 +42,6 @@ substances:
     amounts:    # currently we use the first entry hard coded only
 
       - criteria: { gender: male, age: 40, height: "*", weight: 70 }
-        amount: 100 # TASK: dummy entry
         lower:  5%
+        amount: 100 # TASK: dummy entry
         upper:  5%

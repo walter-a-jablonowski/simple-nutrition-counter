@@ -12,8 +12,8 @@ comment:    ""
 amounts:    # currently we use the first entry hard coded only
 
   - criteria: { gender: male, age: 40, height: "*", weight: 70 }
-    amount: 100 # TASK: dummy entry
     lower:  5%
+    amount: 100 # TASK: dummy entry
     upper:  5%
 
 substances:
@@ -44,8 +44,8 @@ substances:
     amounts:    # currently we use the first entry hard coded only
 
       - criteria: { gender: male, age: 40, height: "*", weight: 70 }
-        amount: 1.6
         lower:  5%
+        amount: 1.6
         upper:  5%
 
   Docosahexaenoic acid:
@@ -61,8 +61,8 @@ substances:
     amounts:    # currently we use the first entry hard coded only
 
       - criteria: { gender: male, age: 40, height: "*", weight: 70 }
-        amount: 250
         lower:  200
+        amount: 250
         upper:  300
 
   # Omega-6 fatty acids
@@ -80,6 +80,6 @@ substances:
     amounts:    # currently we use the first entry hard coded only
 
       - criteria: { gender: male, age: 40, height: "*", weight: 70 }
-        amount: 17
         lower:  5%
+        amount: 17
         upper:  5%

@@ -8,7 +8,7 @@
   - [User nutrient files](#user-nutrient-files)
 - [Bundles](#bundles)
   - [Foods file](#foods-file)
-  - [Supplements file](#supplements-file)
+  - [Supplement files](#supplement-files)
   - [Recipes file](#recipes-file)
   - [Sports](#sports)
   - [Layout file](#layout-file)
@@ -78,7 +78,7 @@ than doing manual calculations (partially used ingredients).
 Field info available in app as well (in development), see def file [inline_help/foods.yml](../src/misc/inline_help/foods.yml)
 
 
-Supplements file
+Supplement files
 ----------------------------------------------------------
 
 nearly same as foods
@@ -160,7 +160,6 @@ amounts:
 
   # same as below
 
-
 substances:                      # (required)
 
   B 12:                          # display name
@@ -186,9 +185,9 @@ substances:                      # (required)
 
       # value mean all >= this, height might be used to fix weight
       - criteria: { gender: male , age: 40 , height: "*" , weight: 70, workout: false }
-        amount:
         lower:  4%  # summary view still is green progress if within these bounds
-        upper:  8   # percent for some defaut value, number for precise (max is added to amount)
+        amount:     # percent for some default value, number for precise (max is added to amount)
+        upper:  8   
 ```
 
 
