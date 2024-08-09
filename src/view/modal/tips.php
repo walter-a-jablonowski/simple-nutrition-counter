@@ -66,7 +66,7 @@ use Symfony\Component\Yaml\Exception\ParseException;
             ?>
 
             <h6>
-              <b>Current food list:</b> <?= $a['name'] ?> (<?= $a['userId'] ?>)
+              <b>Current food list:</b> <?= $a['name'] ?> (<?= User::byId( $a['userId'] )->get('name') ?>)
             </h6>
 
             <table class="mt-2">
