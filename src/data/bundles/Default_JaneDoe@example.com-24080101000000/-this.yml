@@ -30,12 +30,12 @@ spec: |
 
   <table>
     <tr>
-      <td valign="top"><b>Avoid</b></td>
+      <td valign="top" class="pe-1"><b>Avoid</b></td>
       <td valign="top">Sugar, bread, all corn and cereals (high sugar spikes), all processed foods (eat clean), all milk products</td>
     </tr>
     <tr>
       <td valign="top"><b>Limit</b></td>
-      <td valign="top">Only a few fruits (good substances but too much fructose), starches (no fries :-), eggs, joghurt, TASK: fermented like sauerkraut ?</td>
+      <td valign="top">Only a few fruits (good substances but too much fructose), starches (no fries ;-), eggs, joghurt, TASK: fermented like sauerkraut ?</td>
     </tr>
     <tr>
       <td valign="top"><b>Plants</b></td>
@@ -57,32 +57,41 @@ spec: |
 
   <br>
 
+  <p><b>Primary daily goals</b></p>
+
   <table>
     <tr>
       <td valign="top"><b>kcal</b></td>
       <td valign="top">
         1800: calories reduced for a few days<br>
         2200: normal<br>
-        2500: eat more
+        2500: "eat more" day (fill up)
       </td>
     </tr>
     <tr>
-      <td valign="top"><b>fat amino</b></td>
+      <td valign="top" class="pe-1"><b>Fat</b></td>
       <td valign="top">
       </td>
     </tr>
     <tr>
-      <td valign="top"><b>carbs</b></td>
+      <td valign="top" class="pe-1"><b>Amino acids</b></td>
+      <td valign="top">
+        no workout: 0.8g per kg weight<br>
+        workout (gain muscle): 1.6 or 1.8 - 2.2g
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>Carbs</b></td>
       <td valign="top">
       </td>
     </tr>
     <tr>
-      <td valign="top"><b>fibre</b></td>
+      <td valign="top"><b>Fibre</b></td>
       <td valign="top">
       </td>
     </tr>
     <tr>
-      <td valign="top"><b>salt</b></td>
+      <td valign="top"><b>Salt</b></td>
       <td valign="top">
       </td>
     </tr>
