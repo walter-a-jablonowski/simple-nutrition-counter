@@ -1,0 +1,1 @@
+Information included in this app is no professional advice, it's just things that I learned. Use the app and information included in it at your own risk. Health professionals mentioned in the app don't necessarily recommend anything, but speak about their opinions. This app is in development, calculations of amounts might be wrong.

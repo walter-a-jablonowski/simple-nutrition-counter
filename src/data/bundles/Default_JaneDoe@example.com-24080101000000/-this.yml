@@ -96,11 +96,11 @@ spec: |
 
 primaryGoals:  # TASK: maybe merge texts above in here
 
-  calories: { label: "18-25k",      calc: "" }
-  fatAmino: { label: "(2:1)",       calc: "" }
-  carbs:    { label: "&le; 50g",    calc: "", min: 0, max: 50 }  # TASK: limits
-  fibre:    { label: "&ge; 2 cups", calc: "" }
-  salt:     { label: "4-6g",        calc: "" }
+  calories: { label: "18-25k",      }
+  fatAmino: { label: "(2:1)",       }
+  carbs:    { label: "&le; 50g",    min: 0, max: 50, unit: g }  # TASK: limits
+  fibre:    { label: "&ge; 2 cups", }
+  salt:     { label: "4-6g",        }
 
 sources:  # inspired by
 

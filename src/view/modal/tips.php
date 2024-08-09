@@ -69,7 +69,7 @@ use Symfony\Component\Yaml\Exception\ParseException;
               <b>Current food list:</b> <?= $a['name'] ?> (<?= $a['userId'] ?>)
             </h6>
 
-            <table class="mt-2" style="border: 0;">
+            <table class="mt-2">
               <tr>
                 <td valign="top" class="text-secondary small"><b>availability:&nbsp;</b></td>
                 <td valign="top" class="text-secondary small"><?= $a['region'] ?></td>
@@ -80,14 +80,19 @@ use Symfony\Component\Yaml\Exception\ParseException;
               </tr>
             </table>
 
+            <p class="mt-2 small">
+              <a href="#disclaimer">See disclaimer</a>
+            </p>
+
             <p class="mt-2">
               <?= $a['spec'] ?>
             </p>
 
             <p class="mt-2">
+              
               <b>Reference (inspired by)</b>
 
-              <table>
+              <table class="small">
                 <?php foreach( $a['sources'] as $idx => $entry ): ?>
                   <tr id="ref-<?= $idx ?>">
                     <td class="pe-1">(<?= $idx ?>)</td>
@@ -104,6 +109,10 @@ use Symfony\Component\Yaml\Exception\ParseException;
                   </tr>
                 <?php endforeach; ?>
               </table>
+            </p>
+
+            <p id="disclaimer" class="small">
+              <b>Disclaimer:</b> <?php require('misc/disclaimer.php') ?>
             </p>
 
           </div>

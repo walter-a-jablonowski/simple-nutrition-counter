@@ -36,4 +36,6 @@
   <li>Use multiple brands</li>
 </ul>
 
-<b>Disclaimer:</b> this is no professional advice, it's just some things that I learned
+<p class="small">
+  <b>Disclaimer:</b> <?php require('misc/disclaimer.php') ?>
+</p>
