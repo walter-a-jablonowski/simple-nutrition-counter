@@ -86,70 +86,33 @@ conceptMisc: |
 
 # Primary goals
 
+# TASK: Fibre, salt
+# TASK: move nutrients and add here: 2200, 0.8g per kg weight, fat:amino 2:1
+#       (some for multiple nutrient groups)
+# TASK: maybe merge some of text in nutrients?
 goals: |
-
-  <table>
-    <tr>
-      <td valign="top"><b>kcal</b></td>
-      <td valign="top">
-        calories reduced: 1800 (for a couple of days)<br>
-        standard:         2200<br>
-        fill up day:      2500
-      </td>
-    </tr>
-    <tr>
-      <td valign="top" class="pe-1"><b>Fat</b></td>
-      <td valign="top">
-      </td>
-    </tr>
-    <tr>
-      <td valign="top" class="pe-1"><b>Amino acids</b></td>
-      <td valign="top">
-        standard: 0.8g per kg weight<br>
-        workout:  1.6 or 1.8 - 2.2g (gain muscle)
-      </td>
-    </tr>
-    <tr>
-      <td valign="top"><b>Carbs</b></td>
-      <td valign="top">
-      </td>
-    </tr>
-    <tr>
-      <td valign="top"><b>Fibre</b></td>
-      <td valign="top">
-      </td>
-    </tr>
-    <tr>
-      <td valign="top"><b>Salt</b></td>
-      <td valign="top">
-      </td>
-    </tr>
-  </table>
-
-# TASK: merge some in goals
-miscGoals: |
 
   <ul class="no-indent">
     <li>
-      Stay low carb ~50g humans don't need carbs (<a href="#ref2">2</a>),
-      TASK: fat:amino 2:1, ~3l water daily
-    </li><li>
       Change some food daily, don't use too much of one on a daily basis
       "it's about balance" (<a href="#ref1">1</a>)
     </li><li>
-      Use limited fastening as a tool to simulate food shortage and activate
-      survival mechanisms (<a href="#ref1">1</a>), e.g. try to eat no longer
-      than 4-6 hours ("eat less often"), means: eat all meals at once
+      Stay low carb ~50g humans don't need carbs (<a href="#ref2">2</a>),
+      ~3l water daily (use a jug)
     </li><li>
-      Also have days with more food to fill up (just in case)
+      <b>Fastening days:</b> Use limited fastening as a tool to simulate food shortage and activate
+      survival mechanisms (<a href="#ref1">1</a>), e.g. try to eat no longer
+      than 4-6 hours ("eat less often"), means: eat all meals at once.<br>
+      <b>Or:</b> calories reduced ~1800 kcal for a couple of days.
+    </li><li>
+      <b>Fill up energy:</b> Also have days with more food to fill up (just in case) ~2500 kcal.
+    </li><li>
+      <b>Workout day:</b> Amino acids: 1.6 or 1.8 - 2.2g per kg weight (gain muscle),
+      Magnesium
+    </li><li>
+      <b>On the go</b> the best food that is available is used.
     </li>
   </ul>
-
-  <p class="mt-2">
-    <b>On the go</b> the best food that is available is used.
-  </p>
-
-  <p>If doing sports higher amounts of amino acids and magnesium are used.</p>
 
 # Sample for how primary goals can be done
 
@@ -180,7 +143,7 @@ sampleMenu: |
     </tr>
   </table>
 
-primaryGoals:  # TASK: maybe merge texts above in here
+primaryGoals:  # TASK: merge in nutrients
 
   calories: { label: "18-25k",      }
   fatAmino: { label: "(2:1)",       }

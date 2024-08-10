@@ -96,8 +96,7 @@ use Symfony\Component\Yaml\Exception\ParseException;
               see nutrients tab in the evening.
             <p>
 
-            <p class="mt-2"><?= $a['goals'] ?></p>
-            <?= $a['miscGoals'] ?>
+            <?= $a['goals'] ?>
 
             <h6 class="mt-3 mb-2 fw-bold">Sample menu</h6>
 
