@@ -26,38 +26,54 @@ spec: |
     </li>
   </ul>
 
-  <p style="color: orange;">Food list is made in a way so that these foods can easily be chosen</p>
+  <ul class="list-group">
 
-  <table>
-    <tr>
-      <td valign="top" class="pe-1"><b>Avoid</b></td>
-      <td valign="top">Sugar, bread, all corn and cereals (high sugar spikes), all processed foods (eat clean), all milk products</td>
-    </tr>
-    <tr>
-      <td valign="top"><b>Limit</b></td>
-      <td valign="top">Only a few fruits (good substances but too much fructose), starches (no fries ;-), eggs, joghurt, TASK: fermented like sauerkraut ?</td>
-    </tr>
-    <tr>
-      <td valign="top"><b>Plants</b></td>
-      <td valign="top">Legumes (complex carbs: chickpeas, lentils, beans), vegetables, leafy greens, some nuts and seeds daily, few herbs</td>
-    </tr>
-    <tr>
-      <td valign="top"><b>Meat</b></td>
-      <td valign="top">Seems to be necessary, currently (fatty) fish and chicken (maybe daily) TASK: blue zones how much amino get older from fish, pork?</td>
-    </tr>
-    <tr>
-      <td valign="top"><b>Misc</b></td>
-      <td valign="top">Garlic, olive oil daily, 1-2 coffee, cocoa or low sugar chocolate</td>
-    </tr>
-    <tr>
-      <td valign="top"><b>Fun</b></td>
-      <td valign="top">Includes one cheat day per week as well as "micro candy" daily (tiny piece only or sugar-free)</td>
-    </tr>
-  </table>
+    <li class = "list-group-item d-flex justify-content-between align-items-center"
+        style = "background-color: #e0e0e0;"
+    >
+
+      Foods to use  <!-- maybe prefix all id with "bundle" -->
+      <a data-bs-toggle="collapse" href="#bundleCollapse1" class="text-body-secondary" role="button">
+        <i class="bi bi-arrow-down-circle"></i>
+      </a>
+    </li>
+    <li id="bundleCollapse1" class="list-group-item collapse">
+
+      <table>
+        <tr>
+          <td valign="top" class="pe-1"><b>Avoid</b></td>
+          <td valign="top">Sugar, bread, all corn and cereals (high sugar spikes), all processed foods (eat clean), all milk products</td>
+        </tr>
+        <tr>
+          <td valign="top"><b>Limit</b></td>
+          <td valign="top">Only a few fruits (good substances but too much fructose), starches (no fries ;-), eggs, joghurt, TASK: fermented like sauerkraut ?</td>
+        </tr>
+        <tr>
+          <td valign="top"><b>Plants</b></td>
+          <td valign="top">Legumes (complex carbs: chickpeas, lentils, beans), vegetables, leafy greens, some nuts and seeds daily, few herbs</td>
+        </tr>
+        <tr>
+          <td valign="top"><b>Meat</b></td>
+          <td valign="top">Seems to be necessary, currently (fatty) fish and chicken (maybe daily) TASK: blue zones how much amino get older from fish, pork?</td>
+        </tr>
+        <tr>
+          <td valign="top"><b>Misc</b></td>
+          <td valign="top">Garlic, olive oil daily, 1-2 coffee, cocoa or low sugar chocolate</td>
+        </tr>
+        <tr>
+          <td valign="top"><b>Fun</b></td>
+          <td valign="top">Includes one cheat day per week as well as "micro candy" daily (tiny piece only or sugar-free)</td>
+        </tr>
+      </table>
+
+    </li>
+  </ul>
 
   <br>
 
   <p><b>Primary daily goals</b></p>
+
+  <p style="color: orange;">Food list is made in a way so that these foods can easily be chosen</p>
 
   <table>
     <tr>
