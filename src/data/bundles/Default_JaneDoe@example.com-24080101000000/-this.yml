@@ -7,29 +7,34 @@ forkedDate:
 
 vendors: Rewe, Norma, Edeka, Aldi, Denn's, online
 
-spec: |
+# Abstract concept
 
-  <h6 class="mb-2 fw-bold">Concept</h6>
+# framework     = a single idea that you can use for doing the right thing
+# miscImportant = misc important things 2 do
 
-  <ul class="no-indent">
-    <li>
-      Avoid all mass produced that humans weren't meant to eat (<a href="#ref2">2</a>),
-      prefer what evolution made use for before invention of agriculture
-      (6-15k years is no long time)
-    </li><li>
-      Stay low carb ~50g humans don't need carbs (<a href="#ref2">2</a>),
-      TASK: fat:amino 2:1, ~3l water daily
-    </li><li>
-      Change some food daily, don't use too much of one on a daily basis
-      "it's about balance" (<a href="#ref1">1</a>)
-    </li><li>
-      Use limited fastening as a tool to simulate food shortage and activate
-      survival mechanisms (<a href="#ref1">1</a>), e.g. try to eat no longer
-      than 4-6 hours ("eat less often"), means: eat all meals at once
-    </li><li>
-      Also have days with more food to fill up (just in case)
-    </li>
-  </ul>
+framework: |
+
+  Avoid all mass produced that humans weren't meant to eat (<a href="#ref2">2</a>),
+  prefer what evolution made use for before invention of agriculture
+  (6-15k years is no long time)
+
+miscImportant: |
+
+  <li>
+    Stay low carb ~50g humans don't need carbs (<a href="#ref2">2</a>),
+    TASK: fat:amino 2:1, ~3l water daily
+  </li><li>
+    Change some food daily, don't use too much of one on a daily basis
+    "it's about balance" (<a href="#ref1">1</a>)
+  </li><li>
+    Use limited fastening as a tool to simulate food shortage and activate
+    survival mechanisms (<a href="#ref1">1</a>), e.g. try to eat no longer
+    than 4-6 hours ("eat less often"), means: eat all meals at once
+  </li><li>
+    Also have days with more food to fill up (just in case)
+  </li>
+
+conceptMisc: |
 
   <ul class="list-group">
 
@@ -95,12 +100,9 @@ spec: |
     </li>
   </ul>
 
-  <h6 class="mt-3 mb-2 fw-bold">Primary daily goals</h6>
+# Primary goals
 
-  <p class="text-secondary">  <!-- because we can't handle too much daily: reach primary goals with a menu that has most nutrients -->
-    A few primary daily goals for the goals bar on the edit tab. All nutrients:
-    see nutrients tab in the evening.
-  <p>
+goals: |
 
   <table>
     <tr>
@@ -140,7 +142,9 @@ spec: |
     </tr>
   </table>
 
-  <h6 class="mt-3 mb-2 fw-bold">Sample menu</h6>
+# Sample for how primary goals can be done
+
+sampleMenu: |
 
   <p style="color: orange;">
     Food list is made in a way so that these foods can easily be chosen
@@ -148,7 +152,7 @@ spec: |
 
   <table>
     <tr>
-      <td valign="top"><b>Nuts and seeds</b></td>
+      <td valign="top"><b>Nuts</b></td>
       <td valign="top">100g mixed nuts and seeds</td>
     </tr>
     <tr>

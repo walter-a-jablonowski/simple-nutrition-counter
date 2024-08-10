@@ -84,9 +84,27 @@ use Symfony\Component\Yaml\Exception\ParseException;
               <a href="#disclaimer">See disclaimer</a>
             </p>
 
-            <p class="mt-2">
-              <?= $a['spec'] ?>
-            </p>
+            <h6 class="mb-2 fw-bold">Concept</h6>
+
+            <ul class="no-indent">
+              <?= self::iif( $a['framework'], "<li>$a[framework]</li>") ?>
+              <?= $a['miscImportant'] ?>
+            </ul>
+
+            <p class="mt-2"><?= $a['conceptMisc'] ?></p>
+
+            <h6 class="mt-3 mb-2 fw-bold">Primary daily goals</h6>
+
+            <p class="text-secondary">  <!-- because we can't handle too much daily: reach primary goals with a menu that has most nutrients -->
+              A few primary daily goals for the goals bar on the edit tab. All nutrients:
+              see nutrients tab in the evening.
+            <p>
+
+            <p class="mt-2"><?= $a['goals'] ?></p>
+
+            <h6 class="mt-3 mb-2 fw-bold">Sample menu</h6>
+
+            <p class="mt-2"><?= $a['sampleMenu'] ?></p>
 
             <p class="mt-2">
               
