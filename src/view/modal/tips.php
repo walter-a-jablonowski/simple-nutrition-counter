@@ -80,7 +80,7 @@ use Symfony\Component\Yaml\Exception\ParseException;
               </tr>
             </table>
 
-            <p class="small">
+            <p class="mt-1 small">
               <a href="#disclaimer">See disclaimer</a>
             </p>
 

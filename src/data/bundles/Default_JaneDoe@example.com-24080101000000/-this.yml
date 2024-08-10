@@ -16,7 +16,7 @@ framework: |
 
   Avoid all mass produced that humans weren't meant to eat (<a href="#ref2">2</a>),
   prefer what evolution made use for before invention of agriculture
-  (6-15k years is no long time)
+  (6-15k years is no long time).
 
 conceptMisc: |
 
@@ -98,15 +98,15 @@ goals: |
     </li><li>
       <b>Fastening days:</b> Use limited fastening as a tool to simulate food shortage and activate
       survival mechanisms (<a href="#ref1">1</a>), e.g. try to eat no longer
-      than 4-6 hours ("eat less often"), means: eat all meals at once.<br>
+      than 4-6 hours ("eat less often"), means: eat all meals at once.
       <b>Or:</b> calories reduced ~1800 kcal for a couple of days.
     </li><li>
-      <b>Fill up energy:</b> Also have days with more food to fill up (just in case) ~2500 kcal.
+      <b>Fill up energy:</b> Also have days with more food to fill up (just in case) ~2500 kcal
     </li><li>
       <b>Workout day:</b> Amino acids: 1.6 or 1.8 - 2.2g per kg weight (gain muscle),
       Magnesium
     </li><li>
-      <b>On the go</b> the best food that is available is used.
+      <b>On the go</b> the best food that is available is used
     </li>
   </ul>
 
@@ -127,14 +127,14 @@ sampleMenu: |
       <td valign="top"><b>Veggie bowl</b></td>
       <td valign="top">
         Variants of Bryan Johnson's Super Veggie bowl (<a href="#ref3">3</a>):
-        Lentils, broccoli, ... make a double size bowl to save some time on veggie
-        only days
+        Lentils, broccoli, ...
       </td>
     </tr>
     <tr>
       <td valign="top"><b>Third meal</b></td>
       <td valign="top">
-        Either veggie again or some fish or chicken
+        Either some fish or chicken or veggie again (make a double size bowl to
+        save some time)
       </td>
     </tr>
   </table>
