@@ -1,0 +1,13 @@
+fibre:
+
+  short:      fibre
+  unit:       g
+
+  per:        day
+
+  amounts:
+
+    - criteria: { gender: male, age: 40, height: "*", weight: 75 }
+      lower:  
+      amount: 
+      upper:  

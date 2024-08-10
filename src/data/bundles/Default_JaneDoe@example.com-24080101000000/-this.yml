@@ -141,31 +141,30 @@ sampleMenu: |
 
 primaryGoals:  # TASK: merge in nutrients
 
-  # fat:amino 2:1 (multiple nutrient groups)
-  calories: { label: "18-25k",      }
-  # 2200
-  fatAmino: { label: "(2:1)",       }
+  calories:    { label: "18-25k",          }
+  "fat:amino": { label: "(2:1)",  calc: "" }
+  carbs:       { label: "&le; 50g"         }
+  fibre:       { label: "&ge; 2 cups",     }
+  salt:        { label: "4-6g",            }
+
   # 0.8g per kg weight
-  carbs:    { label: "&le; 50g",    min: 0, max: 50, unit: g }  # TASK: limits
   # Stay low carb ~50g humans don't need carbs (<a href="#ref2">2</a>)
-  fibre:    { label: "&ge; 2 cups", }
-  salt:     { label: "4-6g",        }
 
 sources:  # inspired by
 
   1:
     title:  "David Sinclair: Fastening, activate defenses"
-    source:                       # TASK: https://fastlifehacks.com/category/david-sinclair
+    source:                      # TASK: https://fastlifehacks.com/category/david-sinclair
     sub:
 
   2:
-    title:  "Sten Ekberg:  Meat"  # TASK: recommends Paleo, Keto, and X ?
+    title:  "Sten Ekberg: Meat"  # TASK: recommends Paleo, Keto, and X ?
     source: https://youtu.be/8yG3bWazlPE?si=WLQO7rUGRq3H1YCI
     sub: 
 
   3:
     title:  "Bryan Johnson: Daily veggie bowl (fibre)"
-    source:                       # https://fastlifehacks.com/category/bryan-johnson
+    source:                      # https://fastlifehacks.com/category/bryan-johnson
     sub:    
 
   4:

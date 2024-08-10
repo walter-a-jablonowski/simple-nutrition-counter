@@ -184,7 +184,7 @@ substances:                      # (required)
     amounts:
 
       # value mean all >= this, height might be used to fix weight
-      - criteria: { gender: male , age: 40 , height: "*" , weight: 70, workout: false }
+      - criteria: { dayType: standard, gender: male , age: 40 , height: "*" , weight: 70 }
         lower:  4%  # summary view still is green progress if within these bounds
         amount:     # percent for some default value, number for precise (max is added to amount)
         upper:  8   

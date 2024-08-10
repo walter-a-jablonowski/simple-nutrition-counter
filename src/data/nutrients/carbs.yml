@@ -1,0 +1,10 @@
+
+short:   carbs
+name:    carbs
+unit:    g
+amounts:
+
+  - criteria: { gender: "*", age: "*", height: "*", weight: "*" }
+    lower:  0
+    amount: 0
+    upper:  50
