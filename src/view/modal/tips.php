@@ -69,7 +69,7 @@ use Symfony\Component\Yaml\Exception\ParseException;
               <b>Current food list:</b> <?= $a['name'] ?> (<?= User::byId( $a['userId'] )->get('name') ?>)
             </h6>
 
-            <table class="mt-2">
+            <table>
               <tr>
                 <td valign="top" class="text-secondary small"><b>availability:&nbsp;</b></td>
                 <td valign="top" class="text-secondary small"><?= $a['region'] ?></td>
@@ -80,52 +80,49 @@ use Symfony\Component\Yaml\Exception\ParseException;
               </tr>
             </table>
 
-            <p class="mt-2 small">
+            <p class="small">
               <a href="#disclaimer">See disclaimer</a>
             </p>
 
-            <h6 class="mb-2 fw-bold">Concept</h6>
+            <h6 class="fw-bold">Concept</h6>
 
-            <p class="mt-2"><?= $a['framework'] ?></p>
-            <p class="mt-2"><?= $a['conceptMisc'] ?></p>
+            <p><?= $a['framework'] ?></p>
+            <?= $a['conceptMisc'] ?>
 
-            <h6 class="mt-3 mb-2 fw-bold">Primary daily goals</h6>
+            <h6 class="mt-3 fw-bold">Primary daily goals</h6>
 
             <p class="text-secondary">  <!-- because we can't handle too much daily: reach primary goals with a menu that has most nutrients -->
               A few primary daily goals for the goals bar on the edit tab. All nutrients:
               see nutrients tab in the evening.
-            <p>
+            </p>
 
             <?= $a['goals'] ?>
 
-            <h6 class="mt-3 mb-2 fw-bold">Sample menu</h6>
+            <h6 class="fw-bold">Sample menu</h6>
 
-            <p class="mt-2"><?= $a['sampleMenu'] ?></p>
+            <?= $a['sampleMenu'] ?>
 
-            <p class="mt-2">
+            <h6 class="mt-3 fw-bold">Reference (inspired by)</h6>
               
-              <b>Reference (inspired by)</b>
+            <table class="small">
+              <?php foreach( $a['sources'] as $idx => $entry ): ?>
+                <tr id="ref<?= $idx ?>">
+                  <td class="pe-1">(<?= $idx ?>)</td>
+                  <td>
+                    <?php if( filter_var($entry['source'], FILTER_VALIDATE_URL)): ?>
+                      <a href="<?= $entry['source'] ?>" target="_blank"><?= $entry['title'] ?></a>
+                    <?php else: ?>
+                      <?= $entry['title'] ?>
+                    <?php endif; ?>
+                    <?php if( ! empty($entry['sub'])): ?>
+                      &gt; <?= $entry['sub'] ?>
+                    <?php endif; ?>
+                  </td>
+                </tr>
+              <?php endforeach; ?>
+            </table>
 
-              <table class="small">
-                <?php foreach( $a['sources'] as $idx => $entry ): ?>
-                  <tr id="ref<?= $idx ?>">
-                    <td class="pe-1">(<?= $idx ?>)</td>
-                    <td>
-                      <?php if( filter_var($entry['source'], FILTER_VALIDATE_URL)): ?>
-                        <a href="<?= $entry['source'] ?>" target="_blank"><?= $entry['title'] ?></a>
-                      <?php else: ?>
-                        <?= $entry['title'] ?>
-                      <?php endif; ?>
-                      <?php if( ! empty($entry['sub'])): ?>
-                        &gt; <?= $entry['sub'] ?>
-                      <?php endif; ?>
-                    </td>
-                  </tr>
-                <?php endforeach; ?>
-              </table>
-            </p>
-
-            <p id="disclaimer" class="small">
+            <p id="disclaimer" class="mt-3 small">
               <b>Disclaimer:</b> <?php require('misc/disclaimer.php') ?>
             </p>
 
