@@ -86,11 +86,7 @@ use Symfony\Component\Yaml\Exception\ParseException;
 
             <h6 class="mb-2 fw-bold">Concept</h6>
 
-            <ul class="no-indent">
-              <?= self::iif( $a['framework'], "<li>$a[framework]</li>") ?>
-              <?= $a['miscImportant'] ?>
-            </ul>
-
+            <p class="mt-2"><?= $a['framework'] ?></p>
             <p class="mt-2"><?= $a['conceptMisc'] ?></p>
 
             <h6 class="mt-3 mb-2 fw-bold">Primary daily goals</h6>
@@ -101,6 +97,7 @@ use Symfony\Component\Yaml\Exception\ParseException;
             <p>
 
             <p class="mt-2"><?= $a['goals'] ?></p>
+            <?= $a['miscGoals'] ?>
 
             <h6 class="mt-3 mb-2 fw-bold">Sample menu</h6>
 

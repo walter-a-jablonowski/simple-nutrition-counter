@@ -18,22 +18,6 @@ framework: |
   prefer what evolution made use for before invention of agriculture
   (6-15k years is no long time)
 
-miscImportant: |
-
-  <li>
-    Stay low carb ~50g humans don't need carbs (<a href="#ref2">2</a>),
-    TASK: fat:amino 2:1, ~3l water daily
-  </li><li>
-    Change some food daily, don't use too much of one on a daily basis
-    "it's about balance" (<a href="#ref1">1</a>)
-  </li><li>
-    Use limited fastening as a tool to simulate food shortage and activate
-    survival mechanisms (<a href="#ref1">1</a>), e.g. try to eat no longer
-    than 4-6 hours ("eat less often"), means: eat all meals at once
-  </li><li>
-    Also have days with more food to fill up (just in case)
-  </li>
-
 conceptMisc: |
 
   <ul class="list-group">
@@ -142,6 +126,31 @@ goals: |
     </tr>
   </table>
 
+# TASK: merge some in goals
+miscGoals: |
+
+  <ul class="no-indent">
+    <li>
+      Stay low carb ~50g humans don't need carbs (<a href="#ref2">2</a>),
+      TASK: fat:amino 2:1, ~3l water daily
+    </li><li>
+      Change some food daily, don't use too much of one on a daily basis
+      "it's about balance" (<a href="#ref1">1</a>)
+    </li><li>
+      Use limited fastening as a tool to simulate food shortage and activate
+      survival mechanisms (<a href="#ref1">1</a>), e.g. try to eat no longer
+      than 4-6 hours ("eat less often"), means: eat all meals at once
+    </li><li>
+      Also have days with more food to fill up (just in case)
+    </li>
+  </ul>
+
+  <p class="mt-2">
+    <b>On the go</b> the best food that is available is used.
+  </p>
+
+  <p>If doing sports higher amounts of amino acids and magnesium are used.</p>
+
 # Sample for how primary goals can be done
 
 sampleMenu: |
@@ -170,12 +179,6 @@ sampleMenu: |
       </td>
     </tr>
   </table>
-
-  <p class="mt-2">
-    <b>On the go</b> the best food that is available is used.
-  </p>
-
-  <p>If doing sports higher amounts of amino acids and magnesium are used.</p>
 
 primaryGoals:  # TASK: maybe merge texts above in here
 
