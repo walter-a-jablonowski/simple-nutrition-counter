@@ -13,15 +13,15 @@ spec: |
 
   <ul class="no-indent">
     <li>
-      Avoid all mass produced that humans weren't meant to eat,
+      Avoid all mass produced that humans weren't meant to eat (<a href="#ref2">2</a>),
       prefer what evolution made use for before invention of agriculture
       (6-15k years is no long time)
     </li><li>
       Stay low carb ~50g humans don't need carbs (<a href="#ref2">2</a>),
       TASK: fat:amino 2:1, ~3l water daily
     </li><li>
-      Change some food daily, don't use too much of one on a daily basis,
-      "It's about balance" (<a href="#ref1">1</a>)
+      Change some food daily, don't use too much of one on a daily basis
+      "it's about balance" (<a href="#ref1">1</a>)
     </li><li>
       Use limited fastening as a tool to simulate food shortage and activate
       survival mechanisms (<a href="#ref1">1</a>), e.g. try to eat no longer
@@ -137,16 +137,22 @@ spec: |
 
   <table>
     <tr>
-      <td valign="top" class="pe-1"><b>Nuts and seeds</b></td>
-      <td></td>
+      <td valign="top"><b>Nuts and seeds</b></td>
+      <td valign="top">100g mixed nuts and seeds</td>
     </tr>
     <tr>
       <td valign="top"><b>Veggie bowl</b></td>
-      <td></td>
+      <td valign="top">
+        Variants of Bryan Johnson's Super Veggie bowl (<a href="#ref3">3</a>):
+        Lentils, broccoli, ... make a double size bowl to save some time on veggie
+        only days
+      </td>
     </tr>
     <tr>
       <td valign="top"><b>Third meal</b></td>
-      <td></td>
+      <td valign="top">
+        Either veggie again or some fish or chicken
+      </td>
     </tr>
   </table>
 
