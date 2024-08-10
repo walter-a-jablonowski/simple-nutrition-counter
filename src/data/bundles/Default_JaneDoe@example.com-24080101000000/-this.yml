@@ -92,9 +92,9 @@ goals: |
     <tr>
       <td valign="top"><b>kcal</b></td>
       <td valign="top">
-        1800: calories reduced for a few days<br>
-        2200: normal<br>
-        2500: "eat more" day (fill up)
+        calories reduced: 1800 (for a couple of days)<br>
+        standard:         2200<br>
+        fill up day:      2500
       </td>
     </tr>
     <tr>
@@ -105,8 +105,8 @@ goals: |
     <tr>
       <td valign="top" class="pe-1"><b>Amino acids</b></td>
       <td valign="top">
-        no workout: 0.8g per kg weight<br>
-        workout (gain muscle): 1.6 or 1.8 - 2.2g
+        standard: 0.8g per kg weight<br>
+        workout:  1.6 or 1.8 - 2.2g (gain muscle)
       </td>
     </tr>
     <tr>
