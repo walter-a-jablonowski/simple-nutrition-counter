@@ -79,6 +79,9 @@ class MainController
     // modal.addEventListener('show.bs.modal', event => {
     event('show.bs.modal', event => {
 
+      if( event.target.id != 'infoModal')
+        return;
+
       const btn = event.relatedTarget
       
       if( btn.getAttribute('data-title').startsWith('#'))
