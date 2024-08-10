@@ -87,9 +87,6 @@ conceptMisc: |
 # Primary goals
 
 # TASK: Fibre, salt
-# TASK: move nutrients and add here: 2200, 0.8g per kg weight, fat:amino 2:1
-#       (some for multiple nutrient groups)
-# TASK: maybe merge some of text in nutrients?
 goals: |
 
   <ul class="no-indent">
@@ -97,8 +94,7 @@ goals: |
       Change some food daily, don't use too much of one on a daily basis
       "it's about balance" (<a href="#ref1">1</a>)
     </li><li>
-      Stay low carb ~50g humans don't need carbs (<a href="#ref2">2</a>),
-      ~3l water daily (use a jug)
+      ~3l water daily <a href="#tipsNutritionPane" data-bs-toggle="tab" data-bs-target="#tipsTrackWater">(use a jug)</a>
     </li><li>
       <b>Fastening days:</b> Use limited fastening as a tool to simulate food shortage and activate
       survival mechanisms (<a href="#ref1">1</a>), e.g. try to eat no longer
@@ -145,9 +141,13 @@ sampleMenu: |
 
 primaryGoals:  # TASK: merge in nutrients
 
+  # fat:amino 2:1 (multiple nutrient groups)
   calories: { label: "18-25k",      }
+  # 2200
   fatAmino: { label: "(2:1)",       }
+  # 0.8g per kg weight
   carbs:    { label: "&le; 50g",    min: 0, max: 50, unit: g }  # TASK: limits
+  # Stay low carb ~50g humans don't need carbs (<a href="#ref2">2</a>)
   fibre:    { label: "&ge; 2 cups", }
   salt:     { label: "4-6g",        }
 
