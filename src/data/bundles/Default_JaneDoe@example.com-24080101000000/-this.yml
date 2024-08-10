@@ -9,7 +9,7 @@ vendors: Rewe, Norma, Edeka, Aldi, Denn's, online
 
 spec: |
 
-  <b>Concept</b>
+  <h6 class="mb-2 fw-bold">Concept</h6>
 
   <ul class="no-indent">
     <li>
@@ -69,11 +69,7 @@ spec: |
     </li>
   </ul>
 
-  <br>
-
-  <p><b>Primary daily goals</b></p>
-
-  <p style="color: orange;">Food list is made in a way so that these foods can easily be chosen</p>
+  <h6 class="mt-3 mb-2 fw-bold">Primary daily goals</h6>
 
   <table>
     <tr>
@@ -113,9 +109,26 @@ spec: |
     </tr>
   </table>
 
-  <br>
+  <h6 class="mt-3 mb-2 fw-bold">Sample menu</h6>
 
-  <p><b>On the go</b> the best food that is available is used.</p>
+  <p class="mt-1 mb-1" style="color: orange;">Food list is made in a way so that these foods can easily be chosen</p>
+
+  <table>
+    <tr>
+      <td valign="top" class="pe-1"><b>Nuts and seeds</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td valign="top"><b>Veggie bowl</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td valign="top"><b>Third meal</b></td>
+      <td></td>
+    </tr>
+  </table>
+
+  <p class="mt-2"><b>On the go</b> the best food that is available is used.</p>
 
   <p>If doing sports higher amounts of amino acids and magnesium are used.</p>
 
