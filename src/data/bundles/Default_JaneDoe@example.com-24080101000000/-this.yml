@@ -44,6 +44,10 @@ spec: |
     </li>
     <li id="bundleCollapse1" class="list-group-item collapse">
 
+      <p class="small" style="color: orange;">
+        Food list is made in a way so that these foods can easily be chosen
+      </p>
+
       <table>
         <tr>
           <td valign="top" class="pe-1"><b>Avoid</b></td>
@@ -93,6 +97,11 @@ spec: |
 
   <h6 class="mt-3 mb-2 fw-bold">Primary daily goals</h6>
 
+  <p class="text-secondary">  <!-- because we can't handle too much daily: reach primary goals with a menu that has most nutrients -->
+    A few primary daily goals for the goals bar on the edit tab. All nutrients:
+    see nutrients tab in the evening.
+  <p>
+
   <table>
     <tr>
       <td valign="top"><b>kcal</b></td>
@@ -133,7 +142,9 @@ spec: |
 
   <h6 class="mt-3 mb-2 fw-bold">Sample menu</h6>
 
-  <p class="mt-1 mb-1" style="color: orange;">Food list is made in a way so that these foods can easily be chosen</p>
+  <p style="color: orange;">
+    Food list is made in a way so that these foods can easily be chosen
+  </p>
 
   <table>
     <tr>
@@ -156,7 +167,9 @@ spec: |
     </tr>
   </table>
 
-  <p class="mt-2"><b>On the go</b> the best food that is available is used.</p>
+  <p class="mt-2">
+    <b>On the go</b> the best food that is available is used.
+  </p>
 
   <p>If doing sports higher amounts of amino acids and magnesium are used.</p>
 
