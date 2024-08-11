@@ -33,8 +33,9 @@ class AppController extends ControllerBase
 
   // TASK: MOVE
 
-  protected array $nutrientsModel;
-  protected array $nutrientsShort;
+  protected array      $nutrientsModel;
+  // protected SimpleData $nutrientsModel;
+  protected array      $nutrientsShort;
 
 
   public function __construct(/* $model = null, $view = null */)
@@ -83,6 +84,7 @@ class AppController extends ControllerBase
     // TASK: move in model
 
     $this->nutrientsModel['fattyAcids'] = Yaml::parse( file_get_contents('data/nutrients/fattyAcids.yml'));
+    // $this->nutrientsModel['carbs']   = Yaml::parse( file_get_contents('data/nutrients/carbs.yml'));
     $this->nutrientsModel['aminoAcids'] = Yaml::parse( file_get_contents('data/nutrients/aminoAcids.yml'));
     $this->nutrientsModel['vitamins']   = Yaml::parse( file_get_contents('data/nutrients/vitamins.yml'));
     $this->nutrientsModel['minerals']   = Yaml::parse( file_get_contents('data/nutrients/minerals.yml'));
@@ -91,12 +93,24 @@ class AppController extends ControllerBase
     $this->nutrientsShort = [
       'nutritionalValues' => 'nutriVal',  // TASK: use short name from nutrient files
       'fattyAcids'        => 'fat',
+      // 'carbs'          => 'fat',
       'aminoAcids'        => 'amino',
       'vitamins'          => 'vit',
       'minerals'          => 'min',
       'secondary'         => 'sec'
     ];
+/*
+    // TASK: also use -this > calories
 
+    $this->nutrientsModel = new SimpleData();  // TASK: (advanced) merge with bundle /nutrients
+
+    foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $type)
+    {
+      $this->nutrientsModel->set( $type,
+        Yaml::parse( file_get_contents("data/nutrients/$type.yml"))
+      );
+    }
+*/
     $this->makeFoodsView();
     $this->makeNutrientsView();
     $this->makeDaysView();
@@ -186,8 +200,9 @@ class AppController extends ControllerBase
   {
     // TASK: make a sep view
     // TASK: group vals
+    // TASK: carbs
 
-    foreach(['fattyAcids', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $group )
+    foreach(['fattyAcids',/* 'carbs', */ 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $group )
     {
       $this->captions[ $this->nutrientsShort[$group]] = $this->nutrientsModel[$group]['name'];
 
