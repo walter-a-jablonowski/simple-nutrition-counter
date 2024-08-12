@@ -131,11 +131,11 @@ Upcoming features
 
 High prio first
 
-- [ ] food concept
-- [ ] track all nutrients
+- [ ] food concept **(started)**
+- [ ] track all nutrients **(started)**
 - usability
   - [ ] readability on mobile
-- clean up: extend app structure code, write classes, ...
+- clean up: extend app structure, write classes, ...
   - [ ] Code extensions like types per day entry
   - [ ] Maybe: Basic error handling
 
