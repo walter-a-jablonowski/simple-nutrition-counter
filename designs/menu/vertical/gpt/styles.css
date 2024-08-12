@@ -1,0 +1,43 @@
+/* styles.css */
+#custom-nav {
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 100vh;
+  background-color: #343a40;
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+#custom-nav:hover {
+  width: 200px;
+}
+
+.menu-icon {
+  width: 100%;
+  padding: 15px 0;
+  text-align: center;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.menu-icon i {
+  font-size: 24px;
+}
+
+.menu-text {
+  display: none;
+  margin-left: 20px;
+}
+
+#custom-nav:hover .menu-text {
+  display: inline-block;
+}
+
+.app-name {
+  writing-mode: vertical-lr;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
