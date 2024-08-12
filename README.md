@@ -35,22 +35,21 @@ Improve [x] Nutrients  --> Improves general --> Improves brain --> Multiples pro
 
         [x] we also count finance in a single app
 
-x = can be counted with this app (nutrients manually impossible, far too many)
+x = can be counted with this app (manually impossible, far too many)
 * = also consider: air quality, amount of sunlight, ... and so on
 ```
 
 ### Nutrition
 
-Deficiencies are likely, but all nutrients are needed for something. Being able to have
-perfect supply on a daily basis may make a big difference for general health and brain
-function.
+All nutrients are needed for something. Being able to have perfect supply on a daily
+basis may make a big difference for general health and brain function.
 
 **The problem with supplements**
 
 B12 cyanocobalamin isn't the real B12 but a cheap synthetic form, dosage while production
 often goes wrong and unexplored substances from food are missing. Of course it might make
 sense to use some supplements if you can't get enough from food. But in general food is the
-more natural (better) source (as long as it is free of substances like pesticides).
+more natural (better) source (as long as it is free from substances like pesticides).
 
 ### Movement (sports)
 
