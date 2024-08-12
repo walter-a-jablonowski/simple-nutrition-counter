@@ -129,22 +129,31 @@ necessarily need as a single user.
 Upcoming features
 ----------------------------------------------------------
 
-- [ ] Improve food list **(started)**
-- [ ] Finish nutrients tab **(started)**
-- [ ] Code extensions like types per day entry
-- [ ] Improve UI and make nicer **(started)**
-- [ ] Code improvements
-- When this is done food and nutrients data will be entered, and a few useful minor features may be added
-- [ ] Maybe: The simple textarea might be replaced with a sortable html list (that already exists)
-- [ ] Maybe: Basic error handling
+High prio first
+
+- [ ] food concept
+- [ ] track all nutrients
+- usability
+  - [ ] readability on mobile
+- clean up: extend app structure code, write classes, ...
+  - [ ] Code extensions like types per day entry
+  - [ ] Maybe: Basic error handling
+
+Beside that things like app layout or multi user functions might be done occasionally (less important).
+
+Advanced: extend features (finance and similar see Mission)
 
 Full UI design see [UI design](misc/UI_Design.md)
 
 <table>
   <tr>
+    <td>App layout</td>
     <td>Improved list design</td>
   </tr>
   <tr>
+    <td>
+      <img src="misc/layout.png" width="400">
+    </td>
     <td>
       <img src="misc/design_1.png" width="200">
     </td>
