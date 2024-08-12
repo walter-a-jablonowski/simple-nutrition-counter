@@ -94,30 +94,29 @@ from page sample
     </ul>
   </nav>
 -->
-  <nav class="navbar fixed-bottom navbar-expand-lg bg-body-tertiary">  <!-- TASK: or sticky-bottom -->
-    <div class="container-fluid">                     <!-- alternative: https://getbootstrap.com/docs/5.3/components/navbar/#offcanvas -->
-      <a class="navbar-brand mb-0" href="#">
-        <i class="bi bi-app"></i>
-        Nutri Counter
-      </a>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav w-100 mb-2 mb-lg-0">  <!-- w-100 for the ms-suto below -->
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Home</a>
-          </li>
-          <li class="nav-item dropup ms-auto">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+  <nav class="navbar fixed-bottom navbar-expand bg-body-tertiary">  <!-- TASK: or sticky-bottom -->
+    <div class="container-fluid">                                   <!-- alternative: https://getbootstrap.com/docs/5.3/components/navbar/#offcanvas -->
+      <ul class="navbar-nav w-100 mb-2 mb-lg-0">                    <!-- w-100 for the ms-suto below -->
+        <li class="nav-item dropup">
+          <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            <i class="bi bi-app"></i>
+            Nutri Counter
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">[ Chg user ]</a></li>
+            <li><a class="dropdown-item" href="#">Some entry ...</a></li>
+            <!-- <li><hr class="dropdown-divider"></li> -->
+          </ul>
+        </li>
+        <li class="nav-item ms-auto">
+          <a class="nav-link" href="#">-1day</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="bi bi-info-circle icon-circle"></i>
+          </a>
+        </li>
+      </ul>
     </div>
   </nav>
 
