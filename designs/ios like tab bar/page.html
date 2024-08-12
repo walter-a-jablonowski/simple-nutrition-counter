@@ -35,30 +35,41 @@
   </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+
+  <nav class="navbar navbar-expand-lg bg-black fixed-top">  <!-- TASK: added fixed-top -->
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">My App</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-        </ul>
+      <div class="d-flex w-100 justify-content-between">
+
+        <div class="navbar-brand">
+
+          <i class="bi bi-app"></i>
+
+          <select id="userSelect" onchange="mainCrl.userSelectChange(event)" class="bg-transparent border-0 text-white">
+            <option value="user" selected>
+              User
+            </option>
+          </select>
+
+          <button onclick="mainCrl.lastDayBtnClick(event)"
+            data-sel = "<?= $this->mode ?>"
+            class    = "btn btn-sm ms-1 mb-1 text-white p-1 py-0 border-light"
+          >
+
+          </button>
+        </div>
+        
+        <div class="navbar-brand me-1">   <!-- div for flex align, currently just added a sec navbar-brand and mb for same paddings -->
+          <button data-bs-toggle="modal" data-bs-target="#tipsModal" class="btn btn-sm mb-1 text-white" type="button">
+            <i class="bi bi-info-circle icon-circle"></i>
+          </button>
+          <button id="settingsBtn" onclick="mainCrl.settingsBtnClick(event)" class="btn btn-sm mb-1" type="button">
+            <i class="bi bi-gear-fill text-white"></i>
+          </button>
+        </div>
       </div>
     </div>
   </nav>
+
   <div class="container">
     <h1 class="mt-4">Content Area</h1>
     <p>
@@ -102,32 +113,18 @@
     <ul class="nav nav-justified">
       <li class="nav-item">
         <a class="nav-link active" href="#">
-          <i class="bi bi-house-fill"></i>
-          Home
+          <!-- <i class="bi bi-house-fill"></i> -->
+          This day
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">
-          <i class="bi bi-search"></i>
-          Search
+          Nutrients
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">
-          <i class="bi bi-plus-square"></i>
-          Add
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="bi bi-heart"></i>
-          Favorites
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="bi bi-person"></i>
-          Profile
+          Last days
         </a>
       </li>
     </ul>

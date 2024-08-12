@@ -117,7 +117,7 @@ class AppController extends ControllerBase
 
     ob_start();
     require 'view/-this.php';
-    return ob_get_clean();    // echo is done in index
+    return ob_get_clean();
   }
 
   private function makeFoodsView()
