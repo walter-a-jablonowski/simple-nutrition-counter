@@ -864,8 +864,8 @@ Donuts mini A:
 
   price:             2.19
   weight:            162
-  pieces:            6
-  usedAmounts:       [2, 4, 6]
+  pieces:            9
+  usedAmounts:       [1, 2, 9]
 
   calories:          407  # TASK: calories unknown value from upper
   nutritionalValues:
