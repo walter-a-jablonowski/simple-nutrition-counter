@@ -7,6 +7,8 @@ use Symfony\Component\Yaml\Exception\ParseException;
 /*
 
 
+- extends SimpleData cause of overriding get()
+
 */
 class Entity extends SimpleData  /*@*/
 {
@@ -39,14 +41,58 @@ class Entity extends SimpleData  /*@*/
       return $entity->get($key);
   }
 
-
-  // TASK: method for getting sub fils
-
-  public function sub( string $key ) : SimpleData
+  public function get( string $key )
   {
-    return new SimpleData(
-      Yaml::parse( file_get_contents( self::$baseFld . "/$key.yml"))
-    );
+    // TASK: maybe compare this with older impl json db
+
+    [$file, $id, $key] = self::getFile( $key );
+
+    if( $file )
+    // if( [$file, $id, $key] = self::getFile( $key ))  // TASK: possible?
+    {
+      $data = new SimpleData(
+        Yaml::parse( file_get_contents( self::$baseFld . "/$file.yml"))
+      );
+
+      if( ! $key )
+        return $data;
+      else
+        return $data->get( $key );
+    }
+    else
+    {
+      return parent::get( $key );
+    }
+  }
+
+  private function getFile( string $key ) : array
+  {
+    $full = $key;
+    $keys = explode('.', $key);
+    $file = null; $id = null; $key = null;
+    $fil  = '';
+
+    while( $sub = array_shift($keys))
+    {
+      $fil .= "/$sub";
+      
+      if( file_exists( self::$baseFld . "/$fil.yml"))
+      {
+        $file = "/$fil.yml";
+        $id   = $fil;
+        $key  = implode('.', $keys);
+        break;
+      }
+      elseif( file_exists( self::$baseFld . "/$fil/-this.yml"))
+      {
+        $file = "/$fil/-this.yml";
+        $id   = $fil;
+        $key  = implode('.', $keys);
+        break;
+      }
+    }
+
+    return [$file, $id, $key];
   }
 }
 
