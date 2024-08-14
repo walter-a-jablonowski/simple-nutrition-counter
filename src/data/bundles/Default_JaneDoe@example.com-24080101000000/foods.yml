@@ -576,7 +576,7 @@ Cashew E:
   url:               "https://www.edeka.de/unsere-marken/produkte/gut-guenstig-cashewkerne-naturbelassen-4311501627150.jsp"
   packaging:         alu (maybe)
 
-  price:             
+  price:             2.29
   weight:            200
   usedAmounts:       ["1/4", "1/2"]
 
@@ -594,7 +594,7 @@ Cashew E:
   sources:           { nutriVal: "pack" }
   state:             most
   lastUpd:           2024-02-18
-  lastPriceUpd:      
+  lastPriceUpd:      2024-08-11
 
 Cashew N:
 
@@ -914,7 +914,7 @@ Durchstarter:
   certificates:      { NutriScore: B }
   packaging:         alu (maybe)
 
-  price:             2.99
+  price:             3.29  # 2024-06-16 2.99
   weight:            200
   usedAmounts:       ["1/4", "1/2"]
 
@@ -932,7 +932,7 @@ Durchstarter:
   sources:           { nutriVal: "pack" }
   state:             most
   lastUpd:           2024-06-16
-  lastPriceUpd:      2024-06-16
+  lastPriceUpd:      2024-08-11
 
 Eiweißbr:
 
@@ -1932,7 +1932,7 @@ Mandel R Bio:
   certificates:      { bio: true }
   packaging:         plastic (maybe)
 
-  price:             2.29 # 2024-03-30 2.89
+  price:             2.19  # 2024-04-28 2.29 2024-03-30 2.89
   weight:            200
   usedAmounts:       ["1/4", "1/2"]
 
@@ -1950,7 +1950,7 @@ Mandel R Bio:
   sources:           { nutriVal: "pack" }
   state:             most
   lastUpd:           2024-03-30
-  lastPriceUpd:      2024-04-28
+  lastPriceUpd:      2024-08-11
 
 Mehrkornbr:
 
@@ -2737,7 +2737,7 @@ Salami N:
   acceptable:        occasionally
   packaging:         plastic
 
-  price:             1.89
+  price:             1.79  # 2024-08-01 1.89
   weight:            130
   usedAmounts:       ["1/4", "1/2", "1"]
 
@@ -2755,7 +2755,7 @@ Salami N:
   sources:           { nutriVal: "pack" }
   state:             most
   lastUpd:           2024-08-01
-  lastPriceUpd:      2024-08-01
+  lastPriceUpd:      2024-08-11
 
 Salami R:
 
