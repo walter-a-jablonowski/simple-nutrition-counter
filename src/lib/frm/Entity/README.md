@@ -17,7 +17,7 @@ see frm readme > Design !
 $entity = MyEntities::byId('my.id');  // manager class (single responsible principle)
 $entity = new MyEntity( $data );      // may be from cache
 // or
-$entity = Entities::init( User::class, $args );  // User extends SimpleData, args for construct
+$users  = CachedEntities::init( User::class, $args );  // User extends SimpleData, args for construct
 
 // Advanced
 
