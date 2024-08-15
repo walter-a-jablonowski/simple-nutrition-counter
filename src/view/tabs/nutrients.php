@@ -16,7 +16,7 @@
 
   <!-- TASK: collapse or expand all btn -->
 
-  <?php foreach( $this->nutrientsView->all() as $groupShort => $group ): ?>
+  <?php foreach( $this->nutrientsModel->all() as $groupShort => $group ): ?>
 
     <ul class="list-group">
 

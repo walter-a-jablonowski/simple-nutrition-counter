@@ -23,7 +23,7 @@ class AppController extends ControllerBase
 
   protected string     $dayEntriesTxt;
   protected array      $dayEntries;
-  protected SimpleData $nutrientsView;
+  protected SimpleData $nutrientsModel;
   protected SimpleData $foodsView;
   protected float      $priceAvg;
   protected SimpleData $lastDaysView;
@@ -34,8 +34,7 @@ class AppController extends ControllerBase
 
   // TASK: MOVE
 
-  protected array      $nutrientsModel;
-  // protected SimpleData $nutrientsModel;
+  protected array      $nutrientsModelOld;
   protected array      $nutrientsShort;
 
 
@@ -84,12 +83,12 @@ class AppController extends ControllerBase
 
     // TASK: move in model
 
-    $this->nutrientsModel['fattyAcids'] = Yaml::parse( file_get_contents('data/nutrients/fattyAcids.yml'));
-    // $this->nutrientsModel['carbs']   = Yaml::parse( file_get_contents('data/nutrients/carbs.yml'));
-    $this->nutrientsModel['aminoAcids'] = Yaml::parse( file_get_contents('data/nutrients/aminoAcids.yml'));
-    $this->nutrientsModel['vitamins']   = Yaml::parse( file_get_contents('data/nutrients/vitamins.yml'));
-    $this->nutrientsModel['minerals']   = Yaml::parse( file_get_contents('data/nutrients/minerals.yml'));
-    $this->nutrientsModel['secondary']  = Yaml::parse( file_get_contents('data/nutrients/secondary.yml'));
+    $this->nutrientsModelOld['fattyAcids'] = Yaml::parse( file_get_contents('data/nutrients/fattyAcids.yml'));
+    // $this->nutrientsModelOld['carbs']   = Yaml::parse( file_get_contents('data/nutrients/carbs.yml'));
+    $this->nutrientsModelOld['aminoAcids'] = Yaml::parse( file_get_contents('data/nutrients/aminoAcids.yml'));
+    $this->nutrientsModelOld['vitamins']   = Yaml::parse( file_get_contents('data/nutrients/vitamins.yml'));
+    $this->nutrientsModelOld['minerals']   = Yaml::parse( file_get_contents('data/nutrients/minerals.yml'));
+    $this->nutrientsModelOld['secondary']  = Yaml::parse( file_get_contents('data/nutrients/secondary.yml'));
 
     $this->nutrientsShort = [
       'nutritionalValues' => 'nutriVal',  // TASK: use short name from nutrient files
@@ -103,17 +102,17 @@ class AppController extends ControllerBase
 /*
     // TASK: also use -this > calories
 
-    $this->nutrientsModel = new SimpleData();  // TASK: (advanced) merge with bundle /nutrients
+    $this->nutrientsModelOld = new SimpleData();  // TASK: (advanced) merge with bundle /nutrients
 
     foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $type)
     {
-      $this->nutrientsModel->set( $type,
+      $this->nutrientsModelOld->set( $type,
         Yaml::parse( file_get_contents("data/nutrients/$type.yml"))
       );
     }
 */
     $this->makeFoodsView();
-    $this->makeNutrientsView();
+    $this->makeNutrientsModel();
     $this->makeDaysView();
 
     ob_start();
@@ -184,7 +183,7 @@ class AppController extends ControllerBase
             //   $debug = 'halt';
 
             $short = $group === 'nutritionalValues' ? $nutrient      // get short name from /nutrients
-                   : $this->nutrientsModel[$group]['substances'][$nutrient]['short'];
+                   : $this->nutrientsModelOld[$group]['substances'][$nutrient]['short'];
 
             $perWeight[$groupShort][$short] = round( $value * ($weight / 100), 1);
           }
@@ -197,22 +196,22 @@ class AppController extends ControllerBase
   }
 
 
-  private function makeNutrientsView()
+  private function makeNutrientsModel()
   {
     // TASK: group vals
     // TASK: carbs
 
-    $this->nutrientsView = new SimpleData();
+    $this->nutrientsModel = new SimpleData();
 
     foreach(['fattyAcids',/* 'carbs', */ 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $group )
     {
-      $this->captions[ $this->nutrientsShort[$group]] = $this->nutrientsModel[$group]['name'];
+      $this->captions[ $this->nutrientsShort[$group]] = $this->nutrientsModelOld[$group]['name'];
 
-      foreach( $this->nutrientsModel[$group]['substances'] as $name => $attr )  // short is used as id
+      foreach( $this->nutrientsModelOld[$group]['substances'] as $name => $attr )  // short is used as id
       {
         $a = $attr['amounts'][0];  // TASK: use unit for sth?
 
-        $this->nutrientsView->set( $this->nutrientsShort[$group] . ".$attr[short]", [
+        $this->nutrientsModel->set( $this->nutrientsShort[$group] . ".$attr[short]", [
                                        
           'name'  => $name,        // TASK: (advanced) currently using first entry only
           'group' => $group,
