@@ -13,6 +13,7 @@ see frm readme > Design !
 
 // Simple: load data only, save in a single file only
 // TASK: maybe compare this with older impl json db
+// TASK: maybe compare AI design (attached)
 
 $entity = MyEntities::byId('my.id');  // manager class (single responsible principle)
 $entity = new MyEntity( $data );      // may be from cache
