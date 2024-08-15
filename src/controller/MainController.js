@@ -405,7 +405,6 @@ class MainController
       const group = entry.dataset.group
       const short = entry.dataset.short
       const currentSum = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.nutrients[group]?.[short] ?? 0), 0).toFixed(1))
-      // Magn Cash A 1/2 + Nuss A 1/8 = 306.8
     
       let percentage = Math.min( (currentSum / entry.dataset.ideal) * 100, 100)  // min: ensure it doesn't exceed 100%
 

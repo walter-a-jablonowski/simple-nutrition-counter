@@ -23,7 +23,8 @@ class AppController extends ControllerBase
 
   protected string     $dayEntriesTxt;
   protected array      $dayEntries;
-  protected            $foodsView;
+  protected SimpleData $nutrientsView;
+  protected SimpleData $foodsView;
   protected float      $priceAvg;
   protected SimpleData $lastDaysView;
 
@@ -198,9 +199,10 @@ class AppController extends ControllerBase
 
   private function makeNutrientsView()
   {
-    // TASK: make a sep view
     // TASK: group vals
     // TASK: carbs
+
+    $this->nutrientsView = new SimpleData();
 
     foreach(['fattyAcids',/* 'carbs', */ 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $group )
     {
@@ -208,11 +210,11 @@ class AppController extends ControllerBase
 
       foreach( $this->nutrientsModel[$group]['substances'] as $name => $attr )  // short is used as id
       {
-        $a = $attr['amounts'][0];      // TASK: use unit for sth?
+        $a = $attr['amounts'][0];  // TASK: use unit for sth?
 
-        $this->foodsView->set('nutrients.' . $this->nutrientsShort[$group] . ".$attr[short]", [
+        $this->nutrientsView->set( $this->nutrientsShort[$group] . ".$attr[short]", [
                                        
-          'name'  => $name,            // TASK: (advanced) currently using first entry only
+          'name'  => $name,        // TASK: (advanced) currently using first entry only
           'group' => $group,
           'lower' => strpos($a['lower'], '%') === false
                   ?  $a['amount'] - $a['lower']
