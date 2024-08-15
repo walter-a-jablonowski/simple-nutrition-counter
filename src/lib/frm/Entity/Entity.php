@@ -15,6 +15,12 @@ class Entity extends SimpleData  /*@*/
   protected string $baseFld;
   protected string $current;
 
+  public static function init( string $baseFld, string $current )
+  {
+    self::$baseFld = $baseFld;
+    self::$current = $current;
+  }
+
   public static function getAll() : array
   {
     return array_filter( scandir( self::$baseFld ),
@@ -43,12 +49,11 @@ class Entity extends SimpleData  /*@*/
 
   public function get( string $key )
   {
-    // TASK: maybe compare this with older impl json db
-
     [$file, $id, $key] = self::getFile( $key );
 
+    // TASK: add load whole folder
+
     if( $file )
-    // if( [$file, $id, $key] = self::getFile( $key ))  // TASK: possible?
     {
       $data = new SimpleData(
         Yaml::parse( file_get_contents( self::$baseFld . "/$file.yml"))

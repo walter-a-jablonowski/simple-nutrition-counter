@@ -7,22 +7,31 @@ Dependencies: Symfony YML, SimpleData
 Design
 ----------------------------------------------------------
 
-TASK: MOV We try to keep code dependency less (no dependencies between classes and complex init in app) a central point App::get() where things can be modified might be useful.
+see frm readme > Design !
 
-Frameworks use sth similar:
+```php
 
-- Symfony: `UserRepository` with query like functions
-- Laravel: `User::where() User::all()`
-           also use functions as wrapper for static `auth()->user()`
-- NET:     `UserManager`
-- Java:    `System.getProperty("user.name")` or similar
+// Simple: load data only, save in a single file only
+// TASK: maybe compare this with older impl json db
 
-Misc
+$entity = MyEntities::byId('my.id');  // manager class (single responsible principle)
+$entity = new MyEntity( $data );      // may be from cache
+// or
+$entity = Entities::init( User::class, $args );  // User extends SimpleData, args for construct
 
-- `User::getAll()` kind of fluent
-- We use a singleton like approach over objects
-- We call it Entity for now
-- Addon for SimpleData (single responsible principle)
+// Advanced
+
+$entity->parent();
+$entity->siblings();
+// ...
+$entity->nav('my.link');
+// preprocess? define in code, resolve implicit links like 'amino: AMOUNT' to
+// amino:
+//   @link:
+//   amount:
+
+// filter and query functions ...
+```
 
 
 Sample
@@ -32,11 +41,7 @@ Sample
 
 class User extends Entity
 {
-  public static function init( string $baseFld, string $current )
-  {
-    self::$baseFld = $baseFld;
-    self::$current = $current;
-  }
+  // ...
 }
 
 User::init('data/users', $_SESSION['userId'] );
