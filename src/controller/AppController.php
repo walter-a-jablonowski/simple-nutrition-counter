@@ -18,26 +18,23 @@ class AppController extends ControllerBase
   use SaveDayEntriesAjaxController;
   use ChangeUserAjaxController;
 
-  protected string     $mode;           // TASK: sort semantically
+  protected string     $mode;
   protected string     $date;
 
   protected SimpleData $nutrientsModel;
   protected SimpleData $foodsModel;
 
-  protected string     $dayEntriesTxt;
+  protected string     $dayEntriesTxt;   // edit tab
   protected array      $dayEntries;
   protected SimpleData $foodsView;
-  protected SimpleData $nutrientsView;
+  protected array      $layout;
+
+  protected SimpleData $nutrientsView;   // nutrients tab, last days
   protected float      $priceAvg;
   protected SimpleData $lastDaysView;
 
-  protected array      $layout;
   protected array      $captions = [];
   protected SimpleData $inlineHelp;
-
-  // TASK: MOVE
-
-  // protected array   $nutrientsShort;
 
 
   public function __construct(/* $model = null, $view = null */)
@@ -75,16 +72,6 @@ class AppController extends ControllerBase
       );
     }
 
-    // $this->nutrientsShort = [
-    //   'nutritionalValues' => 'nutriVal',
-    //   'fattyAcids'        => 'fat',
-    //   // 'carbs'          => 'fat',
-    //   'aminoAcids'        => 'amino',
-    //   'vitamins'          => 'vit',
-    //   'minerals'          => 'min',
-    //   'secondary'         => 'sec'
-    // ];
-
     // This day
 
     $this->dayEntriesTxt = trim( @file_get_contents('data/users/' . $config->get('defaultUser') . "/days/{$this->date}.tsv") ?: '', "\n");
@@ -113,14 +100,22 @@ class AppController extends ControllerBase
 
     // Last days tab
 
-    $this->makeDaysView();
+    $this->makeLastDaysView();
 
     ob_start();
     require 'view/-this.php';
     return ob_get_clean();
   }
 
-  private function makeFoodsView()
+  /*@
+
+  makeFoodsView()
+
+  - pre calc all food and recipes nutritional values per amount used
+  - easy print in food grid, less js logic
+
+  */
+  private function makeFoodsView()  /*@*/
   {
     $settings = settings::instance();
     $user     = User::current();
@@ -129,9 +124,6 @@ class AppController extends ControllerBase
     $this->foodsModel->set( null, Yaml::parse( file_get_contents("data/bundles/Default_$user->id/foods.yml")));
 
     $this->foodsView = new SimpleData();
-
-    // we pre calc all values (model data is a view)
-    // cause it's simpler for recipes and less js code
 
     // TASK: maybe make more logical, e.g. var naming ... (did one round 2406)
 
@@ -172,23 +164,7 @@ class AppController extends ControllerBase
         ];
 
         // nutritional values for all nutrient groups
-/*
-        foreach( $this->nutrientsShort as $group => $groupShort )
-          if( ! isset($foodEntry[$group]) || count($foodEntry[$group]) == 0)
-            $perWeight[$groupShort] = [];
-          else foreach( $foodEntry[$group] as $nutrient => $value )  // all the sub keys like nutritionalValues, minerals in food.yml
-          {
-            // if( $foodName == 'Salt' && $nutrient == 'salt' )      // DEBUG
-            //   $debug = 'halt';
-        
-            $short = $group === 'nutritionalValues' ? $nutrient      // get short name from /nutrients
-                   : $this->nutrientsModel->get("$group.substances.$nutrient.short");
-        
-            $perWeight[$groupShort][$short] = round( $value * ($weight / 100), 1);
-          }
-        }
-*/
-// /*
+
         $nutrientGroups = array_merge(['nutritionalValues'], array_keys( $this->nutrientsModel->all()));
         
         foreach( $nutrientGroups as $nutrientGroup )
@@ -209,24 +185,29 @@ class AppController extends ControllerBase
             $perWeight[$groupShort][$short] = round( $value * ($weight / 100), 1);
           }
         }
-// */
-        // $id = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $foodName));  // TASK: shorten
+
         $this->foodsView->set("$foodName.$amount", $perWeight);
+        // $id = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $foodName));  // TASK: shorten
       }
     }
   }
 
+  /*@
 
-  private function makeNutrientsView()
+  makeNutrientsView()
+
+  - pre calc all food and recipes recommended amounts per day
+  - easy print in food grid, less js logic
+
+  */
+  private function makeNutrientsView()  /*@*/
   {
     // TASK: group vals
-    // TASK: carbs
 
     $this->nutrientsView = new SimpleData();
 
-    foreach(['fattyAcids',/* 'carbs', */ 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $group )
+    foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $group )
     {
-      // $this->captions[ $this->nutrientsShort[$group]] = $this->nutrientsModel->get("$group.name");
       $groupShort = $this->nutrientsModel->get("$group.short");
       $this->captions[$groupShort] = $this->nutrientsModel->get("$group.name");
 
@@ -234,7 +215,6 @@ class AppController extends ControllerBase
       {
         $a = $attr['amounts'][0];  // TASK: use unit for sth?
 
-        // $this->nutrientsView->set( $this->nutrientsShort[$group] . ".$attr[short]", [
         $this->nutrientsView->set("$groupShort.$attr[short]", [  // TASK: is that right?
                                        
           'name'  => $name,        // TASK: (advanced) currently using first entry only
@@ -252,7 +232,7 @@ class AppController extends ControllerBase
   }
 
 
-  private function makeDaysView()
+  private function makeLastDaysView()
   {
     $config   = config::instance();
     $settings = settings::instance();
