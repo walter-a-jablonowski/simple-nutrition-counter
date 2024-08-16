@@ -4,15 +4,6 @@ extract($args);
 
 $data = $this->foodsModel->get($foodName);
 
-$nutrientsShort = [
-  'nutritionalValues' => 'nutriVal',  // TASK: use from controller
-  'fattyAcids'        => 'fat',
-  'aminoAcids'        => 'amino',
-  'vitamins'          => 'vit',
-  'minerals'          => 'min',
-  'secondary'         => 'sec'
-];
-
 ?>
 
 <!-- Comment -->
@@ -202,7 +193,7 @@ $nutrientsShort = [
 
     foreach(['nutritionalValues', 'fattyAcids', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $group):
 
-      $collapseId = $foodId . ucwords( $nutrientsShort[$group]) . 'Collapse';
+      $collapseId = $foodId . ucwords( $this->nutrientsModel->get("$group.short")) . 'Collapse';
   ?>
 
     <?php if( ! empty($data[$group])): ?>
