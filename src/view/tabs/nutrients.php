@@ -16,24 +16,24 @@
 
   <!-- TASK: collapse or expand all btn -->
 
-  <?php foreach( $this->nutrientsView->all() as $groupShort => $group ): ?>
+  <?php foreach( $this->nutrientsView->all() as $shortName => $group ): ?>
 
     <ul class="list-group">
 
       <li class = "list-group-item d-flex justify-content-between align-items-center"
           style = "background-color: #e0e0e0;"
       >
-        <?= $this->captions[$groupShort] ?>
-        <a data-bs-toggle="collapse" href="#<?= $groupShort ?>Collapse" class="text-body-secondary" role="button">
+        <?= $this->captions[$shortName] ?>
+        <a data-bs-toggle="collapse" href="#<?= $shortName ?>Collapse" class="text-body-secondary" role="button">
           <i class="bi bi-arrow-down-circle"></i>
         </a>
       </li>
-      <li id="<?= $groupShort ?>Collapse" class="list-group-item collapse show">
+      <li id="<?= $shortName ?>Collapse" class="list-group-item collapse show">
 
         <?php foreach( $group as $short => $data ): ?>
 
           <div class      = "nutrients-entry mb-2"
-               data-group = "<?= $groupShort ?>"
+               data-group = "<?= $shortName ?>"
                data-short = "<?= $short ?>"
                data-lower = "<?= $data['lower'] ?>"
                data-ideal = "<?= $data['ideal'] ?>"

@@ -160,7 +160,7 @@ class AppController extends ControllerBase
 
         // nutritional values for all nutrient groups
 
-        $nutrientGroups = array_merge(['nutritionalValues'], array_keys( $this->nutrientsModel->all()));
+        $nutrientGroups = array_merge(['nutritionalValues'], $this->nutrientsModel->keys());
         
         foreach( $nutrientGroups as $groupName )
         {

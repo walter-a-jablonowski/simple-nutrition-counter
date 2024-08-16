@@ -50,6 +50,12 @@ class SimpleData /*@*/
   }
 
 
+  public function keys() : array
+  {
+    return ! $this->data ? [] : array_keys($this->data);
+  }
+
+
   public function get( string $key )
   {
     // $r = $this->findKey( $key, $make = false );

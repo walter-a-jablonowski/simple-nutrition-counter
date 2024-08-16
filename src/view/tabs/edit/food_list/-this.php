@@ -91,7 +91,7 @@
 
   // Left over foods
 
-  $all = array_keys( $this->foodsView->all());    // TASK: add recipes (same view)
+  $all = array_keys( $this->foodsView->all());    // foods and recipes are merged in one
 
   if( count($all) > count( array_unique($done)))  // foods can appear in layout multiple times
   {
