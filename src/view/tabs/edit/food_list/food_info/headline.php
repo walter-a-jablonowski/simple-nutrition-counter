@@ -2,7 +2,7 @@
 
 extract($args);
 
-$data = $this->model->get("foods.$foodName");
+$data = $this->foodsModel->get($foodName);
 
 ?>
 

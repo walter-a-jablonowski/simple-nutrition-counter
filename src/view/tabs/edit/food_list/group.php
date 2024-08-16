@@ -54,17 +54,17 @@ $return['done'] = [];
       // if( $foodName == 'Hanuta' )  // DEBUG
       //   $debug = 'halt';
 
-      $foodId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $foodName));  // TASK: use food id from SimpleData key as soon as upd, maybe we need prefix this so that no Ids get confused?
-      $type   = $this->foodsView->has("recipes.$foodName") ? 'recipes' : 'foods';
-      $amountData = $this->foodsView->get("$type.$foodName");  // TASK: rename
+      $foodId  = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $foodName));  // TASK: use food id from SimpleData key as soon as upd, maybe we need prefix this so that no Ids get confused?
+      // $type = $this->foodsView->has("recipes.$foodName") ? 'recipes' : 'foods';  // the same now
+      $amountData = $this->foodsView->get($foodName);
 
       $return['done'][] = $foodName;  // left over will be printed below (done = foods and recipes in a single list)
 
-      $accepColor  = $this->model->get("foods.$foodName.acceptable") ?? 'n/a';  // TASK: colors also below, merge by using a class (also in app tips)
+      $accepColor  = $this->foodsModel->get("$foodName.acceptable") ?? 'n/a';  // TASK: colors also below, merge by using a class (also in app tips)
       $accepColor  = ['less' => '#ffcccc', 'occasionally' => '#ffff88', 'n/a' => 'inherit'][$accepColor];
 
-      $price       = $this->model->get("foods.$foodName.price");
-      $pricePer100 = $price / ( trim( $this->model->get("foods.$foodName.weight"), "mgl ") / 100.0);
+      $price       = $this->foodsModel->get("$foodName.price");
+      $pricePer100 = $price / ( trim( $this->foodsModel->get("$foodName.weight"), "mgl ") / 100.0);
 
       if( $price )
       {
@@ -74,7 +74,7 @@ $return['done'] = [];
 
       // use for all the rest that has no icon
 
-      $showInfo = $this->model->get("foods.$foodName.comment")  // has comment might mean sth important
+      $showInfo = $this->foodsModel->get("$foodName.comment")  // has comment might mean sth important
                 ? true : false;
     ?>                             
       <div class="food-item row" style="background-color: <?= $accepColor ?>;">  <!-- must be 2 here cause headline has inner padding -->

@@ -22,6 +22,7 @@ class AppController extends ControllerBase
   protected string     $date;
 
   protected SimpleData $nutrientsModel;
+  protected SimpleData $foodsModel;
 
   protected string     $dayEntriesTxt;
   protected array      $dayEntries;
@@ -124,8 +125,8 @@ class AppController extends ControllerBase
     $settings = settings::instance();
     $user     = User::current();
 
-    $this->model = new SimpleData();
-    $this->model->set('foods', Yaml::parse( file_get_contents("data/bundles/Default_$user->id/foods.yml")));
+    $this->foodsModel = new SimpleData();
+    $this->foodsModel->set( null, Yaml::parse( file_get_contents("data/bundles/Default_$user->id/foods.yml")));
 
     $this->foodsView = new SimpleData();
 
@@ -134,7 +135,7 @@ class AppController extends ControllerBase
 
     // TASK: maybe make more logical, e.g. var naming ... (did one round 2406)
 
-    foreach( $this->model->get('foods') as $foodName => $foodEntry )
+    foreach( $this->foodsModel->all() as $foodName => $foodEntry )
     {
       $foodEntry['weight'] = trim( $foodEntry['weight'], "mgl ");  // just for convenience, we don't need the unit here
 
@@ -210,7 +211,7 @@ class AppController extends ControllerBase
         }
 // */
         // $id = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $foodName));  // TASK: shorten
-        $this->foodsView->set("foods.$foodName.$amount", $perWeight);
+        $this->foodsView->set("$foodName.$amount", $perWeight);
       }
     }
   }

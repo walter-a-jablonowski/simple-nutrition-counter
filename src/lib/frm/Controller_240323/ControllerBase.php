@@ -2,14 +2,10 @@
 
 abstract class ControllerBase
 {
-  protected $model;
-  protected $view;
-
   protected array $subViewControllers = [];
 
-  public function __construct( $model = null, $view = null ) {
-    $this->model = $model;
-    $this->view  = $view;
+  public function __construct() {
+
   }
 
   public function registerSubViewController( $ident, $controller )

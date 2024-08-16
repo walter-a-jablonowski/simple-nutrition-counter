@@ -38,6 +38,8 @@ class SampleController extends ControllerBase
 {
   use SomeAjaxController;  // trait (partial class if long)
 
+  private $model;
+  // private $foodsModel;
   private $modelView;      // use if data is pre generated (like an sql view)
   // private $foodsView;
   // private $thisView;
@@ -46,7 +48,6 @@ class SampleController extends ControllerBase
   public function __constuct( $model = null, $view = null )
   // public function __constuct()  // or
   {
-    parent::__construct( $model, $view );
     // parent::__construct();
 
     // Register sub and ajax controllers
