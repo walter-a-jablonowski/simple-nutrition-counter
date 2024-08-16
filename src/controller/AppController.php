@@ -75,7 +75,7 @@ class AppController extends ControllerBase
       );
     }
 
-    // Edit tab: This day
+    // Edit tab: Day entries
 
     $this->dayEntriesTxt = trim( @file_get_contents('data/users/' . $config->get('defaultUser') . "/days/{$this->date}.tsv") ?: '', "\n");
     $this->dayEntries    = parse_tsv( $this->dayEntriesTxt );
