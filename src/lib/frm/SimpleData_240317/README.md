@@ -34,6 +34,7 @@ $data = new SimpleData()
 $data = new SimpleData( $array, ... )      // later overwr previous
 
 $data->has('my.key')
+$data->count()
 $data->count('my.key')
 $data->all()
 $data->keys()
