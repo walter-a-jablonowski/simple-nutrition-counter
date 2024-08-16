@@ -63,6 +63,9 @@ class AppController extends ControllerBase
     // Model
     // TASK: maybe also use -this > calories
 
+    $this->foodsModel = new SimpleData();
+    $this->foodsModel->setData( Yaml::parse( file_get_contents("data/bundles/Default_$user->id/foods.yml")));
+
     $this->nutrientsModel = new SimpleData();  // TASK: (advanced) merge with bundle /nutrients
 
     foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $type)
@@ -72,7 +75,7 @@ class AppController extends ControllerBase
       );
     }
 
-    // This day
+    // Edit tab: This day
 
     $this->dayEntriesTxt = trim( @file_get_contents('data/users/' . $config->get('defaultUser') . "/days/{$this->date}.tsv") ?: '', "\n");
     $this->dayEntries    = parse_tsv( $this->dayEntriesTxt );
@@ -80,7 +83,7 @@ class AppController extends ControllerBase
     foreach( $this->dayEntries as $idx => $entry)
       $this->dayEntries[$idx][7] = Yaml::parse( $this->dayEntries[$idx][7] );
 
-    // Food list
+    // Edit tab: Food list
 
     $this->makeFoodsView();
 
@@ -120,74 +123,70 @@ class AppController extends ControllerBase
     $settings = settings::instance();
     $user     = User::current();
 
-    $this->foodsModel = new SimpleData();
-    $this->foodsModel->setData( Yaml::parse( file_get_contents("data/bundles/Default_$user->id/foods.yml")));
-
     $this->foodsView = new SimpleData();
 
     // TASK: maybe make more logical, e.g. var naming ... (did one round 2406)
 
-    foreach( $this->foodsModel->all() as $foodName => $foodEntry )
+    foreach( $this->foodsModel->all() as $name => $data )
     {
-      $foodEntry['weight'] = trim( $foodEntry['weight'], "mgl ");  // just for convenience, we don't need the unit here
+      $data['weight'] = trim( $data['weight'], "mgl ");  // just for convenience, we don't need the unit here
 
-      $usage = isset( $foodEntry['usedAmounts']) && (
-                 strpos( $foodEntry['usedAmounts'][0], 'g')  !== false ||
-                 strpos( $foodEntry['usedAmounts'][0], 'ml') !== false
+      $usage = isset( $data['usedAmounts']) && (
+                 strpos( $data['usedAmounts'][0], 'g')  !== false ||
+                 strpos( $data['usedAmounts'][0], 'ml') !== false
                )
              ? 'precise' : (
-               isset($foodEntry['pieces'])
+               isset($data['pieces'])
              ? 'pieces'
              : 'pack'
       );
 
-      $usedAmounts = $foodEntry['usedAmounts'] ?? ( $settings->get("foods.defaultAmounts.$usage") ?: 1);
+      $usedAmounts = $data['usedAmounts'] ?? ( $settings->get("foods.defaultAmounts.$usage") ?: 1);
 
       foreach( $usedAmounts as $amount )
       {
-        // if( $foodName == 'Salt' )  // DEBUG
+        // if( $name == 'Salt' )  // DEBUG
         //   $debug = 'halt';
 
         $multipl = trim( $amount, "mglpc ");
-        $multipl = (float) eval("return $multipl;");  // 1/2 => 0.5
-        // eval("\$multipl = $multipl;");
+        $multipl = (float) eval("return $multipl;");  // 1/2 => 0.5, or: eval("\$multipl = $multipl;")
 
-        $weight = $usage === 'pack'   ? $foodEntry['weight'] * $multipl : (
-                  $usage === 'pieces' ? ($foodEntry['weight'] / $foodEntry['pieces']) * $multipl
+        $weight = $usage === 'pack'   ? $data['weight'] * $multipl : (
+                  $usage === 'pieces' ? ($data['weight'] / $data['pieces']) * $multipl
                 : $multipl  // precise
         );
 
         $perWeight = [
           'weight'   => round( $weight, 1),
-          'calories' => round( $foodEntry['calories'] * ($weight / 100), 1),
-          'price'    => isset( $foodEntry['price']) ? round( $foodEntry['price'] * ($weight / $foodEntry['weight']), 2) : 0
+          'calories' => round( $data['calories'] * ($weight / 100), 1),
+          'price'    => isset( $data['price']) ? round( $data['price'] * ($weight / $data['weight']), 2) : 0
         ];
 
         // nutritional values for all nutrient groups
 
         $nutrientGroups = array_merge(['nutritionalValues'], array_keys( $this->nutrientsModel->all()));
         
-        foreach( $nutrientGroups as $nutrientGroup )
+        foreach( $nutrientGroups as $groupName )
         {
-          $groupShort = $nutrientGroup === 'nutritionalValues' ? 'nutriVal'
-                      : $this->nutrientsModel->get("$nutrientGroup.short");
+          $shortName = $groupName === 'nutritionalValues' ? 'nutriVal'
+                     : $this->nutrientsModel->get("$groupName.short");
 
-          if( ! isset($foodEntry[$nutrientGroup]) || count($foodEntry[$nutrientGroup]) == 0)
-            $perWeight[$groupShort] = [];
-          else foreach( $foodEntry[$nutrientGroup] as $nutrient => $value )
+          if( ! isset($data[$groupName]) || count($data[$groupName]) == 0)
+            $perWeight[$shortName] = [];
+          else foreach( $data[$groupName] as $nutrient => $value )
           {
-            // if( $foodName == 'Salt' && $nutrient == 'salt' )              // DEBUG
+            // if( $name == 'Salt' && $nutrient == 'salt' )              // DEBUG
             //   $debug = 'halt';
 
-            $short = $nutrientGroup === 'nutritionalValues' ? $nutrient      // short name for single nutrient
-                   : $this->nutrientsModel->get("$nutrientGroup.substances.$nutrient.short");
+            $short = $groupName === 'nutritionalValues' ? $nutrient      // short name for single nutrient
+                   : $this->nutrientsModel->get("$groupName.substances.$nutrient.short");
 
-            $perWeight[$groupShort][$short] = round( $value * ($weight / 100), 1);
+            $perWeight[$shortName][$short] = round( $value * ($weight / 100), 1);
           }
         }
 
-        $this->foodsView->set("$foodName.$amount", $perWeight);
-        // $id = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $foodName));  // TASK: shorten
+        $this->foodsView->set("$name.$amount", $perWeight);
+        // $id = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $name));  // TASK: shorten
       }
     }
   }
@@ -208,14 +207,14 @@ class AppController extends ControllerBase
 
     foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $group )
     {
-      $groupShort = $this->nutrientsModel->get("$group.short");
-      $this->captions[$groupShort] = $this->nutrientsModel->get("$group.name");
+      $shortName = $this->nutrientsModel->get("$group.short");
+      $this->captions[$shortName] = $this->nutrientsModel->get("$group.name");
 
       foreach( $this->nutrientsModel->get("$group.substances") as $name => $attr )  // short is used as id
       {
         $a = $attr['amounts'][0];  // TASK: use unit for sth?
 
-        $this->nutrientsView->set("$groupShort.$attr[short]", [  // TASK: is that right?
+        $this->nutrientsView->set("$shortName.$attr[short]", [  // TASK: is that right?
                                        
           'name'  => $name,        // TASK: (advanced) currently using first entry only
           'group' => $group,
