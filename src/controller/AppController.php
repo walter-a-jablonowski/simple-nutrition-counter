@@ -36,7 +36,7 @@ class AppController extends ControllerBase
 
   // TASK: MOVE
 
-  protected array      $nutrientsShort;
+  // protected array   $nutrientsShort;
 
 
   public function __construct(/* $model = null, $view = null */)
@@ -59,7 +59,7 @@ class AppController extends ControllerBase
     $config = config::instance();
     $user   = User::current();
 
-    $this->date = $_GET['date'] ?? date('Y-m-d');
+    $this->date = $_GET['date'] ?? date('Y-m-d');  // TASK: (advanced) is request
     $this->mode = isset($_GET['date']) ? 'last' : 'current';
 
     // Model
@@ -74,15 +74,15 @@ class AppController extends ControllerBase
       );
     }
 
-    $this->nutrientsShort = [
-      'nutritionalValues' => 'nutriVal',  // TASK: use short name from nutrient files
-      'fattyAcids'        => 'fat',
-      // 'carbs'          => 'fat',
-      'aminoAcids'        => 'amino',
-      'vitamins'          => 'vit',
-      'minerals'          => 'min',
-      'secondary'         => 'sec'
-    ];
+    // $this->nutrientsShort = [
+    //   'nutritionalValues' => 'nutriVal',
+    //   'fattyAcids'        => 'fat',
+    //   // 'carbs'          => 'fat',
+    //   'aminoAcids'        => 'amino',
+    //   'vitamins'          => 'vit',
+    //   'minerals'          => 'min',
+    //   'secondary'         => 'sec'
+    // ];
 
     // This day
 
@@ -171,23 +171,44 @@ class AppController extends ControllerBase
         ];
 
         // nutritional values for all nutrient groups
-
-        foreach( $this->nutrientsShort as $group => $groupShort )    // all nutrient groups first (be sure we have at least an empty entry)
-        {                                                            // (TASK) will be mod (see task nutrientsShort above)
+/*
+        foreach( $this->nutrientsShort as $group => $groupShort )
           if( ! isset($foodEntry[$group]) || count($foodEntry[$group]) == 0)
             $perWeight[$groupShort] = [];
           else foreach( $foodEntry[$group] as $nutrient => $value )  // all the sub keys like nutritionalValues, minerals in food.yml
           {
             // if( $foodName == 'Salt' && $nutrient == 'salt' )      // DEBUG
             //   $debug = 'halt';
-
+        
             $short = $group === 'nutritionalValues' ? $nutrient      // get short name from /nutrients
                    : $this->nutrientsModel->get("$group.substances.$nutrient.short");
+        
+            $perWeight[$groupShort][$short] = round( $value * ($weight / 100), 1);
+          }
+        }
+*/
+// /*
+        $nutrientGroups = array_merge(['nutritionalValues'], array_keys( $this->nutrientsModel->all()));
+        
+        foreach( $nutrientGroups as $nutrientGroup )
+        {
+          $groupShort = $nutrientGroup === 'nutritionalValues' ? 'nutriVal'
+                      : $this->nutrientsModel->get("$nutrientGroup.short");
+
+          if( ! isset($foodEntry[$nutrientGroup]) || count($foodEntry[$nutrientGroup]) == 0)
+            $perWeight[$groupShort] = [];
+          else foreach( $foodEntry[$nutrientGroup] as $nutrient => $value )
+          {
+            // if( $foodName == 'Salt' && $nutrient == 'salt' )              // DEBUG
+            //   $debug = 'halt';
+
+            $short = $nutrientGroup === 'nutritionalValues' ? $nutrient      // short name for single nutrient
+                   : $this->nutrientsModel->get("$nutrientGroup.substances.$nutrient.short");
 
             $perWeight[$groupShort][$short] = round( $value * ($weight / 100), 1);
           }
         }
-
+// */
         // $id = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $foodName));  // TASK: shorten
         $this->foodsView->set("foods.$foodName.$amount", $perWeight);
       }
@@ -204,13 +225,16 @@ class AppController extends ControllerBase
 
     foreach(['fattyAcids',/* 'carbs', */ 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $group )
     {
-      $this->captions[ $this->nutrientsShort[$group]] = $this->nutrientsModel->get("$group.name");
+      // $this->captions[ $this->nutrientsShort[$group]] = $this->nutrientsModel->get("$group.name");
+      $groupShort = $this->nutrientsModel->get("$group.short");
+      $this->captions[$groupShort] = $this->nutrientsModel->get("$group.name");
 
       foreach( $this->nutrientsModel->get("$group.substances") as $name => $attr )  // short is used as id
       {
         $a = $attr['amounts'][0];  // TASK: use unit for sth?
 
-        $this->nutrientsView->set( $this->nutrientsShort[$group] . ".$attr[short]", [
+        // $this->nutrientsView->set( $this->nutrientsShort[$group] . ".$attr[short]", [
+        $this->nutrientsView->set("$groupShort.$attr[short]", [  // TASK: is that right?
                                        
           'name'  => $name,        // TASK: (advanced) currently using first entry only
           'group' => $group,

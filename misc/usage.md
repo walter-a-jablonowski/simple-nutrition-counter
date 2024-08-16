@@ -160,7 +160,7 @@ amounts:
 
   # same as below
 
-substances:                      # (required)
+substances:                      # (required) key at least empty []
 
   B 12:                          # display name
 
