@@ -125,8 +125,6 @@ class AppController extends ControllerBase
 
     $this->foodsView = new SimpleData();
 
-    // TASK: maybe make more logical, e.g. var naming ... (did one round 2406)
-
     foreach( $this->foodsModel->all() as $name => $data )
     {
       $data['weight'] = trim( $data['weight'], "mgl ");  // just for convenience, we don't need the unit here
@@ -254,6 +252,7 @@ class AppController extends ControllerBase
       // foreach( $entries as $idx => $entry)
       //   $entries[$idx][7] = Yaml::parse( $entries[$idx][7] );
       
+      // TASK: upd this a bit?
       // TASK: (advanced) unit from data?
 
       $this->lastDaysView->set( $dat, [
