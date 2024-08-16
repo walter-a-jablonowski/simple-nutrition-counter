@@ -7,7 +7,7 @@ Simple data class
 */
 class SimpleData /*@*/
 {
-
+  
   private array $data = [];
 
 
@@ -24,24 +24,20 @@ class SimpleData /*@*/
   }
 
 
-  public function require( string $key )
+  public function count( ?string $key )
   {
-     $r = $this->get( $key );
-
-     if( is_null($r) )
-       throw new \Exception("$key missing");
-
-     return $r;
+    if( is_null($key))
+      return ! $this->data ? 0 : count($this->data);
+    else
+      return ! $this->has( $key ) ? 0 : count( $this->get($key) );
   }
 
   /*@
 
   Be able use in for loops like
 
-  alternative: Iterator interface (but this is simpler and speaking)
-
   ```
-  <?php foreach( $this->lastDaysView as $day => $sums): ?>
+  <?php foreach( $this->lastDaysView->all() as $day => $sums): ?>
   ```
   */
   public function all()  /*@*/
@@ -50,16 +46,22 @@ class SimpleData /*@*/
   }
 
 
-  public function keys() : array
+  public function keys( ?string $key = null ) : array
   {
-    return ! $this->data ? [] : array_keys($this->data);
+    if( is_null($key))
+      return ! $this->data ? [] : array_keys($this->data);
+    else
+      // TASK:
+      // if( ! is_array($elem))
+      //   throw new \Exception("$key is no array");
+      return array_keys( $this->get($key) );
   }
 
 
   public function get( string $key )
   {
     // $r = $this->findKey( $key, $make = false );
-    $keys = explode('.', $key);  // has own impl cause we can't retrun null from a findKey() function when byref
+    $keys = explode('.', $key);  // has own impl cause we can't return null from a findKey() function when byref
     $r = &$this->data;
 
     foreach( $keys as $key )
@@ -70,22 +72,21 @@ class SimpleData /*@*/
       $r = &$r[$key];
     }
 
+    $return = $r;  // remove the reference byval
+
     // Replace feature
 
-    if( is_string($r) && false !== strpos( $r, '@'))
+    if( is_string($return) && false !== strpos( $r, '@'))
     {
-      $vkeys = preg_match_all('/(?<=^|\s|\{)\@([A-Za-z0-9.]+)/', $r, $f) !== false ? $f[1] : [];
-      
-      // var_dump($keys);
+      $vkeys = preg_match_all('/(?<=^|\s|\{)\@([A-Za-z0-9.]+)/', $return, $f) !== false ? $f[1] : [];
       
       foreach( $vkeys as $vkey )
       {
-        $r = str_replace("{@$vkey}", $this->get($vkey), $r);
-        $r = str_replace("@$vkey",   $this->get($vkey), $r);
+        $return = str_replace("{@$vkey}", $this->get($vkey), $return);
+        $return = str_replace("@$vkey",   $this->get($vkey), $return);
       }
     }
 
-    $return = $r;  // remove the reference return byval
     return $return;
   }
 
@@ -96,7 +97,18 @@ class SimpleData /*@*/
   }
 
 
-  public function set( ?string $key, $value ) : void
+  public function require( string $key )
+  {
+     $r = $this->get( $key );
+
+     if( is_null($r) )
+       throw new \Exception("$key missing");
+
+     return $r;
+  }
+
+
+  public function set( ?string $key, $value ) : void  // TASK: why nullable?
   {
     $elem = &$this->findKey( $key );
     $elem = $value;
