@@ -64,7 +64,7 @@ class AppController extends ControllerBase
     // TASK: maybe also use -this > calories
 
     $this->foodsModel     = new SimpleData( Yaml::parse( file_get_contents("data/bundles/Default_$user->id/foods.yml")));
-    $this->nutrientsModel = new SimpleData();  // TASK: (advanced) merge with bundle /nutrients
+    $this->nutrientsModel = new SimpleData();      // TASK: (advanced) merge with bundle /nutrients
 
     foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $type)
     {
