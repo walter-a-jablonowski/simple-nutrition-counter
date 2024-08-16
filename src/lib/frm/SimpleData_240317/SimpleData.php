@@ -90,15 +90,16 @@ class SimpleData /*@*/
   }
 
 
+  public function setData( array $data ) : void
+  {
+    $this->data = $value;
+  }
+
+
   public function set( ?string $key, $value ) : void
   {
-    if( is_null($key))
-      $this->data = $value;
-    else
-    {
-      $elem = &$this->findKey( $key );
-      $elem = $value;
-    }
+    $elem = &$this->findKey( $key );
+    $elem = $value;
   }
 
 

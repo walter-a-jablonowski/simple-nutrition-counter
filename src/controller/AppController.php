@@ -121,7 +121,7 @@ class AppController extends ControllerBase
     $user     = User::current();
 
     $this->foodsModel = new SimpleData();
-    $this->foodsModel->set( null, Yaml::parse( file_get_contents("data/bundles/Default_$user->id/foods.yml")));
+    $this->foodsModel->setData( Yaml::parse( file_get_contents("data/bundles/Default_$user->id/foods.yml")));
 
     $this->foodsView = new SimpleData();
 
