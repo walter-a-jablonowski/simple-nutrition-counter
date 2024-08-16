@@ -92,7 +92,7 @@ class SimpleData /*@*/
 
   public function setData( array $data ) : void
   {
-    $this->data = $value;
+    $this->data = $data;
   }
 
 
