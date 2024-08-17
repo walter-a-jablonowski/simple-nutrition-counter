@@ -15,10 +15,13 @@ see frm readme > Design !
 // TASK: maybe compare this with older impl json db
 // TASK: maybe compare AI design (attached)
 
-$entity = MyEntities::byId('my.id');  // manager class (single responsible principle)
-$entity = new MyEntity( $data );      // may be from cache
-// or
-$users  = CachedEntities::init( User::class, $args );  // User extends SimpleData, args for construct
+CachedEntities::init([$base, ...]);
+ActivityTree::init( $base );
+AppData::init([$base, ...]);         // manager class (single responsible principle)
+                                     // data files only, config goes sep
+
+$entity = MyEntities::byId('my.id');      
+$entity = new MyEntity( $data );
 
 // Advanced
 
