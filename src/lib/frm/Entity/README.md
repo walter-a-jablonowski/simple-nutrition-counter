@@ -28,7 +28,8 @@ $entity = new MyEntity( $data );
 $entity->parent();
 $entity->siblings();
 // ...
-$entity->nav('my.link');
+// ~~$entity->nav('my.link');~~
+$entity->get('my.link');  // just use get
 // preprocess? define in code, resolve implicit links like 'amino: AMOUNT' to
 // amino:
 //   @link:
