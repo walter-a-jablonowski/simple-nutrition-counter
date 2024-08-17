@@ -11,6 +11,28 @@ comment:      ""
 
 substances:
 
+  # Essential (Claude 2408)
+
+  # Calcium
+  # Phosphorus
+  # Potassium
+  # Sodium
+  # Chloride
+  # Magnesium
+  # Iron
+  # Zinc
+  # Iodine
+  # Selenium
+  # Copper
+  # Manganese
+  # Chromium
+  # Molybdenum
+
+  # ChatGPT adds
+
+  # Sulfur
+  # Fluoride
+
   Calcium:
 
     short:      Ca

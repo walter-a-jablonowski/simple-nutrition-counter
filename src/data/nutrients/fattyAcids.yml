@@ -18,6 +18,8 @@ amounts:    # currently we use the first entry hard coded only
 
 substances:
 
+  # Claude: only first 2, ChatGPT mentions: ALA, EPA, DHA, LA (below), Arachidonic acid
+
   # TASK: 2 AIs say that only ALA and LA must be from food and the body can make the rest
   #       but:
   #       - this is only acc to current science

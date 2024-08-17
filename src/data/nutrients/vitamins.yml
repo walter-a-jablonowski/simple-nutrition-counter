@@ -11,6 +11,22 @@ comment:      ""
 
 substances:
 
+  # Essential (Claude and ChatGPT produce exactly same list 2408)
+
+  # Vitamin A
+  # Vitamin D
+  # Vitamin E
+  # Vitamin K
+  # Vitamin C
+  # Thiamin (B1)
+  # Riboflavin (B2)
+  # Niacin (B3)
+  # Pantothenic acid (B5)
+  # Vitamin B6
+  # Biotin (B7)
+  # Folate (B9)
+  # Vitamin B12
+
   Vitamin B12:
 
     type:       methylcobalamin

@@ -24,3 +24,15 @@ amounts:   # currently we use the first entry hard coded only
     upper:  165
 
 substances: []
+
+# Essential (Claude and ChatGPT produce exactly same list 2408)
+
+# Histidine
+# Isoleucine
+# Leucine
+# Lysine
+# Methionine
+# Phenylalanine
+# Threonine
+# Tryptophan
+# Valine
