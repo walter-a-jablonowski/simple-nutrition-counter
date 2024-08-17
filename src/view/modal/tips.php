@@ -129,7 +129,16 @@ use Symfony\Component\Yaml\Exception\ParseException;
           </div>
           <div id="tipsNutritionPane" class="tab-pane fade" role="tabpanel">
 
-            <?php require('misc/tips_nutrition.php') ?>
+            <?php
+            
+              $tipsFile = 'data/bundles/Default_' . User::current('id') . '/tips.html';
+
+              if( file_exists($tipsFile) && trim( file_get_contents($tipsFile)))
+                require($tipsFile);
+              else
+                require('misc/tips_nutrition.php');
+            
+            ?>
 
           </div>
           <div id="tipsAppPane" class="tab-pane fade" role="tabpanel">

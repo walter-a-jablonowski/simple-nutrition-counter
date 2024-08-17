@@ -17,16 +17,20 @@ as simple as possible, see [mission](#mission).
 Mission
 ----------------------------------------------------------
 
-There are many vitamins, minerals, fatty acids, amino acids... It is likely that one
-is deficient in more than one substance, just because there are so many. Well known
-samples of deficiencies: Vitamin D, Omega 3, Zinc, but the list is much longer ...
+There are at least ~43 vitamins, minerals, fatty acids, amino acids... Most people eat
+similar food every day. It is likely that one is deficient in more than one substance,
+just because there are so many. Well known samples of deficiencies: Vitamin D, Omega 3,
+Zinc...
+
+All nutrients are needed for something. Being able to have perfect supply on a daily
+basis may make a big difference for general health and brain function.
 
 ```
                                                 Special supplements  Powerful methods, AI, tools
                                                    |                   |
                                                    v                   v
 Improve [x] Nutrients  --> Improves general --> Improves brain --> Multiples productivity
-        [-] Water          health               function           (all your projects)
+        [-] Water          health               function           
         [x] Sports            |                       |
         [ ] Sleep             |                        ----------> Improves life quality,
         [ ] No stress         |                                    perception, feel better
@@ -35,30 +39,14 @@ Improve [x] Nutrients  --> Improves general --> Improves brain --> Multiples pro
 
         [x] we also count finance in a single app
 
-x = can be counted with this app (manually impossible, far too many)
+x = can be counted with this app (manually impossible)
 * = also consider: air quality, amount of sunlight, ... and so on
 ```
 
-### Nutrition
-
-All nutrients are needed for something. Being able to have perfect supply on a daily
-basis may make a big difference for general health and brain function.
-
-**The problem with supplements**
-
-B12 cyanocobalamin isn't the real B12 but a cheap synthetic form, dosage while production
-often goes wrong and unexplored substances from food are missing. Of course it might make
-sense to use some supplements if you can't get enough from food. But in general food is the
-more natural (better) source (as long as it is free from substances like pesticides).
-
-### Movement (sports)
-
-Humans were designed for movement. Movement also activates sectors in the brain that are
-switched off while sitting.
-
-### Stress
-
-Humans were designed for short term stress only (minutes).
+**The problem with supplements:** B12 cyanocobalamin isn't the real B12 but a cheap synthetic form,
+dosage while production often goes wrong and unexplored substances from food are missing. Of course
+it might make sense to use some supplements if you can't get enough from food. But in general food
+is the more natural (better) source (as long as it is free from substances like pesticides).
 
 ### Long term goal
 
@@ -72,12 +60,12 @@ while cooking and counts the nutrients. Do you want that? )
 Project state
 ----------------------------------------------------------
 
-In use on a daily basis as a single user app since months, but it is still in development...
+I use it on a daily basis since months, but it is still in development...
 
 **Limitations**
 
 Currently I am saving time for different projects by skipping features that I don't
-necessarily need as a single user.
+necessarily need.
 
 - All multi user function like login, session, settings ...
   - a simplified version is in development where you add a new user just by adding a file sys folder
@@ -109,7 +97,7 @@ necessarily need as a single user.
 Upcoming features
 ----------------------------------------------------------
 
-High prio first
+High priority first
 
 - [ ] food concept **(started)**
 - [ ] track all nutrients **(started)**
@@ -144,8 +132,8 @@ Full UI design see [UI design](misc/UI_Design.md)
 LICENSE
 ----------------------------------------------------------
 
-Copyright (C) Walter A. Jablonowski 2024, free for non-commercial users currently under AGPLv3 [License](https://choosealicense.com/licenses/agpl-3.0), \
-commercial licensees must support the development
+Copyright (C) Walter A. Jablonowski 2024, free for non-commercial users currently under AGPLv3 [License](https://choosealicense.com/licenses/agpl-3.0). \
+Commercial licensees must support the development first and get a proprietary license.
 
 This app is build upon PHP and free software (see [credits](credits.md)).
 

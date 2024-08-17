@@ -36,6 +36,18 @@
   <li>Use multiple brands</li>
 </ul>
 
+<b>Movement (sports)</b>
+
+<ul class="no-indent">
+  <li>Humans were designed for movement. Movement also activates sectors in the brain that are switched off while sitting.</li>
+</ul>
+
+<b>Stress</b>
+
+<ul class="no-indent">
+  <li>Humans were designed for short term stress only (minutes). Avoid whole day stress, do things stressless and take breaks.</li>
+</ul>
+
 <p class="small">
   <b>Disclaimer:</b> <?php require('misc/disclaimer.php') ?>
 </p>
