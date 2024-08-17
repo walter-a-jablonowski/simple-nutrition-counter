@@ -108,6 +108,14 @@ abstract class ControllerBase
 
   - doesn't work for bool or float keys
 
+  ```php
+
+  <?= self::iif( $price && $expensive, self::switch( settings::get('currency'), [
+    'EUR' => '<i class="bi bi-currency-euro small text-secondary"></i>',
+    'USD' => '<i class="bi bi-currency-dollar small text-secondary"></i>'
+  ])) ?>
+  ```
+
   */
   public static function switch( $value, $arr ) /*@*/
   {

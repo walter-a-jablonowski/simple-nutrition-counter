@@ -16,11 +16,11 @@ highIntake:                 # TASK: maybe move in nutrients
 
 defaultSettings:            # see also users > settings.yml
 
-  currency:  "EUR"          # currently EUR or USD
-  currencySymbol: "&euro;"
-  # currencySymbol: "<i class="bi bi-currency-euro small text-secondary"></i>"
-  cheap:     0.40           # per 100 g or ml
-  expensive: 0.80
+  currency:       "EUR"     # currently EUR or USD
+  currencySymbol: "&euro;"  # icon is a little nicer
+  currencyIcon:   "bi-currency-euro"  # bi-currency-dollar
+  cheap:          0.40      # per 100 g or ml
+  expensive:      0.80
 
   foods:
 
