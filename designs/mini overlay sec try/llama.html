@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tooltip Example</title>
+  <style>
+    .tooltip {
+      position: absolute;
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      z-index: 1;
+      font-size: 14px;
+    }
+
+    .tooltip::after {
+      content: '';
+      position: absolute;
+      border-width: 5px;
+      border-style: solid;
+    }
+
+    .tooltip-top::after {
+      border-color: #333 transparent transparent transparent;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .tooltip-bottom::after {
+      border-color: transparent transparent #333 transparent;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .tooltip-left::after {
+      border-color: transparent transparent transparent #333;
+      left: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .tooltip-right::after {
+      border-color: transparent #333 transparent transparent;
+      right: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  </style>
+</head>
+<body>
+  <button data-tippy-content="This is a tooltip" data-tippy-trigger="click" data-tippy-placement="top">Click me!</button>
+  <button data-tippy-content="This is another tooltip" data-tippy-trigger="hover" data-tippy-placement="right">Hover over me!</button>
+  <button data-tippy-content="This is a bottom tooltip" data-tippy-trigger="click" data-tippy-placement="bottom">Click me for bottom tooltip!</button>
+  <button data-tippy-content="This is a left tooltip" data-tippy-trigger="hover" data-tippy-placement="left">Hover over me for left tooltip!</button>
+
+  <script>
+    class Tooltip {
+      constructor(element) {
+        this.element = element;
+        this.content = element.getAttribute('data-tippy-content');
+        this.trigger = element.getAttribute('data-tippy-trigger') || 'click';
+        this.placement = element.getAttribute('data-tippy-placement') || 'top';
+
+        this.tooltipElement = document.createElement('div');
+        this.tooltipElement.classList.add('tooltip');
+        this.tooltipElement.innerHTML = this.content;
+
+        this.element.addEventListener(this.trigger === 'click' ? 'click' : 'mouseover', this.showTooltip.bind(this));
+        if (this.trigger === 'hover') {
+          this.element.addEventListener('mouseout', this.hideTooltip.bind(this));
+        }
+      }
+
+      showTooltip(event) {
+        event.preventDefault();
+        this.tooltipElement.classList.add(`tooltip-${this.placement}`);
+        document.body.appendChild(this.tooltipElement);
+        this.positionTooltip();
+      }
+
+      hideTooltip() {
+        this.tooltipElement.remove();
+      }
+
+      positionTooltip() {
+        const rect = this.element.getBoundingClientRect();
+        const tooltipRect = this.tooltipElement.getBoundingClientRect();
+        let x, y;
+
+        switch (this.placement) {
+          case 'top':
+            x = rect.left + (rect.width / 2) - (tooltipRect.width / 2);
+            y = rect.top - tooltipRect.height;
+            break;
+          case 'bottom':
+            x = rect.left + (rect.width / 2) - (tooltipRect.width / 2);
+            y = rect.top + rect.height;
+            break;
+          case 'left':
+            x = rect.left - tooltipRect.width;
+            y = rect.top + (rect.height / 2) - (tooltipRect.height / 2);
+            break;
+          case 'right':
+            x = rect.left + rect.width;
+            y = rect.top + (rect.height / 2) - (tooltipRect.height / 2);
+            break;
+        }
+
+        this.tooltipElement.style.left = `${x}px`;
+        this.tooltipElement.style.top = `${y}px`;
+      }
+    }
+
+    // Initialize tooltips
+    document.addEventListener('DOMContentLoaded', () => {
+      const elements = document.querySelectorAll('[data-tippy-content]');
+      elements.forEach((element) => new Tooltip(element));
+    });
+  </script>
+</body>
+</html>

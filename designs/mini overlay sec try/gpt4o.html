@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Tooltip</title>
+  <style>
+    .tooltip {
+      position: absolute;
+      padding: 5px 10px;
+      background-color: #333;
+      color: #fff;
+      border-radius: 4px;
+      font-size: 14px;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+    }
+    .tooltip.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  </style>
+</head>
+<body>
+  <button data-tooltip="Hello, I'm a tooltip!" data-trigger="hover" data-placement="top">Hover over me</button>
+  <button data-tooltip="Click me to see a tooltip!" data-trigger="click" data-placement="bottom">Click me</button>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const createTooltip = (el) => {
+        const tooltip = document.createElement('div');
+        tooltip.className = 'tooltip';
+        tooltip.textContent = el.getAttribute('data-tooltip');
+        document.body.appendChild(tooltip);
+        return tooltip;
+      };
+
+      const showTooltip = (el, tooltip) => {
+        const placement = el.getAttribute('data-placement') || 'top';
+        const rect = el.getBoundingClientRect();
+        const tooltipRect = tooltip.getBoundingClientRect();
+        
+        let top = 0, left = 0;
+        
+        switch (placement) {
+          case 'top':
+            top = rect.top - tooltipRect.height - 5;
+            left = rect.left + (rect.width - tooltipRect.width) / 2;
+            break;
+          case 'bottom':
+            top = rect.bottom + 5;
+            left = rect.left + (rect.width - tooltipRect.width) / 2;
+            break;
+          case 'left':
+            top = rect.top + (rect.height - tooltipRect.height) / 2;
+            left = rect.left - tooltipRect.width - 5;
+            break;
+          case 'right':
+            top = rect.top + (rect.height - tooltipRect.height) / 2;
+            left = rect.right + 5;
+            break;
+        }
+        
+        tooltip.style.top = `${top}px`;
+        tooltip.style.left = `${left}px`;
+        tooltip.classList.add('show');
+      };
+
+      const hideTooltip = (tooltip) => {
+        tooltip.classList.remove('show');
+        setTimeout(() => {
+          tooltip.remove();
+        }, 200);
+      };
+
+      document.querySelectorAll('[data-tooltip]').forEach(el => {
+        const trigger = el.getAttribute('data-trigger') || 'click';
+        let tooltip;
+
+        if (trigger.includes('click')) {
+          el.addEventListener('click', () => {
+            if (tooltip && tooltip.classList.contains('show')) {
+              hideTooltip(tooltip);
+            } else {
+              tooltip = createTooltip(el);
+              showTooltip(el, tooltip);
+            }
+          });
+
+          document.addEventListener('click', (e) => {
+            if (tooltip && !el.contains(e.target)) {
+              hideTooltip(tooltip);
+            }
+          });
+        }
+
+        if (trigger.includes('hover')) {
+          el.addEventListener('mouseenter', () => {
+            tooltip = createTooltip(el);
+            showTooltip(el, tooltip);
+          });
+
+          el.addEventListener('mouseleave', () => {
+            hideTooltip(tooltip);
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

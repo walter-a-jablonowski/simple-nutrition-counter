@@ -1,6 +1,6 @@
 <!--
 
-AI: Now make a second control: Replacement for bootstrap popover that works exactly like the overlay and can be used in the overlay (or anywhere else). Provide a sample that includes the code just generated and adds the new popover replacement in the overlay. Add a placement option with values left, right, top, bottom as data attribute.
+AI: Now make a second control: Replacement for BS popover that works exactly like the overlay and can be used in the overlay (or anywhere else). Provide a sample that includes the code just generated and adds the new popover replacement in the overlay. Add a placement option with values left, right, top, bottom as data attribute.
 
 --><!DOCTYPE html>
 <html lang="en">
@@ -62,21 +62,21 @@ AI: Now make a second control: Replacement for bootstrap popover that works exac
 <div class="container mt-5">
   <h1>Custom Overlay and Popover Example</h1>
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Open Bootstrap Modal
+    Open BS Modal
   </button>
 </div>
 
-<!-- Bootstrap Modal -->
+<!-- BS Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Bootstrap Modal</h5>
+        <h5 class="modal-title" id="exampleModalLabel">BS Modal</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p>This is a Bootstrap modal. Click the button below to open the custom overlay.</p>
-        <button class="btn btn-secondary" data-custom-overlay data-title="Custom Overlay" data-content="This overlay appears above the Bootstrap modal.">
+        <p>This is a BS modal. Click the button below to open the custom overlay.</p>
+        <button class="btn btn-secondary" data-custom-overlay data-title="Custom Overlay" data-content="This overlay appears above the BS modal.">
           Open Custom Overlay
         </button>
       </div>
@@ -92,7 +92,7 @@ AI: Now make a second control: Replacement for bootstrap popover that works exac
     <button class="btn btn-info" data-custom-popover data-placement="top" data-title="Popover Title" data-content="This is a custom popover inside the overlay.">
       Show Popover (Top)
     </button>
-    <button class="btn btn-info" data-custom-popover data-placement="right" data-title="Another Popover" data-content="This popover is placed on the right.">
+    <button class="btn btn-info" data-custom-popover data-placement="right" data-title="Popover 2" data-content="This popover is placed on the right.">
       Show Popover (Right)
     </button>
   </div>
