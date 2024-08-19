@@ -14,6 +14,8 @@ portrait like smartphone below
 
 ```
  --------------------------------------------------------
+| ( ) User v                               [-1day] (i) * |  CURRENTLY: keep above even if below more easy on
+|--------------------------------------------------------|    smartphone with one hand because people are more used to this (see menu below)
 | Day list         | Goals (quick summary)             v |  maybe foldable
 |                  |-------------------------------------|
 |                  | (Food) (Suppl) ...                  |  maybe use a tab
@@ -23,12 +25,10 @@ portrait like smartphone below
 |                  |                 |                   |
 |                  |                 |                   |
 |                  |                 |                   |
-|                  |                 |                   |
-|                  |                 |                   |
+|                  |                 |              _    |
+|                  |                 |             \ /   |  Circular menu for easy one hand acces on smartphone
 |                  | [Add food|v] ...                    |  maybe use some split btn save space
-|--------------------------------------------------------|    [Food] [Suppl] [On the go] [Fin] [Haush] [Misc]
-| ( ) User This day v                      [-1day] (i) * |
- --------------------------------------------------------
+ --------------------------------------------------------     [Food] [Suppl] [On the go] [Fin] [Haush] [Misc]
 ```
 
 alternative menue
@@ -52,6 +52,8 @@ Smartphone (portrait)
 no landscape version
 
 ```
+ ---------------------   
+| ( ) User v    (i) * |
  ---------------------
 | Day list          v |
 |                     |
@@ -64,10 +66,8 @@ no landscape version
 |---------------------|
 | [ Add food ]        |  simple: just the list and scroll entries
 |  ...                |  better: btn only and open food list in modal (space for day list)
-|                     |
-|                     |  
- ---------------------   
-| ( ) This v    (i) * |
+|                  _  |
+|                 \ / |  
  ---------------------
 ```
 
