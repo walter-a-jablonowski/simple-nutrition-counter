@@ -34,7 +34,7 @@ else:
         <!-- Multiple days version -->
 <!--
         <div class="d-flex justify-content-center align-items-center">
-          <button onclick="mainCrl.lasrDayBtnClick(event)" class="btn btn-primary mx-2">&lt;</button>
+          <button onclick="mainCrl.lastDayBtnClick(event)" class="btn btn-primary mx-2">&lt;</button>
           <div id="dateDisplay" class="mx-2">2024-04-18</div>
           <button onclick="mainCrl.lastDayBtnClick(event)" class="btn btn-primary mx-2">&gt;</button>
         </div>
