@@ -1,6 +1,6 @@
 body {
-  /* padding-top: 76px; */  /* Adjust based on your top navbar height */
-  padding-bottom: 70px;     /* Adjust based on your tab bar height */
+  padding-top: 76px;           /* Adjust based on your top navbar height */
+  /* padding-bottom: 70px; */  /* Adjust based on your tab bar height */
 }
 
 @media (max-width: 767.98px) and (orientation: landscape) {
