@@ -25,32 +25,3 @@ body {
     height: 100%;
   }
 }
-
-/*
-
-.tabbar {
-  position:   fixed;
-  bottom:     0;
-  left:       0;
-  right:      0;
-  background-color: #f8f9fa;
-  border-top: 1px solid #dee2e6;
-  padding:    10px 0;
-}
-
-.tabbar .nav-link {
-  text-align: center;
-  color: #6c757d;
-}
-
-.tabbar .nav-link.active {
-  color: #0d6efd;
-}
-
-.tabbar .nav-link i {
-  display: block;
-  font-size: 1.5rem;
-  margin-bottom: 5px;
-}
-
-*/
