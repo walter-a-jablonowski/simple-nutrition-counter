@@ -78,17 +78,17 @@ $return['done'] = [];
     ?>                             
       <div class="food-item row" style="background-color: <?= $accepColor ?>;">  <!-- must be 2 here cause headline has inner padding -->
         <div class = "col-6 p-1 px-2"
-              data-bs-toggle = "modal"
-              data-bs-target = "#infoModal"
-              data-title     = "#<?= $foodId ?>Headline"
-              data-source    = "#<?= $foodId ?>Data"
+             data-bs-toggle = "modal"
+             data-bs-target = "#infoModal"
+             data-title     = "#<?= $foodId ?>Headline"
+             data-source    = "#<?= $foodId ?>Data"
         >
           <?= $foodName ?>
           <?= self::iif( $showInfo, '<i class="bi bi-info-circle-fill"></i>') ?>
           <?= self::iif( $price && $cheap, '<i class="bi bi-currency-exchange small text-secondary"></i>') ?>
           <!-- < ?= self::iif( $price && $expensive, settings::get('currencySymbol')) ?> -->
           <?= self::iif( $price && $expensive, '<i class="bi ' . settings::get('currencyIcon') . ' small text-secondary"></i>') ?>
-        </div>
+          </div>
         <div id="<?= $foodId ?>Headline" class="d-none">
           <?php
 
