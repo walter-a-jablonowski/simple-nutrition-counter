@@ -19,7 +19,19 @@
       transition: width 0.3s ease;
       overflow: hidden;
       z-index: 1000;
+      /* expand on click */
+      width: 60px;
+      transition: width 0.3s ease;
     }
+    /* expand on click */
+    #custom-navbar.expanded {
+      width: 200px;
+    }
+    /* expand on click */
+    #custom-navbar.expanded .nav-link span {
+      opacity: 1;
+    }
+    /* expand on hover */
     #custom-navbar:hover {
       width: 200px;
     }
@@ -42,14 +54,15 @@
       opacity: 0;
       transition: opacity 0.3s ease;
     }
+    /* expand on hover */
     #custom-navbar:hover .nav-link span {
       opacity: 1;
     }
     #app-name {
       position: absolute;
       bottom: 20px;
-      left: 30px; /* Changed from left: 50% */
-      transform: rotate(-90deg); /* Removed translateX(-50%) */
+      left: 30px;
+      transform: rotate(-90deg);
       transform-origin: left center;
       white-space: nowrap;
       color: #fff;
@@ -86,6 +99,11 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('custom-navbar').addEventListener('click', function(e) {
+      this.classList.toggle('expanded')
+    })
+  </script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 </body>
 </html>
