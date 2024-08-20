@@ -115,7 +115,7 @@ Full UI design see [UI design](misc/UI_Design.md)
 
 <table>
   <tr>
-    <td>App layout</td>
+    <td>New app layout</td>
     <td>Improved list design</td>
   </tr>
   <tr>
