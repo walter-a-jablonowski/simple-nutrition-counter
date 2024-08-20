@@ -72,7 +72,9 @@
 </head>
 <body>
   <nav id="custom-navbar" class="d-flex flex-column">
-    <ul class="nav flex-column mt-4">
+    <!-- <ul class="nav flex-column mt-4"> -->
+    <ul class="nav flex-column mt-4 h-100 d-flex flex-column justify-content-between">
+      <!-- above icons -->
       <li class="nav-item">
         <a class="nav-link" href="#">
           <i class="bi bi-calendar-day"></i><span>This day</span>
@@ -88,28 +90,32 @@
           <i class="bi bi-calendar-range"></i><span>Last days</span>
         </a>
       </li>
-      <li class="nav-item">  <!-- TASK: add some space (middle ?) -->
-        <a class="nav-link" href="#">
-          <i class="bi bi-person"></i><span>[ Chg user ]</span>
-        </a>
-      </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
-          <button onclick="" data-sel="current" class="btn btn-sm ms-1 mb-1 text-white p-1 py-0 border-light">
-            Tu 20.
-          </button>
-        </a>
-      </li>
-      <li class="nav-item">  <!-- TASK: add some space (below ?) -->
         <a class="nav-link" href="#">
           <i class="bi bi-info-circle"></i><span>Info</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="bi bi-gear"></i><span>Settings</span>
-        </a>
-      </li>
+      <!-- we could also have sth in middle pos -->
+      <!-- wrapper for align below (suggested by Claude) -->
+      <div class="mt-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <button onclick="" data-sel="current" class="btn btn-sm ms-1 mb-1 text-white p-1 py-0 border-light">
+              Tu 20.
+            </button>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="bi bi-person"></i><span>[ Chg user ]</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="bi bi-gear"></i><span>Settings</span>
+          </a>
+        </li>
+      </div>
     </ul>
     <!-- TASK: use or icons only ? -->
 <!--
