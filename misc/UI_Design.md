@@ -1,10 +1,26 @@
 
 Overview
 
+- [Usability concept](#usability-concept)
 - [PC, Tablet wide screen](#pc-tablet-wide-screen)
 - [Smartphone (portrait)](#smartphone-portrait)
 - [Grid structure food page](#grid-structure-food-page)
 - [AI](#ai)
+
+
+Usability concept MOV
+----------------------------------------------------------
+
+- menu entries low use ~5 times per day
+  - no menu bar at all, round hover btn lower right (or left for left handed, configurable)
+  - one click more per menu use, but more space for app content
+- menu entries freq used: add bar (one click less, consume some space in favor of less clicks)
+  - top bar: users are more used to
+  - bottom bar more usable on smartphone one handed (nu users may difficulties understand this)
+- information that should always be visible
+  - use a menu bar (more like a status bar)
+  - combine with menu
+- app name: obsolete
 
 
 PC, Tablet wide screen
