@@ -55,19 +55,19 @@ no landscape version
  ---------------------   
 | ( ) User v    (i) * |
  ---------------------
-| Day list          v |
+| Day list          v |  day list and goals full height
 |                     |
 |                     |
 |                     |
 |                     |  
 |                     |
+|                     |  
 |---------------------|
 | Goals             v |  maybe foldable (expand up)
+|                     |
 |---------------------|
-| [ Add food ]        |  simple: just the list and scroll entries
-|  ...                |  better: btn only and open food list in modal (space for day list)
-|                  _  |
-|                 \ / |  
+| [ Add food ]     _  |  simple: just the list and scroll entries
+|  ...            \ / |  better: btn only and open food list in modal (space for day list)
  ---------------------
 ```
 
