@@ -133,7 +133,7 @@ LICENSE
 ----------------------------------------------------------
 
 Copyright (C) Walter A. Jablonowski 2024, free for non-commercial users currently under AGPLv3 [License](https://choosealicense.com/licenses/agpl-3.0). \
-Commercial licensees must support the development first and get a proprietary license.
+In the unlikely event that a company can find my project: Contact me for a license.
 
 This app is build upon PHP and free software (see [credits](credits.md)).
 
