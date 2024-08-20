@@ -31,7 +31,7 @@
     #custom-navbar.expanded .nav-link span {
       opacity: 1;
     }
-    /* expand on hover */
+    /* expand on hover (remove for click only) */
     #custom-navbar:hover {
       width: 200px;
     }
@@ -54,7 +54,7 @@
       opacity: 0;
       transition: opacity 0.3s ease;
     }
-    /* expand on hover */
+    /* expand on hover (remove for click only) */
     #custom-navbar:hover .nav-link span {
       opacity: 1;
     }
@@ -100,8 +100,19 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    document.getElementById('custom-navbar').addEventListener('click', function(e) {
+
+    const navbar = document.getElementById('custom-navbar')
+    
+    navbar.addEventListener('click', function(e) {
+      e.stopPropagation()  // prevent this click from being caught by the document listener
       this.classList.toggle('expanded')
+    })
+
+    // Close the navbar when clicking outside
+
+    document.addEventListener('click', function(e) {
+      if( ! navbar.contains(e.target) && navbar.classList.contains('expanded'))
+        navbar.classList.remove('expanded')
     })
   </script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
