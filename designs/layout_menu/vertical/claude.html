@@ -1,91 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Vertical Navbar</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            overflow-x: hidden;
-        }
-        #custom-navbar {
-            position: fixed;
-            top: 0;
-            right: 0;
-            height: 100vh;
-            width: 60px;
-            background-color: #343a40;
-            transition: width 0.3s ease;
-            overflow: hidden;
-            z-index: 1000;
-        }
-        #custom-navbar:hover {
-            width: 200px;
-        }
-        .nav-item {
-            white-space: nowrap;
-            overflow: hidden;
-        }
-        .nav-link {
-            display: flex;
-            align-items: center;
-            color: #fff;
-            padding: 10px 15px;
-        }
-        .nav-link i {
-            width: 30px;
-            text-align: center;
-        }
-        .nav-link span {
-            margin-left: 10px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        #custom-navbar:hover .nav-link span {
-            opacity: 1;
-        }
-        #app-name {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%) rotate(-90deg);
-            transform-origin: left center;
-            white-space: nowrap;
-            color: #fff;
-            font-size: 1.2rem;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vertical Navbar</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      overflow-x: hidden;
+    }
+    #custom-navbar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      width: 60px;
+      background-color: #343a40;
+      transition: width 0.3s ease;
+      overflow: hidden;
+      z-index: 1000;
+    }
+    #custom-navbar:hover {
+      width: 200px;
+    }
+    .nav-item {
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .nav-link {
+      display: flex;
+      align-items: center;
+      color: #fff;
+      padding: 10px 15px;
+    }
+    .nav-link i {
+      width: 30px;
+      text-align: center;
+    }
+    .nav-link span {
+      margin-left: 10px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    #custom-navbar:hover .nav-link span {
+      opacity: 1;
+    }
+    #app-name {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-90deg);
+      transform-origin: left center;
+      white-space: nowrap;
+      color: #fff;
+      font-size: 1.2rem;
+    }
+  </style>
 </head>
 <body>
-    <nav id="custom-navbar" class="d-flex flex-column">
-        <ul class="nav flex-column mt-4">
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="bi bi-house"></i><span>Home</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="bi bi-person"></i><span>Profile</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="bi bi-gear"></i><span>Settings</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="bi bi-question-circle"></i><span>Help</span></a>
-            </li>
-        </ul>
-        <div id="app-name">My App</div>
-    </nav>
+  <nav id="custom-navbar" class="d-flex flex-column">
+    <ul class="nav flex-column mt-4">
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="bi bi-house"></i><span>Home</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="bi bi-person"></i><span>Profile</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="bi bi-gear"></i><span>Settings</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="bi bi-question-circle"></i><span>Help</span></a>
+      </li>
+    </ul>
+    <div id="app-name">My App</div>
+  </nav>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 p-4">
-                <h1>Welcome to My App</h1>
-                <p>This is the main content area. The custom navbar is on the right side of the screen.</p>
-            </div>
-        </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 p-4">
+        <h1>Welcome to My App</h1>
+        <p>This is the main content area. The custom navbar is on the right side of the screen.</p>
+      </div>
     </div>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 </body>
 </html>
