@@ -14,7 +14,7 @@ Use scandir() for reading the files and indent all lines with 2 spaces.
 
 */
 
-$dir = '../src/data/users/Walter';
+$dir = '../../src/data/users/Walter';
 
 foreach( scandir($dir) as $file)
 {
