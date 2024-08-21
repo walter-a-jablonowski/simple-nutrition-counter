@@ -77,9 +77,22 @@ class AppController extends ControllerBase
 
     $this->dayEntriesTxt = trim( @file_get_contents('data/users/' . $config->get('defaultUser') . "/days/{$this->date}.tsv") ?: '', "\n");
     $this->dayEntries    = parse_tsv( $this->dayEntriesTxt );
+    
+    // TASK: types upgrade (use $foodEntries in HTML, modify adding new entries: type just hard coded)
+    // $this->foodEntries = [];
 
     foreach( $this->dayEntries as $idx => $entry)
+    // foreach( $this->dayEntries as $idx => &$entry)
+    {
       $this->dayEntries[$idx][7] = Yaml::parse( $this->dayEntries[$idx][7] );
+/*
+      $entry[7] = Yaml::parse( $entry[7] );
+      
+      if( strpos( $entry[0], 'F') !== false )
+        $this->foodEntries[] = array_slice($entry, 0);  // ai says function ensures byval
+        // $this->foodEntries[] = [...$entry];          // or
+*/
+    }
 
     // Edit tab: Food list
 

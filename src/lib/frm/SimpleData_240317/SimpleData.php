@@ -72,7 +72,7 @@ class SimpleData /*@*/
       $r = &$r[$key];
     }
 
-    $return = $r;  // remove the reference byval
+    $return = $r;  // remove the reference byval  // TASK: verify really is byval
 
     // Replace feature
 
