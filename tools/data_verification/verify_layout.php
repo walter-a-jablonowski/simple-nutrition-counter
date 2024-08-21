@@ -1,6 +1,6 @@
 <?php
 
-chdir('../src');
+chdir('../../src');
 
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Yaml\Exception\ParseException;
