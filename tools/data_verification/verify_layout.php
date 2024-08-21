@@ -9,7 +9,7 @@ require_once 'vendor/autoload.php';
 
 
 # TASK: layout was modified (added list key)
-# this maybe stll can be used cause can show more than Misc foods group?
+# this maybe still can be used cause can show more than Misc foods group?
 
 // TASK: AI suggests "layout.yml might contain duplicate entries under different categories"
 
