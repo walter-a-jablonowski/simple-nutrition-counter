@@ -326,7 +326,7 @@ class MainController
 
   offLimitCheckChange(event)
   {
-    query('.nutrients-entry').forEach( entry => {
+    query('#nutrientsList .nutrients-entry').forEach( entry => {
 
       const current = parseFloat(entry.dataset.current)
       const lower   = parseFloat(entry.dataset.lower)
