@@ -3,7 +3,7 @@
   <ul class="list-group mt-3">
     <li class="list-group-item px-2 py-1 small">
       <div class="form-check">
-        <input id="offLimitCheck" type="checkbox" value="" class="form-check-input">
+        <input id="offLimitCheck" onchange="mainCrl.offLimitCheckChange(event)" type="checkbox" value="" class="form-check-input">
         <label class="form-check-label small" for="offLimitCheck">
           off limit only
         </label>
@@ -12,7 +12,7 @@
   </ul>
 <?php endif; ?>
 
-<div class="scrollable-list border-0 mt-3">
+<div id="nutrientsList" class="scrollable-list border-0 mt-3">
 
   <!-- TASK: collapse or expand all btn -->
 
@@ -38,6 +38,7 @@
                data-lower = "<?= $data['lower'] ?>"
                data-ideal = "<?= $data['ideal'] ?>"
                data-upper = "<?= $data['upper'] ?>"
+               data-current = "0"
           >
             <div class="d-flex justify-content-between">  <!-- align-items-center justify-content-center -->
               <span><?= $data['name'] ?></span>

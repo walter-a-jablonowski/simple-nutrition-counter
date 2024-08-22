@@ -290,10 +290,10 @@ class MainController
 
   foodItemClick(event)
   {
-    let target    = event.target
-    let food      = target.dataset.food
-    let calories  = target.dataset.calories
-    let price     = target.dataset.price
+    let target   = event.target
+    let food     = target.dataset.food
+    let calories = target.dataset.calories
+    let price    = target.dataset.price
 
     let nutritionalValues = JSON.parse(target.dataset.nutritionalvalues)
 
@@ -301,13 +301,13 @@ class MainController
     // console.log( queryData('.food-item ...', ['food']))
 
     let entry = {
-      food:      food,  // TASK: rename
-      calories:  calories,
-      fat:       nutritionalValues.fat,
-      carbs:     nutritionalValues.carbs,
-      amino:     nutritionalValues.amino,
-      salt:      nutritionalValues.salt,
-      price:     price,
+      food:     food,  // TASK: rename
+      calories: calories,
+      fat:      nutritionalValues.fat,
+      carbs:    nutritionalValues.carbs,
+      amino:    nutritionalValues.amino,
+      salt:     nutritionalValues.salt,
+      price:    price,
       nutrients: {
         fibre: JSON.parse( nutritionalValues.fibre || 0 ),  // TASK: or only add when set (see updSummary() for sum only if available)
         fat:   JSON.parse( target.dataset.fattyacids ),
@@ -319,6 +319,24 @@ class MainController
     }
 
     this.#addDayEntry( entry )
+  }
+
+
+  // TASK: try this
+
+  offLimitCheckChange(event)
+  {
+    query('.nutrients-entry').forEach( entry => {
+
+      const current = parseFloat(entry.dataset.current)
+      const lower   = parseFloat(entry.dataset.lower)
+      const upper   = parseFloat(entry.dataset.upper)
+      
+      if( this.checked && (current < lower || current > upper))
+        entry.style.display = 'none'
+      else
+        entry.style.display = ''
+    })
   }
 
 
@@ -405,24 +423,23 @@ class MainController
       const group = entry.dataset.group
       const short = entry.dataset.short
       const currentSum = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.nutrients[group]?.[short] ?? 0), 0).toFixed(1))
-    
+
+      entry.dataset.current = currentSum
+
       let percentage = Math.min( (currentSum / entry.dataset.ideal) * 100, 100)  // min: ensure it doesn't exceed 100%
 
-      // TASK:
-// /*      
       let progressBarColor = 'bg-secondary'
 
       if( currentSum >= entry.dataset.lower && currentSum <= entry.dataset.upper )
         progressBarColor = 'bg-success'
       else
         progressBarColor = 'bg-danger'
-// */
+
       entry.find('.progress-bar').style.width   = `${percentage}%`
       entry.find('.progress-label').textContent = `${currentSum} / ${entry.dataset.ideal}`
-// /*      
+
       entry.find('.progress-bar').classList.remove('bg-secondary', 'bg-success', 'bg-danger')
       entry.find('.progress-bar').classList.add(progressBarColor)
-// */
     }
   }
 
