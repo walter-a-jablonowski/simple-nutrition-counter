@@ -12,6 +12,7 @@ class MainController
     // this.thisDayBtnClick     = this.thisDayBtnClick.bind(this)
     this.saveDayEntriesBtnClick = this.saveDayEntriesBtnClick.bind(this)
     this.foodItemClick          = this.foodItemClick.bind(this)
+    this.offLimitCheckChange    = this.offLimitCheckChange.bind(this)
     this.updSummary             = this.updSummary.bind(this)
     // this.#saveDayEntries     = this.#saveDayEntries.bind(this)  // TASK: can't be done
 
@@ -322,8 +323,6 @@ class MainController
   }
 
 
-  // TASK: try this
-
   offLimitCheckChange(event)
   {
     query('#nutrientsList .nutrients-entry').forEach( entry => {
@@ -332,10 +331,15 @@ class MainController
       const lower   = parseFloat(entry.dataset.lower)
       const upper   = parseFloat(entry.dataset.upper)
       
-      if( this.checked && (current < lower || current > upper))
-        entry.style.display = 'none'
+      if( event.target.checked )
+      {
+        if( current < lower || current > upper )
+          entry.style.display = 'block'
+        else
+          entry.style.display = 'none'
+      }
       else
-        entry.style.display = ''
+        entry.style.display = 'block'
     })
   }
 
