@@ -261,6 +261,7 @@ class MainController
       entry.fibre = fibreInp.value.trim()
 
     entry = {
+      type:     'F',
       food:     entry.food,
       // multiplying by 10 and then dividing by 10: This is a common technique to round to a specific number of decimal places—in this case, one decimal place
       calories:  Math.round( entry.calories * (usedWeight / 100) * 10) / 10,  // 10 is one decimal place
@@ -302,6 +303,7 @@ class MainController
     // console.log( queryData('.food-item ...', ['food']))
 
     let entry = {
+      type:     'F',
       food:     food,  // TASK: rename
       calories: calories,
       fat:      nutritionalValues.fat,
@@ -375,7 +377,8 @@ class MainController
       let saltPadding     = ' '.repeat( maxSaltLength     - String(entry.salt).length + 2)
       let pricePadding    = ' '.repeat( maxPriceLength    - String(entry.price).length + 2)
 
-      return `${entry.food}${foodPadding}${entry.calories}${caloriesPadding}${entry.fat}${fatPadding}${entry.carbs}${carbsPadding}${entry.amino}${aminoPadding}${entry.salt}${saltPadding}${entry.price}${pricePadding}`
+      // return `${entry.food}${foodPadding}${entry.calories}${caloriesPadding}${entry.fat}${fatPadding}${entry.carbs}${carbsPadding}${entry.amino}${aminoPadding}${entry.salt}${saltPadding}${entry.price}${pricePadding}`
+      return `${entry.type}  ${entry.food}${foodPadding}${entry.calories}${caloriesPadding}${entry.fat}${fatPadding}${entry.carbs}${carbsPadding}${entry.amino}${aminoPadding}${entry.salt}${saltPadding}${entry.price}${pricePadding}`
              + YAMLish.dump( entry.nutrients )
 
     }).join('\n')

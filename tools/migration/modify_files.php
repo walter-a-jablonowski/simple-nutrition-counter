@@ -16,9 +16,9 @@ Use scandir() for reading the files and indent all lines with 2 spaces.
 
 */
 
-$dir = 'data/users/Walter';
+$dir = 'data/users/JaneDoe@example.com-24080101000000/days';
 
-foreach( scandir($dir) as $file)
+foreach( scandir($dir) as $file )
 {
   if( pathinfo($file, PATHINFO_EXTENSION) !== 'tsv')
     continue;

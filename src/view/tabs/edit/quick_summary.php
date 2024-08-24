@@ -3,7 +3,6 @@
   use Symfony\Component\Yaml\Yaml;
   use Symfony\Component\Yaml\Exception\ParseException;
 
-  // $a = Yaml::parse( file_get_contents('data/bundles/Default_JaneDoe@example.com-24080101000000/-this.yml'));
   $a = Yaml::parse( file_get_contents('data/bundles/Default_' . User::current('id') . '/-this.yml'));
 
 ?>

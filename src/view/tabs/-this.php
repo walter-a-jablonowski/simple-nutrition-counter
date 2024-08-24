@@ -29,17 +29,17 @@
 <div class="tab-content mt-2">
   <div id="dayPane" class="tab-pane fade show active" role="tabpanel">
 
-    <?php require( __DIR__ . '/edit/-this.php') ?>
+    <?php require( __DIR__ . '/edit/-this.php'); ?>
 
   </div>
   <div id="nutrientsPane" class="tab-pane fade" role="tabpanel">
 
-    <?php require( __DIR__ . '/nutrients.php') ?>
+    <?php require( __DIR__ . '/nutrients.php'); ?>
 
   </div>
   <div id="lastDaysPane" class="tab-pane fade" role="tabpanel">
 
-    <?php require( __DIR__ . '/last_days.php') ?>
+    <?php require( __DIR__ . '/last_days.php'); ?>
 
   </div>
 </div>

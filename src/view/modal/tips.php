@@ -123,7 +123,7 @@ use Symfony\Component\Yaml\Exception\ParseException;
             </table>
 
             <p id="disclaimer" class="mt-3 small">
-              <b>Disclaimer:</b> <?php require('misc/disclaimer.php') ?>
+              <b>Disclaimer:</b> <?php require('misc/disclaimer.php'); ?>
             </p>
 
           </div>
@@ -143,12 +143,12 @@ use Symfony\Component\Yaml\Exception\ParseException;
           </div>
           <div id="tipsAppPane" class="tab-pane fade" role="tabpanel">
 
-            <?php require('misc/tips_app.php') ?>
+            <?php require('misc/tips_app.php'); ?>
 
           </div>
           <div id="tipsMissionPane" class="tab-pane fade" role="tabpanel">
 
-            <?php require('misc/tips_mission.php') ?>
+            <?php require('misc/tips_mission.php'); ?>
 
           </div>
         </div>

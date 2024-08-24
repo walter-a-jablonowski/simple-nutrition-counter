@@ -21,9 +21,9 @@
 <!--
 < ?php
 if( error ):  // TASK: also add class "ext" in body
-  require( __DIR__ . '/error_page.php')
+  require( __DIR__ . '/error_page.php');
 elseif( ! session_id() ):
-  require( __DIR__ . '/login.php')
+  require( __DIR__ . '/login.php');
 else:
 ?>
 -->
@@ -93,24 +93,24 @@ else:
 
   <div id="mainView" class="container-fluid mt-3" style="display: block;">  <!-- needed -->
 
-    <?php require( __DIR__ . '/tabs/-this.php') ?>
+    <?php require( __DIR__ . '/tabs/-this.php'); ?>
 
   </div>
 
   <div id="settingsView" class="container-fluid mt-3" style="display: none;">
 
-    <?php require( __DIR__ . '/settings.php') ?>
+    <?php require( __DIR__ . '/settings.php'); ?>
 
   </div>
 
-  <?php require( __DIR__ . '/modal/tips.php') ?>
-  <?php require( __DIR__ . '/modal/help.php') ?>
-  <?php require( __DIR__ . '/modal/about.php') ?>
-  <?php require( __DIR__ . '/modal/new_entry.php') ?>
-  <?php require( __DIR__ . '/modal/info.php') ?>
+  <?php print $this->inc( __DIR__ . '/modal/tips.php'); ?>  <!-- prefer new scope when much code -->
+  <?php require( __DIR__ . '/modal/help.php'); ?>
+  <?php require( __DIR__ . '/modal/about.php'); ?>
+  <?php require( __DIR__ . '/modal/new_entry.php'); ?>
+  <?php require( __DIR__ . '/modal/info.php'); ?>
 
   <div id="errorPage" style="display: none;">
-    <?php require( __DIR__ . '/error_page.php') ?>
+    <?php require( __DIR__ . '/error_page.php'); ?>
   </div>
 
   <?php if( config::get('devMode') ): ?>
@@ -147,7 +147,8 @@ ready( function() {
 
   dayEntries = [  // will be replaced by #code/advancedData
     <?php foreach( $this->dayEntries as $entry ): ?>
-      {food: '<?= $entry[0] ?>', calories: <?= $entry[1] ?>, fat: <?= $entry[2] ?>, carbs: <?= $entry[3] ?>, amino: <?= $entry[4] ?>, salt: <?= $entry[5] ?>, price: <?= $entry[6] ?>, nutrients: <?= ( ! $entry[7] ? '{}' : dump_json($entry[7])) ?>},
+      <?php $debug = 'halt'; ?>
+      {type: '<?= $entry[0] ?>', food: '<?= $entry[1] ?>', calories: <?= $entry[2] ?>, fat: <?= $entry[3] ?>, carbs: <?= $entry[4] ?>, amino: <?= $entry[5] ?>, salt: <?= $entry[6] ?>, price: <?= $entry[7] ?>, nutrients: <?= ( ! $entry[8] ? '{}' : dump_json($entry[8])) ?>},
     <?php endforeach; ?>
   ]
 

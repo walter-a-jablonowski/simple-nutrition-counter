@@ -78,21 +78,17 @@ class AppController extends ControllerBase
     $this->dayEntriesTxt = trim( @file_get_contents('data/users/' . $config->get('defaultUser') . "/days/{$this->date}.tsv") ?: '', "\n");
     $this->dayEntries    = parse_tsv( $this->dayEntriesTxt );
     
-    // TASK: types upgrade (use $foodEntries in HTML, modify adding new entries: type just hard coded)
-    // $this->foodEntries = [];
+    // TASK: types upgrade
 
-    foreach( $this->dayEntries as $idx => $entry)
-    // foreach( $this->dayEntries as $idx => &$entry)
-    {
-      $this->dayEntries[$idx][7] = Yaml::parse( $this->dayEntries[$idx][7] );
-/*
-      $entry[7] = Yaml::parse( $entry[7] );
-      
-      if( strpos( $entry[0], 'F') !== false )
-        $this->foodEntries[] = array_slice($entry, 0);  // ai says function ensures byval
-        // $this->foodEntries[] = [...$entry];          // or
-*/
-    }
+    // foreach( $this->dayEntries as $idx => $entry )  // TASK: mov some
+    //   $this->dayEntries[$idx][8] = Yaml::parse( $this->dayEntries[$idx][8] );
+
+    foreach( $this->dayEntries as $idx => &$entry )
+      $entry[8] = Yaml::parse( $entry[8] );
+      // $this->foodEntries[] = array_slice($entry, 1);  // ai says function ensures byval
+      // // $this->foodEntries[] = [...$entry];          // or
+
+    unset($entry);  // needed cause even in a second for loop PHP would access $entry byref (strange behavior)
 
     // Edit tab: Food list
 

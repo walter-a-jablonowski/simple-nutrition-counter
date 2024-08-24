@@ -9,4 +9,5 @@ try.php
 try.html
 debug.php
 src/data/users/JaneDoe@example.com-24080101000000/days/**.tsv
+src/data/users/JaneDoe@example.com-24080101000000/days_SAV.zip
 src/data/users/Walter/**

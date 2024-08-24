@@ -49,5 +49,5 @@
 </ul>
 
 <p class="small">
-  <b>Disclaimer:</b> <?php require('misc/disclaimer.php') ?>
+  <b>Disclaimer:</b> <?php require('misc/disclaimer.php'); ?>
 </p>
