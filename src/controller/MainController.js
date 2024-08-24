@@ -396,23 +396,22 @@ class MainController
   */
   updSummary() /*@*/
   {
-    // TASK: types upgr: food only, rpl below
-    // const foodEntries = dayEntries.filter( item => item.type === 'F' || item.type === 'FE')
+    const foodEntries = dayEntries.filter( entry => entry.type === 'F' || entry.type === 'FE')
 
     // Quick summary
 
-    let caloriesSum = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.calories), 0).toFixed(1))
-    let fatSum      = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.fat),      0).toFixed(1))
-    let aminoSum    = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.amino),    0).toFixed(1))
-    let carbsSum    = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.carbs),    0).toFixed(1))
+    let caloriesSum = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.calories), 0).toFixed(1))
+    let fatSum      = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.fat),      0).toFixed(1))
+    let aminoSum    = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.amino),    0).toFixed(1))
+    let carbsSum    = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.carbs),    0).toFixed(1))
 
-    // let fibreSum = Number( dayEntries.reduce((sum, entry) => {
+    // let fibreSum = Number( foodEntries.reduce((sum, entry) => {
     //   return sum + (entry.nutrients.fibre ? Number(entry.nutrients.fibre) : 0)  // only if set
     // }, 0).toFixed(1))
 
-    let fibreSum    = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.nutrients.fibre), 0).toFixed(1))
-    let saltSum     = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.salt),     0).toFixed(1))
-    let priceSum    = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.price),    0).toFixed(2))
+    let fibreSum    = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.nutrients.fibre), 0).toFixed(1))
+    let saltSum     = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.salt),     0).toFixed(1))
+    let priceSum    = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.price),    0).toFixed(2))
 
     query('#caloriesSum').textContent = caloriesSum
     query('#fatSum').textContent      = fatSum
@@ -429,10 +428,9 @@ class MainController
 
     for( const entry of nutrientEntries )
     {
-      // TASK: looks like dayEntries has short name
       const group = entry.dataset.group
       const short = entry.dataset.short
-      const currentSum = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.nutrients[group]?.[short] ?? 0), 0).toFixed(1))
+      const currentSum = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.nutrients[group]?.[short] ?? 0), 0).toFixed(1))
 
       entry.dataset.current = currentSum
 
