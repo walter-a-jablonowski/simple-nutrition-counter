@@ -102,7 +102,7 @@ else:
     <?php require( __DIR__ . '/settings.php'); ?>
 
   </div>
-
+  
   <?php print $this->inc( __DIR__ . '/modal/tips.php'); ?>  <!-- prefer new scope when much code -->
   <?php require( __DIR__ . '/modal/help.php'); ?>
   <?php require( __DIR__ . '/modal/about.php'); ?>

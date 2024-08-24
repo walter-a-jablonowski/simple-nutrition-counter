@@ -84,7 +84,7 @@ $return['done'] = [];
              data-source    = "#<?= $foodId ?>Data"
         >
           <?= $foodName ?>
-          <?= self::iif( $showInfo, '<i class="bi bi-info-circle-fill"></i>') ?>
+          <?= self::iif( $showInfo, '<i class="bi bi-info-circle-fill" style="color: orange;"></i>') ?>
           <?= self::iif( $price && $cheap, '<i class="bi bi-currency-exchange small text-secondary"></i>') ?>
           <!-- < ?= self::iif( $price && $expensive, settings::get('currencySymbol')) ?> -->
           <?= self::iif( $price && $expensive, '<i class="bi ' . settings::get('currencyIcon') . ' small text-secondary"></i>') ?>
