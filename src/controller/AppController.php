@@ -88,7 +88,8 @@ class AppController extends ControllerBase
       // $this->foodEntries[] = array_slice($entry, 1);  // ai says function ensures byval
       // // $this->foodEntries[] = [...$entry];          // or
 
-    unset($entry);  // needed cause even in a second for loop PHP would access $entry byref (strange behavior)
+    unset($entry);  // needed cause in a later `<?php foreach( $this->dayEntries as $entry ): ? >`
+                    // entry still exists as ref, which means the last entry gets replaced with the data of the first
 
     // Edit tab: Food list
 
