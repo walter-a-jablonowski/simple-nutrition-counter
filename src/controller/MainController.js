@@ -396,6 +396,9 @@ class MainController
   */
   updSummary() /*@*/
   {
+    // TASK: types upgr: food only, rpl below
+    // const foodEntries = dayEntries.filter( item => item.type === 'F' || item.type === 'FE')
+
     // Quick summary
 
     let caloriesSum = Number( dayEntries.reduce((sum, entry) => sum + Number(entry.calories), 0).toFixed(1))

@@ -78,9 +78,9 @@ class AppController extends ControllerBase
     $this->dayEntriesTxt = trim( @file_get_contents('data/users/' . $config->get('defaultUser') . "/days/{$this->date}.tsv") ?: '', "\n");
     $this->dayEntries    = parse_tsv( $this->dayEntriesTxt );
     
-    // TASK: types upgrade
+    // TASK: mov some
 
-    // foreach( $this->dayEntries as $idx => $entry )  // TASK: mov some
+    // foreach( $this->dayEntries as $idx => $entry )
     //   $this->dayEntries[$idx][8] = Yaml::parse( $this->dayEntries[$idx][8] );
 
     foreach( $this->dayEntries as $idx => &$entry )

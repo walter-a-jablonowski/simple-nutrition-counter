@@ -27,7 +27,7 @@ foreach( scandir($dir) as $file )
   $lines   = explode("\n", $content);
 
   $modifiedLines = array_map( function($line) {
-    return 'F  ' . $line;
+    return 'F   ' . $line;
   }, $lines);
 
   file_put_contents("$dir/$file", implode("\n", $modifiedLines));
