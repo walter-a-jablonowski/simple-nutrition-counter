@@ -43,12 +43,12 @@ or: like wide screen with only one col in food list
 |                  |                 |                   |
 |                  |                 |                   |
 |                  |                 |              _    |
-|                  |                 |             \ /   |  Circular menu for easy one hand acces on smartphone
+|                  |                 |             \ /   |  Circular menu for easy one hand access on smartphone
 |                  | [Add food|v] ...                    |  maybe use some split btn save space
  --------------------------------------------------------     [Food] [Suppl] [On the go] [Fin] [Haush] [Misc]
 ```
 
-alternative menue
+alternative menu
 
 ```
  --------------------------------------------------------
