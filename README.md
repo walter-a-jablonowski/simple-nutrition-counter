@@ -99,12 +99,13 @@ Upcoming features
 
 High priority first
 
-- [ ] food concept **(started)**
-- [ ] track all nutrients **(started)**
+- [ ] Food concept **(started)**
+- [ ] Track all nutrients **(started)**
 - usability
-  - [ ] readability on mobile
-- clean up: extend app structure, write classes, ...
-  - [ ] Code extensions like types per day entry
+  - [ ] Readability on mobile
+- Clean up: extend app structure, write classes, ...
+  - Code extensions
+    - [x] Types per day entry
   - [ ] Maybe: Basic error handling
 
 Beside that things like app layout or multi user functions might be done occasionally (less important).
