@@ -27,13 +27,14 @@ PC, Tablet wide screen
 ----------------------------------------------------------
 
 portrait like smartphone below
+or: like wide screen with only one col in food list
 
 ```
  --------------------------------------------------------
 | ( ) User v                               [-1day] (i) * |  CURRENTLY: keep above even if below more easy on
 |--------------------------------------------------------|    smartphone with one hand because people are more used to this (see menu below)
 | Day list         | Goals (quick summary)             v |  Day list might be shown for This day and Nutrients
-|                  |-------------------------------------|
+|                  |-------------------------------------|    third tab gets full width (modify content layout)
 |                  | (Food) (Suppl) ...                  |  maybe use a tab
 |                  |                 |                   |
 |                  | Food list       |                   |
