@@ -1427,11 +1427,11 @@ Gemüse R Bio:
 Green beans R:
 
   vendor:            Rewe
+  packaging:         glass,rubber
 
   price:             1.49
   weight:            330
-  usedAmounts:       ["1/4", "1/3", "1/2"]
-  packaging:         glass,rubber
+  usedAmounts:       ["1/8", "1/4", "1/3"]
 
   calories:          25
   nutritionalValues:
@@ -1447,6 +1447,32 @@ Green beans R:
   state:             most
   lastUpd:           2024-04-24
   lastPriceUpd:      2024-04-24
+
+Gr beans fein R:
+
+  vendor:            Rewe  # TASK: old prod img or wrong url (but only one)
+  url:               "https://shop.rewe.de/p/rewe-beste-wahl-gruene-bohnen-280g/371368?sv1=affiliate&sv_campaign_id=101248&awc=11652_1724611075_2312944b013c94e7e7028c2e9f9c171d&ecid=aff_awin_101248_takeads.com_0_nn_nn_nn_pm01&zanpid=11652_1724611075_2312944b013c94e7e7028c2e9f9c171d"
+  certificates:      { NutriScore: A }
+  packaging:         glass,rubber
+
+  price:             1.79
+  weight:            330
+  usedAmounts:       ["1/8", "1/4", "1/3"]
+
+  calories:          17
+  nutritionalValues:
+
+    fat:             0.4
+    saturatedFat:    0.1
+    carbs:           1.2
+    sugar:           1.2
+    amino:           1.1
+    salt:            0.7
+
+  sources:           { nutriVal: "pack" }
+  state:             most
+  lastUpd:           2024-07-20
+  lastPriceUpd:      2024-07-20
 
 Hanuta:
 
