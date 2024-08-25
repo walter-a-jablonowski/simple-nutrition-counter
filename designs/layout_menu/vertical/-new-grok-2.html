@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .vertical-nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            width: 60px; /* Narrow width by default */
+            background-color: #333;
+            transition: width 0.3s ease;
+            overflow: hidden;
+            z-index: 1000;
+        }
+
+        .vertical-nav:hover {
+            width: 200px; /* Expanded width */
+        }
+
+        .vertical-nav ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        .vertical-nav li {
+            margin: 10px 0;
+        }
+
+        .vertical-nav a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .vertical-nav a i {
+            font-size: 24px;
+            margin-right: 20px;
+            transition: margin-right 0.3s ease;
+        }
+
+        .vertical-nav:hover a i {
+            margin-right: 0; /* Pulls the icon back to make room for text */
+        }
+
+        .vertical-nav .text {
+            display: none; /* Text is hidden by default */
+        }
+
+        .vertical-nav:hover .text {
+            display: inline; /* Text shows on hover */
+        }
+
+        .app-name {
+            position: absolute;
+            bottom: 10px;
+            transform: rotate(-90deg);
+            color: white;
+            white-space: nowrap;
+            font-size: 16px;
+            left: -5px; /* Adjust based on font size and desired positioning */
+        }
+
+        .content {
+            margin-right: 60px; /* To make sure content doesn't overlap with nav when narrow */
+        }
+    </style>
+</head>
+<body>
+    <div class="vertical-nav" id="verticalNav">
+        <ul>
+            <li><a href="#home"><i class="bi bi-house-door"></i></a></li>
+            <li><a href="#services"><i class="bi bi-gear"></i></a></li>
+            <li><a href="#contact"><i class="bi bi-envelope"></i></a></li>
+            <!-- Add more icons as needed -->
+        </ul>
+        <div class="app-name">My App</div>
+    </div>
+
+    <div class="content">
+        <!-- Your main content goes here -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    document.getElementById('verticalNav').addEventListener('mouseenter', function() {
+        this.style.width = '200px';
+    });
+
+    document.getElementById('verticalNav').addEventListener('mouseleave', function() {
+        this.style.width = '60px';
+    });
+    </script>
+</body>
+</html>
