@@ -106,12 +106,12 @@ from page sample
         </div>
       </div>
       <div id="content2" class="content col-lg-8 col-md-6 h-100" style="display: none;">
-        <h2>Content 2</h2>
+        <h2>Nutrients</h2>
         <p>This is the content for the second menu entry. It's hidden initially.</p>
       </div>
       <!-- TASK: maybe change layout: full width for last days tab (no day list) -->
       <div id="content3" class="content col-lg-8 col-md-6 h-100" style="display: none;">
-        <h2>Content 3</h2>
+        <h2>Lays days</h2>
         <p>This is the content for the third menu entry. It's also hidden initially.</p>
       </div>
     </div>
@@ -142,14 +142,14 @@ from page sample
     }
 
     function showContent(event) {
-      const targetPage = event.currentTarget.getAttribute('data-page');
-      const icon = event.currentTarget.getAttribute('data-icon');
-      const contents = document.querySelectorAll('.content');
-      contents.forEach((content) => {
-        content.style.display = content.id === targetPage ? 'block' : 'none';
-      });
-      toggleMenu();
-      document.querySelector('.floating-button').innerHTML = `<i class="bi ${icon}"></i>`;
+      const targetPage = event.currentTarget.getAttribute('data-page')
+      const icon = event.currentTarget.getAttribute('data-icon')
+      const contents = document.querySelectorAll('.content')
+      contents.forEach( content => {
+        content.style.display = content.id === targetPage ? 'block' : 'none'
+      })
+      toggleMenu()
+      document.querySelector('.floating-button').innerHTML = `<i class="bi ${icon}"></i>`
     }
   </script>
 </body>
