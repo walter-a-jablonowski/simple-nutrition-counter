@@ -77,6 +77,7 @@ class AppController extends ControllerBase
       $food = Yaml::parse( file_get_contents("$dir/$file"));
 /*
       // TASK: merge nutrients for default foods and nutrients in food file (prio)
+      // TASK: we need a `type: chickpeas` in foods file, usable for pure foods only
 
       if( file_exists("data/foods/$food"))
       {
