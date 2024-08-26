@@ -3,6 +3,7 @@
 - ~~added nav bar from main app, added fixed-top class~~
 
 - [x] content areas look a little high
+- [ ] problem with displaying sub pages
 - [ ] smartphone no full height of day list using BS classes, also show goals
   - [ ] flex or h-100? (maybe move in classes with media queries so that this isn't used on
     smartphones in portrait, see "from content sample")
