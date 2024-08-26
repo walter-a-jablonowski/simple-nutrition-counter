@@ -60,17 +60,17 @@ function extractYamlSection($content, $key)
     if( preg_match("/^(\s*)$key:/", $line, $matches))
     {
       $inSection = true;
-      $indent    = strlen($matches[1]);
-      $section[] = $line;
+      $indent    = strlen($matches[1]) + 2;   // add 2 to account for the space after the colon
+      continue;
     }
     elseif( $inSection )
     {
-      if (strlen(ltrim($line)) === 0)
+      if( strlen(ltrim($line)) === 0 )
         $section[] = $line;
-      elseif (strspn($line, " ") <= $indent)
+      elseif( strspn($line, " ") < $indent)
         break;
       else
-        $section[] = $line;
+        $section[] = substr($line, $indent);  // unindent by removing the first $indent spaces
     }
   }
 
