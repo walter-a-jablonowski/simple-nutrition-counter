@@ -3,9 +3,9 @@
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Yaml\Exception\ParseException;
 
-require_once 'vendor/autoload.php';
-
 chdir('../../src');
+
+require_once 'vendor/autoload.php';
 
 /*
 
