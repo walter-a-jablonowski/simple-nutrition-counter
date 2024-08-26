@@ -74,7 +74,7 @@ function extractYamlSection($content, $key)
     }
   }
 
-  return implode("\n", trim($section) . "\n");
+  return trim( implode("\n", $section)) . "\n";
 }
 
 ?>
