@@ -1,10 +1,12 @@
 # AI generated for now
 
+# nutritionalValues:         # TASK
+#
+#   saturated:       0.27g
+#   monoUnsaturated: 0.58g
+#   polyUnsaturated: 1.16g
+
 fattyAcids:
-  
-  # saturated:       0.27g
-  # monoUnsaturated: 0.58g
-  # polyUnsaturated: 1.16g
 
   ALA: 0.043            # g  # TASK: short names
   LA:  2.592
@@ -55,12 +57,12 @@ minerals:
 
 # secondary:  # AI said no amounts
 #
-#   polyphenols:
-#     - flavonoids:
-#         - quercetin
-#         - kaempferol
-#     - phenolicAcids:
-#         - ferulicAcid
-#         - chlorogenicAcid
-#   saponins: present
-#   phytosterols: present
+#   - polyphenols
+#     - flavonoids
+#       - quercetin
+#       - kaempferol
+#     - phenolicAcids
+#       - ferulicAcid
+#       - chlorogenicAcid
+#   - saponins: present
+#   - phytosterols: present
