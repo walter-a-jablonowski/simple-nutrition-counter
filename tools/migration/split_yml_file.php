@@ -35,11 +35,14 @@ try {
   foreach( Yaml::parseFile($sourceFile) as $key => $value )
   {
     file_put_contents("$destFolder/$key.yml", Yaml::dump($value));
-    echo "Added $key.yml\n";
+    echo "Added $key.yml<br>\n";
+    flush();
   }
 
+  echo "<br>\nDone";
+
 } catch( Exception $e ) {
-  echo "Error: " . $e->getMessage() . "\n";
+  echo "Error: " . $e->getMessage();
 }
 
 ?>
