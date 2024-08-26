@@ -1,0 +1,26 @@
+vendor:            Norma
+acceptable:        occasionally
+comment:           "careful cause of mercury"
+certificates:      { NutriScore: B }
+ingredients:       "Sonnenblumenöl, Salz"
+packaging:         alu
+
+price:             0.99
+weight:            125
+usedAmounts:       [1]
+
+calories:          202
+nutritionalValues:
+
+  fat:             11.6
+  saturatedFat:    3.4
+  carbs:           0.1
+  sugar:           0.1
+  fibre:           0.1
+  amino:           24.5
+  salt:            0.6
+
+sources:           { nutriVal: "pack" }
+state:             most
+lastUpd:           2024-06-10
+lastPriceUpd:      2024-06-18

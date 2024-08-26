@@ -1,0 +1,25 @@
+url:               "https://www.snickers.de/de/products/chocolate/snickers-single-bars"
+acceptable:        less
+certificates:      { NutriScore: B }
+ingredients:       "Zucker, Glukosesirup, Erdnüsse, Magermilchpulver, Kakaobutter, Kakaomasse, Sonnenblumenöl, Butterreinfett (milch), Milchzucker, Molkepermeat (aus Milch), Palmfett, Salz, Emulgator(sojalecithin), Hühnerei-Trockeneiweiss"
+mayContain:        "Haselnüsse"
+packaging:         plastic
+
+price:             1.19  # eni price
+weight:            50    # TASK: right?
+usedAmounts:       ["1"]
+
+calories:          488
+nutritionalValues:
+
+  fat:             23
+  saturatedFat:    7.8
+  carbs:           60
+  sugar:           52
+  amino:           8.7
+  salt:            0.64
+
+sources:           { nutriVal: "pack" }
+state:             most
+lastUpd:           2024-07-20
+lastPriceUpd:      2024-07-20

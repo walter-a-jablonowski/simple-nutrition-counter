@@ -1,0 +1,28 @@
+vendor:            Rewe
+url:               "https://shop.rewe.de/p/rewe-bio-finn-toasties-260g/8061857?sv1=affiliate&sv_campaign_id=101248&awc=11652_1720030488_a4823a6b0726daf8b301522bca051f27&ecid=aff_awin_101248_takeads.com_0_nn_nn_nn_pm01&zanpid=11652_1720030488_a4823a6b0726daf8b301522bca051f27"
+acceptable:        occasionally
+comment:           "Using 1/2 pieces here"
+certificates:      { bio: true, NutriScore: A }
+ingredients:       "Wasser, WEIZENMEHL*, ROGGENMEHL*, Roggengrütze*, ROGGENFLOCKEN*, Weizengrütze*, Zucker*, Kartoffelflocken*, Meersalz 1,1%, GERSTENMALZMEHL*, WEIZENGLUTEN*, Hefe"
+allergy:           "Glutenhaltiges Getreide (Weizen, Gerste, Roggen, Hafer, Dinkel, Kamut oder Hybridstämme)"              
+packaging:         plastic
+
+price:             0.95
+weight:            260
+pieces:            8
+usedAmounts:       [1, 2]  # TASK: enable 0.5
+
+calories:          224
+nutritionalValues:
+
+  fat:             1.4
+  saturatedFat:    0.2
+  carbs:           42.3
+  sugar:           3
+  amino:           7.4
+  salt:            1.2
+
+sources:           { nutriVal: "web" }
+state:             most
+lastUpd:           2024-06-18
+lastPriceUpd:      2024-06-18

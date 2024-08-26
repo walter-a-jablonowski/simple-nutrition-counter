@@ -1,0 +1,26 @@
+productName:       "Cashew Cranberry Mix"
+vendor:            Aldi
+acceptable:        occasionally  
+comment:           "4.3g sugar per 1/8"
+certificates:      { NutriScore: D }
+packaging:         plastic
+
+price:             
+weight:            200
+usedAmounts:       ["10g", "25g", "50g"]
+
+calories:          469
+nutritionalValues:
+
+  fat:             27.4
+  saturatedFat:    4.1
+  carbs:           47.9
+  sugar:           35.9
+  fibre:           4.6
+  amino:           10.8
+  salt:            0.03
+
+sources:           { nutriVal: "pack" }
+state:             most
+lastUpd:           2024-06-18
+lastPriceUpd:

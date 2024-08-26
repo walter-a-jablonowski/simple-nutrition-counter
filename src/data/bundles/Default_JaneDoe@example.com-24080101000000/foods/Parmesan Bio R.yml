@@ -1,0 +1,24 @@
+productName:       "Parmareggio Bio"
+vendor:            Rewe
+acceptable:        occasionally
+certificates:      { bio: true }
+packaging:         plastic
+
+price:             1.79
+weight:            50
+usedAmounts:       ["5g", "10g", "15g"]
+
+calories:          402
+nutritionalValues:
+
+  fat:             30
+  saturatedFat:    20
+  carbs:           0
+  sugar:           0
+  amino:           32
+  salt:            1.6
+
+sources:           { nutriVal: "pack" }
+state:             most
+lastUpd:           2024-07-20
+lastPriceUpd:      2024-07-20

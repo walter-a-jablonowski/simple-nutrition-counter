@@ -1,0 +1,23 @@
+vendor:            Denns
+packaging:         glass,rubber
+
+price:             18.49  # 17.49 2024-06-18 16.99 2024-04-24
+weight:            500ml
+usedAmounts:       ["30ml", "60ml"]
+
+calories:          900
+nutritionalValues:
+
+  fat:             100
+  saturatedFat:    16.1
+  monoUnsaturated: 76.3
+  polyUnsaturated: 7.6
+  carbs:           0
+  sugar:           0
+  amino:           0
+  salt:            0
+
+sources:           { nutriVal: "pack" }
+state:             most
+lastUpd:           2024-04-08
+lastPriceUpd:      2024-07-01

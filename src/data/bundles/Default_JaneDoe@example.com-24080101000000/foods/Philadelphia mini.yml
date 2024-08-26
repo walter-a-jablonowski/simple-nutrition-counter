@@ -1,0 +1,24 @@
+vendor:            Rewe
+url:               "https://shop.rewe.de/p/philadelphia-natur-doppelrahmstufe-6x16-7g/5349729"
+acceptable:        less
+packaging:         plastic,alu
+
+price:             0.95  # deal
+weight:            100.02
+pieces:            6
+
+calories:          225
+nutritionalValues:
+
+  fat:             21
+  saturatedFat:    14
+  carbs:           4.3
+  sugar:           4.3
+  fibre:           0.2
+  amino:           5.4
+  salt:            0.75
+
+sources:           { nutriVal: "web (information on packaging may differ)", price: "deal price" }
+state:             most
+lastUpd:           2024-04-20
+lastPriceUpd:      2024-07-20

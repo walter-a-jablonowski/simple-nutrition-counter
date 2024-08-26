@@ -1,0 +1,22 @@
+vendor:            Aldi  # small pack
+packaging:         plastic (maybe)
+
+price:             
+weight:            150
+usedAmounts:       ["25g", "50g", "100g"]
+
+calories:          614
+nutritionalValues:
+
+  fat:             51
+  saturatedFat:    7.6
+  carbs:           10
+  sugar:           3.8
+  fibre:           9
+  amino:           25
+  salt:            0.98
+
+sources:           { nutriVal: "pack" }
+state:             most
+lastUpd:           2024-02-29
+lastPriceUpd:

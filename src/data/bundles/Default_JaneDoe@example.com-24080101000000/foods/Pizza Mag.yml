@@ -1,0 +1,24 @@
+vendor:            Norma
+acceptable:        less
+packaging:         plastic,cardboard
+
+price:             2.99
+weight:            900
+pieces:            3
+usedAmounts:       ["1/4", "1/2", "1"]
+
+calories:          247
+nutritionalValues:
+
+  fat:             7.6
+  saturatedFat:    2.9
+  carbs:           35.2
+  sugar:           4.9
+  fibre:           2
+  amino:           8.4
+  salt:            0.8
+
+sources:           { nutriVal: "pack" }
+state:             most
+lastUpd:           2024-05-06
+lastPriceUpd:      2024-05-06

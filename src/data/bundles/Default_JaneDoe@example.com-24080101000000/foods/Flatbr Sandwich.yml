@@ -1,0 +1,27 @@
+productName:       "Flatbread Sandwich Vollkorn"
+vendor:            Aldi
+acceptable:        less
+certificates:      { NutriScore: A }
+ingredients:       ""
+packaging:         plastic
+
+price:             1.39
+weight:            210g
+pieces:            6
+usedAmounts:       [1, 2, 3]  # TASK: enable 0.5
+
+calories:          296
+nutritionalValues:
+
+  fat:             7.9
+  saturatedFat:    1.3
+  carbs:           41.5
+  sugar:           2.9
+  fibre:           7.3
+  amino:           11.2
+  salt:            0.93
+
+sources:           { nutriVal: "pack" }
+state:             most
+lastUpd:           2024-06-08
+lastPriceUpd:      2024-06-08

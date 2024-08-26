@@ -1,0 +1,22 @@
+vendor:            Rewe
+acceptable:        less
+packaging:         plastic,alu,cardboard
+
+price:             0.55
+weight:            18.2
+usedAmounts:       [1]
+
+calories:          551
+nutritionalValues:
+
+  fat:             33
+  saturatedFat:    18.9
+  carbs:           56
+  sugar:           50.4
+  amino:           6.1
+  salt:            0.191
+
+sources:           { nutriVal: "web (information on packaging may differ slightly)", price: "D" }
+state:             most
+lastUpd:           2024-04-24
+lastPriceUpd:      2024-04-24

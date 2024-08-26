@@ -1,0 +1,26 @@
+vendor:            DM  # (TASK) currently 2 entries
+acceptable:        occasionally
+comment:           "Andorn Bibernelle Ehrenpreis Eibisch Frauenmantel Holunder Malve Pfefferminze Salbei Schafgarbe Schlüsselblume Spitzwegerich Thymian"
+ingredients:       "Süßungsmittel (Isomalt), Säuerungsmittel (Citronensäure), Kräuterauszug (0,3%) aus Zitronenmelisse sowie Spitzwegerich, Eibisch, Pfefferminze, Thymian, Salbei, Frauenmantel, Schafgarbe, Bibernelle, Malve, Holunderblüten, Schlüsselblume, Ehrenpreis und Andorn, natürliches Citrusaroma, Karottensaftkonzentrat, Süßungsmittel (Steviolglycoside aus Stevia, Thaumatin), Pfefferminzöl, Minzöl, Menthol"
+packaging:         cardboard
+
+price:             1.75  
+weight:            75g   
+pieces:            20    # manual count for small pack, TASK: assuming the same for large pack
+usedAmounts:       [1]
+
+calories:          235
+nutritionalValues:
+
+  fat:             0
+  saturatedFat:    0
+  carbs:           96
+  sugar:           0
+  sugarAlcohol:    96
+  amino:           0
+  salt:            0
+
+sources:           { nutriVal: "web", price: "web" }
+state:             most
+lastUpd:           2024-05-06
+lastPriceUpd:      2024-05-15

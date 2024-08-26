@@ -1,0 +1,22 @@
+vendor:            Rewe
+packaging:         plastic
+
+price:             2.19
+weight:            1000
+usedAmounts:       ["50g", "100g"]
+
+calories:          24
+nutritionalValues:
+
+  fat:             0.2
+  saturatedFat:    0.1
+  carbs:           1.5
+  sugar:           1
+  fibre:           2.3
+  amino:           3
+  salt:            0
+
+sources:           { nutriVal: "web (information on packaging may differ slightly)" }
+state:             most
+lastUpd:           2024-03-13
+lastPriceUpd:      2024-07-01  # stable since 2024-03-23

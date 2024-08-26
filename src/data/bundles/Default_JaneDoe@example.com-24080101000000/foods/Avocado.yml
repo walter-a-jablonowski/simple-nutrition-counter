@@ -1,0 +1,34 @@
+vendor:            Norma
+
+price:             1.89
+weight:            500g
+pieces:            5
+usedAmounts:       [1, 2, 4]
+
+calories:          160  # TASK: same as Avocado, right (via ChatGPT)?
+nutritionalValues:
+
+  fat:             15
+  saturatedFat:    2.1
+  carbs:           9
+  sugar:           0.7
+  fibre:           7
+  amino:           2
+  salt:            0
+
+vitamins:
+
+  # Vitamin K
+  # Vitamin E
+  # Vitamin C
+  # B-Vitamine (insbesondere B5 und B6)
+
+minerals:
+
+  # Kalium
+  # Magnesium
+
+sources:           { nutriVal: "ChatGPT (vals on websites differ)" }
+state:             most
+lastUpd:           2024-04-19
+lastPriceUpd:      2024-04-28

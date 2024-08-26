@@ -1,0 +1,24 @@
+vendor:            Rewe
+url:               "https://shop.rewe.de/p/rewe-bio-gemuesepfanne-mediterrane-art-450g/7321580"
+certificates:      { bio: true, NutriScore: A }
+ingredients:       "Gemüsemischung 91% (Zucchini* 25%, Broccoli* 20%, Karotten* 15%, gelbe Karotten* 13%, Cherrytomaten* 12%, Zwiebeln*), Kräuter (Basilikum*, Oregano*), BUTTER*, Meersalz, Sonnenblumenöl*, Stärke*, Honig*, Gewürze*, Olivenöl*"
+packaging:         plastic
+
+price:             1.99
+weight:            450
+usedAmounts:       ["50g", "100g"]
+
+calories:          42
+nutritionalValues:
+
+  fat:             2.1
+  saturatedFat:    0.8
+  carbs:           3.5
+  sugar:           2.9
+  amino:           1.4
+  salt:            0.98
+
+sources:           { nutriVal: "web (information on packaging may differ slightly)", price: "web" }
+state:             most
+lastUpd:           2024-05-17
+lastPriceUpd:      2024-05-17

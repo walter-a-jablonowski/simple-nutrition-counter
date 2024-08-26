@@ -1,0 +1,28 @@
+vendor:            Rewe
+acceptable:        less
+comment:           "still processed food ..."
+packaging:         alu
+
+price:             1.99
+weight:            60
+usedAmounts:       ["1/2", "1"]
+
+calories:          350
+nutritionalValues:
+
+  fat:             12
+  saturatedFat:    5
+  carbs:           24
+  sugar:           23
+  fibre:           21
+  amino:           26
+  salt:            0.1
+
+minerals:
+
+  Calcium:         360
+
+sources:           { nutriVal: "web", nutrients: "calcium also from vendors page online" }
+state:             most
+lastUpd:           2024-02-18
+lastPriceUpd:      2024-03-23

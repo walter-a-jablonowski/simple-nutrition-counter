@@ -1,0 +1,24 @@
+vendor:            Aldi
+acceptable:        less
+certificates:      { NutriScore: E }
+packaging:         plastic
+
+price:             2.19
+weight:            162
+pieces:            9
+usedAmounts:       [1, 2, 9]
+
+calories:          407  # TASK: calories unknown value from upper
+nutritionalValues:
+
+  fat:             28
+  saturatedFat:    16
+  carbs:           43
+  sugar:           13
+  amino:           5.4
+  salt:            1.2
+
+sources:           { nutriVal: "pack" }
+state:             most
+lastUpd:           2024-06-18
+lastPriceUpd:      2024-06-18

@@ -1,0 +1,21 @@
+vendor:            Eni
+acceptable:        less
+packaging:         cardboard
+
+price:             1.00
+weight:            200ml
+usedAmounts:       ["1"]
+
+calories:          63
+nutritionalValues:
+
+  fat:             1.2  # TASK: saturatedFat ?
+  carbs:           12
+  sugar:           10.8
+  amino:           2.7
+  salt:            0.08
+
+sources:           { nutriVal: "is just a cp of Eni" }  # TASK: fix
+state:             most
+lastUpd:           2024-04-30
+lastPriceUpd:      2024-04-30

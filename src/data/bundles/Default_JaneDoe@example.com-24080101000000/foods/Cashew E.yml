@@ -1,0 +1,23 @@
+vendor:            Edeka
+url:               "https://www.edeka.de/unsere-marken/produkte/gut-guenstig-cashewkerne-naturbelassen-4311501627150.jsp"
+packaging:         alu (maybe)
+
+price:             2.29
+weight:            200
+usedAmounts:       ["1/4", "1/2"]
+
+calories:          603
+nutritionalValues:
+
+  fat:             47.1
+  saturatedFat:    9.3
+  carbs:           22.2
+  sugar:           6.2
+  fibre:           3.1
+  amino:           21
+  salt:            0
+
+sources:           { nutriVal: "pack" }
+state:             most
+lastUpd:           2024-02-18
+lastPriceUpd:      2024-08-11

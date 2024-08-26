@@ -1,0 +1,25 @@
+vendor:            Rewe
+acceptable:        less
+certificates:      { NutriScore: A }
+ingredients:       "Bohnen 51%, Wasser, Tomatenmark dreifach konzentriert 4,6%, Zucker, modifizierte Maisstärke, Salz, Weißweinessig, Zwiebelpulver, Paprikapulver, Rapsöl, Gewürzextrakte, natürliche Aromen"
+packaging:         alu
+
+price:             1.39
+weight:            420
+usedAmounts:       [1]
+
+calories:          88
+nutritionalValues:
+
+  fat:             0.5
+  saturatedFat:    0.2
+  carbs:           14
+  sugar:           5.4
+  fibre:           4.5
+  amino:           4.6
+  salt:            0.45
+
+sources:           { nutriVal: "web (information on packaging may differ slightly)", price: "web" }
+state:             most
+lastUpd:           2024-05-11
+lastPriceUpd:      2024-05-11

@@ -1,0 +1,24 @@
+vendor:            Aldi
+url:               "https://www.aldi-nord.de/produkt/pfannengemuese-6986-0-0.article.html"
+certificates:      { NutriScore: A }
+packaging:         plastic
+
+price:             1.99
+weight:            750
+usedAmounts:       ["50g", "100g"]
+
+calories:          38
+nutritionalValues:
+
+  fat:             0.8
+  saturatedFat:    0.2
+  carbs:           5.3
+  sugar:           4.3
+  fibre:           2.3
+  amino:           1.2
+  salt:            0.88
+
+sources:           { nutriVal: "pack" }
+state:             most
+lastUpd:           2024-06-16
+lastPriceUpd:      2024-06-16

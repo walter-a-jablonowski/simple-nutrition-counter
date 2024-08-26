@@ -1,0 +1,25 @@
+vendor:            "Eni"  # TASK: multiple
+url:               "https://www.hanuta.de/hanuta/zutaten"
+acceptable:        less
+ingredients:       "Zucker, pflanzliche Fette (Palm, Shea), WEIZENMEHL (13,5 %), HASELNÜSSE (13 %), SÜSSMOLKENPULVER, fettarmer Kakao, VOLLMILCHSCHOKOLADE (Zucker, VOLLMILCHPULVER, Kakaobutter, Kakaomasse, Emulgator Lecithine (SOJA), Vanillin), MAGERMILCHPULVER, BUTTERREINFETT, Salz, Halbbitterschokolade (Zucker, Kakaomasse, Kakaobutter, Emulgator Lecithine (SOJA), Vanillin), Emulgator Lecithine (SOJA), Aromen, Traubenzucker, Backtriebmittel Natriumhydrogencarbonat, Vanillin"
+packaging:         alu,cardboard
+
+price:             0.99
+weight:            44
+pieces:            2
+usedAmounts:       [1, 2]
+
+calories:          542
+nutritionalValues:
+
+  fat:             31.9
+  saturatedFat:    13.7
+  carbs:           54
+  sugar:           42.6
+  amino:           7.6
+  salt:            0.432
+
+sources:           { nutriVal: "web" }
+state:             most
+lastUpd:           2024-06-18
+lastPriceUpd:      2024-06-18

@@ -1,0 +1,22 @@
+vendor:            Norma
+packaging:         alu (maybe)
+
+price:             2.39
+weight:            500
+usedAmounts:       ["25g", "50g", "100g"]
+
+calories:          615
+nutritionalValues:
+
+  fat:             51
+  saturatedFat:    7.8
+  carbs:           11
+  sugar:           5.2
+  fibre:           8.2
+  amino:           24
+  salt:            1
+
+sources:           { nutriVal: "pack" }
+state:             most
+lastUpd:           2024-03-13
+lastPriceUpd:      2024-03-30

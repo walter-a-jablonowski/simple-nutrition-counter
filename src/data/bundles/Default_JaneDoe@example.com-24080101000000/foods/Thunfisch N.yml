@@ -1,0 +1,24 @@
+vendor:            Norma
+acceptable:        occasionally
+certificates:      { NutriScore: B }
+comment:           "may contain mercury"
+packaging:         alu
+
+price:             1.49
+weight:            140
+usedAmounts:       [1]
+
+calories:          156
+nutritionalValues:
+
+  fat:             5.4
+  saturatedFat:    0.8
+  carbs:           0
+  sugar:           0
+  amino:           27
+  salt:            0.95
+
+sources:           { nutriVal: "pack" }
+state:             most
+lastUpd:           2024-06-18
+lastPriceUpd:      2024-06-18

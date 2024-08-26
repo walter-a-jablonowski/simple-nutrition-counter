@@ -1,0 +1,24 @@
+vendor:            Rewe
+url:               "https://shop.rewe.de/p/philadelphia-natur-doppelrahmstufe-175g/575043"
+acceptable:        less
+packaging:         plastic,alu
+
+price:             1.49  # deal price
+weight:            175
+usedAmounts:       ["10g", "20g", "30g"]
+
+calories:          225
+nutritionalValues:
+
+  fat:             21
+  saturatedFat:    14
+  carbs:           4.3
+  sugar:           4.3
+  fibre:           0.2
+  amino:           5.4
+  salt:            0.75
+
+sources:           { nutriVal: "web (information on packaging may differ)", price: "deal (web)" }
+state:             most
+lastUpd:           2024-04-20
+lastPriceUpd:      2024-06-01

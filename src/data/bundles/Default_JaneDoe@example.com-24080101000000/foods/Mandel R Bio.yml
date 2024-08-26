@@ -1,0 +1,23 @@
+vendor:            Rewe
+certificates:      { bio: true }
+packaging:         plastic (maybe)
+
+price:             2.19  # 2024-04-28 2.29 2024-03-30 2.89
+weight:            200
+usedAmounts:       ["1/4", "1/2"]
+
+calories:          619
+nutritionalValues:
+
+  fat:             53
+  saturatedFat:    4.1
+  carbs:           5.7
+  sugar:           3.4
+  fibre:           11.4
+  amino:           24
+  salt:            0.01
+
+sources:           { nutriVal: "pack" }
+state:             most
+lastUpd:           2024-03-30
+lastPriceUpd:      2024-08-11

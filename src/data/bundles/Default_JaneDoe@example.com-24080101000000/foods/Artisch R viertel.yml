@@ -1,0 +1,24 @@
+vendor:            Rewe
+# acceptable:      occasionally  # currently no alternative
+productName:       "Gegrillte Artischockenviertel in Sonnenblumenöl mit Kräutern"
+comment:           "kein Abtropfgewicht"
+packaging:         glass,rubber
+  
+price:             2.29
+weight:            280
+usedAmounts:       ["1/4", "1/3", "1/2"]
+
+calories:          103
+nutritionalValues:
+
+  fat:             7.8
+  saturatedFat:    0.8
+  carbs:           3.9
+  sugar:           1.4
+  amino:           1.9
+  salt:            1
+
+sources:           { nutriVal: "pack" }
+state:             most
+lastUpd:           2024-04-28
+lastPriceUpd:      2024-04-28

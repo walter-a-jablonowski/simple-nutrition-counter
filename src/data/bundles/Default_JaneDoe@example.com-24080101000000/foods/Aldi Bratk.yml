@@ -1,0 +1,22 @@
+vendor:            Aldi
+acceptable:        occasionally
+packaging:         plastic
+
+price:             2.89
+weight:            600g
+usedAmounts:       ["1/4", "1/2", "1"]
+
+calories:          95
+nutritionalValues:
+
+  fat:             3
+  saturatedFat:    1.1
+  carbs:           11
+  sugar:           2
+  amino:           5
+  salt:            0.6
+
+sources:           { nutriVal: "pack" }
+state:             most
+lastUpd:           2024-05-13
+lastPriceUpd:      2024-05-13

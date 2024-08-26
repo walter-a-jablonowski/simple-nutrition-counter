@@ -1,0 +1,24 @@
+vendor:            Kfc
+acceptable:        occasionally
+comment:           "weight is from a third party source (kfc source unclear)"
+ingredients:       "Hähnchenfleischerzeugnis aus flüssiggewürztem Hähnchenbrustfleisch, paniert, gegart. 100 g Produkt werden aus 79 g Hähnchenbrustfleisch hergestellt. Hähnchenbrustfleisch, Weizenmehl, pflanzliche Öle (Sonnenblume, Raps), Speisesalz, Maisstärke, Säureregulator Natriumhydrogencarbonat/E500(ii), Geschmacksverstärker Mononatriumglutamat/E621, Gewürze, Magermilchpulver, Süßmolkenpulver (enthält Milch), Eieralbuminpulver"
+packaging:         cardboard
+
+price:             5.99
+weight:            147
+usedAmounts:       [1]
+
+calories:          234
+nutritionalValues:
+
+  fat:             12
+  saturatedFat:    4
+  carbs:           13
+  sugar:           0
+  amino:           19
+  salt:            2.5
+
+sources:           { nutriVal: "web" }
+state:             most
+lastUpd:           2024-04-17
+lastPriceUpd:      2024-04-17

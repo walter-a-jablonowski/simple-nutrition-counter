@@ -1,0 +1,22 @@
+vendor:            Norma
+acceptable:        less
+packaging:         alu,plastic
+
+price:             2.49  # 2.89 2024-05-15
+weight:            400g
+usedAmounts:       ["1/8", "1/4", "1/2"]
+
+calories:          331
+nutritionalValues:
+
+  fat:             9.4
+  saturatedFat:    3.3
+  carbs:           52.1
+  sugar:           18.3
+  amino:           7.8
+  salt:            0.78
+
+sources:           { nutriVal: "pack", price: "web" }
+state:             most
+lastUpd:           2024-04-23
+lastPriceUpd:      2024-08-01

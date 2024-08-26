@@ -1,0 +1,22 @@
+vendor:            Rewe
+certificates:      { bio: true }
+packaging:         glass,rubber
+
+price:             1.39
+weight:            260
+usedAmounts:       ["1/4", "1/3", "1/2"]
+
+calories:          92
+nutritionalValues:
+
+  fat:             0.4
+  saturatedFat:    0.1
+  carbs:           13.5
+  sugar:           0.1
+  amino:           7.5
+  salt:            0
+
+sources:           { nutriVal: "web (information on packaging differs slightly)" }
+state:             most
+lastUpd:           2024-03-13
+lastPriceUpd:      2024-07-01  # stable since 2024-03-23

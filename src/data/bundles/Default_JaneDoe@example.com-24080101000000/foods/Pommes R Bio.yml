@@ -1,0 +1,24 @@
+vendor:            Rewe
+acceptable:        occasionally
+certificates:      { bio: true }
+ingredients:       "Kartoffeln 96%, Sonnenblumenöl"
+packaging:         plastic
+
+price:             2.49
+weight:            750
+usedAmounts:       ["25g", "50g", "100g"]
+
+calories:          145
+nutritionalValues:
+
+  fat:             3.5
+  saturatedFat:    0.5
+  carbs:           24.5
+  sugar:           1
+  amino:           2.5
+  salt:            0.03
+
+sources:           { nutriVal: "web (information on packaging may differ slightly)", price: "web" }
+state:             most
+lastUpd:           2024-05-11
+lastPriceUpd:      2024-05-11

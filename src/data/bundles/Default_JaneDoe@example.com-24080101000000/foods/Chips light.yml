@@ -1,0 +1,22 @@
+vendor:            Rewe
+acceptable:        less
+packaging:         alu (maybe)
+
+price:             2.19
+weight:            80
+
+calories:          472
+nutritionalValues:
+
+  fat:             22
+  saturatedFat:    1.7
+  carbs:           60
+  sugar:           0.5
+  fibre:           4.1
+  amino:           6.4
+  salt:            2.5
+
+sources:           { nutriVal: "web" }
+state:             most
+lastUpd:           2024-02-18
+lastPriceUpd:      2024-03-23

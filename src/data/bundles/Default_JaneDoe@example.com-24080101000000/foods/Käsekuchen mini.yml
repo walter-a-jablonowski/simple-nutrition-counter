@@ -1,0 +1,22 @@
+acceptable:        less
+ingredients:       "Frischkäse Magerstufe, Zucker, Vollei, Palmfett, Hühnereiweiß, Buttermilch, Weizenmehl, Weizenstärke, Stärke, Reisquellmehl, Süßmolkenpulver, modifizierte Stärke, Feuchthaltemittel E 420, E 422; Backtriebmittel E 450, E 500; Salz, Säureregulator E 262; Säuerungsmittel E 270; Emulgator E 471; Zitronenschalenöl, Limettenschalenöl, natürliches Aroma"
+packaging:         alu (maybe)
+
+price:             1.25
+weight:            70
+usedAmounts:       ["1"]
+
+calories:          308
+nutritionalValues:
+
+  fat:             14.0
+  saturatedFat:    6.6
+  carbs:           38.0
+  sugar:           28.0
+  amino:           7.7
+  salt:            0.45
+
+sources:           { nutriVal: "web" }
+state:             most
+lastUpd:           2024-08-16
+lastPriceUpd:      2024-08-16

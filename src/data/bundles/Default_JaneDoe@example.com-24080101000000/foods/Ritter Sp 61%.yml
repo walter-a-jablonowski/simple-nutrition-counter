@@ -1,0 +1,24 @@
+acceptable:        less
+comment:           "Nicaragua (Cadmium)"
+origin:            "Nicaragua"
+packaging:         plastic
+
+price:             1.69
+weight:            100
+pieces:            25
+usedAmounts:       [1, 2, 4]
+
+calories:          660
+nutritionalValues:
+
+  fat:             45
+  saturatedFat:    28
+  carbs:           40
+  sugar:           37
+  amino:           5.6
+  salt:            0
+
+sources:           { nutriVal: "web" }
+state:             most
+lastUpd:           2024-06-18
+lastPriceUpd:      2024-06-18

@@ -1,0 +1,25 @@
+productName:       "REWE Bio Körniger Frischkäse"
+vendor:            Rewe
+url:               "https://shop.rewe.de/p/rewe-bio-koerniger-frischkaese-200g/1906432"
+acceptable:        occasionally
+certificates:      { bio: true, NutriScore: B }
+packaging:         plastic,alu
+
+price:             
+weight:            200
+usedAmounts:       ["1/4", "1/2"]
+
+calories:          91
+nutritionalValues:
+
+  fat:             4
+  saturatedFat:    2.6
+  carbs:           1
+  sugar:           1
+  amino:           12.7
+  salt:            0.7
+
+sources:           { nutriVal: "web" }
+state:             most
+lastUpd:           2024-06-01
+lastPriceUpd:

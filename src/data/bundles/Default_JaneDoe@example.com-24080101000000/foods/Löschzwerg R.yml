@@ -1,0 +1,24 @@
+acceptable:        less
+ingredients:       "Bier (Wasser, GERSTENMALZ, Hopfen), natürliches Mineralwasser, Glucose-Fruktose-Sirup, Zucker, Zitronenkonzentrat (Zitrone, Zitronensaftkonzentrat, Zitronenöl), Kohlensäure, Konservierungsstoff, Kaliumsorbat, Antioxidationsmittel Ascorbinsäure, natürliches Aroma, Stabilisator Johannisbrotkernmehl"
+packaging:         glass,rubber
+
+price:             
+weight:            330ml
+usedAmounts:       [1]
+
+calories:          27
+nutritionalValues:
+
+  # TASK: alcohol 2.6%
+
+  fat:             0
+  saturatedFat:    0
+  carbs:           6.1
+  sugar:           5.9
+  amino:           0
+  salt:            0.002
+
+sources:           { nutriVal: "web (third party, may differ, vendor has none even on pack)" }
+state:             most
+lastUpd:           2024-06-18
+lastPriceUpd:

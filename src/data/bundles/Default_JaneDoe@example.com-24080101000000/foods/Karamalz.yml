@@ -1,0 +1,22 @@
+vendor:            Rewe
+acceptable:        less
+packaging:         glass,rubber
+
+price:             0.75                # price for 0.33 (guess) # (TASK) for 2 variants
+weight:            500                 # larger one
+usedAmounts:       ["330ml", "500ml"]  # smaller and larger ver
+
+calories:          44
+nutritionalValues:
+
+  fat:             0
+  saturatedFat:    0
+  carbs:           10.5
+  sugar:           8
+  amino:           0.4
+  salt:            0.01
+
+sources:           { nutriVal: "web", price: "web" }
+state:             most
+lastUpd:           2024-04-17
+lastPriceUpd:      2024-05-15

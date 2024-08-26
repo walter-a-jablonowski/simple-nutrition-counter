@@ -1,0 +1,24 @@
+vendor:            Norma
+packaging:         plastic (maybe)
+
+price:             2.79
+weight:            200
+usedAmounts:       ["25g", "50g", "100g"]
+
+calories:          653
+nutritionalValues:
+
+  fat:             57.8
+  saturatedFat:    6.5
+  monoUnsaturated: 32.3
+  polyUnsaturated: 16.9
+  carbs:           10.8
+  sugar:           4.2
+  fibre:           6.4
+  amino:           19.2
+  salt:            0
+
+sources:           { nutriVal: "pack", price: "2.89" }
+state:             most
+lastUpd:           2024-02-18
+lastPriceUpd:      2024-04-06

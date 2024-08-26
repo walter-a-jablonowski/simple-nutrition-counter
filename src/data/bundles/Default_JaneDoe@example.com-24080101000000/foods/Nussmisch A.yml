@@ -1,0 +1,33 @@
+productName:       "Feinste Nussvariationen"  # big pack
+vendor:            Aldi
+certificates:      { NutriScore: A }
+packaging:         plastic (maybe)
+
+price:             2.79
+weight:            200
+usedAmounts:       ["25g", "50g", "100g"]
+
+calories:          657
+nutritionalValues:
+
+  fat:             59
+  saturatedFat:    6.3
+  carbs:           10
+  sugar:           4
+  fibre:           6.7
+  amino:           19
+  salt:            0.01
+
+vitamins:
+
+  Vitamin E:       12
+
+minerals:
+
+  Magnesium:       195
+  Phosphor:        364
+
+sources:           { nutriVal: "pack" }
+state:             most
+lastUpd:           2024-05-29
+lastPriceUpd:      2024-06-18

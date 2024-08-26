@@ -1,0 +1,24 @@
+productName:       "Hähnchen Paella"
+vendor:            Rewe
+acceptable:        occasionally
+packaging:         plastic
+
+price:             2.99
+weight:            500
+usedAmounts:       ["1/3", "1/2", "1"]
+
+calories:          125
+nutritionalValues:
+
+  fat:             4.7
+  saturatedFat:    1.3
+  carbs:           14
+  sugar:           2.2
+  fibre:           1.3
+  amino:           6.1
+  salt:            1.01
+
+sources:           { nutriVal: "pack", price: "deal" }
+state:             most
+lastUpd:           2024-05-01
+lastPriceUpd:      2024-06-04

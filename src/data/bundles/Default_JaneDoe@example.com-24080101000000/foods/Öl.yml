@@ -1,0 +1,25 @@
+vendor:            Rewe
+packaging:         glass,rubber
+
+price:             1.39  # last 1.49 2024-06-18 1.99 2024-05-01
+weight:            500ml
+usedAmounts:       ["30ml", "60ml"]
+
+calories:          823
+nutritionalValues:
+
+  fat:             91.4
+  saturatedFat:    6.3
+  carbs:           0
+  sugar:           0
+  amino:           0
+  salt:            0.03
+
+vitamins:
+
+  Vitamin E:	     30 # mg
+
+sources:           { nutriVal: "web", price: "guess" }
+state:             most
+lastUpd:           2024-04-24
+lastPriceUpd:      2024-07-20

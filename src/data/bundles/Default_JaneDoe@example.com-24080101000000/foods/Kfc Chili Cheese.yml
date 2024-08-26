@@ -1,0 +1,23 @@
+vendor:            Kfc
+acceptable:        less
+ingredients:       "(shortened strange only) Weizengeb 45 %, Zucker, Salz, Emulgator Mono- Diacetylweinsäureester E472e, Stabilisator Calciumsulfat E516, Hähnchenbrust 29 %, Sonnenblumenöl, Maisstärke, Hefeextrakt, Gewürzextrakte (Sellerie), Reisstärke, Zwiebelpulver, Säureregulator Natriumcarbonate/E500, Backtriebmittel Diphosphate E450, angereichertes Weizenmehl (Calcium, Eisen, Niacin, Thiamin), Dextrose, Aroma, modifizierte Stärke, Käse, Chiliextrakt, Gewürzextrakte, Säuerungsmittel Milchsäure E270, Verdickungsmittel Xanthan 415, Konservierungsstoff Kaliumsorbat/E202, Aroma"
+packaging:         cardboard
+
+price:             1.99
+weight:            116
+usedAmounts:       [1]
+
+calories:          283
+nutritionalValues:
+
+  fat:             14
+  saturatedFat:    1
+  carbs:           29
+  sugar:           4
+  amino:           11
+  salt:            1.5
+
+sources:           { nutriVal: "web" }
+state:             most
+lastUpd:           2024-06-18
+lastPriceUpd:      2024-06-18

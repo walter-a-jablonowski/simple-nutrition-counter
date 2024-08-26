@@ -1,0 +1,25 @@
+vendor:            Rewe
+url:               "https://shop.rewe.de/p/rewe-beste-wahl-italienisches-pfannengemuese-500g/7075825"
+acceptable:        occasionally
+certificates:      { NutriScore: A }
+ingredients:       "92 % (Brechbohnen, gegrillte Zucchini, rote Paprika, gelbe Paprika, vorgebackene Zwiebel (Zwiebel, Sonnenblumenöl)), Wasser, Speisesalz, Tomatenpüree, Zucker, Rapsöl, Olivenöl, Gemüsebrühe (Speisesalz, Glukosesirup, Gemüsepulver (Zwiebeln, Karotten, Tomaten), Zucker, Sonnenblumenöl, Gewürze), Gewürze, Petersilie, Glukosesirup, Champignonpulver, Karottenpulver, Reisstärke"
+packaging:         plastic
+
+price:             1.99
+weight:            500
+usedAmounts:       ["50g", "100g"]
+
+calories:          49
+nutritionalValues:
+
+  fat:             2.1
+  saturatedFat:    0.2
+  carbs:           5.1
+  sugar:           2.6
+  amino:           1.4
+  salt:            0.93
+
+sources:           { nutriVal: "web (information on packaging may differ slightly)", price: "web" }
+state:             most
+lastUpd:           2024-05-17
+lastPriceUpd:      2024-05-17

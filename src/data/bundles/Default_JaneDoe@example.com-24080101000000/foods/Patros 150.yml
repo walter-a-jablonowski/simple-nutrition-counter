@@ -1,0 +1,22 @@
+vendor:            Rewe
+acceptable:        occasionally
+packaging:         plastic
+
+price:             1.69  # deal price
+weight:            150
+usedAmounts:       ["10g", "20g", "30g"]
+
+calories:          278
+nutritionalValues:
+
+  fat:             24
+  saturatedFat:    16
+  carbs:           0.6
+  sugar:           0.6
+  amino:           15
+  salt:            3
+
+sources:           { nutriVal: "Vendor online (Variants differ only slightly)", price: "deal price (2.99)" }
+state:             most
+lastUpd:           2024-04-01
+lastPriceUpd:      2024-04-28

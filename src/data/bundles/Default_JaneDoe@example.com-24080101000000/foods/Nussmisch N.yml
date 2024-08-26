@@ -1,0 +1,23 @@
+productName:       "Premium 3 Nuss Mix"
+vendor:            Norma
+packaging:         plastic (maybe)
+
+price:             2.89
+weight:            200
+usedAmounts:       ["25g", "50g", "100g"]
+
+calories:          623
+nutritionalValues:
+
+  fat:             53.3
+  saturatedFat:    5.4
+  carbs:           8.4
+  sugar:           4.8
+  fibre:           7.2
+  amino:           23.7
+  salt:            0.02
+
+sources:           { nutriVal: "pack" }
+state:             most
+lastUpd:           2024-06-18
+lastPriceUpd:      2024-06-18

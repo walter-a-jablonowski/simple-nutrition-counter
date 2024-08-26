@@ -1,0 +1,26 @@
+vendor:            Norma
+acceptable:        occasionally
+comment:           "looks a bit like fast food, made from some mix? see ingredients"
+packaging:         plastic
+
+cookingInstructions: "2.5 min & 2 mehr"
+
+price:             2.29
+weight:            250  # 300 is with dip
+pieces:            12
+usedAmounts:       [4, 6, 8]
+
+calories:          174
+nutritionalValues:
+
+  fat:             6.4
+  saturatedFat:    0.7
+  carbs:           19.1
+  sugar:           8.2
+  amino:           10.1
+  salt:            1.31
+
+sources:           { nutriVal: "pack" }
+state:             most
+lastUpd:           2024-06-18
+lastPriceUpd:      2024-06-18

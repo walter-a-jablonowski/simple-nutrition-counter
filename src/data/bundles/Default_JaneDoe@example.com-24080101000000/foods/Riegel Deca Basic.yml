@@ -1,0 +1,23 @@
+vendor:            Deca
+acceptable:        less
+comment:           "still processed food ..."
+packaging:         plastic
+
+price:             1.99
+weight:            60
+usedAmounts:       [1]
+
+calories:          385
+nutritionalValues:
+
+  fat:             9.8
+  saturatedFat:    7
+  carbs:           44
+  sugar:           28
+  amino:           28
+  salt:            0.33
+
+sources:           { nutriVal: "web" }
+state:             most
+lastUpd:           2024-04-24
+lastPriceUpd:      2024-04-24

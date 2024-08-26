@@ -1,0 +1,22 @@
+vendor:            Deca
+acceptable:        occasionally
+packaging:         plastic
+
+price:             17.99
+weight:            700g
+usedAmounts:       ["20g"]
+
+calories:          375
+nutritionalValues:
+
+  fat:             4.6
+  saturatedFat:    2
+  carbs:           45
+  sugar:           8.6
+  amino:           36
+  salt:            0.3
+
+sources:           { nutriVal: "web (information on packaging may differ slightly)" }
+state:             most
+lastUpd:           2024-04-24
+lastPriceUpd:      2024-04-24

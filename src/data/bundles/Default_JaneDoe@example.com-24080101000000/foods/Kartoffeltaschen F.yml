@@ -1,0 +1,24 @@
+vendor:            Rewe
+acceptable:        less
+comment:           "TASK: Fix quantity"
+ingredients:       "Kartoffeln 70%, FRISCHKÄSE 19%, Sonnenblumenöl, modifizierte Stärke, Kartoffelstärke, Speisesalz, Gewürze, Kräuter, Dextrose"
+packaging:         plastic
+
+price:             
+weight:            600
+pieces:            10
+
+calories:          182
+nutritionalValues:
+
+  fat:             10
+  saturatedFat:    3.9
+  carbs:           19.5
+  sugar:           1.5
+  amino:           2.5
+  salt:            1.3
+
+sources:           { nutriVal: "web (information on packaging may differ slightly)" }
+state:             most
+lastUpd:           2024-04-16
+lastPriceUpd:

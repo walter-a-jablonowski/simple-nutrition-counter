@@ -1,0 +1,22 @@
+vendor:            Bavaria
+acceptable:        occasionally
+packaging:         plastic,cardboard
+
+price:             
+weight:            190
+usedAmounts:       [1]
+
+calories:          246
+nutritionalValues:
+
+  fat:             6.9
+  saturatedFat:    2.1
+  carbs:           37
+  sugar:           2.6
+  amino:           7
+  salt:            1.8
+
+sources:           { nutriVal: "pack" }
+state:             most
+lastUpd:           2024-05-06
+lastPriceUpd:

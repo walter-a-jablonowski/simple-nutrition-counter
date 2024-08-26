@@ -1,0 +1,22 @@
+vendor:            Rewe
+acceptable:        less
+ingredients:       "Kartoffeln 91%, Sonnenblumenöl 5%, WEIZENMEHL, Speisesalz, Stärke, Dextrose, Gewürze (Paprika, schwarzer Pfeffer), Knoblauchpulver, Zwiebelpulver, Gewürzextrakt (Paprika)"
+
+price:             1.89
+weight:            750
+usedAmounts:       ["25g", "50g", "100g"]
+
+calories:          139
+nutritionalValues:
+
+  fat:             3.4
+  saturatedFat:    0.4
+  carbs:           23.4
+  sugar:           0.5
+  amino:           2.6
+  salt:            0.53
+
+sources:           { nutriVal: "web (information on packaging may differ slightly)", price: "web" }
+state:             most
+lastUpd:           2024-04-28
+lastPriceUpd:      2024-04-28

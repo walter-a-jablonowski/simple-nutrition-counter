@@ -1,0 +1,21 @@
+vendor:            Rewe
+packaging:         glass,rubber
+
+price:             1.49
+weight:            330
+usedAmounts:       ["1/8", "1/4", "1/3"]
+
+calories:          25
+nutritionalValues:
+
+  fat:             0.1
+  saturatedFat:    0.1
+  carbs:           3.2
+  sugar:           0.6
+  amino:           1.2
+  salt:            0.6
+
+sources:           { nutriVal: "pack" }
+state:             most
+lastUpd:           2024-04-24
+lastPriceUpd:      2024-04-24

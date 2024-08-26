@@ -1,0 +1,24 @@
+vendor:            Rewe
+acceptable:        less
+ingredients:       "MILCHSCHOKOLADE 31 % (Zucker, Kakaomasse, Kakaobutter, VOLLMILCHPULVER, BUTTERREINFETT, Emulgator Lecithine (SOJA), Vanillin), HASELNÜSSE (26,5 %), Halbbitterschokolade 15 % (Zucker, Kakaomasse, Kakaobutter, Emulgator Lecithine (SOJA), Vanillin), Palmöl, Zucker, MAGERMILCHPULVER, fettarmer Kakao, Vanillin. Kann GLUTEN und MANDELN enthalten"
+packaging:         plastic,alu,cardboard
+
+price:             0.97
+weight:            44
+pieces:            5
+usedAmounts:       [1, 2, 5]
+
+calories:          628
+nutritionalValues:
+
+  fat:             47.3
+  saturatedFat:    19.7
+  carbs:           39.7
+  sugar:           38.7
+  amino:           8.4
+  salt:            0.125
+
+sources:           { nutriVal: "web", price: "1.39 - 30% 0.42 (?)" }
+state:             most
+lastUpd:           2024-05-06
+lastPriceUpd:      2024-05-06

@@ -1,0 +1,25 @@
+vendor:            Denns
+acceptable:        less
+certificates:      { bio: true }
+ingredients:       "Zucker* (Rohrzucker*, Vollrohrzucker*), Kakaomasse*, Kakaobutter*, HASELNÜSSE*, Sonnenblumenöl*, Kaffeepulver*(5,00%), Kakaopulver*, VOLLMILCHPULVER*, BUTTERREINFETT*, Emulgator Sonnenblumenlecithin*, Bourbon Vanille"
+packaging:         plastic (maybe)
+
+price:             0.99
+weight:            22
+usedAmounts:       ["1"]
+
+calories:          563
+nutritionalValues:
+
+  fat:             36
+  saturatedFat:    15
+  carbs:           50
+  sugar:           44
+  fibre:           8.2
+  amino:           5.8
+  salt:            0.03
+
+sources:           { nutriVal: "web" }
+state:             most
+lastUpd:           2024-06-18
+lastPriceUpd:      2024-06-18

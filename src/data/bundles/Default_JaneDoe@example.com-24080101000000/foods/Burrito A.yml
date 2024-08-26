@@ -1,0 +1,36 @@
+vendor:            Aldi
+acceptable:        less
+certificates:      { NutriScore: C }
+ingredients: |
+
+  via AI from pack (shortened strange only)
+
+  30 % Weizenfladen (Glycerin, Natriumcarbonate Diphosphate Mono- und Diglyceride von Speisefettsäuren ...)
+  20 % Paprika Tomaten (modifizierte Stärke Traubenmostkonzentrat Guarkernmehl Xanthan Magermilchpulver Natriumacetate Senfmehl Stärke Calciumchlorid ...)
+  16 % Kidneybohnen Mais (Zucker ...)
+  13 % Hähnchenbruststreifen (Dextrose ...)
+  5 % Cheddar (Farbstoff Beta-Carotin ...)
+  Hefe
+  ...
+
+packaging:         cardboard,plastic
+
+price:             2.99
+weight:            300
+usedAmounts:       ["1"]
+
+calories:          189
+nutritionalValues:
+
+  fat:             7.1
+  saturatedFat:    1.6
+  carbs:           22.1
+  sugar:           3.3
+  fibre:           2.6
+  amino:           7.9
+  salt:            1.26
+
+sources:           { nutriVal: "pack" }
+state:             most
+lastUpd:           2024-06-18
+lastPriceUpd:      2024-06-18

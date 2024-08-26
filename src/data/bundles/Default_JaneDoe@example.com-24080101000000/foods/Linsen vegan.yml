@@ -1,0 +1,22 @@
+vendor:            Rewe
+acceptable:        less
+packaging:         alu
+
+price:             
+weight:            400
+usedAmounts:       [1]
+
+calories:          61
+nutritionalValues:
+
+  fat:             0.5
+  saturatedFat:    0.1
+  carbs:           9.3
+  sugar:           1
+  amino:           3.7
+  salt:            0.95
+
+sources:           { nutriVal: "pack" }
+state:             most
+lastUpd:           2024-04-19
+lastPriceUpd:

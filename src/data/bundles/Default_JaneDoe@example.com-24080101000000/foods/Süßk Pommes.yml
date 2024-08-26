@@ -1,0 +1,24 @@
+vendor:            Rewe
+url:               "https://shop.rewe.de/p/rewe-beste-wahl-suesskartoffel-pommes-500g/7057887?sv1=affiliate&sv_campaign_id=101248&awc=11652_1720180225_9ab4aad1d3be21d98d349a5974995cf4&ecid=aff_awin_101248_takeads.com_0_nn_nn_nn_pm01&zanpid=11652_1720180225_9ab4aad1d3be21d98d349a5974995cf4"
+certificates:      { NutriScore: B }
+ingredients:       "Süßkartoffeln 89%, Sonnenblumenöl, Würzung 4% (modifizierte Stärke, Reismehl, Dextrin, Speisesalz, Gewürze (Paprika, schwarzer Pfeffer), Knoblauchpulver, Zwiebelpulver, Backtriebmittel (Diphosphate, Natriumcarbonate), Verdickungsmittel (Xanthan), Paprikaextrakt)"
+packaging:         plastic
+
+price:             2.69
+weight:            500
+usedAmounts:       ["25g", "50g", "100g"]
+
+calories:          154
+nutritionalValues:
+
+  fat:             7.6
+  saturatedFat:    0.8
+  carbs:           17.3
+  sugar:           7.1
+  amino:           2.3
+  salt:            0.47
+
+sources:           { nutriVal: "pack" }
+state:             most
+lastUpd:           2024-06-18
+lastPriceUpd:      2024-06-18

@@ -1,0 +1,23 @@
+vendor:            Rewe
+acceptable:        occasionally
+ingredients:       "Kartoffeln 95%, Sonnenblumenöl 4,5 %, Dextrose"
+packaging:         plastic
+
+price:             1.89
+weight:            1000
+usedAmounts:       ["25g", "50g", "100g"]
+
+calories:          145
+nutritionalValues:
+
+  fat:             4.5
+  saturatedFat:    0.5
+  carbs:           22
+  sugar:           0.2
+  amino:           2.8
+  salt:            0.06
+
+sources:           { nutriVal: "web (information on packaging may differ slightly)", price: "web" }
+state:             most
+lastUpd:           2024-04-16
+lastPriceUpd:      2024-07-01  # stable since 2024-05-11

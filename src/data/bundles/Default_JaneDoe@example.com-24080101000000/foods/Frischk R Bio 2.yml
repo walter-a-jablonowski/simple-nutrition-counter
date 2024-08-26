@@ -1,0 +1,27 @@
+productName:       "REWE Bio Frischkäse Doppelrahmstufe"
+vendor:            Rewe
+url:               "https://shop.rewe.de/p/rewe-bio-frischkaese-doppelrahmstufe-175g/200397"
+acceptable:        less
+certificates:      { bio: true, NutriScore: D }
+ingredients:       "MILCH*, Speisesalz, MILCHsäurekulturen, mikrobielles"
+allergy:           "Milch und Milcherzeugnisse (einschließlich Lactose)"              
+packaging:         plastic,alu
+
+price:             0.99  # deal
+weight:            175
+usedAmounts:       ["1/4", "1/2"]
+
+calories:          268
+nutritionalValues:
+
+  fat:             26
+  saturatedFat:    17
+  carbs:           3
+  sugar:           3
+  amino:           5.4
+  salt:            0.7
+
+sources:           { nutriVal: "web", price: "deal 2024-06-01 1.39" }
+state:             most
+lastUpd:           2024-06-01
+lastPriceUpd:      2024-06-01

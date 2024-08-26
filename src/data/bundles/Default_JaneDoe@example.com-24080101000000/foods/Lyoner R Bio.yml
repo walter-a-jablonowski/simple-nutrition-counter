@@ -1,0 +1,23 @@
+vendor:            Rewe
+acceptable:        less
+certificates:      { bio: true }
+packaging:         plastic
+
+price:             1.39
+weight:            70
+usedAmounts:       ["1/4", "1/2", "1"]
+
+calories:          230
+nutritionalValues:
+
+  fat:             19
+  saturatedFat:    4
+  carbs:           1
+  sugar:           1
+  amino:           13.3
+  salt:            2.5
+
+sources:           { nutriVal: "web (information on packaging may differ slightly)" }
+state:             most
+lastUpd:           2024-03-22
+lastPriceUpd:      2024-03-23

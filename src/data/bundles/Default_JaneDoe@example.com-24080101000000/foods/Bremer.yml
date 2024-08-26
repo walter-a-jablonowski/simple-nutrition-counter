@@ -1,0 +1,22 @@
+acceptable:        less
+allergy:           "Weizen (Gluten), Fisch, Milch (Laktose), Senf"
+packaging:         none
+
+price:             3.49
+weight:            167  # through portion kcal / kcal per 100
+usedAmounts:       ["1"]
+
+calories:          215
+nutritionalValues:
+
+  fat:             5.5
+  saturatedFat:    1.1
+  carbs:           31
+  sugar:           4.4
+  amino:           8.8
+  salt:            1.2
+
+sources:           { nutriVal: "web" }
+state:             most
+lastUpd:           2024-08-11
+lastPriceUpd:      2024-08-11

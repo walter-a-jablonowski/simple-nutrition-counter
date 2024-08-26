@@ -1,0 +1,24 @@
+vendor:            Norma
+acceptable:        less
+comment:           "2 smaller pieces count as one"
+packaging:         plastic,cardboard
+
+price:             
+weight:            500g
+pieces:            12
+
+calories:          221
+nutritionalValues:
+
+  fat:             2.6
+  saturatedFat:    0.2
+  carbs:           39.0
+  sugar:           0.3
+  fibre:           5.7
+  amino:           7.6
+  salt:            1.34
+
+sources:           { nutriVal: "pack" }
+state:             most
+lastUpd:           2024-04-23
+lastPriceUpd:
