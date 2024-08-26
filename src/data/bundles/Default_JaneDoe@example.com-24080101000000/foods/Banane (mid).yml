@@ -1,1 +1,37 @@
+url:               "https://www.geo.de/wissen/ernaehrung/vitamin-lexikon/20293-rtkl-bananen-diese-vitamine-stecken-drin"
+acceptable:        less
 
+price:             0.44  # price from larger one
+weight:            220
+usedAmounts:       ["120g", "150g", "220g"]  # mini, mid, large
+                    # N fair trade 1.29/kg 122 g, N 1.99/kg 146 g = mid, R Bio 1.99/kg 226 g
+calories:          93
+nutritionalValues:
+
+  fat:             0.2
+  saturatedFat:    0.1
+  monoUnsaturated: 0.1
+  polyUnsaturated: 0.1
+  carbs:           20
+  sugar:           17.3
+  amino:           1.1
+  fibre:           2
+  salt:            0
+
+# vitamins:  # TASK
+
+#   Vitamin A:  5 μg
+#   Vitamin B1: 44 μg
+#   Vitamin B2: 57 μg
+#   Vitamin B3: 650 μg
+#   Vitamin B5: 230 μg
+#   Vitamin B6: 363 μg
+#   Vitamin B7: 5 μg
+#   Vitamin B9: 14 μg
+#   Vitamin C:  11000 μg
+#   Vitamin E:  270 μg
+
+sources:           { nutriVal: "web" }
+state:             most
+lastUpd:           2024-07-20
+lastPriceUpd:      2024-07-20

@@ -1,1 +1,26 @@
+vendor:            Rewe
+acceptable:        less
+packaging:         plastic
 
+price:             1.39  # 2024-05-24 1.49
+weight:            120g
+pieces:            5     # 2024-06-04
+
+calories:          1510
+nutritionalValues:
+
+  fat:             29
+  saturatedFat:    19
+  carbs:           0.5
+  sugar:           0.5
+  amino:           25
+  salt:            0.80
+
+minerals:
+
+  Calcium:         850
+
+sources:           { nutriVal: "web", price: "deal price" }
+state:             most
+lastUpd:           2024-05-24
+lastPriceUpd:      2024-06-04
