@@ -1,3 +1,4 @@
+type:              "Chickpeas"
 vendor:            Rewe
 certificates:      { bio: true }
 packaging:         glass,rubber
