@@ -63,22 +63,22 @@ class AppController extends ControllerBase
     // Model
     // TASK: maybe also use -this > calories
 
-    $this->foodsModel = new SimpleData( Yaml::parse( file_get_contents("data/bundles/Default_$user->id/foods/-this.yml")));
-/*
+    // $this->foodsModel = new SimpleData( Yaml::parse( file_get_contents("data/bundles/Default_$user->id/foods/-this.yml")));
+
     $this->foodsModel = new SimpleData();
     
     $dir     = "data/bundles/Default_$user->id/foods";
-    $exclude = ['.', '..', '-this.yml', '-this_SAV.yml', '01_layout.yml'];
+    $exclude = ['.', '..', '-this.yml', '-this_SAV.yml', '20_layout.yml'];
 
     foreach( scandir($dir) as $file )
     {
-      if( in_array( $file, §exclude) || pathinfo($file, PATHINFO_EXTENSION) !== 'yml')
+      if( in_array( $file, $exclude) || pathinfo($file, PATHINFO_EXTENSION) !== 'yml')
         continue;
 
       $name = pathinfo($file, PATHINFO_FILENAME);
       $this->foodsModel->set( $name, Yaml::parse( file_get_contents("$dir/$file")));
     }
-*/
+
     $this->nutrientsModel = new SimpleData();      // TASK: (advanced) merge with bundle /nutrients
     
     foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $type)
@@ -111,7 +111,7 @@ class AppController extends ControllerBase
     $this->makeFoodsView();
 
     $this->layout = parse_attribs('@attribs', ['short', '(i)'],
-      Yaml::parse( file_get_contents("data/bundles/Default_$user->id/foods/01_layout.yml"))
+      Yaml::parse( file_get_contents("data/bundles/Default_$user->id/foods/20_layout.yml"))
     );
     
     foreach( $this->layout as $group => &$layout )
@@ -150,6 +150,8 @@ class AppController extends ControllerBase
 
     foreach( $this->foodsModel->all() as $name => $data )
     {
+      // print "$name<br>";   // DEBUG
+
       $data['weight'] = trim( $data['weight'], "mgl ");  // just for convenience, we don't need the unit here
 
       $usage = isset( $data['usedAmounts']) && (
