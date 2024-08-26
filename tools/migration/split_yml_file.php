@@ -38,11 +38,11 @@ try {
   {
     // file_put_contents("$destFolder/$key.yml", Yaml::dump($value));
     file_put_contents("$destFolder/$key.yml", extractYamlSection($content, $key));
-    echo "Added $key.yml<br>\n";
+    echo "<b>Added</b> $key.yml<br>\n";
     flush();
   }
 
-  echo "<br>\nDone";
+  echo "<br>\n<b>Done</b>";
 
 } catch( Exception $e ) {
   echo "Error: " . $e->getMessage();
