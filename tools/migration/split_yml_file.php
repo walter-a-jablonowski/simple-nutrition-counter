@@ -37,7 +37,7 @@ try {
   foreach( Yaml::parse($content) as $key => $value )
   {
     // file_put_contents("$destFolder/$key.yml", Yaml::dump($value));
-    file_put_contents("$destFolder/$key.yml", extractYamlSection($content, $key));
+    file_put_contents("$destFolder/$key.yml", extractYamlSection($content, $key));  // TASK: there is a problem when the key is like `Some (name)`, most likely sth with regex
     echo "<b>Added</b> $key.yml<br>\n";
     flush();
   }
