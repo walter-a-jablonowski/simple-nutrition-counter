@@ -76,7 +76,7 @@ class AppController extends ControllerBase
       $name = pathinfo($file, PATHINFO_FILENAME);
       $food = Yaml::parse( file_get_contents("$dir/$file"));
 /*
-      // TASK: merge nutrients for default foods (prio) and nutrients in food file
+      // TASK: merge nutrients for default foods and nutrients in food file (prio)
 
       if( file_exists("data/foods/$food"))
       {
