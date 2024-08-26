@@ -17,7 +17,7 @@ Make a PHP tool that
 - file extension: yml
 - file content is the yml dump of the value
 
-Use scandir(). Ident all codes wit 2 spaces.
+Use scandir(). Ident all codes with 2 spaces.
 
 */
 
@@ -65,7 +65,7 @@ function extractYamlSection($content, $key)
     }
     elseif( $inSection )
     {
-      if( strlen(ltrim($line)) === 0 )
+      if( strlen( ltrim($line)) === 0 )
         $section[] = $line;
       elseif( strspn($line, " ") < $indent)
         break;
@@ -74,7 +74,7 @@ function extractYamlSection($content, $key)
     }
   }
 
-  return implode("\n", $section);
+  return implode("\n", trim($section) . "\n");
 }
 
 ?>
