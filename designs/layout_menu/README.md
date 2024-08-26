@@ -5,6 +5,7 @@
 - [x] content areas look a little high
 - [ ] problem with displaying sub pages
   - maybe try to move sub-page out of the grid
+  - flex is used in day list above sub pages, maybe this interferes in some way (move around the sub pages)
   - AI: What happens is when I click on a menu entry with a sub page the content for that sub page disappears. (Toggling the pages works.)
     I think the code is correct, it must be some kind of style problem when I set display in sub-pages which are also bootstrap cols.
 - [ ] smartphone no full height of day list using BS classes, also show goals
