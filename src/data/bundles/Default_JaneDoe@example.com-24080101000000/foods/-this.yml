@@ -2111,9 +2111,9 @@ Mohnkuchen:
   lastUpd:           2024-04-23
   lastPriceUpd:      2024-08-01
 
-Nussmisch A:      # big pack
+Nussmisch A:
 
-  productName:       "Feinste Nussvariationen"
+  productName:       "Feinste Nussvariationen"  # big pack
   vendor:            Aldi
   certificates:      { NutriScore: A }
   packaging:         plastic (maybe)
@@ -2173,9 +2173,9 @@ Nussmisch N:
   lastUpd:           2024-06-18
   lastPriceUpd:      2024-06-18
 
-Nussmisch A ger:  # small pack
+Nussmisch A ger:
 
-  vendor:            Aldi
+  vendor:            Aldi  # small pack
   packaging:         plastic (maybe)
 
   price:             
@@ -3142,9 +3142,9 @@ Wrap Falafel A:
   lastUpd:           2024-06-18
   lastPriceUpd:      2024-06-18
 
-Zitronenm:  # (TASK) currently 2 entries
+Zitronenm:
 
-  vendor:            DM
+  vendor:            DM  # (TASK) currently 2 entries
   acceptable:        occasionally
   comment:           "Andorn Bibernelle Ehrenpreis Eibisch Frauenmantel Holunder Malve Pfefferminze Salbei Schafgarbe Schlüsselblume Spitzwegerich Thymian"
   ingredients:       "Süßungsmittel (Isomalt), Säuerungsmittel (Citronensäure), Kräuterauszug (0,3%) aus Zitronenmelisse sowie Spitzwegerich, Eibisch, Pfefferminze, Thymian, Salbei, Frauenmantel, Schafgarbe, Bibernelle, Malve, Holunderblüten, Schlüsselblume, Ehrenpreis und Andorn, natürliches Citrusaroma, Karottensaftkonzentrat, Süßungsmittel (Steviolglycoside aus Stevia, Thaumatin), Pfefferminzöl, Minzöl, Menthol"
@@ -3171,9 +3171,9 @@ Zitronenm:  # (TASK) currently 2 entries
   lastUpd:           2024-05-06
   lastPriceUpd:      2024-05-15
 
-Zitronenm mini:  # (TASK) currently 2 entries
+Zitronenm mini:
 
-  vendor:            Rewe
+  vendor:            Rewe  # (TASK) currently 2 entries
   acceptable:        occasionally
   comment:           "Andorn Bibernelle Ehrenpreis Eibisch Frauenmantel Holunder Malve Pfefferminze Salbei Schafgarbe Schlüsselblume Spitzwegerich Thymian"
   ingredients:       "Süßungsmittel (Isomalt), Säuerungsmittel (Citronensäure), Kräuterauszug (0,3%) aus Zitronenmelisse sowie Spitzwegerich, Eibisch, Pfefferminze, Thymian, Salbei, Frauenmantel, Schafgarbe, Bibernelle, Malve, Holunderblüten, Schlüsselblume, Ehrenpreis und Andorn, natürliches Citrusaroma, Karottensaftkonzentrat, Süßungsmittel (Steviolglycoside aus Stevia, Thaumatin), Pfefferminzöl, Minzöl, Menthol"
