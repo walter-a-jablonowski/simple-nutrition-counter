@@ -74,7 +74,22 @@ class AppController extends ControllerBase
         continue;
 
       $name = pathinfo($file, PATHINFO_FILENAME);
-      $this->foodsModel->set( $name, Yaml::parse( file_get_contents("$dir/$file")));
+      $food = Yaml::parse( file_get_contents("$dir/$file"));
+/*
+      // TASK: merge nutrients for default foods (prio) and nutrients in food file
+
+      if( file_exists("data/foods/$food"))
+      {
+        $nutrients = Yaml::parse( file_get_contents("data/foods/$food"));
+        
+        foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $type)
+        {
+          if( isset( $nutrients[$type] ))
+            $food[$type] = array_merge( $nutrients[$type], $food[$type] ?? []);
+        }
+      }
+*/
+      $this->foodsModel->set( $name, $food );
     }
 
     $this->nutrientsModel = new SimpleData();  // TASK: (advanced) merge with bundle /nutrients
