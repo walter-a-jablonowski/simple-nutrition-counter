@@ -1,0 +1,64 @@
+# AI generated for now
+# TASK: we could also have some default data outside bundle for well known foods (but modifyable per food)
+
+fattyAcids:
+  
+  saturated: 0.27g
+  monounsaturated: 0.58g
+  polyunsaturated: 1.16g
+
+carbs:
+  
+  fiber: 7.6g
+  sugars: 4.8g
+  starch: 15g
+
+aminoAcids:
+  
+  histidine: 0.212g
+  isoleucine: 0.338g
+  leucine: 0.562g
+  lysine: 0.493g
+  methionine: 0.116g
+  phenylalanine: 0.429g
+  threonine: 0.291g
+  tryptophan: 0.082g
+  valine: 0.357g
+
+vitamins:
+  
+  A: 1µg
+  E: 0.35mg
+  K: 4µg
+  B1: 0.116mg
+  B2: 0.063mg
+  B3: 0.526mg
+  B5: 0.286mg
+  B6: 0.139mg
+  B9: 172µg
+  choline: 42.8mg
+
+minerals:
+  
+  calcium: 49mg
+  iron: 2.89mg
+  magnesium: 48mg
+  phosphorus: 168mg
+  potassium: 291mg
+  sodium: 7mg
+  zinc: 1.53mg
+  copper: 0.352mg
+  manganese: 0.82mg
+  selenium: 3.7µg
+
+# secondary:  # AI said no amounts
+#
+#   polyphenols:
+#     - flavonoids:
+#         - quercetin
+#         - kaempferol
+#     - phenolicAcids:
+#         - ferulicAcid
+#         - chlorogenicAcid
+#   saponins: present
+#   phytosterols: present
