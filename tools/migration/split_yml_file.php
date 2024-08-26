@@ -29,8 +29,8 @@ try {
   if( ! file_exists($sourceFile))
     throw new Exception("Source file does not exist: $sourceFile");
 
-  if( ! is_dir($destFolder))
-    mkdir($destFolder, 0777, true);
+  // if( ! is_dir($destFolder))
+  //   mkdir($destFolder, 0777, true);
 
   foreach( Yaml::parseFile($sourceFile) as $key => $value )
   {
