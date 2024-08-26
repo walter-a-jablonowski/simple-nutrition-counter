@@ -21,8 +21,8 @@ Use scandir(). Ident all codes wit 2 spaces.
 
 */
 
-$sourceFile = 'src/data/bundles/Default_JaneDoe@example.com-24080101000000/foods/-this.yml';
-$destFolder = 'src/data/bundles/Default_JaneDoe@example.com-24080101000000/foods';
+$sourceFile = 'data/bundles/Default_JaneDoe@example.com-24080101000000/foods/-this.yml';
+$destFolder = 'data/bundles/Default_JaneDoe@example.com-24080101000000/foods';
 
 try {
 
