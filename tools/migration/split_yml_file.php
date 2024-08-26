@@ -32,9 +32,12 @@ try {
   // if( ! is_dir($destFolder))
   //   mkdir($destFolder, 0777, true);
 
-  foreach( Yaml::parseFile($sourceFile) as $key => $value )
+  $content = file_get_contents($sourceFile);
+
+  foreach( Yaml::parse($content) as $key => $value )
   {
-    file_put_contents("$destFolder/$key.yml", Yaml::dump($value));
+    // file_put_contents("$destFolder/$key.yml", Yaml::dump($value));
+    file_put_contents("$destFolder/$key.yml", extractYamlSection($content, $key));
     echo "Added $key.yml<br>\n";
     flush();
   }
@@ -43,6 +46,35 @@ try {
 
 } catch( Exception $e ) {
   echo "Error: " . $e->getMessage();
+}
+
+function extractYamlSection($content, $key)
+{
+  $lines     = explode("\n", $content);
+  $section   = [];
+  $inSection = false;
+  $indent    = null;
+
+  foreach( $lines as $line )
+  {
+    if( preg_match("/^(\s*)$key:/", $line, $matches))
+    {
+      $inSection = true;
+      $indent    = strlen($matches[1]);
+      $section[] = $line;
+    }
+    elseif( $inSection )
+    {
+      if (strlen(ltrim($line)) === 0)
+        $section[] = $line;
+      elseif (strspn($line, " ") <= $indent)
+        break;
+      else
+        $section[] = $line;
+    }
+  }
+
+  return implode("\n", $section);
 }
 
 ?>
