@@ -6,7 +6,7 @@ calories:
 
   short: kcal
   name:  calories
-  unit:  g
+  unit:  kcal
 
   amounts:
 
