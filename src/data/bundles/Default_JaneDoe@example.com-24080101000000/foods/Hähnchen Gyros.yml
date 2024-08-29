@@ -1,0 +1,25 @@
+productName:       "Sprehe Hähnchen Pfannengyros"
+vendor:            "Norma"
+ingredients:       "Hähnchenoberkeulenfleisch 98%, Speisesalz, Gewürze, Kräuter, Dextrose, Gewürzextrakt"
+packaging:         plastic  # inner
+
+price:             2.49     # TASK: deal, add normal
+weight:            400      # TASK
+usedAmounts:       ["50g", "100g", "200g"]
+
+cookingInstructions: "> 6 min"
+
+calories:          168      # TASK: third party information
+nutritionalValues:
+
+  fat:             9.0
+  saturatedFat:    2.5
+  carbs:           0.7
+  sugar:           0.5
+  amino:           21.0
+  salt:            1.0
+
+sources:           { nutriVal: "web (third party)", price: "deal" }
+state:             most
+lastUpd:           2024-08-20
+lastPriceUpd:      2024-08-20
