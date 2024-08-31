@@ -5,7 +5,7 @@ mayContain:        "Gluten, Milch, Sellerie, Senf"
 packaging:         plastic  # inner
 
 price:             2.49     # TASK: deal, add normal
-weight:            500
+weight:            300
 usedAmounts:       ["50g", "100g", "200g"]
 
 cookingInstructions: "> 6 min"

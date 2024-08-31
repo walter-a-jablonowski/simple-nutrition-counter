@@ -4,12 +4,12 @@ ingredients:       "Hähnchenoberkeulenfleisch 98%, Speisesalz, Gewürze, Kräut
 packaging:         plastic  # inner
 
 price:             2.49     # TASK: deal, add normal
-weight:            400      # TASK
+weight:            300
 usedAmounts:       ["50g", "100g", "200g"]
 
 cookingInstructions: "> 6 min"
 
-calories:          168      # TASK: third party information
+calories:          168
 nutritionalValues:
 
   fat:             9.0
