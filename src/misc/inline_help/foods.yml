@@ -23,7 +23,7 @@ vendor:              { usage: "Vendor name",          required: false, type: "st
 url:                 { usage: "Single or multiple urls, first will be used as primary if multiple",
                          required: false, type: "string|array(string)" }
 
-acceptable:          { usage: "Highlights less good foods in UI",         required: false, type: "string" }
+acceptable:          { usage: "occasionally|less Highlights less good foods in UI",         required: false, type: "string" }
 comment:             { usage: "All misc comments (we can use html here)", required: false, type: "string" }
 certificates:        { usage: "like { bio: true, vegan: true, NutriScore: A, oekotest: 1 }", required: false, type: "obj" }
 ingredients:         { usage: "Ingredients that you want to be aware of", required: false, type: "string" }
