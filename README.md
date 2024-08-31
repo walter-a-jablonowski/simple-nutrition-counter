@@ -17,13 +17,17 @@ as simple as possible, see [mission](#mission).
 Mission
 ----------------------------------------------------------
 
-There are at least ~43 vitamins, minerals, fatty acids, amino acids... Most people eat
-similar food every day. It is likely that one is deficient in more than one substance,
-just because there are so many. Well known samples of deficiencies: Vitamin D, Omega 3,
-Zinc...
+Before one tunes his projects, he should always improve his primary tool first, which is
+the brain. This requires a constant time invest on a daily basis. Improving the brain will
+have a positive effect on all following activities (multiplier).
 
-All nutrients are needed for something. Being able to have perfect supply on a daily
-basis may make a big difference for general health and brain function.
+There are at least ~43 vitamins, minerals, fatty acids, amino acids... It is likely that one
+is deficient in more than one substance. Also, if foods change from time to time, deficiencies
+might change. Well known samples of deficiencies: Vitamin D, Omega 3, Zinc...
+
+All nutrients are needed for something, e.g. the activity of neurons. If it's missing the brain
+works less good. Thus, improving the supply may make a big difference for general health and brain
+function.
 
 ```
                                                 Special supplements  Powerful methods, AI, tools
@@ -46,15 +50,15 @@ x = can be counted with this app (manually impossible)
 **The problem with supplements:** B12 cyanocobalamin isn't the real B12 but a cheap synthetic form,
 dosage while production often goes wrong and unexplored substances from food are missing. Of course
 it might make sense to use some supplements if you can't get enough from food. But in general food
-is the more natural (better) source (as long as it is free from substances like pesticides).
+is the more natural (better) source, as long as it is free from substances like pesticides.
 
 ### Long term goal
 
 Handle all minimal daily logging in a single app as simple as possible (with as few clicks
 as possible). Primarily nutrients, but all that can't be handled easier.
 
-( This kind of project might be AI proof because AI solution would be: it watches you
-while cooking and counts the nutrients. Do you want that? )
+This kind of project might be AI proof because AI solution would be: it watches you
+while cooking and counts the nutrients. Do you want that?
 
 
 Project state
