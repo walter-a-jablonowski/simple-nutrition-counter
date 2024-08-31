@@ -173,6 +173,26 @@ Misc starches, corn (color:#32cd32):
     - Flatbr Sandwich
     - Mehrkornbr
 
+Foods used sometimes (color:#32cd32):
+
+  (i): "Kinda suppl (fill up missing)"
+
+  list:
+
+    - Apfelsaft N                            # misc
+    - Milch H                                # (duplicate)
+    - Cashew A Cranb
+    - Banane (mid)
+
+    - Amino misc                             # amino
+    - Amino Deca Muscle Gainer
+    - Amino NaDuRia Pur
+    - Riegel Seitenb Sch
+
+    - Frosta Frikassee                       # kcal
+    - Frosta Paella
+    - Chips light
+
 Cheat day (color:#32cd32):
 
   list:
@@ -184,46 +204,16 @@ Cheat day (color:#32cd32):
     - Pizza Mag
     - Mohnkuchen
 
-Misc (color:#32cd32):
+Misc foods (color:#32cd32):
 
   list:
 
-    - Apfelsaft N
     - Frosta Bratk
     - Frosta Gesch
     - Aldi Bratk
     - Linsen vegan
     - Geb Bohnen
     - Chili vegan
-
-Fill up missing (color:#ff69b4):
-
-  (i): "We may also need fill up some energy from time to time"
-
-  list:
-
-    - Amino misc                             # use left over
-    - Amino Deca Muscle Gainer
-    - Amino NaDuRia Pur
-    - Riegel Seitenb Sch
-    - Frosta Frikassee
-    - Frosta Paella
-    - Banane (mid)
-    - Chips light
-
-Variable Suppl, Brain tuning (color:#ff69b4, fold:true):
-
-  list:
-
-    # - Salt                                 # TASK: removed for debugging layout
-    - Milch H
-    - Zitronenm
-    - Zitronenm mini
-    - Cashew A Cranb
-
-Evening Supplements, fill up (color:#ff69b4, fold:true):
-
-  list:
 
 On the go (color:#ff69b4, fold:true):
 
@@ -254,6 +244,19 @@ On the go (color:#ff69b4, fold:true):
     - Riegel Deca Basic
     - Falafel
     - Snickers
+
+Variable Suppl, Brain tuning (color:#ff69b4, fold:true):
+
+  list:
+
+    # - Salt                                 # Brain tuning TASK: removed for debugging layout
+    - Milch H                                # duplicate
+    - Zitronenm
+    - Zitronenm mini
+
+Evening Supplements, fill up (color:#ff69b4, fold:true):
+
+  list:
 
 Housewares (color:#e0e0e0):                  # Finance only
 
