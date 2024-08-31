@@ -78,11 +78,14 @@ class AppController extends ControllerBase
 
       // merge nutrients from food file (prio) over default foods
 
-      if( file_exists("data/foods/$name"))
+      if( $name == 'Chick R Bio' )  // DEBUG
+        $debug = 'halt';
+
+      if( isset( $food['type']) && file_exists("data/foods/$food[type].yml"))
       {
-        $nutrients = Yaml::parse( file_get_contents("data/foods/$name"));
+        $nutrients = Yaml::parse( file_get_contents("data/foods/$food[type].yml"));
         
-        foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $type)
+        foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals'/*, 'secondary'*/] as $type)
         {
           if( isset( $nutrients[$type] ))
             $food[$type] = array_merge( $nutrients[$type], $food[$type] ?? []);
