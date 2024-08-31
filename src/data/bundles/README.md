@@ -16,7 +16,7 @@ Naming scheme
   ^          ^
   BUNDLENAME USERID
   ```
-  - name uniqe per user
+  - name unique per user
   - if a name is used a second time add an invisible idx `Default(2)_ ...`
 
 

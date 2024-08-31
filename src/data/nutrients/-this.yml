@@ -4,8 +4,8 @@
 
 calories:
 
-  short: kcal
   name:  calories
+  short: kcal
   unit:  kcal
 
   amounts:

@@ -4,8 +4,8 @@
 # -> usage see readme
 #
 
-short:      fat
 name:       Fatty acids
+short:      fat
 unit:       
 per:        day
 comment:    ""

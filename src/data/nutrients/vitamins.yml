@@ -4,8 +4,8 @@
 # -> usage see readme
 #
 
-short:        vit
 name:         Vitamins
+short:        vit
 unit:         
 comment:      ""
 
@@ -29,7 +29,7 @@ substances:
 
   Vitamin B12:
 
-    type:       methylcobalamin
+    type:       methylcobalamin  # TASK: use `type: natural B12 variant` for id?
     short:      B12
     unit:       
 

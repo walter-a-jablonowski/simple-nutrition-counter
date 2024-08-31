@@ -171,8 +171,8 @@ class AppController extends ControllerBase
     {
       // print "$name<br>";   // DEBUG
 
-      // if( $name == 'Chick R Bio' )
-      //   $debug = 'halt';
+      if( $name == 'Chick R Bio' )
+        $debug = 'halt';
 
       $data['weight'] = trim( $data['weight'], "mgl ");  // just for convenience, we don't need the unit here
 

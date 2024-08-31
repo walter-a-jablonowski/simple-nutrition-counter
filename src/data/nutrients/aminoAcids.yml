@@ -4,8 +4,8 @@
 # -> usage see readme
 #
 
-short:     amino
 name:      Amino acids
+short:     amino        # TASK: name `shortId` (normally `@shortId` but looks nicer)
 unit:      g
 per:       day
 comment:   "Increased need if doing sports"

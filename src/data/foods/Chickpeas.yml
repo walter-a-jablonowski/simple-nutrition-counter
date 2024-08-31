@@ -10,52 +10,52 @@
 
 fattyAcids:
 
-  ALA:           0.043   # g  # TASK: short names
-  LA:            2.592
+  Alpha-linolenic acid: 0.043   # g
+  Linoleic acid:        2.592
 
 carbs:
   
-  fiber:         7.6     # g
+  fiber:         7.6     # g  # TASK: unify casing
   sugars:        4.8
   starch:        15
 
 aminoAcids:
   
-  histidine:     212     # mg
-  isoleucine:    338
-  leucine:       562
-  lysine:        493
-  methionine:    116
-  phenylalanine: 429
-  threonine:     291
-  tryptophan:    82
-  valine:        357
+  Histidine:     212     # mg
+  Isoleucine:    338
+  Leucine:       562
+  Lysine:        493
+  Methionine:    116
+  Phenylalanine: 429
+  Threonine:     291
+  Tryptophan:    82
+  Valine:        357
 
 vitamins:                # mg
   
-  A:             0.001   # 1µg
-  E:             0.35
-  K:             0.004   # 4µg
-  B1:            0.116
-  B2:            0.063
-  B3:            0.526
-  B5:            0.286
-  B6:            0.139
-  B9:            0.172   # 172µg
-  choline:       42.8
+  Vitamin A:     0.001   # 1µg
+  Vitamin E:     0.35
+  Vitamin K:     0.004   # 4µg
+  Vitamin B1:    0.116
+  Vitamin B2:    0.063
+  Vitamin B3:    0.526
+  Vitamin B5:    0.286
+  Vitamin B6:    0.139
+  Vitamin B9:    0.172   # 172µg
+  Choline:       42.8
 
 minerals:                # mg
   
-  calcium:       49
-  iron:          2.89
-  magnesium:     48
-  phosphorus:    168
-  potassium:     291
-  sodium:        7
-  zinc:          1.53
-  copper:        0.352
-  manganese:     0.82
-  selenium:      0.0037  # 3.7µg
+  Calcium:       49
+  Iron:          2.89
+  Magnesium:     48
+  Phosphorus:    168
+  Potassium:     291
+  Sodium:        7
+  Zinc:          1.53
+  Copper:        0.352
+  Manganese:     0.82
+  Selenium:      0.0037  # 3.7µg
 
 # secondary:  # AI said no amounts
 #

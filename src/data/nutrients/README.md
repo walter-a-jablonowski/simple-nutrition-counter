@@ -12,9 +12,8 @@ Naming scheme
 
 - **Speaking id**
 
-  - fil name = id
-  - short second id: in file key TASK: name `shortId` (normally `@shortId` but looks nicer)
-  - TASK: Use `type: methylcobalamin` for id? (kind of combined key name + type)
+  - fil name = group id
+  - short second id: `short` in file
 
 
 File structure
@@ -33,8 +32,8 @@ Nutrient files
 
 # Nutrient group data
 
-short:                           # short name used as short unique id in daily files (file name is alternative id used in code)
 name:                            # display name
+short:                           # short name used as short unique id in daily files (file name is alternative id used in code)
 unit:      mg
 per:       day
 comment:   "Increased need if doing sports"
