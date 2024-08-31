@@ -60,7 +60,18 @@ class AppController extends ControllerBase
     $this->date = $_GET['date'] ?? date('Y-m-d');  // TASK: (advanced) is request
     $this->mode = isset($_GET['date']) ? 'last' : 'current';
 
-    // Model
+    // Nutrients model
+
+    $this->nutrientsModel = new SimpleData();  // TASK: (advanced) merge with bundle /nutrients
+    
+    foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $type)
+    {
+      $this->nutrientsModel->set( $type,
+        Yaml::parse( file_get_contents("data/nutrients/$type.yml"))
+      );
+    }
+
+    // Food model
     // TASK: maybe also use -this > calories
 
     $this->foodsModel = new SimpleData();
@@ -77,12 +88,14 @@ class AppController extends ControllerBase
       $food = Yaml::parse( file_get_contents("$dir/$file"));
 
       // merge nutrients from food file (prio) over default foods
+      // TASK: maybe we want to add at least an empty key if a type of nutrients is missing
 
       // if( $name == 'Chick R Bio' )  // DEBUG
       //   $debug = 'halt';
 
       if( isset( $food['type']) && file_exists("data/foods/$food[type].yml"))
       {
+        // TASK: (advanced) add full foods in /food with all data when pure (e.g. broccoli)
         $nutrients = Yaml::parse( file_get_contents("data/foods/$food[type].yml"));
         
         foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $type)
@@ -96,15 +109,6 @@ class AppController extends ControllerBase
       }
 
       $this->foodsModel->set( $name, $food );
-    }
-
-    $this->nutrientsModel = new SimpleData();  // TASK: (advanced) merge with bundle /nutrients
-    
-    foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $type)
-    {
-      $this->nutrientsModel->set( $type,
-        Yaml::parse( file_get_contents("data/nutrients/$type.yml"))
-      );
     }
 
     // Edit tab: Day entries
@@ -171,8 +175,8 @@ class AppController extends ControllerBase
     {
       // print "$name<br>";   // DEBUG
 
-      if( $name == 'Chick R Bio' )
-        $debug = 'halt';
+      // if( $name == 'Chick R Bio' )
+      //   $debug = 'halt';
 
       $data['weight'] = trim( $data['weight'], "mgl ");  // just for convenience, we don't need the unit here
 
@@ -216,18 +220,22 @@ class AppController extends ControllerBase
           $shortName = $groupName === 'nutritionalValues' ? 'nutriVal'
                      : $this->nutrientsModel->get("$groupName.short");
 
-          if( ! isset($data[$groupName]) || count($data[$groupName]) == 0)
-            $perWeight[$shortName] = [];
-          else foreach( $data[$groupName] as $nutrient => $value )
-          {
-            // if( $name == 'Salt' && $nutrient == 'salt' )              // DEBUG
-            //   $debug = 'halt';
+          $perWeight[$shortName] = [];
 
-            $short = $groupName === 'nutritionalValues' ? $nutrient      // short name for single nutrient
-                   : $this->nutrientsModel->get("$groupName.substances.$nutrient.short");
+          if( isset($data[$groupName]) && count($data[$groupName]) > 0)
+            foreach( $data[$groupName] as $nutrient => $value )
+            {
+              // if( $name == 'Salt' && $nutrient == 'salt' )          // DEBUG
+              //   $debug = 'halt';
 
-            $perWeight[$shortName][$short] = round( $value * ($weight / 100), 1);
-          }
+              if( ! $this->nutrientsModel->has("$groupName.substances.$nutrient.short"))
+                continue;
+
+              $short = $groupName === 'nutritionalValues' ? $nutrient  // short name for single nutrient
+                     : $this->nutrientsModel->get("$groupName.substances.$nutrient.short");
+
+              $perWeight[$shortName][$short] = round( $value * ($weight / 100), 1);
+            }
         }
 
         $this->foodsView->set("$name.$amount", $perWeight);
