@@ -78,19 +78,20 @@ class AppController extends ControllerBase
 
       // merge nutrients from food file (prio) over default foods
 
-      if( $name == 'Chick R Bio' )  // DEBUG
-        $debug = 'halt';
+      // if( $name == 'Chick R Bio' )  // DEBUG
+      //   $debug = 'halt';
 
       if( isset( $food['type']) && file_exists("data/foods/$food[type].yml"))
       {
         $nutrients = Yaml::parse( file_get_contents("data/foods/$food[type].yml"));
         
-        foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals'/*, 'secondary'*/] as $type)
+        foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $type)
         {
           if( isset( $nutrients[$type] ))
             $food[$type] = array_merge( $nutrients[$type], $food[$type] ?? []);
-          else
-            $food[$type] = $nutrients[$type];
+          // else
+          //   // $food[$type] = $nutrients[$type];
+          //   $food[$type] = $food[$type] ?? [];
         }
       }
 
@@ -169,6 +170,9 @@ class AppController extends ControllerBase
     foreach( $this->foodsModel->all() as $name => $data )
     {
       // print "$name<br>";   // DEBUG
+
+      // if( $name == 'Chick R Bio' )
+      //   $debug = 'halt';
 
       $data['weight'] = trim( $data['weight'], "mgl ");  // just for convenience, we don't need the unit here
 
