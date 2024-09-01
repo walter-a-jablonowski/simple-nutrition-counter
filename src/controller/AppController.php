@@ -225,11 +225,11 @@ class AppController extends ControllerBase
           if( isset($data[$groupName]) && count($data[$groupName]) > 0)
             foreach( $data[$groupName] as $nutrient => $value )
             {
-              // if( $name == 'Salt' && $nutrient == 'salt' )          // DEBUG
-              //   $debug = 'halt';
-
-              if( $groupName != 'nutritionalValues' && $this->nutrientsModel->has("$groupName.substances.$nutrient.short"))
+              if( $groupName != 'nutritionalValues' && ! $this->nutrientsModel->has("$groupName.substances.$nutrient.short"))
                 continue;
+
+              if( $groupName != 'nutritionalValues' )          // DEBUG
+                $debug = 'halt';
 
               $short = $groupName === 'nutritionalValues' ? $nutrient  // short name for single nutrient
                      : $this->nutrientsModel->get("$groupName.substances.$nutrient.short");
