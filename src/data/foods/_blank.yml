@@ -1,0 +1,82 @@
+# acceptable:      # only these make sense for a commonly used food, as well as the fields below
+# comment:         
+
+calories:          
+
+nutritionalValues:
+
+  fat:             
+  saturatedFat:    
+  # saturated:                  # TASK
+  # monoUnsaturated: 
+  # polyUnsaturated: 
+  carbs:           
+  sugar:           
+  # fibre:
+  amino:           
+  salt:            
+
+fattyAcids:
+
+  Alpha-linolenic acid:        # g
+  Linoleic acid:        
+
+carbs:
+  
+  fiber:                       # g  # TASK: unify casing
+  sugars:         
+  starch:         
+
+aminoAcids:
+  
+  Histidine:                   # mg
+  Isoleucine:      
+  Leucine:         
+  Lysine:          
+  Methionine:      
+  Phenylalanine:   
+  Threonine:       
+  Tryptophan:      
+  Valine:          
+
+vitamins:                      # mg
+  
+  Vitamin A:       
+  Vitamin E:       
+  Vitamin K:       
+  Vitamin B1:      
+  Vitamin B2:      
+  Vitamin B3:      
+  Vitamin B5:      
+  Vitamin B6:      
+  Vitamin B9:      
+  Choline:         
+
+minerals:                      # mg
+  
+  Calcium:         
+  Iron:            
+  Magnesium:       
+  Phosphorus:      
+  Potassium:       
+  Sodium:          
+  Zinc:            
+  Copper:          
+  Manganese:       
+  Selenium:        
+
+# secondary:  # AI said no amounts
+#
+#   - polyphenols
+#     - flavonoids
+#       - quercetin
+#       - kaempferol
+#     - phenolicAcids
+#       - ferulicAcid
+#       - chlorogenicAcid
+#   - saponins: present
+#   - phytosterols: present
+
+sources:           { nutriVal: "", nutrients: "" }
+state:             most
+lastUpd:           
