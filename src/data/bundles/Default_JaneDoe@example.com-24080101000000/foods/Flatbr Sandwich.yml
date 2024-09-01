@@ -8,7 +8,7 @@ packaging:         plastic
 price:             1.39
 weight:            210g
 pieces:            6
-usedAmounts:       [1, 2, 3]  # TASK: enable 0.5
+usedAmounts:       ["1/2", 1, 2]
 
 calories:          296
 nutritionalValues:

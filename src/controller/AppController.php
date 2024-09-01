@@ -95,7 +95,6 @@ class AppController extends ControllerBase
 
       if( isset( $food['type']) && file_exists("data/foods/$food[type].yml"))
       {
-        // TASK: (advanced) add full foods in /food with all data when pure (e.g. broccoli)
         $nutrients = Yaml::parse( file_get_contents("data/foods/$food[type].yml"));
         
         foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals'/*, 'electrolytes'*/, 'secondary'] as $groupName )
@@ -194,11 +193,11 @@ class AppController extends ControllerBase
 
       foreach( $usedAmounts as $amount )
       {
-        // if( $name == 'Salt' )  // DEBUG
-        //   $debug = 'halt';
+        if( $name == 'Toasties R Bio' )  // DEBUG
+          $debug = 'halt';
 
         $multipl = trim( $amount, "mglpc ");
-        $multipl = (float) eval("return $multipl;");  // 1/2 => 0.5, or: eval("\$multipl = $multipl;")
+        $multipl = (float) eval("return $multipl;");  // 1/2 => 0.5 or: eval("\$multipl = $multipl;")
 
         $weight = $usage === 'pack'   ? $data['weight'] * $multipl : (
                   $usage === 'pieces' ? ($data['weight'] / $data['pieces']) * $multipl
@@ -225,7 +224,7 @@ class AppController extends ControllerBase
           if( isset($data[$groupName]) && count($data[$groupName]) > 0)
             foreach( $data[$groupName] as $nutrient => $value )
             {
-              if( $groupName != 'nutritionalValues' && ! $this->nutrientsModel->has("$groupName.substances.$nutrient.short"))
+              if( $groupName != 'nutritionalValues' && ! $this->nutrientsModel->has("$groupName.substances.$nutrient"))
                 continue;
 
               // if( $groupName != 'nutritionalValues' )          // DEBUG

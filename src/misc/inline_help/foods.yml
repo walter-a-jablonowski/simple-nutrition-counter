@@ -43,10 +43,12 @@ usedAmounts:
 
   usage: |
 
-    enter fraction, pieces or precise (you can't mix these, choose one)
-    - default  "1/4", "1/3", 1 * weight            if pieces unset
-    -      or  1, 1pc, 2, 3    * (weight / pieces) if pieces set
+    enter fraction, pieces or precise
+    
+    - default  "1/4", "1/3", 1  * weight            if pieces unset
+    -      or  "1/2", 1pc, 2, 3 * (weight / pieces) if pieces set (we can't use 0.5 cause key in SimpleData)
     - or use   10g or 50ml
+
     consumed as a single piece: use 1
 
   required: false

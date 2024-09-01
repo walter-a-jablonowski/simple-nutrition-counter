@@ -30,7 +30,7 @@ Amino misc:
   lastUpd:           2024-04-24
   lastPriceUpd:      
 
-# Salt:  # TASK: removed for debugging layout
+# Salt:
 
 #   vendor:            none
 
@@ -166,7 +166,7 @@ Avocado:
   pieces:            5
   usedAmounts:       [1, 2, 4]
 
-  calories:          160  # TASK: same as Avocado, right (via ChatGPT)?
+  calories:          160
   nutritionalValues:
 
     fat:             15
@@ -202,7 +202,7 @@ Avocado gr:
   weight:            260g
   usedAmounts:       ["1/2", "1"]
 
-  calories:          160  # TASK: same as Avocado, right (via ChatGPT)?
+  calories:          160
   nutritionalValues:
 
     fat:             15
@@ -252,7 +252,7 @@ Banane (mid):
     fibre:           2
     salt:            0
 
-  # vitamins:  # TASK
+  # vitamins:
 
   #   Vitamin A:  5 μg
   #   Vitamin B1: 44 μg
@@ -448,13 +448,13 @@ Cappuccino R:
   calories:          63
   nutritionalValues:
 
-    fat:             1.2  # TASK: saturatedFat ?
+    fat:             1.2
     carbs:           12
     sugar:           10.8
     amino:           2.7
     salt:            0.08
 
-  sources:           { nutriVal: "is just a cp of Eni" }  # TASK: fix
+  sources:           { nutriVal: "is just a cp of Eni" }
   state:             most
   lastUpd:           2024-04-30
   lastPriceUpd:      2024-04-30
@@ -469,7 +469,7 @@ Cappu Denns:
   ingredients:       "Vollmilch*, Rohrohrzucker*, 0,6% Löskaffee*, Maisstärke*, Verdickungsmittel: Johannisbrotkernmehl"
   packaging:         plastic,alu
 
-  price:             1.19  # TASK: price is a guess
+  price:             1.19
   weight:            230ml
   usedAmounts:       ["1"]
 
@@ -495,7 +495,7 @@ Cappuccino Eni:
   packaging:         cardboard
 
   price:             2.39
-  weight:            200ml  # TASK: just a guess
+  weight:            200ml
   usedAmounts:       ["1"]
 
   calories:          63
@@ -821,8 +821,6 @@ Döner 1:
     amino:           12.8
     salt:            0.45
 
-    # TASK: maybe Vit C A iron rouhgly
-
   sources:           { nutriVal: "web (third party, verified 2 sources but may differ)" }
   state:             most
   lastUpd:           2024-06-18
@@ -867,7 +865,7 @@ Donuts mini A:
   pieces:            9
   usedAmounts:       [1, 2, 9]
 
-  calories:          407  # TASK: calories unknown value from upper
+  calories:          407
   nutritionalValues:
 
     fat:             28
@@ -1105,7 +1103,7 @@ Flatbr Sandwich:
   price:             1.39
   weight:            210g
   pieces:            6
-  usedAmounts:       [1, 2, 3]  # TASK: enable 0.5
+  usedAmounts:       [1, 2, 3]
 
   calories:          296
   nutritionalValues:
@@ -1450,7 +1448,7 @@ Green beans R:
 
 Gr beans fein R:
 
-  vendor:            Rewe  # TASK: old prod img or wrong url (but only one)
+  vendor:            Rewe
   url:               "https://shop.rewe.de/p/rewe-beste-wahl-gruene-bohnen-280g/371368?sv1=affiliate&sv_campaign_id=101248&awc=11652_1724611075_2312944b013c94e7e7028c2e9f9c171d&ecid=aff_awin_101248_takeads.com_0_nn_nn_nn_pm01&zanpid=11652_1724611075_2312944b013c94e7e7028c2e9f9c171d"
   certificates:      { NutriScore: A }
   packaging:         glass,rubber
@@ -1476,7 +1474,7 @@ Gr beans fein R:
 
 Hanuta:
 
-  vendor:            "Eni"  # TASK: multiple
+  vendor:            "Eni"
   url:               "https://www.hanuta.de/hanuta/zutaten"
   acceptable:        less
   ingredients:       "Zucker, pflanzliche Fette (Palm, Shea), WEIZENMEHL (13,5 %), HASELNÜSSE (13 %), SÜSSMOLKENPULVER, fettarmer Kakao, VOLLMILCHSCHOKOLADE (Zucker, VOLLMILCHPULVER, Kakaobutter, Kakaomasse, Emulgator Lecithine (SOJA), Vanillin), MAGERMILCHPULVER, BUTTERREINFETT, Salz, Halbbitterschokolade (Zucker, Kakaomasse, Kakaobutter, Emulgator Lecithine (SOJA), Vanillin), Emulgator Lecithine (SOJA), Aromen, Traubenzucker, Backtriebmittel Natriumhydrogencarbonat, Vanillin"
@@ -1510,7 +1508,7 @@ Hähnchen Kebab:
   mayContain:        "Gluten, Milch, Sellerie, Senf"
   packaging:         plastic  # inner
 
-  price:             2.49     # TASK: deal, add normal
+  price:             2.49
   weight:            500
   usedAmounts:       ["50g", "100g", "200g"]
 
@@ -1568,7 +1566,7 @@ Käse Gr W (all):
 
   price:             
   weight:            120g  
-  pieces:            20    # TASK: is a guess
+  pieces:            20
 
   calories:          1510
   nutritionalValues:
@@ -1595,7 +1593,7 @@ Karamalz:
   acceptable:        less
   packaging:         glass,rubber
 
-  price:             0.75                # price for 0.33 (guess) # (TASK) for 2 variants
+  price:             0.75                # price for 0.33 (guess)
   weight:            500                 # larger one
   usedAmounts:       ["330ml", "500ml"]  # smaller and larger ver
 
@@ -1671,7 +1669,7 @@ Kartoffeltaschen F:
 
   vendor:            Rewe
   acceptable:        less
-  comment:           "TASK: Fix quantity"
+  comment:           ""
   ingredients:       "Kartoffeln 70%, FRISCHKÄSE 19%, Sonnenblumenöl, modifizierte Stärke, Kartoffelstärke, Speisesalz, Gewürze, Kräuter, Dextrose"
   packaging:         plastic
 
@@ -1885,8 +1883,6 @@ Löschzwerg R:
 
   calories:          27
   nutritionalValues:
-
-    # TASK: alcohol 2.6%
 
     fat:             0
     saturatedFat:    0
@@ -2577,7 +2573,7 @@ Pumpernickel R Bio:
 
   price:             1.09
   weight:            250
-  pieces:            8  # TASK: verify
+  pieces:            8
 
   calories:          196
   nutritionalValues:
@@ -2843,7 +2839,7 @@ Salami R Wilt (Innens):
   ingredients:       "Hähnchen, Pute, Palmfett, Meersalz, Traubenzucker, Gewürze, Antiox: Natriumascorbat, Konserv: Natriumnitrit, Reifekulturen, Buchenholzrauch"
   packaging:         plastic,cardboard
 
-  price:             2.79  # TASK: Aldi 2.19 2024-06-08
+  price:             2.79
   weight:            80
   usedAmounts:       ["1/4", "1/2", "1"]
 
@@ -2930,7 +2926,7 @@ Snickers:
   packaging:         plastic
 
   price:             1.19  # eni price
-  weight:            50    # TASK: right?
+  weight:            50
   usedAmounts:       ["1"]
 
   calories:          488
@@ -3016,7 +3012,7 @@ Toasties R Bio:
   price:             0.95
   weight:            260
   pieces:            8
-  usedAmounts:       [1, 2]  # TASK: enable 0.5
+  usedAmounts:       [1, 2]
 
   calories:          224
   nutritionalValues:
@@ -3123,11 +3119,11 @@ Wrap Falafel A:
   mayContain:        "Sesam, Sellerie, Schalen - früchten, Lupinen, Soja, Senf, Milch und Fisch enthalten"
   packaging:         plastic,cardboard
 
-  price:             1.99  # TASK: deal
+  price:             1.99
   weight:            190
   usedAmounts:       ["1"]
 
-  calories:          190   # TASK: verify, third party source
+  calories:          190
   nutritionalValues:
 
     fat:             7.1
@@ -3142,7 +3138,7 @@ Wrap Falafel A:
   lastUpd:           2024-06-18
   lastPriceUpd:      2024-06-18
 
-Zitronenm:  # (TASK) currently 2 entries
+Zitronenm:
 
   vendor:            DM
   acceptable:        occasionally
@@ -3152,7 +3148,7 @@ Zitronenm:  # (TASK) currently 2 entries
 
   price:             1.75  
   weight:            75g   
-  pieces:            20    # manual count for small pack, TASK: assuming the same for large pack
+  pieces:            20    # manual count for small pack
   usedAmounts:       [1]
 
   calories:          235
@@ -3171,7 +3167,7 @@ Zitronenm:  # (TASK) currently 2 entries
   lastUpd:           2024-05-06
   lastPriceUpd:      2024-05-15
 
-Zitronenm mini:  # (TASK) currently 2 entries
+Zitronenm mini:
 
   vendor:            Rewe
   acceptable:        occasionally
@@ -3181,7 +3177,7 @@ Zitronenm mini:  # (TASK) currently 2 entries
 
   price:             1.65
   weight:            50g
-  pieces:            20    # manual count for small pack, TASK: assuming the same for large pack
+  pieces:            20    # manual count for small pack
   usedAmounts:       [1]
 
   calories:          235
