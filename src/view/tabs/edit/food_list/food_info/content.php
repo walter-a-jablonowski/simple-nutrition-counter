@@ -185,13 +185,14 @@ $data = $this->foodsModel->get($foodName);
     $headlines = [
       'nutritionalValues' => 'Nutritional values',
       'fattyAcids' => 'Fatty acids',
+      'carbs'      => 'Carbs',
       'aminoAcids' => 'Amino acids',
       'vitamins'   => 'Vitamins',
       'minerals'   => 'Minerals',
       'secondary'  => 'Secondary plant substances'
     ];
 
-    foreach(['nutritionalValues', 'fattyAcids', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $group):
+    foreach( static::NUTRITIONAL_VALUES as $group ):
 
       $collapseId = $foodId . ucwords( $this->nutrientsModel->get("$group.short")) . 'Collapse';
   ?>

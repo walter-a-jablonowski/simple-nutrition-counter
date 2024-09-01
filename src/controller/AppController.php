@@ -18,6 +18,9 @@ class AppController extends ControllerBase
   use SaveDayEntriesAjaxController;
   use ChangeUserAjaxController;
 
+  const NUTRIENT_GROUPS    = ['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals'/*, 'electrolytes'*/, 'secondary'];
+  const NUTRITIONAL_VALUES = ['nutritionalValues', 'fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals'/*, 'electrolytes'*/, 'secondary'];
+
   protected string     $mode;
   protected string     $date;
 
@@ -64,7 +67,7 @@ class AppController extends ControllerBase
 
     $this->nutrientsModel = new SimpleData();  // TASK: (advanced) merge with bundle /nutrients
     
-    foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals'/*, 'electrolytes'*/, 'secondary'] as $groupName )
+    foreach( self::NUTRIENT_GROUPS as $groupName )
     {
       $this->nutrientsModel->set( $groupName,
         Yaml::parse( file_get_contents("data/nutrients/$groupName.yml"))
@@ -97,7 +100,7 @@ class AppController extends ControllerBase
       {
         $nutrients = Yaml::parse( file_get_contents("data/foods/$food[type].yml"));
         
-        foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals'/*, 'electrolytes'*/, 'secondary'] as $groupName )
+        foreach( self::NUTRIENT_GROUPS as $groupName )
         {
           if( isset( $nutrients[$groupName] ))
             $food[$groupName] = array_merge( $nutrients[$groupName], $food[$groupName] ?? []);
@@ -212,9 +215,7 @@ class AppController extends ControllerBase
 
         // nutritional values for all nutrient groups
 
-        // $nutrientGroups = array_merge(['nutritionalValues'], $this->nutrientsModel->keys());
-        
-        foreach(['nutritionalValues', 'fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals'/*, 'electrolytes'*/, 'secondary'] as $groupName )
+        foreach( self::NUTRITIONAL_VALUES as $groupName )
         {
           $shortName = $groupName === 'nutritionalValues' ? 'nutriVal'
                      : $this->nutrientsModel->get("$groupName.short");
@@ -257,7 +258,7 @@ class AppController extends ControllerBase
 
     $this->nutrientsView = new SimpleData();
 
-    foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals'/*, 'electrolytes'*/, 'secondary'] as $groupName )
+    foreach( self::NUTRIENT_GROUPS as $groupName )
     {
       $shortName = $this->nutrientsModel->get("$groupName.short");
       $this->captions[$shortName] = $this->nutrientsModel->get("$groupName.name");
