@@ -1,13 +1,9 @@
 # acceptable:      # only these make sense for a commonly used food, as well as the fields below
 # comment:         
 
-price:             
-weight:            215
-usedAmounts:       ["1/4", "1/3", "1/2"]
+# From Rewe or AI generated for now
 
 calories:          127
-
-# From Rewe or AI generated for now
 
 nutritionalValues:
 
