@@ -215,7 +215,7 @@ class AppController extends ControllerBase
 
         // $nutrientGroups = array_merge(['nutritionalValues'], $this->nutrientsModel->keys());
         
-        foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals'/*, 'electrolytes'*/, 'secondary'] as $groupName )
+        foreach(['nutritionalValues', 'fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals'/*, 'electrolytes'*/, 'secondary'] as $groupName )
         {
           $shortName = $groupName === 'nutritionalValues' ? 'nutriVal'
                      : $this->nutrientsModel->get("$groupName.short");
