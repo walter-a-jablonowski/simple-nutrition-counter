@@ -64,10 +64,10 @@ class AppController extends ControllerBase
 
     $this->nutrientsModel = new SimpleData();  // TASK: (advanced) merge with bundle /nutrients
     
-    foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals'/*, 'electrolytes'*/, 'secondary'] as $type)
+    foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals'/*, 'electrolytes'*/, 'secondary'] as $groupName )
     {
-      $this->nutrientsModel->set( $type,
-        Yaml::parse( file_get_contents("data/nutrients/$type.yml"))
+      $this->nutrientsModel->set( $groupName,
+        Yaml::parse( file_get_contents("data/nutrients/$groupName.yml"))
       );
     }
 
@@ -258,19 +258,19 @@ class AppController extends ControllerBase
 
     $this->nutrientsView = new SimpleData();
 
-    foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals'/*, 'electrolytes'*/, 'secondary'] as $group )
+    foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals'/*, 'electrolytes'*/, 'secondary'] as $groupName )
     {
-      $shortName = $this->nutrientsModel->get("$group.short");
-      $this->captions[$shortName] = $this->nutrientsModel->get("$group.name");
+      $shortName = $this->nutrientsModel->get("$groupName.short");
+      $this->captions[$shortName] = $this->nutrientsModel->get("$groupName.name");
 
-      foreach( $this->nutrientsModel->get("$group.substances") as $name => $attr )  // short is used as id
+      foreach( $this->nutrientsModel->get("$groupName.substances") as $name => $attr )  // short is used as id
       {
         $a = $attr['amounts'][0];  // TASK: use unit for sth?
 
         $this->nutrientsView->set("$shortName.$attr[short]", [  // TASK: is that right?
                                        
           'name'  => $name,        // TASK: (advanced) currently using first entry only
-          'group' => $group,
+          'group' => $groupName,
           'lower' => strpos($a['lower'], '%') === false
                   ?  $a['amount'] - $a['lower']
                   :  $a['amount'] - $a['amount'] * (floatval($a['lower']) / 100),  // floatval removes the percent
