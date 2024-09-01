@@ -64,7 +64,7 @@ class AppController extends ControllerBase
 
     $this->nutrientsModel = new SimpleData();  // TASK: (advanced) merge with bundle /nutrients
     
-    foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $type)
+    foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals'/*, 'electrolytes'*/, 'secondary'] as $type)
     {
       $this->nutrientsModel->set( $type,
         Yaml::parse( file_get_contents("data/nutrients/$type.yml"))
@@ -98,7 +98,7 @@ class AppController extends ControllerBase
         // TASK: (advanced) add full foods in /food with all data when pure (e.g. broccoli)
         $nutrients = Yaml::parse( file_get_contents("data/foods/$food[type].yml"));
         
-        foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $groupName )
+        foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals'/*, 'electrolytes'*/, 'secondary'] as $groupName )
         {
           if( isset( $nutrients[$groupName] ))
             $food[$groupName] = array_merge( $nutrients[$groupName], $food[$groupName] ?? []);
@@ -215,7 +215,7 @@ class AppController extends ControllerBase
 
         // $nutrientGroups = array_merge(['nutritionalValues'], $this->nutrientsModel->keys());
         
-        foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $groupName )
+        foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals'/*, 'electrolytes'*/, 'secondary'] as $groupName )
         {
           $shortName = $groupName === 'nutritionalValues' ? 'nutriVal'
                      : $this->nutrientsModel->get("$groupName.short");
@@ -258,7 +258,7 @@ class AppController extends ControllerBase
 
     $this->nutrientsView = new SimpleData();
 
-    foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $group )
+    foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals'/*, 'electrolytes'*/, 'secondary'] as $group )
     {
       $shortName = $this->nutrientsModel->get("$group.short");
       $this->captions[$shortName] = $this->nutrientsModel->get("$group.name");
