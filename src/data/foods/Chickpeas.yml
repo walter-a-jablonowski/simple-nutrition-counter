@@ -1,8 +1,24 @@
-# AI generated for now
+# acceptable:      # only these make sense for a commonly used food, as well as the fields below
+# comment:         
 
-# TASK: use mg for µg ?
+price:             
+weight:            215
+usedAmounts:       ["1/4", "1/3", "1/2"]
 
-# nutritionalValues:         # TASK
+calories:          127
+
+# From Rewe or AI generated for now
+
+nutritionalValues:
+
+  fat:             2.7
+  saturatedFat:    0.3
+  carbs:           15
+  sugar:           0.4
+  amino:           7.1
+  salt:            0.35
+
+# nutritionalValues:           # TASK
 #
 #   saturated:       0.27g
 #   monoUnsaturated: 0.58g
@@ -10,18 +26,18 @@
 
 fattyAcids:
 
-  Alpha-linolenic acid: 0.043   # g
+  Alpha-linolenic acid: 0.043  # g
   Linoleic acid:        2.592
 
 carbs:
   
-  fiber:         7.6     # g  # TASK: unify casing
+  fiber:         7.6           # g  # TASK: unify casing
   sugars:        4.8
   starch:        15
 
 aminoAcids:
   
-  Histidine:     212     # mg
+  Histidine:     212           # mg
   Isoleucine:    338
   Leucine:       562
   Lysine:        493
@@ -31,20 +47,20 @@ aminoAcids:
   Tryptophan:    82
   Valine:        357
 
-vitamins:                # mg
+vitamins:                      # mg
   
-  Vitamin A:     0.001   # 1µg
+  Vitamin A:     0.001         # 1µg
   Vitamin E:     0.35
-  Vitamin K:     0.004   # 4µg
+  Vitamin K:     0.004         # 4µg
   Vitamin B1:    0.116
   Vitamin B2:    0.063
   Vitamin B3:    0.526
   Vitamin B5:    0.286
   Vitamin B6:    0.139
-  Vitamin B9:    0.172   # 172µg
+  Vitamin B9:    0.172         # 172µg
   Choline:       42.8
 
-minerals:                # mg
+minerals:                      # mg
   
   Calcium:       49
   Iron:          2.89
@@ -55,7 +71,7 @@ minerals:                # mg
   Zinc:          1.53
   Copper:        0.352
   Manganese:     0.82
-  Selenium:      0.0037  # 3.7µg
+  Selenium:      0.0037        # 3.7µg
 
 # secondary:  # AI said no amounts
 #
@@ -68,3 +84,7 @@ minerals:                # mg
 #       - chlorogenicAcid
 #   - saponins: present
 #   - phytosterols: present
+
+sources:           { nutriVal: "", nutrients: "" }  # TASK
+state:             most
+lastUpd:           2024-09-01

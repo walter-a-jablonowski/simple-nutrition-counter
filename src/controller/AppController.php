@@ -228,8 +228,8 @@ class AppController extends ControllerBase
               if( $groupName != 'nutritionalValues' && ! $this->nutrientsModel->has("$groupName.substances.$nutrient.short"))
                 continue;
 
-              if( $groupName != 'nutritionalValues' )          // DEBUG
-                $debug = 'halt';
+              // if( $groupName != 'nutritionalValues' )          // DEBUG
+              //   $debug = 'halt';
 
               $short = $groupName === 'nutritionalValues' ? $nutrient  // short name for single nutrient
                      : $this->nutrientsModel->get("$groupName.substances.$nutrient.short");
