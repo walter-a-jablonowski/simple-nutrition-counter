@@ -1,3 +1,18 @@
+#
+# AI:
+#
+# Please list all fatty acids, carbs, amino acids, vitamins, minerals, electrolytes
+# and secondary plant substances contained in [FOOD] along with the typical amount per
+# 100g. Use grams for fatty acids and carbs, and milligrams for the rest. Print the result
+# als yml like
+#
+# groupName:
+#
+#   nutrient: 1
+#
+# Group names: fattyAcids, carbs, aminoAcids, vitamins, minerals, electrolytes, secondary
+# 
+
 # TASK: (advanced) we could use these foods as default along with amounts from config
 
 # acceptable:      # only these make sense for a commonly used food, as well as the fields below
