@@ -98,13 +98,13 @@ class AppController extends ControllerBase
         // TASK: (advanced) add full foods in /food with all data when pure (e.g. broccoli)
         $nutrients = Yaml::parse( file_get_contents("data/foods/$food[type].yml"));
         
-        foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $type)
+        foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $groupName )
         {
-          if( isset( $nutrients[$type] ))
-            $food[$type] = array_merge( $nutrients[$type], $food[$type] ?? []);
+          if( isset( $nutrients[$groupName] ))
+            $food[$groupName] = array_merge( $nutrients[$groupName], $food[$groupName] ?? []);
           // else
-          //   // $food[$type] = $nutrients[$type];
-          //   $food[$type] = $food[$type] ?? [];
+          //   // $food[$groupName] = $nutrients[$groupName];
+          //   $food[$groupName] = $food[$groupName] ?? [];
         }
       }
 
@@ -213,9 +213,9 @@ class AppController extends ControllerBase
 
         // nutritional values for all nutrient groups
 
-        $nutrientGroups = array_merge(['nutritionalValues'], $this->nutrientsModel->keys());
+        // $nutrientGroups = array_merge(['nutritionalValues'], $this->nutrientsModel->keys());
         
-        foreach( $nutrientGroups as $groupName )
+        foreach(['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals', 'secondary'] as $groupName )
         {
           $shortName = $groupName === 'nutritionalValues' ? 'nutriVal'
                      : $this->nutrientsModel->get("$groupName.short");
