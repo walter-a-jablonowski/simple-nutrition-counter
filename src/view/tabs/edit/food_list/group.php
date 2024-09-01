@@ -51,8 +51,8 @@ $return['done'] = [];
 
     foreach( $def['list'] as $idx => $foodName ):
 
-      if( $foodName == 'Toasties R Bio' )  // DEBUG
-        $debug = 'halt';
+      // if( $foodName == 'Toasties R Bio' )  // DEBUG
+      //   $debug = 'halt';
 
       $foodId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $foodName));  // TASK: use food id from SimpleData key as soon as upd, maybe we need prefix this so that no Ids get confused?
       $amountData = $this->foodsView->get($foodName);  // foods and recipes are merged in one
@@ -113,8 +113,8 @@ $return['done'] = [];
         <?php
         
         // if( stripos( $foodName, 'Amino misc') !== false )  // DEBUG
-        if( ! isset($data['nutriVal']))
-          $debug = 'halt';
+        // if( ! isset($data['nutriVal']))
+        //   $debug = 'halt';
         
         ?>
           <div class   = "col-1 p-1 blink-yellow"
