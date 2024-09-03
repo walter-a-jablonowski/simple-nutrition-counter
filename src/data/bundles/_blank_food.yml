@@ -16,9 +16,9 @@ packaging:         none,cardboard,alu,plastic,glass,rubber (maybe)  # outer --> 
 
 cookingInstructions: ""
 
-price:               
-weight:              
-pieces:              
+price:             
+weight:            
+pieces:            
 usedAmounts:       []
 
 calories:          
