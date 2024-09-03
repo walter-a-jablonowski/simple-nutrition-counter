@@ -1,7 +1,7 @@
 productName:       "Sprehe Hähnchen Pfannengyros"
 vendor:            "Norma"
 ingredients:       "Hähnchenoberkeulenfleisch 98%, Speisesalz, Gewürze, Kräuter, Dextrose, Gewürzextrakt"
-packaging:         plastic  # inner
+packaging:         plastic
 
 price:             2.49     # TASK: deal, add normal
 weight:            300

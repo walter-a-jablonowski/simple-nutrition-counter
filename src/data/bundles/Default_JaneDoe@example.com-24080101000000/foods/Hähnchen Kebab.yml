@@ -2,7 +2,7 @@ productName:       "Sprehe Hähnchen Kebab"
 vendor:            "Norma"
 ingredients:       "Hähnchen, Wasser, Stärke, Salz, Gewürze, Kräuter, Dextrose, Karamelzuckersirup, Gewürzextrakt"
 mayContain:        "Gluten, Milch, Sellerie, Senf"
-packaging:         plastic  # inner
+packaging:         plastic
 
 price:             2.49     # TASK: deal, add normal
 weight:            300
