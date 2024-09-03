@@ -5,10 +5,12 @@
 # [FOOD] along with the typical amount per 100g. Use grams for fatty acids and carbs, and
 # milligrams for the rest. Print the result als yml like
 #
-# groupName:
+# ```
+# myGroupName:
 #
-#   nutrient: 1
-#
+#   MyNutrient: 1  # first upper case
+# ```
+# 
 # Group names: fattyAcids, carbs, aminoAcids, vitamins, minerals
 # 
 
