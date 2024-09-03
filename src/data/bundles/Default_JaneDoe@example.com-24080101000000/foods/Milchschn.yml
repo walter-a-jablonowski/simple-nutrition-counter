@@ -1,0 +1,25 @@
+acceptable:        less
+ingredients:       "Frische VOLLMILCH (40 %), Palmöl*, Zucker, WEIZENMEHL (10,5 %), MAGERMILCHPULVER (9 %), Honig (5%), BUTTERREINFETT, VOLLEIPULVER, fettarmer Kakao, WEIZENKLEIE, Backtriebmittel: Dinatriumdiphosphat, Natriumhydrogencarbonat, Ammoniumcarbonat; Emulgator Mono-und Diglyceride von Speisefettsäuren, Salz, Aromen"
+mayContain:        "Soja"
+packaging:         plastic
+
+price:             1.75
+weight:            140
+pieces:            5
+usedAmounts:       [1, 2, 5]
+
+calories:          421
+nutritionalValues:
+
+  fat:             27.9
+  saturatedFat:    16.6
+  carbs:           34
+  sugar:           29.5
+  amino:           7.9
+  salt:            0.61
+
+sources:           { nutriVal: "web", price: "pack" }
+
+state:             most
+lastUpd:           2024-09-03
+lastPriceUpd:      2024-09-03

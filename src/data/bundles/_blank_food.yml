@@ -1,49 +1,49 @@
-removed:             true
+removed:           true
 
-type:                ""
-productName:         ""
-vendor:              
-url:                   # string or array
+type:              ""
+productName:       ""
+vendor:            
+url:                 # string or array
 
-acceptable:          occasionally|less
-comment:             ""
-certificates:        { bio: true, vegan: true, NutriScore: A, oekotest: 1 }
-ingredients:         ""
-allergy:             ""
-mayContain:          ""
-origin:              ""
-packaging:           none,cardboard,alu,plastic,glass,rubber (maybe)  # outer --> inner (contact with food only)
+acceptable:        occasionally|less
+comment:           ""
+certificates:      { bio: true, vegan: true, NutriScore: A, oekotest: 1 }
+ingredients:       ""
+allergy:           ""
+mayContain:        ""
+origin:            ""
+packaging:         none,cardboard,alu,plastic,glass,rubber (maybe)  # outer --> inner (contact with food only)
 
 cookingInstructions: ""
 
 price:               
 weight:              
 pieces:              
-usedAmounts:         []
+usedAmounts:       []
 
-calories:            
-nutritionalValues:
+calories:          
+nutritionalValues: 
 
-  fat:               
-  saturatedFat:      
-  monoUnsaturated:   
-  polyUnsaturated:   
-  carbs:             
-  sugar:             
-  sugarAlcohol:      
-  fibre:             
-  amino:             
-  salt:              
+  fat:             
+  saturatedFat:    
+  monoUnsaturated: 
+  polyUnsaturated: 
+  carbs:           
+  sugar:           
+  sugarAlcohol:    
+  fibre:           
+  amino:           
+  salt:            
 
 fattyAcids:          # TASK
-carbs:               
-aminoAcids:          
-vitamins:            
-minerals:            
-secondary:           
+carbs:             
+aminoAcids:        
+vitamins:          
+minerals:          
+secondary:         
 
-sources:             { nutriVal: "web|pack (information on packaging may differ slightly)", nutrients: "...", price: "..." }
+sources:           { nutriVal: "web|pack (information on packaging may differ slightly)", nutrients: "...", price: "..." }
 
-state:               most|all
-lastUpd:             
-lastPriceUpd:        
+state:             most|all
+lastUpd:           
+lastPriceUpd:      
