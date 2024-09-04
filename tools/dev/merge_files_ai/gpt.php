@@ -39,7 +39,8 @@ if( isset($_POST['merge']) && ! empty($_POST['files']))
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI merge code</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     .arrow {
       display: inline-block;
@@ -93,7 +94,7 @@ if( isset($_POST['merge']) && ! empty($_POST['files']))
       <?php $openFolders--; endwhile; ?>
     </ul>
     <button type="submit" name="merge" class="btn btn-sm btn-secondary mt-3">Merge</button>
-    <span class="pt-4" style="color: grey;">click for copy</span>
+    <span style="color: grey;">click for copy (or use output.txt)</span>
   </form>
 
   <?php if( ! empty( $mergedContent )): ?>
