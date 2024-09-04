@@ -2,7 +2,7 @@
 
 // I am making a PHP tool that can list all files of an app, and then print a selection of them in a file and on screen. This is used to merge selected files as context input for AIs.
 //
-// Use scandir() to list all files and folders recursively. Print as html tree with foldable nodes. Use an arrow in the form of a reatangle in front of each folder that acts as folding control. Also add a checkbox before each file name for selection. Initially all nodes are collapsed. Add buttons for collapse all and expand all.
+// Use scandir() to list all files and folders recursively. Print as html tree with foldable nodes. Use an arrow in the form of a triangle in front of each folder that acts as folding control. Also add a checkbox before each file name for selection. Initially all nodes are collapsed. Add buttons for collapse all and expand all.
 //
 // When a merge button is pressed, all selected files are printed as one like
 //

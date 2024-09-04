@@ -3,7 +3,7 @@ vendor:            Norma
 acceptable:        occasionally
 packaging:         plastic
 
-price:             
+price:             1.15
 weight:            150
 pieces:            6
 usedAmounts:       [1, 2, 3]
