@@ -42,23 +42,28 @@ if( isset($_POST['merge']) && ! empty($_POST['files']))
   <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
+    ul {
+      list-style-type: none;
+      margin-left: 0;
+    }
     .arrow {
       display: inline-block;
-      width: 10px;
-      height: 10px;
-      border: solid black;
-      border-width: 0 3px 3px 0;
-      padding: 3px;
-      transform: rotate(45deg);
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 10px solid black;
+      margin-right: 5px;
+      transform: rotate(0deg);
       transition: transform 0.2s;
     }
     .collapsed .arrow {
-      transform: rotate(-45deg);
+      transform: rotate(30deg);
     }
+
     .collapsed > ul {
       display: none;
     }
-    /* div.output { font-family: monospace;, white-space: pre-wrap; } */
   </style>
 </head>
 <body class="container mt-5">
