@@ -66,11 +66,11 @@ if( isset($_POST['merge']) && ! empty($_POST['files']))
     }
   </style>
 </head>
-<body class="container mt-5">
+<body class="container-fluid mt-2">
 
   <div class="mb-3">
-    <button class="btn btn-sm btn-secondary"   onclick="expandAll()">Expand All</button>
-    <button class="btn btn-sm btn-secondary" onclick="collapseAll()">Collapse All</button>
+    <button class="btn btn-sm btn-secondary" onclick="expandAll()">Expand all</button>
+    <button class="btn btn-sm btn-secondary" onclick="collapseAll()">Collapse all</button>
   </div>
 
   <form method="post">
@@ -103,8 +103,7 @@ if( isset($_POST['merge']) && ! empty($_POST['files']))
   </form>
 
   <?php if( ! empty( $mergedContent )): ?>
-    <h3 class="mt-5">Merged Output</h3>
-    <pre id="output" class="p-3 border bg-light"><?= htmlspecialchars($mergedContent) ?></pre>
+    <pre id="output" class="mt-3 p-2 border bg-light"><?= htmlspecialchars($mergedContent) ?></pre>
   <?php endif; ?>
 
 <script>
