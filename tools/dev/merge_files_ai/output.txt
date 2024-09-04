@@ -1,12 +1,8 @@
+Context:
+
 debug/code1.php
 
 ```
 code 1
-```
-
-debug/sub/code2.php
-
-```
-code 2
 ```
 

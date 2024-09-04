@@ -23,11 +23,11 @@ function scanDirRecursively($dir)
 
 scanDirRecursively($dir);
 
-$mergedContent = '';
+$mergedContent = "Context:\n\n";
 
 if( isset($_POST['merge']) && ! empty($_POST['files']))
 {
-  foreach( $_POST['files'] as $file)
+  foreach( $_POST['files'] as $file )
     $mergedContent .= $file . "\n\n```\n" . file_get_contents($file) . "\n```\n\n";
 
   file_put_contents('output.txt', $mergedContent);
@@ -38,7 +38,7 @@ if( isset($_POST['merge']) && ! empty($_POST['files']))
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>File Merger Tool</title>
+  <title>AI merge code</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
     .arrow {
@@ -57,13 +57,14 @@ if( isset($_POST['merge']) && ! empty($_POST['files']))
     .collapsed > ul {
       display: none;
     }
+    /* div.output { font-family: monospace;, white-space: pre-wrap; } */
   </style>
 </head>
 <body class="container mt-5">
 
   <div class="mb-3">
-    <button class="btn btn-primary"   onclick="expandAll()">Expand All</button>
-    <button class="btn btn-secondary" onclick="collapseAll()">Collapse All</button>
+    <button class="btn btn-sm btn-secondary"   onclick="expandAll()">Expand All</button>
+    <button class="btn btn-sm btn-secondary" onclick="collapseAll()">Collapse All</button>
   </div>
 
   <form method="post">
@@ -91,12 +92,13 @@ if( isset($_POST['merge']) && ! empty($_POST['files']))
         </ul></li>
       <?php $openFolders--; endwhile; ?>
     </ul>
-    <button type="submit" name="merge" class="btn btn-success mt-3">Merge</button>
+    <button type="submit" name="merge" class="btn btn-sm btn-secondary mt-3">Merge</button>
+    <span class="pt-4" style="color: grey;">click for copy</span>
   </form>
 
   <?php if( ! empty( $mergedContent )): ?>
     <h3 class="mt-5">Merged Output</h3>
-    <pre class="file-content p-3 border bg-light"><?= htmlspecialchars($mergedContent) ?></pre>
+    <pre id="output" class="p-3 border bg-light"><?= htmlspecialchars($mergedContent) ?></pre>
   <?php endif; ?>
 
 <script>
@@ -111,6 +113,15 @@ if( isset($_POST['merge']) && ! empty($_POST['files']))
     const folders = document.querySelectorAll('.folder');
     folders.forEach(folder => folder.parentNode.classList.add('collapsed'));
   }
+
+  // Copy clipboard
+
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('output').addEventListener('click', function() {
+      const text = this.innerText
+      navigator.clipboard.writeText(text)
+    })
+  })
 </script>
 </body>
 </html>
