@@ -37,6 +37,8 @@
 
   <!-- TASK: leave single group above full width for coffee, water, ... which is just normal food entries, see also (first_entries)
        put the btn somewhere on the side or own line?
+
+       Water | Coffee | ... [new ...]  <-- highlight btn bg
   -->
 
   <div class="col-12 mt-1">  <!-- wrap in col = show above groups -->
