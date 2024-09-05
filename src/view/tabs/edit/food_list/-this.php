@@ -91,27 +91,57 @@
 
   // Left over foods
 
-  $all = array_keys( $this->foodsView->all());    // foods and recipes are merged in one
+  // $allFoods = array_keys( $this->foodsView->all());
+  $allFoods = $this->foodsView->keys();                // foods and recipes are merged in one
 
-  if( count($all) > count( array_unique($done)))  // foods can appear in layout multiple times
+  if( count($allFoods) > count( array_unique($done)))  // foods can appear in layout multiple times
   {
-    $def = [
-      '@attribs' => [
-        'short' => null,
-        '(i))'  => null,
-        // 'color' =>     // currently just default, see group.php
-        'fold'  => true
-      ],
-      'list'  => array_diff( $all, $done)
-    ];
+    $leftFoods = array_diff( $allFoods, $done );
+    $miscFoods = array_filter( $leftFoods, fn($entry) => ! $this->foodsModel->get("$entry.removed"));
+    $removed   = array_filter( $leftFoods, fn($entry) =>   $this->foodsModel->get("$entry.removed"));
 
-    ksort($def['list']);
-    
-    print $this->inc( __DIR__ . '/group.php', [
-      'groupId'   => lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', 'Misc foods')),
-      'groupName' => 'Misc foods',
-      'def'       => $def
-    ]);
+    // Foods missing in layout (non removed)
+
+    if( count($miscFoods))
+    {
+      ksort($miscFoods);
+      
+      print $this->inc( __DIR__ . '/group.php', [
+        'groupId'   => lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', 'Misc foods')),
+        'groupName' => 'Misc foods',
+        'def' => [
+          '@attribs' => [
+            'short' => null,
+            '(i))'  => null,
+            // 'color' =>     // currently just default, see group.php
+            'fold'  => true
+          ],
+          'list' => $miscFoods
+        ]
+      ]);
+    }
+
+    // Removed foods
+
+    if( count($removed))
+    {
+      ksort($removed);
+      
+      print $this->inc( __DIR__ . '/group.php', [
+        'groupId'     => lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', 'Removed')),
+        'groupName'   => 'Removed',
+        'showRemoved' => true,
+        'def' => [
+          '@attribs' => [
+            'short' => null,
+            '(i))'  => null,
+            // 'color' =>     // currently just default, see group.php
+            'fold'  => true
+          ],
+          'list' => $removed
+        ]
+      ]);
+    }
   }
   
   ?>

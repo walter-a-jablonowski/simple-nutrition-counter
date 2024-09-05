@@ -51,8 +51,11 @@ $return['done'] = [];
 
     foreach( $def['list'] as $idx => $foodName ):
 
-      // if( $foodName == 'Toasties R Bio' )  // DEBUG
+      // if( $foodName == 'Nussmisch N old' )  // DEBUG
       //   $debug = 'halt';
+
+      if( ! ($args['showRemoved'] ?? false) && $this->foodsModel->get("$foodName.removed"))
+        continue;
 
       $foodId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $foodName));  // TASK: use food id from SimpleData key as soon as upd, maybe we need prefix this so that no Ids get confused?
       $amountData = $this->foodsView->get($foodName);  // foods and recipes are merged in one
