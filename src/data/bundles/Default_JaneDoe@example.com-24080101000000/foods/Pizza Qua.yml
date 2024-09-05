@@ -1,0 +1,23 @@
+vendor:            Norma
+acceptable:        less
+packaging:         cardboard,plastic
+
+price:             3.59
+weight:            340   # one pizza
+usedAmounts:       ["1/4", "1/2", "1"]
+
+calories:          258
+nutritionalValues:
+
+  fat:             10.2
+  saturatedFat:    5.6
+  carbs:           29
+  sugar:           3.2
+  fibre:           1.8
+  amino:           11.6
+  salt:            0.8
+
+sources:           { nutriVal: "pack" }
+state:             most
+lastUpd:           2024-09-05
+lastPriceUpd:      2024-09-05

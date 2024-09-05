@@ -1,10 +1,9 @@
 vendor:            Norma
 acceptable:        less
-packaging:         plastic,cardboard
+packaging:         cardboard,plastic
 
 price:             2.99
-weight:            900
-pieces:            3
+weight:            300   # TASK: is a guess  # one pizza
 usedAmounts:       ["1/4", "1/2", "1"]
 
 calories:          247
