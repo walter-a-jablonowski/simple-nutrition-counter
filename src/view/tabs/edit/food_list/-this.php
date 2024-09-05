@@ -13,7 +13,7 @@
   
     <div class="col-12 mt-1">
       <div class="col-12 p-2 py-1" style="background-color: #ffff88;">
-        
+      
         <?= User::current()->get('myStrategy.headline') ?>
         
         <?php if( User::current()->has('myStrategy.content')): ?>
@@ -35,6 +35,10 @@
 
   <?php endif; ?>
 
+  <!-- TASK: leave single group above full width for coffee, water, ... which is just normal food entries, see also (first_entries)
+       put the btn somewhere on the side or own line?
+  -->
+
   <div class="col-12 mt-1">  <!-- wrap in col = show above groups -->
     <div class="row">        <!-- break points same as in food groups below -->
       <div class   = "col-12 col-md-6 col-xxl-4 p-2 py-1"
@@ -48,7 +52,6 @@
       >
         Save ...
       </div>
-<!-- TASK: maybe leave above as a shortcut? see also (first_entries) -->
 <!--
       <div class   = "col-12 col-md-6 col-xxl-4 p-2 py-1"
            onclick = "..."
