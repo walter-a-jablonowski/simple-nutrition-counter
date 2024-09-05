@@ -112,7 +112,7 @@
         'def' => [
           '@attribs' => [
             'short' => null,
-            '(i))'  => null,
+            '(i)'   => null,
             // 'color' =>     // currently just default, see group.php
             'fold'  => true
           ],
@@ -134,7 +134,7 @@
         'def' => [
           '@attribs' => [
             'short' => null,
-            '(i))'  => null,
+            '(i)'   => null,
             // 'color' =>     // currently just default, see group.php
             'fold'  => true
           ],
