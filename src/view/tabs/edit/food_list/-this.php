@@ -129,7 +129,7 @@
       
       print $this->inc( __DIR__ . '/group.php', [
         'groupId'     => lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', 'Removed')),
-        'groupName'   => 'Removed',
+        'groupName'   => 'Removed foods',
         'showRemoved' => true,
         'def' => [
           '@attribs' => [
