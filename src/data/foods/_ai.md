@@ -20,13 +20,12 @@ nutritionalValues:
 
   fat:             
   saturatedFat:    
-  saturated:       
   monoUnsaturated: 
   polyUnsaturated: 
   carbs:           
   sugar:           
   fibre:
-  amino:           
+  amino:             # means: amino acids
   salt:            
 
 # Group names are: fattyAcids, carbs, aminoAcids, vitamins, minerals
