@@ -1,3 +1,4 @@
+type:              Poato
 vendor:            Rewe
 acceptable:        occasionally
 certificates:      { bio: true }

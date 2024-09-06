@@ -1,0 +1,67 @@
+calories: 79
+
+nutritionalValues:
+
+  fat: 0
+  saturatedFat: 0
+  carbs: 17
+  sugar: 1
+  amino: 329
+  salt: 6
+
+fattyAcids:
+
+  Alpha-linolenic acid: 0.01
+  Linoleic acid: 0.03
+  Oleic acid: 0
+  Palmitic acid: 0.02
+  Stearic acid: 0.01
+
+carbs:
+
+  Fibre: 2  # TASK
+  Glucose: 0.3
+  Fructose: 0.3
+  Sucrose: 0.2
+  Starch: 15
+
+aminoAcids:
+
+  Alanine: 44
+  Arginine: 82
+  Aspartic acid: 188
+  Glutamic acid: 245
+  Glycine: 40
+  Histidine: 23
+  Isoleucine: 45
+  Leucine: 66
+  Lysine: 57
+  Methionine: 23
+  Phenylalanine: 50
+  Proline: 42
+  Serine: 47
+  Threonine: 43
+  Tryptophan: 17
+  Tyrosine: 36
+  Valine: 61
+
+vitamins:
+
+  Vitamin C: 20
+  Vitamin K: 2
+  Vitamin B3: 1
+  Vitamin B5: 1
+  Vitamin B9: 17
+
+minerals:
+
+  Potassium: 421
+  Calcium: 12
+  Phosphorus: 57
+  Magnesium: 23
+  Sodium: 6
+  Iron: 1
+
+sources:           { nutriVal: "", nutrients: "" }
+state:             most
+lastUpd:           2024-09-01

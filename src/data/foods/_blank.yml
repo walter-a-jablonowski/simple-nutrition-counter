@@ -10,12 +10,10 @@ nutritionalValues:
 
   fat:             
   saturatedFat:    
-  # saturated:                  # TASK
-  # monoUnsaturated: 
+  # monoUnsaturated:           # TASK
   # polyUnsaturated: 
   carbs:           
   sugar:           
-  # fibre:
   amino:           
   salt:            
 
@@ -26,9 +24,11 @@ fattyAcids:
 
 carbs:
   
-  fiber:                       # g  # TASK: unify casing
-  sugars:         
-  starch:         
+  Fiber:                       # g  # TASK: unify casing
+  Glucose:         
+  Fructose:        
+  Sucrose:         
+  Starch:          
 
 aminoAcids:
   

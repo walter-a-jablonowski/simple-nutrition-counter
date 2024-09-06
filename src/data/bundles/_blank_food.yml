@@ -1,6 +1,6 @@
 removed:           true
 
-type:              ""
+type:              
 productName:       ""
 vendor:            
 url:                 # string or array

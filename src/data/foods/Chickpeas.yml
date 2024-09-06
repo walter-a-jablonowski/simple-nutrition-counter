@@ -5,14 +5,10 @@ calories:          127
 
 nutritionalValues:
 
-  fat:             2.7
+  fat:             2.7         # g
   saturatedFat:    0.3
-  # saturated:       0.27      # g  # TASK
-  # monoUnsaturated: 0.58
-  # polyUnsaturated: 1.16
   carbs:           15
   sugar:           0.4
-  # fibre:
   amino:           7.1
   salt:            0.35
 
