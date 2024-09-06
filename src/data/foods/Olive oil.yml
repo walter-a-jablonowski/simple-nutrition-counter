@@ -1,0 +1,40 @@
+calories: 824
+
+nutritionalValues:
+
+  fat: 92
+  saturatedFat: 13
+  monoUnsaturated: 67
+  polyUnsaturated: 9
+  carbs: 0
+  sugar: 0
+  amino: 0
+  salt: 0
+
+fattyAcids:
+
+  Oleic acid: 61.96
+  Linoleic acid: 7.85
+  Palmitic acid: 10.45
+  Stearic acid: 2.18
+  Alpha-linolenic acid: 0.76
+
+carbs:
+
+aminoAcids:
+
+vitamins:
+
+  Vitamin E: 14
+  Vitamin K: 60
+
+minerals:
+
+  Potassium: 1
+  Calcium: 1
+  Sodium: 2
+  Iron: 1
+
+sources:           { nutriVal: "", nutrients: "" }
+state:             most
+lastUpd:           

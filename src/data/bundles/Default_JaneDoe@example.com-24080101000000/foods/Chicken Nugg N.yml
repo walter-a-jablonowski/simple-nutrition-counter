@@ -1,6 +1,8 @@
+removed:           true
+comment:           "looks a bit like fast food, made from some mix? see ingredients"
+
 vendor:            Norma
 acceptable:        occasionally
-comment:           "looks a bit like fast food, made from some mix? see ingredients"
 packaging:         plastic
 
 cookingInstructions: "2.5 min & 2 mehr"
