@@ -1,18 +1,3 @@
-#
-# AI:
-#
-# Please list all fatty acids, carbs, amino acids, vitamins and minerals contained in
-# [FOOD] along with the typical amount per 100g. Use grams for fatty acids and carbs, and
-# milligrams for the rest. Print the result als yml like
-#
-# ```
-# myGroupName:
-#
-#   MyNutrient: 1  # first upper case
-# ```
-# 
-# Group names: fattyAcids, carbs, aminoAcids, vitamins, minerals
-# 
 
 # TASK: (advanced) we could use these foods as default along with amounts from config
 
