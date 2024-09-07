@@ -123,7 +123,7 @@ A little taste (color:#ffa500):
     - Tilsiter small
     - Eiweißbr
 
-Desserts & micro or sugar-less candy (color:#ffa500):  #
+Desserts & micro or sugar-less candy (color:#ffa500):
 
   (i): "Candy: Reduce amount per day (effectively: don't buy more or you will eat it)"
 
@@ -139,6 +139,19 @@ Desserts & micro or sugar-less candy (color:#ffa500):  #
     - Ritter Sp 50%
     - Ritter Sp 61%
     - Hanuta
+
+Cheat day (color:#ffa500):
+
+  list:
+
+    - Käsekuchen mini
+    - Lindt caramel
+    - Donuts mini A                          # (duplicate)
+    - Donuts
+    - Pizza Mag
+    - Pizza Qua
+    - Mohnkuchen
+    - Milchschn
 
 Greens, legumes, mushr (color:#32cd32):      # Ingredients
 
@@ -194,19 +207,6 @@ Foods used sometimes (color:#32cd32):
     - Frosta Frikassee                       # kcal
     - Frosta Paella
     - Chips light
-
-Cheat day (color:#32cd32):
-
-  list:
-
-    - Käsekuchen mini
-    - Lindt caramel
-    - Donuts mini A                          # (duplicate)
-    - Donuts
-    - Pizza Mag
-    - Pizza Qua
-    - Mohnkuchen
-    - Milchschn
 
 Misc foods (color:#32cd32):
 
