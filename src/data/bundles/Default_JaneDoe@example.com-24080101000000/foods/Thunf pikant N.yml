@@ -4,7 +4,7 @@ certificates:      { NutriScore: B }
 comment:           "may contain mercury"
 packaging:         alu
 
-price:             
+price:             1.29
 weight:            189
 usedAmounts:       [1]
 
@@ -21,4 +21,4 @@ nutritionalValues:
 sources:           { nutriVal: "pack" }
 state:             most
 lastUpd:           2024-09-01
-lastPriceUpd:      
+lastPriceUpd:      2024-09-01
