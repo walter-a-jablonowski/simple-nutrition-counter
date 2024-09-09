@@ -1,0 +1,25 @@
+vendor:            Norma
+packaging:         plastic
+
+price:             0.90
+weight:            3000ml
+pieces:            6
+usedAmounts:       ["100ml"]
+
+calories:          0
+nutritionalValues: 
+
+  fat:             0
+  saturatedFat:    0
+  carbs:           0
+  sugar:           0
+  amino:           0
+  salt:            0
+
+water:             100
+
+sources:           { nutriVal: "pack" }
+
+state:             all
+lastUpd:           2024-06-18
+lastPriceUpd:      2024-06-18

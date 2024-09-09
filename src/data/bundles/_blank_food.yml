@@ -42,6 +42,10 @@ vitamins:
 minerals:          
 secondary:         
 
+water:             
+alcohol:
+caffeine:
+
 sources:           { nutriVal: "web|pack (information on packaging may differ slightly)", nutrients: "...", price: "..." }
 
 state:             most|all

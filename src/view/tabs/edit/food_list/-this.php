@@ -39,6 +39,8 @@
        put the btn somewhere on the side or own line?
 
        Water | Coffee | ... [new ...]  <-- highlight btn bg
+
+       Water use food: Wasser lg, Wasser sm
   -->
 
   <div class="col-12 mt-1">  <!-- wrap in col = show above groups -->

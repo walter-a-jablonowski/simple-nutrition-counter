@@ -26,7 +26,6 @@ Bundle structure
 - **-this.yml**
 - **/foods** see [foods](#foods)
   - [Layout file](#layout-file)
-- **misc.yml**
 - **/nutrients** all misc counters, may override default
   - water
   - beverages
