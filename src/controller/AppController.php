@@ -70,7 +70,7 @@ class AppController extends ControllerBase
     foreach( self::NUTRIENT_GROUPS as $groupName )
     {
       $this->nutrientsModel->set( $groupName,
-        Yaml::parse( file_get_contents("data/nutrients/$groupName.yml"))
+        Yaml::parse( file_get_contents("data/bundles/Default_$user->id/nutrients/$groupName.yml"))
       );
     }
 

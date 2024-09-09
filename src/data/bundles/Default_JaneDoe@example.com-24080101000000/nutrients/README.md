@@ -25,7 +25,6 @@ Nutrient files
 
 (advanced feature)
 
-- see also [readme](../src/data/nutrients/README.md)
 - derived see below
 
 ```yaml

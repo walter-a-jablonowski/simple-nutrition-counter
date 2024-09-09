@@ -1,2 +1,26 @@
+# also carbs, misc > fibre, salt
 
-mergeWithDefault: true  # default false, merge with data/nutrients
+# AI: "Some nutrients that were once considered non-essential are now recognized as crucial for optimal health, and this list might be updated in the future as new research emerges"
+
+calories:
+
+  name:  calories
+  short: kcal
+  unit:  kcal
+
+  amounts:
+
+    - criteria: { dayType: reduced, gender: male, age: 40, height: "*", weight: 75 }
+      lower:  5%
+      amount: 1800
+      upper:  5%
+
+    - criteria: { gender: male, age: 40, height: "*", weight: 75 }
+      lower:  5%
+      amount: 2200
+      upper:  5%
+
+    - criteria: { dayType: fillUp, gender: male, age: 40, height: "*", weight: 75 }
+      lower:  5%
+      amount: 2500
+      upper:  5%
