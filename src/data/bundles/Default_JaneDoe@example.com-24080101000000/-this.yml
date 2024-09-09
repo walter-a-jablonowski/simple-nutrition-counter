@@ -139,7 +139,7 @@ sampleMenu: |
     </tr>
   </table>
 
-primaryGoals:  # TASK: merge in nutrients
+primaryGoals:
 
   calories:    { label: "18-25k",          }
   "fat:amino": { label: "(2:1)",  calc: "" }
