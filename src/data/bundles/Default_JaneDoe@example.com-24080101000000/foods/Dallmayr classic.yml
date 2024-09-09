@@ -1,0 +1,24 @@
+packaging:         alu
+
+price:             6.49
+weight:            500
+usedAmounts:       ["50g"]
+
+calories:          0
+nutritionalValues: 
+
+  fat:             0
+  saturatedFat:    0
+  carbs:           0
+  sugar:           0
+  amino:           0
+  salt:            0
+
+water:             99
+caffeine:          
+
+sources:           { nutriVal: "pack", price: "deal price" }
+
+state:             all
+lastUpd:           2024-07-01
+lastPriceUpd:      2024-07-01
