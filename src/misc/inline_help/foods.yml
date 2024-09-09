@@ -17,7 +17,7 @@
 removed:             { usage: "hide in UI (unused food), currently no function (just rm in layout)",
                          required: false, type: "bool" }
 
-type:                { usage: "A food type like 'chickpeas' from data/foods", required: false, type: "string" }
+type:                { usage: "A food type like 'chickpeas' from data/food_defaults", required: false, type: "string" }
 productName:         { usage: "Precise product name", required: false, type: "string" }
 vendor:              { usage: "Vendor name",          required: false, type: "string" }
 url:                 { usage: "Single or multiple urls, first will be used as primary if multiple",

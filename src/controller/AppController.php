@@ -96,9 +96,9 @@ class AppController extends ControllerBase
       // if( $name == 'Chick R Bio' )  // DEBUG
       //   $debug = 'halt';
 
-      if( isset( $food['type']) && file_exists("data/foods/$food[type].yml"))
+      if( isset( $food['type']) && file_exists("data/food_defaults/$food[type].yml"))
       {
-        $nutrients = Yaml::parse( file_get_contents("data/foods/$food[type].yml"));
+        $nutrients = Yaml::parse( file_get_contents("data/food_defaults/$food[type].yml"));
         
         foreach( self::NUTRIENT_GROUPS as $groupName )
         {
