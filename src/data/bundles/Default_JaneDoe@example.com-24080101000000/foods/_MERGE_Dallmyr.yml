@@ -1,0 +1,29 @@
+Dallmayr classic:
+
+  price:             6.49
+  weight:            
+  usedAmounts:       ["50g", ...]
+
+  nutrients:
+
+    water:           99
+    caffeine:
+
+  sources:           {}
+  lastUpd:           
+  lastPriceUpd:      2024-06-01
+
+Dallmayr deal:
+
+  price:             5.39  # 4.99 2024-05-11
+  weight:            
+  usedAmounts:       ["50g", ...]
+
+  nutrients:
+
+    water:           99
+    caffeine:
+
+  sources:           { price: "deal price" }
+  lastUpd:           
+  lastPriceUpd:      2024-07-01
