@@ -7,5 +7,4 @@ myStrategy:
   headline: Meat 2-3 mon from 2408 & winter
   content:  |  # use html here
 
-    some longer content
-
+    "it's about balance"
