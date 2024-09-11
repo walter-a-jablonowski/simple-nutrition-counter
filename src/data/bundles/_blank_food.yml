@@ -42,9 +42,12 @@ vitamins:
 minerals:          
 secondary:         
 
+misc:
+
+  alcohol:
+  caffeine:
+
 water:             
-alcohol:
-caffeine:
 
 sources:           { nutriVal: "web|pack (information on packaging may differ slightly)", nutrients: "...", price: "..." }
 

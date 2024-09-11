@@ -14,8 +14,11 @@ nutritionalValues:
   amino:           0
   salt:            0
 
+misc:
+
+  caffeine:          
+
 water:             99
-caffeine:          
 
 sources:           { nutriVal: "pack", price: "deal price" }
 
