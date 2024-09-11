@@ -187,7 +187,7 @@ class AppController extends ControllerBase
                  strpos( $data['usedAmounts'][0], 'ml') !== false
                )
              ? 'precise' : (
-               isset($data['pieces'])
+               isset($data['pieces' ])
              ? 'pieces'
              : 'pack'
       );

@@ -5,8 +5,8 @@ packaging:         plastic
 
 price:             0.99
 weight:            500
-pieces:            
-usedAmounts:       []
+pieces:            9
+usedAmounts:       [1, 2, 3]
 
 calories:          239
 nutritionalValues: 
