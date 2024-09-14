@@ -1,3 +1,4 @@
+
 #
 # All misc counters
 # 
@@ -6,7 +7,7 @@
 #  variable expenses spent on daily basis
 #
 
-Housewares:
+housewares:
 
   Rollen:         { price: 3.49, lastUpd: 2024-06-04 }
   Waschm:         { price: 4.89, lastUpd: 2024-05-06 }
@@ -15,4 +16,18 @@ Housewares:
   R einweg:       { price: 2.79, pieces: 15, lastUpd: 2024-06-18 }  # deal 6 pc
   Creme:          { price: 2.92, lastUpd: 2024-08-01 }
 
-Misc:  # misc monthly variable (UI also adds buyings)
+misc:
+
+  Fillup:
+
+    price:             8.00
+    weight:            10ml
+    usedAmounts:       ["2ml"]
+
+    # TASK: maybe add substances
+
+    sources:           { nutriVal: "", nutrients: "..." }
+
+    state:             most|all
+    lastUpd:           
+    lastPriceUpd:      

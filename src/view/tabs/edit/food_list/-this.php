@@ -1,10 +1,7 @@
 <div id="foodList" class="row">
 
-  <span id="uiMsg"></span>  <!-- TASK: mov somewhere outside tab or one msg per tab -->
+  <span id="uiMsg"></span>  <!-- TASK: mov somewhere outside tab or one msg per tab (or use a toast) -->
 
-  <!-- TASK: add a collapse expand all (single btn) -->
-
-  <!-- Static entries #code/staticListEntries -->
   <!-- TASK: maybe use: smartphone 1 col, tabl 2 col, large 3 or col -->
   <!-- 3 col: col-12 col-md-6 col-lg-4 col-xxl-3 -->
   <!-- 2 col: col-12 col-md-6 col-xxl-4 -->
@@ -35,6 +32,8 @@
 
   <?php endif; ?>
 
+  <!-- TASK: add a collapse expand all (single btn) -->
+
   <!-- TASK: leave single group above full width for coffee, water, ... which is just normal food entries, see also (first_entries)
        put the btn somewhere on the side or own line?
 
@@ -57,11 +56,15 @@
         Save ...
       </div>
 <!--
+      TASK: now in foods
+      
       <div class   = "col-12 col-md-6 col-xxl-4 p-2 py-1"
            onclick = "..."
       >
         Coffee
       </div>
+
+      TASK: fillup now in user > misc.yml
 
       < ?php if( config::get('special')): ?>
         <div class   = "col-12 col-md-6 col-xxl-4 p-2 py-1"
