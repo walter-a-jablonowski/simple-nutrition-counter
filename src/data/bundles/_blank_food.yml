@@ -3,7 +3,7 @@ removed:           true
 type:              
 productName:       ""
 vendor:            
-url:                 # string or array
+url:                 # string or array  # TASK: name urls
 
 acceptable:        occasionally|less
 comment:           ""
@@ -44,10 +44,9 @@ secondary:
 
 misc:
 
+  water:             
   alcohol:
   caffeine:
-
-water:             
 
 sources:           { nutriVal: "web|pack (information on packaging may differ slightly)", nutrients: "...", price: "..." }
 

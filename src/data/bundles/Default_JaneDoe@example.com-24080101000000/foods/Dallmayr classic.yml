@@ -17,8 +17,7 @@ nutritionalValues:
 misc:
 
   caffeine:          
-
-water:             99
+  water:           99
 
 sources:           { nutriVal: "pack", price: "deal price" }
 

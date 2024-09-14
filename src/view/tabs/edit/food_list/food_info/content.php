@@ -189,20 +189,22 @@ $data = $this->foodsModel->get($foodName);
       'aminoAcids' => 'Amino acids',
       'vitamins'   => 'Vitamins',
       'minerals'   => 'Minerals',
-      'secondary'  => 'Secondary plant substances'
+      'secondary'  => 'Secondary plant substances',
+      'misc'       => 'Misc',
+      'water'      => 'Water'
     ];
 
-    foreach( static::NUTRITIONAL_VALUES as $group ):
+    foreach( array_merge(['nutritionalValues'], static::NUTRIENT_GROUPS) as $groupName ):
 
-      $collapseId = $foodId . ucwords( $this->nutrientsModel->get("$group.short")) . 'Collapse';
+      $collapseId = $foodId . ucwords( $this->nutrientsModel->get("$groupName.short")) . 'Collapse';
   ?>
 
-    <?php if( ! empty($data[$group])): ?>
+    <?php if( ! empty($data[$groupName])): ?>
 
       <li class = "list-group-item d-flex justify-content-between align-items-center"
           style = "background-color: #e0e0e0;"
       >
-        <?= $headlines[$group] ?>
+        <?= $headlines[$groupName] ?>
         <a data-bs-toggle="collapse" href="#<?= $collapseId ?>" class="text-body-secondary" role="button">
           <i class="bi bi-arrow-down-circle"></i>
         </a>
@@ -213,7 +215,7 @@ $data = $this->foodsModel->get($foodName);
         <table class="table table-bordered">
           <tbody>
 
-            <?php foreach( $data[$group] as $key => $value): ?>
+            <?php foreach( $data[$groupName] as $key => $value): ?>
               <tr>
                 <td><?= ucwords( str_replace('_', ' ', $key)) ?></td>
                 <td><?= $value ?></td>

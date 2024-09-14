@@ -18,8 +18,7 @@ class AppController extends ControllerBase
   use SaveDayEntriesAjaxController;
   use ChangeUserAjaxController;
 
-  const NUTRIENT_GROUPS    = ['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals'/*, 'electrolytes'*/, 'secondary'];
-  const NUTRITIONAL_VALUES = ['nutritionalValues', 'fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals'/*, 'electrolytes'*/, 'secondary'];
+  const NUTRIENT_GROUPS = ['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals', 'secondary', 'misc'];
 
   protected string     $mode;
   protected string     $date;
@@ -215,7 +214,7 @@ class AppController extends ControllerBase
 
         // nutritional values for all nutrient groups
 
-        foreach( self::NUTRITIONAL_VALUES as $groupName )
+        foreach( array_merge(['nutritionalValues'], self::NUTRIENT_GROUPS) as $groupName )
         {
           $shortName = $groupName === 'nutritionalValues' ? 'nutriVal'
                      : $this->nutrientsModel->get("$groupName.short");

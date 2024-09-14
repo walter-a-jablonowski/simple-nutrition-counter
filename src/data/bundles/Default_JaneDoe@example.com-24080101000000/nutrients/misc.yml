@@ -1,2 +1,31 @@
-alcohol:
-caffeine:
+
+name:         Misc
+short:        misc
+unit:         
+comment:      ""
+
+substances:
+
+  alcohol:
+
+    short:      Alc
+    unit:       mg
+
+    amounts:    # currently we use the first entry hard coded only
+
+      - criteria: { gender: male, age: 40, height: "*", weight: 75 }
+        lower:  5%
+        amount: 100 # TASK: dummy entry
+        upper:  5%
+
+  caffeine:
+
+    short:      Caf
+    unit:       mg
+
+    amounts:    # currently we use the first entry hard coded only
+
+      - criteria: { gender: male, age: 40, height: "*", weight: 75 }
+        lower:  5%
+        amount: 100 # TASK: dummy entry
+        upper:  5%
