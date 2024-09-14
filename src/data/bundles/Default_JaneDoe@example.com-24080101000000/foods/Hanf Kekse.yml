@@ -1,0 +1,33 @@
+url:               "https://sommer-backkunst.de/produkt/dinkel-hanf-kekse-mit-macawurzel"
+
+acceptable:        less
+certificates:      { bio: true }
+ingredients: |
+
+  Dinkelmehl*¹ Type 630 (20%), Dinkelvollkornmehl*¹ (20%), Rübenzucker*, Palmöl*², Zartbitter-Schokolade* (10%, Kakomasse*, Rohrohrzucker*, Kakaobutter*, Emulgator: Lecithin*), Hanfsamen* (10%), fettarmer Kakao*, Macapulver* (1%), Meersalz, Backtriebmittel: Natriumcarbonate, Bourbon-Vanille*, Zimt*, Koriander*
+  <br><br>
+  ¹IST EINE WEIZENART. ²TRANSPARENTE UND NACHHALTIGE HERKUNFT
+
+allergy:           "MILCH, NÜSSEN UND SESAM ENTHALTEN"
+packaging:         plastic
+
+price:             2.69
+weight:            150
+usedAmounts:       ["1/4", "1/2", "1"]
+
+calories:          488
+nutritionalValues: 
+
+  fat:             26
+  saturatedFat:    11
+  carbs:           51
+  sugar:           24
+  fibre:           5.8
+  amino:           9.7
+  salt:            0.28
+
+sources:           { nutriVal: "web" }
+
+state:             most
+lastUpd:           2024-09-11
+lastPriceUpd:      2024-09-11
