@@ -38,7 +38,7 @@ $data = $this->foodsModel->get($foodName);
         </td>
       </tr>
       <tr id="<?= $foodId ?>IngrCollapse" class="collapse">
-        <td colspan="2" class="text-wrap" style="white-space: pre-wrap;"><?= htmlspecialchars($data['ingredients']) ?></td>
+        <td colspan="2" class="text-wrap" style="white-space: pre-wrap;"><?= $data['ingredients'] ?></td>
       </tr>
     <?php endif; ?>
     <?php if( ! empty($data['allergy'])): ?>
