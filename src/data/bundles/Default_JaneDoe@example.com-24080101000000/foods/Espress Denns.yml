@@ -1,0 +1,25 @@
+vendor:            Denns
+url:               "https://www.schrozberger-milchbauern.de/produkte/espresso"
+acceptable:        less
+certificates:      { bio: true }
+ingredients:       "Vollmilch*, Rohrohrzucker*, 0,6% Löskaffee*, Maisstärke*, Verdickungsmittel: Johannisbrotkernmehl"
+packaging:         plastic,alu
+
+price:             1.29
+weight:            230ml
+usedAmounts:       ["1"]
+
+calories:          75
+nutritionalValues:
+
+  fat:             3.4
+  saturatedFat:    2.1
+  carbs:           7.8
+  sugar:           7.2
+  amino:           3.3
+  salt:            0.12
+
+sources:           { nutriVal: "pack" }
+state:             most
+lastUpd:           2024-09-11
+lastPriceUpd:      2024-09-11 
