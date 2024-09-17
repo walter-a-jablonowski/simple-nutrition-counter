@@ -20,7 +20,6 @@ substances:
 
     short:      Ca
     unit:       mg
-    per:        day
 
     amounts:  # currently we use the first entry hard coded only
 
@@ -33,7 +32,6 @@ substances:
 
     short:      Mg
     unit:       mg
-    per:        day
 
     comment:    "Increased need if doing sports"
 
@@ -74,8 +72,6 @@ substances:
           5g = Na: 1.97 Cl: 3.03
           6g = Na: 2.36 Cl: 3.64
 
-    per:        day
-
     amounts:  # currently we use the first entry hard coded only
 
       - criteria: { gender: male, age: 40, height: "*", weight: 75 }
@@ -99,7 +95,6 @@ substances:
 
     short:      P
     unit:       mg
-    per:        day
 
     amounts:  # currently we use the first entry hard coded only
 
