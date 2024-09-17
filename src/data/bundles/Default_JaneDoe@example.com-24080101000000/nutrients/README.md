@@ -64,10 +64,11 @@ substances:                      # (required) key at least empty []
 
     amounts:
 
-      # value mean all >= this, height might be used to fix weight
-      - criteria: { dayType: standard, gender: male , age: 40 , height: "*" , weight: 70 }
-        lower:  4%  # summary view still is green progress if within these bounds
-        amount:     # percent for some default value, number for precise (max is added to amount)
+      # TASK: BMI might be relevant for weight
+      
+      - criteria: { dayType: standard, gender: male, age: 40, weight: 70, height: "*" }  # height might be used to fix weight
+        lower:  4%  # bounds for acceptable intake (percent or precise)
+        amount:
         upper:  8   
 ```
 
