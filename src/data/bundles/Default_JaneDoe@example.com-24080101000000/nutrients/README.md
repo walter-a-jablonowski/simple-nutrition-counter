@@ -78,7 +78,7 @@ all of the above attributes and
 
 ```yaml
 
-subType:    methylcobalamin  # sub type
+subType:    methylcobalamin
 ```
 
 
@@ -87,8 +87,8 @@ subType:    methylcobalamin  # sub type
 TASK:
 
 ```yaml
-
-group:      Saturated|MonoUnsaturated|PolyUnsaturated      TASK: Medium-chain fatty acids, Short-chain fatty acids
-subGroup:   omega-3|omega-6|omega-9 TASK: omega-5|omega-7  # all unsaturated mono: 7 9, poly: 3 5 6
-essential:  true             #                             TASK: saturated devide in long chain, short chain, ... 
+            # TASK: Medium-chain fatty acids, Short-chain fatty acids
+group:      Saturated|MonoUnsaturated|PolyUnsaturated,...    # multiple comma sep cause we have multiple supergroups (e.g. lipids contain fat and some vitamins)
+subGroup:   omega-3|omega-6|omega-9 + TASK: omega-5|omega-7  # all unsaturated mono: 7 9, poly: 3 5 6
+essential:  true             #                               # TASK: saturated devide in long chain, short chain, ... 
 ```
