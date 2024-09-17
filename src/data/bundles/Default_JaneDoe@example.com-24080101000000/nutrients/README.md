@@ -52,6 +52,7 @@ substances:                      # (required) key at least empty []
       - title:
         source:                  # e.g. url
         sub:                     # sub section
+        comment:                 # details
 
     per:        day
     times:      morning, ...
@@ -79,6 +80,7 @@ substances:                      # (required) key at least empty []
           - title:
             source: 
             sub:    
+            comment:    
 ```
 
 

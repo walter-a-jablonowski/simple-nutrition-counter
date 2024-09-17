@@ -9,7 +9,7 @@ short:      fat
 unit:       
 per:        day
 comment:    ""
-amounts:    # currently we use the first entry hard coded only
+amounts:  # currently we use the first entry hard coded only
 
   - criteria: { gender: male, age: 40, height: "*", weight: 75 }
     lower:  5%
@@ -43,7 +43,7 @@ substances:
     comment:    "GPT 2408: Flaxseeds, chia seeds, walnuts, canola oil, and soybeans"
     sources:    "GPT and Claude 2408 for now"
 
-    amounts:    # currently we use the first entry hard coded only
+    amounts:  # currently we use the first entry hard coded only
 
       - criteria: { gender: male, age: 40, height: "*", weight: 75 }
         lower:  5%
@@ -60,7 +60,7 @@ substances:
     comment:    "GPT 2408: Fish (salmon, mackerel, sardines), fish oil, krill oil, and algae oil"
     sources:    "GPT and Claude 2408 for now"
 
-    amounts:    # currently we use the first entry hard coded only
+    amounts:  # currently we use the first entry hard coded only
 
       - criteria: { gender: male, age: 40, height: "*", weight: 75 }
         lower:  200
@@ -79,7 +79,7 @@ substances:
     comment:    "GPT 2408: Vegetable oils (sunflower, safflower, corn, soybean), nuts, and seeds"
     sources:    "GPT and Claude 2408 for now"
 
-    amounts:    # currently we use the first entry hard coded only
+    amounts:  # currently we use the first entry hard coded only
 
       - criteria: { gender: male, age: 40, height: "*", weight: 75 }
         lower:  5%

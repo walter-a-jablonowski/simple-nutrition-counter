@@ -38,7 +38,7 @@ substances:
 
     comment:    
 
-    amounts:    # currently we use the first entry hard coded only
+    amounts:  # currently we use the first entry hard coded only
 
       - criteria: { gender: male, age: 40, height: "*", weight: 75 }
         lower:  5%
@@ -55,7 +55,7 @@ substances:
 
     comment:    
 
-    amounts:    # currently we use the first entry hard coded only
+    amounts:  # currently we use the first entry hard coded only
 
       - criteria: { gender: male, age: 40, height: "*", weight: 75 }
         lower:  5%

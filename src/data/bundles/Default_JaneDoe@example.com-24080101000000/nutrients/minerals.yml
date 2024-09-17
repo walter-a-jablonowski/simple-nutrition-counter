@@ -40,7 +40,7 @@ substances:
 
     comment:    ""
 
-    amounts:    # currently we use the first entry hard coded only
+    amounts:  # currently we use the first entry hard coded only
 
       - criteria: { gender: male, age: 40, height: "*", weight: 75 }
         lower:  5%
@@ -57,7 +57,7 @@ substances:
 
     comment:    "Increased need if doing sports"
 
-    amounts:    # currently we use the first entry hard coded only
+    amounts:  # currently we use the first entry hard coded only
 
       - criteria: { gender: male, age: 40, height: "*", weight: 75 }
         lower:  5%
@@ -77,24 +77,38 @@ substances:
     per:        day
     times:      
 
-    amounts:    # currently we use the first entry hard coded only
+    amounts:  # currently we use the first entry hard coded only
 
       - criteria: { gender: male, age: 40, height: "*", weight: 75 }
         lower:  5%
         amount: 100 # TASK: dummy entry
         upper:  5%
 
+  # Na Cl: we use it combined as salt ins of the single substances
+
   Salt:
 
     short:      NaCl
     unit:       g
+    sources:
+
+      - title: Andrew Huberman
+        source:
+        sub:
+        comment: |
+
+          2 ais same result
+
+          4g = Na: 1.57 Cl: 2.43
+          5g = Na: 1.97 Cl: 3.03
+          6g = Na: 2.36 Cl: 3.64
 
     per:        day
     times:      
 
-    amounts:    # currently we use the first entry hard coded only
-                   # TASK: this is natrium and chloride, split it
+    amounts:  # currently we use the first entry hard coded only
+
       - criteria: { gender: male, age: 40, height: "*", weight: 75 }
-        lower:  4  # Na: 1.57 Cl: 2.43 = 4  # 2 ais same result
-        amount: 5  # Na: 1.97 Cl: 3.03 = 5
-        upper:  6  # Na: 2.36 Cl: 3.64 = 6
+        lower:  4
+        amount: 5
+        upper:  6
