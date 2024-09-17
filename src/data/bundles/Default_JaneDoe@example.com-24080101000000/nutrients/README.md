@@ -47,7 +47,7 @@ substances:                      # (required) key at least empty []
 
     short:      B12              # short name is used as unique id over all files
     unit:       mg
-    sources:    ""               # source of information
+    sources:                     # source of information (string or array)
 
     per:        day
     times:      morning, ...
@@ -77,7 +77,8 @@ substances:                      # (required) key at least empty []
 all of the above attributes and
 
 ```yaml
-type:       methylcobalamin  # sub type
+
+subType:    methylcobalamin  # sub type
 ```
 
 
@@ -86,6 +87,7 @@ type:       methylcobalamin  # sub type
 TASK:
 
 ```yaml
+
 group:      Saturated|MonoUnsaturated|PolyUnsaturated      TASK: Medium-chain fatty acids, Short-chain fatty acids
 subGroup:   omega-3|omega-6|omega-9 TASK: omega-5|omega-7  # all unsaturated mono: 7 9, poly: 3 5 6
 essential:  true             #                             TASK: saturated devide in long chain, short chain, ... 
