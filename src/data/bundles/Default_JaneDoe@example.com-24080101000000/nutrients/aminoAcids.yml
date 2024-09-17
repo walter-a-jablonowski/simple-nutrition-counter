@@ -1,13 +1,15 @@
 #
 # Amino acids
 #
-# -> usage see readme
-#
 
 name:      Amino acids
 short:     amino  # TASK: name `shortId` (normally `@shortId` but looks nicer)
-unit:       g     # amino per day
+unit:      g      # amino per day
 comment:   "Increased need if doing sports"
+sources:
+
+  - title: "Essential (Claude and ChatGPT produce exactly same list 2408)"
+
 amounts:   # currently we use the first entry hard coded only
 
   # added date from interview
@@ -23,8 +25,6 @@ amounts:   # currently we use the first entry hard coded only
     upper:  165
 
 substances: []
-
-# Essential (Claude and ChatGPT produce exactly same list 2408)
 
 # Histidine      # unit all mg
 # Isoleucine

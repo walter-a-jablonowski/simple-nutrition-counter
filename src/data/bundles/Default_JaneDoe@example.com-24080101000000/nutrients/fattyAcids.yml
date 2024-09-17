@@ -1,12 +1,13 @@
 #
 # Fatty acids
 #
-# -> usage see readme
-#
 
 name:       Fatty acids
 short:      fat
 unit:       g  # all fats per day
+sources:
+
+  - title: "Claude: only first 2 (ALA, DHA), ChatGPT mentions: ALA, EPA, DHA, LA (below), Arachidonic acid"
 
 amounts:  # currently we use the first entry hard coded only
 
@@ -16,8 +17,6 @@ amounts:  # currently we use the first entry hard coded only
     upper:  5%
 
 substances:
-
-  # Claude: only first 2, ChatGPT mentions: ALA, EPA, DHA, LA (below), Arachidonic acid
 
   # TASK: 2 AIs say that only ALA and LA must be from food and the body can make the rest
   #       but:

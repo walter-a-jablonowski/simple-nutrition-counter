@@ -1,15 +1,14 @@
 #
 # Vitamins
 #
-# -> usage see readme
-#
 
 name:         Vitamins
 short:        vit
+sources:
+
+  - title: "Essential (Claude and ChatGPT produce exactly same list 2408)"
 
 substances:
-
-  # Essential (Claude and ChatGPT produce exactly same list 2408)
 
   # Vitamin A
   # Vitamin D

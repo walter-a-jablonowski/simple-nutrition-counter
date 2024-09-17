@@ -2,6 +2,10 @@
 name:    Carbs
 short:   carbs
 unit:    g  # carbs per day
+sources:
+
+  - title: ""
+
 amounts:
 
   - criteria: { gender: "*", age: "*", height: "*", weight: "*" }
@@ -11,16 +15,14 @@ amounts:
 
 substances:
 
-  fibre:  # technically fibre is complex carb, but can't be used by the body (harvard) (AI says 2 kcal per g)
-          # US nutri fact labels list it below carbs
-    short:      fibre
-    unit:       g
+  fibre:  # technically fibre is complex carb, but can't be used by the body (harvard)
 
-    per:        day
+    short: fibre
+    unit:  g
 
     amounts:
 
       - criteria: { gender: male, age: 40, height: "*", weight: 75 }
-        lower:  
+        lower:   # AI says 2 kcal per g
         amount: 
         upper:  
