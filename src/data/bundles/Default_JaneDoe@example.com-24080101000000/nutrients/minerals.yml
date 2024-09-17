@@ -72,7 +72,7 @@ substances:
         amount: 100 # TASK: dummy entry
         upper:  5%
 
-  Phosphor:
+  Phosphorus:
 
     short:      P
     unit:       mg
