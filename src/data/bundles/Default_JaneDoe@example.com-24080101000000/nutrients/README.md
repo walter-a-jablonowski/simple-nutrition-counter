@@ -47,7 +47,11 @@ substances:                      # (required) key at least empty []
 
     short:      B12              # short name is used as unique id over all files
     unit:       mg
-    sources:                     # source of information (string or array)
+    sources:                     # source of information (see also per amount below)
+
+      - title:
+        source:                  # e.g. url
+        sub:                     # sub section
 
     per:        day
     times:      morning, ...
@@ -67,9 +71,14 @@ substances:                      # (required) key at least empty []
       # TASK: BMI might be relevant for weight
       
       - criteria: { dayType: standard, gender: male, age: 40, weight: 70, height: "*" }  # height might be used to fix weight
-        lower:  4%  # bounds for acceptable intake (percent or precise)
+        lower:  4%   # bounds for acceptable intake (percent or precise)
         amount:
         upper:  8   
+        sources:     # same aas above (if needed for being more precise)
+
+          - title:
+            source: 
+            sub:    
 ```
 
 
