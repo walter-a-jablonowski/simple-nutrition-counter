@@ -36,7 +36,7 @@ short:                           # short name used as short unique id in daily f
 unit:      g                     # this is the data of the group
 per:       day
 comment:   "Increased need if doing sports"
-sources:                         # source of information (see also below)
+sources:                         # source of information, string or array(object) (see also below)
 
   - title: 
     source:                      # e.g. url
@@ -53,25 +53,25 @@ substances:                      # (required) key at least empty []
 
     short:      B12              # short name is used as unique id over all files
     unit:       mg
-    sources:                     # same as above
+    sources:                     # string or array(object), same as above
 
       - title:
         source:
         sub:   
         comment:
 
-    per:        day
-    times:      morning, ...
+    per:          day
+    times:        morning, ...
     how:                         # bio availability
     limit:                       # take how long
     break:                       # min break time
 
-    comment:    # Advantage
-    careful:    false
+    comment:      # Advantage
+    careful:      false
     interactions:      
     sideEffects:      
 
-    keeping:    "keep cool"
+    keeping:      "keep cool"
 
     amounts:
 
@@ -81,7 +81,7 @@ substances:                      # (required) key at least empty []
         lower:  4%   # bounds for acceptable intake (percent or precise)
         amount:
         upper:  8   
-        sources:     # same as above (if needed for being more precise)
+        sources:     # string or array(object), same as above (if needed for being more precise)
 
           - title:
             source: 

@@ -16,31 +16,32 @@ substances:
 
     short:      Ca
     unit:       mg
+    sources:    "DGE for now"
 
     amounts:  # currently we use the first entry hard coded only
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-        lower:  5%
-        amount: 100 # TASK: dummy entry
-        upper:  5%
+        lower:  10%
+        amount: 1000
+        upper:  10%
 
   Magnesium:
 
     short:      Mg
     unit:       mg
-
+    sources:    "DGE for now"
     comment:    "Increased need if doing sports"
 
     amounts:  # currently we use the first entry hard coded only
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  5%
-        amount: 400 # TASK: dummy entry
+        amount: 350
         upper:  5%
 
       - criteria: { dayType: workout, gender: male, age: 40, weight: 75, height: "*" }
         lower:  5%
-        amount: 100 # TASK: dummy entry
+        amount: 500 # TASK: dummy entry
         upper:  5%
 
   # Iron
