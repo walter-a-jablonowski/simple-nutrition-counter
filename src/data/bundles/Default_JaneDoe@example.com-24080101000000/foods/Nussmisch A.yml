@@ -25,7 +25,7 @@ vitamins:
 minerals:
 
   Magnesium:       195
-  Phosphor:        364
+  Phosphorus:      364
 
 sources:           { nutriVal: "pack" }
 state:             most
