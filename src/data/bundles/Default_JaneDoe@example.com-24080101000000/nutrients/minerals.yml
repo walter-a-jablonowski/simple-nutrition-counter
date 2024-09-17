@@ -13,12 +13,9 @@ substances:
 
   # Essential (Claude 2408)
 
-  # Calcium
-  # Phosphorus
   # Potassium
   # Sodium
-  # Chloride
-  # Magnesium
+  # Chloride   included in salt
   # Iron
   # Zinc
   # Iodine
@@ -87,7 +84,7 @@ substances:
         amount: 100 # TASK: dummy entry
         upper:  5%
 
-  Salt:
+  Salt:  # TASK: this is natrium and chloride, split it
 
     short:      NaCl
     unit:       g
