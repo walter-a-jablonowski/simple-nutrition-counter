@@ -8,37 +8,19 @@ name:         Minerals
 short:        min
 unit:         
 comment:      ""
+sources:
+
+  - title: "Essential by Claude and ChatGPT 2408"
 
 substances:
 
-  # Essential (Claude 2408)
-
-  # Potassium
-  # Sodium
-  # Chloride   included in salt
-  # Iron
-  # Zinc
-  # Iodine
-  # Selenium
-  # Copper
-  # Manganese
-  # Chromium
-  # Molybdenum
-
-  # ChatGPT adds
-
-  # Sulfur
-  # Fluoride
+  # Roughly by amount of functions, rest below
 
   Calcium:
 
     short:      Ca
     unit:       mg
-
     per:        day
-    times:     
-
-    comment:    ""
 
     amounts:  # currently we use the first entry hard coded only
 
@@ -51,9 +33,7 @@ substances:
 
     short:      Mg
     unit:       mg
-
     per:        day
-    times:      
 
     comment:    "Increased need if doing sports"
 
@@ -69,20 +49,11 @@ substances:
         amount: 100 # TASK: dummy entry
         upper:  5%
 
-  Phosphorus:
+  # Iron
 
-    short:      P
-    unit:       mg
+  # Potassium
 
-    per:        day
-    times:      
-
-    amounts:  # currently we use the first entry hard coded only
-
-      - criteria: { gender: male, age: 40, height: "*", weight: 75 }
-        lower:  5%
-        amount: 100 # TASK: dummy entry
-        upper:  5%
+  # Zinc
 
   # Na Cl: we use it combined as salt ins of the single substances
 
@@ -104,7 +75,6 @@ substances:
           6g = Na: 2.36 Cl: 3.64
 
     per:        day
-    times:      
 
     amounts:  # currently we use the first entry hard coded only
 
@@ -112,3 +82,28 @@ substances:
         lower:  4
         amount: 5
         upper:  6
+
+  # Iodine
+  # Selenium
+  # Copper
+  # Manganese
+  # Chromium
+  # Molybdenum
+
+  # ChatGPT adds
+
+  # Sulfur
+  # Fluoride
+
+  Phosphorus:
+
+    short:      P
+    unit:       mg
+    per:        day
+
+    amounts:  # currently we use the first entry hard coded only
+
+      - criteria: { gender: male, age: 40, height: "*", weight: 75 }
+        lower:  5%
+        amount: 100 # TASK: dummy entry
+        upper:  5%

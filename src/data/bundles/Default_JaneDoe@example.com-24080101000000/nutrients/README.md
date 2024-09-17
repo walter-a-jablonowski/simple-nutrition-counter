@@ -36,7 +36,13 @@ short:                           # short name used as short unique id in daily f
 unit:      mg
 per:       day
 comment:   "Increased need if doing sports"
-sources:   ""                    # source of information
+sources:                         # source of information (see also below)
+
+  - title: 
+    source:                      # e.g. url
+    sub:                         # sub section
+    comment:                     # details
+
 amounts:
 
   # same as below
@@ -47,12 +53,12 @@ substances:                      # (required) key at least empty []
 
     short:      B12              # short name is used as unique id over all files
     unit:       mg
-    sources:                     # source of information (see also per amount below)
+    sources:                     # same as above
 
       - title:
-        source:                  # e.g. url
-        sub:                     # sub section
-        comment:                 # details
+        source:
+        sub:   
+        comment:
 
     per:        day
     times:      morning, ...
@@ -75,7 +81,7 @@ substances:                      # (required) key at least empty []
         lower:  4%   # bounds for acceptable intake (percent or precise)
         amount:
         upper:  8   
-        sources:     # same aas above (if needed for being more precise)
+        sources:     # same as above (if needed for being more precise)
 
           - title:
             source: 
