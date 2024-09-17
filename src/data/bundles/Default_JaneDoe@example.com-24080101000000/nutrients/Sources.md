@@ -49,4 +49,5 @@ Also gibe me the amount of fibre per 100g.
 - EU
 
   - https://www.efsa.europa.eu/de/topics/topic/dietary-reference-values
+    - https://www.efsa.europa.eu/sites/default/files/2024-05/ul-summary-report.pdf
   - https://www.eufic.org/de/wissenschaft-verstehen/artikel/referenzwerte-fuer-die-naehrstoffzufuhr-referenzwerte-fuer-wen
