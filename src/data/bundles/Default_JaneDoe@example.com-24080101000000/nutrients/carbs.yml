@@ -1,7 +1,7 @@
 
 name:    Carbs
 short:   carbs
-unit:    g
+unit:    g  # carbs per day
 amounts:
 
   - criteria: { gender: "*", age: "*", height: "*", weight: "*" }

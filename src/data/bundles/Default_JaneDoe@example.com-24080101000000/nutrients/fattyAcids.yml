@@ -6,12 +6,11 @@
 
 name:       Fatty acids
 short:      fat
-unit:       
-per:        day
-comment:    ""
+unit:       g  # all fats per day
+
 amounts:  # currently we use the first entry hard coded only
 
-  - criteria: { gender: male, age: 40, height: "*", weight: 75 }
+  - criteria: { gender: male, age: 40, weight: 75, height: "*" }
     lower:  5%
     amount: 100 # TASK: dummy entry
     upper:  5%
@@ -41,11 +40,11 @@ substances:
     essential:  true
     unit:       g
     comment:    "GPT 2408: Flaxseeds, chia seeds, walnuts, canola oil, and soybeans"
-    sources:    "GPT and Claude 2408 for now"
+    sources:    "GPT and Claude 2408 for now"  # TASK: upd this
 
     amounts:  # currently we use the first entry hard coded only
 
-      - criteria: { gender: male, age: 40, height: "*", weight: 75 }
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  5%
         amount: 1.6
         upper:  5%
@@ -62,7 +61,7 @@ substances:
 
     amounts:  # currently we use the first entry hard coded only
 
-      - criteria: { gender: male, age: 40, height: "*", weight: 75 }
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  200
         amount: 250
         upper:  300
@@ -81,7 +80,7 @@ substances:
 
     amounts:  # currently we use the first entry hard coded only
 
-      - criteria: { gender: male, age: 40, height: "*", weight: 75 }
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  5%
         amount: 17
         upper:  5%

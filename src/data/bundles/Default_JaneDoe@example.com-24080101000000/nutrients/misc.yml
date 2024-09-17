@@ -1,8 +1,6 @@
 
 name:         Misc
 short:        misc
-unit:         
-comment:      ""
 
 substances:
 
@@ -13,7 +11,7 @@ substances:
 
     amounts:  # currently we use the first entry hard coded only
 
-      - criteria: { gender: male, age: 40, height: "*", weight: 75 }
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  5%
         amount: 100 # TASK: dummy entry
         upper:  5%
@@ -25,7 +23,7 @@ substances:
 
     amounts:  # currently we use the first entry hard coded only
 
-      - criteria: { gender: male, age: 40, height: "*", weight: 75 }
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  5%
         amount: 100 # TASK: dummy entry
         upper:  5%

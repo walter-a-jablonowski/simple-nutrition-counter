@@ -33,7 +33,7 @@ Nutrient files
 
 name:                            # display name
 short:                           # short name used as short unique id in daily files (file name is alternative id used in code)
-unit:      mg
+unit:      g                     # this is the data of the group
 per:       day
 comment:   "Increased need if doing sports"
 sources:                         # source of information (see also below)
