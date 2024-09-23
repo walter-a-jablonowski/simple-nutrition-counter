@@ -1,7 +1,7 @@
 vendor:            Rewe
 packaging:         plastic
 
-price:             1.50
+price:             1.74
 weight:            9000ml
 pieces:            6
 usedAmounts:       ["100ml"]
