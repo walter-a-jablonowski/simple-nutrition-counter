@@ -79,7 +79,7 @@ class AppController extends ControllerBase
     $this->foodsModel = new SimpleData();
     
     $dir     = "data/bundles/Default_$user->id/foods";
-    $exclude = ['.', '..', '-this.yml', '-this_SAV.yml'];
+    $exclude = ['.', '..', '-this.yml', '-this_SAV.yml', '_blank_food.yml'];
 
     foreach( scandir($dir) as $file )
     {
