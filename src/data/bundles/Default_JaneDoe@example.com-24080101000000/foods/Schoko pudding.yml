@@ -1,0 +1,26 @@
+productName:       "Landliebe Schoko Sahne"
+url:               "https://www.landliebe.de/die-landliebe-produkte/desserts/sahnepudding-schokolade-150g-becher"
+
+acceptable:        less
+ingredients:       "82 % Sahne, 9 % Schokoladenpulver (Zucker, Kakao), Zucker, modifizierte Stärke, 0,9 % fettarmer Kakao, Stärke"
+packaging:         alu & plastic
+
+price:             0.99
+weight:            150g
+usedAmounts:       ["1"]
+
+calories:          163
+nutritionalValues:
+
+  fat:             8.8
+  saturatedFat:    5.9
+  carbs:           17
+  sugar:           14
+  amino:           3.3
+  salt:            0.11
+
+sources:           { nutriVal: "web" }
+
+state:             most
+lastUpd:           2024-09-23
+lastPriceUpd:      2024-09-23
