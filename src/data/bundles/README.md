@@ -24,6 +24,7 @@ Bundle structure
 ----------------------------------------------------------
 
 - **-this.yml**
+- **/food_layout.yml**
 - **/foods** see [foods](#foods)
   - [Layout file](#layout-file)
 - **/nutrients** all misc counters, may override default

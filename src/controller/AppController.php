@@ -79,7 +79,7 @@ class AppController extends ControllerBase
     $this->foodsModel = new SimpleData();
     
     $dir     = "data/bundles/Default_$user->id/foods";
-    $exclude = ['.', '..', '-this.yml', '-this_SAV.yml', '20_layout.yml'];
+    $exclude = ['.', '..', '-this.yml', '-this_SAV.yml'];
 
     foreach( scandir($dir) as $file )
     {
@@ -135,7 +135,7 @@ class AppController extends ControllerBase
     $this->makeFoodsView();
 
     $this->layout = parse_attribs('@attribs', ['short', '(i)'],
-      Yaml::parse( file_get_contents("data/bundles/Default_$user->id/foods/20_layout.yml"))
+      Yaml::parse( file_get_contents("data/bundles/Default_$user->id/food_layout.yml"))
     );
     
     foreach( $this->layout as $group => &$layout )
