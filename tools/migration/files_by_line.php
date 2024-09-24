@@ -1,6 +1,6 @@
 <?php
 
-chdir('../../src');
+// chdir('../../src');
 
 /*
 
@@ -16,7 +16,8 @@ Use scandir() for reading the files and indent all lines with 2 spaces.
 
 */
 
-$dir = 'data/users/JaneDoe@example.com-24080101000000/days';
+// $dir = 'data/users/JaneDoe@example.com-24080101000000/days';
+$dir = 'days';
 
 foreach( scandir($dir) as $file )
 {
