@@ -47,10 +47,23 @@ Foods
 - field info available in app as well (in development), see def file [inline_help/foods.yml](../src/misc/inline_help/foods.yml)
 
 
-### Layout file
+Recipes file
+----------------------------------------------------------
 
-- for upper part of nutrients list
-- left over recipes nutrients will be attached below
+```yaml
+
+My recipe:
+                     # amount:
+  Chick R Bio:  100g # < 0 (1/2)    is percent of pack
+  Brokkoli R:        # > 0 (e.g. 2) is piece(s)
+  Olivenöl:          # or with "g" (100g), "ml" (100ml)
+```
+
+
+Layout
+----------------------------------------------------------
+
+- left over nutrients and recipes will be attached below (group Misc foods)
 - you can add each food multiple times
 
 ```yaml
@@ -69,22 +82,3 @@ My nutrient group (color:#e0e0e0):  # Visually group with color
   list:
     - ...
 ```
-
-
-Recipes file
-----------------------------------------------------------
-
-```yaml
-
-My recipe:
-                     # amount:
-  Chick R Bio:  100g # < 0 (1/2)    is percent of pack
-  Brokkoli R:        # > 0 (e.g. 2) is piece(s)
-  Olivenöl:          # or with "g" (100g), "ml" (100ml)
-```
-
-
-Layout
-----------------------------------------------------------
-
-- left over nutrients and recipes will be attached below (group Misc foods)
