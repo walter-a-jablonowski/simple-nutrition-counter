@@ -5,6 +5,7 @@
 - [Foods](#foods)
   - [Layout file](#layout-file)
 - [Recipes file](#recipes-file)
+- [Layout](#layout)
 
 
 Naming scheme
@@ -24,7 +25,7 @@ Bundle structure
 ----------------------------------------------------------
 
 - **-this.yml**
-- **/food_layout.yml**
+- **/food_layout.yml** see [layout](#layout)
 - **/foods** see [foods](#foods)
   - [Layout file](#layout-file)
 - **/nutrients** all misc counters, may override default
@@ -81,3 +82,9 @@ My recipe:
   Brokkoli R:        # > 0 (e.g. 2) is piece(s)
   Olivenöl:          # or with "g" (100g), "ml" (100ml)
 ```
+
+
+Layout
+----------------------------------------------------------
+
+- left over nutrients and recipes will be attached below (group Misc foods)
