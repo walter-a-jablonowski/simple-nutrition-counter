@@ -1,18 +1,16 @@
 <?php
 
-createTestStructure('debug/source');
-createTestStructure('debug/dest');
+makeDebug('debug/source');
+makeDebug('debug/dest');
 
-echo "Test directories created:\n";
-echo "Source: $testSourceDir\n";
-echo "Destination: $testDestDir\n";
+echo 'Done';
 
-function createTestStructure($baseDir)
+function makeDebug($baseDir)
 {
-    if( ! is_dir($baseDir))
-      mkdir($baseDir, 0755, true);
+  if( ! is_dir($baseDir))
+    mkdir($baseDir, 0755, true);
 
-    $dirs = [
+  $dirs = [
     "$baseDir/folder1",
     "$baseDir/folder2",
     "$baseDir/folder3",

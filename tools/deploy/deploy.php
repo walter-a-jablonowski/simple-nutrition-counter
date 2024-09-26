@@ -1,7 +1,9 @@
 <?php
 
-$sourceDir   = '..';
-$destDir     = 'G:/Meine Ablage/80-dools/primary_dool/20_activity/simple-nutrition-counter (id-consump)';
+$sourceDir = 'debug/source';
+$destDir   = 'debug/dest';
+// $sourceDir = '..';
+// $destDir   = 'G:/Meine Ablage/80-dools/primary_dool/20_activity/simple-nutrition-counter (id-consump)';
 $keep = ['bootstrap-icons-1.11.3', 'days'];  // fil or fld
 // TASK: maybe use larger portion of fil path to be able to be more precise
 
@@ -15,7 +17,7 @@ if( ! is_dir($destDir))
 removeOldFiles( $destDir, $keep);
 copyNewFiles( $sourceDir, $destDir, $keep);
 
-echo "Success\n";
+echo 'Done';
 
 
 function removeOldFiles( $dir, $keep )
