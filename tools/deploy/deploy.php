@@ -31,17 +31,15 @@ function removeOldFiles( $dir, $keep )
     
     if( is_dir("$dir/$file"))
     {
-      $keepFld = removeOldFiles("$dir/$file", $keep) || $keepFld;  // func first (short circuit)
+      // $keepFld = removeOldFiles("$dir/$file", $keep) || $keepFld;  // func first (short circuit)
 
-      // $childKeepFld = removeOldFiles("$dir/$file", $keep);  // Check child directories
-      // $keepFld = $childKeepFld || $keepFld;  // Update parent retention status
+      $keepSub = removeOldFiles("$dir/$file", $keep);
+      $keepFld = $keepFld || $keepSub;
+
+      if( ! $keepSub )
+        rmdir("$dir/$file");
     }
-
-    $keepFil = in_array( $file, $keep );
-
-    if( is_dir("$dir/$file") && ! $keepFld )
-      rmdir("$dir/$file");
-    elseif( is_file("$dir/$file") && ! $keepFil )
+    elseif( is_file("$dir/$file") && ! in_array( $file, $keep ))
       unlink("$dir/$file");  
   }
 
