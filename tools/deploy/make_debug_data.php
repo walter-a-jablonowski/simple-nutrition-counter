@@ -16,8 +16,8 @@ function makeDebug($baseDir)
     "$baseDir/folder3",
     "$baseDir/folder1/subfolder1",
     "$baseDir/folder2/subfolder2",
-    "$baseDir/bootstrap-icons-1.11.3",  // This matches your $keep array
-    "$baseDir/days",                    // This matches your $keep array
+    "$baseDir/folder1/bootstrap-icons-1.11.3",  // This matches your $keep array
+    "$baseDir/days",                            // This matches your $keep array
   ];
 
   foreach( $dirs as $dir )
@@ -34,14 +34,12 @@ function makeDebug($baseDir)
     "$baseDir/folder2/file5.html" => "<html><body>This is file 5</body></html>",
     "$baseDir/folder2/subfolder2/file6.css" => "body { color: blue; }",
     "$baseDir/folder3/file7.js" => "console.log('This is file 7');",
-    "$baseDir/bootstrap-icons-1.11.3/icon.svg" => "<svg>...</svg>",
+    "$baseDir/folder1/bootstrap-icons-1.11.3/icon.svg" => "<svg>...</svg>",
     "$baseDir/days/day1.txt" => "Content for day 1",
   ];
 
   foreach( $files as $file => $content)
     file_put_contents($file, $content);
-
-  echo "Test structure created in $baseDir\n";
 }
 
 ?>

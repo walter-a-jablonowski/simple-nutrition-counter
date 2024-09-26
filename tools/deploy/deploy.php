@@ -15,7 +15,7 @@ if( ! is_dir($destDir))
 
 // TASK: maybe we can make a backup of the last app as zip?
 removeOldFiles( $destDir, $keep);
-copyNewFiles( $sourceDir, $destDir, $keep);
+// copyNewFiles( $sourceDir, $destDir, $keep);
 
 echo 'Done';
 
@@ -31,10 +31,10 @@ function removeOldFiles( $dir, $keep )
     
     if( is_dir("$dir/$file"))
     {
-      // $keepFld = removeOldFiles("$dir/$file", $keep) || $keepFld;  // func first (short circuit)
+      $keepFld = removeOldFiles("$dir/$file", $keep) || $keepFld;  // func first (short circuit)
 
-      $childKeepFld = removeOldFiles("$dir/$file", $keep);  // Check child directories
-      $keepFld = $childKeepFld || $keepFld;  // Update parent retention status
+      // $childKeepFld = removeOldFiles("$dir/$file", $keep);  // Check child directories
+      // $keepFld = $childKeepFld || $keepFld;  // Update parent retention status
     }
 
     $keepFil = in_array( $file, $keep );
