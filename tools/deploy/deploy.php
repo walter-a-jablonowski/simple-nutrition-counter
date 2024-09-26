@@ -22,25 +22,25 @@ echo 'Done';
 function removeOldFiles( $dir, $keep )
 {
   // $keepFld = in_array( basename($dir), $keep );
-  $keepFld = keep( basename($dir), $keep );
+  $keepFld = filter_str_ends( basename($dir), $keep );
   
   foreach( scandir($dir) as $file)
   {
     if( in_array( $file, ['.', '..']))
     continue;
   
-  if( is_dir("$dir/$file"))
-  {
-    // $keepFld = removeOldFiles("$dir/$file", $keep) || $keepFld;  // func first (short circuit)
-    
-    $keepSub = removeOldFiles("$dir/$file", $keep);
-    $keepFld = $keepFld || $keepSub;
-    
-    if( ! $keepSub )
-      rmdir("$dir/$file");
+    if( is_dir("$dir/$file"))
+    {
+      // $keepFld = removeOldFiles("$dir/$file", $keep) || $keepFld;  // func first (short circuit)
+      
+      $keepSub = removeOldFiles("$dir/$file", $keep);
+      $keepFld = $keepFld || $keepSub;
+      
+      if( ! $keepSub )
+        rmdir("$dir/$file");
     }
     // elseif( is_file("$dir/$file") && ! in_array( $file, $keep ))
-    elseif( is_file("$dir/$file") && ! keep( $file, $keep ))
+    elseif( is_file("$dir/$file") && ! filter_str_ends( $file, $keep ))
       unlink("$dir/$file");  
   }
 
@@ -55,7 +55,7 @@ function copyNewFiles( $source, $dest, $keep )
       continue;
 
     // if( in_array( $file, $keep ))
-    if( keep( $file, $keep ))
+    if( filter_str_ends( $file, $keep ))
       continue;
 
     if( is_dir("$source/$file"))
@@ -70,17 +70,20 @@ function copyNewFiles( $source, $dest, $keep )
   }
 }
 
-function keep( $string, $keep )
+// TASK: move
+
+function filter_str_ends( $string, $valid_strings )
 {
   $keep = false;
   
-  foreach ($keep as $item)
-    if( strpos($dir, $item) !== false && strpos($dir, $item) + strlen($item) == strlen($dir))
+  foreach( $valid_strings as $s )
+    // if( strpos($string, $s) !== false && strpos($string, $s) + strlen($s) == strlen($string))
+    if( str_ends_with( $string, $s))
     {
       $keep = true;
       break;
     }
-
+  
   return $keep;
 }
 
