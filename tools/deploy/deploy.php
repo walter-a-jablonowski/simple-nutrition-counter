@@ -21,7 +21,6 @@ echo 'Done';
 
 function removeOldFiles( $dir, $keep )
 {
-  // $keepFld = in_array( basename($dir), $keep );
   $keepFld = filter_str_ends( $dir, $keep );
   
   foreach( scandir($dir) as $file)
@@ -31,15 +30,12 @@ function removeOldFiles( $dir, $keep )
   
     if( is_dir("$dir/$file"))
     {
-      // $keepFld = removeOldFiles("$dir/$file", $keep) || $keepFld;  // func first (short circuit)
-      
       $keepSub = removeOldFiles("$dir/$file", $keep);
       $keepFld = $keepFld || $keepSub;
       
       if( ! $keepSub )
         rmdir("$dir/$file");
     }
-    // elseif( is_file("$dir/$file") && ! in_array( $file, $keep ))
     elseif( is_file("$dir/$file") && ! filter_str_ends("$dir/$file", $keep ))
       unlink("$dir/$file");  
   }
@@ -54,7 +50,6 @@ function copyNewFiles( $source, $dest, $keep )
     if( in_array( $file, ['.', '..']))
       continue;
 
-    // if( in_array( $file, $keep ))
     if( filter_str_ends("$source/$file", $keep ))
       continue;
 
@@ -79,7 +74,6 @@ function filter_str_ends( $string, $valid_strings )
   foreach( $valid_strings as $s )
     // if( strpos($string, $s) !== false && strpos($string, $s) + strlen($s) == strlen($string))
     if( str_ends_with( $string, $s))
-    // if( str_ends_with( $string, $s) || $string === $s)
     {
       $keep = true;
       break;
