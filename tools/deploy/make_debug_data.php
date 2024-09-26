@@ -1,5 +1,8 @@
 <?php
 
+if( ! is_dir('debug/backup'))
+  mkdir('debug/backup', 0755, true);
+
 makeDebug('debug/source');
 makeDebug('debug/dest');
 

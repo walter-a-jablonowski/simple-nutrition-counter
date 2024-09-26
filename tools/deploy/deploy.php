@@ -15,9 +15,6 @@ $keep = ['bootstrap-icons-1.11.3', '/days'];  // fil or fld, full dir may be use
 if( ! is_dir($sourceDir))
   die("Source dir missing: $sourceDir\n");
 
-if( ! is_dir($destDir))
-  mkdir($destDir, 0755, true);
-
 // save_data("$source/$dataDir", $backupDir);
 clear_dest( $destDir, $keep);
 deploy( $sourceDir, $destDir, $keep);
