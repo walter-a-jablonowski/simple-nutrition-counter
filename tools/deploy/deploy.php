@@ -4,8 +4,7 @@ $sourceDir = 'debug/source';
 $destDir   = 'debug/dest';
 // $sourceDir = '..';
 // $destDir   = 'G:/Meine Ablage/80-dools/primary_dool/20_activity/simple-nutrition-counter (id-consump)';
-$keep = ['bootstrap-icons-1.11.3', 'days'];  // fil or fld
-// TASK: maybe use larger portion of fil path to be able to be more precise
+$keep = ['bootstrap-icons-1.11.3', '/days'];  // fil or fld, full dir may be used (last portion)
 
 if( ! is_dir($sourceDir))
   die("Source dir missing: $sourceDir\n");
@@ -15,31 +14,33 @@ if( ! is_dir($destDir))
 
 // TASK: maybe we can make a backup of the last app as zip?
 removeOldFiles( $destDir, $keep);
-// copyNewFiles( $sourceDir, $destDir, $keep);
+copyNewFiles( $sourceDir, $destDir, $keep);
 
 echo 'Done';
 
 
 function removeOldFiles( $dir, $keep )
 {
-  $keepFld = in_array( basename($dir), $keep );
+  // $keepFld = in_array( basename($dir), $keep );
+  $keepFld = keep( basename($dir), $keep );
   
   foreach( scandir($dir) as $file)
   {
     if( in_array( $file, ['.', '..']))
-      continue;
+    continue;
+  
+  if( is_dir("$dir/$file"))
+  {
+    // $keepFld = removeOldFiles("$dir/$file", $keep) || $keepFld;  // func first (short circuit)
     
-    if( is_dir("$dir/$file"))
-    {
-      // $keepFld = removeOldFiles("$dir/$file", $keep) || $keepFld;  // func first (short circuit)
-
-      $keepSub = removeOldFiles("$dir/$file", $keep);
-      $keepFld = $keepFld || $keepSub;
-
-      if( ! $keepSub )
-        rmdir("$dir/$file");
+    $keepSub = removeOldFiles("$dir/$file", $keep);
+    $keepFld = $keepFld || $keepSub;
+    
+    if( ! $keepSub )
+      rmdir("$dir/$file");
     }
-    elseif( is_file("$dir/$file") && ! in_array( $file, $keep ))
+    // elseif( is_file("$dir/$file") && ! in_array( $file, $keep ))
+    elseif( is_file("$dir/$file") && ! keep( $file, $keep ))
       unlink("$dir/$file");  
   }
 
@@ -53,7 +54,8 @@ function copyNewFiles( $source, $dest, $keep )
     if( in_array( $file, ['.', '..']))
       continue;
 
-    if( in_array( $file, $keep ))
+    // if( in_array( $file, $keep ))
+    if( keep( $file, $keep ))
       continue;
 
     if( is_dir("$source/$file"))
@@ -66,6 +68,20 @@ function copyNewFiles( $source, $dest, $keep )
     else 
       copy("$source/$file", "$dest/$file");
   }
+}
+
+function keep( $string, $keep )
+{
+  $keep = false;
+  
+  foreach ($keep as $item)
+    if( strpos($dir, $item) !== false && strpos($dir, $item) + strlen($item) == strlen($dir))
+    {
+      $keep = true;
+      break;
+    }
+
+  return $keep;
 }
 
 ?>
