@@ -13,13 +13,13 @@ if( ! is_dir($destDir))
   mkdir($destDir, 0755, true);
 
 // TASK: maybe we can make a backup of the last app as zip?
-removeOldFiles( $destDir, $keep);
-// copyNewFiles( $sourceDir, $destDir, $keep);
+clear_dest( $destDir, $keep);
+// deploy( $sourceDir, $destDir, $keep);
 
 echo 'Done';
 
 
-function removeOldFiles( $dir, $keep )
+function clear_dest( $dir, $keep )
 {
   $keepFld = filter_str_ends( $dir, $keep );
   
@@ -30,7 +30,7 @@ function removeOldFiles( $dir, $keep )
   
     if( is_dir("$dir/$file"))
     {
-      $keepSub = removeOldFiles("$dir/$file", $keep);
+      $keepSub = clear_dest("$dir/$file", $keep);
       $keepFld = $keepFld || $keepSub;
       
       if( ! $keepSub )
@@ -43,7 +43,7 @@ function removeOldFiles( $dir, $keep )
   return $keepFld;
 }
 
-function copyNewFiles( $source, $dest, $keep )
+function deploy( $source, $dest, $keep )
 {
   foreach( scandir($source) as $file )
   {
@@ -58,7 +58,7 @@ function copyNewFiles( $source, $dest, $keep )
       if( ! is_dir("$dest/$file"))
         mkdir("$dest/$file", 0755, true);
       
-      copyNewFiles("$source/$file", "$dest/$file", $keep);
+      deploy("$source/$file", "$dest/$file", $keep);
     }
     else 
       copy("$source/$file", "$dest/$file");
