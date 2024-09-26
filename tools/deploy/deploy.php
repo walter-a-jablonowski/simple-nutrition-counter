@@ -1,9 +1,15 @@
 <?php
 
 $sourceDir = 'debug/source';
+$dataDir   = 'days';
 $destDir   = 'debug/dest';
+$backupDir = 'debug/backup';
+
 // $sourceDir = '..';
+// $dataDir   = 'src/data/users/JaneDoe@example.com-24080101000000/days';
 // $destDir   = 'G:/Meine Ablage/80-dools/primary_dool/20_activity/simple-nutrition-counter (id-consump)';
+// $backupDir = 'G:/Meine Ablage/80-dools/primary_dool/20_activity/simple_running_SAV';
+
 $keep = ['bootstrap-icons-1.11.3', '/days'];  // fil or fld, full dir may be used (last portion)
 
 if( ! is_dir($sourceDir))
@@ -12,12 +18,28 @@ if( ! is_dir($sourceDir))
 if( ! is_dir($destDir))
   mkdir($destDir, 0755, true);
 
-// TASK: maybe we can make a backup of the last app as zip?
+// save_data("$source/$dataDir", $backupDir);
 clear_dest( $destDir, $keep);
-// deploy( $sourceDir, $destDir, $keep);
+deploy( $sourceDir, $destDir, $keep);
 
 echo 'Done';
 
+
+function save_data($source, $backupDir)
+{
+  $destDir = "$backupDir/" . date('ymd_Hi');
+  
+  if( ! mkdir($destDir, 0755, true))
+    die("Failed create backup dir: $destDir\n");
+
+  foreach( scandir($source) as $file )
+  {
+    if( in_array( $file, ['.', '..']))
+      continue;
+
+    copy("$source/$file", "$destDir/$file");
+  }
+}
 
 function clear_dest( $dir, $keep )
 {
@@ -26,7 +48,7 @@ function clear_dest( $dir, $keep )
   foreach( scandir($dir) as $file)
   {
     if( in_array( $file, ['.', '..']))
-    continue;
+      continue;
   
     if( is_dir("$dir/$file"))
     {
