@@ -2,7 +2,7 @@
 
 $sourceDir   = '..';
 $destDir     = 'G:/Meine Ablage/80-dools/primary_dool/20_activity/simple-nutrition-counter (id-consump)';
-$exclude = ['bootstrap-icons-1.11.3', 'days'];  // fil or fld
+$keep = ['bootstrap-icons-1.11.3', 'days'];  // fil or fld
 // TASK: maybe use larger portion of fil path to be able to be more precise
 
 if( ! is_dir($sourceDir))
@@ -12,43 +12,48 @@ if( ! is_dir($destDir))
   mkdir($destDir, 0755, true);
 
 // TASK: maybe we can make a backup of the last app as zip?
-removeOldFiles( $destDir, $exclude);
-copyNewFiles( $sourceDir, $destDir, $exclude);
+removeOldFiles( $destDir, $keep);
+copyNewFiles( $sourceDir, $destDir, $keep);
 
 echo "Success\n";
 
 
-function removeOldFiles( $dir, $exclude )
+function removeOldFiles( $dir, $keep )
 {
-  $excluded = false;
+  $keepFld = in_array( basename($dir), $keep );
   
   foreach( scandir($dir) as $file)
   {
     if( in_array( $file, ['.', '..']))
       continue;
-  
-    $excl = in_array( $file, $exclude );
-
-    if( is_dir("$dir/$file"))
-      $excluded = removeOldFiles("$dir/$file", $exclude) || $excl;  // func first (short circuit)
     
-    if( is_dir("$dir/$file") && ! $excl )
+    if( is_dir("$dir/$file"))
+    {
+      // $keepFld = removeOldFiles("$dir/$file", $keep) || $keepFld;  // func first (short circuit)
+
+      $childKeepFld = removeOldFiles("$dir/$file", $keep);  // Check child directories
+      $keepFld = $childKeepFld || $keepFld;  // Update parent retention status
+    }
+
+    $keepFil = in_array( $file, $keep );
+
+    if( is_dir("$dir/$file") && ! $keepFld )
       rmdir("$dir/$file");
-    elseif( is_file("$dir/$file") && ! $excl )
+    elseif( is_file("$dir/$file") && ! $keepFil )
       unlink("$dir/$file");  
   }
 
-  return $excluded;
+  return $keepFld;
 }
 
-function copyNewFiles( $source, $dest, $exclude )
+function copyNewFiles( $source, $dest, $keep )
 {
-  foreach( scandir($source) as $file)
+  foreach( scandir($source) as $file )
   {
     if( in_array( $file, ['.', '..']))
       continue;
 
-    if( in_array( $file, $exclude ))
+    if( in_array( $file, $keep ))
       continue;
 
     if( is_dir("$source/$file"))
@@ -56,7 +61,7 @@ function copyNewFiles( $source, $dest, $exclude )
       if( ! is_dir("$dest/$file"))
         mkdir("$dest/$file", 0755, true);
       
-      copyNewFiles("$source/$file", "$dest/$file", $exclude);
+      copyNewFiles("$source/$file", "$dest/$file", $keep);
     }
     else 
       copy("$source/$file", "$dest/$file");
