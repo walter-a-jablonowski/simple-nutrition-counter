@@ -1,5 +1,7 @@
 <?php
 
+// TASK: move lib functions, see below
+
 $sourceDir = 'debug/source';
 $dataDir   = 'days';
 $destDir   = 'debug/dest';
@@ -15,28 +17,12 @@ $keep = ['bootstrap-icons-1.11.3', '/days'];  // fil or fld, full dir may be use
 if( ! is_dir($sourceDir))
   die("Source dir missing: $sourceDir\n");
 
-// save_data("$source/$dataDir", $backupDir);
+backup(["$sourceDir/file1.txt", "$sourceDir/$dataDir"], $backupDir);  // TASK: also backup config
 clear_dest( $destDir, $keep);
 deploy( $sourceDir, $destDir, $keep);
 
 echo 'Done';
 
-
-function save_data($source, $backupDir)
-{
-  $destDir = "$backupDir/" . date('ymd_Hi');
-  
-  if( ! mkdir($destDir, 0755, true))
-    die("Failed create backup dir: $destDir\n");
-
-  foreach( scandir($source) as $file )
-  {
-    if( in_array( $file, ['.', '..']))
-      continue;
-
-    copy("$source/$file", "$destDir/$file");
-  }
-}
 
 function clear_dest( $dir, $keep )
 {
@@ -84,9 +70,15 @@ function deploy( $source, $dest, $keep )
   }
 }
 
-// TASK: move
 
-function filter_str_ends( $string, $valid_strings )
+// Helper
+
+/*@
+
+Returns true if a string ends with a string from a list of valid strings
+
+*/
+function filter_str_ends( $string, $valid_strings )  /*@*/  // TASK: maybe mov
 {
   $keep = false;
   
@@ -99,6 +91,41 @@ function filter_str_ends( $string, $valid_strings )
     }
   
   return $keep;
+}
+
+
+// Lib functions
+
+function backup( $sources, $backupDir )  // TASK: mov
+{
+  $destDir = "$backupDir/" . date('ymd_Hi');
+
+  mkdir($destDir, 0755, true);
+
+  foreach( $sources as $source )
+  {
+    if( is_dir($source) )
+      cp_recursive( $source, $destDir );
+    elseif( is_file($source) )
+      copy( $source, "$destDir/" . basename($source));
+  }
+}
+
+function cp_recursive( $dir, $destDir )
+{
+  foreach( scandir($dir) as $file )
+  {
+    if( in_array( $file, ['.', '..']))
+      continue;
+
+    if( is_dir("$dir/$file") )
+    {
+      mkdir("$destDir/$dir/$file", 0755, true);
+      cp_recursive("$dir/$file", "$destDir/$dir/$file");
+    }
+    else
+      copy("$dir/$file", "$destDir/$dir/$file");
+  }
 }
 
 ?>
