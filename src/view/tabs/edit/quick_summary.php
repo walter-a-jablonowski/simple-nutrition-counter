@@ -9,7 +9,7 @@
 
 <?php if( User::current()->has('myStrategy.headline')): ?>
 
-  <div class="col-12 mt-1">
+  <div class="col-12 mt-1" style="border: 1px solid #bbb;">
     <div class="col-12 p-2 py-1" style="background-color: #ffff88;">
     
       <?= User::current()->get('myStrategy.headline') ?>
