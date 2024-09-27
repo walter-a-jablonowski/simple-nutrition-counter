@@ -133,7 +133,6 @@ class AppController extends ControllerBase
     // Edit tab: Food list
 
     $this->makeFoodsView();
-
     $this->layout = Yaml::parse( file_get_contents("data/bundles/Default_$user->id/food_layout.yml"));
     
     foreach( $this->layout as $tab => &$layout )

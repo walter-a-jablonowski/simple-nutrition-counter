@@ -51,15 +51,45 @@
     </div>
   </div>
 
-  <!-- Food groups -->
+  <!-- Food tabs content (only if more than one) -->
+
+  <?php if( count($this->layout) > 1 ): ?>  <!-- food tabs only if more than one -->
+    <div class="row">
+      <div class="col-12">
+        <ul class="nav nav-pills">
+          <?php $i=0; foreach( $this->layout as $tab => $layout ): ?>
+            <?php $i++; ?>
+            <li class="nav-item">
+              <a class="nav-link<?= self::iif( $i === 1, ' active') ?>" data-bs-toggle="tab" href="#<?= lcfirst($tab) ?>LayoutPane" role="tab"><?= $tab ?></a>
+            </li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
+    </div>
+  <?php endif; ?>
+
+  <!-- Food groups (and tab content) -->
 
   <?php
 
-  $done = [];
+  $done = [];  $i=0;
 
   foreach( $this->layout as $tab => $layout )
   {
-    // TASK: add food tabs
+    $i++;
+
+    // Start food tab content (only if more than one)
+
+    if( count($this->layout) > 1 )
+    {
+      $id = lcfirst($tab);  $active = $i === 1 ? ' show active' : '';
+      print trim("
+        <div class=\"tab-content mt-2\">
+          <div id=\"{$id}LayoutPane\" class=\"tab-pane fade$active\" role=\"tabpanel\">
+      ");
+    }
+
+    // Group
 
     foreach( $layout as $groupName => $def )
     {
@@ -77,61 +107,74 @@
       $done = array_merge( $done, $return['done']);
     }
 
-    // Left over foods
+    // Left over foods (add in first tab)
 
-    // $allFoods = array_keys( $this->foodsView->all());
-    $allFoods = $this->foodsView->keys();                // foods and recipes are merged in one
-
-    if( count($allFoods) > count( array_unique($done)))  // foods can appear in layout multiple times
+    if( count($this->layout) === 1 )
     {
-      $leftFoods = array_diff( $allFoods, $done );
-      $miscFoods = array_filter( $leftFoods, fn($entry) => ! $this->foodsModel->get("$entry.removed"));
-      $removed   = array_filter( $leftFoods, fn($entry) =>   $this->foodsModel->get("$entry.removed"));
+      // $allFoods = array_keys( $this->foodsView->all());
+      $allFoods = $this->foodsView->keys();                // foods and recipes are merged in one
 
-      // Foods missing in layout (non removed)
-
-      if( count($miscFoods))
+      if( count($allFoods) > count( array_unique($done)))  // foods can appear in layout multiple times
       {
-        ksort($miscFoods);
-        
-        print $this->inc( __DIR__ . '/group.php', [
-          'groupId'   => lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', 'Misc foods')),
-          'groupName' => 'Misc foods',
-          'def' => [
-            '@attribs' => [
-              'short' => null,
-              '(i)'   => null,
-              // 'color' =>     // currently just default, see group.php
-              'fold'  => true
-            ],
-            'list' => $miscFoods
-          ]
-        ]);
-      }
+        $leftFoods = array_diff( $allFoods, $done );
+        $miscFoods = array_filter( $leftFoods, fn($entry) => ! $this->foodsModel->get("$entry.removed"));
+        $removed   = array_filter( $leftFoods, fn($entry) =>   $this->foodsModel->get("$entry.removed"));
 
-      // Removed foods
+        // Foods missing in layout (non removed)
 
-      if( count($removed))
-      {
-        ksort($removed);
-        
-        print $this->inc( __DIR__ . '/group.php', [
-          'groupId'     => lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', 'Removed')),
-          'groupName'   => 'Removed foods',
-          'showRemoved' => true,
-          'def' => [
-            '@attribs' => [
-              'short' => null,
-              '(i)'   => null,
-              // 'color' =>     // currently just default, see group.php
-              'fold'  => true
-            ],
-            'list' => $removed
-          ]
-        ]);
+        if( count($miscFoods))
+        {
+          ksort($miscFoods);
+          
+          print $this->inc( __DIR__ . '/group.php', [
+            'groupId'   => lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', 'Misc foods')),
+            'groupName' => 'Misc foods',
+            'def' => [
+              '@attribs' => [
+                'short' => null,
+                '(i)'   => null,
+                // 'color' =>     // currently just default, see group.php
+                'fold'  => true
+              ],
+              'list' => $miscFoods
+            ]
+          ]);
+        }
+
+        // Removed foods
+
+        if( count($removed))
+        {
+          ksort($removed);
+          
+          print $this->inc( __DIR__ . '/group.php', [
+            'groupId'     => lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', 'Removed')),
+            'groupName'   => 'Removed foods',
+            'showRemoved' => true,
+            'def' => [
+              '@attribs' => [
+                'short' => null,
+                '(i)'   => null,
+                // 'color' =>     // currently just default, see group.php
+                'fold'  => true
+              ],
+              'list' => $removed
+            ]
+          ]);
+        }
       }
     }
+
+    // End food tab content (only if more than one)
+
+    if( count($this->layout) > 1 )
+    {
+      print trim("
+          </div>
+        </div>
+      ");
+    }
   }
-  
+
   ?>
 </div>
