@@ -6,6 +6,27 @@
   <!-- 3 col: col-12 col-md-6 col-lg-4 col-xxl-3 -->
   <!-- 2 col: col-12 col-md-6 col-xxl-4 -->
 
+
+  <!-- Food tabs content (only if more than one) -->
+
+  <?php if( count($this->layout) > 1 ): ?>  <!-- food tabs only if more than one -->
+    <div class="row mt-2">
+      <div class="col-12">
+        <ul class="nav nav-pills">
+          <?php $i=0; foreach( $this->layout as $tab => $layout ): ?>
+            <?php $i++; ?>
+            <li class="nav-item">
+              <a class="nav-link px-2 py-1<?= self::iif( $i === 1, ' active') ?>" data-bs-toggle="tab" href="#<?= lcfirst($tab) ?>LayoutPane" role="tab"><?= $tab ?></a>
+            </li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
+    </div>
+  <?php endif; ?>
+
+
+  <!-- Buttons and first entries -->
+
   <!-- TASK: add a collapse expand all (single btn) -->
 
   <!-- TASK: leave single group above full width for coffee, water, ... which is just normal food entries, see also (first_entries)
@@ -51,22 +72,6 @@
     </div>
   </div>
 
-  <!-- Food tabs content (only if more than one) -->
-
-  <?php if( count($this->layout) > 1 ): ?>  <!-- food tabs only if more than one -->
-    <div class="row">
-      <div class="col-12">
-        <ul class="nav nav-pills">
-          <?php $i=0; foreach( $this->layout as $tab => $layout ): ?>
-            <?php $i++; ?>
-            <li class="nav-item">
-              <a class="nav-link px-2 py-1<?= self::iif( $i === 1, ' active') ?>" data-bs-toggle="tab" href="#<?= lcfirst($tab) ?>LayoutPane" role="tab"><?= $tab ?></a>
-            </li>
-          <?php endforeach; ?>
-        </ul>
-      </div>
-    </div>
-  <?php endif; ?>
 
   <!-- Food groups (and tab content) -->
 
@@ -84,7 +89,7 @@
     {
       $id = lcfirst($tab);  $active = $i === 1 ? ' show active' : '';
       print trim("
-        \n<div class=\"tab-content mt-2\">
+        \n<div class=\"tab-content\">
           <div id=\"{$id}LayoutPane\" class=\"tab-pane fade$active\" role=\"tabpanel\">
       ");
     }
