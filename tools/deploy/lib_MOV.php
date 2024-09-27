@@ -9,7 +9,7 @@
 Returns true if a string ends with a string from a list of valid strings
 
 */
-function filter_str_ends( $string, $valid_strings )  /*@*/  // TASK: maybe mov
+function filter_str_ends( $string, $valid_strings )  /*@*/
 {
   $keep = false;
   
@@ -27,7 +27,7 @@ function filter_str_ends( $string, $valid_strings )  /*@*/  // TASK: maybe mov
 
 // Lib functions
 
-function backup( $sources, $backupDir, $base )  // TASK: mov
+function backup( $sources, $backupDir, $base )
 {
   $destDir = "$backupDir/" . date('ymd_Hi');
 

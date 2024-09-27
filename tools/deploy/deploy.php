@@ -13,12 +13,14 @@ $backupDir = 'debug/backup';
 // $destDir   = 'G:/Meine Ablage/80-dools/primary_dool/20_activity/simple-nutrition-counter (id-consump)';
 // $backupDir = 'G:/Meine Ablage/80-dools/primary_dool/20_activity/simple_running_SAV';
 
+// TASK: also keep config
 $keep = ['bootstrap-icons-1.11.3', '/days'];  // fil or fld, full dir may be used (last portion)
 
 if( ! is_dir($sourceDir))
   die("Source dir missing: $sourceDir\n");
 
-backup(["$sourceDir/file1.txt", "$sourceDir/$dataDir"], $backupDir, $base = "$sourceDir/");  // TASK: also backup config
+// TASK: also backup config
+backup(["$sourceDir/file1.txt", "$sourceDir/$dataDir"], $backupDir, $base = "$sourceDir/");
 clear_dest( $destDir, $keep);
 deploy( $sourceDir, $destDir, $keep);
 
