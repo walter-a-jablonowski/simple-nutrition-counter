@@ -59,7 +59,7 @@ function cp_recursive( $dir, $destDir, $base )
     if( is_dir("$dir/$fil") )
     {
       mkdir("$destDir/$sub/$fil", 0755, true);
-      cp_recursive("$dir/$fil", "$destD ir/$sub/$fil");
+      cp_recursive("$dir/$fil", "$destDir/$sub/$fil");
     }
     else
       copy("$dir/$fil", "$destDir/$sub/$fil");
