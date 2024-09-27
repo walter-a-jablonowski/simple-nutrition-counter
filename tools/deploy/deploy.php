@@ -17,9 +17,9 @@ $keep = ['bootstrap-icons-1.11.3', '/days'];  // fil or fld, full dir may be use
 if( ! is_dir($sourceDir))
   die("Source dir missing: $sourceDir\n");
 
-backup(["$sourceDir/file1.txt", "$sourceDir/$dataDir"], $backupDir);  // TASK: also backup config
+backup(["$sourceDir/file1.txt", "$sourceDir/$dataDir"], $backupDir, $base = "$sourceDir/");  // TASK: also backup config
 clear_dest( $destDir, $keep);
-deploy( $sourceDir, $destDir, $keep);
+// deploy( $sourceDir, $destDir, $keep);
 
 echo 'Done';
 
@@ -96,35 +96,42 @@ function filter_str_ends( $string, $valid_strings )  /*@*/  // TASK: maybe mov
 
 // Lib functions
 
-function backup( $sources, $backupDir )  // TASK: mov
+function backup( $sources, $backupDir, $base )  // TASK: mov
 {
   $destDir = "$backupDir/" . date('ymd_Hi');
 
   mkdir($destDir, 0755, true);
-
+  
   foreach( $sources as $source )
   {
+    $sub = str_replace( $base, '', $source);
+  
     if( is_dir($source) )
-      cp_recursive( $source, $destDir );
+    {
+      mkdir("$destDir/$sub", 0755, true);
+      cp_recursive( $source, $destDir, $base);
+    }
     elseif( is_file($source) )
-      copy( $source, "$destDir/" . basename($source));
+      copy( $source, "$destDir/$sub");
   }
 }
 
-function cp_recursive( $dir, $destDir )
+function cp_recursive( $dir, $destDir, $base )
 {
-  foreach( scandir($dir) as $file )
+  foreach( scandir($dir) as $fil )
   {
-    if( in_array( $file, ['.', '..']))
+    if( in_array( $fil, ['.', '..']))
       continue;
 
-    if( is_dir("$dir/$file") )
+    $sub = str_replace( $base, '', $dir);
+
+    if( is_dir("$dir/$fil") )
     {
-      mkdir("$destDir/$dir/$file", 0755, true);
-      cp_recursive("$dir/$file", "$destDir/$dir/$file");
+      mkdir("$destDir/$sub/$fil", 0755, true);
+      cp_recursive("$dir/$fil", "$destD ir/$sub/$fil");
     }
     else
-      copy("$dir/$file", "$destDir/$dir/$file");
+      copy("$dir/$fil", "$destDir/$sub/$fil");
   }
 }
 
