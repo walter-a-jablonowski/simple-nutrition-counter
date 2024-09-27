@@ -30,6 +30,10 @@ echo 'Done';
 function clear_dest( $dir, $keep )
 {
   $keepFld = filter_str_ends( $dir, $keep );
+
+  // TASK: most likely just return
+  if( $keepFld )
+    return true;
   
   foreach( scandir($dir) as $file)
   {
