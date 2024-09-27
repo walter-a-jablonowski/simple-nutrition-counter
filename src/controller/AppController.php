@@ -134,14 +134,21 @@ class AppController extends ControllerBase
 
     $this->makeFoodsView();
 
-    $this->layout = parse_attribs('@attribs', ['short', '(i)'],
-      Yaml::parse( file_get_contents("data/bundles/Default_$user->id/food_layout.yml"))['food']
-    );
+    // $this->layout = parse_attribs('@attribs', ['short', '(i)'],
+    //   Yaml::parse( file_get_contents("data/bundles/Default_$user->id/food_layout.yml"))
+    // );
+
+    $this->layout = Yaml::parse( file_get_contents("data/bundles/Default_$user->id/food_layout.yml"));
     
-    foreach( $this->layout as $group => &$layout )
+    foreach( $this->layout as $tab => &$layout )
     {
-      if( isset($layout['@attribs']['short']) )
-        $layout['@attribs']['short'] = preg_replace('/\{(#[a-zA-Z0-9]+)\|([a-zA-Z0-9 ]+)\}/', '<a href="$1">$2</a>', $layout['@attribs']['short']);
+      $layout = parse_attribs('@attribs', ['short', '(i)'], $layout);
+    
+      foreach( $layout as $group => &$entries )
+      {
+        if( isset($entries['@attribs']['short']) )
+          $entries['@attribs']['short'] = preg_replace('/\{(#[a-zA-Z0-9]+)\|([a-zA-Z0-9 ]+)\}/', '<a href="$1">$2</a>', $entries['@attribs']['short']);
+      }
     }
 
     // Nutrients tab

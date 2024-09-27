@@ -57,7 +57,8 @@
 
   $done = [];
 
-  foreach( $this->layout as $groupName => $def )
+  foreach( $this->layout as $tab => $layout )
+  foreach( $layout as $groupName => $def )
   {
     if( $groupName == '(first_entries)' || ! ($def['list'] ?? []))  // no entry  // TASK: first_entries currently no use
       continue;
