@@ -58,74 +58,78 @@
   $done = [];
 
   foreach( $this->layout as $tab => $layout )
-  foreach( $layout as $groupName => $def )
   {
-    if( $groupName == '(first_entries)' || ! ($def['list'] ?? []))  // no entry  // TASK: first_entries currently no use
-      continue;
-    
-    $groupId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $groupName));
+    // TASK: add food tabs
 
-    print $this->inc( __DIR__ . '/group.php', [
-      'groupId'   => $groupId,
-      'groupName' => $groupName,
-      'def'       => $def
-    ], $return);
-
-    $done = array_merge( $done, $return['done']);
-  }
-
-  // Left over foods
-
-  // $allFoods = array_keys( $this->foodsView->all());
-  $allFoods = $this->foodsView->keys();                // foods and recipes are merged in one
-
-  if( count($allFoods) > count( array_unique($done)))  // foods can appear in layout multiple times
-  {
-    $leftFoods = array_diff( $allFoods, $done );
-    $miscFoods = array_filter( $leftFoods, fn($entry) => ! $this->foodsModel->get("$entry.removed"));
-    $removed   = array_filter( $leftFoods, fn($entry) =>   $this->foodsModel->get("$entry.removed"));
-
-    // Foods missing in layout (non removed)
-
-    if( count($miscFoods))
+    foreach( $layout as $groupName => $def )
     {
-      ksort($miscFoods);
+      if( $groupName == '(first_entries)' || ! ($def['list'] ?? []))  // no entry  // TASK: first_entries currently no use
+        continue;
       
+      $groupId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $groupName));
+
       print $this->inc( __DIR__ . '/group.php', [
-        'groupId'   => lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', 'Misc foods')),
-        'groupName' => 'Misc foods',
-        'def' => [
-          '@attribs' => [
-            'short' => null,
-            '(i)'   => null,
-            // 'color' =>     // currently just default, see group.php
-            'fold'  => true
-          ],
-          'list' => $miscFoods
-        ]
-      ]);
+        'groupId'   => $groupId,
+        'groupName' => $groupName,
+        'def'       => $def
+      ], $return);
+
+      $done = array_merge( $done, $return['done']);
     }
 
-    // Removed foods
+    // Left over foods
 
-    if( count($removed))
+    // $allFoods = array_keys( $this->foodsView->all());
+    $allFoods = $this->foodsView->keys();                // foods and recipes are merged in one
+
+    if( count($allFoods) > count( array_unique($done)))  // foods can appear in layout multiple times
     {
-      ksort($removed);
-      
-      print $this->inc( __DIR__ . '/group.php', [
-        'groupId'     => lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', 'Removed')),
-        'groupName'   => 'Removed foods',
-        'showRemoved' => true,
-        'def' => [
-          '@attribs' => [
-            'short' => null,
-            '(i)'   => null,
-            // 'color' =>     // currently just default, see group.php
-            'fold'  => true
-          ],
-          'list' => $removed
-        ]
-      ]);
+      $leftFoods = array_diff( $allFoods, $done );
+      $miscFoods = array_filter( $leftFoods, fn($entry) => ! $this->foodsModel->get("$entry.removed"));
+      $removed   = array_filter( $leftFoods, fn($entry) =>   $this->foodsModel->get("$entry.removed"));
+
+      // Foods missing in layout (non removed)
+
+      if( count($miscFoods))
+      {
+        ksort($miscFoods);
+        
+        print $this->inc( __DIR__ . '/group.php', [
+          'groupId'   => lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', 'Misc foods')),
+          'groupName' => 'Misc foods',
+          'def' => [
+            '@attribs' => [
+              'short' => null,
+              '(i)'   => null,
+              // 'color' =>     // currently just default, see group.php
+              'fold'  => true
+            ],
+            'list' => $miscFoods
+          ]
+        ]);
+      }
+
+      // Removed foods
+
+      if( count($removed))
+      {
+        ksort($removed);
+        
+        print $this->inc( __DIR__ . '/group.php', [
+          'groupId'     => lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', 'Removed')),
+          'groupName'   => 'Removed foods',
+          'showRemoved' => true,
+          'def' => [
+            '@attribs' => [
+              'short' => null,
+              '(i)'   => null,
+              // 'color' =>     // currently just default, see group.php
+              'fold'  => true
+            ],
+            'list' => $removed
+          ]
+        ]);
+      }
     }
   }
   
