@@ -19,7 +19,7 @@ if( ! is_dir($sourceDir))
 
 backup(["$sourceDir/file1.txt", "$sourceDir/$dataDir"], $backupDir, $base = "$sourceDir/");  // TASK: also backup config
 clear_dest( $destDir, $keep);
-// deploy( $sourceDir, $destDir, $keep);
+deploy( $sourceDir, $destDir, $keep);
 
 echo 'Done';
 
