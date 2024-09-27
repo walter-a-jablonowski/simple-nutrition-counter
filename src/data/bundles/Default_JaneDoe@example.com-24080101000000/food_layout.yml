@@ -15,245 +15,247 @@
 
 # #8a2be2
 
-Morning supplements (color:#ff69b4, fold:true):
+food:
 
-  list:
+  Morning supplements (color:#ff69b4, fold:true):
 
-Nuts, seeds (color:#ffa500):                 # Meals  # TASK: on the go diff shade
+    list:
 
-  (i):   "Demo 2"                            # TASK: we also could add a collapse for larger content
-  short: "Info (always visible)"             # alternative: enclose in attribs key (see function)
+  Nuts, seeds (color:#ffa500):                 # Meals  # TASK: on the go diff shade
 
-  list:
+    (i):   "Demo 2"                            # TASK: we also could add a collapse for larger content
+    short: "Info (always visible)"             # alternative: enclose in attribs key (see function)
 
-    - Cashew A
-    - Cashew E
-    - Cashew N
-    - Cashew R Bio
-    - Durchstarter
-    - Erdn Salz N big
-    - Erdn N big
-    - Mandel A ger
-    - Mandel N
-    - Mandel R Bio
-    - Nussmisch A
-    - Nussmisch A ger
-    - Nussmisch N
-    - Nussmisch N old
-    - Pistazien
-    - Walnuss R Bio
+    list:
 
-Veggie bowl, high fibre (color:#ffa500):
+      - Cashew A
+      - Cashew E
+      - Cashew N
+      - Cashew R Bio
+      - Durchstarter
+      - Erdn Salz N big
+      - Erdn N big
+      - Mandel A ger
+      - Mandel N
+      - Mandel R Bio
+      - Nussmisch A
+      - Nussmisch A ger
+      - Nussmisch N
+      - Nussmisch N old
+      - Pistazien
+      - Walnuss R Bio
 
-  (i):   "Ideal is nuts, veggie high in fibre some chicken, fish"       # TASK: move
-  short: "add {#alittletasteGroup|a little taste} and {#greenslegumesmushrGroup|greens} ..."
+  Veggie bowl, high fibre (color:#ffa500):
 
-  list:
+    (i):   "Ideal is nuts, veggie high in fibre some chicken, fish"       # TASK: move
+    short: "add {#alittletasteGroup|a little taste} and {#greenslegumesmushrGroup|greens} ..."
 
-    # - Veggie L                             # TASK
-    # - Veggie C
-    - Chick R Bio
-    - Linsen R Bio
-    - Brokkoli R
-    - Gemüse R Bio
-    - Gemüse A Bio Sommer
-    - Gemüse A Bio Ital
-    - Gemüse R
-    - Olivenöl
-    - Öl
+    list:
 
-Fish, meat, tofu, butter (color:#ffa500):
+      # - Veggie L                             # TASK
+      # - Veggie C
+      - Chick R Bio
+      - Linsen R Bio
+      - Brokkoli R
+      - Gemüse R Bio
+      - Gemüse A Bio Sommer
+      - Gemüse A Bio Ital
+      - Gemüse R
+      - Olivenöl
+      - Öl
 
-  list:
+  Fish, meat, tofu, butter (color:#ffa500):
 
-    - Seelachs N
-    - Fischst
-    - Thunfisch N
-    - Thunf pikant N
-    - Sardine
+    list:
 
-    - Hähnchen Kebab
-    - Hähnchen Gyros
-    - Hähnchenbrust
-    - Salami R
-    - Salami R Wilt (Innens)
-    - Salami N
-    - Lyoner R Bio
+      - Seelachs N
+      - Fischst
+      - Thunfisch N
+      - Thunf pikant N
+      - Sardine
 
-    - Tofu N
-    - Butter N unges
+      - Hähnchen Kebab
+      - Hähnchen Gyros
+      - Hähnchenbrust
+      - Salami R
+      - Salami R Wilt (Innens)
+      - Salami N
+      - Lyoner R Bio
 
-A little taste (color:#ffa500):
+      - Tofu N
+      - Butter N unges
 
-  (i): "Add only a little per meal makes it far more tasty and keeps it healthy"
+  A little taste (color:#ffa500):
 
-  list:
+    (i): "Add only a little per meal makes it far more tasty and keeps it healthy"
 
-    - Parmesan Bio R
-    - Patros 150
-    - Patros W
-    - Frischk R Bio
-    - Frischk R Bio 2
-    - Bresso
-    - Bresso mini
-    - Philadelphia
-    - Philadelphia mini
-    - Käse Gr Sch (all)
-    - Käse Gr W (all)
-    - Tilsiter small
-    - Eiweißbr
+    list:
 
-Desserts & micro or sugar-less candy (color:#ffa500):
+      - Parmesan Bio R
+      - Patros 150
+      - Patros W
+      - Frischk R Bio
+      - Frischk R Bio 2
+      - Bresso
+      - Bresso mini
+      - Philadelphia
+      - Philadelphia mini
+      - Käse Gr Sch (all)
+      - Käse Gr W (all)
+      - Tilsiter small
+      - Eiweißbr
 
-  (i): "Candy: Reduce amount per day (effectively: don't buy more or you will eat it)"
+  Desserts & micro or sugar-less candy (color:#ffa500):
 
-  list:
+    (i): "Candy: Reduce amount per day (effectively: don't buy more or you will eat it)"
 
-    # - Joghurt  # TASK
-    - Ritter Sp 81%      
-    - Ritter Sp 74%
+    list:
 
-    - Duplo              # less
-    - Kinderriegel
-    - Ferrero Kuesschen
-    - Ritter Sp 50%
-    - Ritter Sp 61%
-    - Hanuta
+      # - Joghurt  # TASK
+      - Ritter Sp 81%      
+      - Ritter Sp 74%
 
-Cheat day (color:#ffa500):
+      - Duplo              # less
+      - Kinderriegel
+      - Ferrero Kuesschen
+      - Ritter Sp 50%
+      - Ritter Sp 61%
+      - Hanuta
 
-  list:
+  Cheat day (color:#ffa500):
 
-    - Pizza Mag
-    - Pizza Qua
-    - Käsekuchen mini
-    - Lindt caramel
-    - Schoko pudding   
-    - Milchschn
-    - Donuts
-    - Mohnkuchen
-    - Donuts mini A                          # (duplicate)
+    list:
 
-Greens, legumes, mushr (color:#32cd32):      # Ingredients
+      - Pizza Mag
+      - Pizza Qua
+      - Käsekuchen mini
+      - Lindt caramel
+      - Schoko pudding   
+      - Milchschn
+      - Donuts
+      - Mohnkuchen
+      - Donuts mini A                          # (duplicate)
 
-  list:
+  Greens, legumes, mushr (color:#32cd32):      # Ingredients
 
-    - Avocado
-    - Avocado gr
-    - Oliven R Bio
-    - Oliven A
-    - Pfannegem A Ital
-    - Green beans R
-    - Gr beans fein R
-    - R Rüben N
-    - Artisch R viertel
-    - Champ mini ganz R
-    - Champ N
-    - Sauerkr
+    list:
 
-Misc starches, corn (color:#32cd32):
+      - Avocado
+      - Avocado gr
+      - Oliven R Bio
+      - Oliven A
+      - Pfannegem A Ital
+      - Green beans R
+      - Gr beans fein R
+      - R Rüben N
+      - Artisch R viertel
+      - Champ mini ganz R
+      - Champ N
+      - Sauerkr
 
-  (i):   "Avoid all mass produced that humans weren't meant to eat, even whole grains"
-  short: "Careful, even whole grains"
+  Misc starches, corn (color:#32cd32):
 
-  list:
+    (i):   "Avoid all mass produced that humans weren't meant to eat, even whole grains"
+    short: "Careful, even whole grains"
 
-    - Süßk Pommes
-    - Pommes R Bio
-    - Pommes
-    - Kartoffel Wedges Bio
-    - Kartoffel Wedges
-    - Kartoffeltaschen F
+    list:
 
-    - Pumpernickel R Bio
-    - Vollkorn Rhein R
-    - Toasties R Bio
-    - Flatbr Sandwich
-    - Br
-    - Mehrkornbr
+      - Süßk Pommes
+      - Pommes R Bio
+      - Pommes
+      - Kartoffel Wedges Bio
+      - Kartoffel Wedges
+      - Kartoffeltaschen F
 
-Foods used sometimes (color:#32cd32):
+      - Pumpernickel R Bio
+      - Vollkorn Rhein R
+      - Toasties R Bio
+      - Flatbr Sandwich
+      - Br
+      - Mehrkornbr
 
-  (i): "Kinda suppl (fill up missing)"
+  Foods used sometimes (color:#32cd32):
 
-  list:
+    (i): "Kinda suppl (fill up missing)"
 
-    - Apfelsaft N                            # misc
-    - Milch H                                # (duplicate)
-    - Cashew A Cranb
-    - Banane
+    list:
 
-    - Amino misc                             # amino
-    - Amino Deca Muscle Gainer
-    - Amino NaDuRia Pur
-    - Riegel Seitenb Sch
+      - Apfelsaft N                            # misc
+      - Milch H                                # (duplicate)
+      - Cashew A Cranb
+      - Banane
 
-    - Frosta Frikassee                       # kcal
-    - Frosta Paella
-    - Chips light
+      - Amino misc                             # amino
+      - Amino Deca Muscle Gainer
+      - Amino NaDuRia Pur
+      - Riegel Seitenb Sch
 
-Misc foods (color:#32cd32):
+      - Frosta Frikassee                       # kcal
+      - Frosta Paella
+      - Chips light
 
-  list:
+  Misc foods (color:#32cd32):
 
-    - Frosta Bratk
-    - Frosta Gesch
-    - Aldi Bratk
-    - Linsen vegan
-    - Geb Bohnen
-    - Chili vegan
+    list:
 
-On the go (color:#ff69b4, fold:true):
+      - Frosta Bratk
+      - Frosta Gesch
+      - Aldi Bratk
+      - Linsen vegan
+      - Geb Bohnen
+      - Chili vegan
 
-  list:
+  On the go (color:#ff69b4, fold:true):
 
-    - Cappuccino R                           # sorted by place
-    - Riegel Seitenb Sch                     # (duplicate)
-    - Löschzwerg R
-    - Karamalz
+    list:
 
-    - Cappuccino Eni
-    - Hanuta
+      - Cappuccino R                           # sorted by place
+      - Riegel Seitenb Sch                     # (duplicate)
+      - Löschzwerg R
+      - Karamalz
 
-    - Mini Schoko (bigger)
-    - Espress Denns
-    - Cappu Denns
-    - Espresso Stick
-    - Hanf Kekse
+      - Cappuccino Eni
+      - Hanuta
 
-    - Bremer
-    - Döner 1
+      - Mini Schoko (bigger)
+      - Espress Denns
+      - Cappu Denns
+      - Espresso Stick
+      - Hanf Kekse
 
-    - Kfc Original
-    - Kfc Chili Cheese
+      - Bremer
+      - Döner 1
 
-    - Wrap Falafel A
-    - Burrito A
-    - Donuts mini A
+      - Kfc Original
+      - Kfc Chili Cheese
 
-    - Riegel Deca Basic
-    - Falafel
-    - Snickers
+      - Wrap Falafel A
+      - Burrito A
+      - Donuts mini A
 
-Variable Suppl, Brain tuning (color:#ff69b4, fold:true):
+      - Riegel Deca Basic
+      - Falafel
+      - Snickers
 
-  list:
+  Variable Suppl, Brain tuning (color:#ff69b4, fold:true):
 
-    # - Salt                                 # Brain tuning TASK: removed for debugging layout
-    - Milch H                                # duplicate
-    - Zitronenm
-    - Zitronenm mini
+    list:
 
-Evening Supplements, fill up (color:#ff69b4, fold:true):
+      # - Salt                                 # Brain tuning TASK: removed for debugging layout
+      - Milch H                                # duplicate
+      - Zitronenm
+      - Zitronenm mini
 
-  list:
+  Evening Supplements, fill up (color:#ff69b4, fold:true):
 
-Housewares (color:#e0e0e0):                  # Finance only
+    list:
 
-  (i): |
-  
-    Hunt hidden costly non food stuff, like coffee filters, batteries ...
-    Counts as consumed as soon as one pack/piece is taken out of the pantry.
-    The error is only a few cents and can be ignored.
+  Housewares (color:#e0e0e0):                  # Finance only
 
-Misc expenses (color:#e0e0e0):               # Misc monthly variable
+    (i): |
+    
+      Hunt hidden costly non food stuff, like coffee filters, batteries ...
+      Counts as consumed as soon as one pack/piece is taken out of the pantry.
+      The error is only a few cents and can be ignored.
+
+  Misc expenses (color:#e0e0e0):               # Misc monthly variable

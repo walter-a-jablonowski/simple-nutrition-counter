@@ -135,7 +135,7 @@ class AppController extends ControllerBase
     $this->makeFoodsView();
 
     $this->layout = parse_attribs('@attribs', ['short', '(i)'],
-      Yaml::parse( file_get_contents("data/bundles/Default_$user->id/food_layout.yml"))
+      Yaml::parse( file_get_contents("data/bundles/Default_$user->id/food_layout.yml"))['food']
     );
     
     foreach( $this->layout as $group => &$layout )
