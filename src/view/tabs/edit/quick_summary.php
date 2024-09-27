@@ -6,6 +6,33 @@
   $a = Yaml::parse( file_get_contents('data/bundles/Default_' . User::current('id') . '/-this.yml'));
 
 ?>
+
+<?php if( User::current()->has('myStrategy.headline')): ?>
+
+  <div class="col-12 mt-1">
+    <div class="col-12 p-2 py-1" style="background-color: #ffff88;">
+    
+      <?= User::current()->get('myStrategy.headline') ?>
+      
+      <?php if( User::current()->has('myStrategy.content')): ?>
+      
+        <button type="button" class="border-0 p-1 bg-transparent"
+                data-bs-toggle = "modal"
+                data-bs-target = "#infoModal"
+                data-title     = "&#x3C;span class=&#x22;fs-4&#x22;&#x3E;<?= User::current()->get('myStrategy.headline') ?>&#x3C;/span&#x3E;"
+                data-source    = "#myStrategyData"
+        >
+          <i class="bi bi-info-circle icon-circle"></i>
+        </button>
+        <div id="myStrategyData" class="d-none">
+          <span class="fs-5"><?= User::current()->get('myStrategy.content') ?></span>
+        </div>
+      <?php endif; ?>
+    </div>
+  </div>
+
+<?php endif; ?>
+
 <!-- 3 col for tab is col-6 col-md-4 col-xxl-2 -->
 <div id="#quickSummary" class="row px-2">
   <div class="col-6 col-md-2 col-xxl-2 mt-2 px-1">

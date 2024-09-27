@@ -6,32 +6,6 @@
   <!-- 3 col: col-12 col-md-6 col-lg-4 col-xxl-3 -->
   <!-- 2 col: col-12 col-md-6 col-xxl-4 -->
 
-  <?php if( User::current()->has('myStrategy.headline')): ?>
-  
-    <div class="col-12 mt-1">
-      <div class="col-12 p-2 py-1" style="background-color: #ffff88;">
-      
-        <?= User::current()->get('myStrategy.headline') ?>
-        
-        <?php if( User::current()->has('myStrategy.content')): ?>
-        
-          <button type="button" class="border-0 p-1 bg-transparent"
-                  data-bs-toggle = "modal"
-                  data-bs-target = "#infoModal"
-                  data-title     = "&#x3C;span class=&#x22;fs-4&#x22;&#x3E;<?= User::current()->get('myStrategy.headline') ?>&#x3C;/span&#x3E;"
-                  data-source    = "#myStrategyData"
-          >
-            <i class="bi bi-info-circle icon-circle"></i>
-          </button>
-          <div id="myStrategyData" class="d-none">
-            <span class="fs-5"><?= User::current()->get('myStrategy.content') ?></span>
-          </div>
-        <?php endif; ?>
-      </div>
-    </div>
-
-  <?php endif; ?>
-
   <!-- TASK: add a collapse expand all (single btn) -->
 
   <!-- TASK: leave single group above full width for coffee, water, ... which is just normal food entries, see also (first_entries)

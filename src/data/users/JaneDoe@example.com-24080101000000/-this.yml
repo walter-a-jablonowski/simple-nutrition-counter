@@ -4,7 +4,8 @@ mail:
 
 myStrategy:
   
-  headline: Meat 2-3 mon from 2408 & winter
-  content:  |  # use html here
+  headline: Meat 2-3 mon
+  content:  |  # use html here  # TASK: maybe enable markdown
 
-    "it's about balance"
+    - Meat 2-3 mon from 2408 & winter <br>
+    - "it's about balance"
