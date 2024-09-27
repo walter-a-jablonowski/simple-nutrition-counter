@@ -60,7 +60,7 @@
           <?php $i=0; foreach( $this->layout as $tab => $layout ): ?>
             <?php $i++; ?>
             <li class="nav-item">
-              <a class="nav-link<?= self::iif( $i === 1, ' active') ?>" data-bs-toggle="tab" href="#<?= lcfirst($tab) ?>LayoutPane" role="tab"><?= $tab ?></a>
+              <a class="nav-link px-2 py-1<?= self::iif( $i === 1, ' active') ?>" data-bs-toggle="tab" href="#<?= lcfirst($tab) ?>LayoutPane" role="tab"><?= $tab ?></a>
             </li>
           <?php endforeach; ?>
         </ul>
