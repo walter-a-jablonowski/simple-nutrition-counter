@@ -16,6 +16,7 @@
       
       <?php if( User::current()->has('myStrategy.content')): ?>
       
+        <!-- TASK: move modal event whole col -->
         <button type="button" class="border-0 p-1 bg-transparent"
                 data-bs-toggle = "modal"
                 data-bs-target = "#infoModal"
