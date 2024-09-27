@@ -84,7 +84,7 @@
     {
       $id = lcfirst($tab);  $active = $i === 1 ? ' show active' : '';
       print trim("
-        <div class=\"tab-content mt-2\">
+        \n<div class=\"tab-content mt-2\">
           <div id=\"{$id}LayoutPane\" class=\"tab-pane fade$active\" role=\"tabpanel\">
       ");
     }
@@ -170,7 +170,7 @@
     if( count($this->layout) > 1 )
     {
       print trim("
-          </div>
+          \n</div>
         </div>
       ");
     }

@@ -135,14 +135,18 @@ class AppController extends ControllerBase
     $this->makeFoodsView();
     $this->layout = Yaml::parse( file_get_contents("data/bundles/Default_$user->id/food_layout.yml"));
     
-    foreach( $this->layout as $tab => &$layout )
+    foreach( $this->layout as $tab => $layout )
     {
-      $layout = parse_attribs('@attribs', ['short', '(i)'], $layout);
+      $this->layout[$tab] =
+        $layout = parse_attribs('@attribs', ['short', '(i)'], $layout);
     
-      foreach( $layout as $group => &$entries )
+      foreach( $layout as $group => $entries )
       {
         if( isset($entries['@attribs']['short']) )
-          $entries['@attribs']['short'] = preg_replace('/\{(#[a-zA-Z0-9]+)\|([a-zA-Z0-9 ]+)\}/', '<a href="$1">$2</a>', $entries['@attribs']['short']);
+        {
+          $this->layout[$tab][$group]['@attribs']['short'] =
+            preg_replace('/\{(#[a-zA-Z0-9]+)\|([a-zA-Z0-9 ]+)\}/', '<a href="$1">$2</a>', $entries['@attribs']['short']);
+        }
       }
     }
 
