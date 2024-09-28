@@ -6,7 +6,7 @@ $return['done'] = [];
 
 ?><div class="col-12 col-md-6 col-xxl-4 mt-2">  <!-- group col -->
 
-  <div class="row">            <!-- must be 2 here cause headline has inner padding -->
+  <div class="row">
     <div class="col-12 px-2">  <!-- below outer container for the bg color (would be full width without) -->
       <div id    = "<?= $groupId ?>Group"
            class = "p-1 px-2 fw-bold d-flex justify-content-between align-items-center"
@@ -39,7 +39,7 @@ $return['done'] = [];
 
   <?php if( isset($def['@attribs']['short'])): ?>
     <div class="row mt-1">                    
-      <div class = "col-12 px-2 small">         <!-- must be 2 here cause headline has inner padding -->
+      <div class = "col-12 px-2 small">
         &nbsp;<?= $def['@attribs']['short'] ?>  <!-- simple spacer -->
       </div>
     </div>
@@ -74,13 +74,11 @@ $return['done'] = [];
         $expensive = $pricePer100 >= settings::get('expensive');
       }
 
-      // use for all the rest that has no icon
-
       $showInfo = $this->foodsModel->get("$foodName.comment")  // has comment might mean sth important
                 ? true : false;
     ?>                             
-      <div class="food-item row" style="background-color: <?= $accepColor ?>;">  <!-- must be 2 here cause headline has inner padding -->
-        <div class = "col-6 p-1 px-2"
+      <div class="food-item row">  <!-- TASK: col-8 would be right, some problem with padding margin -->
+        <div class = "col-7 p-1 ps-1" style="margin-left: 5px; background-color: <?= $accepColor ?>;"
              data-bs-toggle = "modal"
              data-bs-target = "#infoModal"
              data-title     = "#<?= $foodId ?>Headline"
@@ -111,7 +109,6 @@ $return['done'] = [];
             ]);
           ?>
         </div>
-        <!-- TASK: Simplify in controller ? default -->
         <?php foreach( $amountData as $amount => $data ): ?>  <!-- TASK: don't print more than 3 entries (maybe do in controller) -->
         <?php
         
@@ -131,17 +128,19 @@ $return['done'] = [];
                data-minerals   = "<?= htmlspecialchars( dump_json( $data['min'])) ?>"
                data-secondary  = "<?= htmlspecialchars( dump_json( $data['sec'])) ?>"
                data-price      = "<?= $data['price'] ?>"
+               style           = "background-color: <?= $accepColor ?>;"
           >
             <?= $amount ?>
           </div>
         <?php endforeach; ?>
         <!-- Spacer -->
         <?php for( $i=count($amountData)+1; $i < 4; $i++ ):  // plus one is the food menu ?>
-          <div class="col-1">&nbsp;</div>
+          <div class="col-1" style="background-color: <?= $accepColor ?>;">&nbsp;</div>
         <?php endfor; ?>
         <!-- Food menu -->
         <div class   = "food-menu col-1"
-              onclick = ""
+             onclick = ""
+             style   = "background-color: <?= $accepColor ?>;"
         >
           ...  <!-- TASK: Expired food, ... -->
         </div>

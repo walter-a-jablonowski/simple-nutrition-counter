@@ -36,6 +36,8 @@
        Water | Coffee | ... [new ...]  <-- highlight btn bg
 
        Water use food: Wasser lg, Wasser sm
+
+       see also expired maybe in menu of single food
   -->
 
   <div class="col-12 mt-1">
