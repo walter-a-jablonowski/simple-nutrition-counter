@@ -36,6 +36,7 @@ short:                           # short name used as short unique id in daily f
 unit:      g                     # this is the data of the group
 per:       day
 comment:   "Increased need if doing sports"
+
 sources:                         # source of information, string or array(object) (see also below)
 
   - title: 
@@ -47,31 +48,34 @@ amounts:
 
   # same as below
 
-substances:                      # (required) key at least empty []
+substances:                       # (required) key at least empty []
 
-  B 12:                          # display name
+  B 12:                           # display name
 
-    short:      B12              # short name is used as unique id over all files
-    unit:       mg
-    sources:                     # string or array(object), same as above
+    short:        B12             # short name is used as unique id over all files
+    unit:         mg
+
+    comment:                      # Advantage
+    interactions:      
+    sideEffects:      
+    careful:      false
+
+    usage:
+
+      per:        day
+      times:      morning, ...
+      how:                        # bio availability
+      limit:                      # take how long
+      break:                      # min break time
+
+      keeping:    "keep cool"
+
+    sources:                      # string or array(object), same as above
 
       - title:
         source:
         sub:   
         comment:
-
-    per:          day
-    times:        morning, ...
-    how:                         # bio availability
-    limit:                       # take how long
-    break:                       # min break time
-
-    comment:      # Advantage
-    careful:      false
-    interactions:      
-    sideEffects:      
-
-    keeping:      "keep cool"
 
     amounts:
 
