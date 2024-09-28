@@ -37,7 +37,7 @@
        - single group above full width for coffee, water, see (first_entries)
        - combine with single enter btn on the side
 
-       - alternative: full width group with header
+       - alternative: full width group with header (multiple lines for entries folded)
        - alternative: put the new btn right of tabs
 
        Water | Coffee | ... [new ...]  <-- highlight btn bg
