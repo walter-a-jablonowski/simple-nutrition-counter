@@ -17,11 +17,7 @@
 
 Food:
 
-  Morning supplements (color:#ff69b4, fold:true):
-
-    list:
-
-  Nuts, seeds (color:#ffa500):                 # Meals  # TASK: on the go diff shade
+  Nuts, seeds (color:#ffa500):                   # Meals  # TASK: on the go diff shade
 
     (i):   "Demo 2"                            # TASK: we also could add a collapse for larger content
     short: "Info (always visible)"             # alternative: enclose in attribs key (see function)
@@ -136,7 +132,7 @@ Food:
       - Mohnkuchen
       - Donuts mini A                          # (duplicate)
 
-  Greens, legumes, mushr (color:#32cd32):      # Ingredients
+  Greens, legumes, mushr (color:#32cd32):        # Ingredients
 
     list:
 
@@ -207,6 +203,10 @@ Food:
 
 Supplements:
 
+  Morning supplements (color:#ff69b4, fold:true):
+
+    list:
+
   Variable Suppl, Brain tuning (color:#ff69b4):
 
     list:
@@ -222,17 +222,26 @@ Supplements:
 
 On the go:
 
-  On the go (color:#ff69b4):
+  Common (color:#ffa500):
 
     list:
 
-      - Cappuccino R                           # sorted by place
       - Riegel Seitenb Sch                     # (duplicate)
       - Löschzwerg R
       - Karamalz
 
-      - Cappuccino Eni
       - Hanuta
+
+  Village (color:#ffa500):
+
+    list:
+
+      - Cappuccino R                           
+      - Cappuccino Eni
+
+  City (color:#ffa500):
+  
+    list:
 
       - Mini Schoko (bigger)
       - Keks
@@ -243,6 +252,10 @@ On the go:
 
       - Bremer
       - Döner 1
+
+  Harbour (color:#ffa500):
+  
+    list:
 
       - Kfc Original
       - Kfc Chili Cheese
@@ -257,7 +270,7 @@ On the go:
 
 Misc:
 
-  Housewares (color:#e0e0e0):                  # Finance only
+  Housewares (color:#e0e0e0):                    # Finance only
 
     (i): |
     
@@ -265,4 +278,4 @@ Misc:
       Counts as consumed as soon as one pack/piece is taken out of the pantry.
       The error is only a few cents and can be ignored.
 
-  Misc expenses (color:#e0e0e0, fold:true):    # Misc monthly variable
+  Misc var expenses (color:#e0e0e0, fold:true):  # Misc monthly variable
