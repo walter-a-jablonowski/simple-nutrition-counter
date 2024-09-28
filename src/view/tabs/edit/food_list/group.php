@@ -76,7 +76,7 @@ $return['done'] = [];
 
       $showInfo = $this->foodsModel->get("$foodName.comment")  // has comment might mean sth important
                 ? true : false;
-    ?>                             <!-- TASK: col-5 would be right, some problem with padding margin -->
+    ?>                             <!-- TASK: col-5 would be right (currently 11), some problem with padding margin -->
       <div class="food-item row">  <!-- the margin below is the problem but needed for bg color (div for bg destroys layout) -->
         <div class = "col-4 p-1 ps-1" style="margin-left: 5px; background-color: <?= $accepColor ?>;"
              data-bs-toggle = "modal"
