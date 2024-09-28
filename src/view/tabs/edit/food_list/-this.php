@@ -11,17 +11,19 @@
 
   <?php if( count($this->layout) > 1 ): ?>  <!-- food tabs only if more than one -->
     <div class="col-12 mt-2">
-      <ul class="nav nav-pills">
-        <?php $i=0; foreach( $this->layout as $tab => $layout ): ?>
-          <?php
-            $i++;
-            $tabId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $tab));
-          ?>
-          <li class="nav-item">
-            <a class="nav-link px-2 py-1<?= self::iif( $i === 1, ' active') ?>" data-bs-toggle="tab" href="#<?= $tabId ?>LayoutPane" role="tab"><?= $tab ?></a>
-          </li>
-        <?php endforeach; ?>
-      </ul>
+      <div class="overflow-auto">
+        <ul class="nav nav-pills flex-nowrap">  <!-- flex is for scrolling -->
+          <?php $i=0; foreach( $this->layout as $tab => $layout ): ?>
+            <?php
+              $i++;
+              $tabId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $tab));
+            ?>
+            <li class="nav-item">
+              <a class="nav-link px-2 py-1 text-nowrap<?= self::iif( $i === 1, ' active') ?>" data-bs-toggle="tab" href="#<?= $tabId ?>LayoutPane" role="tab"><?= $tab ?></a>
+            </li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
     </div>
   <?php endif; ?>
 
