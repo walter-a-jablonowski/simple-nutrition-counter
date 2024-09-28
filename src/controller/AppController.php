@@ -137,6 +137,9 @@ class AppController extends ControllerBase
     
     foreach( $this->layout as $tab => $layout )
     {
+      // if( $tab === 'On the go')
+      //   $debug = 'halt';
+
       $this->layout[$tab] =
         $layout = parse_attribs('@attribs', ['short', '(i)'], $layout);
     

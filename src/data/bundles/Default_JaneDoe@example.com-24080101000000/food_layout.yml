@@ -205,7 +205,24 @@ Food:
       - Geb Bohnen
       - Chili vegan
 
-  On the go (color:#ff69b4, fold:true):
+Supplements:
+
+  Variable Suppl, Brain tuning (color:#ff69b4):
+
+    list:
+
+      # - Salt                                 # Brain tuning TASK: removed for debugging layout
+      - Milch H                                # duplicate
+      - Zitronenm
+      - Zitronenm mini
+
+  Evening Supplements, fill up (color:#ff69b4):
+
+    list:
+
+On the go:
+
+  On the go (color:#ff69b4):
 
     list:
 
@@ -238,18 +255,7 @@ Food:
       - Falafel
       - Snickers
 
-  Variable Suppl, Brain tuning (color:#ff69b4, fold:true):
-
-    list:
-
-      # - Salt                                 # Brain tuning TASK: removed for debugging layout
-      - Milch H                                # duplicate
-      - Zitronenm
-      - Zitronenm mini
-
-  Evening Supplements, fill up (color:#ff69b4, fold:true):
-
-    list:
+Misc:
 
   Housewares (color:#e0e0e0):                  # Finance only
 
@@ -259,8 +265,4 @@ Food:
       Counts as consumed as soon as one pack/piece is taken out of the pantry.
       The error is only a few cents and can be ignored.
 
-  Misc expenses (color:#e0e0e0):               # Misc monthly variable
-
-La:
-
-  Misc expenses (color:#e0e0e0):               # Misc monthly variable
+  Misc expenses (color:#e0e0e0, fold:true):    # Misc monthly variable

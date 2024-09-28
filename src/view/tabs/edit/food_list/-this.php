@@ -13,9 +13,12 @@
     <div class="col-12 mt-2">
       <ul class="nav nav-pills">
         <?php $i=0; foreach( $this->layout as $tab => $layout ): ?>
-          <?php $i++; ?>
+          <?php
+            $i++;
+            $tabId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $tab));
+          ?>
           <li class="nav-item">
-            <a class="nav-link px-2 py-1<?= self::iif( $i === 1, ' active') ?>" data-bs-toggle="tab" href="#<?= lcfirst($tab) ?>LayoutPane" role="tab"><?= $tab ?></a>
+            <a class="nav-link px-2 py-1<?= self::iif( $i === 1, ' active') ?>" data-bs-toggle="tab" href="#<?= $tabId ?>LayoutPane" role="tab"><?= $tab ?></a>
           </li>
         <?php endforeach; ?>
       </ul>
@@ -87,9 +90,11 @@
 
       if( count($this->layout) > 1 )
       {
-        $id = lcfirst($tab);  $active = $i === 1 ? ' show active' : '';
+        $tabId  = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $tab));
+        $active = $i === 1 ? ' show active' : '';
+        
         print trim("
-          \n<div id=\"{$id}LayoutPane\" class=\"tab-pane fade$active\" role=\"tabpanel\">
+          \n<div id=\"{$tabId}LayoutPane\" class=\"tab-pane fade$active\" role=\"tabpanel\">
             <div class=\"row\">
         ");
       }

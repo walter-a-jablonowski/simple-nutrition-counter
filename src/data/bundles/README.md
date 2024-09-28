@@ -78,9 +78,9 @@ tabName:
       - or nutrient    | Nutrient | 1/4 | ...  < amounts as defined in
       - ...            |          |              foods.yml
 
-  My nutrient group (color:#e0e0e0):  # Visually group with color
-    (i):                              # Comment (i) switch in UI
-    short:                            # always visible
+  My nutrient group (color:#e0e0e0, fold:true):  # Visually group with color
+    (i):                                         # Comment (i) switch in UI
+    short:                                       # always visible
     list:
       - ...
 ```
