@@ -7,7 +7,7 @@ $return['done'] = [];
 ?><div class="col-12 col-md-6 col-xxl-4 mt-2">  <!-- group col -->
 
   <div class="row">
-    <div class="col-12 px-2">  <!-- below outer container for the bg color (would be full width without) -->
+    <div class="col-12">  <!-- below outer container for the bg color (would be full width without) -->
       <div id    = "<?= $groupId ?>Group"
            class = "p-1 px-2 fw-bold d-flex justify-content-between align-items-center"
            style = "background-color: <?= $def['@attribs']['color'] ?? '#e0e0e0' ?>;"
