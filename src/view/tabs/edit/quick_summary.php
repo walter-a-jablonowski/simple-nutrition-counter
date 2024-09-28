@@ -10,19 +10,18 @@
   <div class="row mt-2">
     <div class="col-12">
     
-      <div class="px-1" style="border: 1px solid #bbb; background-color: #ffff88;">
+      <div class="px-1" style="border: 1px solid #bbb; background-color: #ffff88;"
+           data-bs-toggle = "modal"
+           data-bs-target = "#infoModal"
+           data-title     = "&#x3C;span class=&#x22;fs-4&#x22;&#x3E;<?= User::current()->get('myStrategy.headline') ?>&#x3C;/span&#x3E;"
+           data-source    = "#myStrategyData"
+      >
     
         <?= User::current()->get('myStrategy.headline') ?>
         
         <?php if( User::current()->has('myStrategy.content')): ?>
         
-          <!-- TASK: move modal event whole col -->
-          <button type="button" class="border-0 p-1 bg-transparent"
-                  data-bs-toggle = "modal"
-                  data-bs-target = "#infoModal"
-                  data-title     = "&#x3C;span class=&#x22;fs-4&#x22;&#x3E;<?= User::current()->get('myStrategy.headline') ?>&#x3C;/span&#x3E;"
-                  data-source    = "#myStrategyData"
-          >
+          <button type="button" class="border-0 p-1 bg-transparent">
             <i class="bi bi-info-circle icon-circle"></i>
           </button>
           <div id="myStrategyData" class="d-none">
