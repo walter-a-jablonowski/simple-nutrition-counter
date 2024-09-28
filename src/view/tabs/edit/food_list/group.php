@@ -76,19 +76,21 @@ $return['done'] = [];
 
       $showInfo = $this->foodsModel->get("$foodName.comment")  // has comment might mean sth important
                 ? true : false;
-    ?>                             <!-- TASK: col-5 would be right (currently 11), some problem with padding margin -->
-      <div class="food-item row">  <!-- the margin below is the problem but needed for bg color (div for bg destroys layout) -->
-        <div class = "col-4 p-1 ps-1" style="margin-left: 5px; background-color: <?= $accepColor ?>;"
+    ?>
+      <div class="food-item row">  <!-- pe-0 is for bg color -->
+        <div class = "col-5 pe-0"
              data-bs-toggle = "modal"
              data-bs-target = "#infoModal"
              data-title     = "#<?= $foodId ?>Headline"
              data-source    = "#<?= $foodId ?>Data"
         >
-          <?= $foodName ?>
-          <?= self::iif( $showInfo, '<i class="bi bi-info-circle-fill" style="color: orange;"></i>') ?>
-          <?= self::iif( $price && $cheap, '<i class="bi bi-currency-exchange small text-secondary"></i>') ?>
-          <!-- < ?= self::iif( $price && $expensive, settings::get('currencySymbol')) ?> -->
-          <?= self::iif( $price && $expensive, '<i class="bi ' . settings::get('currencyIcon') . ' small text-secondary"></i>') ?>
+          <div style="background-color: <?= $accepColor ?>;">
+            <?= $foodName ?>
+            <?= self::iif( $showInfo, '<i class="bi bi-info-circle-fill" style="color: orange;"></i>') ?>
+            <?= self::iif( $price && $cheap, '<i class="bi bi-currency-exchange small text-secondary"></i>') ?>
+            <!-- < ?= self::iif( $price && $expensive, settings::get('currencySymbol')) ?> -->
+            <?= self::iif( $price && $expensive, '<i class="bi ' . settings::get('currencyIcon') . ' small text-secondary"></i>') ?>
+          </div>
           </div>
         <div id="<?= $foodId ?>Headline" class="d-none">
           <?php
@@ -116,8 +118,8 @@ $return['done'] = [];
         // if( ! isset($data['nutriVal']))
         //   $debug = 'halt';
         
-        ?>
-          <div class   = "col-2 p-1 text-center blink-yellow"
+        ?>                     <!-- pe-0 is for bg color -->
+          <div class   = "col-2 p-1 pe-0 text-center blink-yellow"
                onclick = "mainCrl.foodItemClick(event)"
                data-food       = "<?= $foodName ?>"
                data-calories   = "<?= $data['calories'] ?>"
@@ -130,7 +132,9 @@ $return['done'] = [];
                data-price      = "<?= $data['price'] ?>"
                style           = "background-color: <?= $accepColor ?>;"
           >
-            <?= $amount ?>
+            <div style="background-color: <?= $accepColor ?>;">
+              <?= $amount ?>
+            </div>
           </div>
         <?php endforeach; ?>
         <!-- Spacer -->
@@ -140,9 +144,10 @@ $return['done'] = [];
         <!-- Food menu -->
         <div class   = "food-menu col-1 text-center"
              onclick = ""
-             style   = "background-color: <?= $accepColor ?>;"
         >
-          ...  <!-- TASK: Expired food, ... -->
+          <div style="background-color: <?= $accepColor ?>;">
+            ...  <!-- TASK: Expired food, ... -->
+          </div>
         </div>
       </div>
     <?php endforeach; ?>
