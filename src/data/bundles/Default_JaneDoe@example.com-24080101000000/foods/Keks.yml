@@ -1,0 +1,26 @@
+productName:       "Farrociock Fondente"
+vendor:            Denns
+
+acceptable:        less
+certificates:      { bio: true }
+packaging:         alu & plastic
+
+price:             
+weight:            28g
+usedAmounts:       ["1"]
+
+calories:          484
+nutritionalValues: 
+
+  fat:             23
+  saturatedFat:    11
+  carbs:           61
+  sugar:           30
+  amino:           7
+  salt:            0.18
+
+sources:           { nutriVal: "pack" }
+
+state:             most
+lastUpd:           2024-09-28
+lastPriceUpd:      
