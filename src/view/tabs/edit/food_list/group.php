@@ -119,7 +119,7 @@ $return['done'] = [];
         //   $debug = 'halt';
         
         ?>                     <!-- pe-0 is for bg color -->
-          <div class   = "col-2 p-1 pe-0 text-center blink-yellow"
+          <div class   = "amount-btn col-2 p-1 pe-0 text-center blink-yellow"
                onclick = "mainCrl.foodItemClick(event)"
                data-food       = "<?= $foodName ?>"
                data-calories   = "<?= $data['calories'] ?>"

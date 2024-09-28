@@ -292,7 +292,7 @@ class MainController
 
   foodItemClick(event)
   {
-    let target   = event.target
+    let target   = event.target.closest('.amount-btn')
     let food     = target.dataset.food
     let calories = target.dataset.calories
     let price    = target.dataset.price
