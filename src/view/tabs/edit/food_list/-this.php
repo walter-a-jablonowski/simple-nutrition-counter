@@ -43,17 +43,20 @@
   -->
 
   <div class="col-12 mt-1">
-    <div class="row">        <!-- break points same as in food groups below -->
-      <div class   = "col-12 col-md-6 col-xxl-4 py-1"
-           onclick = "mainCrl.newEntryBtn(event)"
-      >
-        Enter manually ...  <!-- TASK: also buyings here (maybe use some select that changes sub forms) -->
-      </div>                <!-- month var: we have a layout group for this -->
+    <div class="row">
       <!-- TASK: currently used save btn -->
-      <div class   = "col-12 col-md-6 col-xxl-4 py-1"
+      <div class   = "col-4 col-md-3 col-xxl-2 py-1"
            onclick = "mainCrl.saveDayEntriesBtnClick(event)"
       >
         Save ...
+      </div>
+      <div class   = "col-4 col-md-6 col-xxl-8">  <!-- spacer -->
+        &nbsp;
+      </div>
+      <div class   = "col-4 col-md-3 col-xxl-2 py-1 text-end"
+           onclick = "mainCrl.newEntryBtn(event)"
+      >
+        <i class="bi bi-pencil-square"></i>  <!-- TASK: (advanced) also buyings here (maybe use some select that changes sub forms) -->
       </div>
 <!--
       TASK: now in foods

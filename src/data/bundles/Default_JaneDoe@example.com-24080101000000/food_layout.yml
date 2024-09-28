@@ -4,18 +4,17 @@
 # see readme
 #
 
-# (first_entries):
-#                                    
-#   list:
-#
-#     - Enter manually ...
-#     - Coffee
-#     - Fullup
-#     - ...
-
 # #8a2be2
 
 Food:
+
+  # (first_entries):
+  #                                 
+  #   list:
+  #
+  #     - Coffee
+  #     - Fullup
+  #     - ...
 
   Nuts, seeds (color:#ffa500):                   # Meals  # TASK: on the go diff shade
 
