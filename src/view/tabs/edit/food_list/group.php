@@ -117,8 +117,7 @@ $return['done'] = [];
         //   $debug = 'halt';
         
         ?>
-          <!-- TASK: center text -->
-          <div class   = "col-2 p-1 blink-yellow"
+          <div class   = "col-2 p-1 text-center blink-yellow"
                onclick = "mainCrl.foodItemClick(event)"
                data-food       = "<?= $foodName ?>"
                data-calories   = "<?= $data['calories'] ?>"
@@ -139,7 +138,7 @@ $return['done'] = [];
           <div class="col-2" style="background-color: <?= $accepColor ?>;">&nbsp;</div>
         <?php endfor; ?>
         <!-- Food menu -->
-        <div class   = "food-menu col-1"
+        <div class   = "food-menu col-1 text-center"
              onclick = ""
              style   = "background-color: <?= $accepColor ?>;"
         >
