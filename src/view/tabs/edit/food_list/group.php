@@ -77,8 +77,8 @@ $return['done'] = [];
       $showInfo = $this->foodsModel->get("$foodName.comment")  // has comment might mean sth important
                 ? true : false;
     ?>                             
-      <div class="food-item row">  <!-- TASK: col-8 would be right, some problem with padding margin -->
-        <div class = "col-7 p-1 ps-1" style="margin-left: 5px; background-color: <?= $accepColor ?>;"
+      <div class="food-item row">  <!-- TASK: col-5 would be right, some problem with padding margin -->
+        <div class = "col-4 p-1 ps-1" style="margin-left: 5px; background-color: <?= $accepColor ?>;"
              data-bs-toggle = "modal"
              data-bs-target = "#infoModal"
              data-title     = "#<?= $foodId ?>Headline"
@@ -117,7 +117,8 @@ $return['done'] = [];
         //   $debug = 'halt';
         
         ?>
-          <div class   = "col-1 p-1 blink-yellow"
+          <!-- TASK: center text -->
+          <div class   = "col-2 p-1 blink-yellow"
                onclick = "mainCrl.foodItemClick(event)"
                data-food       = "<?= $foodName ?>"
                data-calories   = "<?= $data['calories'] ?>"
@@ -135,7 +136,7 @@ $return['done'] = [];
         <?php endforeach; ?>
         <!-- Spacer -->
         <?php for( $i=count($amountData)+1; $i < 4; $i++ ):  // plus one is the food menu ?>
-          <div class="col-1" style="background-color: <?= $accepColor ?>;">&nbsp;</div>
+          <div class="col-2" style="background-color: <?= $accepColor ?>;">&nbsp;</div>
         <?php endfor; ?>
         <!-- Food menu -->
         <div class   = "food-menu col-1"
