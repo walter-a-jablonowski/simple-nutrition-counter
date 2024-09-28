@@ -77,7 +77,7 @@ $return['done'] = [];
       $showInfo = $this->foodsModel->get("$foodName.comment")  // has comment might mean sth important
                 ? true : false;
     ?>
-      <div class="food-item row">  <!-- pe-0 is for bg color -->
+      <div class="food-item row">  <!-- pe-0 is for bg color, TASK: alternative: highlight food only -->
         <div class = "col-5 pe-0"
              data-bs-toggle = "modal"
              data-bs-target = "#infoModal"
