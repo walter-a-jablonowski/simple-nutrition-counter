@@ -84,7 +84,7 @@ $return['done'] = [];
              data-title     = "#<?= $foodId ?>Headline"
              data-source    = "#<?= $foodId ?>Data"
         >
-          <div style="background-color: <?= $accepColor ?>;">
+          <div class="text-nowrap overflow-hidden" style="background-color: <?= $accepColor ?>;">
             <?= $foodName ?>
             <?= self::iif( $showInfo, '<i class="bi bi-info-circle-fill" style="color: orange;"></i>') ?>
             <?= self::iif( $price && $cheap, '<i class="bi bi-currency-exchange small text-secondary"></i>') ?>

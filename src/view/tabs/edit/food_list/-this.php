@@ -19,7 +19,7 @@
               $tabId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $tab));
             ?>
             <li class="nav-item">
-              <a class="nav-link px-2 py-1 text-nowrap<?= self::iif( $i === 1, ' active') ?>" data-bs-toggle="tab" href="#<?= $tabId ?>LayoutPane" role="tab"><?= $tab ?></a>
+              <a class="nav-link px-2 py-1<?= self::iif( $i === 1, ' active') ?>" data-bs-toggle="tab" href="#<?= $tabId ?>LayoutPane" role="tab"><?= $tab ?></a>
             </li>
           <?php endforeach; ?>
         </ul>
