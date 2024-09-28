@@ -32,41 +32,44 @@
 
   <!-- TASK: add a collapse expand all (single btn) -->
 
-  <!-- TASK: leave single group above full width for coffee, water, ... which is just normal food entries, see also (first_entries)
-       put the btn somewhere on the side or own line?
+  <!-- TASK: first line
+  
+       - single group above full width for coffee, water, see (first_entries)
+       - combine with single enter btn on the side
+
+       - alternative: full width group with header
+       - alternative: put the new btn right of tabs
 
        Water | Coffee | ... [new ...]  <-- highlight btn bg
 
-       Water use food: Wasser lg, Wasser sm
-
-       see also expired maybe in menu of single food
+       - Water use food: Wasser lg, Wasser sm
+       - see also expired maybe in menu of single food
   -->
 
   <div class="col-12 mt-1">
     <div class="row">
-      <!-- TASK: currently used save btn -->
-      <div class   = "col-4 col-md-3 col-xxl-2 py-1"
+      <!-- TASK: add some first entries -->
+      <div class="col-9 col-md-9 col-xxl-9 pe-0 py-1">
+        <div style="border: 1px solid #bbb;">
+          &nbsp; <!-- spacer -->
+        </div>
+      </div>
+      <!-- TASK: rm currently used save btn -->
+      <div class   = "col-2 col-md-2 col-xxl-2 px-0 py-1"
            onclick = "mainCrl.saveDayEntriesBtnClick(event)"
-      >
-        Save ...
+      >                 <!-- TASK: v improve -->
+        <div class="ps-1" style="border-top: 1px solid #bbb; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">
+          Save
+        </div>
       </div>
-      <div class   = "col-4 col-md-6 col-xxl-8">  <!-- spacer -->
-        &nbsp;
-      </div>
-      <div class   = "col-4 col-md-3 col-xxl-2 py-1 text-end"
+      <div class   = "col-1 col-md-1 col-xxl-1 ps-0 py-1 text-end"
            onclick = "mainCrl.newEntryBtn(event)"
       >
-        <i class="bi bi-pencil-square"></i>  <!-- TASK: (advanced) also buyings here (maybe use some select that changes sub forms) -->
+        <div class="pe-1" style="border-top: 1px solid #bbb; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">
+          <i class="bi bi-pencil-square"></i>  <!-- TASK: (advanced) also buyings here (maybe use some select that changes sub forms) -->
+        </div>
       </div>
 <!--
-      TASK: now in foods
-      
-      <div class   = "col-12 col-md-6 col-xxl-4 p-2 py-1"
-           onclick = "..."
-      >
-        Coffee
-      </div>
-
       TASK: fillup now in user > misc.yml
 
       < ?php if( config::get('special')): ?>
