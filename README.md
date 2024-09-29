@@ -17,9 +17,9 @@ as simple as possible, see [mission](#mission).
 Mission
 ----------------------------------------------------------
 
-Before one tunes his projects, he should always improve his primary tool first, which is
-the brain. This requires a constant time invest on a daily basis. Improving the brain will
-have a positive effect on all following activities (multiplier).
+Always improve your primary tool first, which is the brain, then improve your software.
+This requires a constant time invest on a daily basis, but will have a positive effect
+on all following activities (multiplier).
 
 There are at least ~43 vitamins, minerals, fatty acids, amino acids... It is likely that one
 is deficient in more than one substance. Also, if foods change from time to time, deficiencies
@@ -77,7 +77,7 @@ necessarily need.
 - Advanced features like importing food data via smartphone cam and AI (most likely
   this would cost fees)
 
-**Simplifications (the best is no)**
+**Simplifications**
 
 - No complex frameworks
 - No db will be used
@@ -112,7 +112,7 @@ High priority first
     - [x] Types per day entry
   - [ ] Maybe: Basic error handling
 
-Beside that things like app layout or multi user functions might be done occasionally (less important).
+Beside that improved app layout might be done occasionally (less important).
 
 Advanced: extend features (finance and similar see Mission)
 
