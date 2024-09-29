@@ -18,16 +18,15 @@ Mission
 ----------------------------------------------------------
 
 Always improve your primary tool first, which is the brain, then improve your software.
-This requires a constant time invest on a daily basis, but will have a positive effect
+This requires a constant time invest on a daily basis, but it will have a positive effect
 on all following activities (multiplier).
 
 There are at least ~43 vitamins, minerals, fatty acids, amino acids... It is likely that one
 is deficient in more than one substance. Also, if foods change from time to time, deficiencies
 might change. Well known samples of deficiencies: Vitamin D, Omega 3, Zinc...
 
-All nutrients are needed for something, e.g. the activity of neurons. If it's missing the brain
-works less good. Thus, improving the supply may make a big difference for general health and brain
-function.
+All nutrients are needed for something, e.g. the activity of neurons. Improving the supply may
+make a big difference for general health and brain function.
 
 ```
                                                 Special supplements  Powerful methods, AI, tools
