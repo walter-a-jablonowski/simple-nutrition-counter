@@ -42,11 +42,11 @@
           >
             <div class="d-flex justify-content-between">  <!-- align-items-center justify-content-center -->
               <span><?= $data['name'] ?></span>
-              <span>100</span>
-            </div>  <!-- TASK: or right align 80 / 100 -->
+              <span class="label">0 / <?= $data['ideal'] ?></span>
+            </div>
             <div class="progress w-100" role="progressbar">
               <div class="progress-bar bg-secondary" style="width: 0%;">
-                <span><span class="progress-label">0 / <?= $data['ideal'] ?></span></span>
+                <!-- <span><span class="progress-label">0 / < ?= $data['ideal'] ?></span></span> -->
               </div>
             </div>
           </div>

@@ -421,6 +421,7 @@ class MainController
     query('#saltSum').textContent     = saltSum
     query('#priceSum').textContent    = priceSum
 
+
     // Nutrients tab
     // TASK: maybe add a simple sum first (no percent) #code/progress
 
@@ -444,7 +445,8 @@ class MainController
         progressBarColor = 'bg-danger'
 
       entry.find('.progress-bar').style.width   = `${percentage}%`
-      entry.find('.progress-label').textContent = `${currentSum} / ${entry.dataset.ideal}`
+      // entry.find('.progress-label').textContent = `${currentSum} / ${entry.dataset.ideal}`
+      entry.find('.label').textContent = `${currentSum} / ${entry.dataset.ideal}`
 
       entry.find('.progress-bar').classList.remove('bg-secondary', 'bg-success', 'bg-danger')
       entry.find('.progress-bar').classList.add(progressBarColor)
