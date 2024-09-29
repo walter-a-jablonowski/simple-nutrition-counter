@@ -33,7 +33,7 @@ substances:
 
     amounts:
 
-      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }  # TASK: is 25-51 years in DGE
         lower:  4
         amount: 5
         upper:  6
@@ -117,12 +117,13 @@ substances:
     short:      I
     unit:       mg
     groups:     [ "Spurenelemente" ]
+    comment:    "DGE has 2 values 150 or 200µg"
     sources:    "DGE for now"
     amounts:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%
-        amount: 
+        amount: 0.15
         upper:  10%
 
   Fluoride:
@@ -135,7 +136,7 @@ substances:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%
-        amount: 
+        amount: 3.5
         upper:  10%
 
   Zinc:
@@ -143,12 +144,13 @@ substances:
     short:      Zn
     unit:       mg
     groups:     [ "Spurenelemente" ]
+    comment:    "DGE has multiple values"
     sources:    "DGE for now"
     amounts:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%
-        amount: 
+        amount: 14
         upper:  10%
 
   Selenium:
@@ -161,10 +163,10 @@ substances:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%
-        amount: 
+        amount: 0.07
         upper:  10%
 
-  # TASK: Copper, Chromium, Manganese are mentioned in one page at DGE
+  # TASK: Copper, Chromium, Manganese, Molybdenum are mentioned in one page at DGE
 
   Copper:
 
@@ -175,7 +177,7 @@ substances:
     amounts:
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%
-        amount: 
+        amount: 1.25  # TASK: refine
         upper:  10%
 
   Chromium:
@@ -187,9 +189,9 @@ substances:
     amounts:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-        lower:  10%
-        amount: 
-        upper:  10%
+        lower:  0.03
+        amount: 0.065
+        upper:  0.1
 
   Manganese:
 
@@ -201,7 +203,7 @@ substances:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%
-        amount: 
+        amount: 3.5  # TASK: refine
         upper:  10%
 
   Molybdenum:
@@ -213,9 +215,9 @@ substances:
     amounts:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-        lower:  10%
-        amount: 
-        upper:  10%
+        lower:  0.05
+        amount: 0.075
+        upper:  0.1
 
   # TASK: missing in DGE
 
