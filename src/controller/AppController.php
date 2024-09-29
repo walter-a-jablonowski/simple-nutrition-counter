@@ -275,7 +275,7 @@ class AppController extends ControllerBase
       {
         $a = $attr['amounts'][0];  // TASK: use unit for sth?
 
-        $this->nutrientsView->set("$shortName.$attr[short]", [  // TASK: is that right?
+        $this->nutrientsView->set("$shortName.$attr[short]", [
                                        
           'name'  => $name,        // TASK: (advanced) currently using first entry only
           'group' => $groupName,
