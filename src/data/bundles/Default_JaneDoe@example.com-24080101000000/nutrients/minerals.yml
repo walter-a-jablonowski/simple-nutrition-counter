@@ -37,7 +37,19 @@ substances:
         amount: 5
         upper:  6
 
-  # Potassium
+  Potassium:
+
+    short:      K
+    unit:       g
+    comment:    "Mengenelement"
+    sources:    "DGE"
+
+    amounts:
+
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  10%
+        amount: 4
+        upper:  10%
 
   Calcium:
 
@@ -58,13 +70,14 @@ substances:
     short:      P
     unit:       mg
     comment:    "Mengenelement"
+    sources:    "DGE for now"
 
     amounts:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-        lower:  5%
-        amount: 100 # TASK: dummy entry
-        upper:  5%
+        lower:  10%
+        amount: 550
+        upper:  10%
 
   Magnesium:
 
@@ -76,14 +89,14 @@ substances:
     amounts:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-        lower:  5%
+        lower:  10%
         amount: 350
-        upper:  5%
+        upper:  10%
 
       - criteria: { dayType: workout, gender: male, age: 40, weight: 75, height: "*" }
-        lower:  5%
+        lower:  10%
         amount: 500 # TASK: dummy entry
-        upper:  5%
+        upper:  10%
 
   # Spurenelemente
 
