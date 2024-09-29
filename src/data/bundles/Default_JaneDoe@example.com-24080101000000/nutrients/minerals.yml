@@ -100,14 +100,27 @@ substances:
 
   # Spurenelemente
 
-  # Iron
-  # Iodine
-  # Fluoride
-  # Zinc
-  # Selenium
-  # Copper, Chromium, Manganese
-  # Molybdenum
+  Iron:
+
+    short:      Fe
+    unit:       mg
+    comment:    "Mengenelement"
+    sources:    "DGE for now"
+
+    amounts:
+
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  10%
+        amount: 11
+        upper:  10%
+
+  # Iodine I
+  # Fluoride F
+  # Zinc Zn
+  # Selenium Se
+  # Copper Cu, Chromium Cr, Manganese Mn
+  # Molybdenum Mo
 
   # missing in DGE
 
-  # Sulfur
+  # Sulfur S
