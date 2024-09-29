@@ -319,12 +319,12 @@ class AppController extends ControllerBase
       // TASK: (advanced) unit from data?
 
       $this->lastDaysView->set( $dat, [
-        'Calories'    => ( ! $entries ? 0 : array_sum( array_column($entries, 1))) . ' kcal',
-        'Carbs'       => ( ! $entries ? 0 : array_sum( array_column($entries, 2))),
-        'Fat'         => ( ! $entries ? 0 : array_sum( array_column($entries, 3))),
-        'Amino acids' => ( ! $entries ? 0 : array_sum( array_column($entries, 4))) . ' g',
-        'Salt'        => ( ! $entries ? 0 : array_sum( array_column($entries, 5))) . ' g',
-        'Price'       => ( ! $entries ? 0 : array_sum( array_column($entries, 6))) . ' ' . $settings->get('currencySymbol')
+        'Calories'    => ( ! $entries ? 0 : array_sum( array_column($entries, 2))),
+        'Carbs'       => ( ! $entries ? 0 : array_sum( array_column($entries, 3))),
+        'Fat'         => ( ! $entries ? 0 : array_sum( array_column($entries, 4))),
+        'Amino acids' => ( ! $entries ? 0 : array_sum( array_column($entries, 5))),
+        'Salt'        => ( ! $entries ? 0 : array_sum( array_column($entries, 6))),
+        'Price'       => ( ! $entries ? 0 : array_sum( array_column($entries, 7)))
       ]);
   
       $priceSumAll += ! $entries ? 0 : array_sum( array_column($entries, 6));

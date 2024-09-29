@@ -16,48 +16,37 @@
 
   <div class="list-group mt-3">
 
+    <!-- ios like design -->
+
     <?php foreach( $this->lastDaysView->all() as $day => $sums ): ?>
 
       <li class = "list-group-item d-flex justify-content-between align-items-center"
           style = "background-color: #e0e0e0;"
       >
-
-        <!-- TASK: maybe use some ios like save some space (needs spec layout for larger) -->
-        <!-- <div class="col-12 col-md-6 col-xxl-4 mt-2"> -->
-
         <?php $weekdays = ['Mon' => 'Mo', 'Tue' => 'Tu', 'Wed' => 'We', 'Thu' => 'Th', 'Fri' => 'Fr', 'Sat' => 'Sa', 'Sun' => 'Su']; ?>
         <small class="text-body-secondary mb-1">
           <b><?= $weekdays[ date('D', strtotime($day))] ?></b>&nbsp;<?= $day ?>
         </small>
         <small class="text-body-secondary mb-1">
-          <b><?= $sums['Price'] ?></b>
+          <b><?= $sums['Price'] ?> <?= settings::get('currencySymbol') ?></b>
         </small>
       </li>
-<!--
-      <?php foreach( $sums as $label => $sum): ?>
-      <?php   if( $label == 'Price')  continue; ?>
 
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span><?= $label ?></span>
-          <span><?= $sum ?></span>
-        </li>
-      <?php endforeach; ?>
--->
       <li class="list-group-item">
         <div class="row">
           <div class="col-6">
             <span><?= $sums['Fat'] ?> / <?= $sums['Carbs'] ?> g</span>
           </div>
           <div class="col-6">
-            <span><?= $sums['Calories'] ?></span>
+            <span><?= $sums['Calories'] ?> kcal</span>
           </div>
         </div>
         <div class="row">
           <div class="col-6">
-            <span><?= $sums['Amino acids'] ?></span>
+            <span><?= $sums['Amino acids'] ?> g</span>
           </div>
           <div class="col-6">
-            <span><?= $sums['Salt'] ?></span>
+            <span><?= $sums['Salt'] ?> g</span>
           </div>
         </div>
       </li>
