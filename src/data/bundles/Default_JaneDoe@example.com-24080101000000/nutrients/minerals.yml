@@ -6,16 +6,44 @@ name:         Minerals
 short:        min
 sources:
 
-  - title: "Essential by Claude and ChatGPT 2408"
+  - title: "Essential by Claude and ChatGPT 2408, DGE"
 
 substances:
 
   # Roughly by amount of functions, rest below
 
+  # Mengenelemente
+
+  Salt:  # Na Cl: we use it combined as salt ins of the single substances
+
+    short:      NaCl
+    unit:       g
+    comment:    "Mengenelement"
+    sources:
+
+      - title: Andrew Huberman
+        comment: |
+
+          2 ais same result
+
+          4g = Na: 1.57 Cl: 2.43
+          5g = Na: 1.97 Cl: 3.03
+          6g = Na: 2.36 Cl: 3.64
+
+    amounts:
+
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  4
+        amount: 5
+        upper:  6
+
+  # Potassium
+
   Calcium:
 
     short:      Ca
     unit:       mg
+    comment:    "Mengenelement"
     sources:    "DGE for now"
 
     amounts:  # currently we use the first entry hard coded only
@@ -25,14 +53,27 @@ substances:
         amount: 1000
         upper:  10%
 
+  Phosphorus:
+
+    short:      P
+    unit:       mg
+    comment:    "Mengenelement"
+
+    amounts:
+
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  5%
+        amount: 100 # TASK: dummy entry
+        upper:  5%
+
   Magnesium:
 
     short:      Mg
     unit:       mg
+    comment:    "Mengenelement, increased need if doing sports"
     sources:    "DGE for now"
-    comment:    "Increased need if doing sports"
 
-    amounts:  # currently we use the first entry hard coded only
+    amounts:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  5%
@@ -44,58 +85,16 @@ substances:
         amount: 500 # TASK: dummy entry
         upper:  5%
 
+  # Spurenelemente
+
   # Iron
-
-  # Potassium
-
-  # Zinc
-
-  # Na Cl: we use it combined as salt ins of the single substances
-
-  Salt:
-
-    short:      NaCl
-    unit:       g
-    sources:
-
-      - title: Andrew Huberman
-        source:
-        sub:
-        comment: |
-
-          2 ais same result
-
-          4g = Na: 1.57 Cl: 2.43
-          5g = Na: 1.97 Cl: 3.03
-          6g = Na: 2.36 Cl: 3.64
-
-    amounts:  # currently we use the first entry hard coded only
-
-      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-        lower:  4
-        amount: 5
-        upper:  6
-
   # Iodine
+  # Fluoride
+  # Zinc
   # Selenium
-  # Copper
-  # Manganese
-  # Chromium
+  # Copper, Chromium, Manganese
   # Molybdenum
 
-  # ChatGPT adds
+  # missing in DGE
 
   # Sulfur
-  # Fluoride
-
-  Phosphorus:
-
-    short:      P
-    unit:       mg
-
-    amounts:  # currently we use the first entry hard coded only
-
-      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-        lower:  5%
-        amount: 100 # TASK: dummy entry
-        upper:  5%
