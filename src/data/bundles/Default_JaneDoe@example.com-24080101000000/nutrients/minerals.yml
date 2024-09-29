@@ -41,7 +41,6 @@ substances:
     unit:       g
     groups:     [ "Mengenelemente" ]
     sources:    "DGE"
-
     amounts:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
@@ -55,7 +54,6 @@ substances:
     unit:       mg
     groups:     [ "Mengenelemente" ]
     sources:    "DGE for now"
-
     amounts:  # currently we use the first entry hard coded only
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
@@ -69,7 +67,6 @@ substances:
     unit:       mg
     groups:     [ "Mengenelemente" ]
     sources:    "DGE for now"
-
     amounts:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
@@ -84,7 +81,6 @@ substances:
     groups:     [ "Mengenelemente" ]
     comment:    "increased need if doing sports"
     sources:    "DGE for now"
-
     amounts:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
@@ -97,6 +93,7 @@ substances:
         amount: 500 # TASK: dummy entry
         upper:  10%
 
+
   # Spurenelemente
 
   Iron:
@@ -105,7 +102,6 @@ substances:
     unit:       mg
     groups:     [ "Mengenelemente" ]
     sources:    "DGE for now"
-
     amounts:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
@@ -113,15 +109,122 @@ substances:
         amount: 11
         upper:  10%
 
-  # groups:     [ "Spurenelemente" ]
-  
-  # Iodine I
-  # Fluoride F
-  # Zinc Zn
-  # Selenium Se
-  # Copper Cu, Chromium Cr, Manganese Mn
-  # Molybdenum Mo
+  Iodine:
 
-  # missing in DGE
+    short:      I
+    unit:       mg
+    groups:     [ "Spurenelemente" ]
+    sources:    "DGE for now"
+    amounts:
 
-  # Sulfur S
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  10%
+        amount: 
+        upper:  10%
+
+  Fluoride:
+
+    short:      F
+    unit:       mg
+    groups:     [ "Spurenelemente" ]
+    sources:    "DGE for now"
+    amounts:
+
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  10%
+        amount: 
+        upper:  10%
+
+  Zinc:
+
+    short:      Zn
+    unit:       mg
+    groups:     [ "Spurenelemente" ]
+    sources:    "DGE for now"
+    amounts:
+
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  10%
+        amount: 
+        upper:  10%
+
+  Selenium:
+
+    short:      Se
+    unit:       mg
+    groups:     [ "Spurenelemente" ]
+    sources:    "DGE for now"
+    amounts:
+
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  10%
+        amount: 
+        upper:  10%
+
+  # TASK: Copper, Chromium, Manganese are mentioned in one page at DGE
+
+  Copper:
+
+    short:      Cu
+    unit:       mg
+    groups:     [ "Spurenelemente" ]
+    sources:    "DGE for now"
+    amounts:
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  10%
+        amount: 
+        upper:  10%
+
+  Chromium:
+
+    short:      Cr
+    unit:       mg
+    groups:     [ "Spurenelemente" ]
+    sources:    "DGE for now"
+    amounts:
+
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  10%
+        amount: 
+        upper:  10%
+
+  Manganese:
+
+    short:      Mn
+    unit:       mg
+    groups:     [ "Spurenelemente" ]
+    sources:    "DGE for now"
+    amounts:
+
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  10%
+        amount: 
+        upper:  10%
+
+  Molybdenum:
+
+    short:      Mo
+    unit:       mg
+    groups:     [ "Spurenelemente" ]
+    sources:    "DGE for now"
+    amounts:
+
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  10%
+        amount: 
+        upper:  10%
+
+  # TASK: missing in DGE
+
+  # Sulfur:
+  #
+  #   short:      S
+  #   unit:       mg
+  #   groups:     [ "Spurenelemente" ]
+  #   sources:    ""
+  #   amounts:
+  #
+  #     - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+  #       lower:  10%
+  #       amount: 
+  #       upper:  10%
