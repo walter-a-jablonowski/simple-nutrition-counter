@@ -34,8 +34,7 @@ substances:
   Alpha-linolenic acid:
     
     short:      ALA
-    group:      PolyUnsaturated
-    subGroup:   omega-3
+    groups:     ["PolyUnsaturated/omega-3"]
     essential:  true
     unit:       g
     comment:    "GPT 2408: Flaxseeds, chia seeds, walnuts, canola oil, and soybeans"
@@ -51,8 +50,7 @@ substances:
   Docosahexaenoic acid:
 
     short:      DHA
-    group:      PolyUnsaturated
-    subGroup:   omega-3
+    groups:     ["PolyUnsaturated/omega-3"]
     essential:  true
     unit:       g
     comment:    "GPT 2408: Fish (salmon, mackerel, sardines), fish oil, krill oil, and algae oil"
@@ -70,8 +68,7 @@ substances:
   Linoleic acid:
     
     short:      LA
-    group:      PolyUnsaturated
-    subGroup:   omega-6
+    groups:     ["PolyUnsaturated/omega-6"]
     essential:  true
     unit:       g
     comment:    "GPT 2408: Vegetable oils (sunflower, safflower, corn, soybean), nuts, and seeds"

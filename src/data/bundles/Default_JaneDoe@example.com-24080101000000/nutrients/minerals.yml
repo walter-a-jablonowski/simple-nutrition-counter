@@ -10,15 +10,13 @@ sources:
 
 substances:
 
-  # Roughly by amount of functions, rest below
-
-  # Mengenelemente
+  # Mengenelementee
 
   Salt:  # Na Cl: we use it combined as salt ins of the single substances
 
     short:      NaCl
     unit:       g
-    comment:    "Mengenelement"
+    groups:     [ "Mengenelemente" ]
     sources:
 
       - title: Andrew Huberman
@@ -41,7 +39,7 @@ substances:
 
     short:      K
     unit:       g
-    comment:    "Mengenelement"
+    groups:     [ "Mengenelemente" ]
     sources:    "DGE"
 
     amounts:
@@ -55,7 +53,7 @@ substances:
 
     short:      Ca
     unit:       mg
-    comment:    "Mengenelement"
+    groups:     [ "Mengenelemente" ]
     sources:    "DGE for now"
 
     amounts:  # currently we use the first entry hard coded only
@@ -69,7 +67,7 @@ substances:
 
     short:      P
     unit:       mg
-    comment:    "Mengenelement"
+    groups:     [ "Mengenelemente" ]
     sources:    "DGE for now"
 
     amounts:
@@ -83,7 +81,8 @@ substances:
 
     short:      Mg
     unit:       mg
-    comment:    "Mengenelement, increased need if doing sports"
+    groups:     [ "Mengenelemente" ]
+    comment:    "increased need if doing sports"
     sources:    "DGE for now"
 
     amounts:
@@ -104,7 +103,7 @@ substances:
 
     short:      Fe
     unit:       mg
-    comment:    "Mengenelement"
+    groups:     [ "Mengenelemente" ]
     sources:    "DGE for now"
 
     amounts:
@@ -114,6 +113,8 @@ substances:
         amount: 11
         upper:  10%
 
+  # groups:     [ "Spurenelemente" ]
+  
   # Iodine I
   # Fluoride F
   # Zinc Zn
