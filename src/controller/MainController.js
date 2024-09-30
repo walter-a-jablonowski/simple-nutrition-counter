@@ -435,8 +435,6 @@ class MainController
 
       entry.dataset.current = currentSum
 
-      let percentage = Math.min( (currentSum / entry.dataset.ideal) * 100, 100)  // min: ensure it doesn't exceed 100%
-
       let progressBarColor = 'bg-secondary'
 
       if( currentSum >= entry.dataset.lower && currentSum <= entry.dataset.upper )
@@ -444,9 +442,10 @@ class MainController
       else
         progressBarColor = 'bg-danger'
 
-      entry.find('.progress-bar').style.width   = `${percentage}%`
+      entry.find('.progress-bar').style.width = `${ Math.min( (currentSum / entry.dataset.ideal) * 100, 100)}%` // min: ensure it doesn't exceed 100% for progress
       // entry.find('.progress-label').textContent = `${currentSum} / ${entry.dataset.ideal}`
-      entry.find('.label').textContent = `${currentSum} / ${entry.dataset.ideal}`
+      entry.find('.percent').textContent = `${Math.round( (currentSum / entry.dataset.ideal) * 100 )}`
+      entry.find('.vals').textContent    = `${currentSum}/${entry.dataset.ideal}`
 
       entry.find('.progress-bar').classList.remove('bg-secondary', 'bg-success', 'bg-danger')
       entry.find('.progress-bar').classList.add(progressBarColor)

@@ -42,7 +42,10 @@
           >
             <div class="d-flex justify-content-between">  <!-- align-items-center justify-content-center -->
               <span><?= $data['name'] ?></span>
-              <span class="label">0 / <?= $data['ideal'] ?></span>
+              <span>
+                <span class="vals text-secondary small">0/<?= $data['ideal'] ?></span>
+                <span class="percent">0</span>%
+              </span>
             </div>
             <div class="progress w-100" role="progressbar">
               <div class="progress-bar bg-secondary" style="width: 0%;">
