@@ -44,7 +44,7 @@
               <div class="col">
                 <?= $data['name'] ?>
               </div>
-              <div class="col-3 vals text-secondary text-end small">^
+              <div class="col-4 vals text-secondary text-end small">^
                 0/<?= $data['ideal'] ?>
               </div>
               <div class="col-3 text-end">
