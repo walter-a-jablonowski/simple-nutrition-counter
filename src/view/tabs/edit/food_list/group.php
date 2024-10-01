@@ -37,15 +37,15 @@ $return['done'] = [];
     </div>
   </div>
 
-  <?php if( isset($def['@attribs']['short'])): ?>
-    <div class="row mt-1">                    
-      <div class = "col-12 px-2 small">
-        &nbsp;<?= $def['@attribs']['short'] ?>  <!-- simple spacer -->
-      </div>
-    </div>
-  <?php endif; ?>
-
   <div id="<?= $groupId ?>Collapse" class="p-1 collapse<?= self::iif( ! ($def['@attribs']['fold'] ?? false), ' show') ?>">
+
+    <?php if( isset($def['@attribs']['short'])): ?>
+      <div class="row mt-1">                    
+        <div class = "col-12 px-2 small">
+          &nbsp;<?= $def['@attribs']['short'] ?>  <!-- simple spacer -->
+        </div>
+      </div>
+    <?php endif; ?>
 
     <?php
 
