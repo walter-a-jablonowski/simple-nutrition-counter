@@ -50,7 +50,7 @@
   </div>
   <div class="col-6 col-md-2 col-xxl-2 mt-1 px-1" data-bs-toggle="modal" data-bs-target="#tipsModal">
     <div class="ps-1 bg-secondary text-white text-nowrap overflow-hidden">Fat / Amino <?= $a['primaryGoals']['fat:amino']['label'] ?></div>
-    <div class="value ps-1"><span id="fatSum">0</span> / <span id="aminoSum">0</span> g</div>
+    <div class="value ps-1 text-nowrap overflow-hidden"><span id="fatSum">0</span> / <span id="aminoSum">0</span> g</div>
   </div>
   <!-- (TASK) space saving quick summary design -->
 <!-- 
