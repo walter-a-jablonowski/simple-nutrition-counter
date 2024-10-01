@@ -22,6 +22,11 @@
               <a class="nav-link px-2 py-1 text-nowrap overflow-hidden<?= self::iif( $i === 1, ' active') ?>" data-bs-toggle="tab" href="#<?= $tabId ?>LayoutPane" role="tab"><?= $tab ?></a>
             </li>
           <?php endforeach; ?>
+          <li class="nav-item ms-auto">
+            <a onclick="mainCrl.newEntryBtn(event)" class="nav-link px-2 py-1 text-black" role="tab">
+              <i class="bi bi-pencil-square"></i>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -46,24 +51,10 @@
        - see also expired maybe in menu of single food
   -->
 
-  <div class="col-12 mt-1">
-    <div class="row">
-      <!-- TASK: add some first entries -->
-      <div class="col-9 col-md-9 col-xxl-9 pe-0 py-1">
-        <div style="border: 1px solid #bbb;">
-          &nbsp; <!-- spacer -->
-        </div>
-      </div>
-      <div class   = "col-1 col-md-1 col-xxl-1 ps-0 py-1 text-end"
-           onclick = "mainCrl.newEntryBtn(event)"
-      >                 <!-- TASK: v improve -->
-        <div class="pe-1" style="border-top: 1px solid #bbb; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">
-          <i class="bi bi-pencil-square"></i>  <!-- TASK: (advanced) also buyings here (maybe use some select that changes sub forms) -->
-        </div>
-      </div>
-<!--
-      TASK: fillup now in user > misc.yml
+  <!-- TASK: (advanced) also buyings here (maybe use some select that changes sub forms) -->
 
+  <!-- TASK: fillup now in user > misc.yml -->
+<!--
       < ?php if( config::get('special')): ?>
         <div class   = "col-12 col-md-6 col-xxl-4 p-2 py-1"
              onclick = "..."
@@ -72,13 +63,11 @@
         </div>
       < ?php endif; ?>
 -->
-    </div>
-  </div>
 
 
   <!-- Food groups (and tab content) -->
 
-  <div class="col-12 tab-content">
+  <div class="col-12 tab-content mt-1">
     
     <?php
 
