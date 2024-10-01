@@ -13,7 +13,7 @@
   <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css"> -->
   <link rel="stylesheet" href="lib/jquery-ui-1.13.3/jquery-ui.min.css">
   <link href="style/fixes.css?v=<?= time() ?>" rel="stylesheet">
-  <link href="style/theme.css?v=<?= time() ?>" rel="stylesheet">  <!-- TASK: was first to include, why? --
+  <link href="style/theme.css?v=<?= time() ?>" rel="stylesheet">  <!-- TASK: was first to include, why? -->
   <link href="style/app.css?v=<?= time() ?>"   rel="stylesheet">
 
 </head>
