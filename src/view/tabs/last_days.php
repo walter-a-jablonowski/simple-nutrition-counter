@@ -1,11 +1,11 @@
 <div class="scrollable-list border-0 mt-3">
-
+<!--
   <ul class="list-group">
     <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
       <div>Price avg</div>
       <div>
-        <?= number_format( $this->priceAvg, 2) ?>
-        <?= settings::get('currencySymbol') ?>
+        < ?= number_format( $this->priceAvg, 2) ?>
+        < ?= settings::get('currencySymbol') ?>
       </div>
     </li>
     <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
@@ -13,8 +13,34 @@
       <div>(maybe)</div>
     </li>
   </ul>
+-->
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle px-2 py-0 small" type="button" data-bs-toggle="dropdown">
+      Last week
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item small" href="#">Last week</a></li>
+      <li><a class="dropdown-item small" href="#">Last month</a></li>
+    </ul>
+  </div>
 
-  <div class="list-group mt-3">
+  <ul class="list-group mt-2">
+    <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
+      <div>Price</div>
+      <div>
+        <?= number_format( $this->priceAvg, 2) ?>
+        <?= settings::get('currencySymbol') ?>
+      </div>
+    </li>
+    <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
+      <div>Calories</div>
+      <div>
+        add some ...
+      </div>
+    </li>
+  </ul>
+
+  <div class="list-group mt-2">
 
     <!-- ios like design -->
 
