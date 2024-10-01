@@ -132,7 +132,7 @@ $return['done'] = [];
                data-price      = "<?= $data['price'] ?>"
                style           = "background-color: <?= $accepColor ?>;"
           >
-            <div style="background-color: <?= $accepColor ?>;">
+            <div style="background-color: <?= $accepColor ?>; cursor: pointer;">
               <?= $amount ?>
             </div>
           </div>
