@@ -14,19 +14,18 @@
     </li>
   </ul>
 -->
-  <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle px-2 py-0 small" type="button" data-bs-toggle="dropdown">
-      Last week
-    </button>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item small" href="#">Last week</a></li>
-      <li><a class="dropdown-item small" href="#">Last month</a></li>
-    </ul>
-  </div>
-
   <ul class="list-group mt-2">
     <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
-      <div>Price</div>
+      <div class="dropdown">
+        <button class="btn dropdown-toggle p-0" type="button" data-bs-toggle="dropdown">
+          <span class="small">Last week</span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item small" href="#">Last week</a></li>
+          <li><a class="dropdown-item small" href="#">2 weeks</a></li>
+          <li><a class="dropdown-item small" href="#">Last month</a></li>
+        </ul>
+      </div>
       <div>
         <?= number_format( $this->priceAvg, 2) ?>
         <?= settings::get('currencySymbol') ?>
