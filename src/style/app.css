@@ -8,8 +8,8 @@ a {
   transition: background-color 0.3s ease;
 }
 
-.blink-yellow:active {
-  background-color: yellow;
+.blink-yellow:active /*, .blink-yellow:hover, .blink-yellow:focus*/ {
+  background-color: yellow !important;
 }
 
 .scrollable-list {

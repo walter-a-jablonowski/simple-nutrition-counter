@@ -119,7 +119,7 @@ $return['done'] = [];
         //   $debug = 'halt';
         
         ?>                     <!-- pe-0 is for bg color -->
-          <div class   = "amount-btn col-2 p-1 pe-0 text-center blink-yellow"
+          <div class   = "amount-btn col-2 p-1 pe-0 text-center"
                onclick = "mainCrl.foodItemClick(event)"
                data-food       = "<?= $foodName ?>"
                data-calories   = "<?= $data['calories'] ?>"
@@ -132,8 +132,10 @@ $return['done'] = [];
                data-price      = "<?= $data['price'] ?>"
                style           = "background-color: <?= $accepColor ?>;"
           >
-            <div style="background-color: <?= $accepColor ?>; cursor: pointer;">
-              <?= $amount ?>
+            <div style="background-color: <?= $accepColor ?>;">
+              <div class="blink-yellow" style="cursor: pointer;">  <!-- TASK: currently needed for blink to work, seems conflicts with bg color -->
+                <?= $amount ?>
+              </div>
             </div>
           </div>
         <?php endforeach; ?>
