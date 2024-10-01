@@ -41,11 +41,11 @@
                data-current = "0"
           >
             <div class="row">
-              <div class="col">
+              <div class="col text-nowrap overflow-hidden">
                 <?= $data['name'] ?>
               </div>
-              <div class="col-4 vals text-secondary text-end small">^
-                0/<?= $data['ideal'] ?>
+              <div class="col-4 vals text-secondary text-end small text-nowrap overflow-hidden">
+                0 / <?= $data['ideal'] ?>
               </div>
               <div class="col-3 text-end">
                 <span class="percent">0</span>%
