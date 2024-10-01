@@ -5,7 +5,7 @@
   --bs-primary: #eb6864 !important;
 }
 
-.navbar.bg-primary {
+.bg-primary {
   background-color: var(--bs-primary) !important;
 }
 
@@ -20,6 +20,15 @@
 
 .nav-tabs .nav-link.active, .nav-tabs .nav-link.active:hover, .nav-tabs .nav-link.active:focus {
   color: var(--bs-primary) !important;
+}
+
+.nav-pills .nav-link {
+  color: var(--bs-primary);
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: var(--bs-primary);
 }
 
 .progress-bar.bg-success {
