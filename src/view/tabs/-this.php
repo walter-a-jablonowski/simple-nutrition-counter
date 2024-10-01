@@ -20,6 +20,12 @@
   </li>
 -->
   <li class="nav-item ms-auto" role="presentation">
+
+    <!-- TASK: rm currently used save btn -->
+    <button onclick = "mainCrl.saveDayEntriesBtnClick(event)" class="btn p-1 border-0 bg-transparent">
+      <i class="bi bi-floppy"></i>
+    </button>
+
     <button id="expandBtn" class="btn p-1 border-0 bg-transparent">
       <i class="bi bi-caret-down text-secondary"></i>
     </button>

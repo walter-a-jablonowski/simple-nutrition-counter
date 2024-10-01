@@ -54,17 +54,9 @@
           &nbsp; <!-- spacer -->
         </div>
       </div>
-      <!-- TASK: rm currently used save btn -->
-      <div class   = "col-2 col-md-2 col-xxl-2 px-0 py-1"
-           onclick = "mainCrl.saveDayEntriesBtnClick(event)"
-      >                 <!-- TASK: v improve -->
-        <div class="ps-1" style="border-top: 1px solid #bbb; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">
-          Save
-        </div>
-      </div>
       <div class   = "col-1 col-md-1 col-xxl-1 ps-0 py-1 text-end"
            onclick = "mainCrl.newEntryBtn(event)"
-      >
+      >                 <!-- TASK: v improve -->
         <div class="pe-1" style="border-top: 1px solid #bbb; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">
           <i class="bi bi-pencil-square"></i>  <!-- TASK: (advanced) also buyings here (maybe use some select that changes sub forms) -->
         </div>
