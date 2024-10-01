@@ -54,20 +54,19 @@ substances:
   Calcium:
 
     short:      Ca
-    unit:       mg
+    unit:       g
     groups:     [ "Mengenelemente" ]
     sources:    "DGE for now"
     amounts:  # currently we use the first entry hard coded only
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%
-        amount: 1000
+        amount: 1
         upper:  10%
 
   Phosphorus:
 
     short:      P
-    unit:       mg
     groups:     [ "Mengenelemente" ]
     sources:    "DGE for now"
     amounts:
@@ -80,7 +79,6 @@ substances:
   Magnesium:
 
     short:      Mg
-    unit:       mg
     groups:     [ "Mengenelemente" ]
     comment:    "increased need if doing sports"
     sources:    "DGE for now"
@@ -102,7 +100,6 @@ substances:
   Iron:
 
     short:      Fe
-    unit:       mg
     groups:     [ "Mengenelemente" ]
     sources:    "DGE for now"
     amounts:
@@ -115,7 +112,6 @@ substances:
   Iodine:
 
     short:      I
-    unit:       mg
     groups:     [ "Spurenelemente" ]
     comment:    "DGE has 2 values 150 or 200µg"
     sources:    "DGE for now"
@@ -129,7 +125,6 @@ substances:
   Fluoride:
 
     short:      F
-    unit:       mg
     groups:     [ "Spurenelemente" ]
     sources:    "DGE for now"
     amounts:
@@ -142,7 +137,6 @@ substances:
   Zinc:
 
     short:      Zn
-    unit:       mg
     groups:     [ "Spurenelemente" ]
     comment:    "DGE has multiple values"
     sources:    "DGE for now"
@@ -156,7 +150,6 @@ substances:
   Selenium:
 
     short:      Se
-    unit:       mg
     groups:     [ "Spurenelemente" ]
     sources:    "DGE for now"
     amounts:
@@ -171,7 +164,6 @@ substances:
   Copper:
 
     short:      Cu
-    unit:       mg
     groups:     [ "Spurenelemente" ]
     sources:    "DGE for now"
     amounts:
@@ -183,7 +175,6 @@ substances:
   Chromium:
 
     short:      Cr
-    unit:       mg
     groups:     [ "Spurenelemente" ]
     sources:    "DGE for now"
     amounts:
@@ -196,7 +187,6 @@ substances:
   Manganese:
 
     short:      Mn
-    unit:       mg
     groups:     [ "Spurenelemente" ]
     sources:    "DGE for now"
     amounts:
@@ -209,7 +199,6 @@ substances:
   Molybdenum:
 
     short:      Mo
-    unit:       mg
     groups:     [ "Spurenelemente" ]
     sources:    "DGE for now"
     amounts:
@@ -224,7 +213,6 @@ substances:
   # Sulfur:
   #
   #   short:      S
-  #   unit:       mg
   #   groups:     [ "Spurenelemente" ]
   #   sources:    ""
   #   amounts:

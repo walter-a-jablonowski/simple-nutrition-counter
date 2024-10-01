@@ -10,7 +10,6 @@ substances:
   alcohol:
 
     short:      Alc
-    unit:       mg
 
     amounts:  # currently we use the first entry hard coded only
 
@@ -22,7 +21,6 @@ substances:
   caffeine:
 
     short:      Caf
-    unit:       mg
 
     amounts:  # currently we use the first entry hard coded only
 

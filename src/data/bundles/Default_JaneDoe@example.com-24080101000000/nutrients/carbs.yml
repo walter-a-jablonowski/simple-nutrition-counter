@@ -1,7 +1,6 @@
 
 name:    Carbs
 short:   carbs
-unit:    g  # carbs per day
 sources:
 
   - title: ""

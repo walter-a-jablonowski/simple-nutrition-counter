@@ -28,7 +28,6 @@ substances:
 
     subType:    methylcobalamin  # TASK: use `type: natural B12 variant` for id?
     short:      B12
-    unit:       
 
     amounts:  # currently we use the first entry hard coded only
 
@@ -40,7 +39,6 @@ substances:
   Vitamin E:
 
     short:      VitE
-    unit:       mg
 
     amounts:  # currently we use the first entry hard coded only
 

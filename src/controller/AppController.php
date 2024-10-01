@@ -273,7 +273,7 @@ class AppController extends ControllerBase
 
       foreach( $this->nutrientsModel->get("$groupName.substances") as $name => $attr )  // short is used as id
       {
-        $a = $attr['amounts'][0];  // TASK: use unit for sth?
+        $a = $attr['amounts'][0];
 
         $this->nutrientsView->set("$shortName.$attr[short]", [
                                        
@@ -316,7 +316,6 @@ class AppController extends ControllerBase
       //   $entries[$idx][7] = Yaml::parse( $entries[$idx][7] );
       
       // TASK: upd this a bit?
-      // TASK: (advanced) unit from data?
 
       $this->lastDaysView->set( $dat, [
         'Calories'    => ( ! $entries ? 0 : array_sum( array_column($entries, 2))),

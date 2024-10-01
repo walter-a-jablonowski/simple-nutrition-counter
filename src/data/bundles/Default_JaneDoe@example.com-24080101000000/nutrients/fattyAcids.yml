@@ -4,7 +4,6 @@
 
 name:       Fatty acids
 short:      fat
-unit:       g  # all fats per day
 sources:
 
   - title: "Claude: only first 2 (ALA, DHA), ChatGPT mentions: ALA, EPA, DHA, LA (below), Arachidonic acid"
@@ -52,7 +51,6 @@ substances:
     short:      DHA
     groups:     ["PolyUnsaturated/omega-3"]
     essential:  true
-    unit:       g
     comment:    "GPT 2408: Fish (salmon, mackerel, sardines), fish oil, krill oil, and algae oil"
     sources:    "GPT and Claude 2408 for now"
 
@@ -70,7 +68,6 @@ substances:
     short:      LA
     groups:     ["PolyUnsaturated/omega-6"]
     essential:  true
-    unit:       g
     comment:    "GPT 2408: Vegetable oils (sunflower, safflower, corn, soybean), nuts, and seeds"
     sources:    "GPT and Claude 2408 for now"
 

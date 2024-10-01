@@ -4,7 +4,6 @@
 
 name:      Amino acids
 short:     amino  # TASK: name `shortId` (normally `@shortId` but looks nicer)
-unit:      g      # amino per day
 comment:   "Increased need if doing sports"
 sources:
 
