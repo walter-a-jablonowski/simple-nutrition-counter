@@ -4,7 +4,7 @@
     <li class="list-group-item px-2 py-1 small">
       <div class="form-check">
         <input id="offLimitCheck" onchange="mainCrl.offLimitCheckChange(event)" type="checkbox" value="" class="form-check-input">
-        <label class="form-check-label small" for="offLimitCheck">
+        <label class="form-check-label small" for="offLimitCheck">  <!-- TASK: use a btn here, color indicates on -->
           off limit only
         </label>
       </div>
