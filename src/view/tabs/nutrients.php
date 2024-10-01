@@ -40,12 +40,16 @@
                data-upper = "<?= $data['upper'] ?>"
                data-current = "0"
           >
-            <div class="d-flex justify-content-between">  <!-- align-items-center justify-content-center -->
-              <span><?= $data['name'] ?></span>
-              <span>
-                <span class="vals text-secondary small">0/<?= $data['ideal'] ?></span>
+            <div class="row">
+              <div class="col">
+                <?= $data['name'] ?>
+              </div>
+              <div class="col-3 vals text-secondary text-end small">^
+                0/<?= $data['ideal'] ?>
+              </div>
+              <div class="col-3 text-end">
                 <span class="percent">0</span>%
-              </span>
+              </div>
             </div>
             <div class="progress w-100" role="progressbar">
               <div class="progress-bar bg-secondary" style="width: 0%;">
