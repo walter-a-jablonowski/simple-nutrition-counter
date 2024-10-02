@@ -6,11 +6,8 @@
 
   <title>Nutri Counter</title>
 
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
   <link href="lib/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet"> -->
   <link href="lib/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-  <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css"> -->
   <link rel="stylesheet" href="lib/jquery-ui-1.13.3/jquery-ui.min.css">
   <link href="style/fixes.css?v=<?= time() ?>" rel="stylesheet">
   <link href="style/theme.css?v=<?= time() ?>" rel="stylesheet">  <!-- TASK: was first to include, why? -->
@@ -122,12 +119,8 @@ else:
 <!--
 < ?php endif;  // error_page and login ?>
 -->
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
-<!-- <script src="lib/jquery-3.6.0.min.js"></script> -->
 <script src="lib/jquery-3.7.1.min.js"></script>
-<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
 <script src="lib/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
-<!-- <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> -->
 <script src="lib/jquery-ui-1.13.3/jquery-ui.min.js"></script>
 <script src="lib/frm/events_240321.js"></script>
 <script src="lib/frm/query_240321.js"></script>
