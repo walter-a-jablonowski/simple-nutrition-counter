@@ -1,7 +1,7 @@
 vendor:            Norma
 acceptable:        less
 comment:           "2 smaller pieces count as one, one big as 2"
-packaging:         plastic,cardboard
+packaging:         plastic & cardboard
 
 price:             1.89
 weight:            500g

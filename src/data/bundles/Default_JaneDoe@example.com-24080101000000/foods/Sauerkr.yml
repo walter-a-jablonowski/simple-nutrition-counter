@@ -2,7 +2,7 @@ vendor:            Rewe
 
 certificates:      { bio: true, NutriScore: A }
 ingredients:       "Weißkohl, Meersalz"
-packaging:         alu,rubber (maybe)
+packaging:         alu & rubber (maybe)
 
 price:             0.99  # TASK: guess
 weight:            385

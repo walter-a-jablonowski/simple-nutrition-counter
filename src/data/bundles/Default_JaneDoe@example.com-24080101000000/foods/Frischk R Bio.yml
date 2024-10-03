@@ -3,7 +3,7 @@ vendor:            Rewe
 url:               "https://shop.rewe.de/p/rewe-bio-koerniger-frischkaese-200g/1906432"
 acceptable:        occasionally
 certificates:      { bio: true, NutriScore: B }
-packaging:         plastic,alu
+packaging:         plastic & alu
 
 price:             
 weight:            200

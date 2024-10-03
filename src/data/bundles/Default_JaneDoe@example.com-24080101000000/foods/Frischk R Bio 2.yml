@@ -5,7 +5,7 @@ acceptable:        less
 certificates:      { bio: true, NutriScore: D }
 ingredients:       "MILCH*, Speisesalz, MILCHsäurekulturen, mikrobielles"
 allergy:           "Milch und Milcherzeugnisse (einschließlich Lactose)"              
-packaging:         plastic,alu
+packaging:         plastic & alu
 
 price:             0.99  # deal
 weight:            175

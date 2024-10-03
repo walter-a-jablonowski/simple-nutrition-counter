@@ -4,7 +4,7 @@ vendor:            Rewe
 acceptable:        occasionally
 certificates:      { bio: true }
 ingredients:       "Hähnchen, Pute, Palmfett, Meersalz, Traubenzucker, Gewürze, Antiox: Natriumascorbat, Konserv: Natriumnitrit, Reifekulturen, Buchenholzrauch"
-packaging:         plastic,cardboard
+packaging:         plastic & cardboard
 
 price:             2.79  # TASK: Aldi 2.19 2024-06-08
 weight:            80

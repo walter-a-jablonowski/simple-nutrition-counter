@@ -1,6 +1,6 @@
 vendor:            Rewe
 certificates:      { bio: true }
-packaging:         glass,rubber
+packaging:         glass & rubber
 
 price:             1.69
 weight:            180

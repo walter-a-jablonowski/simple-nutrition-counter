@@ -1,7 +1,7 @@
 productName:       "Gut Bio Griechische Oliven"
 vendor:            Aldi
 certificates:      { bio: true, NutriScore: C }
-packaging:         glass,rubber
+packaging:         glass & rubber
 
 price:             
 weight:            180

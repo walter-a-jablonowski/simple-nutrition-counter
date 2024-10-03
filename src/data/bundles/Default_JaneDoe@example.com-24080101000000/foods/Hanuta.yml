@@ -2,7 +2,7 @@ vendor:            "Eni"  # TASK: multiple
 url:               "https://www.hanuta.de/hanuta/zutaten"
 acceptable:        less
 ingredients:       "Zucker, pflanzliche Fette (Palm, Shea), WEIZENMEHL (13,5 %), HASELNÜSSE (13 %), SÜSSMOLKENPULVER, fettarmer Kakao, VOLLMILCHSCHOKOLADE (Zucker, VOLLMILCHPULVER, Kakaobutter, Kakaomasse, Emulgator Lecithine (SOJA), Vanillin), MAGERMILCHPULVER, BUTTERREINFETT, Salz, Halbbitterschokolade (Zucker, Kakaomasse, Kakaobutter, Emulgator Lecithine (SOJA), Vanillin), Emulgator Lecithine (SOJA), Aromen, Traubenzucker, Backtriebmittel Natriumhydrogencarbonat, Vanillin"
-packaging:         alu,cardboard
+packaging:         alu & cardboard
 
 price:             0.99
 weight:            44

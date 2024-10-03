@@ -1,6 +1,6 @@
 vendor:            Norma
 # acceptable:      occasionally  # currently no alternative
-packaging:         glass,rubber
+packaging:         glass & rubber
 
 price:             0.99
 weight:            430

@@ -1,6 +1,6 @@
 vendor:            Rewe
 acceptable:        less
-packaging:         glass,rubber
+packaging:         glass & rubber
 
 price:             0.75                # price for 0.33 (guess) # (TASK) for 2 variants
 weight:            500                 # larger one

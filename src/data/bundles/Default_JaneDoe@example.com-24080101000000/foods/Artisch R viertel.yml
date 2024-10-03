@@ -2,7 +2,7 @@ vendor:            Rewe
 # acceptable:      occasionally  # currently no alternative
 productName:       "Gegrillte Artischockenviertel in Sonnenblumenöl mit Kräutern"
 comment:           "kein Abtropfgewicht"
-packaging:         glass,rubber
+packaging:         glass & rubber
   
 price:             2.29
 weight:            280

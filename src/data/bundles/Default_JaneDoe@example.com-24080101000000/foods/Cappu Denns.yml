@@ -4,7 +4,7 @@ url:               "https://www.schrozberger-milchbauern.de/produkte/cappuccino"
 acceptable:        less
 certificates:      { bio: true }
 ingredients:       "Vollmilch*, Rohrohrzucker*, 1% Löskaffee*, Maisstärke*, Verdickungsmittel: Johannisbrotkernmehl"
-packaging:         plastic,alu
+packaging:         plastic & alu
 
 price:             1.29  # TASK: price is a guess
 weight:            230ml

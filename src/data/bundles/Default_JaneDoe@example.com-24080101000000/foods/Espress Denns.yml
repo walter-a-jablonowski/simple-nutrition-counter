@@ -3,7 +3,7 @@ url:               "https://www.schrozberger-milchbauern.de/produkte/espresso"
 acceptable:        less
 certificates:      { bio: true }
 ingredients:       "Vollmilch*, Rohrohrzucker*, 0,6% Löskaffee*, Maisstärke*, Verdickungsmittel: Johannisbrotkernmehl"
-packaging:         plastic,alu
+packaging:         plastic & alu
 
 price:             1.29
 weight:            230ml
