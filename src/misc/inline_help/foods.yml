@@ -30,7 +30,7 @@ ingredients:         { usage: "Ingredients that you want to be aware of (html)",
 allergy:             { usage: "Ingredients that may cause allergy",       required: false, type: "string" }
 mayContain:          { usage: "Ingredients that may be contained cause of production", required: false, type: "string" }
 origin:              { usage: "Country of origin or n/a, if you want to be aware of",  required: false, type: "string" }
-packaging:           { usage: "outer contact with food only --> none|cardboard,alu,plastic,glass & rubber (maybe) <-- inner",
+packaging:           { usage: "outer contact with food only --> none|cardboard->alu->plastic -> glass & rubber (maybe) <-- inner",
                          required: false, type: "string(array)" }
 
 cookingInstructions: { usage: "We can use html here or multi line using yml syntax", required: false, type: "string" }
