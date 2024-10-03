@@ -1,0 +1,26 @@
+vendor:            Rewe
+url:               "https://shop.rewe.de/p/ja-sardinen-in-sonnenblumenoel-90g/8294791?sv1=affiliate&sv_campaign_id=101248&awc=11652_1727991875_5e5ffde7ae3798fef8f5d546d258a0ab&ecid=aff_awin_101248_takeads.com_0_nn_nn_nn_pm01&zanpid=11652_1727991875_5e5ffde7ae3798fef8f5d546d258a0ab"
+acceptable:        occasionally
+comment:           "careful cause of mercury"
+certificates:      { NutriScore: A }
+ingredients:       "SARDINEN 75%**, Sonnenblumenöl 24%, Speisesalz"
+packaging:         alu
+
+price:             0.99
+weight:            125
+usedAmounts:       [1]
+
+calories:          211
+nutritionalValues:
+
+  fat:             12.9
+  saturatedFat:    2.8
+  carbs:           0.1
+  sugar:           0
+  amino:           23.6
+  salt:            0.6
+
+sources:           { nutriVal: "pack" }
+state:             most
+lastUpd:           2024-09-03
+lastPriceUpd:      2024-09-03
