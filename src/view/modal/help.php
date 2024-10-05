@@ -11,13 +11,13 @@
 
         <ul class="nav nav-tabs" role="tablist">
           <li class="nav-item" role="presentation">
-            <a href="#helpPane" class="nav-link active py-1 px-2 small" data-bs-toggle="tab" role="tab">
-              Help
+            <a href="#helpNutritionPane" class="nav-link active py-1 px-2 small" data-bs-toggle="tab" role="tab">
+              Nutrition
             </a>
           </li>
           <li class="nav-item" role="presentation">
-            <a href="#helpMiscPane" class="nav-link py-1 px-2 small" data-bs-toggle="tab" role="tab">
-              Misc
+            <a href="#helpAppPane" class="nav-link py-1 px-2 small" data-bs-toggle="tab" role="tab">
+              App
             </a>
           </li>
           <li class="nav-item ms-auto" role="presentation">
@@ -26,12 +26,12 @@
         </ul>
 
         <div class="tab-content mt-3">
-          <div id="helpPane" class="tab-pane fade show active" role="tabpanel">
+          <div id="helpNutritionPane" class="tab-pane fade show active" role="tabpanel">
 
-            <?php require('misc/help.php'); ?>
+            <?php require('misc/help_nutrition.php'); ?>
 
           </div>
-          <div id="helpMiscPane" class="tab-pane fade" role="tabpanel">
+          <div id="helpAppPane" class="tab-pane fade" role="tabpanel">
 
             some content
 
