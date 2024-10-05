@@ -25,15 +25,35 @@ Nutrient files
 
 (advanced feature)
 
-- derived see below
+derived see below
+
+```yaml
+
+# DEV basic substance entry
+
+substances:
+
+  SUB:
+
+    short:        
+    essential:    true
+    sources:      "DGE for now"
+
+    amounts:
+
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  10%
+        amount: 1
+        upper:  10%
+```
 
 ```yaml
 
 # Nutrient group data
 
-name:                            # display name
-short:                           # short name used as short unique id in daily files (file name is alternative id used in code)
-unit:      g                     # (non-required) default is g for groups and mg for nutrients
+name:                            # (TASK: required ?) display name
+short:                           # (required) short name used as short unique id in daily files (file name is alternative id used in code)
+unit:      g                     # default is g for groups and mg for nutrients
 per:       day
 comment:   "Increased need if doing sports"
 
@@ -52,14 +72,14 @@ substances:                       # (required) key at least empty []
 
   B 12:                           # display name
 
-    short:        B12             # short name is used as unique id over all files
-    unit:         mg
+    short:        B12             # (required) short name is used as unique id over all files
+    unit:         mg              # (non-required) default is mg
     groups:       ["PolyUnsaturated/..."]  # alternative groups
-    essential:    true
+    essential:    true            # (non-required but use)
 
     comment:                      # Advantage
-    interactions:      
-    sideEffects:      
+    interactions:                 
+    sideEffects:                  
     careful:      false
 
     usage:
@@ -79,14 +99,13 @@ substances:                       # (required) key at least empty []
         sub:   
         comment:
 
-    amounts:
+    amounts:         # TASK: BMI might be relevant for weight
 
-      # TASK: BMI might be relevant for weight
-      
-      - criteria: { dayType: standard, gender: male, age: 40, weight: 70, height: "*" }  # height might be used to fix weight
-        lower:  4%   # bounds for acceptable intake (percent or precise)
-        amount:
-        upper:  8   
+      #                      v default: standard, height might be used to fix weight
+      - criteria: { dayType: workout, gender: male, age: 40, weight: 70, height: "*" }  # (required)
+        lower:  4%   # (required) bounds for acceptable intake (percent or precise)
+        amount:      # (required)
+        upper:  8    # (required)
         sources:     # string or array(object), same as above (if needed for being more precise)
 
           - title:
