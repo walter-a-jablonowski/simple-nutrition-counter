@@ -1,7 +1,7 @@
-<b>Human by nutient group</b> <br>
-<br>
-by ChatGPT (TASK: verify, maybe somwhere outside the app)<br>
-<br>
+<h6>Human by nutient group</h6>
+
+<p>by ChatGPT (TASK: verify, maybe somewhere outside the app)</p>
+
 <table border="0" cellpadding="8" cellspacing="0">
   <thead>
     <tr>
