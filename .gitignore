@@ -1,6 +1,5 @@
 desktop.ini
 *.ini
-nutri.code-workspace
 .favorites.json
 composer.lock
 vendor/
