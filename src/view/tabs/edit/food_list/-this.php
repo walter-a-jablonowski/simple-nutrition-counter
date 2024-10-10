@@ -2,10 +2,6 @@
 
   <span id="uiMsg"></span>  <!-- TASK: mov somewhere outside tab or one msg per tab (or use a toast) -->
 
-  <!-- TASK: maybe use: smartphone 1 col, tabl 2 col, large 3 or col -->
-  <!-- 3 col: col-12 col-md-6 col-lg-4 col-xxl-3 -->
-  <!-- 2 col: col-12 col-md-6 col-xxl-4 -->
-
 
   <!-- Food tabs content (only if more than one) -->
 
@@ -35,21 +31,7 @@
   <!-- TASK: add a collapse expand all (single btn) -->
 
 
-  <!-- Buttons and first entries -->
-
-  <!-- TASK: single group above full width with ho header see (first_entries) -->
-  <!-- TASK: fillup now in user > misc.yml -->
-<!--
-      < ?php if( config::get('special')): ?>
-        <div class   = "col-12 col-md-6 col-xxl-4 p-2 py-1"
-             onclick = "..."
-        >
-          Fillup
-        </div>
-      < ?php endif; ?>
--->
-  <!-- TASK: (advanced) also buyings here (maybe use some select that changes sub forms in the new form) -->
-
+  <!-- TASK: (advanced) MOV also buyings here (maybe use some select that changes sub forms in the new form) -->
 
   <!-- Food groups (and tab content) -->
 
@@ -76,6 +58,10 @@
         ");
       }
 
+      // TASK: single group above full width with ho header see (first_entries)
+      //       add in done and exclude below
+      //       special and fillup now in user > misc.yml
+    
       // Group
 
       foreach( $layout as $groupName => $def )

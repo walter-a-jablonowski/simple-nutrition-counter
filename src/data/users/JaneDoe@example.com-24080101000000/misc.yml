@@ -7,6 +7,8 @@
 #  variable expenses spent on daily basis
 #
 
+# TASK: MOV all in my personal fld
+
 housewares:
 
   Rollen:         { price: 3.49, lastUpd: 2024-06-04 }
