@@ -100,7 +100,7 @@ else:
 
   </div>
   
-  <?php print $this->inc( __DIR__ . '/modal/tips.php'); ?>  <!-- prefer new scope when much code -->
+  <?php print $this->render( __DIR__ . '/modal/tips.php'); ?>  <!-- prefer new scope when much code -->
   <?php require( __DIR__ . '/modal/help.php'); ?>
   <?php require( __DIR__ . '/modal/about.php'); ?>
   <?php require( __DIR__ . '/modal/new_entry.php'); ?>

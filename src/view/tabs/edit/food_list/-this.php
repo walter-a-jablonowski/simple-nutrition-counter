@@ -50,7 +50,7 @@
 -->
   <!-- TASK: (advanced) also buyings here (maybe use some select that changes sub forms in the new form) -->
 
-  
+
   <!-- Food groups (and tab content) -->
 
   <div class="col-12 tab-content mt-1">
@@ -85,7 +85,7 @@
         
         $groupId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $groupName));
 
-        print $this->inc( __DIR__ . '/group.php', [
+        print $this->render( __DIR__ . '/group.php', [
           'groupId'   => $groupId,
           'groupName' => $groupName,
           'def'       => $def
@@ -113,7 +113,7 @@
           {
             ksort($miscFoods);
             
-            print $this->inc( __DIR__ . '/group.php', [
+            print $this->render( __DIR__ . '/group.php', [
               'groupId'   => lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', 'Misc foods')),
               'groupName' => 'Misc',
               'def' => [
@@ -134,7 +134,7 @@
           {
             ksort($removed);
             
-            print $this->inc( __DIR__ . '/group.php', [
+            print $this->render( __DIR__ . '/group.php', [
               'groupId'     => lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', 'Removed')),
               'groupName'   => 'Removed',
               'showRemoved' => true,
