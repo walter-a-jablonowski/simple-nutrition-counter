@@ -32,27 +32,12 @@
     </div>
   <?php endif; ?>
 
+  <!-- TASK: add a collapse expand all (single btn) -->
+
 
   <!-- Buttons and first entries -->
 
-  <!-- TASK: add a collapse expand all (single btn) -->
-
-  <!-- TASK: first line
-  
-       - single group above full width for coffee, water, see (first_entries)
-       - combine with single enter btn on the side
-
-       - alternative: full width group with header (multiple lines for entries folded)
-       - alternative: put the new btn right of tabs
-
-       Water | Coffee | ... [new ...]  <-- highlight btn bg
-
-       - Water use food: Wasser lg, Wasser sm
-       - see also expired maybe in menu of single food
-  -->
-
-  <!-- TASK: (advanced) also buyings here (maybe use some select that changes sub forms) -->
-
+  <!-- TASK: single group above full width with ho header see (first_entries) -->
   <!-- TASK: fillup now in user > misc.yml -->
 <!--
       < ?php if( config::get('special')): ?>
@@ -63,8 +48,9 @@
         </div>
       < ?php endif; ?>
 -->
+  <!-- TASK: (advanced) also buyings here (maybe use some select that changes sub forms in the new form) -->
 
-
+  
   <!-- Food groups (and tab content) -->
 
   <div class="col-12 tab-content mt-1">
@@ -129,7 +115,7 @@
             
             print $this->inc( __DIR__ . '/group.php', [
               'groupId'   => lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', 'Misc foods')),
-              'groupName' => 'Misc foods',
+              'groupName' => 'Misc',
               'def' => [
                 '@attribs' => [
                   'short' => null,
@@ -150,7 +136,7 @@
             
             print $this->inc( __DIR__ . '/group.php', [
               'groupId'     => lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', 'Removed')),
-              'groupName'   => 'Removed foods',
+              'groupName'   => 'Removed',
               'showRemoved' => true,
               'def' => [
                 '@attribs' => [

@@ -132,8 +132,8 @@ class AppController extends ControllerBase
 
     // Edit tab: Food list
 
-    $this->makeFoodsView();
-    $this->layout = Yaml::parse( file_get_contents("data/bundles/Default_$user->id/food_layout.yml"));
+    $this->makeLayoutView();
+    $this->layout = Yaml::parse( file_get_contents("data/bundles/Default_$user->id/layout.yml"));
     
     foreach( $this->layout as $tab => $layout )
     {
@@ -168,13 +168,13 @@ class AppController extends ControllerBase
 
   /*@
 
-  makeFoodsView()
+  makeLayoutView()
 
-  - pre calc all food and recipes nutritional values per amount used
+  - pre calc all amounts
   - easy print in food grid, less js logic
 
   */
-  private function makeFoodsView()  /*@*/
+  private function makeLayoutView()  /*@*/
   {
     $settings = settings::instance();
     $user     = User::current();
