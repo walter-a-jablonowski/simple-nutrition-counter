@@ -119,9 +119,6 @@ class AppController extends ControllerBase
     
     // TASK: mov some
 
-    // foreach( $this->dayEntries as $idx => $entry )
-    //   $this->dayEntries[$idx][8] = Yaml::parse( $this->dayEntries[$idx][8] );
-
     foreach( $this->dayEntries as $idx => &$entry )
       $entry[8] = Yaml::parse( $entry[8] );
       // $this->foodEntries[] = array_slice($entry, 1);  // ai says function ensures byval
@@ -129,6 +126,9 @@ class AppController extends ControllerBase
 
     unset($entry);  // needed cause in a later `<?php foreach( $this->dayEntries as $entry ): ? >`
                     // entry still exists as ref, which means the last entry gets replaced with the data of the first
+
+    // foreach( $this->dayEntries as $idx => $entry )
+    //   $this->dayEntries[$idx][8] = Yaml::parse( $this->dayEntries[$idx][8] );
 
     // Edit tab: Food list
 
@@ -185,7 +185,7 @@ class AppController extends ControllerBase
     {
       // print "$name<br>";   // DEBUG
 
-      // if( $name == 'Chick R Bio' )
+      // if( $name == 'Chick R Bio')
       //   $debug = 'halt';
 
       $data['weight'] = trim( $data['weight'], "mgl ");  // just for convenience, we don't need the unit here
