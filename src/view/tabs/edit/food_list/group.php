@@ -58,7 +58,7 @@ $return['done'] = [];
         continue;  // no removed foods, even if in layout (see group Removed foods in UI)
 
       $foodId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $foodName));  // TASK: use food id from SimpleData key as soon as upd, maybe we need prefix this so that no Ids get confused?
-      $amountData = $this->foodsView->get($foodName);  // foods and recipes are merged in one
+      $amountData = $this->layoutView->get($foodName);  // foods and recipes are merged in one
 
       $return['done'][] = $foodName;  // left over will be printed below (done = foods and recipes in a single list)
 

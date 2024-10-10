@@ -28,8 +28,8 @@ class AppController extends ControllerBase
 
   protected string     $dayEntriesTxt;   // edit tab
   protected array      $dayEntries;
-  protected SimpleData $foodsView;
   protected array      $layout;
+  protected SimpleData $layoutView;
 
   protected SimpleData $nutrientsView;   // nutrients tab, last days
   protected float      $priceAvg;
@@ -179,7 +179,7 @@ class AppController extends ControllerBase
     $settings = settings::instance();
     $user     = User::current();
 
-    $this->foodsView = new SimpleData();
+    $this->layoutView = new SimpleData();
 
     foreach( $this->foodsModel->all() as $name => $data )
     {
@@ -246,7 +246,7 @@ class AppController extends ControllerBase
             }
         }
 
-        $this->foodsView->set("$name.$amount", $perWeight);
+        $this->layoutView->set("$name.$amount", $perWeight);
         // $id = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $name));  // TASK: shorten
       }
     }

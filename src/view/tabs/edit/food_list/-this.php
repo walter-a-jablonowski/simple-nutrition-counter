@@ -84,8 +84,8 @@
 
       if( count($this->layout) === 1 )
       {
-        // $allFoods = array_keys( $this->foodsView->all());
-        $allFoods = $this->foodsView->keys();                // foods and recipes are merged in one
+        // $allFoods = array_keys( $this->layoutView->all());
+        $allFoods = $this->layoutView->keys();                // foods and recipes are merged in one
 
         if( count($allFoods) > count( array_unique($done)))  // foods can appear in layout multiple times
         {
