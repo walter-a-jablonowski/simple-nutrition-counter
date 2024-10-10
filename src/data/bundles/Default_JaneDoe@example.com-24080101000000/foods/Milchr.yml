@@ -1,0 +1,24 @@
+vendor:            Norma
+
+acceptable:        less
+packaging:         alu & plastic
+
+price:             
+weight:            200g
+usedAmounts:       [1]
+
+calories:          117
+nutritionalValues: 
+
+  fat:             3
+  saturatedFat:    2
+  carbs:           18.9
+  sugar:           10
+  amino:           3.5
+  salt:            0.28
+
+sources:           { nutriVal: "pack" }
+
+state:             most
+lastUpd:           2024-10-11
+lastPriceUpd:      
