@@ -4,7 +4,7 @@
   <ul id="dayEntries" class="list-group">
     <?php for( $i=0; $i < 4; $i++): ?>
     <!-- < ?php foreach( $this->foodsView->get(...)): ?> -->
-      <li class   = "food-item p-0 list-group-item d-flex justify-content-between align-items-center"
+      <li class   = "layout-item p-0 list-group-item d-flex justify-content-between align-items-center"
           onclick = ""
           data-type      = "food"
           data-weight    = ""

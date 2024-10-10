@@ -32,7 +32,7 @@ a {
 
 @media( max-width: 576px) {   /* xs < 576px */
   #quickSummary .value { font-size: 1.25rem; }
-  #foodList .food-item { font-size: 1.25rem; }
+  #layout .layout-item { font-size: 1.25rem; }
 }
 /*
 @media( min-width: 576px) {   /* sm > 576px * /
@@ -40,7 +40,7 @@ a {
 */
 @media( min-width: 768px) {   /* md > 768px */
   #quickSummary .value { font-size: 1.25rem; }
-  #foodList .food-item { font-size: 1.25rem; }
+  #layout .layout-item { font-size: 1.25rem; }
 }
 /*
 @media( min-width: 992px) {   /* lg > 992px * /
@@ -52,7 +52,7 @@ a {
 */
 @media( min-width: 1400px ) { /* xxl > 1400px */
   #quickSummary .value { font-size: 1rem; }
-  #foodList .food-item { font-size: 1rem; }
+  #layout .layout-item { font-size: 1rem; }
 }
 
 /* BS */
@@ -95,7 +95,7 @@ a {
 
 /* Food list */
 
-.food-item {
+.layout-item {
   cursor: pointer;  /* TASK */
 }
 

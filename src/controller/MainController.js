@@ -11,7 +11,7 @@ class MainController
     // this.nextDayBtnClick     = this.nextDayBtnClick.bind(this)
     // this.thisDayBtnClick     = this.thisDayBtnClick.bind(this)
     this.saveDayEntriesBtnClick = this.saveDayEntriesBtnClick.bind(this)
-    this.foodItemClick          = this.foodItemClick.bind(this)
+    this.layoutItemClick        = this.layoutItemClick.bind(this)
     this.offLimitCheckChange    = this.offLimitCheckChange.bind(this)
     this.updSummary             = this.updSummary.bind(this)
     // this.#saveDayEntries     = this.#saveDayEntries.bind(this)  // TASK: can't be done
@@ -290,7 +290,7 @@ class MainController
 
   // List: entries
 
-  foodItemClick(event)
+  layoutItemClick(event)
   {
     let target   = event.target.closest('.amount-btn')
     let food     = target.dataset.food

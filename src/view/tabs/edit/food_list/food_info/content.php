@@ -2,7 +2,7 @@
 
 extract($args);
 
-$data = $this->foodsModel->get($foodName);
+$data = $this->foodsModel->get($entryName);
 
 ?>
 
@@ -32,12 +32,12 @@ $data = $this->foodsModel->get($foodName);
           </div>
         </th>
         <td>
-          <a data-bs-toggle="collapse" href="#<?= $foodId ?>IngrCollapse" class="text-decoration-none" role="button">
+          <a data-bs-toggle="collapse" href="#<?= $entryId ?>IngrCollapse" class="text-decoration-none" role="button">
             <span class="text-secondary small">show</span>
           </a>
         </td>
       </tr>
-      <tr id="<?= $foodId ?>IngrCollapse" class="collapse">
+      <tr id="<?= $entryId ?>IngrCollapse" class="collapse">
         <td colspan="2" class="text-wrap" style="white-space: pre-wrap;"><?= $data['ingredients'] ?></td>
       </tr>
     <?php endif; ?>
@@ -45,12 +45,12 @@ $data = $this->foodsModel->get($foodName);
       <tr>
         <th>Allergy</th>
         <td>
-          <a data-bs-toggle="collapse" href="#<?= $foodId ?>AllCollapse" class="text-decoration-none" role="button">
+          <a data-bs-toggle="collapse" href="#<?= $entryId ?>AllCollapse" class="text-decoration-none" role="button">
             <span class="text-secondary small">show</span>
           </a>
         </td>
       </tr>
-      <tr id="<?= $foodId ?>AllCollapse" class="collapse">
+      <tr id="<?= $entryId ?>AllCollapse" class="collapse">
         <td colspan="2" class="text-wrap" style="white-space: pre-wrap;"><?= htmlspecialchars($data['allergy']) ?></td>
       </tr>
     <?php endif; ?>
@@ -58,12 +58,12 @@ $data = $this->foodsModel->get($foodName);
       <tr>
         <th>May contain</th>
         <td>
-          <a data-bs-toggle="collapse" href="#<?= $foodId ?>MaybeCollapse" class="text-decoration-none" role="button">
+          <a data-bs-toggle="collapse" href="#<?= $entryId ?>MaybeCollapse" class="text-decoration-none" role="button">
             <span class="text-secondary small">show</span>
           </a>
         </td>
       </tr>
-      <tr id="<?= $foodId ?>MaybeCollapse" class="collapse">
+      <tr id="<?= $entryId ?>MaybeCollapse" class="collapse">
         <td colspan="2" class="text-wrap" style="white-space: pre-wrap;"><?= htmlspecialchars($data['mayContain']) ?></td>
       </tr>
     <?php endif; ?>
@@ -89,12 +89,12 @@ $data = $this->foodsModel->get($foodName);
       <tr>
         <th>Urls</th>
         <td>
-          <a data-bs-toggle="collapse" href="#<?= $foodId ?>UrlCollapse" class="text-decoration-none" role="button">
+          <a data-bs-toggle="collapse" href="#<?= $entryId ?>UrlCollapse" class="text-decoration-none" role="button">
             <span class="text-secondary small">show</span>
           </a>
         </td>
       </tr>
-      <tr id="<?= $foodId ?>UrlCollapse" class="collapse">
+      <tr id="<?= $entryId ?>UrlCollapse" class="collapse">
         <td colspan="2" class="text-nowrap" style="white-space: no-wrap;">
           <?php foreach( $data['url'] as $url ): ?>
             - <a href="<?= $url ?>" target="_blank" class="text-decoration-none"><?= $url ?></a><br>
@@ -138,14 +138,14 @@ $data = $this->foodsModel->get($foodName);
 <!-- Sources -->
 
 <div class="d-flex justify-content-between align-items-center mt-1">
-  <a data-bs-toggle="collapse" href="#<?= $foodId ?>SourcesCollapse" class="text-secondary text-decoration-none" style="font-size: .75em;" role="button">
+  <a data-bs-toggle="collapse" href="#<?= $entryId ?>SourcesCollapse" class="text-secondary text-decoration-none" style="font-size: .75em;" role="button">
     &nbsp;Data sources <i class="bi bi-caret-down"></i>
   </a>
   <span class="text-secondary" style="font-size: .75em;">
     Last update: <?= date('Y-m-d', $data['lastUpd'] ) ?> (<?= $data['state'] ?>)
   </span>
 </div>
-<table id="<?= $foodId ?>SourcesCollapse" class="table collapse" style="font-size: .75em;">
+<table id="<?= $entryId ?>SourcesCollapse" class="table collapse" style="font-size: .75em;">
   <tbody>
     <?php foreach( $data['sources'] as $key => $source ): ?>
       <tr>
@@ -196,7 +196,7 @@ $data = $this->foodsModel->get($foodName);
 
     foreach( array_merge(['nutritionalValues'], static::NUTRIENT_GROUPS) as $groupName ):
 
-      $collapseId = $foodId . ucwords( $this->nutrientsModel->get("$groupName.short")) . 'Collapse';
+      $collapseId = $entryId . ucwords( $this->nutrientsModel->get("$groupName.short")) . 'Collapse';
   ?>
 
     <?php if( ! empty($data[$groupName])): ?>

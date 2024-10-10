@@ -1,11 +1,11 @@
-<div id="foodList" class="row">
+<div id="layout" class="row">
 
   <span id="uiMsg"></span>  <!-- TASK: mov somewhere outside tab or one msg per tab (or use a toast) -->
 
 
-  <!-- Food tabs content (only if more than one) -->
+  <!-- Tab content (only if more than one) -->
 
-  <?php if( count($this->layout) > 1 ): ?>  <!-- food tabs only if more than one -->
+  <?php if( count($this->layout) > 1 ): ?>
     <div class="col-12 mt-2">
       <div class="overflow-auto">
         <ul class="nav nav-pills flex-nowrap">  <!-- flex is for scrolling -->
@@ -33,7 +33,7 @@
 
   <!-- TASK: (advanced) MOV also buyings here (maybe use some select that changes sub forms in the new form) -->
 
-  <!-- Food groups (and tab content) -->
+  <!-- Groups (and tab content) -->
 
   <div class="col-12 tab-content mt-1">
     
@@ -45,7 +45,7 @@
     {
       $i++;
 
-      // Start food tab content (only if more than one)
+      // Start tab content (only if more than one)
 
       if( count($this->layout) > 1 )
       {
@@ -80,27 +80,27 @@
         $done = array_merge( $done, $return['done']);
       }
 
-      // Left over foods (add in first tab)
+      // Left over entries (add in first tab)
 
       if( count($this->layout) === 1 )
       {
-        // $allFoods = array_keys( $this->layoutView->all());
-        $allFoods = $this->layoutView->keys();                // foods and recipes are merged in one
+        // $allEntries = array_keys( $this->layoutView->all());
+        $allEntries = $this->layoutView->keys();               // foods and recipes are merged in one
 
-        if( count($allFoods) > count( array_unique($done)))  // foods can appear in layout multiple times
+        if( count($allEntries) > count( array_unique($done)))  // entries can appear in layout multiple times
         {
-          $leftFoods = array_diff( $allFoods, $done );
-          $miscFoods = array_filter( $leftFoods, fn($entry) => ! $this->foodsModel->get("$entry.removed"));
-          $removed   = array_filter( $leftFoods, fn($entry) =>   $this->foodsModel->get("$entry.removed"));
+          $leftEntries = array_diff( $allEntries, $done );
+          $miscEntries = array_filter( $leftEntries, fn($entry) => ! $this->foodsModel->get("$entry.removed"));
+          $removed   = array_filter( $leftEntries, fn($entry) =>   $this->foodsModel->get("$entry.removed"));
 
-          // Foods missing in layout (non removed)
+          // Entries missing in layout (non removed)
 
-          if( count($miscFoods))
+          if( count($miscEntries))
           {
-            ksort($miscFoods);
+            ksort($miscEntries);
             
             print $this->renderView( __DIR__ . '/group.php', [
-              'groupId'   => lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', 'Misc foods')),
+              'groupId'   => lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', 'Misc')),
               'groupName' => 'Misc',
               'def' => [
                 '@attribs' => [
@@ -109,12 +109,12 @@
                   // 'color' =>     // currently just default, see group.php
                   'fold'  => true
                 ],
-                'list' => $miscFoods
+                'list' => $miscEntries
               ]
             ]);
           }
 
-          // Removed foods
+          // Removed entries
 
           if( count($removed))
           {
@@ -138,7 +138,7 @@
         }
       }
 
-      // End food tab content (only if more than one)
+      // End tab content (only if more than one)
 
       if( count($this->layout) > 1 )
       {

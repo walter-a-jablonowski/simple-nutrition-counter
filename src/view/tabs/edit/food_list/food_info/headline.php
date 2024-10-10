@@ -2,14 +2,14 @@
 
 extract($args);
 
-$data = $this->foodsModel->get($foodName);
+$data = $this->foodsModel->get($entryName);
 
 ?>
 
 <!-- TASK: (advanced) sometimes it isn't the vendor url, no better place for url for now -->
 
 <div class="mb-1 fw-bold">
-  <?= htmlspecialchars($foodName) ?>
+  <?= htmlspecialchars($entryName) ?>
   <?php if( ! empty($data['vendor']) || ! empty($data['url'])): ?>
     <span class="fw-normal small">
       <?php if( ! empty($data['vendor']) && ! empty($data['url'])): ?>
@@ -58,7 +58,7 @@ $data = $this->foodsModel->get($foodName);
 <?php endif; ?>
 
 <!-- Gluten and similar from ingredients list -->
-<!-- TASK: maybe also add a flag gluten: true in food data where you can add it manually -->
+<!-- TASK: maybe also add a flag gluten: true in data where you can add it manually -->
 <!-- TASK: (advanced) add high calcium ... -->
 
 <?php if( ! empty($data['ingredients'])): ?>

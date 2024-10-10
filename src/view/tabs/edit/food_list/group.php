@@ -49,24 +49,24 @@ $return['done'] = [];
 
     <?php
 
-    foreach( $def['list'] as $idx => $foodName ):
+    foreach( $def['list'] as $idx => $entryName ):
 
-      // if( $foodName == 'Nussmisch N old' )  // DEBUG
+      // if( $entryName == 'Nussmisch N old' )  // DEBUG
       //   $debug = 'halt';
 
-      if( ! ($args['showRemoved'] ?? false) && $this->foodsModel->get("$foodName.removed"))
-        continue;  // no removed foods, even if in layout (see group Removed foods in UI)
+      if( ! ($args['showRemoved'] ?? false) && $this->foodsModel->get("$entryName.removed"))
+        continue;  // no removed entries, even if in layout (see group Removed in UI)
 
-      $foodId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $foodName));  // TASK: use food id from SimpleData key as soon as upd, maybe we need prefix this so that no Ids get confused?
-      $amountData = $this->layoutView->get($foodName);  // foods and recipes are merged in one
+      $entryId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $entryName));  // TASK: use id from SimpleData key as soon as upd, maybe we need prefix this so that no Ids get confused?
+      $amountData = $this->layoutView->get($entryName);  // foods and recipes are merged in one
 
-      $return['done'][] = $foodName;  // left over will be printed below (done = foods and recipes in a single list)
+      $return['done'][] = $entryName;  // left over will be printed below (done = foods and recipes in a single list)
 
-      $accepColor  = $this->foodsModel->get("$foodName.acceptable") ?? 'n/a';  // TASK: colors also below, merge by using a class (also in app tips)
+      $accepColor  = $this->foodsModel->get("$entryName.acceptable") ?? 'n/a';  // TASK: colors also below, merge by using a class (also in app tips)
       $accepColor  = ['less' => '#ffcccc', 'occasionally' => '#ffff88', 'n/a' => 'inherit'][$accepColor];
 
-      $price       = $this->foodsModel->get("$foodName.price");
-      $pricePer100 = $price / ( trim( $this->foodsModel->get("$foodName.weight"), "mgl ") / 100.0);
+      $price       = $this->foodsModel->get("$entryName.price");
+      $pricePer100 = $price / ( trim( $this->foodsModel->get("$entryName.weight"), "mgl ") / 100.0);
 
       if( $price )
       {
@@ -74,39 +74,39 @@ $return['done'] = [];
         $expensive = $pricePer100 >= settings::get('expensive');
       }
 
-      $showInfo = $this->foodsModel->get("$foodName.comment")  // has comment might mean sth important
+      $showInfo = $this->foodsModel->get("$entryName.comment")  // has comment might mean sth important
                 ? true : false;
     ?>
-      <div class="food-item row">  <!-- pe-0 is for bg color, TASK: alternative: highlight food only -->
+      <div class="layout-item row">  <!-- pe-0 is for bg color, TASK: alternative: highlight name only -->
         <div class = "col-5 pe-0"
              data-bs-toggle = "modal"
              data-bs-target = "#infoModal"
-             data-title     = "#<?= $foodId ?>Headline"
-             data-source    = "#<?= $foodId ?>Data"
+             data-title     = "#<?= $entryId ?>Headline"
+             data-source    = "#<?= $entryId ?>Data"
         >
           <div class="text-nowrap overflow-hidden" style="background-color: <?= $accepColor ?>;">
-            <?= $foodName ?>
+            <?= $entryName ?>
             <?= self::iif( $showInfo, '<i class="bi bi-info-circle-fill" style="color: orange;"></i>') ?>
             <?= self::iif( $price && $cheap, '<i class="bi bi-currency-exchange small text-secondary"></i>') ?>
             <!-- < ?= self::iif( $price && $expensive, settings::get('currencySymbol')) ?> -->
             <?= self::iif( $price && $expensive, '<i class="bi ' . settings::get('currencyIcon') . ' small text-secondary"></i>') ?>
           </div>
           </div>
-        <div id="<?= $foodId ?>Headline" class="d-none">
+        <div id="<?= $entryId ?>Headline" class="d-none">
           <?php
 
             print $this->renderView( __DIR__ . '/food_info/headline.php', [
-              'foodId'   => $foodId,
-              'foodName' => $foodName
+              'entryId'   => $entryId,
+              'entryName' => $entryName
             ]);
           ?>
         </div>
-        <div id="<?= $foodId ?>Data" class="d-none">
+        <div id="<?= $entryId ?>Data" class="d-none">
           <?php
 
             print $this->renderView( __DIR__ . '/food_info/content.php', [
-              'foodId'      => $foodId,
-              'foodName'    => $foodName,
+              'entryId'     => $entryId,
+              'entryName'   => $entryName,
               'pricePer100' => $pricePer100
             ]);
           ?>
@@ -114,14 +114,14 @@ $return['done'] = [];
         <?php foreach( $amountData as $amount => $data ): ?>  <!-- TASK: don't print more than 3 entries (maybe do in controller) -->
         <?php
         
-        // if( stripos( $foodName, 'Amino misc') !== false )  // DEBUG
+        // if( stripos( $entryName, 'Amino misc') !== false )  // DEBUG
         // if( ! isset($data['nutriVal']))
         //   $debug = 'halt';
         
         ?>                     <!-- pe-0 is for bg color -->
           <div class   = "amount-btn col-2 p-1 pe-0 text-center"
-               onclick = "mainCrl.foodItemClick(event)"
-               data-food       = "<?= $foodName ?>"
+               onclick = "mainCrl.layoutItemClick(event)"
+               data-food       = "<?= $entryName ?>"
                data-calories   = "<?= $data['calories'] ?>"
                data-nutritionalvalues = "<?= htmlspecialchars( json_encode( $data['nutriVal'])) ?>"
                data-fattyacids = "<?= htmlspecialchars( dump_json( $data['fat'])) ?>"
@@ -140,15 +140,15 @@ $return['done'] = [];
           </div>
         <?php endforeach; ?>
         <!-- Spacer -->
-        <?php for( $i=count($amountData)+1; $i < 4; $i++ ):  // plus one is the food menu ?>
+        <?php for( $i=count($amountData)+1; $i < 4; $i++ ):  // plus one is the menu ?>
           <div class="col-2" style="background-color: <?= $accepColor ?>;">&nbsp;</div>
         <?php endfor; ?>
-        <!-- Food menu -->
-        <div class   = "food-menu col-1 text-center"
+        <!-- Entry menu -->
+        <div class   = "layout-item-menu col-1 text-center"
              onclick = ""
         >
           <div style="background-color: <?= $accepColor ?>;">
-            ...  <!-- TASK: menu of single food: overflow amounts ... expired -->
+            ...  <!-- TASK: menu of single entry: overflow amounts ... expired -->
           </div>
         </div>
       </div>
