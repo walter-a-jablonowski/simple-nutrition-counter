@@ -12,9 +12,10 @@ Food:
   #                                 
   #   list:
   #
+  #     - Water
   #     - Coffee
   #     - Fullup
-  #     - ...
+  # 
 
   Nuts, seeds (color:#ffa500):                   # Meals  # TASK: on the go diff shade
 

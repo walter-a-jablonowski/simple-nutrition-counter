@@ -7,6 +7,32 @@
 	},
 	"buffers":
 	[
+		{
+			"file": ".gitignore",
+			"settings":
+			{
+				"buffer_size": 270,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/lib/frm/Controller_240323/ControllerBase.php",
+			"settings":
+			{
+				"buffer_size": 2677,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/G/Meine Ablage/81-dev/lib/web/frm/ui/engines/inc/src/inc.php",
+			"settings":
+			{
+				"buffer_size": 955,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -48,7 +74,13 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/User/local/simple-nutrition-counter"
+		"/C/Users/User/local/simple-nutrition-counter",
+		"/G/Meine Ablage/81-dev/lib/web",
+		"/G/Meine Ablage/81-dev/lib/web/frm",
+		"/G/Meine Ablage/81-dev/lib/web/frm/ui",
+		"/G/Meine Ablage/81-dev/lib/web/frm/ui/engines",
+		"/G/Meine Ablage/81-dev/lib/web/frm/ui/engines/inc",
+		"/G/Meine Ablage/81-dev/lib/web/frm/ui/engines/inc/src"
 	],
 	"file_history":
 	[
@@ -214,8 +246,97 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": ".gitignore",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 270,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								62,
+								62
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Git Formats/Git Ignore.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/lib/frm/Controller_240323/ControllerBase.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2677,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1198,
+								1198
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 630.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/G/Meine Ablage/81-dev/lib/web/frm/ui/engines/inc/src/inc.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 955,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								457,
+								176
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
 			]
 		}
 	],
