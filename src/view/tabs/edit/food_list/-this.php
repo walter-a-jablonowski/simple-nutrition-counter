@@ -85,7 +85,7 @@
         
         $groupId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $groupName));
 
-        print $this->render( __DIR__ . '/group.php', [
+        print $this->renderView( __DIR__ . '/group.php', [
           'groupId'   => $groupId,
           'groupName' => $groupName,
           'def'       => $def
@@ -113,7 +113,7 @@
           {
             ksort($miscFoods);
             
-            print $this->render( __DIR__ . '/group.php', [
+            print $this->renderView( __DIR__ . '/group.php', [
               'groupId'   => lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', 'Misc foods')),
               'groupName' => 'Misc',
               'def' => [
@@ -134,7 +134,7 @@
           {
             ksort($removed);
             
-            print $this->render( __DIR__ . '/group.php', [
+            print $this->renderView( __DIR__ . '/group.php', [
               'groupId'     => lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', 'Removed')),
               'groupName'   => 'Removed',
               'showRemoved' => true,

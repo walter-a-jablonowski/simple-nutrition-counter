@@ -62,7 +62,7 @@ abstract class ControllerBase
   ```
 
   */
-  public function render( string $INC_VIEW, $args = null, &$return = null ) /*@*/
+  public function renderView( string $INC_VIEW, $args = null, &$return = null ) /*@*/
   {
     ob_start();                   // alternative: $s = require()
     require($INC_VIEW);

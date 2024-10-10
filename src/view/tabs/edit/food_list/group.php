@@ -95,7 +95,7 @@ $return['done'] = [];
         <div id="<?= $foodId ?>Headline" class="d-none">
           <?php
 
-            print $this->render( __DIR__ . '/food_info/headline.php', [
+            print $this->renderView( __DIR__ . '/food_info/headline.php', [
               'foodId'   => $foodId,
               'foodName' => $foodName
             ]);
@@ -104,7 +104,7 @@ $return['done'] = [];
         <div id="<?= $foodId ?>Data" class="d-none">
           <?php
 
-            print $this->render( __DIR__ . '/food_info/content.php', [
+            print $this->renderView( __DIR__ . '/food_info/content.php', [
               'foodId'      => $foodId,
               'foodName'    => $foodName,
               'pricePer100' => $pricePer100
