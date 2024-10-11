@@ -6,7 +6,7 @@
 <div class="row mt-2">
   <div class="col scrollable-list">  <!-- TASK: or just a div, no grid ? h-100 -->
 
-    <?php require( __DIR__ . '/food_list/-this.php'); ?>
+    <?php require( __DIR__ . '/layout/-this.php'); ?>
 
   </div>
 </div>
