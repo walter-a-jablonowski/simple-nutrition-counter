@@ -292,6 +292,10 @@ class MainController
 
   layoutItemClick(event)
   {
+    // TASK: add types for user > misc
+    // if type === MiscBuyable
+    // if type === Food
+
     let target   = event.target.closest('.amount-btn')
     let food     = target.dataset.food
     let calories = target.dataset.calories
@@ -353,6 +357,10 @@ class MainController
   */
   #addDayEntry( entry ) /*@*/
   {
+    // TASK: add types for user > misc
+    // if type === MiscBuyable
+    // if type === Food
+
     dayEntries.push( entry )
     
     // Find the length of the longest strings

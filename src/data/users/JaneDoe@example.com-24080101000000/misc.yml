@@ -22,7 +22,7 @@ misc:
 
   Fillup:
 
-    type:              
+    type:              MiscBuyable
 
     price:             9.00
     weight:            10ml
