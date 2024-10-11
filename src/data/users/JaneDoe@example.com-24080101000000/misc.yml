@@ -22,14 +22,16 @@ misc:
 
   Fillup:
 
-    price:             8.00
+    type:              
+
+    price:             9.00
     weight:            10ml
     usedAmounts:       ["2ml"]
 
-    # TASK: maybe add substances
+    # TASK: (advanced) maybe add substances
 
     sources:           { nutriVal: "", nutrients: "..." }
 
-    state:             most|all
-    lastUpd:           
-    lastPriceUpd:      
+    state:             all
+    lastUpd:           2024-10-11
+    lastPriceUpd:      2024-10-11

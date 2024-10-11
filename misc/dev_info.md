@@ -52,16 +52,16 @@ Objects can start anywhere in the tree, outside or inside YML files.
 
 - **Naming:** camelCase
 - **Types:**  start with upper case `MyEntity`
-  - entries may have an implicit type field `@type: Food`
-- **Ids:**
-  - default: camel `aminoAcids`
+  - implicit type field added in code `@type: Food` or `type: Food`
+- **Ids:** camel `aminoAcids`
   - some speaking, readable cause more intuitive (see readme files)
     - we also use blanks `My food` or underscore ...
-    - app may generate a blank free version
+    - app may generate a blank free version in code
+  - implicit field in code `@id: myFood` or `id: myFood`
+  - may be used as file name or saved inside the file
+    - in files we prefer that the key is the id
 
-- Ids may be used as file name or saved inside the file
-  - in files we prefer that the key is the id
-- Link classes can be saved inline for simplicity
+Link classes can be saved inline for simplicity
 
   ```yaml
 
