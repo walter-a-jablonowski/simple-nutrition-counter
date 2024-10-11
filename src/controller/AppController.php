@@ -176,6 +176,10 @@ class AppController extends ControllerBase
   */
   private function makeLayoutView()  /*@*/
   {
+    // TASK: add types for user > misc
+    // - type field
+    // - load data
+
     $settings = settings::instance();
     $user     = User::current();
 
