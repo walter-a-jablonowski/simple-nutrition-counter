@@ -1,3 +1,15 @@
+
+/*@
+
+queryAll()
+
+*/
+function queryAll( sel ) /*@*/
+{
+  return query( sel, false )
+}
+
+
 /*@
 
 query()

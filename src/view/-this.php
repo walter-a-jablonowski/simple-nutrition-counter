@@ -122,6 +122,7 @@ else:
 <script src="lib/jquery-3.7.1.min.js"></script>
 <script src="lib/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
 <script src="lib/jquery-ui-1.13.3/jquery-ui.min.js"></script>
+<script src="lib/mermaid-11.3.0.js"></script>
 <script src="lib/frm/events_240321.js"></script>
 <script src="lib/frm/query_240321.js"></script>
 <script src="lib/frm/query_data_240328.js"></script>

@@ -129,6 +129,19 @@ class MainController
       // TASK: maybe set tab (remains clicked)
     })
 
+    // Mermaid  // TASK: problems in modal (works in page)
+
+    // mermaid.initialize({  // maybe unneeded
+    //   securityLevel: 'loose',
+    // })
+
+    query('#helpModal').event('shown.bs.modal', function() {
+      // mermaid.init( undefined, queryFirst('#helpModal .mermaid'))
+      query('#helpModal .mermaid').forEach( diagr => {
+        mermaid.init( undefined, diagr)
+      })
+    })
+    
     // Sortable (advanced)  #code/advancedDayEntries
 
     // $('#dayEntries').sortable({

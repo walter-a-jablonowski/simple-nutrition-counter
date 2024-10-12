@@ -48,3 +48,23 @@
     </tr>
   </tbody>
 </table>
+
+<div>
+  <pre class="mermaid">
+    graph TD
+    A[Fatty Acids]
+    A --> B[Saturated]
+    A --> C[Unsaturated]
+    C --> D[Monounsaturated]
+    C --> E[Polyunsaturated]
+    D --> F[Omega-9]
+    D --> G[Omega-7]
+    E --> H[Omega-3]
+    E --> I[Omega-6]
+    E --> J[Omega-5]
+    A --> K[Chain Length]
+    K --> L[Short Chain]
+    K --> M[Medium Chain]
+    K --> N[Long Chain]
+  </pre>
+</div>
