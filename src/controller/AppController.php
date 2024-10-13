@@ -83,11 +83,13 @@ class AppController extends ControllerBase
 
     foreach( scandir($dir) as $file )
     {
-      if( in_array( $file, $exclude) || pathinfo($file, PATHINFO_EXTENSION) !== 'yml')
+      if( in_array( $file, $exclude) || ( pathinfo($file, PATHINFO_EXTENSION) !== 'yml' && ! is_dir("$dir/$file")))
         continue;
 
-      $name = pathinfo($file, PATHINFO_FILENAME);
-      $food = Yaml::parse( file_get_contents("$dir/$file"));
+      $name = is_dir("$dir/$file")  ?  $file  :  pathinfo($file, PATHINFO_FILENAME);
+      $food = is_file("$dir/$file")
+            ? Yaml::parse( file_get_contents("$dir/$file"))
+            : Yaml::parse( file_get_contents("$dir/$file/-this.yml"));
 
       // merge nutrients from food file (prio) over default foods
       // TASK: maybe we want to add at least an empty key if a type of nutrients is missing
