@@ -1,8 +1,5 @@
 <?php
 
-// require_once 'lib/frm/backup_230924.php';
-
-
 trait SaveDayEntriesAjaxController
 {
 
@@ -12,13 +9,17 @@ trait SaveDayEntriesAjaxController
 
     // we use no backup here, just start from scratch if error
 
-    // if( ! backup_fil( $groupsFil ))  // prefer cause we have on backup form for all dools
-    //   return ['result' => 'error', 'message' => 'Error making backup'];
+    // TASK: (advanced) add time on server ans response (currently a problem cause we send whole txt))
 
+    // $time = date('His');
+    // $data = "$time  $request[data]";
+    
     if( ! file_put_contents('data/users/' . $config->get('defaultUser') . "/days/$request[date].tsv", $request['data']))
+    // if( ! file_put_contents('data/users/' . $config->get('defaultUser') . "/days/$request[date].tsv", $data))
       return ['result' => 'error', 'message' => 'Error saving'];
 
     return ['result' => 'success'];
+    // return ['result' => 'success', 'time' => $time];
   }
 }
 

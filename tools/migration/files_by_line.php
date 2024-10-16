@@ -29,7 +29,7 @@ foreach( scandir($dir) as $file )
 
   $modifiedLines = array_map( function($line) {
     // return 'F   ' . $line;
-    return date('His') . '  ' . $line;
+    return '000000  ' . $line;
   }, $lines);
 
   file_put_contents("$dir/$file", implode("\n", $modifiedLines));

@@ -398,7 +398,8 @@ class MainController
       let saltPadding     = ' '.repeat( maxSaltLength     - String(entry.salt).length + 2)
       let pricePadding    = ' '.repeat( maxPriceLength    - String(entry.price).length + 2)
 
-      // TASK: time col (or on server ?)
+      // TASK: (advanced) time on server (currently a problem cause we send whole txt)
+      
       // let now = new Date();
       // let time = now.toTimeString().split(' ')[0]; // gives HHMMSS format
       // let timePadding = ' '.repeat(8 - time.length + 2);
