@@ -115,16 +115,14 @@ class AppController extends ControllerBase
     }
 
     // Edit tab: Day entries
+    // TASK: add some header
 
     $this->dayEntriesTxt = trim( @file_get_contents('data/users/' . $config->get('defaultUser') . "/days/{$this->date}.tsv") ?: '', "\n");
     $this->dayEntries    = parse_tsv( $this->dayEntriesTxt );
     
-    // TASK: mov some
-
     foreach( $this->dayEntries as $idx => &$entry )
       $entry[8] = Yaml::parse( $entry[8] );
-      // $this->foodEntries[] = array_slice($entry, 1);  // ai says function ensures byval
-      // // $this->foodEntries[] = [...$entry];          // or
+//    $entry[9] = Yaml::parse( $entry[9] );  // TASK: time col
 
     unset($entry);  // needed cause in a later `<?php foreach( $this->dayEntries as $entry ): ? >`
                     // entry still exists as ref, which means the last entry gets replaced with the data of the first
@@ -321,7 +319,7 @@ class AppController extends ControllerBase
       // foreach( $entries as $idx => $entry)
       //   $entries[$idx][7] = Yaml::parse( $entries[$idx][7] );
       
-      // TASK: upd this a bit?
+      // TASK: time col upd idx
 
       $this->lastDaysView->set( $dat, [
         'Calories'    => ( ! $entries ? 0 : array_sum( array_column($entries, 2))),
