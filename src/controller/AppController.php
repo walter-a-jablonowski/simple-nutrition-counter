@@ -18,6 +18,7 @@ class AppController extends ControllerBase
   use SaveDayEntriesAjaxController;
   use ChangeUserAjaxController;
 
+  const DAY_HEADERS     = ['Time', 'Type', 'Food', 'Calories', 'Fat', 'Carbs', 'Amino', 'Salt', 'Price'];
   const NUTRIENT_GROUPS = ['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals', 'secondary', 'misc'];
 
   protected string     $mode;
