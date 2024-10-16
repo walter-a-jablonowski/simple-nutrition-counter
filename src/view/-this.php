@@ -140,7 +140,6 @@ var dayEntries, mainCrl
 ready( function() {
 
   dayEntries = JSON.parse('<?= json_encode($this->dayEntries) ?>')
-  // dayEntries = JSON.parse('< ?= dump_json($this->dayEntries) ?>')  // TASK: needed? was used for encoding nutrients (last col)
 
   mainCrl = new MainController()
   mainCrl.date = '<?= $this->date ?>'
