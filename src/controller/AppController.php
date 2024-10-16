@@ -18,7 +18,7 @@ class AppController extends ControllerBase
   use SaveDayEntriesAjaxController;
   use ChangeUserAjaxController;
 
-  const DAY_HEADERS     = ['Time', 'Type', 'Food', 'Calories', 'Fat', 'Carbs', 'Amino', 'Salt', 'Price'];
+  const DAY_HEADERS     = /* 'time' */ ['type', 'food', 'calories', 'fat', 'carbs', 'amino', 'salt', 'price', 'nutrients'];
   const NUTRIENT_GROUPS = ['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals', 'secondary', 'misc'];
 
   protected string     $mode;
@@ -116,20 +116,20 @@ class AppController extends ControllerBase
     }
 
     // Edit tab: Day entries
-    // TASK: add some header
 
     $this->dayEntriesTxt = trim( @file_get_contents('data/users/' . $config->get('defaultUser') . "/days/{$this->date}.tsv") ?: '', "\n");
-    $this->dayEntries    = parse_tsv( $this->dayEntriesTxt );
+    $this->dayEntries    = parse_tsv( $this->dayEntriesTxt, self::DAY_HEADERS );
     
     foreach( $this->dayEntries as $idx => &$entry )
-      $entry[8] = Yaml::parse( $entry[8] );
-//    $entry[9] = Yaml::parse( $entry[9] );  // TASK: time col
+      // $entry[8] = Yaml::parse( $entry[8] );
+      $entry['nutrients'] = Yaml::parse( $entry['nutrients'] );
+//    $entry['nutrients'] = Yaml::parse( $entry['nutrients'] );  // TASK: time col
 
     unset($entry);  // needed cause in a later `<?php foreach( $this->dayEntries as $entry ): ? >`
                     // entry still exists as ref, which means the last entry gets replaced with the data of the first
 
     // foreach( $this->dayEntries as $idx => $entry )
-    //   $this->dayEntries[$idx][8] = Yaml::parse( $this->dayEntries[$idx][8] );
+    //   $this->dayEntries[$idx]['nutrients'] = Yaml::parse( $this->dayEntries[$idx]['nutrients'] );
 
     // Edit tab: Food list
 
@@ -315,20 +315,18 @@ class AppController extends ControllerBase
       $days++;
 
       $dat     = pathinfo( $file, PATHINFO_FILENAME);
-      $entries = parse_tsv( file_get_contents('data/users/' . $config->get('defaultUser') . "/days/$file"));
+      $entries = parse_tsv( file_get_contents('data/users/' . $config->get('defaultUser') . "/days/$file"), self::DAY_HEADERS);
 
       // foreach( $entries as $idx => $entry)
       //   $entries[$idx][7] = Yaml::parse( $entries[$idx][7] );
       
-      // TASK: time col upd idx
-
       $this->lastDaysView->set( $dat, [
-        'Calories'    => ( ! $entries ? 0 : array_sum( array_column($entries, 2))),
-        'Carbs'       => ( ! $entries ? 0 : array_sum( array_column($entries, 3))),
-        'Fat'         => ( ! $entries ? 0 : array_sum( array_column($entries, 4))),
-        'Amino acids' => ( ! $entries ? 0 : array_sum( array_column($entries, 5))),
-        'Salt'        => ( ! $entries ? 0 : array_sum( array_column($entries, 6))),
-        'Price'       => ( ! $entries ? 0 : array_sum( array_column($entries, 7)))
+        'calories' => ( ! $entries ? 0 : array_sum( array_column($entries, 'calories'))),
+        'fat'      => ( ! $entries ? 0 : array_sum( array_column($entries, 'fat'))),
+        'carbs'    => ( ! $entries ? 0 : array_sum( array_column($entries, 'carbs'))),
+        'amino'    => ( ! $entries ? 0 : array_sum( array_column($entries, 'amino'))),
+        'salt'     => ( ! $entries ? 0 : array_sum( array_column($entries, 'salt'))),
+        'price'    => ( ! $entries ? 0 : array_sum( array_column($entries, 'price')))
       ]);
   
       $priceSumAll += ! $entries ? 0 : array_sum( array_column($entries, 6));

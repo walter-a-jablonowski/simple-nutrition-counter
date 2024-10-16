@@ -53,25 +53,25 @@
           <b><?= $weekdays[ date('D', strtotime($day))] ?></b>&nbsp;<?= $day ?>
         </small>
         <small class="text-body-secondary mb-1">
-          <b><?= $sums['Price'] ?> <?= settings::get('currencySymbol') ?></b>
+          <b><?= $sums['price'] ?> <?= settings::get('currencySymbol') ?></b>
         </small>
       </li>
 
       <li class="list-group-item">
         <div class="row">
           <div class="col-6">
-            <span><?= $sums['Fat'] ?> / <?= $sums['Carbs'] ?> g</span>
+            <span><?= $sums['fat'] ?> / <?= $sums['carbs'] ?> g</span>
           </div>
           <div class="col-6">
-            <span><?= $sums['Calories'] ?> kcal</span>
+            <span><?= $sums['calories'] ?> kcal</span>
           </div>
         </div>
         <div class="row">
           <div class="col-6">
-            <span><?= $sums['Amino acids'] ?> g</span>
+            <span><?= $sums['amino'] ?> g</span>
           </div>
           <div class="col-6">
-            <span><?= $sums['Salt'] ?> g</span>
+            <span><?= $sums['salt'] ?> g</span>
           </div>
         </div>
       </li>

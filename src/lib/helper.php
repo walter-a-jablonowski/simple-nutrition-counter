@@ -1,5 +1,6 @@
 <?php
 
+// TASK: mov in some lib
 // TASK: (advanced) make reusable (maybe recursive via AI)
 // TASK: (advanced) we could add a skip keys arg for (first_entries) is we use this
 
@@ -60,7 +61,7 @@ function parse_attribs( string $attribsKey, array $largeAttribKeys, array $array
   return $r;
 }
 
-function parse_tsv( $entriesTxt )
+function parse_tsv( $entriesTxt, $header )
 {
   $r = [];
 
@@ -73,6 +74,8 @@ function parse_tsv( $entriesTxt )
       // $line = preg_replace('/ {2,}/', ';', trim($line));
       $line  = preg_replace('/(?<=\S) {2,}(?=\S)/', ';', $line);  // added ignore spaces at bol (cause we are using str_pad() for amounts)
       $entry = explode(';', $line);
+      $entry = array_combine($header, $entry);
+
       $r[] = $entry;
     }
   }
@@ -82,13 +85,11 @@ function parse_tsv( $entriesTxt )
 
 /*@
 
-TASK: mov in some lib
-
 - compatibility: YML needs more blanks (behind colon)
 - empty array as js obj
 
 */
-function dump_json( $array )  /**/
+function dump_json( $array )  /*@*/
 {
   // $r = json_encode( $array, JSON_FORCE_OBJECT);  // might also make num keys obj
   $r = str_replace('[]', '{}', json_encode( $array ));
