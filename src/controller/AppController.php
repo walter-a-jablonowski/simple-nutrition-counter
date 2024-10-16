@@ -121,7 +121,6 @@ class AppController extends ControllerBase
     $this->dayEntries    = parse_tsv( $this->dayEntriesTxt, self::DAY_HEADERS );
     
     foreach( $this->dayEntries as $idx => &$entry )
-      // $entry[8] = Yaml::parse( $entry[8] );
       $entry['nutrients'] = Yaml::parse( $entry['nutrients'] );
 //    $entry['nutrients'] = Yaml::parse( $entry['nutrients'] );  // TASK: time col
 

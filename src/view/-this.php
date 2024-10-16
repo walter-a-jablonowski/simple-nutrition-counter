@@ -138,15 +138,9 @@ else:
 var dayEntries, mainCrl
 
 ready( function() {
-/*
-  dayEntries = [  // will be replaced by #code/advancedData
-    < ?php foreach( $this->dayEntries as $entry ): ?>
-      {type: '< ?= $entry[0] ?>', food: '< ?= $entry[1] ?>', calories: < ?= $entry[2] ?>, fat: < ?= $entry[3] ?>, carbs: < ?= $entry[4] ?>, amino: < ?= $entry[5] ?>, salt: < ?= $entry[6] ?>, price: < ?= $entry[7] ?>, nutrients: < ?= ( ! $entry[8] ? '{}' : dump_json($entry[8])) ?>},
-    < ?php endforeach; ?>
-  ]
-*/
+
   dayEntries = JSON.parse('<?= json_encode($this->dayEntries) ?>')
-  // dayEntries = JSON.parse('< ?= dump_json($this->dayEntries) ?>')  // TASK: needed?
+  // dayEntries = JSON.parse('< ?= dump_json($this->dayEntries) ?>')  // TASK: needed? was used for encoding nutrients (last col)
 
   mainCrl = new MainController()
   mainCrl.date = '<?= $this->date ?>'
