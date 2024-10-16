@@ -399,6 +399,7 @@ class MainController
       let pricePadding    = ' '.repeat( maxPriceLength    - String(entry.price).length + 2)
 
       // TASK: (advanced) time on server (currently a problem cause we send whole txt)
+      //       alternative: mov save slightly up, send yml (save btn still needs current func)
       
       // let now = new Date();
       // let time = now.toTimeString().split(' ')[0]; // gives HHMMSS format
