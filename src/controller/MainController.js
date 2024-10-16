@@ -10,11 +10,15 @@ class MainController
     this.lastDayBtnClick        = this.lastDayBtnClick.bind(this)
     // this.nextDayBtnClick     = this.nextDayBtnClick.bind(this)
     // this.thisDayBtnClick     = this.thisDayBtnClick.bind(this)
+    this.settingsBtnClick       = this.settingsBtnClick.bind(this)
     this.saveDayEntriesBtnClick = this.saveDayEntriesBtnClick.bind(this)
+    this.newEntryBtn            = this.newEntryBtn.bind(this)
+    this.newEntrySaveBtn        = this.newEntrySaveBtn.bind(this)
     this.layoutItemClick        = this.layoutItemClick.bind(this)
     this.offLimitCheckChange    = this.offLimitCheckChange.bind(this)
+    // this.#addDayEntry        = this.#addDayEntry.bind(this)     // TASK: can't be done
     this.updSummary             = this.updSummary.bind(this)
-    // this.#saveDayEntries     = this.#saveDayEntries.bind(this)  // TASK: can't be done
+    // this.#saveDayEntries     = this.#saveDayEntries.bind(this)
 
     let crl = this
 
@@ -274,8 +278,8 @@ class MainController
       entry.fibre = fibreInp.value.trim()
 
     entry = {
-      type:     'F',
-      food:     entry.food,
+      type:      'F',
+      food:      entry.food,
       // multiplying by 10 and then dividing by 10: This is a common technique to round to a specific number of decimal places—in this case, one decimal place
       calories:  Math.round( entry.calories * (usedWeight / 100) * 10) / 10,  // 10 is one decimal place
       fat:       Math.round( entry.fat      * (usedWeight / 100) * 10) / 10,
@@ -370,6 +374,12 @@ class MainController
   */
   #addDayEntry( entry ) /*@*/
   {
+    // TASK: (advanced) time on server (currently a problem cause we still use save btn))
+    //       user needs a timezone setting if done on server
+
+    let now    = new Date()
+    entry.time = now.toTimeString().split(' ')[0]  // .replaceAll(':', '')  // gives HHMMSS format
+
     // TASK: add types for user > misc
     // if type === MiscBuyable
     // if type === Food
@@ -398,14 +408,7 @@ class MainController
       let saltPadding     = ' '.repeat( maxSaltLength     - String(entry.salt).length + 2)
       let pricePadding    = ' '.repeat( maxPriceLength    - String(entry.price).length + 2)
 
-      // TASK: (advanced) time on server (currently a problem cause we send whole txt)
-      //       alternative: mov save slightly up, send yml (save btn still needs current func)
-      
-      // let now = new Date();
-      // let time = now.toTimeString().split(' ')[0]; // gives HHMMSS format
-      // let timePadding = ' '.repeat(8 - time.length + 2);
-
-      return `${entry.type}  ${entry.food}${foodPadding}${entry.calories}${caloriesPadding}${entry.fat}${fatPadding}${entry.carbs}${carbsPadding}${entry.amino}${aminoPadding}${entry.salt}${saltPadding}${entry.price}${pricePadding}`
+      return `${entry.time}  ${entry.type}  ${entry.food}${foodPadding}${entry.calories}${caloriesPadding}${entry.fat}${fatPadding}${entry.carbs}${carbsPadding}${entry.amino}${aminoPadding}${entry.salt}${saltPadding}${entry.price}${pricePadding}`
              + YAMLish.dump( entry.nutrients )
 
     }).join('\n')

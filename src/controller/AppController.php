@@ -18,7 +18,7 @@ class AppController extends ControllerBase
   use SaveDayEntriesAjaxController;
   use ChangeUserAjaxController;
 
-  const DAY_HEADERS     = /* 'time' */ ['type', 'food', 'calories', 'fat', 'carbs', 'amino', 'salt', 'price', 'nutrients'];
+  const DAY_HEADERS     = ['time', 'type', 'food', 'calories', 'fat', 'carbs', 'amino', 'salt', 'price', 'nutrients'];
   const NUTRIENT_GROUPS = ['fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals', 'secondary', 'misc'];
 
   protected string     $mode;
@@ -122,7 +122,6 @@ class AppController extends ControllerBase
     
     foreach( $this->dayEntries as $idx => &$entry )
       $entry['nutrients'] = Yaml::parse( $entry['nutrients'] );
-//    $entry['nutrients'] = Yaml::parse( $entry['nutrients'] );  // TASK: time col
 
     unset($entry);  // needed cause in a later `<?php foreach( $this->dayEntries as $entry ): ? >`
                     // entry still exists as ref, which means the last entry gets replaced with the data of the first

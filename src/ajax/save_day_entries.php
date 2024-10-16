@@ -9,7 +9,7 @@ trait SaveDayEntriesAjaxController
 
     // we use no backup here, just start from scratch if error
 
-    // TASK: (advanced) add time on server ans response (currently a problem cause we send whole txt))
+    // TASK: (advanced) add time on server and response (currently a problem cause we still use save btn))
 
     // $time = date('His');
     // $data = "$time  $request[data]";
