@@ -326,31 +326,18 @@ class AppController extends ControllerBase
       ]);
     }
       
-    $priceSumAll = [7 => 0, 15 => 0, 30 => 0];
-    $currentDate = new DateTime();  // TASK: also look if cuurent dat is in data so that we have current data
+    $currentDate = new DateTime();  // TASK: maybe also look if cuurent dat is in data so that we have current data
 
-    if( count($data) >= 7 )
-      foreach( $data as $dat => $entries )
-      {
-        $fileDate = new DateTime($dat);
-        $daysDiff = $currentDate->diff($fileDate)->days;
-        $dayPrice = array_sum( array_column($entries, 'price'));
-
-        if( count($data) >= 7  && $daysDiff < 7 )
-          $priceSumAll[7] += $dayPrice;
-
-        if( count($data) >= 15 && $daysDiff < 15 )
-          $priceSumAll[15] += $dayPrice;
-        
-        if( count($data) >= 30 && $daysDiff < 30 )
-          $priceSumAll[30] += $dayPrice;
-        else  break;
-      }
+    $sums = [
+      7  => array_sum( array_column( array_slice($data, 0, 7),  'price')),
+      15 => array_sum( array_column( array_slice($data, 0, 15), 'price')),
+      30 => array_sum( array_column( array_slice($data, 0, 30), 'price'))
+    ];
 
     $this->priceAvg = [
-      'week'   => ! $priceSumAll[7]  ? 'n/a' : number_format( $priceSumAll[7]  / 7,  2) . ' ' . $settings->get('currencySymbol'),
-      '15days' => ! $priceSumAll[15] ? 'n/a' : number_format( $priceSumAll[15] / 15, 2) . ' ' . $settings->get('currencySymbol'),
-      '30days' => ! $priceSumAll[30] ? 'n/a' : number_format( $priceSumAll[30] / 30, 2) . ' ' . $settings->get('currencySymbol')
+      'week'   => ! $sums[7]  ? 'n/a' : number_format($sums[7]  / 7, 2)  . ' ' . $settings->get('currencySymbol'),
+      '15days' => ! $sums[15] ? 'n/a' : number_format($sums[15] / 15, 2) . ' ' . $settings->get('currencySymbol'),
+      '30days' => ! $sums[30] ? 'n/a' : number_format($sums[30] / 30, 2) . ' ' . $settings->get('currencySymbol')
     ];
   }
 }
