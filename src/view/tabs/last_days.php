@@ -26,6 +26,7 @@
     </li>
   </ul>
 -->
+<!-- TASK: MOV maybe we want avg data for nutrients as well -->
   <ul class="list-group mt-2">
     <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
       <div>Week avg</div>
