@@ -74,7 +74,6 @@ function parse_tsv( $entriesTxt, $header )
       // $line = preg_replace('/ {2,}/', ';', trim($line));
       $line  = preg_replace('/(?<=\S) {2,}(?=\S)/', ';', $line);  // added ignore spaces at bol (cause we are using str_pad() for amounts)
       $entry = explode(';', $line);
-      error_log( count($entry));
       $entry = array_combine($header, $entry);
 
       $r[] = $entry;
