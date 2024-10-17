@@ -94,7 +94,7 @@
       >
         <?php $weekdays = ['Mon' => 'Mo', 'Tue' => 'Tu', 'Wed' => 'We', 'Thu' => 'Th', 'Fri' => 'Fr', 'Sat' => 'Sa', 'Sun' => 'Su']; ?>
         <small class="text-body-secondary mb-1">
-          <b><?= $weekdays[ date('D', strtotime($day))] ?></b>&nbsp;<?= $day ?>
+          <b><?= $weekdays[ date('D', strtotime($day))] ?></b>&nbsp;&nbsp;<?= $day ?>
         </small>
         <small class="text-body-secondary mb-1">
           <b><?= $sums['price'] ?> <?= settings::get('currencySymbol') ?></b>
