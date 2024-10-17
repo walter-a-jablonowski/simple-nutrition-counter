@@ -328,22 +328,39 @@ class AppController extends ControllerBase
       
     $currentDate = new DateTime();  // TASK: maybe also look if current date is in data so that we have current data
     $attributes  = ['price', 'calories', 'fat', 'carbs', 'amino', 'salt'];
-
     $sums = [];
-    foreach( $attributes as $attr)
+    
+    foreach([7, 15, 30] as $period )
     {
-      $sums[$attr] = [];
-      foreach([7, 15, 30] as $period)
-        $sums[$attr][$period] = array_sum( array_column( array_slice($data, 0, $period), $attr));
+      $days = array_slice($data, 0, $period);
+
+      foreach( $attributes as $attr )
+      {
+        if( ! isset($sums[$attr][$period]))
+          $sums[$attr][$period] = 0;
+        
+        foreach( $days as $day )
+          $sums[$attr][$period] += array_sum( array_column( $day, $attr));
+      }
     }
 
     foreach( $attributes as $attr )
     {
-      $this->avg[$attr] = [
-        'week'   => ! $sums[$attr][7]  ? 'n/a' : number_format($sums[$attr][7]  / 7, 2)  . ( $attr === 'price' ? ' ' . $settings->get('currencySymbol') : ''),
-        '15days' => ! $sums[$attr][15] ? 'n/a' : number_format($sums[$attr][15] / 15, 2) . ( $attr === 'price' ? ' ' . $settings->get('currencySymbol') : ''),
-        '30days' => ! $sums[$attr][30] ? 'n/a' : number_format($sums[$attr][30] / 30, 2) . ( $attr === 'price' ? ' ' . $settings->get('currencySymbol') : '')
-      ];
+      if( $attr === 'price' )
+
+        $this->avg[$attr] = [
+          'week'   => ! $sums[$attr][7]  ? 'n/a' : number_format($sums[$attr][7]  / 7, 2)  . ' ' . $settings->get('currencySymbol'),
+          '15days' => ! $sums[$attr][15] ? 'n/a' : number_format($sums[$attr][15] / 15, 2) . ' ' . $settings->get('currencySymbol'),
+          '30days' => ! $sums[$attr][30] ? 'n/a' : number_format($sums[$attr][30] / 30, 2) . ' ' . $settings->get('currencySymbol')
+        ];
+
+      else
+
+        $this->avg[$attr] = [
+          'week'   => ! $sums[$attr][7]  ? 'n/a' : number_format($sums[$attr][7]  / 7, 1),
+          '15days' => ! $sums[$attr][15] ? 'n/a' : number_format($sums[$attr][15] / 15, 1),
+          '30days' => ! $sums[$attr][30] ? 'n/a' : number_format($sums[$attr][30] / 30, 1)
+        ];
     }
   }
 }

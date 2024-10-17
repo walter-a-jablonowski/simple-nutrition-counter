@@ -42,15 +42,23 @@
       </div>
     </li>
     <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
-      <div>Calories / Fat</div>
+      <div>Calories</div>
       <div>
         <span class="avg week"><?= $this->avg['calories']['week'] ?></span>
         <span class="avg 15days" style="display: none;"><?= $this->avg['calories']['15days'] ?></span>
         <span class="avg 30days" style="display: none;"><?= $this->avg['calories']['30days'] ?></span>
-        /
+      </div>
+    </li>
+    <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
+      <div>Fat / amino</div>
+      <div>
         <span class="avg week"><?= $this->avg['fat']['week'] ?></span>
         <span class="avg 15days" style="display: none;"><?= $this->avg['fat']['15days'] ?></span>
         <span class="avg 30days" style="display: none;"><?= $this->avg['fat']['30days'] ?></span>
+        /
+        <span class="avg week"><?= $this->avg['amino']['week'] ?></span>
+        <span class="avg 15days" style="display: none;"><?= $this->avg['amino']['15days'] ?></span>
+        <span class="avg 30days" style="display: none;"><?= $this->avg['amino']['30days'] ?></span>
       </div>
     </li>
     <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
@@ -61,20 +69,13 @@
         <span class="avg 30days" style="display: none;"><?= $this->avg['carbs']['30days'] ?></span>
       </div>
     </li>
-    <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
-      <div>Amino acids</div>
-      <div>
-        <span class="avg week"><?= $this->avg['amino']['week'] ?></span>
-        <span class="avg 15days" style="display: none;"><?= $this->avg['amino']['15days'] ?></span>
-        <span class="avg 30days" style="display: none;"><?= $this->avg['amino']['30days'] ?></span>
-      </div>
-    </li>
+    <!-- TASK: fibre -->
     <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
       <div>Salt</div>
       <div>
         <span class="avg week"><?= $this->avg['salt']['week'] ?></span>
-        <span class="avg 15days" style="display: none;"><?= $this->avg['amino']['15days'] ?></span>
-        <span class="avg 30days" style="display: none;"><?= $this->avg['amino']['30days'] ?></span>
+        <span class="avg 15days" style="display: none;"><?= $this->avg['salt']['15days'] ?></span>
+        <span class="avg 30days" style="display: none;"><?= $this->avg['salt']['30days'] ?></span>
       </div>
     </li>
   </ul>
