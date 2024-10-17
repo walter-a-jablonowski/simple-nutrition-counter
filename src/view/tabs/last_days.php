@@ -1,49 +1,80 @@
 <div class="scrollable-list border-0 mt-3">
-<!-- dorpdown version -->
 <!--
-  <ul class="list-group mt-2">
-    <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
-      <div class="dropdown">
-        <button class="btn dropdown-toggle p-0" type="button" data-bs-toggle="dropdown">
-          <span class="small">Last week</span>
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item small" href="#">Last week</a></li>
-          <li><a class="dropdown-item small" href="#">2 weeks</a></li>
-          <li><a class="dropdown-item small" href="#">Last month</a></li>
-        </ul>
-      </div>
-      <div>
-        < ?= number_format( $this->priceAvg, 2) ?>
-        < ?= settings::get('currencySymbol') ?>
-      </div>
-    </li>
-    <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
-      <div>Calories</div>
-      <div>
-        add some ...
-      </div>
-    </li>
-  </ul>
--->
-<!-- TASK: MOV maybe we want avg data for nutrients as well -->
   <ul class="list-group mt-2">
     <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
       <div>Week avg</div>
       <div>
-        <?= $this->priceAvg['week']  ?>
+        < ?= $this->priceAvg['week']  ?>
       </div>
     </li>
     <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
       <div>15 days</div>
       <div>
-        <?= $this->priceAvg['15days'] ?>
+        < ?= $this->priceAvg['15days'] ?>
       </div>
     </li>
     <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
       <div>30 days</div>
       <div>
-        <?= $this->priceAvg['30days'] ?>
+        < ?= $this->priceAvg['30days'] ?>
+      </div>
+    </li>
+  </ul>
+-->
+<!-- TASK: MOV maybe we want avg data for nutrients as well -->
+<!-- dorpdown version -->
+  <ul class="list-group mt-2">
+    <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
+      <div class="dropdown">
+        <button class="btn dropdown-toggle p-0" type="button" data-bs-toggle="dropdown">
+          <span class="fw-bold small">Last week</span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item small" data="" href="#">Last week</a></li>
+          <li><a class="dropdown-item small" data="" href="#">15 days</a></li>
+          <li><a class="dropdown-item small" data="" href="#">30 days</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="avg week"><?= $this->avg['price']['week'] ?></span>
+        <span class="avg 15days" style="display: none;"><?= $this->avg['price']['15days'] ?></span>
+        <span class="avg 30days" style="display: none;"><?= $this->avg['price']['30days'] ?></span>
+      </div>
+    </li>
+    <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
+      <div>Calories / Fat</div>
+      <div>
+        <span class="avg week"><?= $this->avg['calories']['week'] ?></span>
+        <span class="avg 15days" style="display: none;"><?= $this->avg['calories']['15days'] ?></span>
+        <span class="avg 30days" style="display: none;"><?= $this->avg['calories']['30days'] ?></span>
+        /
+        <span class="avg week"><?= $this->avg['fat']['week'] ?></span>
+        <span class="avg 15days" style="display: none;"><?= $this->avg['fat']['15days'] ?></span>
+        <span class="avg 30days" style="display: none;"><?= $this->avg['fat']['30days'] ?></span>
+      </div>
+    </li>
+    <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
+      <div>Carbs</div>
+      <div>
+        <span class="avg week"><?= $this->avg['carbs']['week'] ?></span>
+        <span class="avg 15days" style="display: none;"><?= $this->avg['carbs']['15days'] ?></span>
+        <span class="avg 30days" style="display: none;"><?= $this->avg['carbs']['30days'] ?></span>
+      </div>
+    </li>
+    <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
+      <div>Amino acids</div>
+      <div>
+        <span class="avg week"><?= $this->avg['amino']['week'] ?></span>
+        <span class="avg 15days" style="display: none;"><?= $this->avg['amino']['15days'] ?></span>
+        <span class="avg 30days" style="display: none;"><?= $this->avg['amino']['30days'] ?></span>
+      </div>
+    </li>
+    <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
+      <div>Salt</div>
+      <div>
+        <span class="avg week"><?= $this->avg['salt']['week'] ?></span>
+        <span class="avg 15days" style="display: none;"><?= $this->avg['amino']['15days'] ?></span>
+        <span class="avg 30days" style="display: none;"><?= $this->avg['amino']['30days'] ?></span>
       </div>
     </li>
   </ul>

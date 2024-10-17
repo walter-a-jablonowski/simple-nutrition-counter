@@ -33,7 +33,7 @@ class AppController extends ControllerBase
   protected SimpleData $layoutView;
 
   protected SimpleData $nutrientsView;   // nutrients tab, last days
-  protected array      $priceAvg;
+  protected array      $avg;
   protected SimpleData $lastDaysView;
 
   protected array      $captions = [];
@@ -326,19 +326,25 @@ class AppController extends ControllerBase
       ]);
     }
       
-    $currentDate = new DateTime();  // TASK: maybe also look if cuurent dat is in data so that we have current data
+    $currentDate = new DateTime();  // TASK: maybe also look if current date is in data so that we have current data
+    $attributes  = ['price', 'calories', 'fat', 'carbs', 'amino', 'salt'];
 
-    $sums = [
-      7  => array_sum( array_column( array_slice($data, 0, 7),  'price')),
-      15 => array_sum( array_column( array_slice($data, 0, 15), 'price')),
-      30 => array_sum( array_column( array_slice($data, 0, 30), 'price'))
-    ];
+    $sums = [];
+    foreach( $attributes as $attr)
+    {
+      $sums[$attr] = [];
+      foreach([7, 15, 30] as $period)
+        $sums[$attr][$period] = array_sum( array_column( array_slice($data, 0, $period), $attr));
+    }
 
-    $this->priceAvg = [
-      'week'   => ! $sums[7]  ? 'n/a' : number_format($sums[7]  / 7, 2)  . ' ' . $settings->get('currencySymbol'),
-      '15days' => ! $sums[15] ? 'n/a' : number_format($sums[15] / 15, 2) . ' ' . $settings->get('currencySymbol'),
-      '30days' => ! $sums[30] ? 'n/a' : number_format($sums[30] / 30, 2) . ' ' . $settings->get('currencySymbol')
-    ];
+    foreach( $attributes as $attr )
+    {
+      $this->avg[$attr] = [
+        'week'   => ! $sums[$attr][7]  ? 'n/a' : number_format($sums[$attr][7]  / 7, 2)  . ( $attr === 'price' ? ' ' . $settings->get('currencySymbol') : ''),
+        '15days' => ! $sums[$attr][15] ? 'n/a' : number_format($sums[$attr][15] / 15, 2) . ( $attr === 'price' ? ' ' . $settings->get('currencySymbol') : ''),
+        '30days' => ! $sums[$attr][30] ? 'n/a' : number_format($sums[$attr][30] / 30, 2) . ( $attr === 'price' ? ' ' . $settings->get('currencySymbol') : '')
+      ];
+    }
   }
 }
 
