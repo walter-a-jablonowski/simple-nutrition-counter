@@ -1,19 +1,6 @@
 <div class="scrollable-list border-0 mt-3">
+<!-- dorpdown version -->
 <!--
-  <ul class="list-group">
-    <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
-      <div>Price avg</div>
-      <div>
-        < ?= number_format( $this->priceAvg, 2) ?>
-        < ?= settings::get('currencySymbol') ?>
-      </div>
-    </li>
-    <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
-      <div>Week avg</div>
-      <div>(maybe)</div>
-    </li>
-  </ul>
--->
   <ul class="list-group mt-2">
     <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
       <div class="dropdown">
@@ -27,8 +14,8 @@
         </ul>
       </div>
       <div>
-        <?= number_format( $this->priceAvg, 2) ?>
-        <?= settings::get('currencySymbol') ?>
+        < ?= number_format( $this->priceAvg, 2) ?>
+        < ?= settings::get('currencySymbol') ?>
       </div>
     </li>
     <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
@@ -38,7 +25,27 @@
       </div>
     </li>
   </ul>
-
+-->
+  <ul class="list-group mt-2">
+    <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
+      <div>Week avg</div>
+      <div>
+        <?= $this->priceAvg['week']  ?>
+      </div>
+    </li>
+    <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
+      <div>15 days</div>
+      <div>
+        <?= $this->priceAvg['15days'] ?>
+      </div>
+    </li>
+    <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
+      <div>30 days</div>
+      <div>
+        <?= $this->priceAvg['30days'] ?>
+      </div>
+    </li>
+  </ul>
   <div class="list-group mt-2">
 
     <!-- ios like design -->

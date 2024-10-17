@@ -33,7 +33,7 @@ class AppController extends ControllerBase
   protected SimpleData $layoutView;
 
   protected SimpleData $nutrientsView;   // nutrients tab, last days
-  protected float      $priceAvg;
+  protected array      $priceAvg;
   protected SimpleData $lastDaysView;
 
   protected array      $captions = [];
@@ -301,23 +301,21 @@ class AppController extends ControllerBase
     $settings = settings::instance();
 
     $this->lastDaysView = new SimpleData();
-    $priceSumAll = 0; $days = 0;
-
-    // TASK: remove current day
-
+    $data = [];
+    
     foreach( scandir('data/users/' . $config->get('defaultUser') . '/days', SCANDIR_SORT_DESCENDING) as $file)
     {
       if( pathinfo($file, PATHINFO_EXTENSION) !== 'tsv')
         continue;
-      
-      $days++;
 
-      $dat     = pathinfo( $file, PATHINFO_FILENAME);
+      $dat = pathinfo($file, PATHINFO_FILENAME);
       $entries = parse_tsv( file_get_contents('data/users/' . $config->get('defaultUser') . "/days/$file"), self::DAY_HEADERS);
 
       // foreach( $entries as $idx => $entry)
       //   $entries[$idx][7] = Yaml::parse( $entries[$idx][7] );
-      
+
+      $data[$dat] = $entries;
+
       $this->lastDaysView->set( $dat, [
         'calories' => ( ! $entries ? 0 : array_sum( array_column($entries, 'calories'))),
         'fat'      => ( ! $entries ? 0 : array_sum( array_column($entries, 'fat'))),
@@ -326,11 +324,34 @@ class AppController extends ControllerBase
         'salt'     => ( ! $entries ? 0 : array_sum( array_column($entries, 'salt'))),
         'price'    => ( ! $entries ? 0 : array_sum( array_column($entries, 'price')))
       ]);
-  
-      $priceSumAll += ! $entries ? 0 : array_sum( array_column($entries, 6));
     }
-    
-    $this->priceAvg = ! $priceSumAll ? 0.0 : $priceSumAll / $days;
+      
+    $priceSumAll = [7 => 0, 15 => 0, 30 => 0];
+    $currentDate = new DateTime();  // TASK: also look if cuurent dat is in data so that we have current data
+
+    if( count($data) >= 7 )
+      foreach( $data as $dat => $entries )
+      {
+        $fileDate = new DateTime($dat);
+        $daysDiff = $currentDate->diff($fileDate)->days;
+        $dayPrice = array_sum( array_column($entries, 'price'));
+
+        if( count($data) >= 7  && $daysDiff < 7 )
+          $priceSumAll[7] += $dayPrice;
+
+        if( count($data) >= 15 && $daysDiff < 15 )
+          $priceSumAll[15] += $dayPrice;
+        
+        if( count($data) >= 30 && $daysDiff < 30 )
+          $priceSumAll[30] += $dayPrice;
+        else  break;
+      }
+
+    $this->priceAvg = [
+      'week'   => ! $priceSumAll[7]  ? 'n/a' : number_format( $priceSumAll[7]  / 7,  2) . ' ' . $settings->get('currencySymbol'),
+      '15days' => ! $priceSumAll[15] ? 'n/a' : number_format( $priceSumAll[15] / 15, 2) . ' ' . $settings->get('currencySymbol'),
+      '30days' => ! $priceSumAll[30] ? 'n/a' : number_format( $priceSumAll[30] / 30, 2) . ' ' . $settings->get('currencySymbol')
+    ];
   }
 }
 
