@@ -82,7 +82,11 @@
 
     <!-- ios like design -->
 
-    <?php foreach( $this->lastDaysView->all() as $day => $sums ): ?>
+    <?php
+    
+    $i = 0;
+    foreach( $this->lastDaysView->all() as $day => $sums ):
+      if( $i == 20 )  break; ?>
 
       <li class = "list-group-item d-flex justify-content-between align-items-center"
           style = "background-color: #e0e0e0;"
