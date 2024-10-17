@@ -378,12 +378,10 @@ class MainController
 
       label.textContent = event.target.textContent
 
-      // document.querySelectorAll('.head-view .avg').forEach( span => {
       query('.head-view .avg').forEach( span => {
         span.style.display = 'none'
       })
 
-      // document.querySelectorAll(`.head-view .avg.${selectedPeriod}`).forEach(span => {
       query(`.head-view .avg.${selectedPeriod}`).forEach( span => {
         span.style.display = 'inline'
       })
