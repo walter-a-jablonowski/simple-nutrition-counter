@@ -301,10 +301,12 @@ class AppController extends ControllerBase
     $settings = settings::instance();
 
     $this->lastDaysView = new SimpleData();
-    $data = [];
+    $data = [];  $i = 1;
     
     foreach( scandir('data/users/' . $config->get('defaultUser') . '/days', SCANDIR_SORT_DESCENDING) as $file)
     {
+      $i++;  if( $i > 30 )  break;
+
       if( pathinfo($file, PATHINFO_EXTENSION) !== 'tsv')
         continue;
 

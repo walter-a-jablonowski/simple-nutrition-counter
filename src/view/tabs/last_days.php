@@ -59,11 +59,7 @@
 
     <!-- ios like design -->
 
-    <?php
-    
-    $i = 0;
-    foreach( $this->lastDaysView->all() as $day => $sums ):
-      $i++;  if( $i == 30 )  break; ?>
+    <?php foreach( $this->lastDaysView->all() as $day => $sums ): ?>
 
       <li class = "list-group-item d-flex justify-content-between align-items-center"
           style = "background-color: #e0e0e0;"
