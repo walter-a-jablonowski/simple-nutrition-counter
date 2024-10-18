@@ -313,7 +313,7 @@ class AppController extends ControllerBase
       $dat = pathinfo($file, PATHINFO_FILENAME);
       $entries = parse_tsv( file_get_contents('data/users/' . $config->get('defaultUser') . "/days/$file"), self::DAY_HEADERS);
 
-      // foreach( $entries as $idx => $entry)
+      // foreach( $entries as $idx => $entry)  // TASK: for fibre
       //   $entries[$idx][7] = Yaml::parse( $entries[$idx][7] );
 
       $data[$dat] = $entries;
