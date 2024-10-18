@@ -351,17 +351,17 @@ class AppController extends ControllerBase
       if( $attr === 'price' )
 
         $this->avg[$attr] = [
-          'week'   => ! $sums[$attr][7]  ? 'n/a' : number_format($sums[$attr][7]  / 7, 2)  . ' ' . $settings->get('currencySymbol'),
-          '15days' => ! $sums[$attr][15] ? 'n/a' : number_format($sums[$attr][15] / 15, 2) . ' ' . $settings->get('currencySymbol'),
-          '30days' => ! $sums[$attr][30] ? 'n/a' : number_format($sums[$attr][30] / 30, 2) . ' ' . $settings->get('currencySymbol')
+          'week'   => ! $sums[$attr][7]  ? 'n/a' : number_format($sums[$attr][7]  / 7,  2, '.', '') . ' ' . $settings->get('currencySymbol'),
+          '15days' => ! $sums[$attr][15] ? 'n/a' : number_format($sums[$attr][15] / 15, 2, '.', '') . ' ' . $settings->get('currencySymbol'),
+          '30days' => ! $sums[$attr][30] ? 'n/a' : number_format($sums[$attr][30] / 30, 2, '.', '') . ' ' . $settings->get('currencySymbol')
         ];
 
       else
 
         $this->avg[$attr] = [
-          'week'   => ! $sums[$attr][7]  ? 'n/a' : number_format($sums[$attr][7]  / 7, 1),
-          '15days' => ! $sums[$attr][15] ? 'n/a' : number_format($sums[$attr][15] / 15, 1),
-          '30days' => ! $sums[$attr][30] ? 'n/a' : number_format($sums[$attr][30] / 30, 1)
+          'week'   => ! $sums[$attr][7]  ? 'n/a' : number_format($sums[$attr][7]  / 7,  1, '.', ''),
+          '15days' => ! $sums[$attr][15] ? 'n/a' : number_format($sums[$attr][15] / 15, 1, '.', ''),
+          '30days' => ! $sums[$attr][30] ? 'n/a' : number_format($sums[$attr][30] / 30, 1, '.', '')
         ];
     }
   }
