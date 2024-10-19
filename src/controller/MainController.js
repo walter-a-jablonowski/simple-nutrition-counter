@@ -470,6 +470,7 @@ class MainController
     query('#fatSum').textContent   = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.fat),   0))
     query('#aminoSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.amino), 0))
     query('#carbsSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.carbs), 0))
+    // query('#sugarSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.sugar), 0))  // TASK
 
     // let fibreSum = Number( foodEntries.reduce((sum, entry) => {
     //   return sum + (entry.nutrients.fibre ? Number(entry.nutrients.fibre) : 0)  // only if set
