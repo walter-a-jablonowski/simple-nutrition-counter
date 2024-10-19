@@ -66,9 +66,9 @@
   </div>
 -->
   <div class="col-6 col-md-2 col-xxl-2 mt-1 px-1" data-bs-toggle="modal" data-bs-target="#tipsModal">
-    <div class="px-1 bg-secondary text-white text-nowrap overflow-hidden">Carbs <?= $a['primaryGoals']['carbs']['label'] ?></div>
+    <div class="px-1 bg-secondary text-white text-nowrap overflow-hidden">Carbs <?= $a['primaryGoals']['carbs']['label'] ?> (sugar)</div>
     <div class="value ps-1">
-      <span id="carbsSum">0</span> / <span id="sugarSum">0</span> g
+      <span id="carbsSum">0</span> g (<span id="sugarSum">0</span>)
     </div>
   </div>
   <div class="col-6 col-md-2 col-xxl-2 mt-1 px-1" data-bs-toggle="modal" data-bs-target="#tipsModal">
