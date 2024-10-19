@@ -452,18 +452,25 @@ class MainController
 
     // Quick summary
 
-    let caloriesSum = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.calories), 0).toFixed(1))
-    let fatSum      = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.fat),      0).toFixed(1))
-    let aminoSum    = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.amino),    0).toFixed(1))
-    let carbsSum    = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.carbs),    0).toFixed(1))
+    // let caloriesSum = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.calories), 0).toFixed(1))  // one decimal place
+    // let fatSum      = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.fat),      0).toFixed(1))
+    // let aminoSum    = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.amino),    0).toFixed(1))
+    // let carbsSum    = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.carbs),    0).toFixed(1))
+    let caloriesSum = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.calories), 0))
+    let fatSum      = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.fat),      0))
+    let aminoSum    = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.amino),    0))
+    let carbsSum    = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.carbs),    0))
 
     // let fibreSum = Number( foodEntries.reduce((sum, entry) => {
     //   return sum + (entry.nutrients.fibre ? Number(entry.nutrients.fibre) : 0)  // only if set
     // }, 0).toFixed(1))
 
-    let fibreSum    = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.nutrients.fibre), 0).toFixed(1))
-    let saltSum     = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.salt),     0).toFixed(1))
-    let priceSum    = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.price),    0).toFixed(2))
+    // let fibreSum    = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.nutrients.fibre), 0).toFixed(1))
+    // let saltSum     = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.salt),     0).toFixed(1))
+    // let priceSum    = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.price),    0).toFixed(2))
+    let fibreSum    = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.nutrients.fibre), 0))
+    let saltSum     = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.salt),     0))
+    let priceSum    = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.price),    0))
 
     query('#caloriesSum').textContent = caloriesSum
     query('#fatSum').textContent      = fatSum
