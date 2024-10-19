@@ -45,7 +45,11 @@
   <div class="col-6 col-md-2 col-xxl-2 mt-1 px-1">
     <div style="background-color: #eb6864;" data-bs-toggle="modal" data-bs-target="#tipsModal">
       <div class="ps-1 fw-bold text-nowrap overflow-hidden">kcal <?= $a['primaryGoals']['calories']['label'] ?></div>
-      <div id="caloriesSum" class="ps-1">0</div>
+      <div class="ps-1">
+        <span id="caloriesSum">0</span>
+        in
+        <span id="timeSum">00:00</span>
+      </div>
     </div>
   </div>
   <div class="col-6 col-md-2 col-xxl-2 mt-1 px-1" data-bs-toggle="modal" data-bs-target="#tipsModal">

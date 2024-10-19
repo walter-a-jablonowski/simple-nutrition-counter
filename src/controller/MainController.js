@@ -453,32 +453,34 @@ class MainController
     // Quick summary
 
     // let caloriesSum = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.calories), 0).toFixed(1))  // one decimal place
-    // let fatSum      = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.fat),      0).toFixed(1))
-    // let aminoSum    = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.amino),    0).toFixed(1))
-    // let carbsSum    = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.carbs),    0).toFixed(1))
-    let caloriesSum = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.calories), 0))
-    let fatSum      = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.fat),      0))
-    let aminoSum    = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.amino),    0))
-    let carbsSum    = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.carbs),    0))
+    query('#caloriesSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.calories), 0))
+
+    // Eating time
+    const sortedEntries = foodEntries.sort((a, b) => a.time.localeCompare(b.time))
+    const firstTime     = new Date(`1970-01-01T${sortedEntries[0].time}`)
+    const lastTime      = new Date(`1970-01-01T${sortedEntries[sortedEntries.length - 1].time}`)
+    const timeDiff      = lastTime - firstTime
+    const hours         = Math.floor(timeDiff / 3600000).toString().padStart(2, '0')
+    const minutes       = Math.floor((timeDiff % 3600000) / 60000).toString().padStart(2, '0')
+    query('#timeSum').textContent = `${hours}:${minutes}`  // TASK: maybe round the time to 30 min
+                                                           // TASK: use classes and single id for the view
+    // let fatSum   = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.fat),   0).toFixed(1))
+    // let aminoSum = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.amino), 0).toFixed(1))
+    // let carbsSum = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.carbs), 0).toFixed(1))
+    query('#fatSum').textContent   = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.fat),   0))
+    query('#aminoSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.amino), 0))
+    query('#carbsSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.carbs), 0))
 
     // let fibreSum = Number( foodEntries.reduce((sum, entry) => {
     //   return sum + (entry.nutrients.fibre ? Number(entry.nutrients.fibre) : 0)  // only if set
     // }, 0).toFixed(1))
 
-    // let fibreSum    = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.nutrients.fibre), 0).toFixed(1))
-    // let saltSum     = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.salt),     0).toFixed(1))
-    // let priceSum    = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.price),    0).toFixed(2))
-    let fibreSum    = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.nutrients.fibre), 0))
-    let saltSum     = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.salt),     0))
-    let priceSum    = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.price),    0))
-
-    query('#caloriesSum').textContent = caloriesSum
-    query('#fatSum').textContent      = fatSum
-    query('#aminoSum').textContent    = aminoSum
-    query('#carbsSum').textContent    = carbsSum
-    query('#fibreSum').textContent    = fibreSum
-    query('#saltSum').textContent     = saltSum
-    query('#priceSum').textContent    = priceSum
+    // let fibreSum = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.nutrients.fibre), 0).toFixed(1))
+    // let saltSum  = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.salt),  0).toFixed(1))
+    // let priceSum = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.price), 0).toFixed(2))
+    query('#fibreSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.nutrients.fibre), 0))
+    query('#saltSum').textContent  = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.salt),  0))
+    query('#priceSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.price), 0))
 
 
     // Nutrients tab
