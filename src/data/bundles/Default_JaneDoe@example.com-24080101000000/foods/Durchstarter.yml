@@ -5,7 +5,7 @@ packaging:         alu (maybe)
 
 price:             3.29  # 2024-06-16 2.99
 weight:            200
-usedAmounts:       ["1/4", "1/2"]
+usedAmounts:       ["25g", "50g", "100g"]
 
 calories:          635
 nutritionalValues:
