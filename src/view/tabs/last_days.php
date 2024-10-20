@@ -47,6 +47,14 @@
     </li>
     <!-- TASK: fibre -->
     <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
+      <div>Fibre</div>
+      <div>
+        <span class="avg week">(missing)</span>
+        <span class="avg days15" style="display: none;">(missing)</span>
+        <span class="avg days30" style="display: none;">(missing)</span>
+      </div>
+    </li>
+    <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
       <div>Salt</div>
       <div>
         <span class="avg week"><?= $this->avg['salt']['week'] ?></span>
