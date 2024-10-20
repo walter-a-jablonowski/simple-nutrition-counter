@@ -4,7 +4,7 @@ packaging:         plastic
 
 price:             2.39  # 2024-03-23, 2024-07-01 2.19
 weight:            1000
-usedAmounts:       ["50g", "100g"]
+usedAmounts:       ["25g", "50g", "100g"]
 
 calories:          24
 nutritionalValues:
