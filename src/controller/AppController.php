@@ -305,12 +305,12 @@ class AppController extends ControllerBase
     
     foreach( scandir('data/users/' . $config->get('defaultUser') . '/days', SCANDIR_SORT_DESCENDING) as $file)
     {
-      $i++;  if( $i > 30 )  break;
+      $dat = pathinfo($file, PATHINFO_FILENAME);
 
-      if( pathinfo($file, PATHINFO_EXTENSION) !== 'tsv')
+      if( pathinfo($file, PATHINFO_EXTENSION) !== 'tsv' || $dat === date('Y-m-d'))  // hide current day in last days tab
         continue;
 
-      $dat = pathinfo($file, PATHINFO_FILENAME);
+      $i++;  if( $i > 30 )  break;  // leave here cause of first day hidden
       $entries = parse_tsv( file_get_contents('data/users/' . $config->get('defaultUser') . "/days/$file"), self::DAY_HEADERS);
 
       // foreach( $entries as $idx => $entry)  // TASK: for fibre
