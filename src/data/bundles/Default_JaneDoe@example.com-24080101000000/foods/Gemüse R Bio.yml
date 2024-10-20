@@ -6,7 +6,7 @@ packaging:         plastic
 
 price:             1.99
 weight:            450
-usedAmounts:       ["50g", "100g", "150g"]
+usedAmounts:       ["25g", "50g", "100g"]
 
 calories:          42
 nutritionalValues:
