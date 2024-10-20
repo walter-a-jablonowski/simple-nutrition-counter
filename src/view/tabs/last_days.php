@@ -12,17 +12,17 @@
         </ul>
       </div>
       <div>
-        <span class="avg week"><?= $this->avg['price']['week'] ?></span>
-        <span class="avg days15" style="display: none;"><?= $this->avg['price']['15days'] ?></span>
-        <span class="avg days30" style="display: none;"><?= $this->avg['price']['30days'] ?></span>
+        <span class="avg week"><?= $this->avg['price']['week'] ?> <?= settings::get('currencySymbol') ?></span>
+        <span class="avg days15" style="display: none;"><?= $this->avg['price']['15days'] ?> <?= settings::get('currencySymbol') ?></span>
+        <span class="avg days30" style="display: none;"><?= $this->avg['price']['30days'] ?> <?= settings::get('currencySymbol') ?></span>
       </div>
     </li>
     <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
       <div>Calories</div>
       <div>
-        <span class="avg week"><?= $this->avg['calories']['week'] ?></span>
-        <span class="avg days15" style="display: none;"><?= $this->avg['calories']['15days'] ?></span>
-        <span class="avg days30" style="display: none;"><?= $this->avg['calories']['30days'] ?></span>
+        <span class="avg week"><?= $this->avg['calories']['week'] ?> g</span>
+        <span class="avg days15" style="display: none;"><?= $this->avg['calories']['15days'] ?> g</span>
+        <span class="avg days30" style="display: none;"><?= $this->avg['calories']['30days'] ?> g</span>
       </div>
     </li>
     <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
@@ -32,17 +32,17 @@
         <span class="avg days15" style="display: none;"><?= $this->avg['fat']['15days'] ?></span>
         <span class="avg days30" style="display: none;"><?= $this->avg['fat']['30days'] ?></span>
         /
-        <span class="avg week"><?= $this->avg['amino']['week'] ?></span>
-        <span class="avg days15" style="display: none;"><?= $this->avg['amino']['15days'] ?></span>
-        <span class="avg days30" style="display: none;"><?= $this->avg['amino']['30days'] ?></span>
+        <span class="avg week"><?= $this->avg['amino']['week'] ?> g</span>
+        <span class="avg days15" style="display: none;"><?= $this->avg['amino']['15days'] ?> g</span>
+        <span class="avg days30" style="display: none;"><?= $this->avg['amino']['30days'] ?> g</span>
       </div>
     </li>
     <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
       <div>Carbs</div>
       <div>
-        <span class="avg week"><?= $this->avg['carbs']['week'] ?></span>
-        <span class="avg days15" style="display: none;"><?= $this->avg['carbs']['15days'] ?></span>
-        <span class="avg days30" style="display: none;"><?= $this->avg['carbs']['30days'] ?></span>
+        <span class="avg week"><?= $this->avg['carbs']['week'] ?> g</span>
+        <span class="avg days15" style="display: none;"><?= $this->avg['carbs']['15days'] ?> g</span>
+        <span class="avg days30" style="display: none;"><?= $this->avg['carbs']['30days'] ?> g</span>
       </div>
     </li>
     <!-- TASK: fibre -->
@@ -57,9 +57,9 @@
     <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
       <div>Salt</div>
       <div>
-        <span class="avg week"><?= $this->avg['salt']['week'] ?></span>
-        <span class="avg days15" style="display: none;"><?= $this->avg['salt']['15days'] ?></span>
-        <span class="avg days30" style="display: none;"><?= $this->avg['salt']['30days'] ?></span>
+        <span class="avg week"><?= $this->avg['salt']['week'] ?> g</span>
+        <span class="avg days15" style="display: none;"><?= $this->avg['salt']['15days'] ?> g</span>
+        <span class="avg days30" style="display: none;"><?= $this->avg['salt']['30days'] ?> g</span>
       </div>
     </li>
   </ul>
