@@ -68,7 +68,7 @@
       {
         print $this->renderView( __DIR__ . '/group.php', [
           'groupId'   => $tqbId . 'FirstEntries',
-          'groupName' => null,  // TASK
+          'groupName' => null,
           'def'       => $layout['(first_entries)']
         ], $return);
 
