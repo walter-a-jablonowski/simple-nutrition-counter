@@ -64,8 +64,6 @@
       // TASK: single group above full width with ho header see (first_entries)
       //       special and fillup now in user > misc.yml
 // /*
-      // var_dump( $tab);
-      // var_dump( array_keys( $layout));
       if( isset( $layout['(first_entries)']['list']))
       {
         print $this->renderView( __DIR__ . '/first_group.php', [
