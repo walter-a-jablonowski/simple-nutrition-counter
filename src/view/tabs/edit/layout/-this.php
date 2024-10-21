@@ -63,18 +63,19 @@
 
       // TASK: single group above full width with ho header see (first_entries)
       //       special and fillup now in user > misc.yml
-/*
+// /*
+      // var_dump( $tab);
+      // var_dump( array_keys( $layout));
       if( isset( $layout['(first_entries)']['list']))
       {
-        print $this->renderView( __DIR__ . '/group.php', [
-          'groupId'   => $tqbId . 'FirstEntries',
-          'groupName' => null,
+        print $this->renderView( __DIR__ . '/first_group.php', [
+          'groupId'   => $tabId . 'FirstEntries',
           'def'       => $layout['(first_entries)']
         ], $return);
 
         $done = array_merge( $done, $return['done']);
       }
-*/
+// */
 
       // Group
 
@@ -137,7 +138,7 @@
             print $this->renderView( __DIR__ . '/group.php', [
               'groupId'     => lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', 'Removed')),
               'groupName'   => 'Removed',
-              'showRemoved' => true,
+              'showRemoved' => true,  // TASK: missing?
               'def' => [
                 '@attribs' => [
                   'short' => null,

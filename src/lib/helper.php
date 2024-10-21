@@ -4,7 +4,7 @@
 // TASK: (advanced) make reusable (maybe recursive via AI)
 // TASK: (advanced) we could add a skip keys arg for (first_entries) is we use this
 
-function parse_attribs( string $attribsKey, array $largeAttribKeys, array $array)
+function parse_attribs( string $attribsKey, array $largeAttribKeys, array $array)  // TASK: maybe some arg for first_entries
 {
   $r = [];
 
@@ -15,7 +15,7 @@ function parse_attribs( string $attribsKey, array $largeAttribKeys, array $array
     // Key attribs
     // TASK: use last ( ) in string, so we can use () in text or use curly
     
-    if( preg_match('/\(([^)]+)\)/', $key, $a))           // && $key != '(first_entries)')
+    if( preg_match('/\(([^)]+)\)/', $key, $a)            && $key != '(first_entries)')
     // if( preg_match('/\(([^:]+:[^)]+)\)/', $key, $a))  // alternative: with : in the middle
     {
       foreach( explode(',', $a[1]) as $attr )
@@ -49,8 +49,8 @@ function parse_attribs( string $attribsKey, array $largeAttribKeys, array $array
       }
     }
 
-    // if( $key != '(first_entries)')
-    $key = trim( preg_replace('/\([^)]+\)/', '', $key));
+    if( $key != '(first_entries)')
+      $key = trim( preg_replace('/\([^)]+\)/', '', $key));
 
     $r[$key] = $val;
     

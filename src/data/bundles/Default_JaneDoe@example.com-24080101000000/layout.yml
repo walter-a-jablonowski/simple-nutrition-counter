@@ -8,16 +8,15 @@
 
 Food:
 
-  # (first_entries):
-  #                                 
-  #   list:
-  #
-  #     - Water
-  #     - Coffee
-  #     - Fullup
-  # 
+  "(first_entries)":
+                                  
+    list:
+  
+      - Wasser R lg
+      - Dallmayr classic
+      # - Fullup
 
-  Nuts, seeds (color:#ffa500):                   # Meals  # TASK: on the go diff shade
+  Nuts, seeds (color:#ffa500):                 # Meals  # TASK: on the go diff shade
 
     (i):   "Demo 2"                            # TASK: we also could add a collapse for larger content
     short: "Info (always visible)"             # alternative: enclose in attribs key (see function)
