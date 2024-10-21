@@ -67,7 +67,7 @@
       if( isset( $layout['(first_entries)']['list']))
       {
         print $this->renderView( __DIR__ . '/group.php', [
-          'groupId'   => 'firstEntries',
+          'groupId'   => $tqbId . 'FirstEntries',
           'groupName' => null,  // TASK
           'def'       => $layout['(first_entries)']
         ], $return);
