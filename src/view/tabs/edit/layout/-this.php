@@ -58,15 +58,29 @@
         ");
       }
 
+
+      // First entries
+
       // TASK: single group above full width with ho header see (first_entries)
-      //       add in done and exclude below
       //       special and fillup now in user > misc.yml
-    
+/*
+      if( isset( $layout['(first_entries)']['list']))
+      {
+        print $this->renderView( __DIR__ . '/group.php', [
+          'groupId'   => 'firstEntries',
+          'groupName' => null,  // TASK
+          'def'       => $layout['(first_entries)']
+        ], $return);
+
+        $done = array_merge( $done, $return['done']);
+      }
+*/
+
       // Group
 
       foreach( $layout as $groupName => $def )
       {
-        if( $groupName == '(first_entries)' || ! ($def['list'] ?? []))  // no entry  // TASK: first_entries currently no use
+        if( $groupName == '(first_entries)' || ! ($def['list'] ?? []))  // no entry
           continue;
         
         $groupId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $groupName));
