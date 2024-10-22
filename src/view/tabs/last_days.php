@@ -65,6 +65,8 @@
   </ul>
   <div class="days-view list-group mt-2">
 
+    <!-- TASK: maybe prefer nutrients like tab 2 but avg for a week here -->
+
     <!-- ios like design -->
 
     <?php foreach( $this->lastDaysView->all() as $day => $sums ): ?>
