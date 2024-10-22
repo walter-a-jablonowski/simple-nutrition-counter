@@ -450,6 +450,9 @@ class MainController
   {
     const foodEntries = dayEntries.filter( entry => entry.type === 'F' || entry.type === 'FE')
 
+    if( foodEntries.length == 0)
+      return;
+
     // Quick summary
 
     // let caloriesSum = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.calories), 0).toFixed(1))  // one decimal place
@@ -463,7 +466,8 @@ class MainController
     const hours         = Math.floor(timeDiff / 3600000).toString().padStart(2, '0')
     const minutes       = Math.floor((timeDiff % 3600000) / 60000).toString().padStart(2, '0')
     query('#timeSum').textContent = `${hours}:${minutes}`  // TASK: maybe round the time to 30 min
-                                                           // TASK: use classes and single id for the view
+                                                            // TASK: use classes and single id for the view
+
     // let fatSum   = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.fat),   0).toFixed(1))
     // let aminoSum = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.amino), 0).toFixed(1))
     // let carbsSum = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.carbs), 0).toFixed(1))
