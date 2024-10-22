@@ -29,10 +29,10 @@ $showInfo = $this->foodsModel->get("$entryName.comment")  // has comment might m
 ?>
 <div class="layout-item row">  <!-- pe-0 is for bg color, TASK: alternative: highlight name only -->
   <div class = "col-5 pe-0"
-        data-bs-toggle = "modal"
-        data-bs-target = "#infoModal"
-        data-title     = "#<?= $entryId ?>Headline"
-        data-source    = "#<?= $entryId ?>Data"
+       data-bs-toggle = "modal"
+       data-bs-target = "#infoModal"
+       data-title     = "#<?= $entryId ?>Headline"
+       data-source    = "#<?= $entryId ?>Data"
   >
     <div class="text-nowrap overflow-hidden" style="background-color: <?= $accepColor ?>;">
       <?= $entryName ?>
@@ -70,17 +70,17 @@ $showInfo = $this->foodsModel->get("$entryName.comment")  // has comment might m
   
   ?>                     <!-- pe-0 is for bg color -->
     <div class   = "amount-btn col-2 p-1 pe-0 text-center"
-          onclick = "mainCrl.layoutItemClick(event)"
-          data-food       = "<?= $entryName ?>"
-          data-calories   = "<?= $data['calories'] ?>"
-          data-nutritionalvalues = "<?= htmlspecialchars( json_encode( $data['nutriVal'])) ?>"
-          data-fattyacids = "<?= htmlspecialchars( dump_json( $data['fat'])) ?>"
-          data-aminoacids = "<?= htmlspecialchars( dump_json( $data['amino'])) ?>"
-          data-vitamins   = "<?= htmlspecialchars( dump_json( $data['vit'])) ?>"
-          data-minerals   = "<?= htmlspecialchars( dump_json( $data['min'])) ?>"
-          data-secondary  = "<?= htmlspecialchars( dump_json( $data['sec'])) ?>"
-          data-price      = "<?= $data['price'] ?>"
-          style           = "background-color: <?= $accepColor ?>;"
+         onclick = "mainCrl.layoutItemClick(event)"
+         data-food       = "<?= $entryName ?>"
+         data-calories   = "<?= $data['calories'] ?>"
+         data-nutritionalvalues = "<?= htmlspecialchars( json_encode( $data['nutriVal'])) ?>"
+         data-fattyacids = "<?= htmlspecialchars( dump_json( $data['fat'])) ?>"
+         data-aminoacids = "<?= htmlspecialchars( dump_json( $data['amino'])) ?>"
+         data-vitamins   = "<?= htmlspecialchars( dump_json( $data['vit'])) ?>"
+         data-minerals   = "<?= htmlspecialchars( dump_json( $data['min'])) ?>"
+         data-secondary  = "<?= htmlspecialchars( dump_json( $data['sec'])) ?>"
+         data-price      = "<?= $data['price'] ?>"
+         style           = "background-color: <?= $accepColor ?>;"
     >
       <div style="background-color: <?= $accepColor ?>;">
         <div class="blink-yellow" style="cursor: pointer;">  <!-- TASK: currently needed for blink to work, seems conflicts with bg color -->
@@ -95,7 +95,7 @@ $showInfo = $this->foodsModel->get("$entryName.comment")  // has comment might m
   <?php endfor; ?>
   <!-- Entry menu -->
   <div class   = "layout-item-menu col-1 text-center"
-        onclick = ""
+       onclick = ""
   >
     <div style="background-color: <?= $accepColor ?>;">
       ...  <!-- TASK: menu of single entry: overflow amounts ... expired -->
