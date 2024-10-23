@@ -67,6 +67,23 @@
 
     <!-- TASK: maybe prefer nutrients like tab 2 but avg for a week here -->
 
+    <?php 
+      $date = new DateTime();
+      $thisWeek = $date->modify('monday this week');
+      
+      $lastWeek = clone $thisWeek;
+      $lastWeek->modify('-1 week');
+    ?>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Since Mo <?= $thisWeek->format('d') ?>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#" data-date="<?= $thisWeek->format('Y-m-d') ?>">Since Mo <?= $thisWeek->format('d') ?></a></li>
+        <li><a class="dropdown-item" href="#" data-date="<?= $lastWeek->format('Y-m-d') ?>">Since Mo <?= $lastWeek->format('d') ?></a></li>
+      </ul>
+    </div>
+
     <!-- ios like design -->
 
     <?php foreach( $this->lastDaysView->all() as $day => $sums ): ?>
