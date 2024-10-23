@@ -1,4 +1,4 @@
-<div id="layout" class="row">
+<div id="layout" class="row mt-2">  <!-- TASK: scrollable-list somewhere -->
 
   <span id="uiMsg"></span>  <!-- TASK: mov somewhere outside tab or one msg per tab (or use a toast) -->
 
