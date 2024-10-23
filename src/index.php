@@ -54,7 +54,7 @@ if( ! $isAjax )
       public function render()
       {
         // ob_start();
-        // require 'view/tabs/edit/food_info_design.php';
+        // require 'view/main/edit/food_info_design.php';
         // return ob_get_clean();
       }
     };
