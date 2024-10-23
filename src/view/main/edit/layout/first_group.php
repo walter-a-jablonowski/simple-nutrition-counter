@@ -4,7 +4,7 @@ extract($args);
 
 $return['done'] = [];
 
-?><div class="col-12 mt-2">
+?><div class="col-12">
 
   <div class="row">
     <?php foreach( $def['list'] as $idx => $entryName ): ?>

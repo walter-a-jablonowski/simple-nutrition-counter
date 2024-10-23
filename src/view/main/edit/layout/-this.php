@@ -1,4 +1,4 @@
-<div id="layout" class="row mt-2">
+<div id="layout" class="row mt-3">
   <div class="col-12">
 
     <span id="uiMsg"></span>  <!-- TASK: mov somewhere outside tab or one msg per tab (or use a toast) -->
