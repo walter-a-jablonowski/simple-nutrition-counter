@@ -1,0 +1,28 @@
+vendor:            Rewe
+
+acceptable:        occasionally
+certificates:      { bio: true, NutriScore: D }
+ingredients:       "BUTTER* 60 %, Rapsöl* 21 %, Wasser, Milchsäurekulturen (enthält Milch)"
+allergy:           "Milch und Milcherzeugnisse (einschließlich Lactose)"
+origin:            "Denmark"
+packaging:         none & cardboard (maybe)
+
+price:             1.79  # ca
+weight:            200g
+usedAmounts:       ["5g", "10g", "15g"]
+
+calories:          634
+nutritionalValues:
+
+  fat:             70
+  saturatedFat:    32.7
+  carbs:           0.5
+  sugar:           0.5
+  amino:           0.4
+  salt:            0.01
+
+sources:           { nutriVal: "web (information on packaging may differ slightly)" }
+
+state:             most
+lastUpd:           2024-10-23
+lastPriceUpd:      2024-10-23
