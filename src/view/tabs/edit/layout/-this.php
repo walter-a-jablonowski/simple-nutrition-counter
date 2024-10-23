@@ -39,18 +39,18 @@
     
     <?php
 
-    $done = [];  $i=0;
+    $done = [];  $tabIdx=0;
 
     foreach( $this->layout as $tab => $layout )
     {
-      $i++;
+      $tabIdx++;
 
       // Start tab content (only if more than one)
 
       if( count($this->layout) > 1 )
       {
         $tabId  = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $tab));
-        $active = $i === 1 ? ' show active' : '';
+        $active = $tabIdx === 1 ? ' show active' : '';
         
         print trim("
           \n<div id=\"{$tabId}LayoutPane\" class=\"tab-pane fade$active\" role=\"tabpanel\">
@@ -104,11 +104,13 @@
         {
           $leftEntries = array_diff( $allEntries, $done );
           $miscEntries = array_filter( $leftEntries, fn($entry) => ! $this->foodsModel->get("$entry.removed"));
-          $removed   = array_filter( $leftEntries, fn($entry) =>   $this->foodsModel->get("$entry.removed"));
+          $removed     = array_filter( $leftEntries, fn($entry) =>   $this->foodsModel->get("$entry.removed"));
+
+          error_log( print_r($removed, true));
 
           // Entries missing in layout (non removed)
 
-          if( count($miscEntries))
+          if( $tabIdx === 1 && count($miscEntries))
           {
             ksort($miscEntries);
             
@@ -129,14 +131,14 @@
 
           // Removed entries
 
-          if( count($removed))
+          if( $tabIdx === 1 && count($removed))
           {
             ksort($removed);
             
             print $this->renderView( __DIR__ . '/group.php', [
               'groupId'     => lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', 'Removed')),
               'groupName'   => 'Removed',
-              'showRemoved' => true,  // TASK: missing?
+              'showRemoved' => true,
               'def' => [
                 '@attribs' => [
                   'short' => null,
