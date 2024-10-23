@@ -1,0 +1,32 @@
+productName:       "Unser Mildes"
+vendor:            Rewe
+url:               "https://shop.rewe.de/p/rewe-beste-wahl-unser-mildes-weizenmischbrot-250g/8321046"
+
+acceptable:        less
+certificates:      { NutriScore: A }
+ingredients:       "WEIZENMEHL, Natursauerteig (ROGGENMEHL, Wasser, ROGGENVOLLKORNMEHL), Wasser, ROGGENMEHL, Speisesalz, Hefe, Säureregulatoren (Natriumacetate, Äpfelsäure)"
+allergy:           "Glutenhaltiges Getreide (Weizen, Gerste, Roggen, Hafer, Dinkel, Kamut oder Hybridstämme)"
+mayContain:        "Sesam, Walnüssen, Milch-, Soja- und Lupinenerzeugnissen"
+packaging:         plastic
+
+price:             1.29
+weight:            250g
+pieces:            5
+usedAmounts:       [1, 2, 3]
+
+calories:          224
+nutritionalValues:
+
+  fat:             1
+  saturatedFat:    0.1
+  carbs:           43.3
+  sugar:           1.8
+  fibre:           5.9
+  amino:           7.4
+  salt:            1
+
+sources:           { nutriVal: "web (information on packaging may differ slightly)" }
+
+state:             all
+lastUpd:           2024-10-23
+lastPriceUpd:      2024-10-23
