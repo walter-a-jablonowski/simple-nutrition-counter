@@ -28,13 +28,13 @@ $showInfo = $this->foodsModel->get("$entryName.comment")  // has comment might m
           ? true : false;
 ?>
 <div class="layout-item row">  <!-- pe-0 is for bg color, TASK: alternative: highlight name only -->
-  <div class = "col-5 pe-0 pt-1"
+  <div class = "col-5 ps-1 pe-0"
        data-bs-toggle = "modal"
        data-bs-target = "#infoModal"
        data-title     = "#<?= $entryId ?>Headline"
        data-source    = "#<?= $entryId ?>Data"
   >
-    <div class="text-nowrap overflow-hidden" style="background-color: <?= $accepColor ?>;">
+    <div class="text-nowrap ms-1 ps-1 py-1 overflow-hidden" style="background-color: <?= $accepColor ?>;">
       <?= $entryName ?>
       <?= self::iif( $showInfo, '<i class="bi bi-info-circle-fill" style="color: orange;"></i>') ?>
       <?= self::iif( $price && $cheap, '<i class="bi bi-currency-exchange small text-secondary"></i>') ?>
@@ -94,10 +94,10 @@ $showInfo = $this->foodsModel->get("$entryName.comment")  // has comment might m
     <div class="col-2" style="background-color: <?= $accepColor ?>;">&nbsp;</div>
   <?php endfor; ?>
   <!-- Entry menu -->
-  <div class   = "layout-item-menu col-1 text-center"
+  <div class   = "layout-item-menu col-1 ps-0 pe-2 text-center"
        onclick = ""
   >
-    <div style="background-color: <?= $accepColor ?>;">
+    <div class="py-1" style="background-color: <?= $accepColor ?>;">
       ...  <!-- TASK: menu of single entry: overflow amounts ... expired -->
     </div>
   </div>
