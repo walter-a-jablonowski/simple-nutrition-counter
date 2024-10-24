@@ -67,21 +67,26 @@
 
     <!-- TASK: maybe prefer nutrients like tab 2 but avg for a week here -->
 
-    <?php
-      $thisWeek   = date('Y-m-d', strtotime('monday this week'));
-      $last2Weeks = date('Y-m-d', strtotime('monday last week'));
-      $last3Weeks = date('Y-m-d', strtotime('monday -3 weeks'));
-      $last4Weeks = date('Y-m-d', strtotime('monday -4 weeks'));
-    ?>
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         This week
       </button>
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#" data-date="<?= $thisWeek ?>">This week</a></li>
-        <li><a class="dropdown-item" href="#" data-date="<?= $last2Weeks ?>">Last 2 weeks (since <?= date('d', strtotime($last2Weeks)) ?>)</a></li>
-        <li><a class="dropdown-item" href="#" data-date="<?= $last3Weeks ?>">Last 3 weeks (since <?= date('d', strtotime($last3Weeks)) ?>)</a></li>
-        <li><a class="dropdown-item" href="#" data-date="<?= $last4Weeks ?>">Last 4 weeks (since <?= date('d', strtotime($last4Weeks)) ?>)</a></li>
+        <?php
+          $start = date('Y-m-d', strtotime('last monday'));
+          $end   = date('Y-m-d', strtotime('yesterday'));
+        ?>
+        <li><a class="dropdown-item" href="#" data-from="<?= $start ?>" data-to="<?= $end ?>">This week</a></li>
+        <?php
+          $start = date('Y-m-d', strtotime('monday -2 weeks'));
+          $end   = date('Y-m-d', strtotime('yesterday'));
+        ?>
+        <li><a class="dropdown-item" href="#" data-from="<?= $start ?>" data-to="<?= $end ?>">Last week until yesterday</a></li>
+        <?php
+          $start = date('Y-m-d', strtotime('monday -3 weeks'));
+          $end   = date('Y-m-d', strtotime('yesterday'));
+        ?>
+        <li><a class="dropdown-item" href="#" data-from="<?= $start ?>" data-to="<?= $end ?>">Last 2 weeks until yesterday</a></li>
       </ul>
     </div>
 
