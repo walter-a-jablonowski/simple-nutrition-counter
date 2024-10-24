@@ -28,7 +28,7 @@ $showInfo = $this->foodsModel->get("$entryName.comment")  // has comment might m
           ? true : false;
 ?>
 <div class="layout-item row">  <!-- pe-0 is for bg color, TASK: alternative: highlight name only -->
-  <div class = "col-5 pe-0"
+  <div class = "col-5 pe-0 pt-1"
        data-bs-toggle = "modal"
        data-bs-target = "#infoModal"
        data-title     = "#<?= $entryId ?>Headline"
