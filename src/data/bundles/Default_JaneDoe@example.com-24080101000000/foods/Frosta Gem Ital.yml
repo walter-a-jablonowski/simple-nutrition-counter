@@ -1,0 +1,28 @@
+productName:       "alla Mediterranea"
+
+certificates:      { vegan: true }
+ingredients:       "rote Paprika, gelbe Zucchini, Zucchini, frittierte Kartoffeln (13%), (Kartoffeln, Sonnenblumenöl, Dextrose, Salz), Tomaten, gegrillte Auberginen (für AT: gegrillte Melanzani), Wasser, Sonnenblumenöl, Tomatenmark (für AT: 28% doppelt konzentriert), Salz, Basilikum, Knoblauch, Zucker, gemahlene Paprika, schwarzer Pfeffer"
+mayContain:        "Weizen, Gerste, Roggen, Hafer, Krebstieren, Eiern, Fisch, Soja, Milch, Sellerie, Senf und Weichtieren"
+origin:            "multiple countries from Europne, South America, Asia"
+packaging:         plastic
+
+price:             2.29  # deal price
+weight:            480g
+usedAmounts:       ["25g", "50g", "100g"]
+
+calories:          59
+nutritionalValues:
+
+  fat:             2.7
+  saturatedFat:    0.3
+  carbs:           6.4
+  sugar:           3.4
+  fibre:           1.7
+  amino:           1.5
+  salt:            0.67
+
+sources:           { nutriVal: "web", price: "deal price" }
+
+state:             most
+lastUpd:           2024-10-25
+lastPriceUpd:      2024-10-25
