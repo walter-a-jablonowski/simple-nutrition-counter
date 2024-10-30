@@ -32,6 +32,8 @@ $data = $this->foodsModel->get($entryName);
 
 <!-- Badges -->
 
+<!-- TASK: (advanced) use some kind of for -->
+
 <?php if( ! empty($data['acceptable'])): ?>
   <span class="badge bg-<?= self::iif( $data['acceptable'] == 'less', 'danger', 'warning') ?>">
     <?= self::iif( $data['acceptable'] == 'less', 'less good', 'occasionally') ?>
@@ -49,6 +51,9 @@ $data = $this->foodsModel->get($entryName);
 <?php if( ! empty($data['certificates']['NutriScore'])): ?>
   <span class="badge bg-info">NutriScore: <?= $data['certificates']['NutriScore'] ?></span>
 <?php endif; ?>
+<span class="badge bg-<?= self::iif( ! empty($data['certificates']['fairtrade']), 'success', 'secondary') ?>">
+  <?= self::iif( ! empty($data['certificates']['fairtrade']), 'fair', '<s>fair</s>') ?>  <!-- TASK: non working -->
+</span>
 
 <!-- High fat ... -->
 <!-- TASK: add -->
