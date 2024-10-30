@@ -1,0 +1,27 @@
+vendor:            Deca
+
+certificates:      { fairtrade: true }
+ingredients:       "Proteinkonzentrate aus MOLKE* (Emulgator: Sonnenblumenlecithin) (MILCH*)(90 %), MagerMILCHpulver*, Magerkakaopulver (2,5 %), natürliches Aroma, Verdickungsmittel: Akaziengummi, Süßungsmittel: Steviolglykoside (0,12 %)"
+allergy:           "MILCH"
+mayContain:        "GLUTEN, EI, SOJA, SULFITEN, FISCH, SELLERIE, SCHALENFRÜCHTEN, SENF"
+packaging:         plastic
+
+price:             14.99
+weight:            480g
+usedAmounts:       ["30g"]
+
+calories:          378
+nutritionalValues: 
+
+  fat:             3.1
+  saturatedFat:    1.6
+  carbs:           17
+  sugar:           8
+  amino:           70
+  salt:            1
+
+sources:           { nutriVal: "pack" }
+
+state:             most
+lastUpd:           2024-10-28
+lastPriceUpd:      2024-10-28

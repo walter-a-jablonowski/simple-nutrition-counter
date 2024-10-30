@@ -185,11 +185,6 @@ Food:
       - Cashew A Cranb
       - Banane
 
-      - Amino misc                             # amino
-      - Amino Deca Muscle Gainer
-      - Amino NaDuRia Pur
-      - Riegel Seitenb Sch
-
       - Frosta Frikassee                       # kcal
       - Frosta Paella
       - Chips light
@@ -216,7 +211,12 @@ Supplements:
     list:
 
       # - Salt                                 # Brain tuning TASK: removed for debugging layout
-      - Milch H                                # duplicate
+      - Whey
+      - Amino misc
+      - Amino Deca Muscle Gainer
+      - Amino NaDuRia Pur
+      - Riegel Seitenb Sch                     # (duplicate)
+      - Milch H                                # (duplicate)
       - Zitronenm
       - Zitronenm mini
 
@@ -271,7 +271,7 @@ On the go:
       - Burrito A
       - Donuts mini A
 
-      - Riegel Deca Basic
+      - Riegel Deca Basic                        # (duplicate)
       - Falafel
       - Snickers
 
