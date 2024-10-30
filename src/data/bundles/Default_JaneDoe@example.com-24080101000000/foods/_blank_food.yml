@@ -7,7 +7,7 @@ url:                 # string or array  # TASK: name urls
 
 acceptable:        occasionally|less
 comment:           ""
-certificates:      { bio: true, vegan: true, NutriScore: A, oekotest: 1 }
+certificates:      { bio: true, vegan: true, NutriScore: A, oekotest: 1, fairtrade: true }
 ingredients:       ""
 allergy:           ""
 mayContain:        ""
