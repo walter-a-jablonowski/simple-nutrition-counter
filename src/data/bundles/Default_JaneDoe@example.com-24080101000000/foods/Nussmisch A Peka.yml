@@ -1,0 +1,26 @@
+productName:       "Premium Nussmix Pekannusskerne (orange)"  # big pack
+vendor:            Aldi
+certificates:      { vegan: true, NutriScore: A }
+packaging:         plastic
+
+price:             2.89
+weight:            200
+usedAmounts:       ["25g", "50g", "100g"]
+
+calories:          631
+nutritionalValues:
+
+  fat:             54
+  saturatedFat:    5.6
+  monoUnsaturated: 33
+  polyUnsaturated: 11
+  carbs:           9.6
+  sugar:           3.9
+  fibre:           9
+  amino:           21
+  salt:            0.01
+
+sources:           { nutriVal: "pack" }
+state:             most
+lastUpd:           2024-10-31
+lastPriceUpd:      2024-10-31
