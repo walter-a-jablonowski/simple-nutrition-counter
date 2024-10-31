@@ -1,0 +1,45 @@
+
+Please fill out the yml below with data from the following url.
+
+Rules: Keep the yml formatting as it is, fill in values as far as possible. If a value is missing leave it blank. Ignore out-commented fields. Add nutritional values with no "g", just the float or int num.
+
+[URL]
+
+The yml
+
+productName:       ""
+vendor:            
+url:               ""
+
+# acceptable:
+certificates:      { bio: true, vegan: true, oekotest: 1, NutriScore: A, fairtrade: true }
+ingredients:       ""
+allergy:           ""
+mayContain:        ""
+origin:            ""
+# packaging:
+
+price:             
+weight:            
+pieces:            
+# usedAmounts:
+
+calories:          
+nutritionalValues: 
+
+  fat:             
+  saturatedFat:    
+  # monoUnsaturated: 
+  # polyUnsaturated: 
+  carbs:           
+  sugar:           
+  # sugarAlcohol:    
+  fibre:           
+  amino:           
+  salt:            
+
+sources:           { nutriVal: "web (information on packaging may differ slightly)", price: "web" }
+
+state:             most
+lastUpd:           2024-
+lastPriceUpd:      2024-

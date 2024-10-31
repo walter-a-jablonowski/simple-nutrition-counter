@@ -79,12 +79,13 @@ class AppController extends ControllerBase
 
     $this->foodsModel = new SimpleData();
     
-    $dir     = "data/bundles/Default_$user->id/foods";
-    $exclude = ['.', '..', '-this.yml', '-this_SAV.yml', '_blank_food.yml'];
+    $dir = "data/bundles/Default_$user->id/foods";
+    // $exclude = ['.', '..', '-this.yml', '-this_SAV.yml', '_blank_food.yml', '_blank_food_ai.yml'];
 
     foreach( scandir($dir) as $file )
     {
-      if( in_array( $file, $exclude) || ( pathinfo($file, PATHINFO_EXTENSION) !== 'yml' && ! is_dir("$dir/$file")))
+      // if( in_array( $file, $exclude) || ( pathinfo($file, PATHINFO_EXTENSION) !== 'yml' && ! is_dir("$dir/$file")))
+      if( in_array( $file[0], ['_']) || ( pathinfo($file, PATHINFO_EXTENSION) !== 'yml' && ! is_dir("$dir/$file")))
         continue;
 
       $name = is_dir("$dir/$file")  ?  $file  :  pathinfo($file, PATHINFO_FILENAME);

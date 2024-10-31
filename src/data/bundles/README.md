@@ -45,6 +45,7 @@ Foods
 - all fields see -> readme
 
 - field info available in app as well (in development), see def file [inline_help/foods.yml](../src/misc/inline_help/foods.yml)
+- files that start with `_` will be excluded from food list
 
 
 Recipes file
