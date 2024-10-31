@@ -1,0 +1,25 @@
+url:               "https://www.volvic.de/produkte/volvic-touch/volvic-touch-apfel-geschmack/075l.html"
+
+certificates:      { vegan: true }
+ingredients:       "Natürliches Mineralwasser Volvic (97%), Zucker, Säuerungsmittel: Citronensäure, natürliches Aroma"
+packaging:         plastic
+
+price:             
+weight:            750ml
+usedAmounts:       [1]
+
+calories:          12
+nutritionalValues: 
+
+  fat:             0
+  saturatedFat:    0
+  carbs:           2.9
+  sugar:           2.9
+  amino:           0
+  salt:            0.01
+
+sources:           { nutriVal: "web (information on packaging may differ slightly)", price: "web" }
+
+state:             most
+lastUpd:           2024-10-31
+lastPriceUpd:      2024-10-31
