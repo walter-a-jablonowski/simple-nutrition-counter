@@ -58,6 +58,12 @@ Food
   Also give me the amount of fibre per 100g.
   ```
 
-- just ggl "nutrients in broccoli" => grid with nutrients (source: usda)
-  - https://fdc.nal.usda.gov/food-search?query=&type=Foundation
-  - https://www.nutritionvalue.org
+- https://fdc.nal.usda.gov/food-search?query=&type=Foundation
+  - just ggl "nutrients in broccoli" => grid with nutrients (source: usda)
+  - same data: https://www.nutritionvalue.org
+- more sources by AI
+  - https://www.efsa.europa.eu/en/data-report/food-composition-data
+  - https://www.food.gov.uk
+  - NIH (National Institutes of Health) Dietary Supplement Label Database https://www.accessdata.fda.gov/scripts/cder/daf/
+  - Academy of Nutrition and Dietetics resources
+  - Open Food Facts
