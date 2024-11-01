@@ -50,14 +50,6 @@ Nutrients
 Food
 ----------------------------------------------------------
 
-- Simple: AI
-
-  ```
-  Please list all nutrients (vitamins, minerals, fatty acids, amino acids, types of carbs, secondary plant substances e.g. polyphenols) that are in [FOOD] with the typical amount per 100g as yaml using the keys: "fattyAcids", "carbs", "aminoAcids", "vitamins", "minerals", "secondary".
-
-  Also give me the amount of fibre per 100g.
-  ```
-
 - https://fdc.nal.usda.gov/food-search?query=&type=Foundation
   - just ggl "nutrients in broccoli" => grid with nutrients (source: usda)
   - same data: https://www.nutritionvalue.org
