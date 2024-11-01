@@ -43,6 +43,7 @@ substances:
 
     short:  VitE
     groups: ["fat-soluble"]
+    essential: true
     amounts:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
@@ -175,6 +176,7 @@ substances:
     short:      B12
     subType:    methylcobalamin  # TASK: use `type: natural B12 variant` for id?
     groups:    ["water-soluble"]
+    essential: true
     amounts:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
