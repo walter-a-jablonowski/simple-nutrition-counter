@@ -31,7 +31,7 @@ substances:
           5g = Na: 1.97 Cl: 3.03
           6g = Na: 2.36 Cl: 3.64
 
-    amounts:
+    amounts:  # currently we use the first entry hard coded only
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }  # TASK: is 25-51 years in DGE
         lower:  4
@@ -57,7 +57,7 @@ substances:
     unit:       g
     groups:     [ "Mengenelemente" ]
     sources:    "DGE for now"
-    amounts:  # currently we use the first entry hard coded only
+    amounts:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%

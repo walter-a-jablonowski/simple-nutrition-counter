@@ -10,168 +10,186 @@ sources:
 
 substances:
 
+  # fat-soluble
+
   Vitamin A:
 
     short:     A
+    groups:    ["fat-soluble"]
     essential: true
     sources:   "DGE"
 
     amounts:  # currently we use the first entry hard coded only
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-        lower:  5%
-        amount: 100  # TASK: dummy entry
-        upper:  5%
+        lower:  10%
+        amount: 0.85
+        upper:  10%
 
   Vitamin D:
     
     short:     D
+    groups:    ["fat-soluble"]
     essential: true
     sources:   "DGE"
 
     amounts:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-        lower:  5%
+        lower:  10%
         amount: 100
-        upper:  5%
+        upper:  10%
 
   Vitamin E:
 
-    short: VitE
+    short:  VitE
+    groups: ["fat-soluble"]
 
     amounts:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-        lower:  5%
+        lower:  10%
         amount: 100
-        upper:  5%
+        upper:  10%
 
   Vitamin K:
 
     short:     K
+    groups:    ["fat-soluble"]
     essential: true
     sources:   "DGE"
 
     amounts:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-        lower:  5%
+        lower:  10%
         amount: 100
-        upper:  5%
+        upper:  10%
 
+  
+  # water-soluble
+  
   Vitamin C:
 
     short:     C
+    groups:    ["water-soluble"]
     essential: true
     sources:   "DGE"
   
     amounts:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-        lower:  5%
+        lower:  10%
         amount: 100
-        upper:  5%
+        upper:  10%
 
   Thiamin B1:
 
     short:     B1
+    groups:    ["water-soluble"]
     essential: true
     sources:   "DGE"
   
     amounts:
   
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-        lower:  5%
+        lower:  10%
         amount: 100
-        upper:  5%
+        upper:  10%
 
   Riboflavin B2:
  
     short:     B2
+    groups:    ["water-soluble"]
     essential: true
     sources:   "DGE"
  
     amounts:
  
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-        lower:  5%
+        lower:  10%
         amount: 100
-        upper:  5%
+        upper:  10%
 
   Niacin B3:
     
     short:     B3
+    groups:    ["water-soluble"]
     essential: true
     sources:   "DGE"
     
     amounts:
     
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-        lower:  5%
+        lower:  10%
         amount: 100
-        upper:  5%
+        upper:  10%
 
   Pantothenic acid B5:
     
     short:     B5
+    groups:    ["water-soluble"]
     essential: true
     sources:   "DGE"
     
     amounts:
     
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-        lower:  5%
+        lower:  10%
         amount: 100
-        upper:  5%
+        upper:  10%
 
   Vitamin B6:
 
     short:     B6
+    groups:    ["water-soluble"]
     essential: true
     sources:   "DGE"
   
     amounts:
   
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-        lower:  5%
+        lower:  10%
         amount: 100
-        upper:  5%
+        upper:  10%
 
   Biotin B7:
     
     short:     B7
+    groups:    ["water-soluble"]
     essential: true
     sources:   "DGE"
     
     amounts:
     
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-        lower:  5%
+        lower:  10%
         amount: 100
-        upper:  5%
+        upper:  10%
 
   Folate B9:
 
     short:     B9
+    groups:    ["water-soluble"]
     essential: true
     sources:   "DGE"
   
     amounts:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-        lower:  5%
+        lower:  10%
         amount: 100
-        upper:  5%
+        upper:  10%
 
   Vitamin B12:
 
-    subType:    methylcobalamin  # TASK: use `type: natural B12 variant` for id?
     short:      B12
+    subType:    methylcobalamin  # TASK: use `type: natural B12 variant` for id?
+    groups:    ["water-soluble"]
 
     amounts:  # currently we use the first entry hard coded only
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-        lower:  5%
+        lower:  10%
         amount: 100 # TASK: dummy entry
-        upper:  5%
+        upper:  10%
