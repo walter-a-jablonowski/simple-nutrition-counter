@@ -121,10 +121,11 @@ substances:
 
   Pantothenic acid B5:
     
-    short:     B5
-    groups:    ["water-soluble"]
-    essential: true
-    sources:   "DGE for now"
+    short:       B5
+    displayName: Vitamin B5
+    groups:      ["water-soluble"]
+    essential:   true
+    sources:     "DGE for now"
     amounts:
     
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }

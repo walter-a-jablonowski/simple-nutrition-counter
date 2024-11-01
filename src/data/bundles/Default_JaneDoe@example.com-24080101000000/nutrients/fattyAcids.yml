@@ -32,12 +32,13 @@ substances:
 
   Alpha-linolenic acid:
     
-    short:      ALA
-    groups:     ["PolyUnsaturated/omega-3"]
-    essential:  true
-    unit:       g
-    comment:    "GPT 2408: Flaxseeds, chia seeds, walnuts, canola oil, and soybeans"
-    sources:    "GPT and Claude 2408 for now"  # TASK: upd this
+    short:       ALA
+    displayName: ALA
+    groups:      ["PolyUnsaturated/omega-3"]
+    essential:   true
+    unit:        g
+    comment:     "GPT 2408: Flaxseeds, chia seeds, walnuts, canola oil, and soybeans"
+    sources:     "GPT and Claude 2408 for now"  # TASK: upd this
 
     amounts:  # currently we use the first entry hard coded only
 
@@ -48,11 +49,12 @@ substances:
 
   Docosahexaenoic acid:
 
-    short:      DHA
-    groups:     ["PolyUnsaturated/omega-3"]
-    essential:  true
-    comment:    "GPT 2408: Fish (salmon, mackerel, sardines), fish oil, krill oil, and algae oil"
-    sources:    "GPT and Claude 2408 for now"
+    short:       DHA
+    displayName: DHA
+    groups:      ["PolyUnsaturated/omega-3"]
+    essential:   true
+    comment:     "GPT 2408: Fish (salmon, mackerel, sardines), fish oil, krill oil, and algae oil"
+    sources:     "GPT and Claude 2408 for now"
 
     amounts:  # currently we use the first entry hard coded only
 
