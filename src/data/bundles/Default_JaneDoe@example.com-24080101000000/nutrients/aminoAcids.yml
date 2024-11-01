@@ -3,13 +3,13 @@
 #
 
 name:      Amino acids
-short:     amino  # TASK: name `shortId` (normally `@shortId` but looks nicer)
+short:     amino
 comment:   "Increased need if doing sports"
 sources:
 
   - title: "Essential (Claude and ChatGPT produce exactly same list 2408)"
 
-amounts:   # currently we use the first entry hard coded only
+amounts:  # currently we use the first entry hard coded only
 
   # added date from interview
 
@@ -25,100 +25,110 @@ amounts:   # currently we use the first entry hard coded only
 
 substances:
 
-# Histidine      # TASK: babies only ?
+  Histidine:
 
-Isoleucine:
+    short:     HIS
+    essential: true  # TASK: babies only?
+    sources:   "WHO (Wikipedia) for now"
+    amounts:
 
-  short:     ILE
-  essential: true
-  sources:   "DGE for now"
-  amounts:
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  10%
+        amount: 10
+        upper:  10%
 
-    - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-      lower:  10%
-      amount: 
-      upper:  10%
+  Isoleucine:
 
-Leucine:
+    short:     ILE
+    essential: true
+    sources:   "WHO (Wikipedia) for now"
+    amounts:
 
-  short:     LEU
-  essential: true
-  sources:   "DGE for now"
-  amounts:
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  10%
+        amount: 20
+        upper:  10%
 
-    - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-      lower:  10%
-      amount: 
-      upper:  10%
+  Leucine:
 
-Lysine:
+    short:     LEU
+    essential: true
+    sources:   "WHO (Wikipedia) for now"
+    amounts:
 
-  short:     LYS
-  essential: true
-  sources:   "DGE for now"
-  amounts:
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  10%
+        amount: 39
+        upper:  10%
 
-    - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-      lower:  10%
-      amount: 
-      upper:  10%
+  Lysine:
 
-Methionine:
+    short:     LYS
+    essential: true
+    sources:   "WHO (Wikipedia) for now"
+    amounts:
 
-  short:     MET
-  essential: true
-  sources:   "DGE for now"
-  amounts:
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  10%
+        amount: 30
+        upper:  10%
 
-    - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-      lower:  10%
-      amount: 
-      upper:  10%
+  Methionine:
 
-Phenylalanine:
+    short:     MET
+    essential: true
+    sources:   "WHO (Wikipedia) for now"
+    amounts:
 
-  short:     PHE
-  essential: true
-  sources:   "DGE for now"
-  amounts:
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  10%
+        amount: 15   # TASK: plus Cystein?
+        upper:  10%
 
-    - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-      lower:  10%
-      amount: 
-      upper:  10%
+  Phenylalanine:
 
-Threonine:
+    short:     PHE
+    essential: true
+    sources:   "WHO (Wikipedia) for now"
+    amounts:
 
-  short:     THR
-  essential: true
-  sources:   "DGE for now"
-  amounts:
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  10%
+        amount: 25   # TASK: plus Tyrosin?
+        upper:  10%
 
-    - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-      lower:  10%
-      amount: 
-      upper:  10%
+  Threonine:
 
-Tryptophan:
+    short:     THR
+    essential: true
+    sources:   "WHO (Wikipedia) for now"
+    amounts:
 
-  short:     TRP
-  essential: true
-  sources:   "DGE for now"
-  amounts:
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  10%
+        amount: 15
+        upper:  10%
 
-    - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-      lower:  10%
-      amount: 
-      upper:  10%
+  Tryptophan:
 
-Valine:
+    short:     TRP
+    essential: true
+    sources:   "WHO (Wikipedia) for now"
+    amounts:
 
-  short:     VAL
-  essential: true
-  sources:   "DGE for now"
-  amounts:
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  10%
+        amount: 4
+        upper:  10%
 
-    - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-      lower:  10%
-      amount: 
-      upper:  10%
+  Valine:
+
+    short:     VAL
+    essential: true
+    sources:   "WHO (Wikipedia) for now"
+    amounts:
+
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  10%
+        amount: 26
+        upper:  10%

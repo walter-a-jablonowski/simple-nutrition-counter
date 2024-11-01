@@ -29,27 +29,7 @@ derived see below
 
 ```yaml
 
-# DEV basic substance entry
-
-substances:
-
-  SUB:
-
-    short:        
-    essential:    true
-    sources:      "DGE for now"
-
-    amounts:
-
-      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-        lower:  10%
-        amount: 1
-        upper:  10%
-```
-
-```yaml
-
-# Nutrient group data
+# Nutrient group data            # TASK: name `shortId` (normally `@shortId` but looks nicer)
 
 name:                            # (TASK: required ?) display name
 short:                           # (required) short name used as short unique id in daily files (file name is alternative id used in code)
