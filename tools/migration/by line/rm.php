@@ -18,11 +18,11 @@ foreach( scandir($dir) as $file )
 
   foreach( explode("\n", $content) as $line )
   {
-    if( strpos( $line, 'state:') !== false )
+    if( strpos( $line, 'state:') === false )
       $r[] = $line;
   }
 
-  file_put_contents("$dir/$file", implode("\n", $r));
+  file_put_contents("$dir/$file", trim( implode("\n", $r)) . "\n");
 }
 
 echo 'Done';
