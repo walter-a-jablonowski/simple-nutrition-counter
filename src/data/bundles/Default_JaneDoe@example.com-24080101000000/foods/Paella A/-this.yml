@@ -1,7 +1,7 @@
 vendor:            Aldi
 
 acceptable:        occasionally
-certificates:      { bio: true, vegan: true, oekotest: 1, NutriScore: A, fairtrade: true, misc: "see attached" }
+certificates:      { NutriScore: A, misc: "see attached" }
 packaging:         plastic
 
 price:             3.49
