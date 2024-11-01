@@ -10,35 +10,164 @@ sources:
 
 substances:
 
-  # Vitamin A
-  # Vitamin D
-  # Vitamin E
-  # Vitamin K
-  # Vitamin C
-  # Thiamin (B1)
-  # Riboflavin (B2)
-  # Niacin (B3)
-  # Pantothenic acid (B5)
-  # Vitamin B6
-  # Biotin (B7)
-  # Folate (B9)
-  # Vitamin B12
+  Vitamin A:
 
-  Vitamin B12:
-
-    subType:    methylcobalamin  # TASK: use `type: natural B12 variant` for id?
-    short:      B12
+    short:     A
+    essential: true
+    sources:   "DGE"
 
     amounts:  # currently we use the first entry hard coded only
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  5%
-        amount: 100 # TASK: dummy entry
+        amount: 100  # TASK: dummy entry
+        upper:  5%
+
+  Vitamin D:
+    
+    short:     D
+    essential: true
+    sources:   "DGE"
+
+    amounts:
+
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  5%
+        amount: 100
         upper:  5%
 
   Vitamin E:
 
-    short:      VitE
+    short: VitE
+
+    amounts:
+
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  5%
+        amount: 100
+        upper:  5%
+
+  Vitamin K:
+
+    short:     K
+    essential: true
+    sources:   "DGE"
+
+    amounts:
+
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  5%
+        amount: 100
+        upper:  5%
+
+  Vitamin C:
+
+    short:     C
+    essential: true
+    sources:   "DGE"
+  
+    amounts:
+
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  5%
+        amount: 100
+        upper:  5%
+
+  Thiamin B1:
+
+    short:     B1
+    essential: true
+    sources:   "DGE"
+  
+    amounts:
+  
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  5%
+        amount: 100
+        upper:  5%
+
+  Riboflavin B2:
+ 
+    short:     B2
+    essential: true
+    sources:   "DGE"
+ 
+    amounts:
+ 
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  5%
+        amount: 100
+        upper:  5%
+
+  Niacin B3:
+    
+    short:     B3
+    essential: true
+    sources:   "DGE"
+    
+    amounts:
+    
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  5%
+        amount: 100
+        upper:  5%
+
+  Pantothenic acid B5:
+    
+    short:     B5
+    essential: true
+    sources:   "DGE"
+    
+    amounts:
+    
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  5%
+        amount: 100
+        upper:  5%
+
+  Vitamin B6:
+
+    short:     B6
+    essential: true
+    sources:   "DGE"
+  
+    amounts:
+  
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  5%
+        amount: 100
+        upper:  5%
+
+  Biotin B7:
+    
+    short:     B7
+    essential: true
+    sources:   "DGE"
+    
+    amounts:
+    
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  5%
+        amount: 100
+        upper:  5%
+
+  Folate B9:
+
+    short:     B9
+    essential: true
+    sources:   "DGE"
+  
+    amounts:
+
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  5%
+        amount: 100
+        upper:  5%
+
+  Vitamin B12:
+
+    subType:    methylcobalamin  # TASK: use `type: natural B12 variant` for id?
+    short:      B12
 
     amounts:  # currently we use the first entry hard coded only
 
