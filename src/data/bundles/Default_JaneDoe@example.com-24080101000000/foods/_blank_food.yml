@@ -49,7 +49,5 @@ misc:
   caffeine:
 
 sources:           { nutriVal: "web|pack (information on packaging may differ slightly)", nutrients: "...", price: "..." }
-
-state:             most|all  # TASK: maybe rm this and just check via tool
 lastUpd:           
 lastPriceUpd:      

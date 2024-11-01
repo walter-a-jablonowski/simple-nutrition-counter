@@ -83,6 +83,5 @@ misc:
 
 sources:             { usage: "like { nutriVal: \"web|pack (information on packaging may differ slightly)\", nutrients: \"...\", price: \"...\" }",
                          required: true }  # TASK
-state:               { usage: "most|all, added most or all nutritional data", required: true, type: "string" }
 lastUpd:             { usage: "like 2024-02-18, last upd nutritional data",   required: true, type: "date" }
 lastPriceUpd:        { usage: "like 2024-02-18", required: false, type: "date" }
