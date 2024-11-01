@@ -22,6 +22,5 @@ minerals:
   Calcium:         120
 
 sources:           { nutriVal: "web", nutrients: "nutrients: calcium also from vendors page online", price: "price: web" }
-state:             most
 lastUpd:           2024-04-11
 lastPriceUpd:      2024-05-15

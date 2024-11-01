@@ -20,6 +20,5 @@ nutritionalValues:
   salt:            0.85
 
 sources:           { nutriVal: "web (information on packaging may differ slightly)", price: "web" }
-state:             most
 lastUpd:           2024-05-11
 lastPriceUpd:      2024-05-11

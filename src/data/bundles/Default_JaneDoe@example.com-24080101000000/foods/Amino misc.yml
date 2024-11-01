@@ -17,6 +17,5 @@ nutritionalValues:
   salt:            0.02
 
 sources:           { nutriVal: "Asked Alexa for avg" }
-state:             most
 lastUpd:           2024-04-24
 lastPriceUpd:

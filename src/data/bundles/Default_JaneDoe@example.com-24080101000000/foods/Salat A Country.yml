@@ -20,6 +20,5 @@ nutritionalValues:
 
 sources:           { nutriVal: "pack", price: "deal" }
 
-state:             most
 lastUpd:           2024-10-31
 lastPriceUpd:      2024-10-31

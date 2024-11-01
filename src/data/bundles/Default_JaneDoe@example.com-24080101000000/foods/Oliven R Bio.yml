@@ -18,6 +18,5 @@ nutritionalValues:
   salt:            3
 
 sources:           { nutriVal: "pack (fibre is from web)" }
-state:             most
 lastUpd:           2024-08-01
 lastPriceUpd:      2024-08-01

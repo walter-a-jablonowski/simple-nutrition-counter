@@ -21,6 +21,5 @@ misc:
 
 sources:           { nutriVal: "pack", price: "deal price" }
 
-state:             all
 lastUpd:           2024-07-01
 lastPriceUpd:      2024-07-01

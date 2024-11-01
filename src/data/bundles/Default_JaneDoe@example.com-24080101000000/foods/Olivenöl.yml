@@ -19,6 +19,5 @@ nutritionalValues:
   salt:            0
 
 sources:           { nutriVal: "pack" }
-state:             most
 lastUpd:           2024-04-08
 lastPriceUpd:      2024-09-28  # stable since 2024-07-01

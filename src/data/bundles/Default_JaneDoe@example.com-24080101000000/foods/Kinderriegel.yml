@@ -17,6 +17,5 @@ nutritionalValues:
   salt:            0.313
 
 sources:           { nutriVal: "web" }
-state:             most
 lastUpd:           2024-08-01
 lastPriceUpd:      2024-08-01

@@ -17,6 +17,5 @@ nutritionalValues:
   salt:            0
 
 sources:           { nutriVal: "pack", price: "2.39" }
-state:             most
 lastUpd:           2024-02-18
 lastPriceUpd:      2024-04-06
