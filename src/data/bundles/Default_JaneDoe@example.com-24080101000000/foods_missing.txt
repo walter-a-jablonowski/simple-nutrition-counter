@@ -20,8 +20,6 @@ Schm               0.55 2024-07-20
 Sardine R          0.99 2024-09-28
 Sardine R Chili    0.99 2024-09-28
 
-Aldi Paella        3.49 2024-10-31
-
 ( made via missing_prices.php )
 
 H Kebab                only deal, add normal

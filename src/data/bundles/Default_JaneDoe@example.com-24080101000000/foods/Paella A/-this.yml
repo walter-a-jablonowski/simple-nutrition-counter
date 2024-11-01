@@ -1,0 +1,25 @@
+vendor:            Aldi
+
+acceptable:        occasionally
+certificates:      { bio: true, vegan: true, oekotest: 1, NutriScore: A, fairtrade: true, misc: "see attached" }
+packaging:         plastic
+
+price:             3.49
+weight:            750g
+usedAmounts:       ["1/3", "1/2", "1"]
+
+calories:          119
+nutritionalValues: 
+
+  fat:             4.7
+  saturatedFat:    0.5
+  carbs:           13
+  sugar:           1.5
+  amino:           5.5
+  salt:            0.7
+
+sources:           { nutriVal: "pack" }
+
+state:             most
+lastUpd:           2024-10-31
+lastPriceUpd:      2024-10-31
