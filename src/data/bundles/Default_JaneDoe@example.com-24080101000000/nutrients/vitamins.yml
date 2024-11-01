@@ -17,8 +17,7 @@ substances:
     short:     A
     groups:    ["fat-soluble"]
     essential: true
-    sources:   "DGE"
-
+    sources:   "DGE for now"
     amounts:  # currently we use the first entry hard coded only
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
@@ -31,25 +30,24 @@ substances:
     short:     D
     groups:    ["fat-soluble"]
     essential: true
-    sources:   "DGE"
-
+    comment:   "Amount is on top of Vit D from food"  # TASK
+    sources:   "DGE for now"
     amounts:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%
-        amount: 100
+        amount: 0.02
         upper:  10%
 
   Vitamin E:
 
     short:  VitE
     groups: ["fat-soluble"]
-
     amounts:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%
-        amount: 100
+        amount: 14
         upper:  10%
 
   Vitamin K:
@@ -57,13 +55,12 @@ substances:
     short:     K
     groups:    ["fat-soluble"]
     essential: true
-    sources:   "DGE"
-
+    sources:   "DGE for now"
     amounts:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%
-        amount: 100
+        amount: 0.07
         upper:  10%
 
   
@@ -74,13 +71,12 @@ substances:
     short:     C
     groups:    ["water-soluble"]
     essential: true
-    sources:   "DGE"
-  
+    sources:   "DGE for now"
     amounts:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%
-        amount: 100
+        amount: 110
         upper:  10%
 
   Thiamin B1:
@@ -88,13 +84,12 @@ substances:
     short:     B1
     groups:    ["water-soluble"]
     essential: true
-    sources:   "DGE"
-  
+    sources:   "DGE for now"
     amounts:
   
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%
-        amount: 100
+        amount: 1.2
         upper:  10%
 
   Riboflavin B2:
@@ -102,13 +97,12 @@ substances:
     short:     B2
     groups:    ["water-soluble"]
     essential: true
-    sources:   "DGE"
- 
+    sources:   "DGE for now"
     amounts:
  
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%
-        amount: 100
+        amount: 1.4
         upper:  10%
 
   Niacin B3:
@@ -116,13 +110,12 @@ substances:
     short:     B3
     groups:    ["water-soluble"]
     essential: true
-    sources:   "DGE"
-    
+    sources:   "DGE for now"
     amounts:
     
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%
-        amount: 100
+        amount: 15
         upper:  10%
 
   Pantothenic acid B5:
@@ -130,13 +123,12 @@ substances:
     short:     B5
     groups:    ["water-soluble"]
     essential: true
-    sources:   "DGE"
-    
+    sources:   "DGE for now"
     amounts:
     
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%
-        amount: 100
+        amount: 5
         upper:  10%
 
   Vitamin B6:
@@ -144,13 +136,12 @@ substances:
     short:     B6
     groups:    ["water-soluble"]
     essential: true
-    sources:   "DGE"
-  
+    sources:   "DGE for now"
     amounts:
   
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%
-        amount: 100
+        amount: 1.6
         upper:  10%
 
   Biotin B7:
@@ -158,13 +149,12 @@ substances:
     short:     B7
     groups:    ["water-soluble"]
     essential: true
-    sources:   "DGE"
-    
+    sources:   "DGE for now"
     amounts:
     
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%
-        amount: 100
+        amount: 0.04
         upper:  10%
 
   Folate B9:
@@ -172,13 +162,12 @@ substances:
     short:     B9
     groups:    ["water-soluble"]
     essential: true
-    sources:   "DGE"
-  
+    sources:   "DGE for now"
     amounts:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%
-        amount: 100
+        amount: 0.3
         upper:  10%
 
   Vitamin B12:
@@ -186,10 +175,9 @@ substances:
     short:      B12
     subType:    methylcobalamin  # TASK: use `type: natural B12 variant` for id?
     groups:    ["water-soluble"]
-
-    amounts:  # currently we use the first entry hard coded only
+    amounts:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%
-        amount: 100 # TASK: dummy entry
+        amount: 0.004
         upper:  10%

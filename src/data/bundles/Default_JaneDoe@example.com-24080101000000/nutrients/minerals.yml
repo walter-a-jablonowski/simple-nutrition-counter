@@ -43,7 +43,7 @@ substances:
     short:      K
     unit:       g
     groups:     [ "Mengenelemente" ]
-    sources:    "DGE"
+    sources:    "DGE for now"
     amounts:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
