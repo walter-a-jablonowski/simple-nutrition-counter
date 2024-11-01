@@ -23,14 +23,102 @@ amounts:   # currently we use the first entry hard coded only
     amount: 142.5  # 1.6,1.8-2.2g = min 120, 135 - 165
     upper:  165
 
-substances: []
+substances:
 
-# Histidine      # unit all mg
-# Isoleucine
-# Leucine
-# Lysine
-# Methionine
-# Phenylalanine
-# Threonine
-# Tryptophan
-# Valine
+# Histidine      # TASK: babies only ?
+
+Isoleucine:
+
+  short:     ILE
+  essential: true
+  sources:   "DGE for now"
+  amounts:
+
+    - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+      lower:  10%
+      amount: 
+      upper:  10%
+
+Leucine:
+
+  short:     LEU
+  essential: true
+  sources:   "DGE for now"
+  amounts:
+
+    - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+      lower:  10%
+      amount: 
+      upper:  10%
+
+Lysine:
+
+  short:     LYS
+  essential: true
+  sources:   "DGE for now"
+  amounts:
+
+    - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+      lower:  10%
+      amount: 
+      upper:  10%
+
+Methionine:
+
+  short:     MET
+  essential: true
+  sources:   "DGE for now"
+  amounts:
+
+    - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+      lower:  10%
+      amount: 
+      upper:  10%
+
+Phenylalanine:
+
+  short:     PHE
+  essential: true
+  sources:   "DGE for now"
+  amounts:
+
+    - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+      lower:  10%
+      amount: 
+      upper:  10%
+
+Threonine:
+
+  short:     THR
+  essential: true
+  sources:   "DGE for now"
+  amounts:
+
+    - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+      lower:  10%
+      amount: 
+      upper:  10%
+
+Tryptophan:
+
+  short:     TRP
+  essential: true
+  sources:   "DGE for now"
+  amounts:
+
+    - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+      lower:  10%
+      amount: 
+      upper:  10%
+
+Valine:
+
+  short:     VAL
+  essential: true
+  sources:   "DGE for now"
+  amounts:
+
+    - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+      lower:  10%
+      amount: 
+      upper:  10%
