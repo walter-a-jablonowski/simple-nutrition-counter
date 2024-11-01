@@ -1,6 +1,6 @@
 <?php
 
-// chdir('../../src');
+chdir('../../src');
 
 // $dir = 'data/users/JaneDoe@example.com-24080101000000/days';
 // $dir = 'days';
