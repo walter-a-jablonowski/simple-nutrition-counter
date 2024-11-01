@@ -1,6 +1,7 @@
 vendor:            Aldi
 
 acceptable:        occasionally
+comment:           "less good"
 certificates:      { NutriScore: A, misc: "see attached" }
 packaging:         plastic
 
