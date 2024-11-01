@@ -4,8 +4,8 @@
 
 // $dir = 'data/users/JaneDoe@example.com-24080101000000/days';
 // $dir = 'days';
-// $dir = 'data/bundles/JaneDoe@example.com-24080101000000/foods';
-$dir = 'foods';
+$dir = 'data/bundles/JaneDoe@example.com-24080101000000/foods';
+// $dir = 'foods';
 
 foreach( scandir($dir) as $file )
 {
