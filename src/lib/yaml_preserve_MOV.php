@@ -33,16 +33,6 @@ $result4 = yml_replace_value($result3, 'api_key', 'xyz789');
 echo "After replacing 'api_key':\n";
 echo $result4;
 
-/* Output will look like:
-server:
-  host: "127.0.0.1"
-  port: 9090
-  debug: true
-  name:     "production-server"  
-  timeout:      30
-  api_key: 'xyz789'
-*/
-
 function yml_replace_value(string $yamlContent, string $key, string $newValue) : string
 {
   // Pattern matches:
@@ -53,20 +43,19 @@ function yml_replace_value(string $yamlContent, string $key, string $newValue) :
   // 5. Captures any quotes around the current value
   // 6. The current value (until newline, or if quoted until closing quote)
   
-  $pattern = '/(?:^|\n)(\s*' . preg_quote($key, '/') . '(\s*:\s*))(["\']?)([^"\'\n]*?)(\3)(?:\r?\n|$)/m';
+  $pattern = '/(?:^|\n)(\s*' . preg_quote($key, '/') . '(\s*:\s*))(["\']?)([^"\'\n]*?)(\3)(?=\r?\n|$)/m';
   
   return preg_replace_callback( $pattern, function($matches) use ($newValue) {
-    
     $indentAndKey = $matches[1];  // Contains spaces + key + spaces + colon + spaces
     $quote = $matches[3];         // Captured quote character (if any)
     
     // Preserve the original quoting style
-    if( $quote )
+    if( $quote  )
       // If value was quoted, keep the same quote style
-      return $indentAndKey . $quote . $newValue . $quote . "\n";
+      return "\n" . $indentAndKey . $quote . $newValue . $quote;
     else
       // If value wasn't quoted, don't add quotes
-      return $indentAndKey . $newValue . "\n";
+      return "\n" . $indentAndKey . $newValue;
   }, $yamlContent);
 }
 
