@@ -1,1 +1,1 @@
-Functions for writing yml witout altering formatting
+Functions for writing yml without altering layout of file

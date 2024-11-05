@@ -1,8 +1,8 @@
 <?php
 
-function yml_replace_value(string $yamlContent, string $key, string $newValue) : string
+function yml_replace_value( string $yamlContent, string $key, string $newValue) : string
 {
-  
+
   $pattern = '/(?:^|\n)(\s*' . preg_quote($key, '/') . '(\s*:\s*))(["\']?)([^"\'\n]*?)(\3)(\s*)(?=\r?\n|$)/m';
 
   // 1. Start of line or after newline, followed by optional spaces
@@ -13,6 +13,7 @@ function yml_replace_value(string $yamlContent, string $key, string $newValue) :
   // 6. The current value and any trailing spaces until newline or if quoted until closing quote + spaces
   
   return preg_replace_callback( $pattern, function($matches) use ($newValue) {
+
     $indentAndKey = $matches[1];    // contains spaces + key + spaces + colon + spaces
     $quote = $matches[3];           // captured quote character (if any)
     $trailingSpaces = $matches[6];  // trailing spaces after the value
