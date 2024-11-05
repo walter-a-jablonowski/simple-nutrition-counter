@@ -15,6 +15,7 @@ class MainController
     this.newEntryBtn            = this.newEntryBtn.bind(this)
     this.newEntrySaveBtn        = this.newEntrySaveBtn.bind(this)
     this.layoutItemClick        = this.layoutItemClick.bind(this)
+    this.priceColClick          = this.priceColClick.bind(this)
     this.offLimitCheckChange    = this.offLimitCheckChange.bind(this)
     // this.#addDayEntry        = this.#addDayEntry.bind(this)     // TASK: can't be done
     this.updSummary             = this.updSummary.bind(this)
@@ -343,6 +344,15 @@ class MainController
     }
 
     this.#addDayEntry( entry )
+  }
+
+
+  priceColClick(event)
+  {
+    let target = event.target.tagName !== 'TD' ? event.target.closest('td') : event.target
+
+    target.find('.price-label-view').style.display = 'none'
+    target.find('.price-input-view').style.display = 'block'
   }
 
 

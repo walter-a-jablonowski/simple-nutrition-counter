@@ -104,23 +104,29 @@ $data = $this->foodsModel->get($entryName);
     <?php endif; ?>
     <tr>
       <th>Price</th>
-      <td>
-        <?php if( ! empty($data['price'])): ?>
-          <?= settings::get('currencySymbol') ?>
-          <!-- price (highlight expensive and cheap) -->
-          <?php if( $pricePer100 >= settings::get('expensive')): ?>
-            <span style="color: red;"><?= $data['price'] ?></span>
-          <?php elseif( $pricePer100 <  settings::get('cheap')): ?>
-            <span style="color: green;"><?= $data['price'] ?></span>
-          <?php else: ?>
-            <?= $data['price'] ?>
+      <td class="price-col" onclick="mainCrl.priceColClick(event)">
+        <span class="price-label-view">
+          <?php if( ! empty($data['price'])): ?>
+            <?= settings::get('currencySymbol') ?>
+            <!-- price (highlight expensive and cheap) -->
+            <?php if( $pricePer100 >= settings::get('expensive')): ?>
+              <span style="color: red;"><?= $data['price'] ?></span>
+            <?php elseif( $pricePer100 <  settings::get('cheap')): ?>
+              <span style="color: green;"><?= $data['price'] ?></span>
+            <?php else: ?>
+              <?= $data['price'] ?>
+            <?php endif; ?>
+            <?php if( $data['lastPriceUpd'] ): ?>
+              <span class="text-secondary small">
+                on <?= date('Y-m-d', $data['lastPriceUpd'] ) ?>
+              </span>
+            <?php endif; ?>
           <?php endif; ?>
-          <?php if( $data['lastPriceUpd'] ): ?>
-            <span class="text-secondary small">
-              on <?= date('Y-m-d', $data['lastPriceUpd'] ) ?>
-            </span>
-          <?php endif; ?>
-        <?php endif; ?>
+        </span>
+        <span class="price-input-view" style="display: none;">
+          <input value="<?= $data['price'] ?>" class="price-inp form-control form-control-sm d-inline-block" type="text" style="width: 80px;">
+          <button class="btn btn-sm btn-secondary py-0">Upd</button>
+        </span>
       </td>
     </tr>
     <tr>
@@ -142,7 +148,7 @@ $data = $this->foodsModel->get($entryName);
     &nbsp;Data sources <i class="bi bi-caret-down"></i>
   </a>
   <span class="text-secondary" style="font-size: .75em;">
-    Last update: <?= date('Y-m-d', $data['lastUpd'] ) ?> (<?= $data['state'] ?>)
+    Last update: <?= date('Y-m-d', $data['lastUpd'] ) ?>
   </span>
 </div>
 <table id="<?= $entryId ?>SourcesCollapse" class="table collapse" style="font-size: .75em;">

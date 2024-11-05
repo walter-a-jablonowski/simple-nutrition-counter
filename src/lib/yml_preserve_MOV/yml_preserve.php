@@ -14,7 +14,7 @@ function yml_replace_value( string $yamlContent, string $key, string $newValue) 
   
   return preg_replace_callback( $pattern, function($matches) use ($newValue) {
 
-    $indentAndKey = $matches[1];    // contains spaces + key + spaces + colon + spaces
+    $indentAndKey = $matches[1];    // contains spaces key spaces colon spaces
     $quote = $matches[3];           // captured quote character (if any)
     $trailingSpaces = $matches[6];  // trailing spaces after the value
     
