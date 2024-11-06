@@ -1,14 +1,12 @@
 <?php
 
-// we move this in a app view and make it editable
-
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Yaml\Exception\ParseException;
 
 require_once '../src/vendor/autoload.php';
 
 $min_date = null;
-// $min_date = '2024-05-16';  // very old prices only
+// $min_date = '2024-05-16';  // very old prios only
 $out_file = 'price_list.tsv';
 
 $foods = Yaml::parseFile('../src/data/bundles/Default_' . User::current('id') . '/foods.yml');
