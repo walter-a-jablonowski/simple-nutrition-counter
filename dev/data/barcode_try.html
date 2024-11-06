@@ -18,13 +18,13 @@
         // Load the Barcode Scanning API
         gapi.load('https://www.googleapis.com/auth/barcode.scan', () => {
           const barcodeScanner = new gapi.barcodescanner.BarcodeScanner();
-          barcodeScanner.startScan((barcode) => {
+          barcodeScanner.startScan( (barcode) => {
             alert(barcode);
             // Handle the scanned barcode data
           });
         });
       } catch (error) {
-        console.error('Error accessing camera:', error);
+        alert(JSON.stringify(error));
       }
     });
   </script>
