@@ -8,8 +8,10 @@ require_once 'lib/frm/Controller_240323/ControllerBase.php';
 require_once 'lib/frm/ConfigStatic_240323/config.php';
 require_once 'lib/frm/User.php';
 require_once 'lib/settings.php';
-require_once 'ajax/save_day_entries.php';
-require_once 'ajax/change_user.php';
+
+foreach( scandir('ajax') as $fil)
+  if( ! in_array( $fil, ['.', '..']))  require_once "ajax/$fil";  
+
 require_once 'lib/helper.php';
 
 

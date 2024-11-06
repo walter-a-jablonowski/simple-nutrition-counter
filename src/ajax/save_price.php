@@ -1,8 +1,8 @@
 <?php
 
-require_once 'src/lib/yml_preserve_MOV/yml_preserve.php';
+require_once 'lib/yml_preserve_MOV/yml_preserve.php';
 
-trait SaveDayEntriesAjaxController
+trait SavePriceAjaxController
 {
 
   public function savePrice( $request )
