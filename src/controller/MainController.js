@@ -16,6 +16,7 @@ class MainController
     this.newEntrySaveBtn        = this.newEntrySaveBtn.bind(this)
     this.layoutItemClick        = this.layoutItemClick.bind(this)
     this.priceColClick          = this.priceColClick.bind(this)
+    this.updPriceClick          = this.updPriceClick.bind(this)
     this.offLimitCheckChange    = this.offLimitCheckChange.bind(this)
     // this.#addDayEntry        = this.#addDayEntry.bind(this)     // TASK: can't be done
     this.updSummary             = this.updSummary.bind(this)
@@ -353,6 +354,21 @@ class MainController
 
     target.find('.price-label-view').style.display = 'none'
     target.find('.price-input-view').style.display = 'block'
+  }
+
+
+  updPriceClick(event)
+  {
+    let name  = event.target.dataset.name
+    let input = event.target.closest('.price-col').find('.price-inp')
+    let price = input.textContent.trim()
+
+    ajax.send('savePrice', { name: name, price: price }, function(result, data) {
+      if( result === 'success' )
+        window.location.reload()       // TASK: maybe show the label again
+      else
+        alert('Error updating price')  // TASK: some inline error
+    })
   }
 
 

@@ -11,8 +11,8 @@ trait SaveDayEntriesAjaxController
 
     // TASK: (advanced) add time on server and response (currently a problem cause we still use save btn))
 
-    // $time = date('His');
-    // $data = "$time  $request[data]";
+    // $time  = date('His');
+    // $data = "$time  $request[data]";  // TASK: update default user v use current
     
     if( ! file_put_contents('data/users/' . $config->get('defaultUser') . "/days/$request[date].tsv", $request['data']))
     // if( ! file_put_contents('data/users/' . $config->get('defaultUser') . "/days/$request[date].tsv", $data))
