@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Barcode Scanner</title>
+</head>
+<body>
+  <button id="scanButton">Scan Barcode</button>
+
+  <script src="https://unpkg.com/@google/apis-client-library-for-web/client"></script>
+  <script>
+    const scanButton = document.getElementById('scanButton');
+
+    scanButton.addEventListener('click', async () => {
+      try {
+        // Request camera permission
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+
+        // Load the Barcode Scanning API
+        gapi.load('https://www.googleapis.com/auth/barcode.scan', () => {
+          const barcodeScanner = new gapi.barcodescanner.BarcodeScanner();
+          barcodeScanner.startScan((barcode) => {
+            console.log('Scanned barcode:', barcode);
+            // Handle the scanned barcode data
+          });
+        });
+      } catch (error) {
+        console.error('Error accessing camera:', error);
+      }
+    });
+  </script>
+</body>
+</html>

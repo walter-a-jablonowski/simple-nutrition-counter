@@ -21,7 +21,7 @@ origin:            ""
 
 price:             
 weight:            
-pieces:            
+pieces:                # number of pieces in a pack (if the packaging is devided in pieces)
 # usedAmounts:
 
 calories:          
