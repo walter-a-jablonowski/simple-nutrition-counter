@@ -1,32 +1,5 @@
 <?php
 
-use Symfony\Component\Yaml\Yaml;
-use Symfony\Component\Yaml\Exception\ParseException;
-
-require_once '../src/vendor/autoload.php';
-
-$min_date = null;
-// $min_date = '2024-05-16';  // very old prios only
-$out_file = 'price_list.tsv';
-
-$foods = Yaml::parseFile('../src/data/bundles/Default_' . User::current('id') . '/foods.yml');
-$r = [];
-
-foreach( $foods as $food => $data )
-{
-  // Symfony yml parses dates as timestamps
-
-  // $last_price_upd = ! $data['lastPriceUpd'] ? null : DateTime::createFromFormat('Y-m-d', $data['lastPriceUpd']);
-  // $minDateObj     = ! $min_date ? null : DateTime::createFromFormat('Y-m-d', $min_date);
-
-  if( is_null($data['lastPriceUpd']) || ( $min_date === null || $data['lastPriceUpd'] >= $min_date ))
-    $r[ $data['vendor']][] = [
-      'food'  => $food,
-      'price' => $data['price'],
-      'lastPriceUpd' => $data['lastPriceUpd'] ? date('Y-m-d', $data['lastPriceUpd']) : ''
-    ];
-}
-
 $output = '';
 
 foreach( $r as $vendor => $foods )  

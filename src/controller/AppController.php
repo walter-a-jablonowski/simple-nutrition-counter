@@ -38,6 +38,7 @@ class AppController extends ControllerBase
   protected SimpleData $nutrientsView;   // nutrients tab, last days
   protected array      $avg;
   protected SimpleData $lastDaysView;
+  protected array      $oldPricesList;
 
   protected array      $captions = [];
   protected SimpleData $inlineHelp;
@@ -162,6 +163,14 @@ class AppController extends ControllerBase
 
     $this->makeLastDaysView();
 
+    // Old prices list
+/*
+    $minDate = strtotime('-6 months');
+    
+    $this->oldPricesList = $this->foodsModel->filter(  // TASK: method impl
+      fn( $key, $data ) => $data['lastPriceUpd'] < $minDate
+    );
+*/
     ob_start();
     require 'view/-this.php';
     return ob_get_clean();
