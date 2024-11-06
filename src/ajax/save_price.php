@@ -10,7 +10,7 @@ trait SavePriceAjaxController
     // TASK: add user
     // TASK: maybe add stuff from misc ajax
 
-    $file = "data/bundles/Default_$user->id/foods/$request[name].yml";
+    $file = 'data/bundles/Default_' . User::current('id') . "/foods/$request[name].yml";
     $data = yml_replace_value( file_get_contents($file), 'price', $request['price']);
 
     if( ! file_put_contents( $file, $data))

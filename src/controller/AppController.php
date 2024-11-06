@@ -10,7 +10,7 @@ require_once 'lib/frm/User.php';
 require_once 'lib/settings.php';
 
 foreach( scandir('ajax') as $fil)
-  if( ! in_array( $fil, ['.', '..']))  require_once "ajax/$fil";  
+  if( ! in_array( $fil, ['.', '..']))  require_once "ajax/$fil";
 
 require_once 'lib/helper.php';
 
