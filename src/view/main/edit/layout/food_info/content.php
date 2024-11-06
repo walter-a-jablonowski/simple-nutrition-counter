@@ -124,8 +124,11 @@ $data = $this->foodsModel->get($entryName);
           <?php endif; ?>
         </span>
         <span class="price-input-view" style="display: none;">
-          <input value="<?= $data['price'] ?>" class="price-inp form-control form-control-sm d-inline-block" type="text" style="width: 80px;">
-          <button class="btn btn-sm btn-secondary py-0">Upd</button>
+          <!-- <input value="< ?= $data['price'] ?>" class="price-inp form-control form-control-sm d-inline-block" type="text" style="width: 80px; padding: 0;"> -->
+          <div contenteditable="true" class="price-inp d-inline-block border px-1 py-0" style="min-width: 60px;">
+            <?= $data['price'] ?>
+          </div>
+          <button class="btn btn-sm btn-secondary ml-1 px-1 py-0" style="margin-top: -4px;">update</button>
         </span>
       </td>
     </tr>
