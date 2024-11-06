@@ -15,6 +15,8 @@ trait SavePriceAjaxController
 
     if( ! file_put_contents( $file, $data))
       return ['result' => 'error', 'message' => 'Error saving'];
+
+    // TASK: save prev price
       
     echo json_encode(['status' => 'success']);
   }
