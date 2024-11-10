@@ -19,40 +19,28 @@ fattyAcids:
 
 carbs:
   
-  Fibre:           3    # TASK
-  Glucose:         0.5
-  Fructose:        0.6
-  Sucrose:         0.1
-  Starch:          0.1
+  Fibre:         0    # TASK
 
 aminoAcids:
   
-  Alanine:       58
-  Arginine:      69
-  Aspartic acid: 117
-  Glutamic acid: 208
-  Glycine:       55
-  Histidine:     26
-  Isoleucine:    50
-  Leucine:       63
-  Lysine:        61
-  Methionine:    21
-  Phenylalanine: 49
-  Proline:       53
-  Serine:        51
-  Threonine:     51
-  Tryptophan:    16
-  Tyrosine:      30
-  Valine:        64
+  Histidine:     59   # updated with source
+  Isoleucine:    79
+  Leucine:       129
+  Lysine:        135
+  Methionine:    38
+  Phenylalanine: 117 
+  Threonine:     88
+  Tryptophan:    33
+  Valine:        125
 
 vitamins:
   
-  Vitamin C:  89
-  Vitamin K:  102
-  Vitamin E:  1
-  Vitamin B3: 1
-  Vitamin B5: 1
-  Vitamin B9: 63
+  Vitamin C:  91.3
+  Vitamin K:  0
+  Vitamin E:  0
+  Vitamin B3: 0
+  Vitamin B5: 0
+  Vitamin B9: 0
 
 minerals:
   
@@ -63,6 +51,10 @@ minerals:
   Sodium:     33
   Iron:       1
 
-sources:           "fdc.nal.usda.gov for now"
+sources:           
+
+  - title:  fdc.nal.usda.gov for now
+    source: https://fdc.nal.usda.gov/food-details/747447/nutrients
+
 state:             most
 lastUpd:           2024-09-01
