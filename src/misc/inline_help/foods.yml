@@ -81,7 +81,7 @@ misc:
   alcohol:           { usage: "", required: false, type: "float" }
   caffeine:          { usage: "", required: false, type: "float" }
 
-sources:             { usage: "like { nutriVal: \"web|pack (information on packaging may differ slightly)\", nutrients: \"...\", price: \"...\" }",
+sources:             { usage: "same as data > shared > sources, like { nutriVal: \"web|pack (information on packaging may differ slightly)\", nutrients: \"...\", price: \"...\" }", sources
                          required: true }  # TASK
 lastUpd:             { usage: "like 2024-02-18, last upd nutritional data",   required: true, type: "date" }
 lastPriceUpd:        { usage: "like 2024-02-18", required: false, type: "date" }

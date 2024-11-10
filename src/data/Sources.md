@@ -26,25 +26,38 @@ Priority: Scientists
 - ...
 
 
-Nutrients
+Basic
 ----------------------------------------------------------
 
-
 - DE
-
+  
   - https://www.dge.de/wissenschaft/referenzwerte
   - https://www.dge.de/gesunde-ernaehrung/faq/energiezufuhr
   - https://www.dge.de/gesunde-ernaehrung/faq/energiezufuhr/#c2965
+  - https://www.blsdb.de
+
+- EU
+
+  - https://www.eurofir.org
+
+  - https://www.efsa.europa.eu/de/topics/topic/dietary-reference-values
+    - https://www.efsa.europa.eu/sites/default/files/2024-05/ul-summary-report.pdf
+  - https://www.eufic.org/de/wissenschaft-verstehen/artikel/referenzwerte-fuer-die-naehrstoffzufuhr-referenzwerte-fuer-wen
 
 - WHO
 
   - https://www.who.int/health-topics/nutrition#tab=tab_1
 
-- EU
+- Community
 
-  - https://www.efsa.europa.eu/de/topics/topic/dietary-reference-values
-    - https://www.efsa.europa.eu/sites/default/files/2024-05/ul-summary-report.pdf
-  - https://www.eufic.org/de/wissenschaft-verstehen/artikel/referenzwerte-fuer-die-naehrstoffzufuhr-referenzwerte-fuer-wen
+  - https://de.openfoodfacts.org
+
+- Misc (companies)
+
+  - Ask AI or google per food => more precise articles
+  - https://www.codecheck.info
+  - https://www.yazio.com/de/kalorientabelle (looks less precise)
+    - some data is made by users
 
 
 Food

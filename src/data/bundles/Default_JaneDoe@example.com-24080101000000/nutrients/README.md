@@ -37,12 +37,9 @@ unit:      g                     # default is g for groups and mg for nutrients
 per:       day
 comment:   "Increased need if doing sports"
 
-sources:                         # source of information, string or array(object) (see also below)
+sources:                         # source of information, see data > shared > sources (see also below) 
 
-  - title: 
-    source:                      # e.g. url
-    sub:                         # sub section
-    comment:                     # details
+  # ...
 
 amounts:
 
@@ -73,12 +70,9 @@ substances:                       # (required) key at least empty []
 
       keeping:    "keep cool"
 
-    sources:                      # string or array(object), same as above
+    sources:                      # same as above
 
-      - title:
-        source:
-        sub:   
-        comment:
+      # ...
 
     amounts:         # TASK: BMI might be relevant for weight
 
@@ -87,12 +81,9 @@ substances:                       # (required) key at least empty []
         lower:  4%   # (required) bounds for acceptable intake (percent or precise)
         amount:      # (required)
         upper:  8    # (required)
-        sources:     # string or array(object), same as above (if needed for being more precise)
+        sources:     # same as above
 
-          - title:
-            source: 
-            sub:    
-            comment:    
+          # ...
 ```
 
 

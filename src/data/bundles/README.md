@@ -2,9 +2,10 @@
 
 - [Naming scheme](#naming-scheme)
 - [Bundle structure](#bundle-structure)
+- [-this](#-this)
 - [Foods](#foods)
-  - [Layout file](#layout-file)
 - [Recipes file](#recipes-file)
+- [Nutrients](#nutrients)
 - [Layout](#layout)
 
 
@@ -24,18 +25,22 @@ Naming scheme
 Bundle structure
 ----------------------------------------------------------
 
-- **-this.yml**
-- **/layout.yml** see [layout](#layout)
+see also user > misc
+
+- **-this.yml**, see [-this](#-this)
 - **/foods** see [foods](#foods)
-  - [Layout file](#layout-file)
-- **/nutrients** all misc counters, may override default
-  - water
-  - beverages
-  - misc expenses that are no food
 - **recipes.yml** see [recipes file](#recipes-file)
-- **sports.yml**
+- **/nutrients**
 - **supplments.yml**
+- **sports.yml**
+- **/layout.yml** see [layout](#layout)
 - **tips.html** used if exists, or default in /misc
+
+
+-this
+----------------------------------------------------------
+
+- sources see [shared](../README.md)
 
 
 Foods
@@ -54,11 +59,17 @@ Recipes file
 ```yaml
 
 My recipe:
-                     # amount:
-  Chick R Bio:  100g # < 0 (1/2)    is percent of pack
-  Brokkoli R:        # > 0 (e.g. 2) is piece(s)
-  Olivenöl:          # or with "g" (100g), "ml" (100ml)
+                      # amount:
+  Chick R Bio:  100g  # < 0 (1/2)    is percent of pack
+  Brokkoli R:         # > 0 (e.g. 2) is piece(s)
+  Olivenöl:           # or with "g" (100g), "ml" (100ml)
 ```
+
+
+Nutrients
+----------------------------------------------------------
+
+see [nutrients](Default_JaneDoe@example.com-24080101000000/nutrients/README.md)
 
 
 Layout
