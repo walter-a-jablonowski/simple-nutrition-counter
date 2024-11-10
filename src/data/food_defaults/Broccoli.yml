@@ -19,11 +19,11 @@ fattyAcids:
 
 carbs:
   
-  Fibre:         0    # TASK
+  Fibre:         0       # TASK
 
 aminoAcids:
   
-  Histidine:     59   # updated with source
+  Histidine:     59      # updated with source
   Isoleucine:    79
   Leucine:       129
   Lysine:        135
@@ -35,12 +35,12 @@ aminoAcids:
 
 vitamins:
   
-  Vitamin C:  91.3
-  Vitamin K:  0
-  Vitamin E:  0
-  Vitamin B3: 0
-  Vitamin B5: 0
-  Vitamin B9: 0
+  Vitamin C:     91.3    # updated with source
+  Vitamin K:     0.102
+  Vitamin E:     0.15
+  Niacin B3:     0.639
+  Pantothenic acid B5: 0.61
+  Folate B9:     0.065
 
 minerals:
   
