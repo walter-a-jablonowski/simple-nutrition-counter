@@ -42,19 +42,19 @@ vitamins:
 
 minerals:
 
-  Salt:          0          # TASK
-  Potassium:     0
-  Calcium:       0
-  Phosphorus:    0
-  Magnesium:     0
-  Iron:          0
-  Iodine:        0
+  Salt:          36         # TASK: only Na
+  Potassium:     303
+  Calcium:       46
+  Phosphorus:    67
+  Magnesium:     21
+  Iron:          0.69
+  Iodine:        0          # TASK
   Fluoride:      0
-  Zinc:          0
-  Selenium:      0
-  Copper:        0
+  Zinc:          0.42
+  Selenium:      0.0016
+  Copper:        0.059
   Chromium:      0
-  Manganese:     0
+  Manganese:     0.197
   Molybdenum:    0
   # Sulfur:
 
