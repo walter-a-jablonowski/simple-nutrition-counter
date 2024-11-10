@@ -1,29 +1,27 @@
 
-calories: 34
+calories:        34         # unused
 
 nutritionalValues:
   
-  fat:             0
-  saturatedFat:    0
-  carbs:           7
-  amino:           2841
-  salt:            33
+  fat:           0
+  saturatedFat:  0
+  carbs:         7
+  amino:         2841
+  salt:          33
 
 fattyAcids:
 
-  Alpha-linolenic acid: 0.02
-  Linoleic acid:        0.02
-  Oleic acid:           0.01
-  Palmitic acid:        0.03
-  Stearic acid:         0.01
+  Alpha-linolenic acid:  0  # TASK: misisng in source
+  Docosahexaenoic acid:  0
+  Linoleic acid:         0
 
 carbs:
   
-  Fibre:         0       # TASK
+  Fibre:         0          # TASK
 
 aminoAcids:
   
-  Histidine:     59      # updated with source
+  Histidine:     59         # updated with source
   Isoleucine:    79
   Leucine:       129
   Lysine:        135
@@ -35,7 +33,7 @@ aminoAcids:
 
 vitamins:
   
-  Vitamin C:     91.3    # updated with source
+  Vitamin C:     91.3       # updated with source
   Vitamin K:     0.102
   Vitamin E:     0.15
   Niacin B3:     0.639
@@ -43,13 +41,22 @@ vitamins:
   Folate B9:     0.065
 
 minerals:
-  
-  Potassium:  316
-  Calcium:    47
-  Phosphorus: 66
-  Magnesium:  21
-  Sodium:     33
-  Iron:       1
+
+  Salt:          0          # TASK
+  Potassium:     0
+  Calcium:       0
+  Phosphorus:    0
+  Magnesium:     0
+  Iron:          0
+  Iodine:        0
+  Fluoride:      0
+  Zinc:          0
+  Selenium:      0
+  Copper:        0
+  Chromium:      0
+  Manganese:     0
+  Molybdenum:    0
+  # Sulfur:
 
 sources:           
 
