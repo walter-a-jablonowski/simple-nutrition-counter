@@ -1,3 +1,4 @@
+
 calories: 824
 
 nutritionalValues:
@@ -35,6 +36,6 @@ minerals:
   Sodium: 2
   Iron: 1
 
-sources:           { nutriVal: "", nutrients: "" }
+sources:           "fdc.nal.usda.gov for now"
 state:             most
 lastUpd:           

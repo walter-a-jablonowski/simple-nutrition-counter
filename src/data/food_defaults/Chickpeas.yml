@@ -73,6 +73,6 @@ minerals:                      # mg
 #   - saponins: present
 #   - phytosterols: present
 
-sources:           { nutriVal: "", nutrients: "" }  # TASK
+sources:           "fdc.nal.usda.gov for now"
 state:             most
 lastUpd:           2024-09-01
