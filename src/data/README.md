@@ -13,6 +13,8 @@ Shared use
 
 ```yaml
 
+sources: "..."       # somple version (any from below)
+
 sources:
 
   - title:           # all entries (non-required)
