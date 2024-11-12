@@ -1,9 +1,8 @@
 removed:           true
-comment:           "unavailable"
+comment:           "unavailable (still processed food ...)"
 
 vendor:            Deca
 acceptable:        less
-comment:           "still processed food ..."
 packaging:         plastic
 
 price:             1.99

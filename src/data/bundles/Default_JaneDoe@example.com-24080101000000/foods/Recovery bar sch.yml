@@ -3,6 +3,7 @@ vendor:            Deca
 url:               "https://www.decathlon.de/p/proteinriegel-regeneration-12-stueck-schokolade-karamell/_/R-p-341463"
 
 acceptable:        less
+comment:           "still processed food ..."
 certificates:      { fairtrade: true }
 packaging:         plastic
 
