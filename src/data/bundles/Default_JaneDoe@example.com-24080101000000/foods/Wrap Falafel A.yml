@@ -1,12 +1,12 @@
-productName:       "Snack Time Wrap FGalafel"
+productName:       "Snack Time Wrap Falafel"
 vendor:            Aldi
-acceptable:        occasionally
+acceptable:        less
 ingredients:       "(shortened strange only) 50 % Spinat-Weizenfladen, Backtriebsmitel: Diphosphate, Natriumcarbonate, Traubenzucker, Säuerungsmittel: Apfelsäure, Kichererbsen, Zucker, elsesalz, Zitronensaft aus Zitronensaftkonzentrat, Verdickungsmite Nanthan; Sauerungsmittel: Essigsäure, Citronensäure, Stärke, Eigelb, modifizierte Stärke, Branntwein - sig, Verdickungsmittel: Guarkernmehl, Speisesal abilisator: Calciumchlorid"
 allergy:           "Eier, Gluten"
 mayContain:        "Sesam, Sellerie, Schalen - früchten, Lupinen, Soja, Senf, Milch und Fisch enthalten"
-packaging:         plastic,cardboard
+packaging:         plastic & cardboard
 
-price:             1.99  # TASK: deal
+price:             2.19
 weight:            190
 usedAmounts:       ["1"]
 
@@ -22,4 +22,4 @@ nutritionalValues:
 
 sources:           { nutriVal: "web (third party)" }
 lastUpd:           2024-06-18
-lastPriceUpd:      2024-06-18
+lastPriceUpd:      2024-11-11

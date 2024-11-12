@@ -1,0 +1,26 @@
+productName:       "Sweet Chili"
+vendor:            Aldi
+acceptable:        less
+ingredients:       "48 % Tomaten-Weizenfladen (Weizenmehl, Wasser, Rapsöl, Backtreibmittel: Diphosphate, Natriumcarbonate; Tomatenpulver, Traubenzucker, Speisesalz, Säuerungsmittel: Apfelsäure, Kräuter, Gewürze, Paprika, getrocknete Zwiebeln, getrockneter Knoblauch), 20 % Hähnchenbruststreifen gebraten (Hähnchenbrust, Speisesalz, Traubenzucker), 17 % eingelegte Paprika-Mais-Karotten-Mischung (Paprika, Mais, Karotten, Wasser, Branntweinessig, Zucker, Speisesalz, Säuerungsmittel: Essigsäure, Citronensäure, Stabilisator: Calciumchlorid), 12 % pikant-süße Würzsauce mit Chili (Zucker, Wasser, Würzpaste [Wasser, Tomatenmark, Chili, Speisesalz, Paprika, Branntweinessig], Branntweinessig, modifizierte Stärke, Knoblauch, Speisesalz, Verdickungsmittel: Xanthan, Gewürze), 2 % Frühlingszwiebeln geschnitten (Wasser, Stärke, Branntweinessig, Speisesalz)"
+allergy:           "Eier, Gluten, ..."
+mayContain:        "Sesam, Sellerie, Schalenfrüchten, Lupinen, Soja, Milch, Ei, Senf und Fisch"
+packaging:         plastic & cardboard
+
+price:             2.19
+weight:            190
+usedAmounts:       ["1"]
+
+calories:          166
+nutritionalValues:
+
+  fat:             3
+  saturatedFat:    0.4
+  carbs:           23.7
+  sugar:           4
+  amino:           3.1
+  fibre:           9.6
+  salt:            1.53
+
+sources:           { nutriVal: "pack" }
+lastUpd:           2024-11-11
+lastPriceUpd:      2024-11-11
