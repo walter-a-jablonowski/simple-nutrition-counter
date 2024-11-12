@@ -1,0 +1,35 @@
+
+vendor:            Deca
+url:               "https://www.decathlon.de/p/proteinriegel-regeneration-12-stueck-schokolade-karamell/_/R-p-341463"
+
+acceptable:        less
+certificates:      { fairtrade: true }
+packaging:         plastic
+
+price:             2.39
+weight:            60
+usedAmounts:       [1]
+
+calories:          396
+nutritionalValues: 
+
+  fat:             9.5
+  saturatedFat:    4.8
+  carbs:           42
+  sugar:           34
+  fibre:           4.2
+  amino:           33
+  salt:            0.33
+
+vitamins:          
+
+  Vitamin C:       20
+  Folate B9:       0.050
+
+minerals:          
+
+  Magnesium:       94
+
+sources:           { nutriVal: "web (information on packaging may differ slightly)" } 
+lastUpd:           2024-11-11
+lastPriceUpd:      2024-11-11
