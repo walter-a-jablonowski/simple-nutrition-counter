@@ -237,10 +237,10 @@ On the go:
     list:
 
       - Riegel Seitenb Sch                     # (duplicate)
+      - Hanuta
+      - Snickers
       - Löschzwerg R
       - Karamalz
-
-      - Hanuta
 
   Village (color:#ffa500):
 
@@ -275,14 +275,19 @@ On the go:
       - Kfc Original
       - Kfc Chili Cheese
 
+      - Recovery bar sch
+      - Minze Zitrone
+
       - Wrap Falafel A
       - Wrap Chicken A
       - Burrito A
       - Donuts mini A
 
-      - Recovery bar sch
+  Misc (color:#ffa500):
+
+    list:
+
       - Falafel
-      - Snickers
 
 Misc:
 

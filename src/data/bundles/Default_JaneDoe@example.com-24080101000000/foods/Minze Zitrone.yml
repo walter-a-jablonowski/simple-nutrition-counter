@@ -1,0 +1,28 @@
+
+productName:       "share Bio Fruit Infusion Zitrone Minze"
+
+certificates:      { bio: true, vegan: true }
+ingredients:       "Natürliches Mineralwasser, 3,5 % Zitronensaft aus Zitronensaftkonzentrat*, Zucker*, Apfelsaft aus Apfelsaftkonzentrat*, Kohlensäure, 0,15 % Pfefferminzextrakt*, natürliches Zitronenaroma, Antioxidationsmittel: Ascorbinsäure, Stabilisator: Guarkemmehl*"
+packaging:         plastic
+
+price:             0.95
+weight:            500ml
+usedAmounts:       ["1"]
+
+calories:          14
+nutritionalValues:
+
+  fat:             0
+  saturatedFat:    0
+  carbs:           3.2
+  sugar:           3.2
+  amino:           0
+  salt:            0.02
+
+misc:
+
+  water:           500   
+
+sources:           { nutriVal: "web (third party, information on packaging may differ slightly)" }
+lastUpd:           2024-11-11
+lastPriceUpd:      2024-11-11
