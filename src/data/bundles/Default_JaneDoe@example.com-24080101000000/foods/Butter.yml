@@ -1,0 +1,29 @@
+
+productName:       "Butter aus frischem Berg- und Alpenrahm"
+url:               "https://bergbauernmilch.de/de/unsere-produkte/privatverbraucher/butter/butter/butter-aus-frischem-berg-und-alpenrahm/250-g-butterpaeckchen.html"
+
+acceptable:        occasionally
+certificates:      { warentest: 1 }
+ingredients:       ""
+allergy:           ""
+mayContain:        ""
+origin:            ""
+packaging:         plastic,rubber (maybe)
+
+price:             2.99
+weight:            250g
+usedAmounts:       ["5g", "10g", "15g"]
+
+calories:          747
+nutritionalValues: 
+
+  fat:             82.3
+  saturatedFat:    54
+  carbs:           0.8
+  sugar:           0.8
+  amino:           0.6
+  salt:            0.01
+
+sources:           { nutriVal: "web" }
+lastUpd:           2024-11-11
+lastPriceUpd:      2024-11-11

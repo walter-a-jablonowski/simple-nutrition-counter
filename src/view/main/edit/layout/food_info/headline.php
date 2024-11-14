@@ -48,6 +48,9 @@ $data = $this->foodsModel->get($entryName);
 <?php if( ! empty($data['certificates']['oekotest'])): ?>
   <span class="badge bg-info">oekotest: <?= $data['certificates']['oekotest'] ?></span>
 <?php endif; ?>
+<?php if( ! empty($data['certificates']['warentest'])): ?>
+  <span class="badge bg-info">warentest: <?= $data['certificates']['warentest'] ?></span>
+<?php endif; ?>
 <?php if( ! empty($data['certificates']['NutriScore'])): ?>
   <span class="badge bg-info">NutriScore: <?= $data['certificates']['NutriScore'] ?></span>
 <?php endif; ?>

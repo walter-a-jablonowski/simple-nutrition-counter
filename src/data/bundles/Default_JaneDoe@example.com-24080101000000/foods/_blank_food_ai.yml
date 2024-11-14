@@ -12,7 +12,7 @@ vendor:
 url:               ""
 
 # acceptable:
-certificates:      { bio: true, vegan: true, oekotest: 1, NutriScore: A, fairtrade: true, misc: "see attached" }
+certificates:      { bio: true, vegan: true, oekotest: 1, warentest: 1, NutriScore: A, fairtrade: true, misc: "see attached" }
 ingredients:       ""
 allergy:           ""
 mayContain:        ""

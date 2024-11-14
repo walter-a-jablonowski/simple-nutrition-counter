@@ -6,7 +6,7 @@ url:
 
 acceptable:        occasionally|less  # leave this unmodified
 comment:           ""                 # leave this unmodified
-certificates:      { bio: true, vegan: true, oekotest: 1, NutriScore: A, fairtrade: true, misc: "see attached" }  # set whatever is applicable, remove if missing in source data
+certificates:      { bio: true, vegan: true, oekotest: 1, warentest: 1, NutriScore: A, fairtrade: true, misc: "see attached" }  # set whatever is applicable, remove if missing in source data
 ingredients:       ""    # remove if missing in source data
 allergy:           ""    # ingredients that may cause allergy, remove if missing in source data
 mayContain:        ""    # despite ingredients this food may contain, remove if missing in source data
