@@ -1,0 +1,29 @@
+
+productName:       "Lieken Urkorn Bauernmild"
+url:               "https://www.lieken-urkorn.de/produkte/produkt/bauernmild-250g"
+
+acceptable:        less
+certificates:      { vegan: true }
+ingredients:       "Weizenmehl (55 %), Wasser, Natursauer-Teig (13 %) (Roggenmehl, Wasser), Roggenmehl, Rapsöl, Salz, Hefe, Säureregulator Natriumacetate"
+mayContain:        "Soja, Senf, Sesam und Lupinen"
+packaging:         plastic
+
+price:             1.39
+weight:            250g
+pieces:            5
+usedAmounts:       [1]
+
+calories:          239
+nutritionalValues: 
+
+  fat:             2.2
+  saturatedFat:    0.3
+  carbs:           45
+  sugar:           3.1
+  fibre:           4
+  amino:           7.8
+  salt:            1.3
+
+sources:           { nutriVal: "web" }
+lastUpd:           2024-11-11
+lastPriceUpd:      2024-11-11
