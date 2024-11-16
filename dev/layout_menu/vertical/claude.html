@@ -28,7 +28,7 @@
       width: 200px;
     }
     /* expand on click */
-    #custom-navbar.expanded .nav-link span {
+    #custom-navbar.expanded .nav-link span.title {
       opacity: 1;
     }
     /* expand on hover (remove for click only) */
@@ -49,13 +49,13 @@
       width: 30px;
       text-align: center;
     }
-    .nav-link span {
+    .nav-link span.title {
       margin-left: 10px;
       opacity: 0;
       transition: opacity 0.3s ease;
     }
     /* expand on hover (remove for click only) */
-    #custom-navbar:hover .nav-link span {
+    #custom-navbar:hover .nav-link span.title {
       opacity: 1;
     }
     #app-name {
@@ -77,22 +77,22 @@
       <!-- above icons -->
       <li class="nav-item">
         <a class="nav-link" href="#">
-          <i class="bi bi-calendar-day"></i><span>This day</span>
+          <i class="bi bi-calendar-day"></i><span class="title">This day</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">
-          <i class="bi bi-cup-straw"></i><span>Nutrients</span>
+          <i class="bi bi-cup-straw"></i><span class="title">Nutrients</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">
-          <i class="bi bi-calendar-range"></i><span>Last days</span>
+          <i class="bi bi-calendar-range"></i><span class="title">Last days</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">
-          <i class="bi bi-info-circle"></i><span>Info</span>
+          <i class="bi bi-info-circle"></i><span class="title">Info</span>
         </a>
       </li>
       <!-- we could also have sth in middle pos -->
@@ -101,18 +101,18 @@
         <li class="nav-item">
           <a class="nav-link" href="#">
             <button onclick="" data-sel="current" class="btn btn-sm ms-1 mb-1 text-white p-1 py-0 border-light">
-              Tu 20.
+              <span>Tu</span> 20.  <!-- TASK: hide day when ! expanded-->
             </button>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">
-            <i class="bi bi-person"></i><span>[ Chg user ]</span>
+            <i class="bi bi-person"></i><span class="title">[ Chg user ]</span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">
-            <i class="bi bi-gear"></i><span>Settings</span>
+            <i class="bi bi-gear"></i><span class="title">Settings</span>
           </a>
         </li>
       </div>
