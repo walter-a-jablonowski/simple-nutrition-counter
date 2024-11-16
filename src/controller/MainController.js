@@ -494,10 +494,7 @@ class MainController
     query('#timeSum').textContent = `${hours}:${minutes}`  // TASK: maybe round the time to 30 min
                                                             // TASK: use classes and single id for the view
 
-    // let fatSum   = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.fat),   0).toFixed(1))
-    // let aminoSum = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.amino), 0).toFixed(1))
-    // let carbsSum = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.carbs), 0).toFixed(1))
-    query('#fatSum').textContent   = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.fat),   0))
+    query('#fatSum').textContent   = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.fat),   0))  // just the int
     query('#aminoSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.amino), 0))
     query('#carbsSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.carbs), 0))
     // query('#sugarSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.sugar), 0))  // TASK
@@ -506,7 +503,7 @@ class MainController
     //   return sum + (entry.nutrients.fibre ? Number(entry.nutrients.fibre) : 0)  // only if set
     // }, 0).toFixed(1))
 
-    query('#fibreSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.nutrients.fibre), 0))  // just the int
+    query('#fibreSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.nutrients.fibre), 0))
     // query('#saltSum').textContent = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.salt), 0)).toFixed(1)
     query('#saltSum').textContent  = foodEntries.reduce((sum, entry) => sum + Number(entry.salt),  0).toFixed(1)  // 1 decimal place
     query('#priceSum').textContent = foodEntries.reduce((sum, entry) => sum + Number(entry.price), 0).toFixed(2)  // 2 decimal places
