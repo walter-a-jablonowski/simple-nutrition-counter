@@ -2,9 +2,9 @@ vendor:            Rewe
 acceptable:        occasionally
 packaging:         plastic
 
-price:             2.99  # deal ca
+price:             2.99
 weight:            500
-usedAmounts:       ["1/3", "1/2", "1"]
+usedAmounts:       ["50g", "100g", "200g"]
 
 calories:          96
 nutritionalValues:
