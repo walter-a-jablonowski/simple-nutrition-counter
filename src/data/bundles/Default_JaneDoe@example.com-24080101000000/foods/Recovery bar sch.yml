@@ -5,6 +5,8 @@ url:               "https://www.decathlon.de/p/proteinriegel-regeneration-12-stu
 acceptable:        less
 comment:           "still processed food ..."
 certificates:      { fairtrade: true }
+ingredients:       "Weizensirup, Milchproteine 26,6 %, Milchschokolade 20 % (Zucker, Kakaobutter, Milchpulver, Kakaopaste, Molkenpulver (Milch), Emulgator: (Soja-) Lecithin, Vanilleextrakt), Erbsenproteine 6 %, aus Rote Beete gewonnene lösliche Ballaststoffe, Birnensaftkonzentrat, Karamellstückchen 3,3 % (Zucker, Kakaobutter, Wasser), Weizenproteine 3,3 %, Weizenmehl, Sonnenblumenöl, natürliche Aromen, Salz, Mineralien: Magnesiumcitrat, Vitamine: C, Folsäure (B9)"
+mayContain:        "Eier, Erdnüsse, Schalenfrüchte und Sulfite"
 packaging:         plastic
 
 price:             2.39
