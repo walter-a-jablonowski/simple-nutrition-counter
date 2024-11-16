@@ -72,7 +72,6 @@
     /* Mobile (lower) tab bar styles */
 
     .mobile-tab-bar {
-      display: none;
       position: fixed;
       bottom: 0;
       left: 0;
@@ -99,14 +98,8 @@
       display: none;
     }
 
+    /* Add padding to prevent content from being hidden behind the tab bar on small screens */
     @media (max-width: 768px) {
-      #custom-navbar {
-        display: none;
-      }
-      .mobile-tab-bar {
-        display: block;
-      }
-      /* Add padding to prevent content from being hidden behind the tab bar */
       body {
         padding-bottom: 70px;
       }
@@ -114,7 +107,7 @@
   </style>
 </head>
 <body>
-  <nav id="custom-navbar" class="d-flex flex-column">
+  <nav id="custom-navbar" class="d-none d-md-flex flex-column">
     <!-- <ul class="nav flex-column mt-4"> -->
     <ul class="nav flex-column mt-4 h-100 d-flex flex-column justify-content-between">
       <!-- above icons -->
@@ -177,7 +170,7 @@
 
   <!-- Mobile (lower) Tab Bar -->
   
-  <nav class="mobile-tab-bar">
+  <nav class="mobile-tab-bar d-md-none">
     <ul class="nav nav-justified">
       <li class="nav-item">
         <a class="nav-link" href="#">
