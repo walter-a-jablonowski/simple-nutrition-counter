@@ -492,7 +492,7 @@ class MainController
     const hours         = Math.floor(timeDiff / 3600000).toString().padStart(2, '0')
     const minutes       = Math.floor((timeDiff % 3600000) / 60000).toString().padStart(2, '0')
     query('#timeSum').textContent = `${hours}:${minutes}`  // TASK: maybe round the time to 30 min
-                                                            // TASK: use classes and single id for the view
+                                                           // TASK: use classes and single id for the view
 
     query('#fatSum').textContent   = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.fat),   0))  // just the int
     query('#aminoSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.amino), 0))

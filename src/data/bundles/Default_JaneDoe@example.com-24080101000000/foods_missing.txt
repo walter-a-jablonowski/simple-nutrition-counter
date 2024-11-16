@@ -11,28 +11,16 @@ Frosta Bratk       price is a guess
 Petersilie         0.99 2024-06-18
 Apfelessig R klar  1.49 2024-07-20
 
-Br Linsen R (new)  1.39 2024-07-20
-
 Magn               2.99 2024-07-20
 Stäbchen           0.70 2024-07-20
 Schm               0.55 2024-07-20
-Sardine R          0.99 2024-09-28
 Sardine R Chili    0.99 2024-09-28
+
+H Kebab            only deal, add normal
 
 ( made via missing_prices.php )
 
-H Kebab                only deal, add normal
-Amino NaDuRia Pur:     ()
-Bresso:                ()
-Cashew E:              ()
-Champ mini ganz R:     ()
-Falafel:               ()
-Kartoffeltaschen F:    ()
-Linsen vegan:          ()
-Mehrkornbr:            ()
-Philadelphia mini:     ()
-Sardine
-Vollkorn Rhein R:      ()
+...
 
 
 foods
@@ -43,13 +31,11 @@ roggenvollkorn N
 thunfisch
 senf
 gurken N
-apfelkohl N
 kokos
 walnüsse N
 essig (?)
 jogh
-käse N
-seelachs N
+käse N Tilsiter big (small vorh)
 kiwi
 tomaten N
 knoblauch N
@@ -81,8 +67,6 @@ oregano
 ingwer
 petersilie
 roggenvollkorn R
-br R (multiple)
-käse R
 parmesan
 milch frisch
 zitrone
