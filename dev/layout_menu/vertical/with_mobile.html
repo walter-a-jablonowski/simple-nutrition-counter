@@ -68,6 +68,46 @@
       color: #fff;
       font-size: 1.2rem;
     }
+
+    /* Mobile (lower) tab bar styles */
+
+    .mobile-tab-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #343a40;
+      z-index: 1000;
+      padding: 8px 0;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    }
+
+    .mobile-tab-bar .nav-link {
+      flex-direction: column;
+      text-align: center;
+      padding: 8px 4px;
+      font-size: 0.8rem;
+    }
+
+    .mobile-tab-bar .nav-link i {
+      width: auto;
+      margin-bottom: 4px;
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+      #custom-navbar {
+        display: none;
+      }
+      .mobile-tab-bar {
+        display: block;
+      }
+      /* Add padding to prevent content from being hidden behind the tab bar */
+      body {
+        padding-bottom: 70px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -128,6 +168,58 @@
       <div class="col-12 p-4">
         <p>Maybe some headline - right: [ Tu 20. ]</p>
         <p>Chg user, Settings may go under More</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile (lower) Tab Bar -->
+  
+  <nav class="mobile-tab-bar">
+    <ul class="nav nav-justified">
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="bi bi-calendar-day"></i>
+          <span>This day</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="bi bi-cup-straw"></i>
+          <span>Nutrients</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="bi bi-calendar-range"></i>
+          <span>Last days</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#moreMenu">
+          <i class="bi bi-three-dots"></i>
+          <span>More</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- More Menu Offcanvas -->
+  <div class="offcanvas offcanvas-bottom" tabindex="-1" id="moreMenu">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">More Options</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action">
+          <i class="bi bi-person me-2"></i>Change User
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+          <i class="bi bi-gear me-2"></i>Settings
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+          <i class="bi bi-info-circle me-2"></i>Info
+        </a>
       </div>
     </div>
   </div>
