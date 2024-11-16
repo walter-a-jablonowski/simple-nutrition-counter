@@ -506,13 +506,10 @@ class MainController
     //   return sum + (entry.nutrients.fibre ? Number(entry.nutrients.fibre) : 0)  // only if set
     // }, 0).toFixed(1))
 
-    // let fibreSum = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.nutrients.fibre), 0).toFixed(1))
-    // let saltSum  = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.salt),  0).toFixed(1))
-    // let priceSum = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.price), 0).toFixed(2))
-    query('#fibreSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.nutrients.fibre), 0))
-    query('#saltSum').textContent  = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.salt),  0))
-    query('#priceSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.price), 0))
-
+    query('#fibreSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.nutrients.fibre), 0))  // just the int
+    // query('#saltSum').textContent = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.salt), 0)).toFixed(1)
+    query('#saltSum').textContent  = foodEntries.reduce((sum, entry) => sum + Number(entry.salt),  0).toFixed(1)  // 1 decimal place
+    query('#priceSum').textContent = foodEntries.reduce((sum, entry) => sum + Number(entry.price), 0).toFixed(2)  // 2 decimal places
 
     // Nutrients tab
     // TASK: maybe add a simple sum first (no percent) #code/progress
