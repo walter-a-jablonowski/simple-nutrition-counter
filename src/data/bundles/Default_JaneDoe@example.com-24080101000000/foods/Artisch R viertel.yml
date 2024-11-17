@@ -1,5 +1,5 @@
 vendor:            Rewe
-# acceptable:      occasionally  # currently no alternative
+acceptable:        occasionally  # currently no alternative
 productName:       "Gegrillte Artischockenviertel in Sonnenblumenöl mit Kräutern"
 comment:           "kein Abtropfgewicht"
 packaging:         glass & rubber

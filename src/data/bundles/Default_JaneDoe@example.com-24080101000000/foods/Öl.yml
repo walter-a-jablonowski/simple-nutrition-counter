@@ -2,7 +2,7 @@ subType:           Canola oil
 vendor:            Rewe
 packaging:         glass & rubber
 
-price:             1.39  # last 1.49 2024-06-18 1.99 2024-05-01
+price:             1.39
 weight:            500ml
 usedAmounts:       ["15ml", "30ml", "60ml"]
 
@@ -18,8 +18,13 @@ nutritionalValues:
 
 vitamins:
 
-  Vitamin E:	     30 # mg
+  Vitamin E:	     30  # mg
 
 sources:           { nutriVal: "web", price: "guess" }
 lastUpd:           2024-04-24
 lastPriceUpd:      2024-07-20
+
+prices:
+
+  2024-06-18: 1.49
+  2024-05-01: 1.99

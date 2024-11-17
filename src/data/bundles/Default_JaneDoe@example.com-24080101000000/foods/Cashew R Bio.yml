@@ -2,7 +2,7 @@ vendor:            Rewe
 certificates:      { bio: true }
 packaging:         plastic (maybe)
 
-price:             3.59  # 2024-05-06 2.99
+price:             3.59
 weight:            250
 usedAmounts:       ["25g", "50g", "100g"]
 
@@ -19,3 +19,7 @@ nutritionalValues:
 sources:           { nutriVal: "web (information on packaging differs slightly)" }
 lastUpd:           2024-05-06
 lastPriceUpd:      2024-09-28
+
+prices:
+
+  2024-05-06: 2.99

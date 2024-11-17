@@ -2,9 +2,9 @@ vendor:            Rewe
 acceptable:        less
 packaging:         plastic
 
-price:             1.39  # 2024-05-24 1.49
+price:             1.39
 weight:            120g
-pieces:            5     # 2024-06-04
+pieces:            5
 
 calories:          1510
 nutritionalValues:
@@ -23,3 +23,7 @@ minerals:
 sources:           { nutriVal: "web", price: "deal price" }
 lastUpd:           2024-05-24
 lastPriceUpd:      2024-06-04
+
+prices:
+
+  2024-05-24: 1.49

@@ -86,4 +86,4 @@ sources:             { usage: "same as data > shared > sources, like { nutriVal:
 lastUpd:             { usage: "like 2024-02-18, last upd nutritional data",   required: true, type: "date" }
 lastPriceUpd:        { usage: "like 2024-02-18", required: false, type: "date" }
 
-prices:              { usage: "list of previous prices like `2024-02-18: PRICE`", required: false, type: "array" }
+prices:              { usage: "list of previous prices like `YYYY-MM-DD[ VEDOR]: PRICE`", required: false, type: "array" }

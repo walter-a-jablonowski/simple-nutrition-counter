@@ -6,7 +6,7 @@ ingredients:       "Maismehl, Sonnenblumenöl, Meersalz (0,8%)"
 allergy:           "Soja"
 packaging:         plastic
 
-price:             1.29  # ca
+price:             1.29  # TASK: ca
 weight:            125g
 
 calories:          480

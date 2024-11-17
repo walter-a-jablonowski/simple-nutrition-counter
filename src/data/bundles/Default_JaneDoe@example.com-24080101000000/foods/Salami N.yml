@@ -4,7 +4,7 @@ vendor:            Norma
 acceptable:        occasionally
 packaging:         plastic
 
-price:             1.79  # 2024-08-01 1.89
+price:             1.79
 weight:            130
 usedAmounts:       ["1/4", "1/2", "1"]
 
@@ -22,3 +22,7 @@ nutritionalValues:
 sources:           { nutriVal: "pack" }
 lastUpd:           2024-08-01
 lastPriceUpd:      2024-08-11
+
+prices:
+
+  2024-08-01: 1.89

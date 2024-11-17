@@ -2,7 +2,7 @@ vendor:            Norma
 acceptable:        less
 packaging:         alu & plastic
 
-price:             2.49  # 2.89 2024-05-15
+price:             2.49
 weight:            400g
 usedAmounts:       ["1/8", "1/4", "1/2"]
 
@@ -19,3 +19,7 @@ nutritionalValues:
 sources:           { nutriVal: "pack", price: "web" }
 lastUpd:           2024-04-23
 lastPriceUpd:      2024-08-01
+
+prices:
+
+  2024-05-15: 2.89

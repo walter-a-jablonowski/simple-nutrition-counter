@@ -2,7 +2,7 @@ vendor:            Rewe
 acceptable:        less
 packaging:         alu
 
-price:             1.11  # deal price, 2024-04-20 1.19
+price:             1.11  # deal price
 weight:            120
 pieces:            8
 
@@ -19,3 +19,7 @@ nutritionalValues:
 sources:           { nutriVal: "web (information on packaging may differ)", price: "deal" }
 lastUpd:           2024-04-20
 lastPriceUpd:      2024-06-04
+
+prices:
+
+  2024-04-20: 1.19

@@ -1,6 +1,6 @@
 packaging:         alu
 
-price:             5.39  # 4.99 2024-05-11
+price:             5.39
 weight:            500
 usedAmounts:       ["50g"]
 
@@ -23,3 +23,7 @@ sources:           { nutriVal: "pack" }
 
 lastUpd:           2024-06-01
 lastPriceUpd:      2024-06-01
+
+prices:
+
+  2024-05-11: 4.99

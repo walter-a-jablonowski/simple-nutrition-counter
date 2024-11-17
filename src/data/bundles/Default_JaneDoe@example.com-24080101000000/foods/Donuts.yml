@@ -2,7 +2,7 @@ vendor:            Norma
 acceptable:        less
 packaging:         plastic
 
-price:             2.69  # 2024-05-16 2.89
+price:             2.69
 weight:            330
 pieces:            6
 usedAmounts:       [1, 2, 3]
@@ -21,3 +21,7 @@ nutritionalValues:
 sources:           { nutriVal: "pack" }
 lastUpd:           2024-05-16
 lastPriceUpd:      2024-07-20
+
+prices:
+
+  2024-05-16: 2.89
