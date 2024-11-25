@@ -1,0 +1,25 @@
+
+vendor:            Aldi
+
+acceptable:        less
+packaging:         cardboard & plastic
+
+price:             1.99
+weight:            250g
+pieces:            2
+usedAmounts:       [2]
+
+calories:          348
+nutritionalValues: 
+
+  fat:             17
+  saturatedFat:    8.3
+  carbs:           44
+  sugar:           19
+  fibre:           2.3
+  amino:           3.6
+  salt:            0.85
+
+sources:           { nutriVal: "pack" }
+lastUpd:           2024-11-26
+lastPriceUpd:      2024-11-26
