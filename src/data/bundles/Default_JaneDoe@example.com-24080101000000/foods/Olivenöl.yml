@@ -4,7 +4,7 @@ packaging:         glass & rubber
 
 price:             18.49
 weight:            500ml
-usedAmounts:       ["30ml", "30ml", "60ml"]
+usedAmounts:       ["15ml", "30ml", "60ml"]
 
 calories:          900
 nutritionalValues:
