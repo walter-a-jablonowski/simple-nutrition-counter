@@ -484,15 +484,29 @@ class MainController
     // let caloriesSum = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.calories), 0).toFixed(1))  // one decimal place
     query('#caloriesSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.calories), 0))
 
-    // Eating time
+    // eating time
+
     const sortedEntries = foodEntries.sort((a, b) => a.time.localeCompare(b.time))
     const firstTime     = new Date(`1970-01-01T${sortedEntries[0].time}`)
-    const lastTime      = new Date(`1970-01-01T${sortedEntries[sortedEntries.length - 1].time}`)
+    const lastTime      = new Date(`1970-01-01T${sortedEntries[sortedEntries.length - 1].time}`);
+
+    // TASK: trying to fix hours behind midnight
+/*
+    const [firstHour, firstMinute, firstSecond] = sortedEntries[0].time.split(':').map(Number)  // fix hours behind midnight
+    const [lastHour, lastMinute, lastSecond]    = sortedEntries[sortedEntries.length - 1].time.split(':').map(Number)
+    let diff = ((lastHour * 3600 + lastMinute * 60 + lastSecond) - (firstHour * 3600 + firstMinute * 60 + firstSecond))
+
+    let lastTime
+
+    if( diff >= 0 )
+      lastTime = new Date(`1970-01-01T${sortedEntries[sortedEntries.length - 1].time}`)
+    else
+      lastTime = new Date(`1970-01-02T${sortedEntries[sortedEntries.length - 1].time}`)
+*/
     const timeDiff      = lastTime - firstTime
     const hours         = Math.floor(timeDiff / 3600000).toString().padStart(2, '0')
     const minutes       = Math.floor((timeDiff % 3600000) / 60000).toString().padStart(2, '0')
-    query('#timeSum').textContent = `${hours}:${minutes}`  // TASK: maybe round the time to 30 min
-                                                           // TASK: use classes and single id for the view
+    query('#timeSum').textContent = `${hours}:${minutes}`  // TASK: use classes and single id for the view
 
     query('#fatSum').textContent   = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.fat),   0))  // just the int
     query('#aminoSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.amino), 0))
