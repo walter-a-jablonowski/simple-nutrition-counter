@@ -486,28 +486,16 @@ class MainController
 
     // eating time
 
-    const sortedEntries = foodEntries.sort((a, b) => a.time.localeCompare(b.time))
-    const firstTime     = new Date(`1970-01-01T${sortedEntries[0].time}`)
-    const lastTime      = new Date(`1970-01-01T${sortedEntries[sortedEntries.length - 1].time}`);
-    const timeDiff      = lastTime - firstTime
-    const hours         = Math.floor(timeDiff / 3600000).toString().padStart(2, '0')
-    const minutes       = Math.floor((timeDiff % 3600000) / 60000).toString().padStart(2, '0')
-    // TASK: trying to fix hours behind midnight
-/*
-    const sortedEntries = foodEntries.sort((a, b) => a.time.localeCompare(b.time))
-    const [firstHour, firstMinute, firstSecond] = sortedEntries[0].time.split(':').map(Number);
-    const [lastHour, lastMinute, lastSecond]    = sortedEntries[sortedEntries.length - 1].time.split(':').map(Number);
+    const [hours1, minutes1, seconds1] = foodEntries[0].time.split(':').map(Number)
+    const [hours2, minutes2, seconds2] = foodEntries[foodEntries.length - 1].time.split(':').map(Number)
 
-    let timeDiff = ((lastHour * 3600 + lastMinute * 60 + lastSecond) - (firstHour * 3600 + firstMinute * 60 + firstSecond))
+    let diffSeconds = (hours2 * 3600 + minutes2 * 60 + seconds2) - (hours1 * 3600 + minutes1 * 60 + seconds1)
+    if( diffSeconds < 0 )  diffSeconds += 24 * 3600
 
-    if( timeDiff < 0 )
-      timeDiff = ((lastHour * 3600 + lastMinute * 60 + lastSecond + 24 * 3600) - (firstHour * 3600 + firstMinute * 60 + firstSecond))
+    const hours = Math.floor(diffSeconds / 3600)
+    const mins  = Math.floor((diffSeconds % 3600) / 60)  // TASK: use classes and single id for the view
 
-    const hours   = Math.floor(timeDiff / 3600).toString().padStart(2, '0')
-    const minutes = Math.floor((timeDiff % 3600) / 60).toString().padStart(2, '0')
-    const seconds = (timeDiff % 60).toString().padStart(2, '0')
-*/
-    query('#timeSum').textContent = `${hours}:${minutes}`  // TASK: use classes and single id for the view
+    query('#timeSum').textContent = `${hours.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}`
 
     query('#fatSum').textContent   = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.fat),   0))  // just the int
     query('#aminoSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.amino), 0))
