@@ -59,7 +59,7 @@ class AppController extends ControllerBase
   }
 
 
-  public function render(/*$request*/)
+  public function render(/* $request */)
   {
     $config = config::instance();
     $user   = User::current();
@@ -291,7 +291,8 @@ class AppController extends ControllerBase
 
         $this->nutrientsView->set("$shortName.$attr[short]", [
                                        
-          'name'  => $name,        // TASK: (advanced) currently using first entry only
+          'name'  => $name,  // TASK: (advanced) currently using first entry only
+          'displayName' => $attr['displayName'] ?? null,
           'group' => $groupName,
           'lower' => strpos($a['lower'], '%') === false
                   ?  $a['amount'] - $a['lower']

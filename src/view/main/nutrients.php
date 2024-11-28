@@ -42,7 +42,7 @@
           >
             <div class="row">
               <div class="col text-nowrap overflow-hidden">
-                <?= $data['name'] ?>
+                <?= self::iif( $data['displayName'], $data['displayName'], $data['name']) ?>
               </div>
               <div class="col-4 vals text-secondary text-end small text-nowrap overflow-hidden">
                 0 / <?= $data['ideal'] ?>
