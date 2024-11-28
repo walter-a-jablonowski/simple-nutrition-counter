@@ -367,9 +367,9 @@ class AppController extends ControllerBase
       if( $attr === 'price' )
 
         $this->avg[$attr] = [
-          'week'   => ! $sums[$attr][7]  ? 'n/a' : round($sums[$attr][7]  / 7),
-          '15days' => ! $sums[$attr][15] ? 'n/a' : round($sums[$attr][15] / 15),
-          '30days' => ! $sums[$attr][30] ? 'n/a' : round($sums[$attr][30] / 30)
+          'week'   => ! $sums[$attr][7]  ? 'n/a' : round($sums[$attr][7]  / 7, 2),
+          '15days' => ! $sums[$attr][15] ? 'n/a' : round($sums[$attr][15] / 15, 2),
+          '30days' => ! $sums[$attr][30] ? 'n/a' : round($sums[$attr][30] / 30, 2)
         ];
 
       else
