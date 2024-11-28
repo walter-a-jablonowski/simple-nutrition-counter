@@ -7,7 +7,7 @@ short:        misc
 
 substances:
 
-  alcohol:
+  Alcohol:
 
     short:      Alc
 
@@ -18,7 +18,7 @@ substances:
         amount: 100 # TASK: dummy entry
         upper:  5%
 
-  caffeine:
+  Caffeine:
 
     short:      Caf
 
