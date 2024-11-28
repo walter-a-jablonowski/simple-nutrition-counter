@@ -17,6 +17,7 @@
            data-source    = "#myStrategyData"
       >
     
+        <b>Strategy:</b>
         <?= User::current()->get('myStrategy.headline') ?>
         
         <?php if( User::current()->has('myStrategy.content')): ?>
