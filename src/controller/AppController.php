@@ -312,6 +312,8 @@ class AppController extends ControllerBase
     $config   = config::instance();
     $settings = settings::instance();
 
+    // Day list
+
     $this->lastDaysView = new SimpleData();
     $data = [];  $i = 1;
     
@@ -339,7 +341,9 @@ class AppController extends ControllerBase
         'price'    => ( ! $entries ? 0 : array_sum( array_column($entries, 'price')))
       ]);
     }
-      
+
+    // Avg
+
     $currentDate = new DateTime();  // TASK: maybe also look if current date is in data so that we have current data
     $attributes  = ['price', 'calories', 'fat', 'carbs', 'amino', 'salt'];
     $sums = [];

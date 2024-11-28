@@ -84,21 +84,21 @@ time
         This week
       </button>
       <ul class="dropdown-menu">
-        <?php
+        < ?php
           $start = date('Y-m-d', strtotime('last monday'));
           $end   = date('Y-m-d', strtotime('today'));
         ?>
-        <li><a class="dropdown-item" href="#" data-from="<?= $start ?>" data-to="<?= $end ?>">This week</a></li>
-        <?php
+        <li><a class="dropdown-item" href="#" data-from="< ?= $start ?>" data-to="< ?= $end ?>">This week</a></li>
+        < ?php
           $start = date('Y-m-d', strtotime('monday -2 weeks'));
           $end   = date('Y-m-d', strtotime('today'));
         ?>
-        <li><a class="dropdown-item" href="#" data-from="<?= $start ?>" data-to="<?= $end ?>">Last week</a></li>
-        <?php
+        <li><a class="dropdown-item" href="#" data-from="< ?= $start ?>" data-to="< ?= $end ?>">Last week</a></li>
+        < ?php
           $start = date('Y-m-d', strtotime('monday -3 weeks'));
           $end   = date('Y-m-d', strtotime('today'));
         ?>
-        <li><a class="dropdown-item" href="#" data-from="<?= $start ?>" data-to="<?= $end ?>">Last 2 weeks</a></li>
+        <li><a class="dropdown-item" href="#" data-from="< ?= $start ?>" data-to="< ?= $end ?>">Last 2 weeks</a></li>
       </ul>
     </div>
 -->
