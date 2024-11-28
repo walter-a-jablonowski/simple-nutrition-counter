@@ -19,7 +19,7 @@ time
           <span class="label fw-bold small">Last week</span>
         </button>
         <ul class="dropdown-menu" onclick="mainCrl.timeSwitchClick(event)">
-          <li><a class="dropdown-item small" data-value="week"   href="#">Last week</a></li>  <!-- TASK: values look wrong -->
+          <li><a class="dropdown-item small" data-value="week"   href="#">Last week</a></li>
           <li><a class="dropdown-item small" data-value="days15" href="#">15 days</a></li>    <!-- selectors can't start with num -->
           <li><a class="dropdown-item small" data-value="days30" href="#">30 days</a></li>
         </ul>
