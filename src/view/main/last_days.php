@@ -109,15 +109,15 @@
       <li class="list-group-item">
         <div class="row">
           <div class="col-6">
-            <span><?= $sums['fat'] ?> / <?= $sums['carbs'] ?> g</span>
+            <span><?= $sums['calories'] ?> kcal</span>
           </div>
           <div class="col-6">
-            <span><?= $sums['calories'] ?> kcal</span>
+            <span><?= $sums['fat'] ?> / <?= $sums['amino'] ?> g</span>
           </div>
         </div>
         <div class="row">
           <div class="col-6">
-            <span><?= $sums['amino'] ?> g</span>
+            <span><?= $sums['carbs'] ?> g</span>
           </div>
           <div class="col-6">
             <span><?= $sums['salt'] ?> g</span>
