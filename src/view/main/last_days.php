@@ -1,3 +1,16 @@
+<!-- TASK: maybe prefer
+
+- keep nutrients group above (or add in below)
+- nutrients like tab 2 but avg for a week here
+- use a inner tab for the last days as well
+
+time
+
+- this week only
+- this and last week (be able track a week avg even if week over)
+- use floating like 7, 15 39 days as well?
+
+-->
 <div id="lastDaysView" class="scrollable-list border-0 mt-3">
   <ul class="head-view list-group mt-2">
     <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
@@ -6,8 +19,8 @@
           <span class="label fw-bold small">Last week</span>
         </button>
         <ul class="dropdown-menu" onclick="mainCrl.timeSwitchClick(event)">
-          <li><a class="dropdown-item small" data-value="week"   href="#">Last week</a></li>
-          <li><a class="dropdown-item small" data-value="days15" href="#">15 days</a></li>  <!-- selectors can't start with num -->
+          <li><a class="dropdown-item small" data-value="week"   href="#">Last week</a></li>  <!-- TASK: values look wrong -->
+          <li><a class="dropdown-item small" data-value="days15" href="#">15 days</a></li>    <!-- selectors can't start with num -->
           <li><a class="dropdown-item small" data-value="days30" href="#">30 days</a></li>
         </ul>
       </div>
@@ -20,9 +33,9 @@
     <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
       <div>Calories</div>
       <div>
-        <span class="avg week"><?= $this->avg['calories']['week'] ?> g</span>
-        <span class="avg days15" style="display: none;"><?= $this->avg['calories']['15days'] ?> g</span>
-        <span class="avg days30" style="display: none;"><?= $this->avg['calories']['30days'] ?> g</span>
+        <span class="avg week"><?= $this->avg['calories']['week'] ?> kcal</span>
+        <span class="avg days15" style="display: none;"><?= $this->avg['calories']['15days'] ?> kcal</span>
+        <span class="avg days30" style="display: none;"><?= $this->avg['calories']['30days'] ?> kcal</span>
       </div>
     </li>
     <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
@@ -65,8 +78,7 @@
   </ul>
   <div class="days-view list-group mt-2">
 
-    <!-- TASK: maybe prefer nutrients like tab 2 but avg for a week here -->
-
+<!--
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         This week
@@ -89,7 +101,7 @@
         <li><a class="dropdown-item" href="#" data-from="<?= $start ?>" data-to="<?= $end ?>">Last 2 weeks</a></li>
       </ul>
     </div>
-
+-->
     <!-- ios like design -->
 
     <?php foreach( $this->lastDaysView->all() as $day => $sums ): ?>
