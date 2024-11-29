@@ -31,7 +31,7 @@ derived see below
 
 # Nutrient group data            # TASK: name `shortId` (normally `@shortId` but looks nicer)
 
-name:                            # (TASK: required ?) display name
+name:                            # (TASK: required ?)
 short:                           # (required) short name used as short unique id in daily files (file name is alternative id used in code)
 unit:      g                     # default is g for groups and mg for nutrients
 per:       day

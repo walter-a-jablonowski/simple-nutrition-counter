@@ -293,6 +293,7 @@ class AppController extends ControllerBase
                                        
           'name'  => $name,  // TASK: (advanced) currently using first entry only
           'displayName' => $attr['displayName'] ?? null,
+          'unit' =>  $attr['unit'] ?? 'mg',
           'group' => $groupName,
           'lower' => strpos($a['lower'], '%') === false
                   ?  $a['amount'] - $a['lower']
