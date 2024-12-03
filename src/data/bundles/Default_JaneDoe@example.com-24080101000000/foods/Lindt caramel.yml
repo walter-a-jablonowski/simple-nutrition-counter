@@ -3,7 +3,7 @@ acceptable:        less
 ingredients:       "Zucker, Glukosesirup, Kakaobutter, Vollmilchpulver, Butterreinfett, Kakaomasse, Vollmilch, Traubenzucker, Magermilchpulver, Salz, Emulgator (Sojalecithin), natürliches Aroma, Aroma"
 packaging:         alu
   
-price:             1.19
+price:             1.29
 weight:            39
 usedAmounts:       [1]
 
@@ -19,4 +19,8 @@ nutritionalValues:
 
 sources:           { nutriVal: "web" }
 lastUpd:           2024-06-18
-lastPriceUpd:      2024-06-18
+lastPriceUpd:      2024-12-01
+
+prices:
+
+  2024-06-18: 1.19
