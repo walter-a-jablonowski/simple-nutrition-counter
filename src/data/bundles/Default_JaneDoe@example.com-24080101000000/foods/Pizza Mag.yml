@@ -3,7 +3,8 @@ acceptable:        less
 packaging:         cardboard,plastic
 
 price:             2.99
-weight:            300   # TASK: is a guess  # one pizza
+weight:            900   # TASK: is a guess
+pieces:            3
 usedAmounts:       ["1/4", "1/2", "1"]
 
 calories:          247

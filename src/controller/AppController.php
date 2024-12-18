@@ -70,7 +70,7 @@ class AppController extends ControllerBase
     // Nutrients model
 
     $this->nutrientsModel = new SimpleData();  // TASK: (advanced) merge with bundle /nutrients
-    
+
     foreach( self::NUTRIENT_GROUPS as $groupName )
     {
       $this->nutrientsModel->set( $groupName,
@@ -82,7 +82,7 @@ class AppController extends ControllerBase
     // TASK: maybe also use -this > calories
 
     $this->foodsModel = new SimpleData();
-    
+
     $dir = "data/bundles/Default_$user->id/foods";
 
     foreach( scandir($dir) as $file )
@@ -104,7 +104,7 @@ class AppController extends ControllerBase
       if( isset( $food['subType']) && file_exists("data/food_defaults/$food[subType].yml"))
       {
         $nutrients = Yaml::parse( file_get_contents("data/food_defaults/$food[subType].yml"));
-        
+
         foreach( self::NUTRIENT_GROUPS as $groupName )
         {
           if( isset( $nutrients[$groupName] ))
@@ -122,7 +122,7 @@ class AppController extends ControllerBase
 
     $this->dayEntriesTxt = trim( @file_get_contents('data/users/' . $config->get('defaultUser') . "/days/{$this->date}.tsv") ?: '', "\n");
     $this->dayEntries    = parse_tsv( $this->dayEntriesTxt, self::DAY_HEADERS );
-    
+
     foreach( $this->dayEntries as $idx => &$entry )
       $entry['nutrients'] = Yaml::parse( $entry['nutrients'] );
 
@@ -136,7 +136,7 @@ class AppController extends ControllerBase
 
     $this->makeLayoutView();
     $this->layout = Yaml::parse( file_get_contents("data/bundles/Default_$user->id/layout.yml"));
-    
+
     foreach( $this->layout as $tab => $layout )
     {
       // if( $tab === 'On the go')
@@ -144,7 +144,7 @@ class AppController extends ControllerBase
 
       $this->layout[$tab] =
         $layout = parse_attribs('@attribs', ['short', '(i)'], $layout);
-    
+
       foreach( $layout as $group => $entries )
       {
         if( isset($entries['@attribs']['short']) )
@@ -166,7 +166,7 @@ class AppController extends ControllerBase
     // Old prices list
 /*
     $minDate = strtotime('-6 months');
-    
+
     $this->oldPricesList = $this->foodsModel->filter(  // TASK: method impl
       fn( $key, $data ) => $data['lastPriceUpd'] < $minDate
     );
@@ -211,14 +211,14 @@ class AppController extends ControllerBase
              ? 'precise' : (
                isset($data['pieces' ])
              ? 'pieces'
-             : 'pack'
+             : 'pack' 
       );
 
       $usedAmounts = $data['usedAmounts'] ?? ( $settings->get("foods.defaultAmounts.$usage") ?: 1);
 
       foreach( $usedAmounts as $amount )
       {
-        // if( $name == 'Toasties R Bio' )  // DEBUG
+        // if( $name == 'Lieken Urkorn')  // DEBUG
         //   $debug = 'halt';
 
         $multipl = trim( $amount, "mglpc ");
@@ -228,6 +228,9 @@ class AppController extends ControllerBase
                   $usage === 'pieces' ? ($data['weight'] / $data['pieces']) * $multipl
                 : $multipl  // precise
         );
+
+        // if( $name == 'Lieken Urkorn')  // DEBUG
+        //   error_log('DEBUG::' . $multipl);
 
         $perWeight = [
           'weight'   => round( $weight, 1),
@@ -290,7 +293,7 @@ class AppController extends ControllerBase
         $a = $attr['amounts'][0];
 
         $this->nutrientsView->set("$shortName.$attr[short]", [
-                                       
+
           'name'  => $name,  // TASK: (advanced) currently using first entry only
           'displayName' => $attr['displayName'] ?? null,
           'unit' =>  $attr['unit'] ?? 'mg',
@@ -317,7 +320,7 @@ class AppController extends ControllerBase
 
     $this->lastDaysView = new SimpleData();
     $data = [];  $i = 1;
-    
+
     foreach( scandir('data/users/' . $config->get('defaultUser') . '/days', SCANDIR_SORT_DESCENDING) as $file)
     {
       $dat = pathinfo($file, PATHINFO_FILENAME);
@@ -348,7 +351,7 @@ class AppController extends ControllerBase
     $currentDate = new DateTime();  // TASK: maybe also look if current date is in data so that we have current data
     $attributes  = ['price', 'calories', 'fat', 'carbs', 'amino', 'salt'];
     $sums = [];
-    
+
     foreach([7, 15, 30] as $period )
     {
       $days = array_slice($data, 0, $period);
@@ -357,7 +360,7 @@ class AppController extends ControllerBase
       {
         if( ! isset($sums[$attr][$period]))
           $sums[$attr][$period] = 0;
-        
+
         foreach( $days as $day )
           $sums[$attr][$period] += array_sum( array_column( $day, $attr));
       }
