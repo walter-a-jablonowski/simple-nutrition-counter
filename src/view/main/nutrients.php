@@ -12,7 +12,7 @@
   </ul>
 <?php endif; ?>
 
-<div id="nutrientsList" class="scrollable-list border-0 mt-3">
+<div id="nutrientsList" class="scrollable-list border-0">
 
   <!-- TASK: collapse or expand all btn -->
 
@@ -20,7 +20,7 @@
 
     <ul class="list-group">
 
-      <li class = "list-group-item d-flex justify-content-between align-items-center"
+      <li class = "list-group-item d-flex justify-content-between align-items-center mt-2"
           style = "background-color: #e0e0e0;"
       >
         <?= $this->captions[$shortName] ?>
