@@ -1,0 +1,28 @@
+vendor:            Rewe
+
+acceptable:        less
+certificates:      { NutriScore: E }
+ingredients:       "Zucker, WEIZENMEHL, Hühnereier*, Rapsöl, Weizenstärke, Feuchthaltemittel (Glycerin), fettarmes Kakaopulver 1,5%, Glukosesirup, Emulgatoren (Mono- und Diglyceride von Speisefettsäuren, Polyglycerinester von Speisefettsäuren), Süßmolkenpulver, Reisquellmehl, WEIZENQUELLMEHL, Backtriebmittel (Diphosphate, Natriumcarbonate, Calciumsulfat), natürliches Bourbon-Vanillearoma, Säureregulator (Natriumdiacetat), Speisesalz, Säuerungsmittel (Citronensäure) *aus Bodenhaltung"
+allergy:           "Glutenhaltiges Getreide (Weizen, Gerste, Roggen, Hafer, Dinkel, Kamut oder Hybridstämme) , Eier und Eierzeugnisse , Milch und Milcherzeugnisse (einschließlich Lactose)"
+mayContain:        "Spuren von Mandeln, Haselnüssen, Walnüssen und Sojaerzeugnissen"
+packaging:         none|cardboard,alu,plastic,glass & rubber (maybe)  # outer --> inner (contact with food only)
+
+price:             1.59
+weight:            250g
+usedAmounts:       ["1/4", "1/2", "1"]
+
+calories:          408
+nutritionalValues:
+
+  fat:             19
+  saturatedFat:    5.4
+  carbs:           56
+  sugar:           29
+  sugarAlcohol:    6.6
+  fibre:           1.2
+  amino:           5.3
+  salt:            0.83
+
+sources:           { nutriVal: "web (information on packaging may differ slightly)" }
+lastUpd:           2024-12-2ß
+lastPriceUpd:      2024-12-2ß

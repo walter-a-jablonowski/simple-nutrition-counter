@@ -128,14 +128,15 @@ Food:
 
       - Pizza Mag
       - Pizza Qua
-      - Käsekuchen mini
-      - Milchr
-      - Milchschn
       - Lindt caramel
       - Schoko pudding   
+      - Milchr
+      - Milchschn
+      - Käsekuchen mini
       - Donuts
+      - Donuts mini A                            # (duplicate)
       - Mohnkuchen
-      - Donuts mini A                          # (duplicate)
+      - Gugelhupf
       - Apfelmus
 
   Greens, legumes, mushr (color:#32cd32):        # Ingredients
