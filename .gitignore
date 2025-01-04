@@ -12,3 +12,6 @@ src/data/users/JaneDoe@example.com-24080101000000/days_SAV.zip
 src/data/users/Walter/**
 tools/deploy/debug/**
 tools/migration/days/**
+nutri-counter-esprimo-old.code-workspace
+nutri-counter.sublime-project
+nutri-counter.sublime-workspace
