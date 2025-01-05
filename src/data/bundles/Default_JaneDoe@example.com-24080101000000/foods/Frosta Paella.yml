@@ -4,6 +4,7 @@ acceptable:        occasionally
 packaging:         plastic
 
 price:             2.99
+isDeal:            true
 weight:            500
 usedAmounts:       ["50g", "100g", "200g"]
 
@@ -18,6 +19,7 @@ nutritionalValues:
   amino:           6.1
   salt:            1.01
 
-sources:           { nutriVal: "pack", price: "deal" }
+sources:           { nutriVal: "pack" }
+
 lastUpd:           2024-05-01
 lastPriceUpd:      2024-06-04

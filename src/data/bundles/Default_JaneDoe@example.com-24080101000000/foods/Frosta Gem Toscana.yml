@@ -6,7 +6,8 @@ mayContain:        "Weizen, Gerste, Roggen, Hafer, Krustentiere, Eiern, Fisch, S
 origin:            "multiple countries"
 packaging:         plastic
 
-price:             2.22  # deal price
+price:             2.22
+isDeal:            true
 weight:            480g
 usedAmounts:       ["25g", "50g", "100g"]
 
@@ -21,7 +22,7 @@ nutritionalValues:
   amino:           1.5
   salt:            0.97
 
-sources:           { nutriVal: "web", price: "deal price" }
+sources:           { nutriVal: "web" }
 
 lastUpd:           2024-10-25
 lastPriceUpd:      2024-10-25

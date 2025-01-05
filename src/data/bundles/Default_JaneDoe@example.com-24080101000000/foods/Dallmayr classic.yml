@@ -1,6 +1,7 @@
 packaging:         alu
 
 price:             6.49
+isDeal:            true
 weight:            500
 usedAmounts:       ["50g"]
 
@@ -19,7 +20,7 @@ misc:
   caffeine:          
   water:           99
 
-sources:           { nutriVal: "pack", price: "deal price" }
+sources:           { nutriVal: "pack" }
 
 lastUpd:           2024-07-01
 lastPriceUpd:      2024-07-01

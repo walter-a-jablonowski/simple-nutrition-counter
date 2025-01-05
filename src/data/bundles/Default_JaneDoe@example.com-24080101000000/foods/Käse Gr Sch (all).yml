@@ -3,6 +3,7 @@ acceptable:        less
 packaging:         plastic
 
 price:             1.39
+isDeal:            true
 weight:            120g
 pieces:            5
 
@@ -20,7 +21,7 @@ minerals:
 
   Calcium:         850
 
-sources:           { nutriVal: "web", price: "deal price" }
+sources:           { nutriVal: "web" }
 lastUpd:           2024-05-24
 lastPriceUpd:      2024-06-04
 

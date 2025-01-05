@@ -121,6 +121,9 @@ $data = $this->foodsModel->get($entryName);
                 on <?= date('Y-m-d', $data['lastPriceUpd'] ) ?>
               </span>
             <?php endif; ?>
+            <?php if( isset($data['isDeal']) && $data['isDeal'] ): ?>
+              &nbsp;&nbsp;<span class="badge bg-warning text-dark">deal price</span>
+            <?php endif; ?>
           <?php endif; ?>
         </span>
         <span class="price-input-view" style="display: none;">

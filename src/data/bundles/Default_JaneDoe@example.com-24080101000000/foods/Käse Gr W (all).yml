@@ -4,6 +4,7 @@ packaging:         plastic
 
 price:             
 weight:            120g  
+isDeal:            true
 pieces:            20    # TASK: is a guess
 
 calories:          1510
@@ -20,6 +21,6 @@ minerals:
 
   Calcium:         850
 
-sources:           { nutriVal: "web", price: "deal price" }
+sources:           { nutriVal: "web" }
 lastUpd:           2024-05-24
 lastPriceUpd:

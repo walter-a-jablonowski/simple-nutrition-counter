@@ -20,8 +20,9 @@ origin:            ""
 # packaging:
 
 price:             
+isDeal:            true  # or missing if no deal
 weight:            
-pieces:                # number of pieces in a pack (if the packaging is devided in pieces)
+pieces:                  # number of pieces in a pack (if the packaging is devided in pieces)
 # usedAmounts:
 
 calories:          

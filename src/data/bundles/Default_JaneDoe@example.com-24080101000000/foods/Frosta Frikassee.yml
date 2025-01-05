@@ -3,7 +3,8 @@ url:               "https://www.frosta.de/produkte/schnelle-gerichte/huehner-fri
 acceptable:        occasionally
 packaging:         plastic
 
-price:             2.99  # deal
+price:             2.99
+isDeal:            true
 weight:            500
 usedAmounts:       ["50g", "100g", "200g"]
 
@@ -18,6 +19,6 @@ nutritionalValues:
   amino:           6.1
   salt:            0.99
 
-sources:           { nutriVal: "web", price: "deal price" }
+sources:           { nutriVal: "web" }
 lastUpd:           2024-06-04
 lastPriceUpd:      2024-06-04

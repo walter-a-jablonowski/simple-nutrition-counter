@@ -3,6 +3,7 @@ acceptable:        occasionally
 packaging:         plastic
 
 price:             2.99
+isDeal:            true
 weight:            500
 usedAmounts:       ["50g", "100g", "200g"]
 

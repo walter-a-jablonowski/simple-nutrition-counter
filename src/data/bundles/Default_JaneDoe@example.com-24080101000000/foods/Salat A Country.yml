@@ -5,6 +5,7 @@ ingredients:       "Frisée, Eisbergsalat, gegarter Mais, Wasser, Speisesalz, Ra
 packaging:         plastic
 
 price:             1.49
+isDeal:            true  # TASK
 weight:            400g
 usedAmounts:       ["25g", "50g", "100g"]
 

@@ -2,7 +2,8 @@ vendor:            Rewe
 acceptable:        occasionally
 packaging:         plastic
 
-price:             1.69  # deal price
+price:             1.69
+isDeal:            true
 weight:            150
 usedAmounts:       ["10g", "20g", "30g"]
 
@@ -16,6 +17,6 @@ nutritionalValues:
   amino:           15
   salt:            3
 
-sources:           { nutriVal: "Vendor online (Variants differ only slightly)", price: "deal price (2.99)" }
+sources:           { nutriVal: "Vendor online (Variants differ only slightly)" }
 lastUpd:           2024-04-01
 lastPriceUpd:      2024-04-28
