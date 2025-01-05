@@ -1,0 +1,25 @@
+productName:       "Mischsalat Rohkost"
+vendor:            Rewe
+
+certificates:      { vegan: true }
+ingredients:       "Endivien, Gemüse 40% (Weißkohl, Möhren), Radicchi"
+packaging:         plastic
+
+price:             0.69
+weight:            200g
+usedAmounts:       ["25g", "50g", "100g"]
+
+calories:          0
+nutritionalValues: 
+  fat:             0
+  saturatedFat:    0
+  carbs:           0
+  sugar:           0
+  fiber:           0
+  amino:           0
+  salt:            0
+
+sources:           { nutriVal: "info missing on packaging, might have some but unknown", price: "online" }
+
+lastUpd:           2025-01-05
+lastPriceUpd:      2025-01-05
