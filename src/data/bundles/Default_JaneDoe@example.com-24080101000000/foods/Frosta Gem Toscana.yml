@@ -1,0 +1,27 @@
+productName:       "Gemüse Pfanne alla Toscana"
+
+certificates:      { vegan: true }
+ingredients:       "Brokkoli, Karotten, gelbe Karotten, Cherrytomaten, Zucchini, gelbe Zucchini, Zwiebeln, Wasser, Sonnenblumenöl, Basilikum, Salz, natives Olivenöl extra, Oregano, Knoblauch, Honig, schwarzer Pfeffer"
+mayContain:        "Weizen, Gerste, Roggen, Hafer, Krustentiere, Eiern, Fisch, Soja, Sellerie, Senf und Weichtieren"
+origin:            "multiple countries"
+packaging:         plastic
+
+price:             2.22  # deal price
+weight:            480g
+usedAmounts:       ["25g", "50g", "100g"]
+
+calories:          41
+nutritionalValues:
+
+  fat:             1.9
+  saturatedFat:    0.3
+  carbs:           3.3
+  sugar:           3
+  fibre:           2.4
+  amino:           1.5
+  salt:            0.97
+
+sources:           { nutriVal: "web", price: "deal price" }
+
+lastUpd:           2024-10-25
+lastPriceUpd:      2024-10-25
