@@ -1,7 +1,7 @@
 
 removed:           true
 
-subType:           
+type:              
 productName:       ""
 vendor:            
 url:                 # string or array  # TASK: name urls
