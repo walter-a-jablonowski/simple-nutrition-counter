@@ -204,6 +204,7 @@ class AppController extends ControllerBase
 
       $data['weight'] = trim( $data['weight'], "mgl ");  // just for convenience, we don't need the unit here
 
+      error_log( $name );
       $usage = isset( $data['usedAmounts']) && (
                  strpos( $data['usedAmounts'][0], 'g')  !== false ||
                  strpos( $data['usedAmounts'][0], 'ml') !== false

@@ -1,0 +1,26 @@
+
+vendor:            Norma
+
+acceptable:        occasionally
+certificates:      { vegan: true }
+packaging:         cardboard & plastic
+
+price:             
+weight:            500g
+pieces:            6
+usedAmounts:       [1, 2, 3]
+
+calories:          61
+nutritionalValues: 
+
+  fat:             0.5  # TASK: just some values from misc source, improve
+  saturatedFat:    0
+  carbs:           15
+  sugar:           9
+  fibre:           3
+  amino:           0
+  salt:            0
+
+sources:           { nutriVal: "web", price: "..." }
+lastUpd:           2025-01-13
+lastPriceUpd:      

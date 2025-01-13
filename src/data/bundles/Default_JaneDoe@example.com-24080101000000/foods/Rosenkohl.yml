@@ -1,0 +1,23 @@
+
+vendor:            Rewe
+
+certificates:      { vegan: true, NutriScore: A }
+packaging:         plastic
+
+price:             2.39
+weight:            750g
+usedAmounts:       ["25g", "50g", "100g"]
+
+calories:          42
+nutritionalValues: 
+
+  fat:             0.3
+  saturatedFat:    0.1
+  carbs:           4.5
+  sugar:           2.7
+  amino:           3.2
+  salt:            0.03
+
+sources:           { nutriVal: "web (information on packaging may differ slightly)", price: "web" }
+lastUpd:           2025-01-13
+lastPriceUpd:      2025-01-13
