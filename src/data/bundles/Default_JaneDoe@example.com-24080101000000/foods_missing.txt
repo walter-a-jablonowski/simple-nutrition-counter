@@ -28,7 +28,6 @@ foods
 
 körnerbr N
 roggenvollkorn N
-thunfisch
 senf
 gurken N
 kokos
@@ -36,13 +35,11 @@ walnüsse N
 essig (?)
 jogh
 käse N Tilsiter big (small vorh)
-kiwi
 tomaten N
 knoblauch N
 zwiebeln N
 bohnen N
 
-salat
 salatsoße
 banane
 knoblauch R
@@ -52,7 +49,6 @@ tomaten R
 paprika R
 kartoffel rösti
 kabeljau
-rosenkohl
 kürbis
 sonnenblumenkerne
 pinienkerne

@@ -2,7 +2,7 @@ acceptable:        less
 ingredients:       "Bier (Wasser, GERSTENMALZ, Hopfen), natürliches Mineralwasser, Glucose-Fruktose-Sirup, Zucker, Zitronenkonzentrat (Zitrone, Zitronensaftkonzentrat, Zitronenöl), Kohlensäure, Konservierungsstoff, Kaliumsorbat, Antioxidationsmittel Ascorbinsäure, natürliches Aroma, Stabilisator Johannisbrotkernmehl"
 packaging:         glass & rubber
 
-price:             
+price:             1.09
 weight:            330ml
 usedAmounts:       [1]
 
@@ -18,6 +18,6 @@ nutritionalValues:
   amino:           0
   salt:            0.002
 
-sources:           { nutriVal: "web (third party, may differ, vendor has none even on pack)" }
+sources:           { nutriVal: "web (third party, may differ, vendor has none even on pack)", price: "web" }
 lastUpd:           2024-06-18
-lastPriceUpd:
+lastPriceUpd:      2025-01-15

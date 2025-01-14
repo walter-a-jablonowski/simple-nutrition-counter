@@ -21,7 +21,7 @@ minerals:
 
   Calcium:         850
 
-sources:           { nutriVal: "web" }
+sources:           { nutriVal: "web", price: "deal" }
 lastUpd:           2024-05-24
 lastPriceUpd:      2024-06-04
 

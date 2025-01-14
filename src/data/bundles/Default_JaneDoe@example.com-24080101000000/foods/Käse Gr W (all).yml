@@ -2,7 +2,7 @@ vendor:            Rewe
 acceptable:        less
 packaging:         plastic
 
-price:             
+price:             1.39
 weight:            120g  
 isDeal:            true
 pieces:            20    # TASK: is a guess
@@ -21,6 +21,6 @@ minerals:
 
   Calcium:         850
 
-sources:           { nutriVal: "web" }
+sources:           { nutriVal: "web", price: "deal" }
 lastUpd:           2024-05-24
-lastPriceUpd:
+lastPriceUpd:      2025-01-15

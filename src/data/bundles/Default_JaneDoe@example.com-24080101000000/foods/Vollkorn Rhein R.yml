@@ -2,7 +2,7 @@ vendor:            Rewe
 acceptable:        less
 packaging:         plastic
 
-price:             
+price:             1.49
 weight:            250
 pieces:            6
 
@@ -17,6 +17,6 @@ nutritionalValues:
   amino:           5.1
   salt:            1.1
 
-sources:           { nutriVal: "pack" }
+sources:           { nutriVal: "pack", price: "web" }
 lastUpd:           2024-04-20
-lastPriceUpd:
+lastPriceUpd:      2025-01-15

@@ -2,7 +2,7 @@ vendor:            Rewe
 acceptable:        less
 packaging:         alu
 
-price:             
+price:             1.69
 weight:            400
 usedAmounts:       [1]
 
@@ -16,6 +16,6 @@ nutritionalValues:
   amino:           3.7
   salt:            0.95
 
-sources:           { nutriVal: "pack" }
+sources:           { nutriVal: "pack", price: "web" }
 lastUpd:           2024-04-19
-lastPriceUpd:
+lastPriceUpd:      2025-01-15

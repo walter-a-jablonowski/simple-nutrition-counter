@@ -2,7 +2,7 @@ vendor:            Rewe
 acceptable:        less
 packaging:         plastic,alu
 
-price:             
+price:             1.19
 weight:            150
 usedAmounts:       ["10g", "20g", "30g"]
 
@@ -16,6 +16,6 @@ nutritionalValues:
   amino:           9.2
   salt:            1.2
 
-sources:           { nutriVal: "web (information on packaging may differ)" }
+sources:           { nutriVal: "web (information on packaging may differ)", price: "deal" }
 lastUpd:           2024-04-20
-lastPriceUpd:
+lastPriceUpd:      2025-01-15

@@ -5,7 +5,7 @@ acceptable:        occasionally
 certificates:      { bio: true, NutriScore: B }
 packaging:         plastic & alu
 
-price:             
+price:             1.29
 weight:            200
 usedAmounts:       ["1/4", "1/2"]
 
@@ -19,6 +19,6 @@ nutritionalValues:
   amino:           12.7
   salt:            0.7
 
-sources:           { nutriVal: "web" }
+sources:           { nutriVal: "web", price: "deal" }
 lastUpd:           2024-06-01
-lastPriceUpd:
+lastPriceUpd:      2025-01-15
