@@ -58,6 +58,10 @@ main {
 }
 
 /* Column styling */
+.left-column, .right-column {
+  height: 100%;
+}
+
 .left-column {
   border-right: 1px solid #dee2e6;
   padding: 1rem;
