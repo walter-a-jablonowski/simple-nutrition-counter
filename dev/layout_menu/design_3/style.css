@@ -68,27 +68,23 @@ main {
 
 .content-wrapper {
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 }
 
 /* Portrait mode adjustments */
 @media (max-width: 767.98px) {
   main {
     padding-right: 0 !important;
-    padding-bottom: 60px !important; /* Account for bottom nav */
-    height: 100vh !important;
+    padding-bottom: 56px !important; /* Account for bottom nav */
   }
   
   .left-column {
     border-right: none;
     border-bottom: 1px solid #dee2e6;
   }
-  
-  .row {
-    flex-direction: column;
-  }
-  
-  .content-wrapper {
-    overflow-y: auto;
+
+  .left-column, .right-column {
+    padding: 0.75rem; /* Slightly less padding on mobile */
   }
 }
 
@@ -104,4 +100,10 @@ main {
 
 .nav-link:hover {
   color: rgba(255, 255, 255, 0.9);
+}
+
+/* Prevent content overflow */
+* {
+  max-width: 100%;
+  box-sizing: border-box;
 }
