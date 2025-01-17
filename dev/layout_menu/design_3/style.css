@@ -81,10 +81,15 @@ main {
   .left-column {
     border-right: none;
     border-bottom: 1px solid #dee2e6;
+    height: 33.33% !important;
+  }
+
+  .right-column {
+    height: 66.67% !important;
   }
 
   .left-column, .right-column {
-    padding: 0.75rem; /* Slightly less padding on mobile */
+    padding: 0.75rem;
   }
 }
 
