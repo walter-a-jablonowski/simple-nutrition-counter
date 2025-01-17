@@ -11,23 +11,21 @@ Overview
 Usability concept MOV
 ----------------------------------------------------------
 
-- menu entries low use ~5 times per day
-  - no menu bar at all, round hover btn lower right (or left for left handed, configurable)
-  - one click more per menu use, but more space for app content
-- menu entries freq used: add bar (one click less, consume some space in favor of less clicks)
-  - top bar: users are more used to
-  - bottom bar more usable on smartphone one handed (nu users may difficulties understand this)
-- information that should always be visible
-  - use a menu bar (more like a status bar)
-  - combine with menu
+- menu
+  - menu entries freq used: always visible, reachable
+  - menu entries low use ~5 times per day: less reachable space
+- status information that should always be visible
+  - we might use a header with in the content area as sime kind of status bar
+    - could also contain user switch and less imp menu elems
 - app name: obsolete
 
 
 PC, Tablet wide screen
 ----------------------------------------------------------
 
-portrait like smartphone below
-or: like wide screen with only one col in food list
+### Conventional
+
+(curerntly preferring innovative design below)
 
 ```
  --------------------------------------------------------
@@ -48,7 +46,7 @@ or: like wide screen with only one col in food list
  --------------------------------------------------------     [Food] [Suppl] [On the go] [Fin] [Haush] [Misc]
 ```
 
-alternative menu
+Innovative menu
 
 ```
  --------------------------------------------------------

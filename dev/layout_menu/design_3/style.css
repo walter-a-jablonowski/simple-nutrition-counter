@@ -1,0 +1,115 @@
+/* Custom styles for responsive navigation layout */
+
+/* Make the body and html full height */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Landscape mode navigation (right sidebar) */
+#sidebar {
+  width: 60px;
+  height: 100vh;
+  position: fixed;
+  right: 0;
+  top: 0;
+  padding: 1rem 0;
+  z-index: 1030;
+}
+
+#sidebar .nav-link {
+  padding: 0.75rem 0;
+  text-align: center;
+  width: 100%;
+}
+
+#sidebar .bi {
+  font-size: 1.5rem;
+}
+
+/* Portrait mode navigation (bottom bar) */
+#bottom-nav {
+  height: 56px;
+  padding: 0;
+}
+
+#bottom-nav .nav-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+#bottom-nav .nav-link {
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#bottom-nav .bi {
+  font-size: 1.25rem;
+}
+
+/* Main content layout */
+main {
+  padding-right: 60px !important; /* Account for sidebar width */
+}
+
+/* Column styling */
+.left-column {
+  border-right: 1px solid #dee2e6;
+  padding: 1rem;
+}
+
+.right-column {
+  padding: 1rem;
+}
+
+.content-wrapper {
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* Portrait mode adjustments */
+@media (max-width: 767.98px) {
+  main {
+    padding-right: 0 !important;
+    padding-bottom: 60px !important; /* Account for bottom nav */
+    height: 100vh !important;
+  }
+  
+  .left-column {
+    height: 33.33vh !important;
+    border-right: none;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .right-column {
+    height: 66.67vh !important;
+  }
+  
+  .row {
+    flex-direction: column;
+  }
+  
+  .content-wrapper {
+    height: 100%;
+    overflow-y: auto;
+  }
+}
+
+/* Active link styling */
+.nav-link.active {
+  color: #fff !important;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
