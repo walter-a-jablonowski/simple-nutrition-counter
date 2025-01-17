@@ -68,7 +68,6 @@ main {
 }
 
 .content-wrapper {
-  height: 100%;
   overflow-y: auto;
 }
 
@@ -81,13 +80,11 @@ main {
   }
   
   .left-column {
-    height: 33.33vh !important;
     border-right: none;
     border-bottom: 1px solid #dee2e6;
   }
   
   .right-column {
-    height: 66.67vh !important;
   }
   
   .row {
@@ -95,7 +92,6 @@ main {
   }
   
   .content-wrapper {
-    height: 100%;
     overflow-y: auto;
   }
 }
