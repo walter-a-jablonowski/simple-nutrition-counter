@@ -1,3 +1,7 @@
+
+# 2501 verified all values from source as far as active in /nutrients (source has some more)
+#      tasks see below
+
                             # unused
 calories:        34         # Atwater General Factors, TASK: 32 "Atwater Specific Factors"
 
@@ -9,7 +13,7 @@ nutritionalValues:
   polyUnsaturated: 0.017
   carbs:         3.8        # by summation, TASK: by difference 6.27
   sugar:         1.4
-  # fibre:       2.4        # moved
+  # fibre:       2.4        # TASK: moved
   amino:         2.57
   salt:          0.036      # Sodium, Na in source
 
@@ -25,7 +29,7 @@ carbs:
 
 aminoAcids:
   
-  Histidine:     59         # updated with source
+  Histidine:     59
   Isoleucine:    79
   Leucine:       129
   Lysine:        135
@@ -37,12 +41,19 @@ aminoAcids:
 
 vitamins:
   
-  Vitamin E:     0.15       # updated with source
+  Vitamin A:     0.008
+  Vitamin D:     0
+  Vitamin E:     0.15
   Vitamin K:     0.102      # phylloquinone 102 µg Dihydrophylloquinone 0 µg
   Vitamin C:     91.3       
+  Thiamin B1:    0.077
+  Riboflavin B2: 0.114
   Niacin B3:     0.639
   Pantothenic acid B5: 0.61
+  Vitamin B6:    0.191
+  Biotin B7:     0          # no value in source
   Folate B9:     0.065
+  Vitamin B12:   0          # no value in source
 
 minerals:
 
@@ -52,7 +63,7 @@ minerals:
   Phosphorus:    67
   Magnesium:     21
   Iron:          0.69
-  Iodine:        0          # TASK
+  Iodine:        0          # no value in source
   Fluoride:      0
   Zinc:          0.42
   Selenium:      0.0016
@@ -63,7 +74,7 @@ minerals:
 
 # secondary:                # TASK
 
-misc:                       # TASK
+misc:
 
   water:         90         # ml or g
 
