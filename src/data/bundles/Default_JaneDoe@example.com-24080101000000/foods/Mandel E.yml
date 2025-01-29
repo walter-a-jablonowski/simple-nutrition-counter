@@ -1,0 +1,27 @@
+productName:       "Gut & Günstig Snack Mandeln"
+vendor:            Edeka
+url:               "https://www.edeka.de/unsere-marken/produkte/gut-guenstig-mandeln-4311501706503.jsp"
+
+certificates:      { vegan: true, NutriScore: A }
+allergy:           "Schalenfrüchte"
+mayContain:        "andere SCHALENFRÜCHTE"
+details:           "naturbelassen"
+packaging:         alu & plastic (maybe)
+
+price:             
+weight:            200g
+usedAmounts:       ["25g", "50g", "100g"]
+
+calories:          619
+nutritionalValues:
+
+  fat:             53
+  saturatedFat:    4.1
+  carbs:           5.7
+  sugar:           3.4
+  amino:           24
+  salt:            0.01
+
+sources:           { nutriVal: "web (information on packaging may differ slightly)" }
+lastUpd:           2025-01-29
+lastPriceUpd:      

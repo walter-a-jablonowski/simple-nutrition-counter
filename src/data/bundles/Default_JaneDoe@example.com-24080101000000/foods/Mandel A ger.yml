@@ -1,5 +1,5 @@
 vendor:            Aldi
-certificates:      { NutriScore: B }
+certificates:      { vegan: true, NutriScore: B }
 packaging:         alu
 
 price:             

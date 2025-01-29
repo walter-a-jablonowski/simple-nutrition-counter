@@ -1,5 +1,5 @@
 vendor:            Rewe
-certificates:      { bio: true }
+certificates:      { bio: true, vegan: true }
 packaging:         plastic (maybe)
 
 price:             2.19

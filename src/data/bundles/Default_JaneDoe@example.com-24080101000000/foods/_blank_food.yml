@@ -13,6 +13,7 @@ ingredients:       ""
 allergy:           ""
 mayContain:        ""
 origin:            ""
+details:           ""
 packaging:         none|cardboard,alu,plastic,glass & rubber (maybe)  # outer --> inner (contact with food only)
 
 cookingInstructions: "" 
