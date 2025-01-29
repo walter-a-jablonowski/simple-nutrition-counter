@@ -1,5 +1,5 @@
 
-Please fill out the yml below with data from the following url.
+Please fill out the yml below with data from the url below
 
 Rules
 
@@ -10,6 +10,7 @@ Rules
 - Field "details": add all additional nutrient info for that we don't have a seperate data field (sample: "naturbelassen")
 - Add nutritional values with no "g", just the float or int
 - No changes in: field source
+- lastUpdate, lastPriceUpd: YYYY-MM-DD
 
 
 URL: [URL]
