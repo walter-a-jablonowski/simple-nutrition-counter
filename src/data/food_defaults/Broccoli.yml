@@ -3,13 +3,15 @@ calories:        34         # Atwater General Factors, TASK: 32 "Atwater Specifi
 
 nutritionalValues:
   
-  carbs:         6.27       # by difference, TASK: by summation	3.8
   fat:           0.34       # lipid (fat), TASK: fat (NLEA)	0.07
-  # saturatedFat:  0        # TASK
-  # carbs:         7        ä TASK: duplicate key
-  # sugar:       0          # TASK
+  saturatedFat:    0.039
+  monoUnsaturated: 0.011
+  polyUnsaturated: 0.017
+  carbs:         3.8        # by summation, TASK: by difference 6.27
+  sugar:         1.4
+  # fibre:       2.4        # moved
   amino:         2.57
-  salt:          33
+  salt:          0.036      # Sodium, Na in source
 
 fattyAcids:
 
@@ -36,7 +38,7 @@ aminoAcids:
 vitamins:
   
   Vitamin E:     0.15       # updated with source
-  Vitamin K:     0.102      
+  Vitamin K:     0.102      # phylloquinone 102 µg Dihydrophylloquinone 0 µg
   Vitamin C:     91.3       
   Niacin B3:     0.639
   Pantothenic acid B5: 0.61
@@ -44,7 +46,7 @@ vitamins:
 
 minerals:
 
-  Salt:          36         # TASK: only Na
+  Salt:          36         # Sodium, Na in source
   Potassium:     303
   Calcium:       46
   Phosphorus:    67
@@ -63,7 +65,7 @@ minerals:
 
 misc:                       # TASK
 
-  water:             
+  water:         90         # ml or g
 
 sources:           
 

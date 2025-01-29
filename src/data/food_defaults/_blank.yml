@@ -3,19 +3,19 @@
 
 acceptable:
 comment:         
-
+                               # kcal
 calories:        
 
-nutritionalValues:
+nutritionalValues:             # g
 
   fat:           
-  saturatedFat:  
-  # monoUnsaturated:           # TASK
-  # polyUnsaturated: 
-  # carbs:       7             # TASK: duplicate key
+  saturatedFat:    
+  monoUnsaturated: 
+  polyUnsaturated: 
+  # carbs:       
   sugar:         
-  # sugarAlcohol:              # TASK
-  # fibre:                     # moved
+  sugarAlcohol:    
+  # fibre:                     # TASK: moved
   amino:         
   salt:          
 
@@ -78,9 +78,9 @@ minerals:                      # mg
 
 # secondary:                   # TASK
 
-misc:                          # mg
+misc:
 
-  water:         
+  water:                       # ml or g
   alcohol:       
   caffeine:      
 
