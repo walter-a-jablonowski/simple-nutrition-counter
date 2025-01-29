@@ -1,6 +1,8 @@
 
 # 2501 all fields from nutrients and blank food seen
 
+# use a deault source (see field source) and add mis sources as comment
+
 acceptable:
 comment:         
                                # kcal
@@ -12,7 +14,7 @@ nutritionalValues:             # g
   saturatedFat:    
   monoUnsaturated: 
   polyUnsaturated: 
-  # carbs:       
+  carbs:       
   sugar:         
   sugarAlcohol:    
   # fibre:                     # TASK: moved
@@ -61,7 +63,7 @@ vitamins:                      # mg
 
 minerals:                      # mg
   
-  Salt:          
+  Salt:                        # TASK: we need to use the one from nutritional values cause sometimes salt is added (chickpeas)
   Potassium:     
   Calcium:       
   Phosphorus:    
@@ -86,7 +88,8 @@ misc:
 
 sources:
 
-  - title:  
-    source: 
+  - title:   
+    comment: 
+    source:  
 
 lastUpd:         

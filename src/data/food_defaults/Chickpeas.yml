@@ -1,78 +1,90 @@
 
-# From Rewe or AI generated for now
+acceptable:
+comment:         
+                               # kcal
+calories:        137           # double in source data
 
-calories:          127
+nutritionalValues:             # g
 
-nutritionalValues:
+  fat:           3.1
+  saturatedFat:  0             # much data missing in default source
+  monoUnsaturated: 0
+  polyUnsaturated: 0
+  carbs:         20.3       
+  sugar:         0
+  sugarAlcohol:  0
+  # fibre:                     
+  amino:         7.02
+  salt:          0
 
-  fat:             2.7         # g
-  saturatedFat:    0.3
-  carbs:           15
-  sugar:           0.4
-  amino:           7.1
-  salt:            0.35
+fattyAcids:                    # g
 
-fattyAcids:
+  Alpha-linolenic acid: 0
+  Docosahexaenoic acid: 0
+  Linoleic acid:        0
 
-  Alpha-linolenic acid: 0.043  # g
-  Linoleic acid:        2.592
-
-carbs:
+carbs:                         # g
   
-  fiber:           7.6         # g  # TASK: unify casing
-  sugars:          4.8
-  starch:          15
+  Fiber:         5.92
 
-aminoAcids:
+aminoAcids:                    # mg
   
-  Histidine:       212         # mg
-  Isoleucine:      338
-  Leucine:         562
-  Lysine:          493
-  Methionine:      116
-  Phenylalanine:   429
-  Threonine:       291
-  Tryptophan:      82
-  Valine:          357
+  Histidine:     0
+  Isoleucine:    0
+  Leucine:       0
+  Lysine:        0
+  Methionine:    0
+  Phenylalanine: 0
+  Threonine:     0
+  Tryptophan:    0
+  Valine:        0
 
 vitamins:                      # mg
   
-  Vitamin A:       0.001       # 1µg
-  Vitamin E:       0.35
-  Vitamin K:       0.004       # 4µg
-  Vitamin B1:      0.116
-  Vitamin B2:      0.063
-  Vitamin B3:      0.526
-  Vitamin B5:      0.286
-  Vitamin B6:      0.139
-  Vitamin B9:      0.172       # 172µg
-  Choline:         42.8
+  Vitamin A:     0
+  Vitamin D:     0
+  Vitamin E:     0
+  Vitamin K:     0
+  Vitamin C:     0
+  Thiamin B1:    0
+  Riboflavin B2: 0
+  Niacin B3:     0
+  Pantothenic acid B5: 0
+  Vitamin B6:    0
+  Biotin B7:     0
+  Folate B9:     0
+  Vitamin B12:   0
 
 minerals:                      # mg
   
-  Calcium:         49
-  Iron:            2.89
-  Magnesium:       48
-  Phosphorus:      168
-  Potassium:       291
-  Sodium:          7
-  Zinc:            1.53
-  Copper:          0.352
-  Manganese:       0.82
-  Selenium:        0.0037      # 3.7µg
+  Salt:          202
+  Potassium:     137
+  Calcium:       40
+  Phosphorus:    86
+  Magnesium:     28.4
+  Iron:          1.04
+  Iodine:        0
+  Fluoride:      0
+  Zinc:          0.72
+  Selenium:      0
+  Copper:        0.267
+  Chromium:      0
+  Manganese:     0.745
+  Molybdenum:    0
 
-# secondary:  # AI said no amounts
-#
-#   - polyphenols
-#     - flavonoids
-#       - quercetin
-#       - kaempferol
-#     - phenolicAcids
-#       - ferulicAcid
-#       - chlorogenicAcid
-#   - saponins: present
-#   - phytosterols: present
+misc:
 
-sources:           "fdc.nal.usda.gov for now"
-state:             most
-lastUpd:           2024-09-01
+  water:         68.6          # ml or g
+  alcohol:       0
+  caffeine:      0
+
+sources:
+
+  - title:   Default source (different sources, see above)
+    comment: chosen because more similar to rewe
+    source:  https://fdc.nal.usda.gov/food-details/2644288/nutrients
+
+  - title:   Alternative: Chickpeas dry (unused)
+    source:  https://fdc.nal.usda.gov/food-details/2644282/nutrients
+
+lastUpd:         2025-01-29

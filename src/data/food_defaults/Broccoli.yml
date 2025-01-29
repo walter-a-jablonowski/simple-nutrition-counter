@@ -2,6 +2,8 @@
 # 2501 verified all values from source as far as active in /nutrients (source has some more)
 #      tasks see below
 
+acceptable:
+comment:         
                             # unused
 calories:        34         # Atwater General Factors, TASK: 32 "Atwater Specific Factors"
 
@@ -80,7 +82,7 @@ misc:
 
 sources:           
 
-  - title:  fdc.nal.usda.gov for now
+  - title:  Default source (different sources, see above)
     source: https://fdc.nal.usda.gov/food-details/747447/nutrients
 
 lastUpd:         2024-09-01

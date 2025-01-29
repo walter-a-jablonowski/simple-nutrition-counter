@@ -1,40 +1,30 @@
 
-Please list
+from file
 
-- the calories
-- nutritional values which is the sum per nutrient group as in the sample below
-- all fatty acids, carbs, amino acids, vitamins and minerals
+Please make a new file with the nutritional data from @_in.txt and use the format in @_blank_ai.yml
 
-contained in [FOOD] along with the typical amount per 100g [or ml].
+- Keep the yml formatting as it is, leave out-commented lines as they are
+  and remove no blanks before the value
+- Fill in values far as possible, if a value is missing add a 0 in this field
+- If value for a single thing are multiple times in the source data, choose one and add all as a comment behind the field
+- Add nutritional values with no unit, just the float or int and use the unit in the comment above it
+- Leave the following fields blank: acceptable, comment         
+- lastUpdate: YYYY-MM-DD
 
-- Use grams for fatty acids and carbs, and milligrams for the rest
-- Print the amounts as int if possible else use a float value
-- For amounts only print the number without unit
+ - -
 
-Print the result als yml like
+from webpage (old)
 
-```
-calories:
+Please fill out the yml file attached with data from the url below
 
-nutritionalValues:
+Rules
 
-  fat:             
-  saturatedFat:    
-  monoUnsaturated: 
-  polyUnsaturated: 
-  carbs:           
-  sugar:           
-  fibre:
-  amino:             # means: amino acids
-  salt:            
+- Keep the yml formatting as it is, remove no blanks before the value
+- Fill in values far as possible, if a value is missing leave it blank
+- Leave out-commented lines as they are
+- Leave the following fields blank: acceptable, comment         
+- Add nutritional values with no unit, just the float or int and use the unit in the comment above it
+- lastUpdate: YYYY-MM-DD
 
-# Group names are: fattyAcids, carbs, aminoAcids, vitamins, minerals
-# Sample:
 
-fattyAcids:
-
-  Alpha-linolenic acid: 1  # first letter upper case
-  ...
-
-... more groups ...
-```
+URL: [URL]
