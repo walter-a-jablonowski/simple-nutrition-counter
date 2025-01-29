@@ -18,6 +18,18 @@ $data = $this->foodsModel->get($entryName);
 
 <table class="table table-sm table-bordered m-0">
   <tbody>
+    <?php if( ! empty($data['productName'])): ?>
+      <tr>
+        <th>Product name</th>
+        <td><?= htmlspecialchars($data['productName']) ?></td>
+      </tr>
+    <?php endif; ?>
+    <?php if( ! empty($data['details'])): ?>
+      <tr>
+        <th>Details</th>
+        <td><?= htmlspecialchars($data['details']) ?></td>
+      </tr>
+    <?php endif; ?>
     <?php if( ! empty($data['ingredients'])): ?>
       <tr>
         <th>
@@ -77,12 +89,6 @@ $data = $this->foodsModel->get($entryName);
       <tr>
         <th>Packaging</th>
         <td><?= $data['packaging'] ?></td>
-      </tr>
-    <?php endif; ?>
-    <?php if( ! empty($data['productName'])): ?>
-      <tr>
-        <th>Product name</th>
-        <td><?= htmlspecialchars($data['productName']) ?></td>
       </tr>
     <?php endif; ?>
     <?php if( ! empty($data['url']) && is_array($data['url'])): ?>

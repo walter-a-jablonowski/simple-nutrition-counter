@@ -24,12 +24,12 @@ url:                 { usage: "Single or multiple urls, first will be used as pr
                          required: false, type: "string|array(string)" }
 
 acceptable:          { usage: "occasionally|less Highlights less good foods in UI",         required: false, type: "string" }
-comment:             { usage: "All misc comments (we can use html here)", required: false, type: "string" }
+comment:             { usage: "More important comments, see also details (we can use html here)", required: false, type: "string" }
 certificates:        { usage: "like { bio: true, vegan: true, oekotest: 1, warentest: 1, NutriScore: A, fairtrade: true, misc: see attached }", required: false, type: "obj" }
+details:             { usage: "Misc food details",  required: false, type: "string" }
 ingredients:         { usage: "Ingredients that you want to be aware of (html)", required: false, type: "string" }
 allergy:             { usage: "Ingredients that may cause allergy",       required: false, type: "string" }
 mayContain:          { usage: "Ingredients that may be contained cause of production", required: false, type: "string" }
-origin:              { usage: "Country of origin or n/a, if you want to be aware of",  required: false, type: "string" }
 packaging:           { usage: "outer contact with food only --> none|cardboard->alu->plastic -> glass & rubber (maybe) <-- inner",
                          required: false, type: "string(array)" }
 
