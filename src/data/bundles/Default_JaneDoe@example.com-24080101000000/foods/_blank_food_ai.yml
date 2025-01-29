@@ -7,6 +7,7 @@ Rules
 - Fill in values as far as possible, if a value is missing leave it blank
 - Leave out-commented lines as they are
 - Certificates: remove if missing in source data, fill in the right value
+- Field "details": add all additional nutrient info for that we don't have a seperate data field (sample: "naturbelassen")
 - Add nutritional values with no "g", just the float or int
 - No changes in: field source
 
@@ -23,7 +24,7 @@ url:               ""
 
 acceptable:        occasionally
 certificates:      { bio: true, vegan: true, oekotest: 1, warentest: 1, NutriScore: A, fairtrade: true, misc: "see attached" }
-details:           "Misc food details"
+details:           ""
 ingredients:       ""
 allergy:           ""
 mayContain:        ""
