@@ -1,8 +1,10 @@
 
-# TASK: (advanced) we could use these foods as default along with amounts from config
+# 2501 all fields from nutrients and blank food seen
 
-# acceptable:      # only these make sense for a commonly used food, as well as the fields below
-# comment:         
+urls:                          # currently unused
+
+acceptable:
+comment:         
 
 calories:          
 
@@ -12,23 +14,25 @@ nutritionalValues:
   saturatedFat:    
   # monoUnsaturated:           # TASK
   # polyUnsaturated: 
-  carbs:           
+  # carbs:            7        ä TASK: duplicate key
   sugar:           
+  # sugar:                     # TASK
+  # sugarAlcohol:    
+  # fibre:                     # moved
   amino:           
   salt:            
+
+# 2501 added only what we already have active in nutrients
 
 fattyAcids:
 
   Alpha-linolenic acid:        # g
+  Docosahexaenoic acid:
   Linoleic acid:        
 
 carbs:
   
-  Fiber:                       # g  # TASK: unify casing
-  Glucose:         
-  Fructose:        
-  Sucrose:         
-  Starch:          
+  Fiber:                       # g
 
 aminoAcids:
   
@@ -45,41 +49,47 @@ aminoAcids:
 vitamins:                      # mg
   
   Vitamin A:       
+  Vitamin D:       
   Vitamin E:       
   Vitamin K:       
-  Vitamin B1:      
-  Vitamin B2:      
-  Vitamin B3:      
-  Vitamin B5:      
+  Vitamin C:       
+  Thiamin B1:      
+  Riboflavin B2:      
+  Niacin B3:      
+  Pantothenic acid B5:      
   Vitamin B6:      
-  Vitamin B9:      
-  Choline:         
+  Biotin B7:      
+  Folate B9:      
+  Vitamin B12:      
 
 minerals:                      # mg
   
-  Calcium:         
-  Iron:            
-  Magnesium:       
-  Phosphorus:      
+  Salt:
   Potassium:       
-  Sodium:          
+  Calcium:         
+  Phosphorus:      
+  Magnesium:       
+  Iron:            
+  Iodine:
+  Fluoride:
   Zinc:            
+  Selenium:
   Copper:          
+  Chromium:
   Manganese:       
-  Selenium:        
+  Molybdenum:
 
-# secondary:  # AI said no amounts
-#
-#   - polyphenols
-#     - flavonoids
-#       - quercetin
-#       - kaempferol
-#     - phenolicAcids
-#       - ferulicAcid
-#       - chlorogenicAcid
-#   - saponins: present
-#   - phytosterols: present
+# secondary:                   # TASK
 
-sources:           { nutriVal: "", nutrients: "" }
-state:             most
-lastUpd:           
+misc:
+
+  water:             
+  alcohol:
+  caffeine:
+
+sources:
+
+  - title:  
+    source: 
+
+lastUpd:         

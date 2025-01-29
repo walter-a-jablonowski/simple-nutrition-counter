@@ -1,3 +1,13 @@
+#
+# Carbs
+#
+
+# TASK:         
+
+# Glucose:         
+# Fructose:        
+# Sucrose:         
+# Starch:          
 
 name:    Carbs
 short:   carbs
@@ -14,7 +24,7 @@ amounts:
 
 substances:
 
-  fibre:  # technically fibre is complex carb, but can't be used by the body (harvard)
+  Fibre:  # technically fibre is complex carb, but can't be used by the body (harvard)
 
     short: fibre
     unit:  g
