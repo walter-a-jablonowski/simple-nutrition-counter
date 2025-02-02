@@ -3,7 +3,7 @@ acceptable:        less
 packaging:         cardboard,plastic
 
 price:             2.99
-weight:            900   # TASK: is a guess
+weight:            900
 pieces:            3
 usedAmounts:       ["1/4", "1/2", "1"]
 
