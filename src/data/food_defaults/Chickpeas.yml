@@ -4,33 +4,33 @@
 
 acceptable:
 comment:         
-                               # kcal
-calories:        137           # double in source data
+                              # kcal
+calories:          137        # double in source data
 
-nutritionalValues:             # g
+nutritionalValues:            # g
 
-  fat:           3.1
-  saturatedFat:  0             # much data missing in default source
+  fat:             3.1
+  saturatedFat:    0          # much data missing in default source
   monoUnsaturated: 0
   polyUnsaturated: 0
-  carbs:         20.3       
-  sugar:         0
-  sugarAlcohol:  0
+  carbs:           20.3       
+  sugar:           0
+  sugarAlcohol:    0
   # fibre:                     
-  amino:         7.02
-  salt:          0
+  amino:           7.02
+  salt:            0
 
-fattyAcids:                    # g
+fattyAcids:                   # g
 
   Alpha-linolenic acid: 0
   Docosahexaenoic acid: 0
   Linoleic acid:        0
 
-carbs:                         # g
+carbs:                        # g
   
   Fiber:         5.92
 
-aminoAcids:                    # mg
+aminoAcids:                   # mg
   
   Histidine:     0
   Isoleucine:    0
@@ -42,7 +42,7 @@ aminoAcids:                    # mg
   Tryptophan:    0
   Valine:        0
 
-vitamins:                      # mg
+vitamins:                     # mg
   
   Vitamin A:     0
   Vitamin D:     0
@@ -58,7 +58,7 @@ vitamins:                      # mg
   Folate B9:     0
   Vitamin B12:   0
 
-minerals:                      # mg
+minerals:                     # mg
   
   Salt:          202
   Potassium:     137
@@ -77,7 +77,7 @@ minerals:                      # mg
 
 misc:
 
-  water:         68.6          # ml or g
+  water:         68.6         # ml or g
   alcohol:       0
   caffeine:      0
 
@@ -90,4 +90,4 @@ sources:
   - title:   Alternative: Chickpeas dry (unused)
     source:  https://fdc.nal.usda.gov/food-details/2644282/nutrients
 
-lastUpd:         2025-01-29
+lastUpd: 2025-01-29

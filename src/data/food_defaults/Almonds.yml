@@ -5,20 +5,20 @@
 acceptable:
 comment:         
                                # kcal (unused)
-calories:        626           # 584 (Atwater Specific), 626 (Atwater General) more similar superm
+calories:          626         # 584 (Atwater Specific), 626 (Atwater General) more similar superm
 
 nutritionalValues:             # g
 
-  fat:           51.1
+  fat:             51.1
   saturatedFat:    3.78
   monoUnsaturated: 31.3
   polyUnsaturated: 11.2
-  carbs:          20          # by difference
-  sugar:          0
-  sugarAlcohol:   0
+  carbs:           20         # by difference
+  sugar:           0
+  sugarAlcohol:    0
   # fibre:                    # TASK: moved
-  amino:          21.4
-  salt:           0.0025      # Sodium, Na in source, < 2.5mg converted to g
+  amino:           21.4
+  salt:            0.0025     # Sodium, Na in source, < 2.5mg converted to g
 
 fattyAcids:                   # g
 
@@ -26,11 +26,11 @@ fattyAcids:                   # g
   Docosahexaenoic acid: 0
   Linoleic acid:        0
 
-carbs:                         # g
+carbs:                        # g
   
   Fiber:         10.8
 
-aminoAcids:                    # mg
+aminoAcids:                   # mg
   
   Histidine:     548
   Isoleucine:    774
@@ -42,12 +42,12 @@ aminoAcids:                    # mg
   Tryptophan:    208
   Valine:        916
 
-vitamins:                    # mg
+vitamins:                     # mg
   
   Vitamin A:     0
   Vitamin D:     0
   Vitamin E:     0
-  Vitamin K:     0           # 3 * < 0.1 µg
+  Vitamin K:     0            # 3 * < 0.1 µg
   Vitamin C:     0
   Thiamin B1:    16
   Riboflavin B2: 0
@@ -58,9 +58,9 @@ vitamins:                    # mg
   Folate B9:     0
   Vitamin B12:   0
 
-minerals:                    # mg
+minerals:                     # mg
   
-  Salt:          2.5         # is Sodium, < 2.5
+  Salt:          2.5          # is Sodium, < 2.5
   Potassium:     733
   Calcium:       254
   Phosphorus:    503
@@ -79,7 +79,7 @@ minerals:                    # mg
 
 misc:
 
-  water:         4.26        # ml or g
+  water:         4.26         # ml or g
   alcohol:       0
   caffeine:      0
 
@@ -91,4 +91,4 @@ sources:
   - title:   TASK: MOV: Nuts, almonds, dry roasted, with salt added
     source:  https://fdc.nal.usda.gov/food-details/323294/nutrients
 
-lastUpd:         2025-02-03
+lastUpd: 2025-02-03

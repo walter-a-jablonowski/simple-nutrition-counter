@@ -1,33 +1,33 @@
 
 acceptable:
 comment:         
-                               # kcal
-calories:        
+                              # kcal
+calories:          
 
-nutritionalValues:             # g
+nutritionalValues:            # g
 
-  fat:           
+  fat:             
   saturatedFat:    
   monoUnsaturated: 
   polyUnsaturated: 
-  carbs:       
-  sugar:         
+  carbs:           
+  sugar:           
   sugarAlcohol:    
   # fibre:
-  amino:                       # is proein
-  salt:          
+  amino:                      # is proein
+  salt:            
 
-fattyAcids:                    # g
+fattyAcids:                   # g
 
-  Alpha-linolenic acid: 
+  Alpha-linolenic acid: 0
   Docosahexaenoic acid: 
   Linoleic acid:        
 
-carbs:                         # g
+carbs:                        # g
   
   Fiber:         
 
-aminoAcids:                    # mg
+aminoAcids:                   # mg
   
   Histidine:     
   Isoleucine:    
@@ -39,7 +39,7 @@ aminoAcids:                    # mg
   Tryptophan:    
   Valine:        
 
-vitamins:                      # mg
+vitamins:                     # mg
   
   Vitamin A:     
   Vitamin D:     
@@ -55,9 +55,9 @@ vitamins:                      # mg
   Folate B9:     
   Vitamin B12:   
 
-minerals:                      # mg
+minerals:                     # mg
   
-  Salt:                        # is Sodium
+  Salt:                       # is Sodium
   Potassium:     
   Calcium:       
   Phosphorus:    
@@ -76,7 +76,7 @@ minerals:                      # mg
 
 misc:
 
-  water:                       # ml or g
+  water:                      # ml or g
   alcohol:       
   caffeine:      
 
@@ -86,4 +86,4 @@ sources:
     comment: 
     source:  
 
-lastUpd:         
+lastUpd: 

@@ -4,26 +4,26 @@
 
 acceptable:
 comment:         
-                            # unused
-calories:        34         # Atwater General Factors, TASK: 32 "Atwater Specific Factors"
+                              # unused
+calories:          34         # Atwater General Factors, TASK: 32 "Atwater Specific Factors"
 
 nutritionalValues:
   
-  fat:           0.34       # lipid (fat), TASK: fat (NLEA)	0.07
+  fat:             0.34       # lipid (fat), TASK: fat (NLEA)	0.07
   saturatedFat:    0.039
   monoUnsaturated: 0.011
   polyUnsaturated: 0.017
-  carbs:         3.8        # by summation, TASK: by difference 6.27
-  sugar:         1.4
-  # fibre:       2.4        # TASK: moved
-  amino:         2.57
-  salt:          0.036      # Sodium, Na in source
+  carbs:           3.8        # by summation, TASK: by difference 6.27
+  sugar:           1.4
+  # fibre:         2.4        # TASK: moved
+  amino:           2.57
+  salt:            0.036      # Sodium, Na in source
 
 fattyAcids:
 
-  Alpha-linolenic acid:  0  # TASK: misisng in source
-  Docosahexaenoic acid:  0
-  Linoleic acid:         0
+  Alpha-linolenic acid: 0     # TASK: misisng in source
+  Docosahexaenoic acid: 0
+  Linoleic acid:        0
 
 carbs:
   
@@ -46,26 +46,26 @@ vitamins:
   Vitamin A:     0.008
   Vitamin D:     0
   Vitamin E:     0.15
-  Vitamin K:     0.102      # phylloquinone 102 µg Dihydrophylloquinone 0 µg
+  Vitamin K:     0.102        # phylloquinone 102 µg Dihydrophylloquinone 0 µg
   Vitamin C:     91.3       
   Thiamin B1:    0.077
   Riboflavin B2: 0.114
   Niacin B3:     0.639
   Pantothenic acid B5: 0.61
   Vitamin B6:    0.191
-  Biotin B7:     0          # no value in source
+  Biotin B7:     0            # no value in source
   Folate B9:     0.065
-  Vitamin B12:   0          # no value in source
+  Vitamin B12:   0            # no value in source
 
 minerals:
 
-  Salt:          36         # Sodium, Na in source
+  Salt:          36           # Sodium, Na in source
   Potassium:     303
   Calcium:       46
   Phosphorus:    67
   Magnesium:     21
   Iron:          0.69
-  Iodine:        0          # no value in source
+  Iodine:        0            # no value in source
   Fluoride:      0
   Zinc:          0.42
   Selenium:      0.0016
@@ -74,15 +74,15 @@ minerals:
   Manganese:     0.197
   Molybdenum:    0
 
-# secondary:                # TASK
+# secondary:                  # TASK
 
 misc:
 
-  water:         90         # ml or g
+  water:         90           # ml or g
 
 sources:           
 
   - title:  Default source (different sources, see above): Broccoli
     source: https://fdc.nal.usda.gov/food-details/747447/nutrients
 
-lastUpd:         2025-01-30
+lastUpd: 2025-01-30
