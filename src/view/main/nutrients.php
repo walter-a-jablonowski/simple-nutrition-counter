@@ -1,12 +1,23 @@
 
 <?php if( config::get('devMode') ): ?>
   <ul class="list-group mt-3">
-    <li class="list-group-item px-2 py-1 small">
+    <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
       <div class="form-check">
         <input id="offLimitCheck" onchange="mainCrl.offLimitCheckChange(event)" type="checkbox" value="" class="form-check-input">
         <label class="form-check-label small" for="offLimitCheck">  <!-- TASK: use a btn here, color indicates on -->
           off limit only
         </label>
+      </div>
+      <button type="button" class="border-0 p-1 bg-transparent"
+              data-bs-toggle = "modal"
+              data-bs-target = "#infoModal"
+              data-title     = "How to read nutrients"
+              data-source    = "#nutrientsData"
+      >
+        <i class="bi bi-info-circle icon-circle"></i> Info
+      </button>
+      <div id="nutrientsData" class="d-none">
+        <?php require('misc/inline_nutrients.php'); ?>
       </div>
     </li>
   </ul>
