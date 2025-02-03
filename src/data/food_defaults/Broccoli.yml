@@ -82,7 +82,7 @@ misc:
 
 sources:           
 
-  - title:  Default source (different sources, see above): Broccoli
+  - title:  Default source (different sources, see above) = Broccoli
     source: https://fdc.nal.usda.gov/food-details/747447/nutrients
 
 lastUpd: 2025-01-30

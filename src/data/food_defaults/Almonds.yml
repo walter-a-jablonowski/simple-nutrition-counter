@@ -85,11 +85,11 @@ misc:
 
 sources:           
 
-  - title:   Default source (different sources, see above): Nuts, almonds, whole
+  - title:   Default source (different sources, see above) = Nuts, almonds, whole
     source:  https://fdc.nal.usda.gov/food-details/2346393/nutrients
 
-  - title:   Alternative: Nuts, almonds, dry roasted, with salt added
-    comment: currently unused, differences might be normal, TASK: but has some more nutruents
+  - title:   Alternative = Nuts, almonds, dry roasted, with salt added
+    comment: currently unused, differences might be normal  # TASK: but has some more nutruents
     source:  https://fdc.nal.usda.gov/food-details/323294/nutrients
 
 lastUpd: 2025-02-03
