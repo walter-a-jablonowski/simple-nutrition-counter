@@ -1,4 +1,88 @@
 
+# 2502 verified all values from source as far as active in /nutrients (source has some more)
+#      tasks see below
+
+acceptable:
+comment:         
+                               # kcal (unused)
+calories:        626           # 584 (Atwater Specific), 626 (Atwater General) more similar superm
+
+nutritionalValues:             # g
+
+  fat:           51.1
+  saturatedFat:    3.78
+  monoUnsaturated: 31.3
+  polyUnsaturated: 11.2
+  carbs:          20          # by difference
+  sugar:          0
+  sugarAlcohol:   0
+  # fibre:                    # TASK: moved
+  amino:          21.4
+  salt:           0.0025      # Sodium, Na in source, < 2.5mg converted to g
+
+fattyAcids:                   # g
+
+  Alpha-linolenic acid: 0     # TASK: missing in source (if any)
+  Docosahexaenoic acid: 0
+  Linoleic acid:        0
+
+carbs:                         # g
+  
+  Fiber:         10.8
+
+aminoAcids:                    # mg
+  
+  Histidine:     548
+  Isoleucine:    774
+  Leucine:       1490
+  Lysine:        618
+  Methionine:    154
+  Phenylalanine: 1200
+  Threonine:     608
+  Tryptophan:    208
+  Valine:        916
+
+vitamins:                    # mg
+  
+  Vitamin A:     0
+  Vitamin D:     0
+  Vitamin E:     0
+  Vitamin K:     0           # 3 * < 0.1 µg
+  Vitamin C:     0
+  Thiamin B1:    16
+  Riboflavin B2: 0
+  Niacin B3:     3.77
+  Pantothenic acid B5: 0
+  Vitamin B6:    0.101
+  Biotin B7:     0.057
+  Folate B9:     0
+  Vitamin B12:   0
+
+minerals:                    # mg
+  
+  Salt:          2.5         # is Sodium, < 2.5
+  Potassium:     733
+  Calcium:       254
+  Phosphorus:    503
+  Magnesium:     258
+  Iron:          3.74
+  Iodine:        0
+  Fluoride:      0
+  Zinc:          2.86
+  Selenium:      0
+  Copper:        0.91
+  Chromium:      0
+  Manganese:     2.15
+  Molybdenum:    0.0453
+
+# secondary:
+
+misc:
+
+  water:         4.26        # ml or g
+  alcohol:       0
+  caffeine:      0
+
 sources:           
 
   - title:   Default source (different sources, see above): Nuts, almonds, whole
