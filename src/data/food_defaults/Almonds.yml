@@ -1,0 +1,10 @@
+
+sources:           
+
+  - title:   Default source (different sources, see above): Nuts, almonds, whole
+    source:  https://fdc.nal.usda.gov/food-details/2346393/nutrients
+
+  - title:   TASK: MOV: Nuts, almonds, dry roasted, with salt added
+    source:  https://fdc.nal.usda.gov/food-details/323294/nutrients
+
+lastUpd:         2025-02-03
