@@ -5,35 +5,35 @@
 
 acceptable:
 comment:         
-                               # kcal
-calories:        
+                              # kcal
+calories:          
 
-nutritionalValues:             # g
+nutritionalValues:            # g
 
-  fat:           
+  fat:             
   saturatedFat:    
   monoUnsaturated: 
   polyUnsaturated: 
-  carbs:       
-  sugar:         
+  carbs:           
+  sugar:           
   sugarAlcohol:    
-  # fibre:                     # TASK: moved
-  amino:         
-  salt:          
+  # fibre:                    # TASK: moved
+  amino:           
+  salt:            
 
 # 2501 added only what we already have active in nutrients
 
-fattyAcids:                    # g
+fattyAcids:                   # g
 
   Alpha-linolenic acid: 
   Docosahexaenoic acid: 
   Linoleic acid:        
 
-carbs:                         # g
+carbs:                        # g
   
   Fiber:         
 
-aminoAcids:                    # mg
+aminoAcids:                   # mg
   
   Histidine:     
   Isoleucine:    
@@ -45,7 +45,7 @@ aminoAcids:                    # mg
   Tryptophan:    
   Valine:        
 
-vitamins:                      # mg
+vitamins:                     # mg
   
   Vitamin A:     
   Vitamin D:     
@@ -61,9 +61,9 @@ vitamins:                      # mg
   Folate B9:     
   Vitamin B12:   
 
-minerals:                      # mg
+minerals:                     # mg
   
-  Salt:                        # TASK: we need to use the one from nutritional values cause sometimes salt is added (chickpeas)
+  Salt:                       # TASK: we need to use the one from nutritional values cause sometimes salt is added (chickpeas)
   Potassium:     
   Calcium:       
   Phosphorus:    
@@ -78,11 +78,11 @@ minerals:                      # mg
   Manganese:     
   Molybdenum:    
 
-# secondary:                   # TASK
+# secondary:                  # TASK
 
 misc:
 
-  water:                       # ml or g
+  water:                      # ml or g
   alcohol:       
   caffeine:      
 
@@ -92,4 +92,4 @@ sources:
     comment: 
     source:  
 
-lastUpd:         
+lastUpd: 
