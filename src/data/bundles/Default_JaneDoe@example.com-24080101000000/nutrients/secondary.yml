@@ -9,6 +9,8 @@ short:    sec
 
 substances: []
 
+# AI: bitter substances fit under secrondary plant substances
+
 # - Phytonutrients: Compounds found in plants that have various health benefits, including anti-inflammatory and antioxidant properties, which can help reduce the risk of chronic diseases
 #   - Polyphenols
 #     - Flavonoids
