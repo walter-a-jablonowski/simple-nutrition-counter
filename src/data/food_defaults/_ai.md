@@ -9,7 +9,6 @@ Please make a new file with the nutritional data from @_in.txt and use the forma
 - Names mapping
   - PUFA 18:3 n-3 c,c,c (ALA) = Alpha-linolenic acid (ALA)
   - PUFA 22:6 n-3 (DHA)       = Docosahexaenoic acid (DHA)  
-  - PUFA 18:2 c               = Linoleic acid  
   - PUFA 18:2 n-6 c,c         = Linoleic acid  
 - Add nutritional values with no unit, just the float or int and use the unit in the comment above it
 - Leave the following fields blank: acceptable, comment
