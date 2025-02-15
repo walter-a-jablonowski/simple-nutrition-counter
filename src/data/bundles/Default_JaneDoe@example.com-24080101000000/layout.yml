@@ -217,15 +217,6 @@ Meals:
 
 Improve:
 
-  Meat [only]:
-
-    short: "<b>Why?</b> \"Heals people\""
-
-    list:
-
-      - Hähnchen Gyros
-      - Hähnchen Kebab
-
   Omega 3:
 
     list:
@@ -279,6 +270,27 @@ Improve:
       - Salat R Misch
       - Salat A Country
       - Artisch R viertel
+
+  Meat [only]:
+
+    short: "<b>Why?</b> \"Heals people\""
+
+    list:
+
+      - Hähnchen Gyros
+      - Hähnchen Kebab
+
+  Misc:  # TASK: we may want to add a (i) feature to nutrients and get it here
+         #       for per nutrient information
+
+    short: "<b>Why?</b> \"autumn, winter less freezing\""
+    (i):   at least looks like less inflamed when plant based and fastning with cold temperature (just the energy or some B9 vit ?)
+
+    list:
+
+      - Lieken Urkorn
+      - Br R mild
+      - Br
 
 Supplements:
 
