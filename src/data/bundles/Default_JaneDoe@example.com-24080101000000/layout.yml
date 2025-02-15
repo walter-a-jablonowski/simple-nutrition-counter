@@ -6,7 +6,7 @@
 
 # #8a2be2
 
-Food:
+Meals:
 
   "(first_entries)":
                                   
@@ -214,6 +214,27 @@ Food:
       - Linsen vegan
       - Geb Bohnen
       - Chili vegan
+
+Improve:
+
+  Bitter substances:
+
+    (i): |
+
+      <p>Samples (AI 2502)</p>
+
+      <ul class="no-indent">
+        <li>Chicorée, Radicchio, Endivien</li>
+        <li>Brokkoli, Artischocken, Oliven (nich Öl)</li>
+        <li>Grapefruit, Kaffee, Tee, Kakao</li>
+      </ul>
+
+    list:
+
+      - Salat R Blatt
+      - Salat R Misch
+      - Salat A Country
+      - Artisch R viertel
 
 Supplements:
 
