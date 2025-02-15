@@ -13,7 +13,7 @@ nutritionalValues:            # g
   saturatedFat:    1.6    
   monoUnsaturated: 2.35
   polyUnsaturated: 1.24
-  carbs:           0           
+  carbs:           0          
   sugar:           0           
   sugarAlcohol:    0    
   # fibre:
@@ -24,7 +24,7 @@ fattyAcids:                   # g
 
   Alpha-linolenic acid: 0
   Docosahexaenoic acid: 0
-  Linoleic acid:        1.05  # AI says it's this: PUFA 18:2 n-6 c,c (prefered) or this PUFA 18:2 c
+  Linoleic acid:        1.05  # AI says it's this: PUFA 18:2 n-6 c,c
 
 carbs:                        # g
   

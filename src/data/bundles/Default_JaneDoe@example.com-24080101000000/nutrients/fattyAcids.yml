@@ -72,7 +72,7 @@ substances:
   Linoleic acid:
     
     short:      LA
-    altNames:   ["PUFA 18:2 n-6 c,c", "PUFA 18:2 c"]
+    altNames:   ["PUFA 18:2 n-6 c,c"]  # diff forms of Linoleic acid, AI says only one should be added, Skip: PUFA 18:2 c, PUFA 18:2 CLAs
     groups:     ["PolyUnsaturated/omega-6"]
     essential:  true
     comment:    "GPT 2408: Vegetable oils (sunflower, safflower, corn, soybean), nuts, and seeds"
