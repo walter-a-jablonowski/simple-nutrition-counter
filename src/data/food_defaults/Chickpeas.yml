@@ -22,9 +22,9 @@ nutritionalValues:            # g
 
 fattyAcids:                   # g
 
-  Alpha-linolenic acid: 0     # TASK: AI says it's this: PUFA 18:3 n-3 c,c,c
-  Docosahexaenoic acid: 0     # TASK: AI says it's this: PUFA 22:6 n-3
-  Linoleic acid:        0     # TASK: AI says it's this: PUFA 18:2 n-6 c,c
+  Alpha-linolenic acid: 0     # TASK: AI says it's: PUFA 18:3 n-3 c,c,c
+  Docosahexaenoic acid: 0     # TASK: AI says it's: PUFA 22:6 n-3
+  Linoleic acid:        0     # TASK: AI says it's: PUFA 18:2 n-6 c,c
 
 carbs:                        # g
   
@@ -32,7 +32,7 @@ carbs:                        # g
 
 aminoAcids:                   # mg
   
-  Histidine:     0
+  Histidine:     0            # TASK: is there data missing? (nix in sources)
   Isoleucine:    0
   Leucine:       0
   Lysine:        0
@@ -44,7 +44,7 @@ aminoAcids:                   # mg
 
 vitamins:                     # mg
   
-  Vitamin A:     0
+  Vitamin A:     0            # TASK: is there data missing? (nix in sources)
   Vitamin D:     0
   Vitamin E:     0
   Vitamin K:     0

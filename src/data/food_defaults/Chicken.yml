@@ -22,66 +22,66 @@ nutritionalValues:            # g
 
 fattyAcids:                   # g
 
-  Alpha-linolenic acid: 0
-  Docosahexaenoic acid: 0
-  Linoleic acid:        1.05  # AI says it's this: PUFA 18:2 n-6 c,c
+  Alpha-linolenic acid: 0.045  # AI says it's: PUFA 18:3 n-3 c,c,c
+  Docosahexaenoic acid: 0.005  # AI says it's: PUFA 22:6 n-3
+  Linoleic acid:        1.05   # AI says it's: PUFA 18:2 n-6 c,c
 
 carbs:                        # g
   
-  Fiber:           0         
+  Fiber:         0            
 
 aminoAcids:                   # mg
   
-  Histidine:      0     
-  Isoleucine:     0    
-  Leucine:        0       
-  Lysine:         0        
-  Methionine:     0    
-  Phenylalanine:  0 
-  Threonine:      0     
-  Tryptophan:     0    
-  Valine:         0        
+  Histidine:     0            # TASK: is there data missing? (nix in sources)
+  Isoleucine:    0    
+  Leucine:       0       
+  Lysine:        0        
+  Methionine:    0    
+  Phenylalanine: 0 
+  Threonine:     0     
+  Tryptophan:    0    
+  Valine:        0        
 
 vitamins:                     # mg
   
-  Vitamin A:      0.007     # converted from 7 µg
-  Vitamin D:      0.0001    # converted from 0.1 µg
-  Vitamin E:      0.17    
-  Vitamin K:      0     
-  Vitamin C:      0     
-  Thiamin B1:     0.088    
-  Riboflavin B2:  0.18 
-  Niacin B3:      5.05     
+  Vitamin A:     0.007
+  Vitamin D:     0.0001       # D2 + D3
+  Vitamin E:     0.17    
+  Vitamin K:     0     
+  Vitamin C:     0     
+  Thiamin B1:    0.088    
+  Riboflavin B2: 0.18 
+  Niacin B3:     5.05     
   Pantothenic acid B5: 1.1 
-  Vitamin B6:     0.372    
-  Biotin B7:      0     
-  Folate B9:      0     
-  Vitamin B12:    0.00041  # converted from 0.41 µg
+  Vitamin B6:    0.372    
+  Biotin B7:     0     
+  Folate B9:     0     
+  Vitamin B12:   0.00041
 
 minerals:                     # mg
   
-  Salt:           117       # is Sodium
-  Potassium:      239     
-  Calcium:        12       
-  Phosphorus:     184    
-  Magnesium:      22.4     
-  Iron:           0.94          
-  Iodine:         0        
-  Fluoride:       0      
-  Zinc:           2.54          
-  Selenium:       0.0279   # converted from 27.9 µg
-  Copper:         0.063        
-  Chromium:       0      
-  Manganese:      0.018     
-  Molybdenum:     0    
+  Salt:          117          # is Sodium
+  Potassium:     239     
+  Calcium:       12       
+  Phosphorus:    184    
+  Magnesium:     22.4     
+  Iron:          0.94          
+  Iodine:        0        
+  Fluoride:      0      
+  Zinc:          2.54          
+  Selenium:      0.0279
+  Copper:        0.063        
+  Chromium:      0      
+  Manganese:     0.018     
+  Molybdenum:    0    
 
 # secondary:
 
 misc:
 
-  water:           69.9     # g
-  alcohol:         0       
-  caffeine:        0      
+  water:         69.9         # ml or g
+  alcohol:       0       
+  caffeine:      0      
 
 sources:
 
