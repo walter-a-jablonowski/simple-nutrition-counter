@@ -51,6 +51,7 @@ substances:                       # (required) key at least empty []
 
     short:        B12             # (required) short name is used as unique id over all files
     displayName:                  # (non-required) shorten name
+    altNames:     [ ]             # first is prefered
     unit:         mg              # (non-required) default is mg
     groups:       ["PolyUnsaturated/..."]  # alternative groups
     essential:    true            # (non-required but use)

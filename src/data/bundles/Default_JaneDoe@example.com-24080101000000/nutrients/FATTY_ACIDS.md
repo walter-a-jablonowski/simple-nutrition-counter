@@ -1,8 +1,6 @@
 
 AI made list of terms used online (some might be missing if was missing in sample)
 
-TASK: mabe include these terms in /nutrients
-
 ## **Saturated Fatty Acids (SFA)**
 
 - **SFA 4:0** – Butyric acid  

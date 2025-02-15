@@ -36,6 +36,7 @@ substances:
     
     short:       ALA
     displayName: ALA
+    altNames:    ["PUFA 18:3 n-3 c,c,c"]
     groups:      ["PolyUnsaturated/omega-3"]
     essential:   true
     unit:        g
@@ -53,6 +54,7 @@ substances:
 
     short:       DHA
     displayName: DHA
+    altNames:    ["PUFA 22:6 n-3"]
     groups:      ["PolyUnsaturated/omega-3"]
     essential:   true
     comment:     "GPT 2408: Fish (salmon, mackerel, sardines), fish oil, krill oil, and algae oil"
@@ -70,6 +72,7 @@ substances:
   Linoleic acid:
     
     short:      LA
+    altNames:   ["PUFA 18:2 n-6 c,c", "PUFA 18:2 c"]
     groups:     ["PolyUnsaturated/omega-6"]
     essential:  true
     comment:    "GPT 2408: Vegetable oils (sunflower, safflower, corn, soybean), nuts, and seeds"
