@@ -9,7 +9,7 @@ calories:          34         # Atwater General Factors, TASK: 32 "Atwater Speci
 
 nutritionalValues:
   
-  fat:             0.34       # lipid (fat), TASK: fat (NLEA)	0.07
+  fat:             0.34       # lipid (fat), fat (NLEA)	0.07
   saturatedFat:    0.039
   monoUnsaturated: 0.011
   polyUnsaturated: 0.017
@@ -23,7 +23,7 @@ fattyAcids:
 
   Alpha-linolenic acid: 0     # TASK: misisng in source
   Docosahexaenoic acid: 0
-  Linoleic acid:        0
+  Linoleic acid:        0     # TASK: AI says: same as PUFA 18:2 n-6
 
 carbs:
   

@@ -7,8 +7,11 @@ Please make a new file with the nutritional data from @_in.txt and use the forma
   and remove no blanks before the value
 - Fill in values far as possible, if a value is missing add a 0 in this field
 - If value for a single thing are multiple times in the source data, choose one and add all as a comment behind the field
+  - fat: refer: lipid (fat) over fat (NLEA = Nutrition Labeling and Education Act)
+- Misc
+  - as far as known Linoleic acid is: PUFA 18:2 n-6
 - Add nutritional values with no unit, just the float or int and use the unit in the comment above it
-- Leave the following fields blank: acceptable, comment         
+- Leave the following fields blank: acceptable, comment
 - lastUpdate: YYYY-MM-DD
 
  - -

@@ -1,0 +1,173 @@
+Portion selection:
+100g
+Name	Average Amount	Unit	Deriv. By	n	Samples	Min	Max	Median	Footnote	Initial Year Acquired
+Proximates:	
+          Water	69.9	g	Analytical	6	Samples	69.7	70.2	69.9	
+2010
+          Energy (Atwater General Factors)	149	kcal	Calculated						
+          Energy (Atwater Specific Factors)	156	kcal	Calculated						
+          Nitrogen	3.83	g	Analytical	6	Samples	3.68	3.93	3.86	
+2010
+          Protein	23.9	g	Calculated			23	24.6	24.1	
+          Total lipid (fat)	5.95	g	Analytical	6	Samples	5.54	6.33	5.93	
+2010
+          Total fat (NLEA)	5.23	g	Summed						
+          Ash	0.98	g	Analytical	6	Samples	0.92	1.13	0.95	
+2010
+          Carbohydrates:	
+                    Carbohydrate, by difference	0	g	Calculated						
+Minerals:	
+          Calcium, Ca	12	mg	Analytical	5	Samples	11	14	12	
+2010
+          Iron, Fe	0.94	mg	Analytical	5	Samples	0.78	1.05	1	
+2010
+          Magnesium, Mg	22.4	mg	Analytical	5	Samples	21.1	23.7	22.3	
+2010
+          Phosphorus, P	184	mg	Analytical	5	Samples	170	193	187	
+2010
+          Potassium, K	239	mg	Analytical	5	Samples	229	263	235	
+2010
+          Sodium, Na	117	mg	Analytical	5	Samples	97	169	106	
+2010
+          Zinc, Zn	2.54	mg	Analytical	5	Samples	2.22	2.78	2.64	
+2010
+          Copper, Cu	0.063	mg	Analytical	5	Samples	0.049	0.071	0.064	
+2010
+          Manganese, Mn	0.018	mg	Analytical	5	Samples	0.014	0.021	0.018	
+2010
+          Selenium, Se	27.9	µg	Analytical	5	Samples	20.3	34.5	29.8	
+2010
+Vitamins and Other Components:	
+          Thiamin	0.088	mg	Analytical	5	Samples	0.08	0.09	0.09	
+2010
+          Riboflavin	0.18	mg	Analytical	5	Samples	0.16	0.19	0.18	
+2010
+          Niacin	5.05	mg	Analytical	5	Samples	4.89	5.24	5.05	
+2010
+          Pantothenic acid	1.1	mg	Analytical	1	Samples			1.1	
+2010
+          Vitamin B-6	0.372	mg	Analytical	5	Samples	0.31	0.426	0.363	
+2010
+          Vitamin B-12	0.41	µg	Analytical	5	Samples	0.31	0.52	0.41	
+2010
+          Vitamin A, RAE	7	µg	Calculated						
+                    Retinol	7	µg	Analytical	1	Samples			7	
+2010
+          Vitamin E (alpha-tocopherol)	0.17	mg	Analytical	1	Samples			0.17	
+2010
+                    Tocopherol, beta	0	mg	Analytical	1	Samples			0	
+2010
+                    Tocopherol, gamma	0.08	mg	Analytical	1	Samples			0.08	
+2010
+                    Tocopherol, delta	0	mg	Analytical	1	Samples			0	
+2010
+                    Tocotrienol, alpha	0.01	mg	Analytical	1	Samples			0.01	
+2010
+                    Tocotrienol, beta	0	mg	Analytical	1	Samples			0	
+2010
+                    Tocotrienol, gamma	0.05	mg	Analytical	1	Samples			0.05	
+2010
+                    Tocotrienol, delta	0	mg	Analytical	1	Samples			0	
+2010
+          Vitamin D (D2 + D3), International Units	2	IU	Analytical	1	Samples			2	
+2010
+          Vitamin D (D2 + D3)	0.1	µg	Summed						
+                    Vitamin D3 (cholecalciferol)	0.1	µg	Analytical	1	Samples			0.1	
+2010
+Lipids:	
+          Fatty acids, total saturated	1.6	g	Summed						
+                    SFA 4:0	0.001	g	Analytical	5	Samples	0.001	0.001	0.001	
+2010
+                    SFA 6:0	0.001	g	Analytical	5	Samples	0.001	0.002	0.001	
+2010
+                    SFA 8:0	0.002	g	Analytical	5	Samples	0.001	0.003	0.002	
+2010
+                    SFA 10:0	0	g	Analytical	5	Samples	0	0	0	
+2010
+                    SFA 11:0	0	g	Analytical	5	Samples	0	0	0	
+2010
+                    SFA 12:0	0.003	g	Analytical	5	Samples	0.002	0.004	0.003	
+2010
+                    SFA 14:0	0.03	g	Analytical	5	Samples	0.025	0.032	0.031	
+2010
+                    SFA 15:0	0.005	g	Analytical	5	Samples	0.004	0.005	0.005	
+2010
+                    SFA 16:0	1.2	g	Analytical	5	Samples	1.09	1.3	1.22	
+2010
+                    SFA 17:0	0.006	g	Analytical	5	Samples	0.005	0.007	0.006	
+2010
+                    SFA 18:0	0.346	g	Analytical	5	Samples	0.324	0.367	0.338	
+2010
+                    SFA 20:0	0.004	g	Analytical	5	Samples	0.003	0.005	0.004	
+2010
+                    SFA 22:0	0.007	g	Analytical	5	Samples	0.006	0.008	0.007	
+2010
+                    SFA 24:0	0	g	Analytical	5	Samples	0	0	0	
+2010
+          Fatty acids, total monounsaturated	2.35	g	Summed						
+                    MUFA 14:1 c	0.012	g	Summed						
+                    MUFA 15:1	0	g	Analytical	5	Samples	0	0	0	
+2010
+                    MUFA 16:1 c	0.371	g	Analytical	5	Samples	0.322	0.441	0.35	
+2010
+                    MUFA 17:1	0.003	g	Analytical	5	Samples	0.002	0.005	0.003	
+2010
+                    MUFA 17:1 c	0.003	g	Summed						
+                    MUFA 18:1 c	1.94	g	Analytical	5	Samples	1.72	2.11	1.96	
+2010
+                    MUFA 20:1	0.023	g	Analytical	5	Samples	0.018	0.025	0.024	
+2010
+                    MUFA 20:1 c	0.023	g	Summed						
+                    MUFA 22:1 c	0	g	Analytical	5	Samples	0	0	0	
+2010
+                    MUFA 24:1 c	0.002	g	Analytical	5	Samples	0.002	0.003	0.002	
+2010
+          Fatty acids, total polyunsaturated	1.24	g	Summed						
+                    PUFA 18:2 c	1.06	g	Summed						
+                    PUFA 18:2 n-6 c,c	1.05	g	Analytical	5	Samples	0.944	1.3	0.973	
+2010
+                    PUFA 18:2 CLAs	0.006	g	Analytical	5	Samples	0.004	0.007	0.006	
+2010
+                    PUFA 18:3 c	0.055	g	Summed						
+                    PUFA 18:3 n-3 c,c,c (ALA)	0.045	g	Analytical	5	Samples	0.035	0.059	0.042	
+2010
+                    PUFA 18:3 n-6 c,c,c	0.01	g	Analytical	5	Samples	0.009	0.012	0.01	
+2010
+                    PUFA 20:2 c	0.01	g	Summed						
+                    PUFA 18:4	0	g	Analytical	5	Samples	0	0	0	
+2010
+                    PUFA 20:2 n-6 c,c	0.01	g	Analytical	5	Samples	0.009	0.013	0.009	
+2010
+                    PUFA 20:3 c	0.019	g	Summed						
+                    PUFA 20:3 n-3	0	g	Analytical	5	Samples	0	0	0	
+2010
+                    PUFA 20:3 n-6	0.019	g	Analytical	5	Samples	0.018	0.02	0.019	
+2010
+                    PUFA 20:4	0.088	g	Analytical	5	Samples	0.083	0.094	0.087	
+2010
+                    PUFA 20:4c	0.088	g	Summed						
+                    PUFA 20:5c	0.004	g	Summed						
+                    PUFA 20:5 n-3 (EPA)	0.004	g	Analytical	5	Samples	0.004	0.005	0.004	
+2010
+                    PUFA 22:2	0	g	Analytical	5	Samples	0	0	0	
+2010
+                    PUFA 22:5 c	0.008	g	Summed						
+                    PUFA 22:4	0.022	g	Analytical	5	Samples	0.02	0.024	0.022	
+2010
+                    PUFA 22:5 n-3 (DPA)	0.008	g	Analytical	5	Samples	0.008	0.009	0.008	
+2010
+                    PUFA 22:6 c	0.005	g	Summed						
+                    PUFA 22:6 n-3 (DHA)	0.005	g	Analytical	5	Samples	0.001	0.006	0.006	
+2010
+          Fatty acids, total trans	0.03	g	Summed						
+                    Fatty acids, total trans-monoenoic	0.021	g	Summed						
+                              TFA 16:1 t	0.003	g	Analytical	5	Samples	0.002	0.004	0.003	
+2010
+                              TFA 18:1 t	0.018	g	Analytical	5	Samples	0.015	0.021	0.02	
+2010
+                              TFA 22:1 t	0	g	Analytical	5	Samples	0	0	0	
+2010
+                    Fatty acids, total trans-dienoic	0.008	g	Summed						
+                              TFA 18:2 t not further defined	0.008	g	Analytical	5	Samples	0.007	0.011	0.007	
+2010
+          Cholesterol	127	mg	Analytical	5	Samples	102	135	132	

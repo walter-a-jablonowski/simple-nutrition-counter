@@ -4,12 +4,12 @@
 
 acceptable:
 comment:         
-                               # kcal (unused)
-calories:          626         # 584 (Atwater Specific), 626 (Atwater General) more similar superm
+                              # kcal (unused)
+calories:          626        # 584 (Atwater Specific), 626 (Atwater General) more similar superm
 
-nutritionalValues:             # g
+nutritionalValues:            # g
 
-  fat:             51.1
+  fat:             51.1       # TASK: prefer lipids (fat) over fat (NLEA) if different
   saturatedFat:    3.78
   monoUnsaturated: 31.3
   polyUnsaturated: 11.2
@@ -24,7 +24,7 @@ fattyAcids:                   # g
 
   Alpha-linolenic acid: 0     # TASK: missing in source (if any)
   Docosahexaenoic acid: 0
-  Linoleic acid:        0
+  Linoleic acid:        0     # TASK: AI says: same as PUFA 18:2 n-6
 
 carbs:                        # g
   

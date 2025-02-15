@@ -6,7 +6,7 @@ calories:
 
 nutritionalValues:            # g
 
-  fat:             
+  fat:                        # prefer lipid (fat) over fat (NLEA)
   saturatedFat:    
   monoUnsaturated: 
   polyUnsaturated: 
@@ -21,7 +21,7 @@ fattyAcids:                   # g
 
   Alpha-linolenic acid: 0
   Docosahexaenoic acid: 
-  Linoleic acid:        
+  Linoleic acid:              # AI says: same as PUFA 18:2 n-6
 
 carbs:                        # g
   

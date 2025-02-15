@@ -1,66 +1,97 @@
 
-calories: 165
+# 2501 verified all values from source as far as active in /nutrients (source has some more)
+#      tasks see below
 
-nutritionalValues:
+acceptable:
+comment:         
+
+calories:          156        # kcal (149 Atwater General, 156 Atwater Specific)
+
+nutritionalValues:            # g
+
+  fat:             5.95       # (5.95, 5.23 NLEA)
+  saturatedFat:    1.6    
+  monoUnsaturated: 2.35
+  polyUnsaturated: 1.24
+  carbs:           0           
+  sugar:           0           
+  sugarAlcohol:    0    
+  # fibre:
+  amino:           23.9       # is protein
+  salt:            0.117      # actually sodium in mg
+
+fattyAcids:                   # g
+
+  Alpha-linolenic acid: 0
+  Docosahexaenoic acid: 0
+  Linoleic acid:        1.05  # AI says: same as PUFA 18:2 n-6
+
+carbs:                        # g
   
-  fat: 4
-  saturatedFat: 1
-  monoUnsaturated: 1
-  polyUnsaturated: 1
-  carbs: 0
-  sugar: 0
-  amino: 23220
-  salt: 74
+  Fiber:           0         
 
-fattyAcids:
+aminoAcids:                   # mg
   
-  Alpha-linolenic acid: 0.01
-  Linoleic acid: 0.55
-  Oleic acid: 1.37
-  Palmitic acid: 0.89
-  Stearic acid: 0.27
+  Histidine:      0     
+  Isoleucine:     0    
+  Leucine:        0       
+  Lysine:         0        
+  Methionine:     0    
+  Phenylalanine:  0 
+  Threonine:      0     
+  Tryptophan:     0    
+  Valine:         0        
 
-carbs:
-
-aminoAcids:
+vitamins:                     # mg
   
-  Alanine: 1062
-  Arginine: 1113
-  Aspartic acid: 1634
-  Glutamic acid: 2735
-  Glycine: 1020
-  Histidine: 508
-  Isoleucine: 876
-  Leucine: 1433
-  Lysine: 1562
-  Methionine: 476
-  Phenylalanine: 685
-  Proline: 755
-  Serine: 667
-  Threonine: 778
-  Tryptophan: 208
-  Tyrosine: 589
-  Valine: 915
+  Vitamin A:      0.007     # converted from 7 µg
+  Vitamin D:      0.0001    # converted from 0.1 µg
+  Vitamin E:      0.17    
+  Vitamin K:      0     
+  Vitamin C:      0     
+  Thiamin B1:     0.088    
+  Riboflavin B2:  0.18 
+  Niacin B3:      5.05     
+  Pantothenic acid B5: 1.1 
+  Vitamin B6:     0.372    
+  Biotin B7:      0     
+  Folate B9:      0     
+  Vitamin B12:    0.00041  # converted from 0.41 µg
 
-vitamins:
+minerals:                     # mg
   
-  Vitamin A: 6
-  Vitamin B3: 13
-  Vitamin B5: 1
-  Vitamin B6: 1
-  Vitamin B9: 4
+  Salt:           117       # is Sodium
+  Potassium:      239     
+  Calcium:        12       
+  Phosphorus:     184    
+  Magnesium:      22.4     
+  Iron:           0.94          
+  Iodine:         0        
+  Fluoride:       0      
+  Zinc:           2.54          
+  Selenium:       0.0279   # converted from 27.9 µg
+  Copper:         0.063        
+  Chromium:       0      
+  Manganese:      0.018     
+  Molybdenum:     0    
 
-minerals:
-  
-  Potassium: 256
-  Calcium: 15
-  Phosphorus: 198
-  Magnesium: 27
-  Sodium: 74
-  Iron: 1
-  Zinc: 1
-  Selenium: 24
+# secondary:
 
-sources:           "fdc.nal.usda.gov for now"
-state:             most
-lastUpd:           2024-09-01
+misc:
+
+  water:           69.9     # g
+  alcohol:         0       
+  caffeine:        0      
+
+sources:
+
+  # https://fdc.nal.usda.gov/food-search?type=Foundation&query=Chicken
+
+  - title:   Default source (different sources, see above) = Chicken, broilers or fryers, drumstick, meat only, cooked, braised
+    comment: use this cause more similar to norma and has more nutrients  # TASK: unsure if this source is the best choice, the alternative has less data (we need better sources)
+    source:  https://fdc.nal.usda.gov/food-details/331897/nutrients
+
+  - title:   Alternative = (less ingredients or processing) Chicken, thigh, boneless, skinless
+    source:  https://fdc.nal.usda.gov/food-details/2646171/nutrientss
+
+lastUpd: 2025-02-15
