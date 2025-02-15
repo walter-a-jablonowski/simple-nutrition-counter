@@ -217,6 +217,50 @@ Meals:
 
 Improve:
 
+  Meat [only]:
+
+    short: "<b>Why?</b> \"Heals people\""
+
+    list:
+
+      - Hähnchen Gyros
+      - Hähnchen Kebab
+
+  Omega 3:
+
+    list:
+
+      - Sardine R
+      - Sardine
+
+  Almonds:
+
+    (i): |
+
+      <table class="table table-sm table-borderless">
+        <tr>
+          <td><b>Why?</b></td><td>
+            feels much better
+            <ul class="no-indent">
+              <li>maybe contains some amino acids that sometimes are too low (until filled up)</li>
+              <li>maybe it's the form of magnesium</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><b>Sources</b></td><td>
+            - 60 year old guy looking pretty young <a href="https://www.youtube.com/@CHRISGIBSONLIVE" target="_blank">Chris Gibson</a>
+        </td>
+        </tr>
+      </table>
+
+    list:
+
+      - Mandel R Bio
+      - Mandel N
+      - Mandel E
+      - Mandel A ger
+
   Bitter substances:
 
     (i): |
