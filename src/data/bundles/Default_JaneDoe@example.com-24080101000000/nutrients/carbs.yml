@@ -33,5 +33,5 @@ substances:
 
       - criteria: { gender: male, age: 40, height: "*", weight: 75 }
         lower:   # AI says 2 kcal per g
-        amount: 
-        upper:  
+        amount: 0
+        upper:  130
