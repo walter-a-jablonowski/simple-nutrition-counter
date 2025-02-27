@@ -4,8 +4,8 @@
 
 acceptable:
 comment:         
-
-calories:          156        # kcal (149 Atwater General, 156 Atwater Specific)
+                              # kcal
+calories:          156        # 149 Atwater General, 156 Atwater Specific
 
 nutritionalValues:            # g
 

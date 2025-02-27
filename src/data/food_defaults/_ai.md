@@ -5,6 +5,7 @@ Please make a new file with the nutritional data from @_in.txt and use the forma
   and remove no blanks before the value
 - Fill in values far as possible, if a value is missing add a 0 in this field
 - If value for a single thing are multiple times in the source data, choose one and add all as a comment behind the field
+  - kcal: prefer Atwater Specific over Atwater General
   - fat: refer: lipid (fat) over fat (NLEA = Nutrition Labeling and Education Act)
 - Names mapping
   - PUFA 18:3 n-3 c,c,c (ALA) = Alpha-linolenic acid (ALA)

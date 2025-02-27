@@ -5,7 +5,7 @@
 acceptable:
 comment:         
                               # kcal
-calories:          137        # double in source data
+calories:          133        # Atwater General: 137, Atwater Specific: 133
 
 nutritionalValues:            # g
 

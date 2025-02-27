@@ -5,7 +5,7 @@
 acceptable:
 comment:         
                               # unused
-calories:          34         # Atwater General Factors, TASK: 32 "Atwater Specific Factors"
+calories:          32         # 34 Atwater General, 32 Atwater Specific
 
 nutritionalValues:
   
