@@ -1,4 +1,7 @@
 
+# 2502 verified all values from source as far as active in /nutrients
+#      tasks see below
+
 acceptable:
 comment:         
                               # kcal
@@ -10,7 +13,7 @@ nutritionalValues:            # g
   saturatedFat:    0          
   monoUnsaturated: 0          
   polyUnsaturated: 0          
-  carbs:           26.5       # Carbohydrate by difference
+  carbs:           26.5       # carbs by difference
   sugar:           0          
   sugarAlcohol:    0          
   # fibre:                    # moved to carbs section
