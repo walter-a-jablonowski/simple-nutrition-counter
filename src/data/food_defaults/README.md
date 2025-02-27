@@ -2,11 +2,15 @@
 
 Default values for basic foods ( buyable food list see bundles)
 
-- [Naming scheme](#naming-scheme)
-- [File structure](#file-scheme)
+See also
+
+- [data readme](../README.md)
 
 
-## Manual
+Manual
+----------------------------------------------------------
+
+see also: _blank_ai.yml _ai.md
 
 - kcal: Value from food over Atwater Specific over Atwater General
 
