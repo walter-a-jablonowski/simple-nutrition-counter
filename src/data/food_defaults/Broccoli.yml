@@ -15,7 +15,7 @@ nutritionalValues:
   polyUnsaturated: 0.017
   carbs:           3.8        # by summation, TASK: by difference 6.27
   sugar:           1.4
-  # fibre:         2.4        # TASK: moved
+  fibre:           2.4
   amino:           2.57
   salt:            0.036      # Sodium, Na in source
 

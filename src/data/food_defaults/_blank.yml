@@ -17,9 +17,9 @@ nutritionalValues:            # g
   carbs:           
   sugar:           
   sugarAlcohol:    
-  # fibre:                    # TASK: moved
+  fibre:                      # TASK: dupl (see below)
   amino:           
-  salt:            
+  salt:                       # TASK: dupl (see below)
 
 # 2501 added only what we already have active in nutrients
 

@@ -16,9 +16,9 @@ nutritionalValues:            # g
   carbs:           20.3       
   sugar:           0
   sugarAlcohol:    0
-  # fibre:                     
+  fibre:           5.92
   amino:           7.02
-  salt:            0
+  salt:            0.202      # Sodium, Na in source
 
 fattyAcids:                   # g
 
@@ -60,7 +60,7 @@ vitamins:                     # mg
 
 minerals:                     # mg
   
-  Salt:          202
+  Salt:          202          # Sodium, Na in source
   Potassium:     137
   Calcium:       40
   Phosphorus:    86

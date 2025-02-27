@@ -16,9 +16,9 @@ nutritionalValues:            # g
   carbs:           0          
   sugar:           0           
   sugarAlcohol:    0    
-  # fibre:
-  amino:           23.9       # is protein
-  salt:            0.117      # actually sodium in mg
+  fibre:           0
+  amino:           23.9       # is proein
+  salt:            0.117      # Sodium, Na in source
 
 fattyAcids:                   # g
 
@@ -60,7 +60,7 @@ vitamins:                     # mg
 
 minerals:                     # mg
   
-  Salt:          117          # is Sodium
+  Salt:          117          # Sodium, Na in source
   Potassium:     239     
   Calcium:       12       
   Phosphorus:    184    

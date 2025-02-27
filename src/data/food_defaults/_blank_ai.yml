@@ -13,7 +13,7 @@ nutritionalValues:            # g
   carbs:           
   sugar:           
   sugarAlcohol:    
-  # fibre:                    # moved to carbs section
+  fibre:                      
   amino:                      # is proein
   salt:                       # Sodium, Na in source
 
@@ -25,7 +25,7 @@ fattyAcids:                   # g
 
 carbs:                        # g
   
-  Fiber:         
+  Fiber:                      
 
 aminoAcids:                   # mg
   
@@ -57,7 +57,7 @@ vitamins:                     # mg
 
 minerals:                     # mg
   
-  Salt:                       # is Sodium
+  Salt:                       # Sodium, Na in source
   Potassium:     
   Calcium:       
   Phosphorus:    

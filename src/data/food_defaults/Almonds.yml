@@ -16,7 +16,7 @@ nutritionalValues:            # g
   carbs:           20         # by difference
   sugar:           0
   sugarAlcohol:    0
-  # fibre:                    # TASK: moved
+  fibre:           10.8
   amino:           21.4
   salt:            0.0025     # Sodium, Na in source, < 2.5mg converted to g
 
@@ -60,7 +60,7 @@ vitamins:                     # mg
 
 minerals:                     # mg
   
-  Salt:          2.5          # is Sodium, < 2.5
+  Salt:          2.5          # Sodium, Na in source, < 2.5
   Potassium:     733
   Calcium:       254
   Phosphorus:    503
