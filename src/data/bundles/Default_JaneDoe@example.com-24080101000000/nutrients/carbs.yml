@@ -19,8 +19,8 @@ amounts:
 
   - criteria: { gender: "*", age: "*", height: "*", weight: "*" }
     lower:  0
-    amount: 0
-    upper:  50
+    amount: 80
+    upper:  130
 
 substances:
 
@@ -32,6 +32,6 @@ substances:
     amounts:
 
       - criteria: { gender: male, age: 40, height: "*", weight: 75 }
-        lower:   # AI says 2 kcal per g
-        amount: 0
-        upper:  130
+        lower:  25  # TASK: by AI
+        amount: 40  # 30-38
+        upper:  50  # diabetes control  AI says 2 kcal per g
