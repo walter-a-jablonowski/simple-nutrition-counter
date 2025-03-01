@@ -202,19 +202,22 @@ $data = $this->foodsModel->get($entryName);
 
     $headlines = [
       'nutritionalValues' => 'Nutritional values',
-      'fattyAcids' => 'Fatty acids',
-      'carbs'      => 'Carbs',
-      'aminoAcids' => 'Amino acids',
-      'vitamins'   => 'Vitamins',
-      'minerals'   => 'Minerals',
-      'secondary'  => 'Secondary plant substances',
-      'misc'       => 'Misc',
-      'water'      => 'Water'
+      'fattyAcids'        => 'Fatty acids',
+      'carbs'             => 'Carbs',
+      'aminoAcids'        => 'Amino acids',
+      'vitamins'          => 'Vitamins',
+      'minerals'          => 'Minerals',
+      'secondary'         => 'Secondary plant substances',
+      'misc'              => 'Misc',
+      'water'             => 'Water'
     ];
 
     foreach( array_merge(['nutritionalValues'], static::NUTRIENT_GROUPS) as $groupName ):
 
-      $collapseId = $entryId . ucwords( $this->nutrientsModel->get("$groupName.short")) . 'Collapse';
+      if( $groupName == 'nutritionalValues')
+        $collapseId = $entryId . 'NutritionalValuesCollapse';
+      else
+        $collapseId = $entryId . ucwords( $this->nutrientsModel->get("$groupName.short")) . 'Collapse';
   ?>
 
     <?php if( ! empty($data[$groupName])): ?>

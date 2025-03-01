@@ -69,7 +69,7 @@ class AppController extends ControllerBase
 
     // Nutrients model
 
-    $this->nutrientsModel = new SimpleData();  // TASK: (advanced) merge with bundle /nutrients
+    $this->nutrientsModel = new SimpleData();      // TASK: (advanced) merge with bundle /nutrients
 
     foreach( self::NUTRIENT_GROUPS as $groupName )
     {
