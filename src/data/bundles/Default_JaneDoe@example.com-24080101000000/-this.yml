@@ -101,11 +101,13 @@ goals: |
       than 4-6 hours ("eat less often"), means: eat all meals at once.
       <b>Or:</b> calories reduced ~1800 kcal for a couple of days.
     </li><li>
-      <b>Fill up energy:</b> Also have days with more food to fill up (just in case) ~2500 kcal <br>
+      <b>Fill up energy:</b> Also have days with more food to fill up (just in case) ~2500 kcal,
       <b>Winter:</b> Limited carbs may help, so the body can heat up (corn)
     </li><li>
-      <b>Amino acids:</b> maintain muscle may need: 1.6 (most say: 0.8), gain muscle: 1.8 or 2.0 - 2.2g per kg weight <br>
+      <b>Amino acids:</b> maintain muscle may need: 1.6 (most say: 0.8), gain muscle: 1.8 or 2.0 - 2.2g per kg weight,
       <b>Magnesium:</b> more if sports
+    </li><li>
+      <b>Fibre (sources):</b> Almonds (12g), Lentils (8g), Chickpeas (~12g), Broccoli, Kidney (15-25g)
     </li><li>
       <b>On the go</b> the best food that is available is used
     </li>
@@ -144,8 +146,8 @@ primaryGoals:
 
   calories:    { label: "18-25k",          }
   "fat:amino": { label: "(2:1)",  calc: "" }
-  carbs:       { label: "&le; 50g"         }
-  fibre:       { label: "&ge; 2 cups",     }
+  carbs:       { label: "&le; 80g"         }
+  fibre:       { label: "40-50g",          }  # >= &ge;
   salt:        { label: "4-6g",            }
 
   # 0.8g per kg weight
