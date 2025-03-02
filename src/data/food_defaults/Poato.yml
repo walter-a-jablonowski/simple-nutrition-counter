@@ -1,67 +1,91 @@
 
-calories: 79
+# 2503 verified all values from source as far as active in /nutrients
+#      tasks see below
 
-nutritionalValues:
+acceptable:
+comment:         
+                              # kcal
+calories:          72         # 72 Atwater Specific, 73 Atwater General
 
-  fat: 0
-  saturatedFat: 0
-  carbs: 17
-  sugar: 1
-  amino: 329
-  salt: 6
+nutritionalValues:            # g
 
-fattyAcids:
+  fat:             0.26       # prefer lipid (fat) over fat (NLEA)
+  saturatedFat:    0
+  monoUnsaturated: 0
+  polyUnsaturated: 0
+  carbs:           16
+  sugar:           0.65
+  sugarAlcohol:    0
+  fibre:           13.8
+  amino:           1.81       # is proein
+  salt:            0.002      # Sodium, Na in source
 
-  Alpha-linolenic acid: 0.01
-  Linoleic acid: 0.03
-  Oleic acid: 0
-  Palmitic acid: 0.02
-  Stearic acid: 0.01
+fattyAcids:                   # g
 
-carbs:
+  Alpha-linolenic acid: 0     # AI says it's: PUFA 18:3 n-3 c,c,c
+  Docosahexaenoic acid: 0     # AI says it's: PUFA 22:6 n-3
+  Linoleic acid:        0     # AI says it's: PUFA 18:2 n-6 c,c
 
-  Fibre: 2  # TASK
-  Glucose: 0.3
-  Fructose: 0.3
-  Sucrose: 0.2
-  Starch: 15
+carbs:                        # g
+  
+  Fiber:         13.8       
 
-aminoAcids:
+aminoAcids:                   # mg
+  
+  Histidine:     0            # TASK: ?
+  Isoleucine:    0
+  Leucine:       0
+  Lysine:        0
+  Methionine:    0
+  Phenylalanine: 0
+  Threonine:     0
+  Tryptophan:    0
+  Valine:        0
 
-  Alanine: 44
-  Arginine: 82
-  Aspartic acid: 188
-  Glutamic acid: 245
-  Glycine: 40
-  Histidine: 23
-  Isoleucine: 45
-  Leucine: 66
-  Lysine: 57
-  Methionine: 23
-  Phenylalanine: 50
-  Proline: 42
-  Serine: 47
-  Threonine: 43
-  Tryptophan: 17
-  Tyrosine: 36
-  Valine: 61
+vitamins:                     # mg
+  
+  Vitamin A:     0
+  Vitamin D:     0
+  Vitamin E:     0
+  Vitamin K:     0.0008       # phylloquinone 0.8	µg, Dihydrophylloquinone < 0.1 µg, Menaquinone4 < 0.1 µg
+  Vitamin C:     23.3
+  Thiamin B1:    0.051
+  Riboflavin B2: 0
+  Niacin B3:     1.58
+  Pantothenic acid B5: 0
+  Vitamin B6:    0.145
+  Biotin B7:     0
+  Folate B9:     0
+  Vitamin B12:   0
 
-vitamins:
+minerals:                     # mg
+  
+  Salt:          2            # Sodium, Na in source
+  Potassium:     446
+  Calcium:       6
+  Phosphorus:    57
+  Magnesium:     22.3
+  Iron:          0.37
+  Iodine:        0
+  Fluoride:      0
+  Zinc:          0.37
+  Selenium:      0.002        # < 2.5 µg
+  Copper:        0.13
+  Chromium:      0
+  Manganese:     0.16
+  Molybdenum:    0.0078
 
-  Vitamin C: 20
-  Vitamin K: 2
-  Vitamin B3: 1
-  Vitamin B5: 1
-  Vitamin B9: 17
+# secondary:
 
-minerals:
+misc:
 
-  Potassium: 421
-  Calcium: 12
-  Phosphorus: 57
-  Magnesium: 23
-  Sodium: 6
-  Iron: 1
+  water:         81.1         # ml or g
+  alcohol:       0
+  caffeine:      0
 
-sources:           "fdc.nal.usda.gov for now"
-lastUpd:           2024-09-01
+sources:
+
+  - title:   Default source (different sources, see above) = Nuts, almonds, whole
+    source:  https://fdc.nal.usda.gov/food-details/2346403/nutrients
+
+lastUpd: 2025-03-02
