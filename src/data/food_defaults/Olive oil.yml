@@ -1,40 +1,95 @@
 
-calories: 824
+# 2503 verified all values from source as far as active in /nutrients
+#      tasks see below
 
-nutritionalValues:
+acceptable:                   # TASK: has Phytosterols, Squalene acc 2 ChatGPT
+comment:         
+                              # kcal
+calories:          900        # missing in source, used value from food
 
-  fat: 92
-  saturatedFat: 13
-  monoUnsaturated: 67
-  polyUnsaturated: 9
-  carbs: 0
-  sugar: 0
-  amino: 0
-  salt: 0
+nutritionalValues:            # g
 
-fattyAcids:
+  fat:             100        # only NLEA in source, used values from food
+  saturatedFat:    16.1
+  monoUnsaturated: 76.3
+  polyUnsaturated: 7.6
+  carbs:           0          
+  sugar:           0          
+  sugarAlcohol:    0    
+  fibre:           0                      
+  amino:           0          # is proein
+  salt:            0          # Sodium, Na in source
 
-  Oleic acid: 61.96
-  Linoleic acid: 7.85
-  Palmitic acid: 10.45
-  Stearic acid: 2.18
-  Alpha-linolenic acid: 0.76
+fattyAcids:                   # g
 
-carbs:
+  Alpha-linolenic acid: 0.651 # AI says it's: PUFA 18:3 n-3 c,c,c
+  Docosahexaenoic acid: 0     # AI says it's: PUFA 22:6 n-3
+  Linoleic acid:        8.4   # AI says it's: PUFA 18:2 n-6 c,c
 
-aminoAcids:
+carbs:                        # g
+  
+  Fiber:           0          
 
-vitamins:
+aminoAcids:                   # mg
+  
+  Histidine:       0
+  Isoleucine:      0
+  Leucine:         0
+  Lysine:          0
+  Methionine:      0
+  Phenylalanine:   0
+  Threonine:       0
+  Tryptophan:      0
+  Valine:          0
 
-  Vitamin E: 14
-  Vitamin K: 60
+vitamins:                     # mg
+  
+  Vitamin A:       0
+  Vitamin D:       0
+  Vitamin E:       20.9       # from alternative source cause missing
+  Vitamin K:       0.026
+  Vitamin C:       0
+  Thiamin B1:      0
+  Riboflavin B2:   0
+  Niacin B3:       0
+  Pantothenic acid B5: 0
+  Vitamin B6:      0
+  Biotin B7:       0
+  Folate B9:       0
+  Vitamin B12:     0
 
-minerals:
+minerals:                     # mg
+  
+  Salt:            0          # Sodium, Na in source
+  Potassium:       0
+  Calcium:         0
+  Phosphorus:      0
+  Magnesium:       0
+  Iron:            0
+  Iodine:          0
+  Fluoride:        0
+  Zinc:            0
+  Selenium:        0
+  Copper:          0
+  Chromium:        0
+  Manganese:       0
+  Molybdenum:      0
 
-  Potassium: 1
-  Calcium: 1
-  Sodium: 2
-  Iron: 1
+# secondary:
 
-sources:           "fdc.nal.usda.gov for now"
-lastUpd:           
+misc:
+
+  water:           0          # has none, ml or g
+  alcohol:         0
+  caffeine:        0
+
+sources:
+
+  - title:   Default source (different sources, see above) = Oil, olive, extra virgin
+    source:  https://fdc.nal.usda.gov/food-details/748608/nutrients
+
+  - title:   Oil, olive, extra light
+    comment: currently used for vitamins (macro nutriens are from food)
+    source:  https://fdc.nal.usda.gov/food-details/323294/nutrients
+
+lastUpd: 2025-03-03
