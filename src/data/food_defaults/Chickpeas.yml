@@ -9,7 +9,7 @@ calories:          133        # Atwater General: 137, Atwater Specific: 133
 
 nutritionalValues:            # g
 
-  fat:             3.1        # TASK: prefer lipids (fat) over fat (NLEA) if different
+  fat:             3.1        # prefer lipids (fat) over fat (NLEA) if different
   saturatedFat:    0          # much data missing in default source
   monoUnsaturated: 0
   polyUnsaturated: 0

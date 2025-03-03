@@ -4,12 +4,12 @@
 
 acceptable:
 comment:         
-                              # kcal (unused)
+                              # kcal
 calories:          584        # 584 Atwater Specific, 626 Atwater General
 
 nutritionalValues:            # g
 
-  fat:             51.1       # TASK: prefer lipids (fat) over fat (NLEA) if different
+  fat:             51.1       # prefer lipids (fat) over fat (NLEA) if different
   saturatedFat:    3.78
   monoUnsaturated: 31.3
   polyUnsaturated: 11.2
