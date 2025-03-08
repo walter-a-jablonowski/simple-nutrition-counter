@@ -34,7 +34,10 @@
       <li class = "list-group-item d-flex justify-content-between align-items-center mt-2"
           style = "background-color: #e0e0e0;"
       >
-        <?= $this->captions[$shortName] ?>
+        <span>
+          <?= $this->captions[$shortName] ?>
+          <i class="bi bi-info-circle ms-1" style="color: #6c757d;"></i>
+        </span>
         <a data-bs-toggle="collapse" href="#<?= $shortName ?>Collapse" class="text-body-secondary" role="button">
           <i class="bi bi-arrow-down-circle"></i>
         </a>
