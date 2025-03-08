@@ -521,7 +521,7 @@ class MainController
     {
       const group = entry.dataset.group
       const short = entry.dataset.short
-      const currentSum = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.nutrients[group]?.[short] ?? 0), 0).toFixed(1))
+      const currentSum = Number( foodEntries.reduce((sum, entry) => sum + Number( entry.nutrients[group]?.[short] ?? 0), 0).toFixed(1))
 
       entry.dataset.current = currentSum
 
