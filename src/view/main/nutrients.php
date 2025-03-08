@@ -34,10 +34,7 @@
       <li class = "list-group-item d-flex justify-content-between align-items-center mt-2"
           style = "background-color: #e0e0e0;"
       >
-        <span>
-          <?= $this->captions[$shortName] ?>
-          <i class="bi bi-info-circle ms-1" style="color: #6c757d;"></i>
-        </span>
+        <?= $this->captions[$shortName] ?>
         <a data-bs-toggle="collapse" href="#<?= $shortName ?>Collapse" class="text-body-secondary" role="button">
           <i class="bi bi-arrow-down-circle"></i>
         </a>
@@ -64,6 +61,7 @@
             <div class="row">
               <div class="col text-nowrap overflow-hidden">
                 <?= self::iif( $data['displayName'], $data['displayName'], $data['name']) ?>
+                <i class="bi bi-info-circle ms-1" style="color: #bfbfbf; font-size: 0.8em;"></i>
               </div>
               <div class="col-4 text-secondary text-end small text-nowrap overflow-hidden">
                 <span class="vals">0 / <?= $data['ideal'] ?></span> <?= $data['unit'] ?>
