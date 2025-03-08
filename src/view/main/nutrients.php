@@ -48,7 +48,7 @@
                data-bs-toggle = "modal"
                data-bs-target = "#infoModal"
                data-title     = "Foods"
-               data-source    = "#<?= $entryId ?>Data"
+               data-source    = "#<?= $short ?>Data"
 
                data-group     = "<?= $shortName ?>"
                data-short     = "<?= $short ?>"
@@ -56,6 +56,7 @@
                data-ideal     = "<?= $data['ideal'] ?>"
                data-upper     = "<?= $data['upper'] ?>"
                data-current   = "0"
+               data-unit      = "<?= $data['unit'] ?>"
           >
             <div class="row">
               <div class="col text-nowrap overflow-hidden">

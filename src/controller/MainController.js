@@ -521,9 +521,22 @@ class MainController
     {
       const group = entry.dataset.group
       const short = entry.dataset.short
-      const currentSum = Number( foodEntries.reduce((sum, entry) => sum + Number( entry.nutrients[group]?.[short] ?? 0), 0).toFixed(1))
-
+      
+      // const currentSum = Number( foodEntries.reduce((sum, entry) => sum + Number( entry.nutrients[group]?.[short] ?? 0), 0).toFixed(1))
+      const foodContributions = [];
+      for( let i = 0; i < foodEntries.length; i++ ) {
+        const food = foodEntries[i];
+        const value = Number(food.nutrients[group]?.[short] ?? 0);
+        if( value > 0 )
+          foodContributions.push({
+            name: food.name,  // for the name list below
+            value: value
+          });
+      }
+      
+      const currentSum = foodContributions.reduce((sum, item) => sum + item.value, 0)
       entry.dataset.current = currentSum
+
 
       let progressBarColor = 'bg-secondary'
 
@@ -539,6 +552,22 @@ class MainController
 
       entry.find('.progress-bar').classList.remove('bg-secondary', 'bg-success', 'bg-danger')
       entry.find('.progress-bar').classList.add(progressBarColor)
+
+      // Table in modal
+
+      let tableHtml = '<table class="table table-borderless table-sm mb-2">'
+      tableHtml += '<tbody>'
+      foodContributions.forEach( item => {
+        const percentage = ((item.value / entry.dataset.ideal) * 100).toFixed(1)
+        tableHtml += `<tr>
+          <td>${item.name}</td>
+          <td class="text-end">${item.value.toFixed(1)} ${entry.dataset.unit}</td>
+          <td class="text-end text-muted">(${percentage}%)</td>
+        </tr>`
+      })
+      tableHtml += '</tbody></table>'
+      
+      query('#' + entry.dataset.short + 'Data').innerHTML = tableHtml
     }
   }
 
