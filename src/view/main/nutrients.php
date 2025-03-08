@@ -43,13 +43,19 @@
 
         <?php foreach( $group as $short => $data ): ?>
 
-          <div class      = "nutrients-entry mb-2"
-               data-group = "<?= $shortName ?>"
-               data-short = "<?= $short ?>"
-               data-lower = "<?= $data['lower'] ?>"
-               data-ideal = "<?= $data['ideal'] ?>"
-               data-upper = "<?= $data['upper'] ?>"
-               data-current = "0"
+          <div class = "nutrients-entry mb-2"
+
+               data-bs-toggle = "modal"
+               data-bs-target = "#infoModal"
+               data-title     = "Foods"
+               data-source    = "#<?= $entryId ?>Data"
+
+               data-group     = "<?= $shortName ?>"
+               data-short     = "<?= $short ?>"
+               data-lower     = "<?= $data['lower'] ?>"
+               data-ideal     = "<?= $data['ideal'] ?>"
+               data-upper     = "<?= $data['upper'] ?>"
+               data-current   = "0"
           >
             <div class="row">
               <div class="col text-nowrap overflow-hidden">
@@ -67,6 +73,9 @@
                 <!-- <span><span class="progress-label">0 / < ?= $data['ideal'] ?></span></span> -->
               </div>
             </div>
+          </div>
+          <div id="<?= $short ?>Data" class="d-none">
+            &nbsp;la
           </div>
         <?php endforeach; ?>
 

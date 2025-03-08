@@ -511,6 +511,7 @@ class MainController
     query('#saltSum').textContent  = foodEntries.reduce((sum, entry) => sum + Number(entry.salt),  0).toFixed(1)  // 1 decimal place
     query('#priceSum').textContent = foodEntries.reduce((sum, entry) => sum + Number(entry.price), 0).toFixed(2)  // 2 decimal places
 
+
     // Nutrients tab
     // TASK: maybe add a simple sum first (no percent) #code/progress
 

@@ -41,7 +41,7 @@ $showInfo = $this->foodsModel->get("$entryName.comment")  // has comment might m
       <!-- < ?= self::iif( $price && $expensive, settings::get('currencySymbol')) ?> -->
       <?= self::iif( $price && $expensive, '<i class="bi ' . settings::get('currencyIcon') . ' small text-secondary"></i>') ?>
     </div>
-    </div>
+  </div>
   <div id="<?= $entryId ?>Headline" class="d-none">
     <?php
 
