@@ -544,16 +544,16 @@ class MainController
       // Table in modal
 
       let foodContributions = [];
-      for( let i = 0; i < foodEntries.length; i++ ) {
+      for( let i = 0; i < foodEntries.length; i++ )
+      {
         const food = foodEntries[i];
         let value = 0;
         
         // Handle nested nutrient structure for amino, vit, min, and fat groups
-        if (['amino', 'vit', 'min', 'fat'].includes(group) && food.nutrients[group]) {
+        if(['amino', 'vit', 'min', 'fat'].includes(group) && food.nutrients[group])
           value = Number(food.nutrients[group][short] ?? 0);
-        } else {
+        else
           value = Number(food.nutrients[group]?.[short] ?? 0);
-        }
         
         if( value > 0 )
           foodContributions.push({ name: food.food, value: value });
@@ -561,24 +561,19 @@ class MainController
 
       foodContributions.sort((a, b) => b.value - a.value);
 
-      let tableHtml = '<table class="table table-borderless table-sm mb-2">'
-      
-      if( foodContributions.length > 0 ) {
-        foodContributions.forEach( item => {
-          const percentage = ((item.value / entry.dataset.ideal) * 100).toFixed(1)
-          tableHtml += `<tr>
-            <td>${item.name}</td>
-            <td class="text-end">${item.value.toFixed(1)} ${entry.dataset.unit}</td>
-            <td class="text-end text-muted">(${percentage}%)</td>
-          </tr>`
-        })
-      }
-      else
-        tableHtml += '<tr><td colspan="3" class="text-center text-muted">No contributions</td></tr>'
-      
-      tableHtml += '</table>'
-      
-      query('#' + entry.dataset.short + 'Data').innerHTML = tableHtml
+      query('#' + entry.dataset.short + 'Data').innerHTML = 
+        '<table class="table table-borderless table-sm mb-2">' +
+        (foodContributions.length > 0 
+          ? foodContributions.map(item => 
+              `<tr>
+                <td>${item.name}</td>
+                <td class="text-end">${item.value.toFixed(1)} ${entry.dataset.unit}</td>
+                <td class="text-end text-muted">(${((item.value / entry.dataset.ideal) * 100).toFixed(1)}%)</td>
+              </tr>`
+            ).join('')
+          : '<tr><td colspan="3" class="text-center text-muted">No contributions</td></tr>'
+        ) +
+        '</table>';
     }
   }
 
