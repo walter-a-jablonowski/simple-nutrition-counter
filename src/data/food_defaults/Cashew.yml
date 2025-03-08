@@ -1,0 +1,91 @@
+
+# 2503 verified all values from source as far as active in /nutrients
+#      tasks see below
+
+acceptable:
+comment:         
+                              # kcal
+calories:          533        # Atwater Specific: 533, Atwater General: 565
+
+nutritionalValues:            # g
+
+  fat:             38.9       # prefer lipid (fat) over fat (NLEA)
+  saturatedFat:    0          # TASK: has some?
+  monoUnsaturated: 0
+  polyUnsaturated: 0
+  carbs:           36.3       # by difference
+  sugar:           0          # TASK: has some?
+  sugarAlcohol:    0
+  fibre:           4.1                      
+  amino:           17.4       # is protein
+  salt:            0.005      # Sodium, Na in source
+
+fattyAcids:                   # g
+
+  Alpha-linolenic acid: 0     # AI says it's: PUFA 18:3 n-3 c,c,c
+  Docosahexaenoic acid: 0     # AI says it's: PUFA 22:6 n-3
+  Linoleic acid:        0     # AI says it's: PUFA 18:2 n-6 c,c
+
+carbs:                        # g
+  
+  Fiber:           4.1
+
+aminoAcids:                   # mg
+  
+  Histidine:       0          # TASK: missing?
+  Isoleucine:      0
+  Leucine:         0
+  Lysine:          0
+  Methionine:      0
+  Phenylalanine:   0
+  Threonine:       0
+  Tryptophan:      0
+  Valine:          0
+
+vitamins:                     # mg
+  
+  Vitamin A:       0
+  Vitamin D:       0
+  Vitamin E:       0
+  Vitamin K:       0
+  Vitamin C:       0
+  Thiamin B1:      0
+  Riboflavin B2:   0
+  Niacin B3:       0
+  Pantothenic acid B5: 0
+  Vitamin B6:      0
+  Biotin B7:       0
+  Folate B9:       0
+  Vitamin B12:     0
+
+minerals:                     # mg
+  
+  Salt:            5          # Sodium, Na in source
+  Potassium:       638
+  Calcium:         42
+  Phosphorus:      532
+  Magnesium:       251
+  Iron:            5.99
+  Iodine:          0
+  Fluoride:        0
+  Zinc:            5.07
+  Selenium:        0.0207     # 20.7 µg converted to mg
+  Copper:          2.22
+  Chromium:        0
+  Manganese:       1.95
+  Molybdenum:      0
+
+# secondary:
+
+misc:
+
+  water:           4.81       # ml or g
+  alcohol:         0
+  caffeine:        0
+
+sources:
+
+  - title:  Default source (different sources, see above) = Nuts, cashew nuts
+    source: https://fdc.nal.usda.gov/food-details/2515374/nutrients
+
+lastUpd: 2025-03-08
