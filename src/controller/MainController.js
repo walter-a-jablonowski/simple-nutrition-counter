@@ -522,19 +522,7 @@ class MainController
       const group = entry.dataset.group
       const short = entry.dataset.short
       
-      // const currentSum = Number( foodEntries.reduce((sum, entry) => sum + Number( entry.nutrients[group]?.[short] ?? 0), 0).toFixed(1))
-      const foodContributions = [];
-      for( let i = 0; i < foodEntries.length; i++ ) {
-        const food = foodEntries[i];
-        const value = Number(food.nutrients[group]?.[short] ?? 0);
-        if( value > 0 )
-          foodContributions.push({
-            name: food.name,  // for the name list below
-            value: value
-          });
-      }
-      
-      const currentSum = foodContributions.reduce((sum, item) => sum + item.value, 0)
+      const currentSum = Number( foodEntries.reduce((sum, entry) => sum + Number( entry.nutrients[group]?.[short] ?? 0), 0).toFixed(1))
       entry.dataset.current = currentSum
 
 
@@ -555,17 +543,40 @@ class MainController
 
       // Table in modal
 
+      let foodContributions = [];
+      for( let i = 0; i < foodEntries.length; i++ ) {
+        const food = foodEntries[i];
+        let value = 0;
+        
+        // Handle nested nutrient structure for amino, vit, min, and fat groups
+        if (['amino', 'vit', 'min', 'fat'].includes(group) && food.nutrients[group]) {
+          value = Number(food.nutrients[group][short] ?? 0);
+        } else {
+          value = Number(food.nutrients[group]?.[short] ?? 0);
+        }
+        
+        if( value > 0 )
+          foodContributions.push({ name: food.food, value: value });
+      }
+
+      foodContributions.sort((a, b) => b.value - a.value);
+
       let tableHtml = '<table class="table table-borderless table-sm mb-2">'
-      tableHtml += '<tbody>'
-      foodContributions.forEach( item => {
-        const percentage = ((item.value / entry.dataset.ideal) * 100).toFixed(1)
-        tableHtml += `<tr>
-          <td>${item.name}</td>
-          <td class="text-end">${item.value.toFixed(1)} ${entry.dataset.unit}</td>
-          <td class="text-end text-muted">(${percentage}%)</td>
-        </tr>`
-      })
-      tableHtml += '</tbody></table>'
+      
+      if( foodContributions.length > 0 ) {
+        foodContributions.forEach( item => {
+          const percentage = ((item.value / entry.dataset.ideal) * 100).toFixed(1)
+          tableHtml += `<tr>
+            <td>${item.name}</td>
+            <td class="text-end">${item.value.toFixed(1)} ${entry.dataset.unit}</td>
+            <td class="text-end text-muted">(${percentage}%)</td>
+          </tr>`
+        })
+      }
+      else
+        tableHtml += '<tr><td colspan="3" class="text-center text-muted">No contributions</td></tr>'
+      
+      tableHtml += '</table>'
       
       query('#' + entry.dataset.short + 'Data').innerHTML = tableHtml
     }
