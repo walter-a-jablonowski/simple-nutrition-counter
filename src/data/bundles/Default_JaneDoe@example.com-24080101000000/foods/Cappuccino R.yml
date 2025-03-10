@@ -15,6 +15,10 @@ nutritionalValues:
   amino:           2.7
   salt:            0.08
 
+misc:
+
+  water:           100  # ca
+
 sources:           { nutriVal: "is just a cp of Eni" }  # TASK: fix
 lastUpd:           2024-04-30
 lastPriceUpd:      2024-04-30

@@ -20,6 +20,10 @@ nutritionalValues:
   amino:           3.25
   salt:            0.12
 
+misc:
+
+  water:           100  # ca
+
 sources:           { nutriVal: "pack" }
 lastUpd:           2024-06-08
 lastPriceUpd:      2024-06-08

@@ -9,14 +9,17 @@ usedAmounts:       [1]
 calories:          27
 nutritionalValues:
 
-  # TASK: alcohol 2.6%
-
   fat:             0
   saturatedFat:    0
   carbs:           6.1
   sugar:           5.9
   amino:           0
   salt:            0.002
+
+misc:
+
+  water:           100  # ca
+  # TASK: alcohol 2.6%
 
 sources:           { nutriVal: "web (third party, may differ, vendor has none even on pack)", price: "web" }
 lastUpd:           2024-06-18

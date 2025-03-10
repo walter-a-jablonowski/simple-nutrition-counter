@@ -47,8 +47,8 @@ secondary:
 misc:
 
   water:             
-  alcohol:
   caffeine:
+  alcohol:
 
 sources:           { nutriVal: "web|pack (information on packaging may differ slightly)", nutrients: "...", price: "..." }
 lastUpd:           

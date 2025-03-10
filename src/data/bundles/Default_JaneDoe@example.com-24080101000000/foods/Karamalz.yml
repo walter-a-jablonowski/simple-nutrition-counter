@@ -16,6 +16,10 @@ nutritionalValues:
   amino:           0.4
   salt:            0.01
 
+misc:
+
+  water:           100  # ca
+
 sources:           { nutriVal: "web", price: "web" }
 lastUpd:           2024-04-17
 lastPriceUpd:      2024-05-15

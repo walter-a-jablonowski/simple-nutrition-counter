@@ -79,8 +79,8 @@ secondary:           { usage: "Secondary plant substances", required: false, typ
 misc:
 
   water:             { usage: "", required: false, type: "int" }
-  alcohol:           { usage: "", required: false, type: "float" }
   caffeine:          { usage: "", required: false, type: "float" }
+  alcohol:           { usage: "", required: false, type: "float" }
 
 sources:             { usage: "same as data > shared > sources, like { nutriVal: \"web|pack (information on packaging may differ slightly)\", nutrients: \"...\", price: \"...\" }", sources
                          required: true }  # TASK
