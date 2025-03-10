@@ -14,9 +14,9 @@ substances:
     amounts:  # currently we use the first entry hard coded only
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-        lower:  5%
-        amount: 100 # TASK: dummy entry
-        upper:  5%
+        lower:  0%
+        amount: 0   # TASK: dummy entry
+        upper:  0%
 
   Caffeine:
 
@@ -26,5 +26,5 @@ substances:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  5%
-        amount: 100 # TASK: dummy entry
+        amount: 100  # TASK: dummy entry
         upper:  5%
