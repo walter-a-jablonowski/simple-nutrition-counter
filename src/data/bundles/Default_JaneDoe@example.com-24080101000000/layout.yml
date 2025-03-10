@@ -136,7 +136,7 @@ Meals:
       - Milchschn
       - Käsekuchen mini
       - Donuts
-      - Donuts mini A                            # (duplicate)
+      - Donuts mini A
       - Mohnkuchen
       - Gugelhupf
       - Apfelmus
@@ -194,7 +194,7 @@ Meals:
     list:
 
       - Apfelsaft N                            # misc
-      - Milch H                                # (duplicate)
+      - Milch H
       - Cashew A Cranb
       - Banane
 
@@ -307,8 +307,8 @@ Supplements:
       - Amino misc
       - Amino Deca Muscle Gainer
       - Amino NaDuRia Pur
-      - Riegel Seitenb Sch                     # (duplicate)
-      - Milch H                                # (duplicate)
+      - Riegel Seitenb Sch
+      - Milch H
       - Zitronenm
       - Zitronenm mini
 
@@ -322,8 +322,9 @@ On the go:
 
     list:
 
-      - Riegel Seitenb Sch                     # (duplicate)
+      - Riegel Seitenb Sch
       - Hanuta
+      - Apfel Pl R
       - Snickers
       - Löschzwerg R
       - Karamalz
@@ -340,6 +341,10 @@ On the go:
     list:
 
       - Hafervoll
+      - Apfel Pl R
+
+      - Bremer
+      - Döner 1
 
       - Mini Schoko (bigger)
       - Keks
@@ -348,9 +353,6 @@ On the go:
       - Cappu Denns
       - Espresso Stick
       - Hanf Kekse
-
-      - Bremer
-      - Döner 1
 
   Harbour (color:#ffa500):
   

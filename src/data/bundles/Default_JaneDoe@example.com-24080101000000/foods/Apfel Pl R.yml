@@ -1,0 +1,30 @@
+
+productName:       "REWE Beste Wahl Aqua Mia Plus"
+vendor:            Rewe
+url:               https://shop.rewe.de/p/rewe-beste-wahl-aqua-mia-plus-apfel-0-75l/7582275
+
+acceptable:        occasionally
+certificates:      { vegan: true, NutriScore: C }
+ingredients:       "Wasser, Zucker, Säuerungsmittel (Citronensäure), natürliches Aroma"
+packaging:         plastic
+
+price:             0.69
+weight:            750
+
+calories:          11
+nutritionalValues:
+
+  fat:             0
+  saturatedFat:    0
+  carbs:           2.5
+  sugar:           2.5
+  amino:           0
+  salt:            0
+
+misc:
+
+  water:           750
+
+sources:           { nutriVal: "web" }
+lastUpd:           2025-03-10
+lastPriceUpd:      2025-03-10
