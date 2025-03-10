@@ -23,7 +23,7 @@ nutritionalValues:
 
 misc:
 
-  water:           750
+  water:           100
 
 sources:           { nutriVal: "web" }
 lastUpd:           2025-03-10
