@@ -2,7 +2,7 @@ type:              Cashew
 vendor:            Norma
 packaging:         plastic (maybe)
 
-price:             2.29
+price:             2.39
 weight:            200
 usedAmounts:       ["25g", "50g", "100g"]
 
@@ -19,4 +19,8 @@ nutritionalValues:
 
 sources:           { nutriVal: "pack", price: "2.39" }
 lastUpd:           2024-02-18
-lastPriceUpd:      2024-04-06
+lastPriceUpd:      2025-03-11
+
+prices:
+
+  2024-04-06: 2.29

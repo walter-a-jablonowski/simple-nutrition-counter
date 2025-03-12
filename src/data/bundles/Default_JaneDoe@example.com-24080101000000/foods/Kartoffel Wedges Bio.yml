@@ -22,4 +22,8 @@ nutritionalValues:
 
 sources:           { nutriVal: "web" }
 lastUpd:           2024-05-16
-lastPriceUpd:      2024-05-16
+lastPriceUpd:      2025-03-11
+
+prices:
+
+  2024-05-16: 2.69

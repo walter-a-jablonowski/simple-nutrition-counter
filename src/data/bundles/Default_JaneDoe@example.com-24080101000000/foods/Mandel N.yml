@@ -3,7 +3,7 @@ vendor:            Norma
 certificates:      { vegan: true }
 packaging:         plastic
 
-price:             1.89
+price:             1.99
 weight:            175
 usedAmounts:       ["25g", "50g", "100g"]
 
@@ -20,4 +20,8 @@ nutritionalValues:
 
 sources:           { nutriVal: "pack", price: "1.99" }
 lastUpd:           2025-03-10
-lastPriceUpd:      2024-04-06
+lastPriceUpd:      2025-03-11
+
+prices:
+
+  2024-04-06: 1.89

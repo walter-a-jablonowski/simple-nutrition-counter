@@ -4,7 +4,7 @@ vendor:            "Norma"
 ingredients:       "Hähnchenoberkeulenfleisch 98%, Speisesalz, Gewürze, Kräuter, Dextrose, Gewürzextrakt"
 packaging:         plastic
 
-price:             2.49     # TASK: deal, add normal
+price:             2.89
 weight:            300
 usedAmounts:       ["50g", "100g", "200g"]
 
@@ -22,4 +22,8 @@ nutritionalValues:
 
 sources:           { nutriVal: "web (third party)", price: "deal" }
 lastUpd:           2024-08-20
-lastPriceUpd:      2024-08-20
+lastPriceUpd:      2025-03-11
+
+prices:
+
+  2024-08-20: 2.49  # TASK: was deal
