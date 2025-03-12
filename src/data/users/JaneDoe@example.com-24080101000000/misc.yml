@@ -11,7 +11,7 @@
 
 housewares:
 
-  Rollen:         { price: 3.49, lastUpd: 2024-06-04 }
+  Rollen:         { price: 3.49, lastUpd: 2025-03-11, prices: { 2024-06-04: 3.49 }}
   Waschm:         { price: 4.89, lastUpd: 2024-05-06 }
   Becher:         { price: 2.29, pieces: 15, lastUpd: 2024-06-18 }
   Kaffeefilter N: { price: 0.79, lastUpd: 2024-08-11 }

@@ -24,4 +24,8 @@ minerals:
 
 sources:           { nutriVal: "web", nutrients: "calcium also from vendors page online" }
 lastUpd:           2024-02-18
-lastPriceUpd:      2024-03-23
+lastPriceUpd:      2025-03-11
+
+prices:
+
+  2024-03-23: 1.99
