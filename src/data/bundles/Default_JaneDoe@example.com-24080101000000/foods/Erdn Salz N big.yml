@@ -2,7 +2,7 @@ type:              Peanuts
 vendor:            Norma
 packaging:         alu (maybe)
 
-price:             2.39
+price:             2.29
 weight:            500
 usedAmounts:       ["25g", "50g", "100g"]
 
@@ -19,4 +19,8 @@ nutritionalValues:
 
 sources:           { nutriVal: "pack" }
 lastUpd:           2024-03-13
-lastPriceUpd:      2024-03-30
+lastPriceUpd:      2025-03-11
+
+prices:
+
+  2024-03-30: 2.39
