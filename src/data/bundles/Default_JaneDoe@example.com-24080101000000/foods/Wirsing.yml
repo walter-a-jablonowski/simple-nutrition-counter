@@ -1,0 +1,26 @@
+
+productName:       "Iglo Rahmgemüse Wirsing"
+url:               https://shop.rewe.de/p/iglo-rahmgemuese-wirsing-500g/744054
+
+acceptable:        occasionally
+ingredients:       "Wirsing, Wasser, entrahmte MILCH, SAHNE (9%), Rapsöl, WEIZENMEHL, Stärke, Gemüsebrühe (Salz, Traubenzucker, Zwiebeln, Karotten, Schalotten, Lauch, Tomaten, Paprika), Salz, Gewürze"
+packaging:         cardboard
+
+price:             2.22  # TASK: deal
+weight:            500g
+usedAmounts:       ["50g", "100g", "150g"]
+
+calories:          57
+nutritionalValues:
+
+  fat:             3.2
+  saturatedFat:    0.7
+  carbs:           4.5
+  sugar:           2.2
+  fibre:           1.2
+  amino:           2
+  salt:            0.78
+
+sources:           { nutriVal: "web" }
+lastUpd:           2025-03-19
+lastPriceUpd:      2025-03-19
