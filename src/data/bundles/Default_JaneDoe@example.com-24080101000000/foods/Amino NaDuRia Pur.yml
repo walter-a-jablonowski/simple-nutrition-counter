@@ -4,7 +4,7 @@ packaging:         cardboard
 
 price:             
 weight:            300g
-usedAmounts:       ["20g"]
+usedAmounts:       ["10g", "20g", "30g"]
 
 calories:          357
 nutritionalValues:
