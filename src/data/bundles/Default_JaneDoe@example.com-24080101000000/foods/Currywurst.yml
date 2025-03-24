@@ -1,0 +1,25 @@
+
+productName:       "Curry King Geflügel"
+url:               https://www.meica.de/produkte/curry-king/curry-king-gefluegel#productdetail
+
+acceptable:        occasionally  # TASK: ingredients
+allergy:           "Milch / Milcherzeugn. (ohne Lactose), Sellerie / Sellerieerzeugnisse, Senf / Senferzeugnisse"
+packaging:         plastic
+
+price:             2.69
+weight:            220g
+usedAmounts:       [1]
+
+calories:          157
+nutritionalValues:
+
+  fat:             8.5
+  saturatedFat:    2.9
+  carbs:           12
+  sugar:           12
+  amino:           8.0
+  salt:            1.6
+
+sources:           { nutriVal: "web" }
+lastUpd:           2025-03-24
+lastPriceUpd:      2025-03-24
