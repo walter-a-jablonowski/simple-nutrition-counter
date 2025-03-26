@@ -2,9 +2,9 @@
 <?php if( config::get('devMode') ): ?>
   <ul class="list-group mt-3">
     <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
-      <div class="form-check">
-        <input id="offLimitCheck" onchange="mainCrl.offLimitCheckChange(event)" type="checkbox" value="" class="form-check-input">
-        <label class="form-check-label small" for="offLimitCheck">  <!-- TASK: use a btn here, color indicates on -->
+      <div class="form-check form-switch">
+        <input id="offLimitCheck" onchange="mainCrl.offLimitCheckChange(event)" type="checkbox" role="switch" class="form-check-input">
+        <label class="form-check-label small" for="offLimitCheck">
           off limit only
         </label>
       </div>
