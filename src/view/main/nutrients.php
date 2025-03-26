@@ -2,11 +2,16 @@
 <?php if( config::get('devMode') ): ?>
   <ul class="list-group mt-3">
     <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
-      <div class="form-check form-switch">
-        <input id="offLimitCheck" onchange="mainCrl.offLimitCheckChange(event)" type="checkbox" role="switch" class="form-check-input">
-        <label class="form-check-label small" for="offLimitCheck">
-          off limit only
-        </label>
+      <div class="d-flex align-items-center">
+        <div class="form-check form-switch me-3">
+          <input id="offLimitCheck" onchange="mainCrl.offLimitCheckChange(event)" type="checkbox" role="switch" class="form-check-input">
+          <label class="form-check-label small" for="offLimitCheck">
+            off limit only
+          </label>
+        </div>
+        <button id="sportsToggleBtn" onclick="mainCrl.sportsToggleBtnClick(event)" type="button" class="btn btn-sm sports-toggle-btn">
+          Sports
+        </button>
       </div>
       <button type="button" class="border-0 p-1 bg-transparent"
               data-bs-toggle = "modal"

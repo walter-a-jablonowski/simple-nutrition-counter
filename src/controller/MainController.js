@@ -18,6 +18,7 @@ class MainController
     this.priceColClick          = this.priceColClick.bind(this)
     this.updPriceClick          = this.updPriceClick.bind(this)
     this.offLimitCheckChange    = this.offLimitCheckChange.bind(this)
+    this.sportsToggleBtnClick   = this.sportsToggleBtnClick.bind(this)
     // this.#addDayEntry        = this.#addDayEntry.bind(this)     // TASK: can't be done
     this.updSummary             = this.updSummary.bind(this)
     // this.#saveDayEntries     = this.#saveDayEntries.bind(this)
@@ -390,6 +391,14 @@ class MainController
       else
         entry.style.display = 'block'
     })
+  }
+
+
+  sportsToggleBtnClick(event)
+  {
+    event.target.classList.toggle('active')
+    
+    // TASK: additional functionality can be implemented here later
   }
 
 

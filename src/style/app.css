@@ -30,6 +30,19 @@ a {
   box-shadow: 0 0 0 0.25rem rgba(233, 84, 32, 0.25);
 }
 
+/* Sports toggle button */
+.sports-toggle-btn {
+  border: 1px solid #adb5bd;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.sports-toggle-btn.active {
+  border-color: #e95420;
+  background-color: rgba(233, 84, 32, 0.1);
+  color: #e95420;
+}
+
 .no-indent {
   padding-left: 20px;
 }
