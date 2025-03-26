@@ -9,7 +9,11 @@
             off limit only
           </label>
         </div>
-        <button id="sportsToggleBtn" onclick="mainCrl.sportsToggleBtnClick(event)" type="button" class="btn btn-sm sports-toggle-btn">
+        <button id="sportsToggleBtn" onclick="mainCrl.sportsToggleBtnClick(event)"
+                class = "btn btn-sm sports-toggle-btn"
+                title = "If you did sports"
+                type  = "button"
+        >
           Sports
         </button>
       </div>
