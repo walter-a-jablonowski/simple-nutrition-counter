@@ -35,6 +35,8 @@ a {
   border: 1px solid #adb5bd;
   background-color: transparent;
   transition: all 0.3s ease;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.4rem;
 }
 
 .sports-toggle-btn.active {
