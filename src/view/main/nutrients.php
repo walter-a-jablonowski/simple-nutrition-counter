@@ -13,6 +13,7 @@
               data-bs-target = "#infoModal"
               data-title     = "How to read nutrients"
               data-source    = "#nutrientsData"
+              style          = "color: #e95420;"
       >
         <i class="bi bi-info-circle icon-circle"></i> Info
       </button>
