@@ -2,8 +2,8 @@
 <?php if( config::get('devMode') ): ?>
   <ul class="list-group mt-3">
     <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
-      <div class="d-flex align-items-center">
-        <div class="form-check form-switch me-3">
+      <div class="d-flex align-items-center py-1">
+        <div class="form-check form-switch me-3 mb-0">
           <input id="offLimitCheck" onchange="mainCrl.offLimitCheckChange(event)" type="checkbox" role="switch" class="form-check-input">
           <label class="form-check-label small" for="offLimitCheck">
             off limit only
