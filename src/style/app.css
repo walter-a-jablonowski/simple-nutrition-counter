@@ -21,13 +21,13 @@ a {
 }
 
 .form-check-input:checked {
-  background-color: #28a745 !important;
-  border-color: #28a745 !important;
+  background-color: #e95420 !important;
+  border-color: #e95420 !important;
 }
 
 .form-check-input:focus {
-  border-color: #28a745;
-  box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+  border-color: #e95420;
+  box-shadow: 0 0 0 0.25rem rgba(233, 84, 32, 0.25);
 }
 
 .no-indent {
