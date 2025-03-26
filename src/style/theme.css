@@ -2,7 +2,8 @@
 
 :root {
   /* --bs-primary: #ff6347 !important; */
-  --bs-primary: #eb6864 !important;
+  /* --bs-primary: #eb6864 !important; */
+  --bs-primary: #e95420 !important;
 }
 
 .bg-primary {

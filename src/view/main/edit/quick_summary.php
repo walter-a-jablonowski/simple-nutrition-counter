@@ -44,7 +44,8 @@
 <!-- 3 col for tab is col-6 col-md-4 col-xxl-2 -->
 <div id="quickSummary" class="row px-2">
   <div class="col-6 col-md-2 col-xxl-2 mt-1 px-1">
-    <div style="background-color: #eb6864;" data-bs-toggle="modal" data-bs-target="#tipsModal">
+    <!-- <div style="background-color: #eb6864;" data-bs-toggle="modal" data-bs-target="#tipsModal"> -->
+    <div style="background-color: #e95420;" data-bs-toggle="modal" data-bs-target="#tipsModal">
       <div class="ps-1 fw-bold text-nowrap overflow-hidden">kcal <?= $a['primaryGoals']['calories']['label'] ?></div>
       <div class="ps-1">
         <span id="caloriesSum">0</span>

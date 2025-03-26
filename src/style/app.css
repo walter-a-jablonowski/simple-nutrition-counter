@@ -120,7 +120,8 @@ a {
 /* Ext page */
 
 body.ext {
-  background: linear-gradient(to right, #eb6864, #feb47b);
+  /* background: linear-gradient(to right, #eb6864, #feb47b); */
+  background: linear-gradient(to right, #e95420, #feb47b);
   color: #333;
 }
 .ext-page-container { min-height: 100vh; }
@@ -135,7 +136,9 @@ body.ext {
 .ext-icon-box {
   font-size:     60px;
   margin-bottom: 20px;
-  color:       #eb6864;
+  /* color:      #eb6864; */
+  color:       #e95420;
 }
-.ext-btn { background-color: #eb6864; color: white; border: none; }
+/* .ext-btn { background-color: #eb6864; color: white; border: none; } */
+.ext-btn { background-color: #e95420; color: white; border: none; }
 .ext-btn:hover { background-color: #e55347; }
