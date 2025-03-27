@@ -136,8 +136,8 @@ Full UI design see [UI design](misc/UI_Design.md)
 LICENSE
 ----------------------------------------------------------
 
-Copyright (C) Walter A. Jablonowski 2024, free for non-commercial users currently under AGPLv3 [License](https://choosealicense.com/licenses/agpl-3.0). \
-In the unlikely event that a company can find my project: Contact me for a license.
+Copyright (C) Walter A. Jablonowski 2024-2025, free for **personal use only** under the [license](LICENSE) \
+please contact me if you want to use it commercially (you need to support the development)
 
 This app is build upon PHP and free software (see [credits](credits.md)).
 
