@@ -13,11 +13,40 @@ document.addEventListener('DOMContentLoaded', function()
   const metrics = ['calories', 'fat', 'carbs', 'amino', 'salt', 'price'];
   const dates = Object.keys(chartData.data);
   const movingAvgDays = chartData.config.movingAvg || 7;
+  const avgPeriod = chartData.config.avg || 30; // Period from config
   const chartInstances = new Map();
   
+  function calculateAverages(values) {
+    // average
+    const avgAvg = values.reduce((sum, val) => sum + val, 0) / values.length;
+    
+    // Period average (last n days)
+    const periodValues = values.slice(-avgPeriod);
+    const periodAvg = periodValues.reduce((sum, val) => sum + val, 0) / periodValues.length;
+    
+    return {
+      avg: avgAvg.toFixed(1),
+      period: periodAvg.toFixed(1)
+    };
+  }
+
+  function updateAverageBadges(metric, values) {
+    const averages = calculateAverages(values);
+    
+    // Update badges
+    document.getElementById(`${metric}-period-avg`).textContent = 
+      `${avgPeriod}d avg: ${averages.period}`;
+    document.getElementById(`${metric}-avg-avg`).textContent = 
+      `Avg: ${averages.avg}`;
+  }
+
   function createChart(metric, view = 'all') 
   {
     const values = dates.map(date => chartData.data[date][metric]);
+    
+    // Update average badges
+    updateAverageBadges(metric, values);
+    
     const movingAverages = calculateMovingAverage(values, movingAvgDays);
     const ctx = document.getElementById(metric + 'Chart').getContext('2d');
     

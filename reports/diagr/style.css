@@ -48,4 +48,23 @@
 canvas {
   width: 100% !important;
   height: 300px !important;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 14px;
+  font-weight: normal;
+  border-radius: 12px;
+  margin-left: 10px;
+}
+
+.period-avg {
+  background-color: #ffd700;
+  color: #333;
+}
+
+.avg-avg {
+  background-color: #98fb98;
+  color: #333;
 } 

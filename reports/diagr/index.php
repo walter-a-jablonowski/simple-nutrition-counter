@@ -21,27 +21,51 @@ $chartData  = $controller->getData();
 
   <div class="charts-container">
     <div class="chart-wrapper">
-      <h2>Calories (kcal)</h2>
+      <h2>
+        Calories (kcal)
+        <span class="badge period-avg" id="calories-period-avg"></span>
+        <span class="badge avg-avg" id="calories-avg-avg"></span>
+      </h2>
       <canvas id="caloriesChart"></canvas>
     </div>
     <div class="chart-wrapper">
-      <h2>Fat (g)</h2>
+      <h2>
+        Fat (g)
+        <span class="badge period-avg" id="fat-period-avg"></span>
+        <span class="badge avg-avg" id="fat-avg-avg"></span>
+      </h2>
       <canvas id="fatChart"></canvas>
     </div>
     <div class="chart-wrapper">
-      <h2>Carbs (g)</h2>
+      <h2>
+        Carbs (g)
+        <span class="badge period-avg" id="carbs-period-avg"></span>
+        <span class="badge avg-avg" id="carbs-avg-avg"></span>
+      </h2>
       <canvas id="carbsChart"></canvas>
     </div>
     <div class="chart-wrapper">
-      <h2>Amino (g)</h2>
+      <h2>
+        Amino (g)
+        <span class="badge period-avg" id="amino-period-avg"></span>
+        <span class="badge avg-avg" id="amino-avg-avg"></span>
+      </h2>
       <canvas id="aminoChart"></canvas>
     </div>
     <div class="chart-wrapper">
-      <h2>Salt (g)</h2>
+      <h2>
+        Salt (g)
+        <span class="badge period-avg" id="salt-period-avg"></span>
+        <span class="badge avg-avg" id="salt-avg-avg"></span>
+      </h2>
       <canvas id="saltChart"></canvas>
     </div>
     <div class="chart-wrapper">
-      <h2>Price</h2>
+      <h2>
+        Price
+        <span class="badge period-avg" id="price-period-avg"></span>
+        <span class="badge avg-avg" id="price-avg-avg"></span>
+      </h2>
       <canvas id="priceChart"></canvas>
     </div>
   </div>
