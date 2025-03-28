@@ -38,7 +38,7 @@ Keep js php, html, js code and styles in seperate files
 
 Sample data file: 2024-05-09.tsv
 
-00:00:00  F   20g Amino NaDuRia Pur  71.4   1.3   2.4   11.4  0    0     {fat: {}, amino: {}, vit: {}, min: {}, sec: {}}
+00:00:00  F   20g Amino NaDuRia Pur    71.4   1.3   2.4   11.4  0    0     {fat: {}, amino: {}, vit: {}, min: {}, sec: {}}
 00:00:00  F       1 Falafel            467.4  13.1  70.3  13.3  3.4  0     {fat: {}, amino: {}, vit: {}, min: {}, sec: {}}
 00:00:00  F       1 Duplo              100.3  6     10.2  1.1   0    0.49  {fat: {}, amino: {}, vit: {}, min: {}, sec: {}}
 00:00:00  F       1 Duplo              100.3  6     10.2  1.1   0    0.49  {fat: {}, amino: {}, vit: {}, min: {}, sec: {}}
