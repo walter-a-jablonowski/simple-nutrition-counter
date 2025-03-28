@@ -60,6 +60,7 @@ class DiagramController
       'data' => $data,
       'limits' => isset($this->config['limits']) ? $this->config['limits'] : [],
       'config' => [
+        'avg'       => isset($this->config['avg']) ? $this->config['avg'] : 30,
         'movingAvg' => isset($this->config['movingAvg']) ? $this->config['movingAvg'] : 7
       ]
     ];

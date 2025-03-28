@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function()
   const metrics = ['calories', 'fat', 'carbs', 'amino', 'salt', 'price'];
   const dates = Object.keys(chartData.data);
   const movingAvgDays = chartData.config.movingAvg || 7;
-  const avgPeriod = chartData.config.avg || 30; // Period from config
+  const avgPeriod = chartData.config.avg || 30;  // period from config
   const chartInstances = new Map();
   
   function calculateAverages(values) {
