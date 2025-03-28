@@ -62,11 +62,11 @@ canvas {
 }
 
 .period-avg {
-  background-color: #ffd700;
+  background-color: #ffd700 !important;
   color: #333;
 }
 
-.total-avg {
+.avg-avg {
   background-color: #98fb98;
   color: #333;
 } 
