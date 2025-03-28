@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function()
       datasets.push({
         label: metric,
         data: values,
-        borderColor: 'rgb(75, 192, 192)',
+        borderColor: 'rgb(255, 159, 64)',
         tension: 0.1
       });
     }
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function()
       datasets.push({
         label: `${metric} (${movingAvgDays}-day moving avg)`,
         data: movingAverages,
-        borderColor: 'rgb(255, 159, 64)',
+        borderColor: 'rgb(255, 110, 0)',
         borderWidth: 2,
         tension: 0.3,
         fill: false

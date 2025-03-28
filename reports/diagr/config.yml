@@ -7,7 +7,7 @@ movingAvg: 7       # in days
 limits:
   calories: 2200   # in gramms
   fat: 
-  carbs:    80
+  carbs:    130
   amino:    60
   salt:     5
   price:    7      # EUR
