@@ -58,7 +58,9 @@ document.addEventListener('DOMContentLoaded', function()
         label: metric,
         data: values,
         borderColor: 'rgb(255, 159, 64)',
-        tension: 0.1
+        borderWidth: 2,
+        tension: 0.3,
+        fill: false
       });
     }
     
@@ -68,9 +70,7 @@ document.addEventListener('DOMContentLoaded', function()
         label: `${metric} (${movingAvgDays}-day moving avg)`,
         data: movingAverages,
         borderColor: 'rgb(255, 110, 0)',
-        borderWidth: 2,
-        tension: 0.3,
-        fill: false
+        tension: 0.1
       });
     }
     
