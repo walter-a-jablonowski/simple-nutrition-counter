@@ -51,7 +51,17 @@ document.addEventListener('DOMContentLoaded', function()
     const ctx = document.getElementById(metric + 'Chart').getContext('2d');
     
     const datasets = [];
-    
+
+    // Add moving average if view is 'all' or 'average'
+    if( view === 'all' || view === 'average') {
+      datasets.push({
+        label: `${metric} (${movingAvgDays}-day moving avg)`,
+        data: movingAverages,
+        borderColor: 'rgb(255, 110, 0)',
+        tension: 0.1
+      });
+    }
+
     // Add data line if view is 'all' or 'data'
     if( view === 'all' || view === 'data') {
       datasets.push({
@@ -61,16 +71,6 @@ document.addEventListener('DOMContentLoaded', function()
         borderWidth: 2,
         tension: 0.3,
         fill: false
-      });
-    }
-    
-    // Add moving average if view is 'all' or 'average'
-    if( view === 'all' || view === 'average') {
-      datasets.push({
-        label: `${metric} (${movingAvgDays}-day moving avg)`,
-        data: movingAverages,
-        borderColor: 'rgb(255, 110, 0)',
-        tension: 0.1
       });
     }
     
