@@ -54,9 +54,11 @@ canvas {
   display: inline-block;
   padding: 4px 8px;
   font-size: 14px;
-  font-weight: normal;
+  font-weight: 500;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
   border-radius: 12px;
   margin-left: 10px;
+  letter-spacing: 0.2px;
 }
 
 .period-avg {
@@ -64,7 +66,7 @@ canvas {
   color: #333;
 }
 
-.avg-avg {
+.total-avg {
   background-color: #98fb98;
   color: #333;
 } 
