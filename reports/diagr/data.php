@@ -15,10 +15,9 @@ class DiagramController
 
   public function getData()
   {
-    $files = scandir($this->sourceDir);
     $data = [];
     
-    foreach($files as $file)
+    foreach( scandir($this->sourceDir) as $file )
     {
       if( $file === '.' || $file === '..' || ! str_ends_with($file, '.tsv')) 
         continue;

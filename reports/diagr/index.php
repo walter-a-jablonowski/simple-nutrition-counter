@@ -1,10 +1,10 @@
 <?php
 
 require_once '../../src/vendor/autoload.php'; 
-require_once 'controller.php';
+require_once 'data.php';
 
 $controller = new DiagramController();
-$chartData = $controller->getData();
+$chartData  = $controller->getData();
 
 ?><!DOCTYPE html>
 <html>
@@ -13,6 +13,12 @@ $chartData = $controller->getData();
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="view-controls">
+    <button class="view-btn active" data-view="all">Show All</button>
+    <button class="view-btn" data-view="data">Data</button>
+    <button class="view-btn" data-view="average">Moving Average</button>
+  </div>
+
   <div class="charts-container">
     <div class="chart-wrapper">
       <h2>Calories (kcal)</h2>
