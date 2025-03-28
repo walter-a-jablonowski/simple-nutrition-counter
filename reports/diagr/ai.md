@@ -1,4 +1,13 @@
 
+calculate averages:
+
+- for the whole timespan
+- for the period as defined in config > avg
+
+Add the averages beside the headline of each chart as number and make em look like badges
+
+ --
+
 I have added a value movingAvg (in days) in config. Could you calculate a moving average and show it in the chart?
 
  --
