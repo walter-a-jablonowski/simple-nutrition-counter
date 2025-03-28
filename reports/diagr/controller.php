@@ -15,9 +15,10 @@ class DiagramController
 
   public function getData()
   {
+    $files = scandir($this->sourceDir);
     $data = [];
     
-    foreach( scandir($this->sourceDir) as $file)
+    foreach($files as $file)
     {
       if( $file === '.' || $file === '..' || ! str_ends_with($file, '.tsv')) 
         continue;
@@ -57,8 +58,11 @@ class DiagramController
     ksort($data);
 
     return [
-      'data'   => $data,
-      'limits' => isset($this->config['limits']) ? $this->config['limits'] : []
+      'data' => $data,
+      'limits' => isset($this->config['limits']) ? $this->config['limits'] : [],
+      'config' => [
+        'movingAvg' => isset($this->config['movingAvg']) ? $this->config['movingAvg'] : 7
+      ]
     ];
   }
 }

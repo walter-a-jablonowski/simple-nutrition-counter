@@ -1,4 +1,8 @@
 
+I have added a value movingAvg (in days) in config. Could you calculate a moving average and show it in the chart?
+
+ --
+
 In the folder "diagr" make a tool that reads all tsv files from the folder which is defined in config.yml > source
 
 Columns in the tsv file:
