@@ -1,0 +1,23 @@
+
+vendor:            Aldi
+certificates:      { vegan: true, NutriScore: A }
+ingredients:       ""
+packaging:         plastic
+
+price:             3.69
+weight:            200g
+
+calories:          465
+nutritionalValues: 
+
+  fat:             25.4
+  saturatedFat:    3
+  carbs:           43.8
+  sugar:           36
+  fibre:           5.7
+  amino:           12.5
+  salt:            0.02
+
+sources:           { nutriVal: "pack" }
+lastUpd:           2025-03-29
+lastPriceUpd:      2025-03-29
