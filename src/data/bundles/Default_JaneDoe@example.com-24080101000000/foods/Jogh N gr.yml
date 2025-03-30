@@ -1,0 +1,23 @@
+
+productName:       "Bio Sonne Jogh mild 3.8"
+vendor:            Norma
+
+certificates:      { bio: true, vegan: true, NutriScore: B }
+packaging:         plastic & alu
+
+price:             
+weight:            500g
+
+calories:          65
+nutritionalValues: 
+
+  fat:             3.8
+  saturatedFat:    2.6
+  carbs:           3.7
+  sugar:           3.7
+  amino:           4.1
+  salt:            0.16
+
+sources:           { nutriVal: "pack" }
+lastUpd:           2025-03-31
+lastPriceUpd:      2025-03-31

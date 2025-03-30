@@ -116,7 +116,6 @@ Meals:
 
     list:
 
-      # - Joghurt  # TASK
       - Ritter Sp 81%      
       - Ritter Sp 74%
 
@@ -313,6 +312,7 @@ Supplements:
       - Amino Deca Muscle Gainer
       - Amino NaDuRia Pur
       - Riegel Seitenb Sch
+      - Jogh N gr
       - Milch H
       - Zitronenm
       - Zitronenm mini
