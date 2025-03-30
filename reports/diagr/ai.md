@@ -1,5 +1,6 @@
 
 new: I prefer all caculations made in PHP, while JS is used for displaying the data only
+new: avoid PHP's csv functions like fgetcsv, instead use implode/explode
 
  --
 
