@@ -1,5 +1,24 @@
 
-TASK: quick list, merge in activity tree
+- TASK: add new from deep research
+
+  - Bundeslebensmittelschlüssel - BLS (paied only)
+  - UK's National Diet and Nutrition Survey (NDNS) Data and Composition of Foods Integrated Dataset (CoFID)
+  - Nutrient Data from Scientific Publications and Reputable Nutrition Research Institutions
+    - Food and Nutrition Board (of the National Academies of Sciences, Engineering, and Medicine)
+    - Beltsville Human Nutrition Research Center (BHNRC) (within the USDA)
+    - Tufts University's Human Nutrition Research Center
+    - Academy of Nutrition and Dietetics
+    - Harvard School of Public Health ("The Nutrition Source" website)
+    - Food and Agriculture Organization (FAO) (of the United Nations)
+
+  - Best: USDA or books (UK unseen)
+
+- TASK: merge in activity tree
+
+AI
+----------------------------------------------------------
+
+I am making a app for counting nutrients and for this I need nutrient data per food (e.g. broccoli) with all minerals, vitamins, fatty acids, carbs, amino acids, and so on... The problem is that online sources that I found so far seem to have gaps in the data. For example a food has data for minerals, but vitamins are missing. Which is the best source with the largest food database and most relyable nurtient data that I should be using? Beside web sites consider all possible media types (e.g. books)
 
 
 Common
