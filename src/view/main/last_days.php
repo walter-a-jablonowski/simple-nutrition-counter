@@ -24,6 +24,11 @@ time
           <li><a class="dropdown-item small" data-value="days30" href="#">30 days</a></li>
         </ul>
       </div>
+      <?php if( config::get('devMode') ): ?>
+        <a href="../reports/diagr" target="_blank">
+          diagr
+        </a>
+      <?php endif; ?>
       <div>
         <span class="avg week"><?= $this->avg['price']['week'] ?> <?= settings::get('currencySymbol') ?></span>
         <span class="avg days15" style="display: none;"><?= $this->avg['price']['15days'] ?> <?= settings::get('currencySymbol') ?></span>
