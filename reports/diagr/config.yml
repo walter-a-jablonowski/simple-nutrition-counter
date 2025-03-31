@@ -1,14 +1,14 @@
 
-# source:   ../../src/data/users/JaneDoe@example.com-24080101000000/days
-source: ../../src/data/users/walterjab@gmail.com-25042801000000/days
+source:   ../../src/data/users/JaneDoe@example.com-24080101000000/days
+# source: ../../src/data/users/walterjab@gmail.com-25042801000000/days  # copy
 
-avg: 7             # in days
+avg: 7            # in days
 movingAvg: 7
 
 limits:
-  calories: 2200   # in gramms
+  calories: 2200  # in gramms
   fat: 
   carbs:    130
   amino:    60
   salt:     5
-  price:    7      # EUR
+  price:    7     # EUR

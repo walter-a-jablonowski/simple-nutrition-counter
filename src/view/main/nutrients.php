@@ -16,6 +16,11 @@
         >
           Sports
         </button>
+        <?php if( config::get('devMode') ): ?>
+          <a href="../reports/diagr" class="ms-3" target="_blank">
+            diagr
+          </a>
+        <?php endif; ?>
       </div>
       <button type="button" class="border-0 p-1 bg-transparent"
               data-bs-toggle = "modal"
