@@ -110,15 +110,63 @@
       <!-- Right column (66.67%) -->
 
       <div class="col-md-10 right-column h-100">
-        <div class="content-wrapper h-100 overflow-auto">
-          - TASK: right layout col devides in goals and food layout, in mobile left and right are visible but food layout is hidden <br>
-          - TASK: add left-layout-col .. limit the styles <br>
-          - Header (less imp menu functions, looks like content) <br>
-          &nbsp;&nbsp;- alternative: make wider and or use like status bar <br>
-          - Menu <br>
-          &nbsp;&nbsp;- Menu bar might have overlay secondary menu <br>
-          &nbsp;&nbsp;- Menu items have tooltip <br>
-          &nbsp;&nbsp;- Moved main menues up cause easier handling (touch above) <br>
+        <div class="content-wrapper h-100 overflow-auto d-flex flex-column">
+
+          <!-- Dummy widg just for demo -->
+
+          <div class="nutrition-widgets p-3 border-bottom">
+            <div class="row g-3">
+              <div class="col-6 col-md-4 col-lg-2">
+                <div class="nutrition-widget p-2 border rounded bg-white text-center">
+                  <div class="widget-label fw-bold">kcal</div>
+                  <div class="widget-value">1000</div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-2">
+                <div class="nutrition-widget p-2 border rounded bg-white text-center">
+                  <div class="widget-label fw-bold">fat/amino</div>
+                  <div class="widget-value">100</div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-2">
+                <div class="nutrition-widget p-2 border rounded bg-white text-center">
+                  <div class="widget-label fw-bold">carbs</div>
+                  <div class="widget-value">100</div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-2">
+                <div class="nutrition-widget p-2 border rounded bg-white text-center">
+                  <div class="widget-label fw-bold">fibre</div>
+                  <div class="widget-value">30</div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-2">
+                <div class="nutrition-widget p-2 border rounded bg-white text-center">
+                  <div class="widget-label fw-bold">salt</div>
+                  <div class="widget-value">4</div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-2">
+                <div class="nutrition-widget p-2 border rounded bg-white text-center">
+                  <div class="widget-label fw-bold">price</div>
+                  <div class="widget-value">8.00</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Food grid -->
+          
+          <div class="p-3">
+            - TASK: right layout col devides in goals and food layout, in mobile left and right are visible but food layout is hidden <br>
+            - TASK: add left-layout-col .. limit the styles <br>
+            - Header (less imp menu functions, looks like content) <br>
+            &nbsp;&nbsp;- alternative: make wider and or use like status bar <br>
+            - Menu <br>
+            &nbsp;&nbsp;- Menu bar might have overlay secondary menu <br>
+            &nbsp;&nbsp;- Menu items have tooltip <br>
+            &nbsp;&nbsp;- Moved main menues up cause easier handling (touch above) <br>
+          </div>
         </div>
       </div>
     </div>
