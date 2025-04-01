@@ -50,7 +50,12 @@ else:
               $weekdays = ['Mon' => 'Mo', 'Tue' => 'Tu', 'Wed' => 'We', 'Thu' => 'Th', 'Fri' => 'Fr', 'Sat' => 'Sa', 'Sun' => 'Su'];
               $day = $weekdays[date('D')] . ' ' . date('j') . '.';
             ?>
-            <?= self::iif( $this->mode === 'current', $day, "-1 day") ?>
+            <?= self::switch( $this->mode, [
+                'current' => $day,
+                'last'    => '-1 day',
+                'next'    => '+1 day'
+              ]) ?? $day
+            ?>
           </button>
         </div>
         
