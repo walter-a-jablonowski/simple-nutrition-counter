@@ -23,7 +23,7 @@ $chartData  = $controller->getData();
   <div class="charts-container">
     <div class="chart-wrapper">
       <h2>
-        Eating Time (minutes)
+        Eating Time (min)
         <span class="badge period-avg" id="eatingTime-period-avg"></span>
         <span class="badge avg-avg" id="eatingTime-avg-avg"></span>
       </h2>
