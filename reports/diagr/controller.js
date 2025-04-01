@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function()
     // Add moving average if view is 'all' or 'average'
     if( view === 'all' || view === 'average') {
       datasets.push({
-        label: `${metric} (${movingAvgDays}-day moving avg)`,
+        label: `${movingAvgDays}-day moving avg`,
         data: movingAverages,
         borderColor: 'rgb(255, 110, 0)',
         tension: 0.1
