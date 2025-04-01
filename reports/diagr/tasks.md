@@ -1,5 +1,6 @@
 
-- [ ] timespan
+- [ ] verfiy that data shown in chart is right
+- [x] timespan
 
   In the main app I also calculate an eating time per data file. Below you can see how it is calculated. Add a chart that looks like the existing charts and show the eating time per day/file.
 
