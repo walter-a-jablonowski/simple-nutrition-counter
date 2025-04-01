@@ -504,8 +504,7 @@ class MainController
     const hours = Math.floor(diffSeconds / 3600)
     const mins  = Math.floor((diffSeconds % 3600) / 60)  // TASK: use classes and single id for the view
 
-    query('#timeSum').textContent = `${hours.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}`
-
+    query('#timeSum').textContent  = `${ hours.toString().padStart(2, '0')}:${ mins.toString().padStart(2, '0')}`
     query('#fatSum').textContent   = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.fat),   0))  // just the int
     query('#aminoSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.amino), 0))
     query('#carbsSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.carbs), 0))
