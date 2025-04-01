@@ -82,14 +82,13 @@
   <main class="container-fluid h-100 p-0 d-flex flex-column">
     <div class="row g-0 flex-grow-1 h-100">
 
-      <!-- Left column (33.33%) -->
+      <!-- Left column (16.67%) -->
 
       <div class="col-md-2 left-column h-100">
-        <div class="content-wrapper h-100 overflow-auto">
+        <div class="content-wrapper h-100 overflow-auto d-flex flex-column">
 
-          <!-- Header (tASK: or use a row) -->
-
-          <div class="bg-light border-bottom pb-1 text-break fs-5">
+          <!-- Header section -->
+          <header class="bg-light border-bottom pb-1 text-break fs-5">
             <i class="bi bi-app"></i>
             <select class="border-0 fs-5">
               <option>
@@ -99,22 +98,27 @@
             <button class="btn ms-1 mb-1 p-1 py-0 border">
               20.
             </button>
-          </div>
+          </header>
 
-          <div class="mt-2">
-            Left Column Content
-          </div>
+          <!-- Main left content -->
+
+          <section class="flex-grow-1 mt-2">
+            <div class="row g-2">
+              <div class="col-12">
+                Left Column Content
+              </div>
+            </div>
+          </section>
         </div>
       </div>
       
-      <!-- Right column (66.67%) -->
+      <!-- Right column (83.33%) -->
 
       <div class="col-md-10 right-column h-100">
         <div class="content-wrapper h-100 overflow-auto d-flex flex-column">
 
-          <!-- Dummy widg just for demo -->
-
-          <div class="nutrition-widgets p-3 border-bottom">
+          <!-- Demo widg -->
+          <section class="nutrition-widgets p-3 border-bottom">
             <div class="row g-3">
               <div class="col-6 col-md-4 col-lg-2">
                 <div class="nutrition-widget p-2 border rounded bg-white text-center">
@@ -153,20 +157,27 @@
                 </div>
               </div>
             </div>
-          </div>
+          </section>
           
           <!-- Food grid -->
           
-          <div class="p-3">
-            - TASK: right layout col devides in goals and food layout, in mobile left and right are visible but food layout is hidden <br>
-            - TASK: add left-layout-col .. limit the styles <br>
-            - Header (less imp menu functions, looks like content) <br>
-            &nbsp;&nbsp;- alternative: make wider and or use like status bar <br>
-            - Menu <br>
-            &nbsp;&nbsp;- Menu bar might have overlay secondary menu <br>
-            &nbsp;&nbsp;- Menu items have tooltip <br>
-            &nbsp;&nbsp;- Moved main menues up cause easier handling (touch above) <br>
-          </div>
+          <section class="food-grid flex-grow-1 p-3">
+            <h5 class="mb-3">Food Items</h5>
+            <div class="row g-3">
+              <div class="col-12">
+                <div class="task-notes">
+                  - TASK: right layout col devides in goals and food layout, in mobile left and right are visible but food layout is hidden <br>
+                  - TASK: add left-layout-col .. limit the styles <br>
+                  - Header (less imp menu functions, looks like content) <br>
+                  &nbsp;&nbsp;- alternative: make wider and or use like status bar <br>
+                  - Menu <br>
+                  &nbsp;&nbsp;- Menu bar might have overlay secondary menu <br>
+                  &nbsp;&nbsp;- Menu items have tooltip <br>
+                  &nbsp;&nbsp;- Moved main menues up cause easier handling (touch above) <br>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </div>
