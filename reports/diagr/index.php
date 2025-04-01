@@ -27,7 +27,8 @@ $chartData  = $controller->getData();
         <span class="badge period-avg" id="eatingTime-period-avg"></span>
         <span class="badge avg-avg" id="eatingTime-avg-avg"></span>
       </h2>
-      <div>days with no data are excluded from avg</div>
+      <div class="info-text">( i ) days with no data are excluded from averages</div>
+
       <canvas id="eatingTimeChart"></canvas>
     </div>
     <div class="chart-wrapper">

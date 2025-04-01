@@ -116,4 +116,22 @@ canvas {
 .avg-avg {
   background-color: #98fb98;
   color: #333;
-} 
+}
+
+.info-text {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+@media (max-width: 600px) {
+  .info-text {
+    font-size: 12px;
+    margin-top: -5px;
+    margin-bottom: 8px;
+  }
+}
