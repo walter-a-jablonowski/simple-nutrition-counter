@@ -31,7 +31,16 @@ document.addEventListener('DOMContentLoaded', function()
   }
 
   function updateAverageBadges(metric, values) {
-    const averages = calculateAverages(values);
+    // For eating time only, filter out zeros before calculating averages
+    let valuesToUse = values;
+    if(metric === 'eatingTime') {
+      const nonZeroValues = values.filter(val => val > 0);
+      if(nonZeroValues.length > 0) {
+        valuesToUse = nonZeroValues;
+      }
+    }
+    
+    const averages = calculateAverages(valuesToUse);
     
     // Update badges
     if(metric === 'eatingTime') {
