@@ -80,30 +80,28 @@
   <!-- Main content -->
 
   <main class="container-fluid h-100 p-0 d-flex flex-column">
+    <div class="row">
+      <div class="col-12 p-2 py-1 bg-light border-bottom">
+        <span class="ms-3 text-break fs-5">
+          <i class="bi bi-app"></i>
+          <select class="border-0 fs-5">
+            <option>
+              Header
+            </option>
+          </select>
+          <button class="btn ms-1 mb-1 p-1 py-0 border">
+            20.
+          </button>
+        </span>
+      </div>
+    </div>
     <div class="row g-0 flex-grow-1 h-100">
 
       <!-- Left column (33.33%) -->
 
       <div class="col-md-2 left-column h-100">
         <div class="content-wrapper h-100 overflow-auto">
-
-          <!-- Header (tASK: or use a row) -->
-
-          <div class="bg-light border-bottom pb-1 text-break fs-5">
-            <i class="bi bi-app"></i>
-            <select class="border-0 fs-5">
-              <option>
-                Header
-              </option>
-            </select>
-            <button class="btn ms-1 mb-1 p-1 py-0 border">
-              20.
-            </button>
-          </div>
-
-          <div class="mt-2">
-            Left Column Content
-          </div>
+          Left Column Content
         </div>
       </div>
       
@@ -111,14 +109,15 @@
 
       <div class="col-md-10 right-column h-100">
         <div class="content-wrapper h-100 overflow-auto">
-          - TASK: right layout col devides in goals and food layout, in mobile left and right are visible but food layout is hidden <br>
-          - TASK: add left-layout-col .. limit the styles <br>
-          - Header (less imp menu functions, looks like content) <br>
-          &nbsp;&nbsp;- alternative: make wider and or use like status bar <br>
-          - Menu <br>
-          &nbsp;&nbsp;- Menu bar might have overlay secondary menu <br>
-          &nbsp;&nbsp;- Menu items have tooltip <br>
-          &nbsp;&nbsp;- Moved main menues up cause easier handling (touch above) <br>
+          - (TASK) right layout col devides in goals and food layout, in mobile left and right are visible but food layout is hidden <br>
+          - (TASK) add left-layout-col .. limit the styles
+          - Moved main menues up cause easier handling (touch above) <br>
+          - Header (less imp menu functions, or use like status bar, looks like content) <br>
+          &nbsp;&nbsp;- (TASK) merge in left col (space saving) <br>
+          &nbsp;&nbsp;- alternative: header maybe even less space or no header (just move in sidebar) <br>
+          &nbsp;&nbsp;- alternative: remove header for pure 3 col look <br>
+          - Menu bar might have overlay secondary menu <br>
+          - Menu items have tooltip <br>
         </div>
       </div>
     </div>
