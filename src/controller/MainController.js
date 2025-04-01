@@ -88,7 +88,7 @@ class MainController
     event('show.bs.modal', event => {
 
       if( event.target.id != 'infoModal')
-        return;
+        return
 
       const btn = event.relatedTarget
       
@@ -486,7 +486,7 @@ class MainController
     const foodEntries = dayEntries.filter( entry => entry.type === 'F' || entry.type === 'FE')
 
     if( foodEntries.length == 0)
-      return;
+      return
 
     // Quick summary
 
@@ -552,23 +552,24 @@ class MainController
 
       // Table in modal
 
-      let foodContributions = [];
+      let foodContributions = []
+
       for( let i = 0; i < foodEntries.length; i++ )
       {
-        const food = foodEntries[i];
-        let value = 0;
+        const food = foodEntries[i]
+        let value = 0
         
         // Handle nested nutrient structure for amino, vit, min, and fat groups
         if(['amino', 'vit', 'min', 'fat'].includes(group) && food.nutrients[group])
-          value = Number(food.nutrients[group][short] ?? 0);
+          value = Number(food.nutrients[group][short] ?? 0)
         else
-          value = Number(food.nutrients[group]?.[short] ?? 0);
+          value = Number(food.nutrients[group]?.[short] ?? 0)
         
         if( value > 0 )
-          foodContributions.push({ name: food.food, value: value });
+          foodContributions.push({ name: food.food, value: value })
       }
 
-      foodContributions.sort((a, b) => b.value - a.value);
+      foodContributions.sort((a, b) => b.value - a.value)
 
       query('#' + entry.dataset.short + 'Data').innerHTML = 
         '<table class="table table-borderless table-sm mb-2">' +
