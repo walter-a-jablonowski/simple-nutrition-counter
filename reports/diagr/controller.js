@@ -34,10 +34,21 @@ document.addEventListener('DOMContentLoaded', function()
     const averages = calculateAverages(values);
     
     // Update badges
-    document.getElementById(`${metric}-period-avg`).textContent = 
-      `${avgPeriod}d avg: ${averages.period}`;
-    document.getElementById(`${metric}-avg-avg`).textContent = 
-      `Avg: ${averages.avg}`;
+    if(metric === 'eatingTime') {
+      // Convert minutes to hours for display in badges
+      const periodHours = (parseFloat(averages.period) / 60).toFixed(1);
+      const avgHours = (parseFloat(averages.avg) / 60).toFixed(1);
+      
+      document.getElementById(`${metric}-period-avg`).textContent = 
+        `${avgPeriod}d avg: ${periodHours}h`;
+      document.getElementById(`${metric}-avg-avg`).textContent = 
+        `Avg: ${avgHours}h`;
+    } else {
+      document.getElementById(`${metric}-period-avg`).textContent = 
+        `${avgPeriod}d avg: ${averages.period}`;
+      document.getElementById(`${metric}-avg-avg`).textContent = 
+        `Avg: ${averages.avg}`;
+    }
   }
 
   function formatEatingTime(minutes) {
@@ -48,10 +59,19 @@ document.addEventListener('DOMContentLoaded', function()
 
   function createChart(metric, view = 'all') 
   {
-    const values = dates.map(date => chartData.data[date][metric]);
+    let values = dates.map(date => chartData.data[date][metric]);
+    let yAxisLabel = metric;
+    
+    // For eating time, convert minutes to hours for display
+    if(metric === 'eatingTime') {
+      // Convert minutes to hours for the chart
+      values = values.map(minutes => parseFloat((minutes / 60).toFixed(2)));
+      yAxisLabel = 'Eating Time (hours)';
+    }
     
     // Update average badges
-    updateAverageBadges(metric, values);
+    updateAverageBadges(metric, metric === 'eatingTime' ? 
+      dates.map(date => chartData.data[date][metric]) : values);
     
     const movingAverages = calculateMovingAverage(values, movingAvgDays);
     const ctx = document.getElementById(metric + 'Chart').getContext('2d');
@@ -81,8 +101,9 @@ document.addEventListener('DOMContentLoaded', function()
     }
     
     // Always add limit line if it exists
-    const limit = chartData.limits[metric];
+    let limit = chartData.limits[metric];
     if( limit !== undefined ) {
+      // Convert eating time limit from hours to hours (no change needed)
       datasets.push({
         label: `${metric} limit`,
         data: Array(dates.length).fill(limit),
@@ -107,7 +128,11 @@ document.addEventListener('DOMContentLoaded', function()
         responsive: true,
         scales: {
           y: {
-            beginAtZero: true
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: yAxisLabel
+            }
           }
         },
         plugins: {
@@ -116,8 +141,9 @@ document.addEventListener('DOMContentLoaded', function()
               // Format eating time in tooltip if this is the eating time chart
               label: function(context) {
                 if(metric === 'eatingTime') {
-                  const value = context.raw;
-                  return `${context.dataset.label}: ${formatEatingTime(value)} (${value} min)`;
+                  const hours = context.raw;
+                  const minutes = Math.round(hours * 60);
+                  return `${context.dataset.label}: ${formatEatingTime(minutes)} (${hours.toFixed(2)}h)`;
                 }
                 return `${context.dataset.label}: ${context.raw}`;
               }
