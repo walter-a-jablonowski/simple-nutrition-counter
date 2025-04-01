@@ -10,7 +10,7 @@ function calculateMovingAverage(values, windowSize)
 
 document.addEventListener('DOMContentLoaded', function() 
 {
-  const metrics = ['calories', 'fat', 'carbs', 'amino', 'salt', 'price'];
+  const metrics = ['eatingTime', 'calories', 'fat', 'carbs', 'amino', 'salt', 'price'];
   const dates = Object.keys(chartData.data);
   const movingAvgDays = chartData.config.movingAvg || 7;
   const avgPeriod = chartData.config.avg || 30;  // period from config
@@ -38,6 +38,12 @@ document.addEventListener('DOMContentLoaded', function()
       `${avgPeriod}d avg: ${averages.period}`;
     document.getElementById(`${metric}-avg-avg`).textContent = 
       `Avg: ${averages.avg}`;
+  }
+
+  function formatEatingTime(minutes) {
+    const hours = Math.floor(minutes / 60);
+    const mins = Math.floor(minutes % 60);
+    return `${hours.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}`;
   }
 
   function createChart(metric, view = 'all') 
@@ -102,6 +108,20 @@ document.addEventListener('DOMContentLoaded', function()
         scales: {
           y: {
             beginAtZero: true
+          }
+        },
+        plugins: {
+          tooltip: {
+            callbacks: {
+              // Format eating time in tooltip if this is the eating time chart
+              label: function(context) {
+                if(metric === 'eatingTime') {
+                  const value = context.raw;
+                  return `${context.dataset.label}: ${formatEatingTime(value)} (${value} min)`;
+                }
+                return `${context.dataset.label}: ${context.raw}`;
+              }
+            }
           }
         }
       }

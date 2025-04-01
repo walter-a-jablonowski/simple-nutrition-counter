@@ -23,6 +23,14 @@ $chartData  = $controller->getData();
   <div class="charts-container">
     <div class="chart-wrapper">
       <h2>
+        Eating Time (minutes)
+        <span class="badge period-avg" id="eatingTime-period-avg"></span>
+        <span class="badge avg-avg" id="eatingTime-avg-avg"></span>
+      </h2>
+      <canvas id="eatingTimeChart"></canvas>
+    </div>
+    <div class="chart-wrapper">
+      <h2>
         Calories (kcal)
         <span class="badge period-avg" id="calories-period-avg"></span>
         <span class="badge avg-avg" id="calories-avg-avg"></span>
