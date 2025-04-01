@@ -5,29 +5,10 @@ class MainController
     const urlParams = new URLSearchParams( window.location.search )
     const dateParam = urlParams.get('date')
 
-    // update say switcher btn's state (current -> last -> next day)
-    // TASK: quick hack, leave like this?
-
     if( dateParam )  // date updated in switchDayBtnClick()
       this.date = new Date(dateParam).toISOString().split('T')[0]
     else
       this.date = new Date().toISOString().split('T')[0]  // all entries will be saved to this date (YYYY-MM-DD)
-
-    // update day switcher btn's state (current -> last -> next day)
-
-    if( dateParam ) {
-      const currentDate = new Date().toISOString().split('T')[0]
-      const paramDate   = new Date(dateParam).toISOString().split('T')[0]
-      
-      if( paramDate < currentDate ) {
-        const dayBtn = document.querySelector('[onclick="mainCrl.switchDayBtnClick(event)"]')
-        if(dayBtn) dayBtn.dataset.sel = 'last'
-      }
-      else if( paramDate > currentDate ) {
-        const dayBtn = document.querySelector('[onclick="mainCrl.switchDayBtnClick(event)"]')
-        if(dayBtn) dayBtn.dataset.sel = 'next'
-      }
-    }
 
     // Binding
 
