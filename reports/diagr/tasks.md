@@ -17,7 +17,7 @@
   const hours = Math.floor(diffSeconds / 3600)
   const mins  = Math.floor((diffSeconds % 3600) / 60)  // TASK: use classes and single id for the view
 
-  query('#timeSum').textContent  = `${ hours.toString().padStart(2, '0')}:${ mins.toString().padStart(2, '0')}`
+  let timespan = `${ hours.toString().padStart(2, '0')}:${ mins.toString().padStart(2, '0')}`
   ```
 
 
