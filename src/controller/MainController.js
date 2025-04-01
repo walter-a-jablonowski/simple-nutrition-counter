@@ -2,8 +2,8 @@ class MainController
 {
   constructor(args)
   {
-    this.date = null
-
+    this.date = new Date().toISOString().split('T')[0]  // all entries will be saved to this date (YYYY-MM-DD)
+                                                        // updated in lastDayBtnClick()
     // Binding
 
     this.userSelectChange       = this.userSelectChange.bind(this)
@@ -198,9 +198,11 @@ class MainController
 
   lastDayBtnClick(event)
   { 
+    this.date = new Date().toISOString().split('T')[0]  // update (YYYY-MM-DD) in ase behind midnight
+
     if( event.target.dataset.sel === 'current')
     {
-      let currentDate = new Date( this.date)
+      let currentDate = new Date( this.date )
 
       currentDate.setDate( currentDate.getDate() - 1)
       window.location.href = `?date=${ currentDate.toISOString().split('T')[0]}`
