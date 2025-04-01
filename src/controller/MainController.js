@@ -2,15 +2,19 @@ class MainController
 {
   constructor(args)
   {
-    this.date = new Date().toISOString().split('T')[0]  // all entries will be saved to this date (YYYY-MM-DD)
-                                                        // updated in switchDayBtnClick()
+    const urlParams = new URLSearchParams( window.location.search )
+    const dateParam = urlParams.get('date')
 
     // update say switcher btn's state (current -> last -> next day)
     // TASK: quick hack, leave like this?
 
-    const urlParams = new URLSearchParams(window.location.search)
-    const dateParam = urlParams.get('date')
-    
+    if( dateParam )  // date updated in switchDayBtnClick()
+      this.date = new Date(dateParam).toISOString().split('T')[0]
+    else
+      this.date = new Date().toISOString().split('T')[0]  // all entries will be saved to this date (YYYY-MM-DD)
+
+    // update day switcher btn's state (current -> last -> next day)
+
     if( dateParam ) {
       const currentDate = new Date().toISOString().split('T')[0]
       const paramDate   = new Date(dateParam).toISOString().split('T')[0]
@@ -198,7 +202,7 @@ class MainController
   switchDayBtnClick(event)  // see also construct
   {
     this.date = new Date().toISOString().split('T')[0]  // update (YYYY-MM-DD) in case behind midnight
-                                                        // TASK: review if this works with the button logic
+
     if( event.target.dataset.sel === 'current')
     {
       let currentDate = new Date( this.date )
