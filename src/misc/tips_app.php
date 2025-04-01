@@ -9,8 +9,9 @@
 <b>Date switch (beside app title)</b>
 
 <ul class="no-indent">
-  <li>click to switch to last or back to current day</li>
+  <li>click to switch to last, next or back to current day</li>
   <li>enables adding entries to last calendar day (for night owls)</li>
+  <li>or go to the next day first</li>
 </ul>
 
 <b>App usage</b>

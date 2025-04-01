@@ -28,14 +28,6 @@ else:
     <div class="container-fluid">
       <div class="d-flex w-100 justify-content-between">
 
-        <!-- Multiple days version -->
-<!--
-        <div class="d-flex justify-content-center align-items-center">
-          <button onclick="mainCrl.lastDayBtnClick(event)" class="btn btn-primary mx-2">&lt;</button>
-          <div id="dateDisplay" class="mx-2">2024-04-18</div>
-          <button onclick="mainCrl.lastDayBtnClick(event)" class="btn btn-primary mx-2">&gt;</button>
-        </div>
--->
         <!-- Simplified -->
 
         <div class="navbar-brand text-white">  <!-- div for flex align -->
@@ -50,7 +42,7 @@ else:
             <?php endforeach; ?>
           </select>
 
-          <button onclick="mainCrl.lastDayBtnClick(event)"
+          <button onclick="mainCrl.switchDayBtnClick(event)"
             data-sel = "<?= $this->mode ?>"
             class    = "btn btn-sm ms-1 mb-1 text-white p-1 py-0 border-light"
           >

@@ -3,13 +3,32 @@ class MainController
   constructor(args)
   {
     this.date = new Date().toISOString().split('T')[0]  // all entries will be saved to this date (YYYY-MM-DD)
-                                                        // updated in lastDayBtnClick()
+                                                        // updated in switchDayBtnClick()
+
+    // update say switcher btn's state (current -> last -> next day)
+    // TASK: quick hack, leave like this?
+
+    const urlParams = new URLSearchParams(window.location.search)
+    const dateParam = urlParams.get('date')
+    
+    if( dateParam ) {
+      const currentDate = new Date().toISOString().split('T')[0]
+      const paramDate   = new Date(dateParam).toISOString().split('T')[0]
+      
+      if( paramDate < currentDate ) {
+        const dayBtn = document.querySelector('[onclick="mainCrl.switchDayBtnClick(event)"]')
+        if(dayBtn) dayBtn.dataset.sel = 'last'
+      }
+      else if( paramDate > currentDate ) {
+        const dayBtn = document.querySelector('[onclick="mainCrl.switchDayBtnClick(event)"]')
+        if(dayBtn) dayBtn.dataset.sel = 'next'
+      }
+    }
+
     // Binding
 
     this.userSelectChange       = this.userSelectChange.bind(this)
-    this.lastDayBtnClick        = this.lastDayBtnClick.bind(this)
-    // this.nextDayBtnClick     = this.nextDayBtnClick.bind(this)
-    // this.thisDayBtnClick     = this.thisDayBtnClick.bind(this)
+    this.switchDayBtnClick      = this.switchDayBtnClick.bind(this)
     this.settingsBtnClick       = this.settingsBtnClick.bind(this)
     this.saveDayEntriesBtnClick = this.saveDayEntriesBtnClick.bind(this)
     this.newEntryBtn            = this.newEntryBtn.bind(this)
@@ -176,30 +195,10 @@ class MainController
 
   // Switch day
 
-  // multiple days version
-
-  // lastDayBtnClick(event)
-  // {
-  //   let currentDate = new Date( query('#dateDisplay').textContent)
-  //
-  //   currentDate.setDate( currentDate.getDate() - 1)
-  //   window.location.href = `?date=${ currentDate.toISOString().split('T')[0]}`
-  // }
-  //
-  // nextDayBtnClick(event)
-  // {
-  //   let currentDate = new Date( query('#dateDisplay').textContent)
-  //
-  //   currentDate.setDate( currentDate.getDate() + 1)
-  //   window.location.href = `?date=${ currentDate.toISOString().split('T')[0]}`
-  // }
-  //
-  // thisDayBtnClick(event)
-
-  lastDayBtnClick(event)
-  { 
-    this.date = new Date().toISOString().split('T')[0]  // update (YYYY-MM-DD) in ase behind midnight
-
+  switchDayBtnClick(event)  // see also construct
+  {
+    this.date = new Date().toISOString().split('T')[0]  // update (YYYY-MM-DD) in case behind midnight
+                                                        // TASK: review if this works with the button logic
     if( event.target.dataset.sel === 'current')
     {
       let currentDate = new Date( this.date )
@@ -208,6 +207,13 @@ class MainController
       window.location.href = `?date=${ currentDate.toISOString().split('T')[0]}`
     }
     else if( event.target.dataset.sel === 'last')
+    {
+      let currentDate = new Date( this.date )
+
+      currentDate.setDate( currentDate.getDate() + 1)
+      window.location.href = `?date=${ currentDate.toISOString().split('T')[0]}`
+    }
+    else if( event.target.dataset.sel === 'next')
     {
       window.location.href = `index.php`
     }
