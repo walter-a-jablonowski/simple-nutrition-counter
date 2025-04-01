@@ -65,7 +65,19 @@ class AppController extends ControllerBase
     $user   = User::current();
 
     $this->date = $_GET['date'] ?? date('Y-m-d');  // TASK: (advanced) is request
-    $this->mode = isset($_GET['date']) ? 'last' : 'current';
+    $this->mode = 'current';
+    
+    if( isset($_GET['date'])) {
+      $currentDate = date('Y-m-d');
+      $paramDate   = $_GET['date'];
+      
+      if( $paramDate < $currentDate )
+        $this->mode = 'last';
+      elseif( $paramDate > $currentDate )
+        $this->mode = 'next';
+      else
+        $this->mode = 'current';
+    }
 
     // Nutrients model
 
