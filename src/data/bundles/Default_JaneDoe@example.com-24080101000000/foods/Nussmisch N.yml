@@ -1,26 +1,26 @@
-productName:       "Premium 3 Nuss Mix (orange)"
+productName:       "Nussvariationen"
 vendor:            Norma
-packaging:         plastic (maybe)
+certificates:      { vegan: true, NutriScore: A }
+ingredients:       "Haselnuss, Cashew; Walnuß, Mandel"
+packaging:         plastic
 
-price:             3.29
+price:             2.99  # TASK: roughly
 weight:            200
 usedAmounts:       ["25g", "50g", "100g"]
 
-calories:          623
+calories:          657
 nutritionalValues:
 
-  fat:             53.3
-  saturatedFat:    5.4
-  carbs:           8.4
-  sugar:           4.8
-  fibre:           7.2
-  amino:           23.7
-  salt:            0.02
+  fat:             58.5
+  saturatedFat:    6.3
+  monoUnsaturated: 30.4
+  polyUnsaturated: 19.2
+  carbs:           10
+  sugar:           4
+  fibre:           6.7
+  amino:           19.3
+  salt:            0.01
 
 sources:           { nutriVal: "pack" }
-lastUpd:           2024-09-05
-lastPriceUpd:      2025-03-11
-
-prices:
-
-  2024-09-05: 2.89
+lastUpd:           2024-04-06
+lastPriceUpd:      2024-04-06
