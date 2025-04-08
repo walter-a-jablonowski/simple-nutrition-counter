@@ -1,3 +1,13 @@
+
+Overlaps:
+
+- Lipids/Fats: "Fats" is often synonymous with dietary lipids, but lipids is the broader category.
+- Electrolytes: A functional subset of minerals, not a standalone group.
+- Antioxidants: A cross-category role, not a distinct nutrient class.
+- Prebiotics: Sometimes grouped with fiber but listed separately here as they’re not essential nutrients.
+
+Exclusions: Ultra-trace elements (e.g., boron, nickel) are sometimes mentioned but lack consistent evidence for essentiality in humans, so I omitted them for clarity.
+
 Nutrients
 ├── Macronutrients (Large quantities, provide energy/structure)
 │   ├── Carbohydrates (Primary energy source)
