@@ -1,23 +1,12 @@
 
+Make a hierarchie of all known nutrients groups. Include all knowledge you have.
 
-I asked ChatGPT for
+If you can't fit a sub group uniquely in the tree you may add it multiple times. If there is some category that spans across the tree, and therefor you can't add it, make a seperate tree.
 
- --
-
-Make a hierarchie of all known nutrients groups. Samples for groups are:
-
-- water
-- proeins
-- fat
-- minerals
-- carbs
-- vtamins
-
-- lipids
-- electrolytes
-
-Be sure that all known nutrient groups, also those that aren't listed here and sub groups of those groups if any. If you can't make a perfect tree, try to make the overall picture as right as possible e.g. using multiple parents for a sub group.
+Try to make it as right as you can. Print it as ASCII.
 
  --
 
-You can see the result _overview.md. Anything missing of needs to be fixed?
+I asked ChatGPT for ...
+
+You can see the result . Anything missing of needs to be fixed?

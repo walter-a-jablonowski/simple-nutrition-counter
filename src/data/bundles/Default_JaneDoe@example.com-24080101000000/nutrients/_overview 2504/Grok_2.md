@@ -1,0 +1,146 @@
+
+Multiple Placements: Some nutrients appear in multiple places. For example:
+Beta-Carotene is both a carotenoid (bioactive compound) and a precursor to Vitamin A (microneal).
+
+Sulfur is a major mineral but is also part of amino acids like methionine and cysteine (macronutrients)
+
+Conditionally Essential Nutrients: Nutrients like arginine, cysteine, and tyrosine are non-essential under normal conditions but may become essential during illness or growth.
+
+Emerging Nutrients: Boron and silicon are included as trace minerals with possible essentiality, though evidence is no conclusive.
+
+- 1. Macronutrients
+  - 1.1 Carbohydrates
+    - 1.1.1 Simple Sugars (Monosaccharides)
+      - Glucose
+      - Fructose
+      - Galactose
+    - 1.1.2 Disaccharides
+      - Sucrose
+      - Lactose
+      - Maltose
+    - 1.1.3 Complex Carbohydrates (Polysaccharides)
+      - Starch
+      - Glycogen
+      - Fiber
+        - Cellulose
+        - Hemicellulose
+        - Pectin
+  - 1.2 Proteins
+    - 1.2.1 Amino Acids
+      - Essential Amino Acids
+        - Histidine
+        - Isoleucine
+        - Leucine
+        - Lysine
+        - Methionine
+        - Phenylalanine
+        - Threonine
+        - Tryptophan
+        - Valine
+      - Non-Essential Amino Acids
+        - Alanine
+        - Arginine
+        - Asparagine
+        - Aspartic Acid
+        - Cysteine
+        - Glutamic Acid
+        - Glutamine
+        - Glycine
+        - Proline
+        - Serine
+        - Tyrosine
+    - 1.2.2 Peptides
+      - Dipeptides, Tripeptides, etc.
+    - 1.2.3 Polypeptides/Proteins
+      - Structural (e.g., Collagen)
+      - Functional (e.g., Enzymes)
+  - 1.3 Fats (Lipids)
+    - 1.3.1 Fatty Acids
+      - Saturated Fatty Acids
+        - Stearic Acid
+        - Palmitic Acid
+      - Unsaturated Fatty Acids
+        - Monounsaturated (MUFAs)
+          - Oleic Acid
+        - Polyunsaturated (PUFAs)
+          - Omega-3 Fatty Acids
+            - Alpha-Linolenic Acid (ALA)
+            - Eicosapentaenoic Acid (EPA)
+            - Docosahexaenoic Acid (DHA)
+          - Omega-6 Fatty Acids
+            - Linoleic Acid
+            - Arachidonic Acid
+    - 1.3.2 Triglycerides
+    - 1.3.3 Phospholipids
+    - 1.3.4 Sterols
+      - Cholesterol
+      - Phytosterols
+- 2. Micronutrients
+  - 2.1 Vitamins
+    - 2.1.1 Water-Soluble Vitamins
+      - Vitamin B1 (Thiamine)
+      - Vitamin B2 (Riboflavin)
+      - Vitamin B3 (Niacin)
+      - Vitamin B5 (Pantothenic Acid)
+      - Vitamin B6 (Pyridoxine)
+      - Vitamin B7 (Biotin)
+      - Vitamin B9 (Folate)
+      - Vitamin B12 (Cobalamin)
+      - Vitamin C (Ascorbic Acid)
+    - 2.1.2 Fat-Soluble Vitamins
+      - Vitamin A (Retinol, Beta-Carotene)
+      - Vitamin D (Cholecalciferol, Ergocalciferol)
+      - Vitamin E (Tocopherols, Tocotrienols)
+      - Vitamin K (Phylloquinone, Menaquinones)
+  - 2.2 Minerals
+    - 2.2.1 Major Minerals (Macrominerals)
+      - Calcium
+      - Phosphorus
+      - Magnesium
+      - Sodium
+      - Potassium
+      - Chloride
+      - Sulfur
+    - 2.2.2 Trace Minerals
+      - Iron
+      - Zinc
+      - Copper
+      - Manganese
+      - Iodine
+      - Selenium
+      - Molybdenum
+      - Chromium
+      - Cobalt
+      - Fluoride
+      - Boron
+      - Silicon
+- 3. Water
+
+Separate Tree: Bioactive Compounds (ASCII)
+
+- 1. Bioactive Compounds
+  - 1.1 Phytochemicals
+    - 1.1.1 Polyphenols
+      - Flavonoids (e.g., Quercetin, Catechins)
+      - Phenolic Acids (e.g., Caffeic Acid)
+      - Stilbenes (e.g., Resveratrol)
+      - Lignans
+    - 1.1.2 Carotenoids
+      - Beta-Carotene
+      - Lycopene
+      - Lutein
+      - Zeaxanthin
+    - 1.1.3 Glucosinolates
+      - Sulforaphane
+  - 1.2 Antioxidants
+    - Vitamin C
+    - Vitamin E
+    - Polyphenols
+    - Carotenoids
+  - 1.3 Prebiotics
+    - Inulin
+    - Fructooligosaccharides (FOS)
+    - Galactooligosaccharides (GOS)
+  - 1.4 Probiotics
+    - Lactobacillus species
+    - Bifidobacterium species
