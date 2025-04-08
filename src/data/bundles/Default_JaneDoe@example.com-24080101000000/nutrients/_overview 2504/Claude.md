@@ -1,263 +1,89 @@
 
-NUTRIENTS
-│
-├── MACRONUTRIENTS (required in large amounts)
-│   │
-│   ├── CARBOHYDRATES
-│   │   │
-│   │   ├── SIMPLE CARBOHYDRATES (Sugars)
-│   │   │   │
-│   │   │   ├── Monosaccharides
-│   │   │   │   ├── Glucose
-│   │   │   │   ├── Fructose
-│   │   │   │   └── Galactose
-│   │   │   │
-│   │   │   └── Disaccharides
-│   │   │       ├── Sucrose (glucose + fructose)
-│   │   │       ├── Lactose (glucose + galactose)
-│   │   │       └── Maltose (glucose + glucose)
-│   │   │
-│   │   └── COMPLEX CARBOHYDRATES
-│   │       │
-│   │       ├── Oligosaccharides
-│   │       │   ├── Maltodextrins
-│   │       │   ├── Raffinose
-│   │       │   └── Stachyose
-│   │       │
-│   │       └── Polysaccharides
-│   │           ├── Digestible
-│   │           │   ├── Starch
-│   │           │   │   ├── Amylose
-│   │           │   │   └── Amylopectin
-│   │           │   └── Glycogen
-│   │           │
-│   │           └── Non-digestible (Dietary Fiber)
-│   │               ├── Soluble fiber
-│   │               │   ├── Pectins
-│   │               │   ├── Gums
-│   │               │   ├── Mucilages
-│   │               │   ├── Some hemicelluloses
-│   │               │   └── Beta-glucans
-│   │               │
-│   │               └── Insoluble fiber
-│   │                   ├── Cellulose
-│   │                   ├── Most hemicelluloses
-│   │                   └── Lignin
-│   │
-│   ├── PROTEINS
-│   │   │
-│   │   ├── AMINO ACIDS
-│   │   │   │
-│   │   │   ├── Essential amino acids
-│   │   │   │   ├── Histidine
-│   │   │   │   ├── Isoleucine
-│   │   │   │   ├── Leucine
-│   │   │   │   ├── Lysine
-│   │   │   │   ├── Methionine
-│   │   │   │   ├── Phenylalanine
-│   │   │   │   ├── Threonine
-│   │   │   │   ├── Tryptophan
-│   │   │   │   └── Valine
-│   │   │   │
-│   │   │   ├── Conditionally essential amino acids
-│   │   │   │   ├── Arginine
-│   │   │   │   ├── Cysteine
-│   │   │   │   ├── Glutamine
-│   │   │   │   ├── Glycine
-│   │   │   │   ├── Proline
-│   │   │   │   └── Tyrosine
-│   │   │   │
-│   │   │   └── Non-essential amino acids
-│   │   │       ├── Alanine
-│   │   │       ├── Asparagine
-│   │   │       ├── Aspartic acid
-│   │   │       ├── Glutamic acid
-│   │   │       └── Serine
-│   │   │
-│   │   └── PROTEIN TYPES (by function)
-│   │       ├── Structural proteins
-│   │       │   ├── Collagen
-│   │       │   ├── Elastin
-│   │       │   └── Keratin
-│   │       │
-│   │       ├── Enzymes
-│   │       ├── Hormones
-│   │       ├── Transport proteins
-│   │       │   ├── Hemoglobin
-│   │       │   └── Albumin
-│   │       │
-│   │       ├── Antibodies
-│   │       └── Contractile proteins
-│   │           ├── Actin
-│   │           └── Myosin
-│   │
-│   └── LIPIDS
-│       │
-│       ├── FATTY ACIDS
-│       │   │
-│       │   ├── Saturated fatty acids
-│       │   │   ├── Short-chain (C4-C6)
-│       │   │   ├── Medium-chain (C8-C12)
-│       │   │   └── Long-chain (C14-C24)
-│       │   │
-│       │   └── Unsaturated fatty acids
-│       │       │
-│       │       ├── Monounsaturated fatty acids (MUFAs)
-│       │       │   └── Omega-9 (e.g., Oleic acid)
-│       │       │
-│       │       └── Polyunsaturated fatty acids (PUFAs)
-│       │           ├── Omega-3
-│       │           │   ├── Alpha-linolenic acid (ALA) - essential
-│       │           │   ├── Eicosapentaenoic acid (EPA)
-│       │           │   └── Docosahexaenoic acid (DHA)
-│       │           │
-│       │           └── Omega-6
-│       │               ├── Linoleic acid - essential
-│       │               └── Arachidonic acid
-│       │
-│       ├── GLYCERIDES
-│       │   ├── Triglycerides
-│       │   ├── Diglycerides
-│       │   └── Monoglycerides
-│       │
-│       ├── PHOSPHOLIPIDS
-│       │   ├── Phosphatidylcholine (Lecithin)
-│       │   ├── Phosphatidylethanolamine
-│       │   ├── Phosphatidylserine
-│       │   └── Phosphatidylinositol
-│       │
-│       ├── STEROLS
-│       │   ├── Cholesterol
-│       │   └── Plant sterols (Phytosterols)
-│       │       ├── Beta-sitosterol
-│       │       ├── Campesterol
-│       │       └── Stigmasterol
-│       │
-│       └── OTHER LIPIDS
-│           ├── Waxes
-│           ├── Sphingolipids
-│           │   └── Sphingomyelin
-│           │
-│           └── Fat-soluble vitamins (see Micronutrients)
-│
-├── MICRONUTRIENTS (required in small amounts)
-│   │
-│   ├── VITAMINS
-│   │   │
-│   │   ├── FAT-SOLUBLE VITAMINS
-│   │   │   ├── Vitamin A (Retinol, Beta-carotene)
-│   │   │   ├── Vitamin D (Calciferol)
-│   │   │   │   ├── Vitamin D2 (Ergocalciferol)
-│   │   │   │   └── Vitamin D3 (Cholecalciferol)
-│   │   │   │
-│   │   │   ├── Vitamin E (Tocopherols, Tocotrienols)
-│   │   │   └── Vitamin K
-│   │   │       ├── Vitamin K1 (Phylloquinone)
-│   │   │       └── Vitamin K2 (Menaquinones)
-│   │   │
-│   │   └── WATER-SOLUBLE VITAMINS
-│   │       ├── B Vitamins
-│   │       │   ├── Vitamin B1 (Thiamine)
-│   │       │   ├── Vitamin B2 (Riboflavin)
-│   │       │   ├── Vitamin B3 (Niacin)
-│   │       │   ├── Vitamin B5 (Pantothenic acid)
-│   │       │   ├── Vitamin B6 (Pyridoxine)
-│   │       │   ├── Vitamin B7 (Biotin)
-│   │       │   ├── Vitamin B9 (Folate/Folic acid)
-│   │       │   └── Vitamin B12 (Cobalamins)
-│   │       │
-│   │       └── Vitamin C (Ascorbic acid)
-│   │
-│   └── MINERALS
-│       │
-│       ├── MACROMINERALS (required >100mg/day)
-│       │   ├── Calcium
-│       │   ├── Phosphorus
-│       │   ├── Potassium
-│       │   ├── Sodium
-│       │   ├── Chloride
-│       │   ├── Magnesium
-│       │   └── Sulfur
-│       │
-│       └── TRACE MINERALS (required <100mg/day)
-│           ├── Iron
-│           ├── Zinc
-│           ├── Copper
-│           ├── Manganese
-│           ├── Iodine
-│           ├── Selenium
-│           ├── Molybdenum
-│           ├── Chromium
-│           ├── Fluoride
-│           ├── Boron
-│           ├── Cobalt
-│           ├── Silicon
-│           ├── Vanadium
-│           └── Nickel
-│
-└── OTHER BIOACTIVE COMPOUNDS
-    │
-    ├── PHYTOCHEMICALS
-    │   │
-    │   ├── POLYPHENOLS
-    │   │   │
-    │   │   ├── Flavonoids
-    │   │   │   ├── Flavonols (e.g., Quercetin)
-    │   │   │   ├── Flavones
-    │   │   │   ├── Flavanones
-    │   │   │   ├── Flavan-3-ols (Catechins)
-    │   │   │   ├── Anthocyanidins
-    │   │   │   └── Isoflavones (e.g., Genistein)
-    │   │   │
-    │   │   ├── Phenolic acids
-    │   │   │   ├── Hydroxybenzoic acids
-    │   │   │   └── Hydroxycinnamic acids
-    │   │   │
-    │   │   ├── Stilbenes (e.g., Resveratrol)
-    │   │   └── Lignans
-    │   │
-    │   ├── TERPENOIDS
-    │   │   ├── Carotenoids
-    │   │   │   ├── Carotenes (e.g., Beta-carotene)
-    │   │   │   └── Xanthophylls (e.g., Lutein, Zeaxanthin)
-    │   │   │
-    │   │   ├── Limonoids
-    │   │   └── Saponins
-    │   │
-    │   ├── THIOLS
-    │   │   └── Glucosinolates (e.g., Sulforaphane)
-    │   │
-    │   ├── ALKALOIDS
-    │   │   ├── Caffeine
-    │   │   ├── Theobromine
-    │   │   └── Theophylline
-    │   │
-    │   └── BETALAINS
-    │       ├── Betacyanins
-    │       └── Betaxanthins
-    │
-    ├── ZOOCHEMICALS
-    │   ├── Creatine
-    │   ├── Carnosine
-    │   ├── Taurine
-    │   ├── Conjugated linoleic acid (CLA)
-    │   └── Coenzyme Q10 (CoQ10)
-    │
-    └── PROBIOTICS & PREBIOTICS
-        │
-        ├── PROBIOTICS
-        │   ├── Lactobacillus species
-        │   ├── Bifidobacterium species
-        │   └── Saccharomyces species
-        │
-        └── PREBIOTICS
-            ├── Inulin
-            ├── Fructooligosaccharides (FOS)
-            ├── Galactooligosaccharides (GOS)
-            └── Resistant starch
+# Nutrients Hierarchy Outline
+
+## 1. Macronutrients
+   
+### 1.1 Carbohydrates
+- **Simple Carbohydrates (Sugars)**
+  - Monosaccharides: Glucose, Fructose, Galactose
+  - Disaccharides: Sucrose, Lactose, Maltose
+- **Complex Carbohydrates**
+  - Oligosaccharides: Maltodextrins, Raffinose, Stachyose
+  - Polysaccharides
+    - Digestible: Starch (Amylose, Amylopectin), Glycogen
+    - Non-digestible (Dietary Fiber)
+      - Soluble fiber: Pectins, Gums, Mucilages, Some hemicelluloses, Beta-glucans
+      - Insoluble fiber: Cellulose, Most hemicelluloses, Lignin
+
+### 1.2 Proteins
+- **Amino Acids**
+  - Essential: Histidine, Isoleucine, Leucine, Lysine, Methionine, Phenylalanine, Threonine, Tryptophan, Valine
+  - Conditionally essential: Arginine, Cysteine, Glutamine, Glycine, Proline, Tyrosine
+  - Non-essential: Alanine, Asparagine, Aspartic acid, Glutamic acid, Serine
+- **Protein Types (by function)**
+  - Structural proteins: Collagen, Elastin, Keratin
+  - Enzymes
+  - Hormones
+  - Transport proteins: Hemoglobin, Albumin
+  - Antibodies
+  - Contractile proteins: Actin, Myosin
+
+### 1.3 Lipids
+- **Fatty Acids**
+  - Saturated: Short-chain (C4-C6), Medium-chain (C8-C12), Long-chain (C14-C24)
+  - Unsaturated
+    - Monounsaturated (MUFAs): Omega-9 (e.g., Oleic acid)
+    - Polyunsaturated (PUFAs)
+      - Omega-3: Alpha-linolenic acid (ALA, essential), EPA, DHA
+      - Omega-6: Linoleic acid (essential), Arachidonic acid
+- **Glycerides**: Triglycerides, Diglycerides, Monoglycerides
+- **Phospholipids**: Phosphatidylcholine (Lecithin), Phosphatidylethanolamine, Phosphatidylserine, Phosphatidylinositol
+- **Sterols**
+  - Cholesterol
+  - Plant sterols (Phytosterols): Beta-sitosterol, Campesterol, Stigmasterol
+- **Misc Lipids**: Waxes, Sphingolipids (Sphingomyelin), Fat-soluble vitamins
+
+## 2. Micronutrients
+
+### 2.1 Vitamins
+- **Fat-soluble Vitamins**
+  - Vitamin A (Retinol, Beta-carotene)
+  - Vitamin D (D2/Ergocalciferol, D3/Cholecalciferol)
+  - Vitamin E (Tocopherols, Tocotrienols)
+  - Vitamin K (K1/Phylloquinone, K2/Menaquinones)
+- **Water-soluble Vitamins**
+  - B Vitamins: B1 (Thiamine), B2 (Riboflavin), B3 (Niacin), B5 (Pantothenic acid), B6 (Pyridoxine), B7 (Biotin), B9 (Folate/Folic acid), B12 (Cobalamins)
+  - Vitamin C (Ascorbic acid)
+
+### 2.2 Minerals
+- **Macrominerals** (>100mg/day): Calcium, Phosphorus, Potassium, Sodium, Chloride, Magnesium, Sulfur
+- **Trace Minerals** (<100mg/day): Iron, Zinc, Copper, Manganese, Iodine, Selenium, Molybdenum, Chromium, Fluoride, Boron, Cobalt, Silicon, Vanadium, Nickel
+
+## 3. Misc Bioactive Compounds
+
+### 3.1 Phytochemicals
+- **Polyphenols**
+  - Flavonoids: Flavonols, Flavones, Flavanones, Flavan-3-ols, Anthocyanidins, Isoflavones
+  - Phenolic acids: Hydroxybenzoic acids, Hydroxycinnamic acids
+  - Stilbenes (e.g., Resveratrol)
+  - Lignans
+- **Terpenoids**
+  - Carotenoids: Carotenes, Xanthophylls
+  - Limonoids
+  - Saponins
+- **Thiols**: Glucosinolates (e.g., Sulforaphane)
+- **Alkaloids**: Caffeine, Theobromine, Theophylline
+- **Betalains**: Betacyanins, Betaxanthins
+
+### 3.2 Zoochemicals
+- Creatine, Carnosine, Taurine, Conjugated linoleic acid (CLA), Coenzyme Q10 (CoQ10)
+
+### 3.3 Probiotics & Prebiotics
+- **Probiotics**: Lactobacillus species, Bifidobacterium species, Saccharomyces species
+- **Prebiotics**: Inulin, Fructooligosaccharides (FOS), Galactooligosaccharides (GOS), Resistant starch
 
 
-Separate Functional Classification of Nutrients
+# Separate Functional Classification of Nutrients
 
 Some nutrients can be classified based on their functional roles across multiple categories, so here's a separate functional classification
 
