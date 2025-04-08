@@ -1,0 +1,25 @@
+
+vendor:            Aldi
+comment:           "has sugar"
+acceptable:        occasionally
+certificates:      { vegan: true, NutriScore: D }
+ingredients:       "Cashew, Cr, Zucker, Sonnenblumenöl"
+packaging:         plastic
+
+price:             
+weight:            200g
+
+calories:          466
+nutritionalValues: 
+
+  fat:             23.8
+  saturatedFat:    4.7
+  carbs:           50.3
+  sugar:           35.6
+  fibre:           3.8
+  amino:           10.9
+  salt:            0
+
+sources:           { nutriVal: "pack" }
+lastUpd:           2025-04-08
+lastPriceUpd:      2025-04-08
