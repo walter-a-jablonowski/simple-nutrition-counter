@@ -2,14 +2,14 @@
 
 /*@
 
-Prints stuff
+Prints yml formatted
 
 file_put_contents('out.yml',  Printer::run('my.yml', [
   'title' => 'Hello World'
 ]));
 
 */
-class Printer /*@*/
+class YMLPrinter /*@*/
 {
 
   public static function run( string $fil, array $data ) : string
