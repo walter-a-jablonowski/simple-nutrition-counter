@@ -19,7 +19,7 @@ substances:
 
     short:      NaCl
     unit:       g
-    groups:     [ "macroelements" ]
+    groups:     ["macroelements"]
     sources:
 
       - title: Andrew Huberman
@@ -42,7 +42,7 @@ substances:
 
     short:      K
     unit:       g
-    groups:     [ "macroelements" ]
+    groups:     ["macroelements"]
     sources:    "DGE for now"
     amounts:
 
@@ -55,7 +55,7 @@ substances:
 
     short:      Ca
     unit:       g
-    groups:     [ "macroelements" ]
+    groups:     ["macroelements"]
     sources:    "DGE for now"
     amounts:
 
@@ -67,7 +67,7 @@ substances:
   Phosphorus:
 
     short:      P
-    groups:     [ "macroelements" ]
+    groups:     ["macroelements"]
     sources:    "DGE for now"
     amounts:
 
@@ -79,7 +79,7 @@ substances:
   Magnesium:
 
     short:      Mg
-    groups:     [ "macroelements" ]
+    groups:     ["macroelements"]
     comment:    "increased need if doing sports"
     sources:    "DGE for now"
     amounts:
@@ -100,7 +100,7 @@ substances:
   Iron:
 
     short:      Fe
-    groups:     [ "macroelements" ]
+    groups:     ["macroelements"]
     sources:    "DGE for now"
     amounts:
 
@@ -112,7 +112,7 @@ substances:
   Iodine:
 
     short:      I
-    groups:     [ "trace-elements" ]
+    groups:     ["trace-elements"]
     comment:    "DGE has 2 values 150 or 200µg"
     sources:    "DGE for now"
     amounts:
@@ -125,7 +125,7 @@ substances:
   Fluoride:
 
     short:      F
-    groups:     [ "trace-elements" ]
+    groups:     ["trace-elements"]
     sources:    "DGE for now"
     amounts:
 
@@ -137,7 +137,7 @@ substances:
   Zinc:
 
     short:      Zn
-    groups:     [ "trace-elements" ]
+    groups:     ["trace-elements"]
     comment:    "DGE has multiple values"
     sources:    "DGE for now"
     amounts:
@@ -150,7 +150,7 @@ substances:
   Selenium:
 
     short:      Se
-    groups:     [ "trace-elements" ]
+    groups:     ["trace-elements"]
     sources:    "DGE for now"
     amounts:
 
@@ -164,7 +164,7 @@ substances:
   Copper:
 
     short:      Cu
-    groups:     [ "trace-elements" ]
+    groups:     ["trace-elements"]
     sources:    "DGE for now"
     amounts:
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
@@ -175,7 +175,7 @@ substances:
   Chromium:
 
     short:      Cr
-    groups:     [ "trace-elements" ]
+    groups:     ["trace-elements"]
     sources:    "DGE for now"
     amounts:
 
@@ -187,7 +187,7 @@ substances:
   Manganese:
 
     short:      Mn
-    groups:     [ "trace-elements" ]
+    groups:     ["trace-elements"]
     sources:    "DGE for now"
     amounts:
 
@@ -199,7 +199,7 @@ substances:
   Molybdenum:
 
     short:      Mo
-    groups:     [ "trace-elements" ]
+    groups:     ["trace-elements"]
     sources:    "DGE for now"
     amounts:
 
@@ -213,7 +213,7 @@ substances:
   # Sulfur:
   #
   #   short:      S
-  #   groups:     [ "trace-elements" ]
+  #   groups:     ["trace-elements"]
   #   sources:    ""
   #   amounts:
   #
