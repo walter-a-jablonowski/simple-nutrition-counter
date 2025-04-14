@@ -6,7 +6,7 @@ comment:           "4.3g sugar per 1/8"
 certificates:      { NutriScore: D }
 packaging:         plastic
 
-price:             
+price:             2.29
 weight:            200
 usedAmounts:       ["10g", "25g", "50g"]
 
@@ -23,4 +23,4 @@ nutritionalValues:
 
 sources:           { nutriVal: "pack" }
 lastUpd:           2024-06-18
-lastPriceUpd:
+lastPriceUpd:      2024-06-18

@@ -3,7 +3,7 @@ vendor:            Aldi
 certificates:      { NutriScore: A }
 packaging:         plastic (maybe)
 
-price:             2.79
+price:             2.99
 weight:            200
 usedAmounts:       ["25g", "50g", "100g"]
 
@@ -29,4 +29,8 @@ minerals:
 
 sources:           { nutriVal: "pack" }
 lastUpd:           2024-05-29
-lastPriceUpd:      2024-06-18
+lastPriceUpd:      2025-04-11
+
+prices:
+
+  2024-06-18: 2.79
