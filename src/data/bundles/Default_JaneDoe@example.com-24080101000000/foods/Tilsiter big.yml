@@ -1,0 +1,24 @@
+vendor:            Norma
+
+acceptable:        occasionally
+packaging:         plastic
+
+price:             
+weight:            400g
+pieces:            11
+usedAmounts:       [1, 2, 3]
+
+calories:          343
+nutritionalValues: 
+
+  fat:             27
+  saturatedFat:    18
+  carbs:           0.5
+  sugar:           0.5
+  amino:           25
+  salt:            1.7
+
+sources:           { nutriVal: "pack" }
+
+lastUpd:           2024-09-03
+lastPriceUpd:      
