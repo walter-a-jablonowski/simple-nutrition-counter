@@ -3,6 +3,9 @@
 set_time_limit(0);
 
 require_once 'lib.php';
+require_once '../../src/vendor/autoload.php';
+
+use Symfony\Component\Yaml\Yaml;
 
 $outputFile = 'rewe_prices.txt';
 $foodsDir   = '../../src/data/bundles/Default_JaneDoe@example.com-24080101000000/foods';
@@ -29,7 +32,7 @@ function processYamlFile( $filePath )
   
   // Parse YAML file
   try {
-    $yaml = yaml_parse_file($filePath);
+    $yaml = Yaml::parseFile($filePath);
   }
   catch( Exception $e ) {
     file_put_contents($outputFile, "Error parsing $filePath: {$e->getMessage()}\n", FILE_APPEND);
