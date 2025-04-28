@@ -18,8 +18,9 @@ removed:             { usage: "hide in UI (unused food), currently no function (
                          required: false, type: "bool" }
 
 type:                { usage: "A food type like 'chickpeas' from data/food_defaults", required: false, type: "string" }
-productName:         { usage: "Precise product name", required: false, type: "string" }
-vendor:              { usage: "Vendor name",          required: false, type: "string" }
+productName:         { usage: "Precise product name",  required: false, type: "string" }
+keywords:            { usage: "as used in SelfSurfer", required: false, type: "array(string)" }
+vendor:              { usage: "Vendor name",           required: false, type: "string" }
 url:                 { usage: "Single or multiple urls, first will be used as primary if multiple",
                          required: false, type: "string|array(string)" }
 
@@ -36,6 +37,7 @@ packaging:           { usage: "outer contact with food only --> none|cardboard->
 cookingInstructions: { usage: "We can use html here or multi line using yml syntax", required: false, type: "string" }
 
 price:               { usage: "like 1.00 may be null", required: false, type: "currency" }
+dealPrice:           { usage: "typical deal price when article is cheaper", required: false, type: "currency" }
 isDeal:              { usage: "true if deal price", required: false, type: "bool" }
 weight:              { usage: "like 100g of whole pack in case of pieces, unit g or ml is optional",
                          required: true, type: "float" }
@@ -88,3 +90,4 @@ lastUpd:             { usage: "like 2024-02-18, last upd nutritional data",   re
 lastPriceUpd:        { usage: "like 2024-02-18", required: false, type: "date" }
 
 prices:              { usage: "list of previous prices like `YYYY-MM-DD[ VEDOR]: PRICE`", required: false, type: "array" }
+dealPrices:          { usage: "list of previous deal prices like `YYYY-MM-DD[ VEDOR]: PRICE`", required: false, type: "array" }

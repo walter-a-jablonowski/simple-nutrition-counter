@@ -3,6 +3,7 @@ removed:           true
 
 type:              
 productName:       ""
+keywords:          []
 vendor:            
 url:                 # string or array  # TASK: name urls
 
@@ -19,6 +20,7 @@ packaging:         none|cardboard,alu,plastic,glass & rubber (maybe)  # outer --
 cookingInstructions: "" 
 
 price:             
+dealPrice:         
 weight:            
 pieces:            
 usedAmounts:       []
@@ -55,3 +57,5 @@ lastUpd:
 lastPriceUpd:      
 
 prices:
+
+dealPrices:

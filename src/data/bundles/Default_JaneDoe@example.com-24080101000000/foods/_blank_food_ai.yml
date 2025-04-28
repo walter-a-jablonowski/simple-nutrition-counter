@@ -4,8 +4,8 @@ Please fill out the yml below with data from the url below
 Rules
 
 - Keep the yml formatting as it is, remove no blanks before the value
-- Fill in values as far as possible, if a value is missing leave it blank
 - Leave out-commented lines as they are
+- Fill in values as far as possible, if a value is missing leave it blank
 - Certificates: remove if missing in source data, fill in the right value
 - Field "details": add all additional nutrient info for that we don't have a seperate data field (sample: "naturbelassen")
 - Add nutritional values with no "g", just the float or int
@@ -18,36 +18,44 @@ URL: [URL]
 
 The yml
 
-
-productName:       ""
+# type:              
+# productName:     ""
+# keywords:        []
 vendor:            
 url:               ""
 
-acceptable:        occasionally
+# acceptable:      occasionally|less
+# comment:         ""
 certificates:      { bio: true, vegan: true, oekotest: 1, warentest: 1, NutriScore: A, fairtrade: true, misc: "see attached" }
 details:           ""
 ingredients:       ""
 allergy:           ""
 mayContain:        ""
 origin:            ""
-# packaging:         none|cardboard,alu,plastic,glass & rubber (maybe)  # outer --> inner (contact with food only)
+packaging:         # none|cardboard,alu,plastic,glass & rubber (maybe)  # outer --> inner (contact with food only)
+
+# cookingInstructions: "" 
 
 price:             
+dealPrice:         
 weight:            
-# pieces:            
-usedAmounts:       []
+pieces:            
+# usedAmounts:     []
 
 calories:          
 nutritionalValues: 
 
   fat:             
   saturatedFat:    
+  monoUnsaturated: 
+  polyUnsaturated: 
   carbs:           
   sugar:           
+  sugarAlcohol:    
   fibre:           
   amino:           
   salt:            
 
-sources:           { nutriVal: "web (information on packaging may differ slightly)", price: "web" }
+sources:           { nutriVal: "web" }
 lastUpd:           
 lastPriceUpd:      
