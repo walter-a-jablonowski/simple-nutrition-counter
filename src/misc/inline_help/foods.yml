@@ -18,7 +18,7 @@ removed:             { usage: "hide in UI (unused food), currently no function (
                          required: false, type: "bool" }
 
 type:                { usage: "A food type like 'chickpeas' from data/food_defaults", required: false, type: "string" }
-productName:         { usage: "Precise product name",  required: false, type: "string" }
+productName:         { usage: "pricese case used for online search: name + type (e.g. apple) + amount",  required: false, type: "string" }
 keywords:            { usage: "as used in SelfSurfer", required: false, type: "array(string)" }
 vendor:              { usage: "Vendor name",           required: false, type: "string" }
 url:                 { usage: "Single or multiple urls, first will be used as primary if multiple",
