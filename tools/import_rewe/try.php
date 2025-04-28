@@ -1,14 +1,16 @@
 <?php
 
-// Include the library with the findRewePrice function
-require_once __DIR__ . '/lib.php';
+set_time_limit(0);
 
-// Output file for the results
-$outputFile = __DIR__ . '/rewe_prices.txt';
+require_once 'lib.php';
+
+$outputFile = 'rewe_prices.txt';
+$foodsDir   = '../../src/data/bundles/Default_JaneDoe@example.com-24080101000000/foods';
+
 
 // Initialize the output file with a header
 $timestamp = date('Y-m-d H:i:s');
-file_put_contents($outputFile, "REWE Price Check - Started at $timestamp\n\n", FILE_APPEND);
+file_put_contents( $outputFile, "REWE Price Check - Started at $timestamp\n\n", FILE_APPEND);
 
 /**
  * Process a YAML file to check for REWE products
@@ -110,9 +112,6 @@ function scanDirectory( $dir )
 echo "Starting REWE price checker...\n";
 echo "Results will be appended to: $outputFile\n";
 echo "Press Ctrl+C to stop the script\n\n";
-
-// Use the correct path with forward slashes
-$foodsDir = dirname(dirname(dirname(__FILE__))) . '/src/data/bundles/Default_JaneDoe@example.com-24080101000000/foods';
 
 // Make sure the path exists
 if( ! is_dir($foodsDir) )
