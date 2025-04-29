@@ -1,6 +1,6 @@
 packaging:         alu
 
-price:             5.39
+dealPrice:         5.39
 weight:            500
 usedAmounts:       ["50g"]
 
