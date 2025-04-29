@@ -247,7 +247,11 @@ class AppController extends ControllerBase
         $perWeight = [
           'weight'   => round( $weight, 1),
           'calories' => round( $data['calories'] * ($weight / 100), 1),
-          'price'    => isset( $data['price']) ? round( $data['price'] * ($weight / $data['weight']), 2) : 0
+          'price'    => isset( $data['price']) && $data['price']
+                     ?  round( $data['price'] * ($weight / $data['weight']), 2) : (
+                        isset( $data['dealPrice']) && $data['dealPrice']
+                     ?  round( $data['dealPrice'] * ($weight / $data['weight']), 2)
+                     :  0)
         ];
 
         // nutritional values for all nutrient groups
