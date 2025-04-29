@@ -1,7 +1,6 @@
 packaging:         alu
 
 price:             8.99
-isDeal:            true
 weight:            500
 usedAmounts:       ["50g"]
 
