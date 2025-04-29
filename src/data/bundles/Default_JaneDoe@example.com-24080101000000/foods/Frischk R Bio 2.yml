@@ -7,8 +7,7 @@ ingredients:       "MILCH*, Speisesalz, MILCHsäurekulturen, mikrobielles"
 allergy:           "Milch und Milcherzeugnisse (einschließlich Lactose)"              
 packaging:         plastic & alu
 
-price:             0.99
-isDeal:            true
+dealPrice:         0.99
 weight:            175
 usedAmounts:       ["1/4", "1/2"]
 

@@ -6,8 +6,7 @@ mayContain:        "Weizen, Gerste, Roggen, Hafer, Krustentiere, Eiern, Fisch, S
 origin:            "multiple countries"
 packaging:         plastic
 
-price:             2.22
-isDeal:            true
+dealPrice:         2.22
 weight:            480g
 usedAmounts:       ["25g", "50g", "100g"]
 

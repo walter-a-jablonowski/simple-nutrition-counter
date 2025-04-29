@@ -2,9 +2,8 @@ vendor:            Rewe
 acceptable:        less
 packaging:         plastic
 
-price:             1.39
+dealPrice:         1.39
 weight:            120g  
-isDeal:            true
 pieces:            20    # TASK: is a guess
 
 calories:          1510

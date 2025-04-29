@@ -2,8 +2,7 @@ vendor:            Rewe
 acceptable:        occasionally
 packaging:         plastic
 
-price:             1.69
-isDeal:            true
+dealPrice:         1.69
 weight:            150
 usedAmounts:       ["10g", "20g", "30g"]
 

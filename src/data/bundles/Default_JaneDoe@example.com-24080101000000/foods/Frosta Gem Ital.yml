@@ -6,8 +6,7 @@ mayContain:        "Weizen, Gerste, Roggen, Hafer, Krebstieren, Eiern, Fisch, So
 origin:            "multiple countries from Europne, South America, Asia"
 packaging:         plastic
 
-price:             2.29
-isDeal:            true
+dealPrice:         2.29
 weight:            480g
 usedAmounts:       ["25g", "50g", "100g"]
 

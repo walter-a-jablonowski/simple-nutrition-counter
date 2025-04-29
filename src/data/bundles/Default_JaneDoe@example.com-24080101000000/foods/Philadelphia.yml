@@ -3,8 +3,7 @@ url:               "https://shop.rewe.de/p/philadelphia-natur-doppelrahmstufe-17
 acceptable:        less
 packaging:         plastic & alu
 
-price:             1.49
-isDeal:            true
+dealPrice:         1.49
 weight:            175
 usedAmounts:       ["10g", "20g", "30g"]
 

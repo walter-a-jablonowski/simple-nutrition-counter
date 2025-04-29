@@ -4,8 +4,7 @@ certificates:      { vegan: true, NutriScore: A }
 ingredients:       "Frisée, Eisbergsalat, gegarter Mais, Wasser, Speisesalz, Radicchio, Karotte"
 packaging:         plastic
 
-price:             1.49
-isDeal:            true  # TASK
+dealPrice:         1.49
 weight:            400g
 usedAmounts:       ["25g", "50g", "100g"]
 

@@ -3,8 +3,7 @@ url:               "https://www.frosta.de/produkte/schnelle-gerichte/huehner-fri
 acceptable:        occasionally
 packaging:         plastic
 
-price:             2.99
-isDeal:            true
+dealPrice:         2.99
 weight:            500
 usedAmounts:       ["50g", "100g", "200g"]
 

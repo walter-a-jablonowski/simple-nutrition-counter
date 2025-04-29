@@ -2,8 +2,7 @@ vendor:            Rewe
 acceptable:        less
 packaging:         plastic
 
-price:             1.39
-isDeal:            true
+dealPrice:         1.39
 weight:            120g
 pieces:            5
 
@@ -25,6 +24,6 @@ sources:           { nutriVal: "web", price: "deal" }
 lastUpd:           2024-05-24
 lastPriceUpd:      2024-06-04
 
-prices:
+dealPrices:
 
   2024-05-24: 1.49
