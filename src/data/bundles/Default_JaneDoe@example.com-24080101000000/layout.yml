@@ -93,26 +93,26 @@ Meals:
       - Tofu N
       - Butter
 
-  A little taste (color:#ffa500):
+  Cheese, a little taste (color:#ffa500):
 
     (i): "Add only a little per meal makes it far more tasty and keeps it healthy"
 
     list:
 
+      - Frischk R Bio
+      - Frischk R Bio 2
       - Parmesan Bio R
       - Patros 150
       - Patros W
-      - Frischk R Bio
-      - Frischk R Bio 2
+      - Bergkäse R Bio
+      - Tilsiter small
+      - Tilsiter big
+      - Käse Gr Sch (all)
+      - Käse Gr W (all)
       - Bresso
       - Bresso mini
       - Philadelphia
       - Philadelphia mini
-      - Käse Gr Sch (all)
-      - Käse Gr W (all)
-      - Tilsiter small
-      - Tilsiter big
-      - Eiweißbr
 
   Desserts & micro or sugar-less candy (color:#ffa500):
 
@@ -186,6 +186,7 @@ Meals:
 
       - Pumpernickel R Bio
       - Vollkorn Rhein R
+      - Eiweißbr
       - Toasties R Bio
       - Flatbr Sandwich
       - Lieken Urkorn

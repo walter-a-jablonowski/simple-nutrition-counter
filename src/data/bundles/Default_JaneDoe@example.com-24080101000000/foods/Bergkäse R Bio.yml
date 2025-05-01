@@ -1,0 +1,28 @@
+
+productName:       "REWE Bio Bergkäse 150g"
+vendor:            Rewe
+url:               "https://shop.rewe.de/p/rewe-bio-bergkaese-150g/505322"
+
+acceptable:        occasionally
+certificates:      { bio: true, NutriScore: D }
+allergy:           "Milch und Milcherzeugnisse (einschließlich Lactose)"
+packaging:         plastic
+
+price:             2.19
+weight:            150g
+pieces:            7
+usedAmounts:       [1, 2, 3]
+
+calories:          418
+nutritionalValues:
+
+  fat:             34
+  saturatedFat:    26
+  carbs:           0
+  sugar:           0
+  amino:           28
+  salt:            1.6
+
+sources:           { nutriVal: "web" }
+lastUpd:           2024-05-01
+lastPriceUpd:      2024-05-01
