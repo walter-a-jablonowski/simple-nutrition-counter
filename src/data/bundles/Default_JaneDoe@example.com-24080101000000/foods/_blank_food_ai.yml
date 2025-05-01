@@ -1,5 +1,14 @@
 
-Please fill out the yml below with data from the url below
+- has prblems reading url most likely cause provider blocks sth
+- html file is pretty much tool use cause file long
+
+=> semi manual input still best 
+
+ --
+
+Please fill out the yml below with data from @_in.html and save it to a new yml file in
+
+  src\data\bundles\Default_JaneDoe@example.com-24080101000000\foods
 
 Rules
 
