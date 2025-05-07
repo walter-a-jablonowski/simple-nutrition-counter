@@ -1,0 +1,26 @@
+
+productName:       "Penne Gorgonzola mit Blattspinat"
+url:               "https://www.frosta.de/produkte/schnelle-gerichte/penne-gorgonzola"
+
+acceptable:        less
+ingredients:       "gegarte Penne-Nudeln (42%) (Wasser, HARTWEIZENGRIESS *), Vollmilch, Blattspinat (14%), Spinat (13%), Wasser, Sahne (für AT: RAHM), Gorgonzola (3,8%), Edamer, Mehlschwitze (WEIZENMEHL *, Sonnenblumenöl), Butter, Salz, Kartoffelstärke, Reismehl, schwarzer Pfeffer"
+mayContain:        "Gerste, Roggen, Hafer, Krebstieren, Eiern, Fisch, Soja, Sellerie, Senf und Weichtieren"
+packaging:         plastic
+
+price:             2.79
+weight:            500g
+
+calories:          138
+nutritionalValues:
+
+  fat:             6
+  saturatedFat:    3.5
+  carbs:           15.1
+  sugar:           1.2
+  fibre:           1.1
+  amino:           5.3
+  salt:            1.13
+
+sources:           { nutriVal: "web" }
+lastUpd:           2025-05-07
+lastPriceUpd:      2025-05-07
