@@ -115,12 +115,14 @@ $data = $this->foodsModel->get($entryName);
           <?php if( ! empty($data['price'])): ?>
             <?= settings::get('currencySymbol') ?>
             <!-- price (highlight expensive and cheap) -->
-            <?php if( $pricePer100 >= settings::get('expensive')): ?>
-              <span style="color: red;"><?= $data['price'] ?></span>
-            <?php elseif( $pricePer100 <  settings::get('cheap')): ?>
-              <span style="color: green;"><?= $data['price'] ?></span>
-            <?php else: ?>
-              <?= $data['price'] ?>
+            <?php if( isset($data['price']) && $data['price'] ): ?>
+              <?php if( $pricePer100 >= settings::get('expensive')): ?>
+                <span style="color: red;"><?= $data['price'] ?></span>
+              <?php elseif( $pricePer100 <  settings::get('cheap')): ?>
+                <span style="color: green;"><?= $data['price'] ?></span>
+              <?php else: ?>
+                <?= $data['price'] ?>
+              <?php endif; ?>
             <?php endif; ?>
             <?php if( $data['lastPriceUpd'] ): ?>
               <span class="text-secondary small">
