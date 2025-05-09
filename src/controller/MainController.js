@@ -328,6 +328,7 @@ class MainController
       amino:    nutritionalValues.amino,
       salt:     nutritionalValues.salt,
       price:    price,
+      noTimeLog: target.dataset.noTimeLog === 'true',
       nutrients: {
         fibre: JSON.parse( nutritionalValues.fibre || 0 ),  // TASK: or only add when set (see updSummary() for sum only if available)
         fat:   JSON.parse( target.dataset.fattyacids ),
@@ -427,8 +428,13 @@ class MainController
     // TASK: (advanced) time on server (currently a problem cause we still use save btn))
     //       user needs a timezone setting if done on server
 
-    let now    = new Date()
-    entry.time = now.toTimeString().split(' ')[0]  // .replaceAll(':', '')  // gives HHMMSS format
+    // Entries that shouldn't count for eating time
+    if( entry.noTimeLog === true )
+      entry.time = "--:--:--"
+    else {
+      let now = new Date()
+      entry.time = now.toTimeString().split(' ')[0]  // .replaceAll(':', '')  // gives HHMMSS format
+    }
 
     // TASK: add types for user > misc
     // if type === MiscBuyable
@@ -486,18 +492,24 @@ class MainController
     // let caloriesSum = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.calories), 0).toFixed(1))  // one decimal place
     query('#caloriesSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.calories), 0))
 
-    // eating time
+    // eating time - filter out entries with noTimeLog
+    const timeLogEntries = foodEntries.filter(entry => !entry.noTimeLog && entry.time !== "--:--:--")
+  
+    if( timeLogEntries.length >= 2 ) {
+      const [hours1, minutes1, seconds1] = timeLogEntries[0].time.split(':').map(Number)
+      const [hours2, minutes2, seconds2] = timeLogEntries[timeLogEntries.length - 1].time.split(':').map(Number)
 
-    const [hours1, minutes1, seconds1] = foodEntries[0].time.split(':').map(Number)
-    const [hours2, minutes2, seconds2] = foodEntries[foodEntries.length - 1].time.split(':').map(Number)
+      let diffSeconds = (hours2 * 3600 + minutes2 * 60 + seconds2) - (hours1 * 3600 + minutes1 * 60 + seconds1)
+      if( diffSeconds < 0 )  diffSeconds += 24 * 3600
 
-    let diffSeconds = (hours2 * 3600 + minutes2 * 60 + seconds2) - (hours1 * 3600 + minutes1 * 60 + seconds1)
-    if( diffSeconds < 0 )  diffSeconds += 24 * 3600
+      const hours = Math.floor(diffSeconds / 3600)
+      const mins  = Math.floor((diffSeconds % 3600) / 60)  // TASK: use classes and single id for the view
+      
+      query('#timeSum').textContent = `${hours.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}`
+    }
+    else  // if there are fewer than 2 entries with time logging, display 00:00
+      query('#timeSum').textContent = "00:00"
 
-    const hours = Math.floor(diffSeconds / 3600)
-    const mins  = Math.floor((diffSeconds % 3600) / 60)  // TASK: use classes and single id for the view
-
-    query('#timeSum').textContent  = `${ hours.toString().padStart(2, '0')}:${ mins.toString().padStart(2, '0')}`
     query('#fatSum').textContent   = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.fat),   0))  // just the int
     query('#aminoSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.amino), 0))
     query('#carbsSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.carbs), 0))
