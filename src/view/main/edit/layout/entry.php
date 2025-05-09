@@ -16,6 +16,9 @@ $accepColor  = $this->foodsModel->get("$entryName.acceptable") ?? 'n/a';  // TAS
 $accepColor  = ['less' => '#ffcccc', 'occasionally' => '#ffff88', 'n/a' => 'inherit'][$accepColor];
 
 $price       = $this->foodsModel->get("$entryName.price");
+if( ! $price )
+  $price     = $this->foodsModel->get("$entryName.dealPrice");
+
 $pricePer100 = $price / ( trim( $this->foodsModel->get("$entryName.weight"), "mgl ") / 100.0);
 
 if( $price )
