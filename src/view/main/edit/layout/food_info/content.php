@@ -4,13 +4,18 @@ extract($args);
 
 $data = $this->foodsModel->get($entryName);
 
+$comment = $data['comment'] ?? '';
+$comment = true === $this->foodsModel->get("$entryName.xTimeLog")
+         ? '<b><i class="bi bi-clock small text-secondary"></i> excluded from eating time calculation</b><br><br>' . $comment
+         : $comment;
+
 ?>
 
 <!-- Comment -->
 
-<?php if( ! empty($data['comment'])): ?>
-  <div class="mt-2 p-2 small" style="background-color: #e0e0e0 !important;">
-    <?= htmlspecialchars($data['comment']) ?>
+<?php if( ! empty($comment)): ?>
+  <div class="mb-3 p-2 small" style="background-color: #e0e0e0 !important;">
+    <?= $comment ?>
   </div>
 <?php endif; ?>
 

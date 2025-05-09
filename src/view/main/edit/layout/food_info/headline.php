@@ -32,8 +32,6 @@ $data = $this->foodsModel->get($entryName);
 
 <!-- Badges -->
 
-<!-- TASK: (advanced) use some kind of for -->
-
 <?php if( ! empty($data['acceptable'])): ?>
   <span class="badge bg-<?= self::iif( $data['acceptable'] == 'less', 'danger', 'warning') ?>">
     <?= self::iif( $data['acceptable'] == 'less', 'less good', 'occasionally') ?>
