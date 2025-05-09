@@ -84,7 +84,7 @@ $showInfo = $this->foodsModel->get("$entryName.comment")  // has comment might m
     >
       <div style="background-color: <?= $accepColor ?>;">
         <div class="blink-yellow" style="cursor: pointer;">  <!-- TASK: currently needed for blink to work, seems conflicts with bg color -->
-          <?= str_replace('[FL]', '.', $amount) ?>  <!-- enable floating point number as key -->
+          <?= str_replace('_', '.', $amount) ?>  <!-- enable floating point number as key -->
         </div>
       </div>
     </div>
