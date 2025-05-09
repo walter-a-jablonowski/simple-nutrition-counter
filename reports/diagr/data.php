@@ -21,42 +21,44 @@ class DiagramController
     {
       if( $file === '.' || $file === '..' || ! str_ends_with($file, '.tsv')) 
         continue;
-        
+      
       $date    = substr($file, 0, 10);
-      $content = file_get_contents($this->sourceDir . '/' . $file);
+      $content = file_get_contents( $this->sourceDir . '/' . $file);
       $lines   = explode("\n", $content);
       
       $daySum = [
-        'calories' => 0,
-        'fat'      => 0,
-        'carbs'    => 0,
-        'amino'    => 0,
-        'salt'     => 0,
-        'price'    => 0,
+        'calories'   => 0,
+        'fat'        => 0,
+        'carbs'      => 0,
+        'amino'      => 0,
+        'salt'       => 0,
+        'price'      => 0,
         'eatingTime' => 0  // Initialize eating time in minutes
       ];
       
       $firstTime = null;
-      $lastTime = null;
+      $lastTime  = null;
       
       foreach( $lines as $line )
       {
         if( empty( trim($line)))  continue;
-        
+
         // First, try to extract the time from the beginning of the line
-        if( preg_match('/^(\d{2}:\d{2}(:\d{2})?)/', trim($line), $matches) ) {
-          $time = $matches[1];
-          
-          // Add seconds if not present
-          if( substr_count($time, ':') === 1 ) {
-            $time .= ':00';
+
+        if( ! str_ends_with( trim($line), '--:--:--'))
+          if( preg_match('/^(\d{2}:\d{2}(:\d{2})?)/', trim($line), $matches) ) {
+
+            $time = $matches[1];
+            
+            // Add seconds if not present
+            if( substr_count($time, ':') === 1 )
+              $time .= ':00';
+            
+            if( $firstTime === null )
+              $firstTime = $time;
+
+            $lastTime = $time;
           }
-          
-          if( $firstTime === null ) {
-            $firstTime = $time;
-          }
-          $lastTime = $time;
-        }
         
         $columns = preg_split('/\s{2,}/', $line);
         if( count($columns) >= 9)
