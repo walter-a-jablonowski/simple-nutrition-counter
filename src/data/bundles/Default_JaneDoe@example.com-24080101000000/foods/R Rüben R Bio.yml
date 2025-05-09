@@ -1,0 +1,25 @@
+
+vendor:            Rewe
+
+certificates:      { bio: true, vegan: true, NutriScore: A }
+ingredients:       "Wasser, Rübenzucker*, Branntweinessig*, Meersalz, Kümmel*, Nelke*"
+origin:            "Deutschland"
+packaging:         glass & rubber
+
+price:             0.99
+weight:            330g
+
+calories:          59
+nutritionalValues:
+
+  fat:             0.5
+  saturatedFat:    0.1
+  carbs:           11
+  sugar:           10
+  fibre:           2.4
+  amino:           0.8
+  salt:            0.6
+
+sources:           { nutriVal: "web" }
+lastUpd:           2025-05-03
+lastPriceUpd:      2025-05-03
