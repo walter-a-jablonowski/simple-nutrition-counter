@@ -1,3 +1,6 @@
+
+most likely just remove
+
 > AI: Clause and GPT 2408 all "Beside fatty acids, carbs, amino acids, vitamins, minerals, electrolytes and secondary plant substances are there nutrient groups to consider?"
 >
 > Are there more group or is this all?
