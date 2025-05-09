@@ -12,9 +12,10 @@ Meals:
                                   
     list:
   
-      - Wasser R lg
-      - Dallmayr classic
       - Ritter Sp 81%      
+      - Dallmayr classic
+      - Wasser R lg
+      - Dallmayr deal
       # - Fillup
 
   Nuts, seeds (color:#ffa500):                 # Meals  # TASK: on the go diff shade
