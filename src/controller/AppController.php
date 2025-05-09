@@ -279,7 +279,8 @@ class AppController extends ControllerBase
             }
         }
 
-        $this->layoutView->set("$name.$amount", $perWeight);
+        $safeAmount = str_replace('.', '[FL]', $amount);            // enable floating point number as key
+        $this->layoutView->set("$name.$safeAmount", $perWeight);
         // $id = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $name));  // TASK: shorten
       }
     }

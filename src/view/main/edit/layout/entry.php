@@ -84,13 +84,13 @@ $showInfo = $this->foodsModel->get("$entryName.comment")  // has comment might m
     >
       <div style="background-color: <?= $accepColor ?>;">
         <div class="blink-yellow" style="cursor: pointer;">  <!-- TASK: currently needed for blink to work, seems conflicts with bg color -->
-          <?= $amount ?>
+          <?= str_replace('[FL]', '.', $amount) ?>  <!-- enable floating point number as key -->
         </div>
       </div>
     </div>
   <?php endforeach; ?>
   <!-- Spacer -->
-  <?php for( $i=count($amountData)+1; $i < 4; $i++ ):  // plus one is the menu ?>
+  <?php for( $i = count($amountData) + 1; $i < 4; $i++ ):  // plus one is the menu ?>
     <div class="col-2" style="background-color: <?= $accepColor ?>;">&nbsp;</div>
   <?php endfor; ?>
   <!-- Entry menu -->
