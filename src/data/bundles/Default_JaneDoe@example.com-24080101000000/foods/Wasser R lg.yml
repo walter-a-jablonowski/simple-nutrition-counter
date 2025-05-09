@@ -4,7 +4,7 @@ packaging:         plastic
 price:             1.74
 weight:            9000ml
 pieces:            6
-usedAmounts:       ["100ml"]
+usedAmounts:       ["250ml", "500ml", "1000"]
 
 calories:          0
 nutritionalValues: 

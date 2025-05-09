@@ -2,7 +2,7 @@ packaging:         alu
 
 dealPrice:         5.39
 weight:            500
-usedAmounts:       ["50g"]
+usedAmounts:       ["2.5g", "5g", "10g"]
 
 calories:          0
 nutritionalValues: 
