@@ -29,6 +29,9 @@ if( $price )
 
 $showInfo = $this->foodsModel->get("$entryName.comment")  // has comment might mean sth important
           ? true : false;
+
+$xTimeLog = true === $this->foodsModel->get("$entryName.xTimeLog");
+
 ?>
 <div class="layout-item row">  <!-- pe-0 is for bg color, TASK: alternative: highlight name only -->
   <div class = "col-5 ps-1 pe-0"
@@ -43,6 +46,7 @@ $showInfo = $this->foodsModel->get("$entryName.comment")  // has comment might m
       <?= self::iif( $price && $cheap, '<i class="bi bi-currency-exchange small text-secondary"></i>') ?>
       <!-- < ?= self::iif( $price && $expensive, settings::get('currencySymbol')) ?> -->
       <?= self::iif( $price && $expensive, '<i class="bi ' . settings::get('currencyIcon') . ' small text-secondary"></i>') ?>
+      <?= self::iif( $xTimeLog, '<i class="bi bi-hourglass-split small text-secondary"></i>') ?>
     </div>
   </div>
   <div id="<?= $entryId ?>Headline" class="d-none">
