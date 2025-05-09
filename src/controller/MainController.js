@@ -328,7 +328,7 @@ class MainController
       amino:    nutritionalValues.amino,
       salt:     nutritionalValues.salt,
       price:    price,
-      noTimeLog: target.dataset.noTimeLog === 'true',
+      xTimeLog: target.dataset.xTimeLog === 'true',
       nutrients: {
         fibre: JSON.parse( nutritionalValues.fibre || 0 ),  // TASK: or only add when set (see updSummary() for sum only if available)
         fat:   JSON.parse( target.dataset.fattyacids ),
@@ -429,7 +429,7 @@ class MainController
     //       user needs a timezone setting if done on server
 
     // Entries that shouldn't count for eating time
-    if( entry.noTimeLog === true )
+    if( entry.xTimeLog === true )
       entry.time = "--:--:--"
     else {
       let now = new Date()
@@ -492,10 +492,11 @@ class MainController
     // let caloriesSum = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.calories), 0).toFixed(1))  // one decimal place
     query('#caloriesSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.calories), 0))
 
-    // eating time - filter out entries with noTimeLog
-    const timeLogEntries = foodEntries.filter(entry => !entry.noTimeLog && entry.time !== "--:--:--")
+    // eating time - filter out entries with xTimeLog
+    const timeLogEntries = foodEntries.filter( entry => ! entry.xTimeLog && entry.time !== "--:--:--")
   
     if( timeLogEntries.length >= 2 ) {
+
       const [hours1, minutes1, seconds1] = timeLogEntries[0].time.split(':').map(Number)
       const [hours2, minutes2, seconds2] = timeLogEntries[timeLogEntries.length - 1].time.split(':').map(Number)
 

@@ -71,17 +71,17 @@ $showInfo = $this->foodsModel->get("$entryName.comment")  // has comment might m
   ?>                     <!-- pe-0 is for bg color -->
     <div class   = "amount-btn col-2 p-1 pe-0 text-center"
          onclick = "mainCrl.layoutItemClick(event)"
-         data-food        = "<?= $entryName ?>"
-         data-calories    = "<?= $data['calories'] ?>"
+         data-food       = "<?= $entryName ?>"
+         data-calories   = "<?= $data['calories'] ?>"
          data-nutritionalvalues = "<?= htmlspecialchars( json_encode( $data['nutriVal'])) ?>"
-         data-fattyacids  = "<?= htmlspecialchars( dump_json( $data['fat'])) ?>"
-         data-aminoacids  = "<?= htmlspecialchars( dump_json( $data['amino'])) ?>"
-         data-vitamins    = "<?= htmlspecialchars( dump_json( $data['vit'])) ?>"
-         data-minerals    = "<?= htmlspecialchars( dump_json( $data['min'])) ?>"
-         data-secondary   = "<?= htmlspecialchars( dump_json( $data['sec'])) ?>"
-         data-price       = "<?= $data['price'] ?>"
-         data-no-time-log = "<?= $data['noTimeLog'] ? 'true' : 'false' ?>"
-         style            = "background-color: <?= $accepColor ?>;"
+         data-fattyacids = "<?= htmlspecialchars( dump_json( $data['fat'])) ?>"
+         data-aminoacids = "<?= htmlspecialchars( dump_json( $data['amino'])) ?>"
+         data-vitamins   = "<?= htmlspecialchars( dump_json( $data['vit'])) ?>"
+         data-minerals   = "<?= htmlspecialchars( dump_json( $data['min'])) ?>"
+         data-secondary  = "<?= htmlspecialchars( dump_json( $data['sec'])) ?>"
+         data-price      = "<?= $data['price'] ?>"
+         data-x-time-log = "<?= $data['xTimeLog'] ? 'true' : 'false' ?>"
+         style           = "background-color: <?= $accepColor ?>;"
     >
       <div style="background-color: <?= $accepColor ?>;">
         <div class="blink-yellow" style="cursor: pointer;">  <!-- TASK: currently needed for blink to work, seems conflicts with bg color -->

@@ -1,4 +1,4 @@
-noTimeLog:         true
+xTimeLog:          true
 packaging:         alu
 
 price:             8.99

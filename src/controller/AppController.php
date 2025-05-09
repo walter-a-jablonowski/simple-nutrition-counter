@@ -252,7 +252,7 @@ class AppController extends ControllerBase
                         isset( $data['dealPrice']) && $data['dealPrice']
                      ?  round( $data['dealPrice'] * ($weight / $data['weight']), 2)
                      :  0),
-          'noTimeLog' => isset( $data['noTimeLog']) && $data['noTimeLog'] ? true : false
+          'xTimeLog' => isset( $data['xTimeLog']) && $data['xTimeLog'] ? true : false
         ];
 
         // nutritional values for all nutrient groups
