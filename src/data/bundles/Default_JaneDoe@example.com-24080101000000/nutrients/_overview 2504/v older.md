@@ -1,7 +1,17 @@
 
+Amino
+
+https://de.m.wikipedia.org/wiki/Aminos%C3%A4uren
+
+20-21 St
+
+8 Essentielle: Valin, Methionin, Leucin, Isoleucin, Phenylalanin, Tryptophan, Threonin und Lysin
+
+
 (reduced list)
 
 - Hormones
+
   - similar: in geneal broken down first (but can buy as supplemnt)
   - Steroid Hormones: These are made from cholesterol, which is a lipid
     - estrogen testosterone, cortisol, ...
