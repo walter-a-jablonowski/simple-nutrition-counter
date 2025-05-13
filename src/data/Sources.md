@@ -1,4 +1,5 @@
 
+- new: https://naehrwertdaten.ch/de/downloads
 - TASK: add new from deep research
 
   - Bundeslebensmittelschlüssel - BLS (paied only)
