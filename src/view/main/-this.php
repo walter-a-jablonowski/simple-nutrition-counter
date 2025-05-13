@@ -21,6 +21,11 @@
 -->
   <li class="nav-item ms-auto" role="presentation">
 
+    <!-- Backspace button to delete last line -->
+    <button onclick = "mainCrl.deleteLastLineBtnClick(event)" class="btn p-1 border-0 bg-transparent">
+      <i class="bi bi-backspace"></i>
+    </button>
+
     <!-- TASK: rm currently used save btn -->
     <button onclick = "mainCrl.saveDayEntriesBtnClick(event)" class="btn p-1 border-0 bg-transparent">
       <i class="bi bi-floppy"></i>

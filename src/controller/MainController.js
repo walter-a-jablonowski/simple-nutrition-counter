@@ -15,6 +15,7 @@ class MainController
     this.userSelectChange       = this.userSelectChange.bind(this)
     this.switchDayBtnClick      = this.switchDayBtnClick.bind(this)
     this.settingsBtnClick       = this.settingsBtnClick.bind(this)
+    this.deleteLastLineBtnClick = this.deleteLastLineBtnClick.bind(this)
     this.saveDayEntriesBtnClick = this.saveDayEntriesBtnClick.bind(this)
     this.newEntryBtn            = this.newEntryBtn.bind(this)
     this.newEntrySaveBtn        = this.newEntrySaveBtn.bind(this)
@@ -226,6 +227,24 @@ class MainController
 
 
   // List: btns
+
+  deleteLastLineBtnClick(event)
+  {
+    event.preventDefault()
+    
+    const textarea = query('#dayEntries')
+    const text = textarea.value
+    
+    if( ! text.trim())
+      return
+    
+    const lines = text.trim().split('\n')
+    lines.pop()  // remove the last line
+    
+    textarea.value = lines.join('\n')
+    
+    // this.#saveDayEntries( true )  // currently save manually
+  }
 
   saveDayEntriesBtnClick(event)
   {
