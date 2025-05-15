@@ -14,8 +14,8 @@ $user_id = 'JaneDoe@example.com-24080101000000';
 $days_old      = isset($_GET['days'])    ? intval($_GET['days']) : 180;  // 6 months default
 $sort_by       = isset($_GET['sort'])    ? $_GET['sort'] : 'name';
 $filter_vendor = isset($_GET['vendor'])  ? $_GET['vendor'] : '';
-$show_missing  = isset($_GET['missing']) ? ($_GET['missing'] === '1') : true;  // TASK: obsolete
-$show_old      = isset($_GET['old'])     ? ($_GET['old'] === '1') : true;      // TASK: obsolete
+$show_missing  = isset($_GET['missing']) ? ($_GET['missing'] === '1') : true;
+$show_old      = isset($_GET['old'])     ? ($_GET['old'] === '1') : true;
 
 // Load food data from individual files
 $foods_dir     = '../src/data/bundles/Default_' . $user_id . '/foods';
@@ -512,9 +512,17 @@ else { // vendor
         </select>
       </div>
       
-      <!-- Hidden fields to maintain default values -->
-      <input type="hidden" name="missing" value="1">
-      <input type="hidden" name="old" value="1">
+      <div class="filter-group">
+        <div class="checkbox-group">
+          <input type="checkbox" id="missing" name="missing" value="1" <?= $show_missing ? 'checked' : '' ?> class="auto-submit">
+          <label for="missing">Show missing prices</label>
+        </div>
+        
+        <div class="checkbox-group">
+          <input type="checkbox" id="old" name="old" value="1" <?= $show_old ? 'checked' : '' ?> class="auto-submit">
+          <label for="old">Show old prices</label>
+        </div>
+      </div>
     </form>
     
     <div class="results">
@@ -605,10 +613,26 @@ else { // vendor
   
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Auto-submit form when any filter changes
-      const autoSubmitElements = document.querySelectorAll('.auto-submit');
-      autoSubmitElements.forEach(element => {
+      // Auto-submit form when dropdowns change
+      const autoSubmitDropdowns = document.querySelectorAll('select.auto-submit');
+      autoSubmitDropdowns.forEach(element => {
         element.addEventListener('change', function() {
+          document.querySelector('form').submit();
+        });
+      });
+      
+      // Handle checkboxes separately to ensure proper values are sent
+      const checkboxes = document.querySelectorAll('input[type="checkbox"].auto-submit');
+      checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+          // Create hidden input to ensure unchecked boxes send a value of 0
+          if (!this.checked) {
+            const hiddenInput = document.createElement('input');
+            hiddenInput.type = 'hidden';
+            hiddenInput.name = this.name;
+            hiddenInput.value = '0';
+            document.querySelector('form').appendChild(hiddenInput);
+          }
           document.querySelector('form').submit();
         });
       });
