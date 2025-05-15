@@ -225,6 +225,25 @@ main {
 }
 
 /* ======================================
+   MOBILE CARET BUTTON
+   ====================================== */
+
+.mobile-caret-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+}
+
+.mobile-caret-btn i {
+  font-size: 1.2rem;
+}
+
+/* ======================================
    RESPONSIVE STYLES
    ====================================== */
 

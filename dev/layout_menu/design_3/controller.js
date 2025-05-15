@@ -3,6 +3,32 @@ document.addEventListener('DOMContentLoaded', function() {
   const widgetsContainer = document.querySelector('.nutrition-widgets .overflow-auto');
   const scrollArrow = document.querySelector('.nutrition-widgets .scroll-arrow');
   
+  // Mobile caret button functionality
+  const mobileCaretBtn = document.querySelector('.mobile-caret-btn');
+  if( mobileCaretBtn ) {
+    mobileCaretBtn.addEventListener('click', function() {
+      // Toggle the caret icon between down and up
+      const caretIcon = this.querySelector('i');
+      if( caretIcon.classList.contains('bi-caret-down') ) {
+        caretIcon.classList.remove('bi-caret-down');
+        caretIcon.classList.add('bi-caret-up');
+      } else {
+        caretIcon.classList.remove('bi-caret-up');
+        caretIcon.classList.add('bi-caret-down');
+      }
+      
+      // Toggle visibility of the nutrition widgets section
+      const nutritionWidgets = document.querySelector('.nutrition-widgets');
+      if( nutritionWidgets ) {
+        if( nutritionWidgets.style.display === 'none' ) {
+          nutritionWidgets.style.display = '';
+        } else {
+          nutritionWidgets.style.display = 'none';
+        }
+      }
+    });
+  }
+  
   // Track scroll position to hide arrow after user starts scrolling
   let lastScrollPosition = 0;
   let userHasScrolled = false;
