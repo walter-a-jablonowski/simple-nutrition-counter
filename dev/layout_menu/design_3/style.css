@@ -93,7 +93,7 @@ main {
 }
 
 .left-column, .right-column {
-  padding: 1rem;
+  padding: 0;
 }
 
 /* Scrollable content areas */
@@ -196,7 +196,7 @@ main {
   }
 
   .left-column, .right-column {
-    padding: 0.75rem;
+    padding: 0;
   }
   
   /* Nutrition widgets arrow positioning */
