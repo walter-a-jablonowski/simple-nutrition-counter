@@ -11,17 +11,17 @@ require_once '../src/vendor/autoload.php';
 $user_id = 'JaneDoe@example.com-24080101000000';
 
 // Default values
-$days_old      = isset($_GET['days']) ? intval($_GET['days']) : 180; // 6 months default
-$sort_by       = isset($_GET['sort']) ? $_GET['sort'] : 'name';
-$filter_vendor = isset($_GET['vendor']) ? $_GET['vendor'] : '';
-$show_missing  = isset($_GET['missing']) ? ($_GET['missing'] === '1') : true;
-$show_old      = isset($_GET['old']) ? ($_GET['old'] === '1') : true;
+$days_old      = isset($_GET['days'])    ? intval($_GET['days']) : 180;  // 6 months default
+$sort_by       = isset($_GET['sort'])    ? $_GET['sort'] : 'name';
+$filter_vendor = isset($_GET['vendor'])  ? $_GET['vendor'] : '';
+$show_missing  = isset($_GET['missing']) ? ($_GET['missing'] === '1') : true;  // TASK: obsolete
+$show_old      = isset($_GET['old'])     ? ($_GET['old'] === '1') : true;      // TASK: obsolete
 
 // Load food data from individual files
-$foods_dir = '../src/data/bundles/Default_' . $user_id . '/foods';
-$foods     = [];
+$foods_dir     = '../src/data/bundles/Default_' . $user_id . '/foods';
+$foods         = [];
 $error_message = '';
-$vendors   = ['all' => true];
+$vendors       = ['all' => true];
 
 if( ! is_dir($foods_dir)) {
   $error_message = 'Foods directory missing: ' . $foods_dir;
@@ -97,7 +97,7 @@ foreach( $foods as $food_name => $food)
   $vendor = isset($food['vendor']) ? $food['vendor'] : 'none';
   $vendors[$vendor] = true;
   
-  $has_price = !empty($food['price']) || !empty($food['dealPrice']);
+  $has_price = ! empty($food['price']) || ! empty($food['dealPrice']);
   
   // Handle lastPriceUpd which could be a date string in YYYY-MM-DD format
   $last_price_update = null;
@@ -109,7 +109,7 @@ foreach( $foods as $food_name => $food)
     if( is_numeric($food['lastPriceUpd']))
       $last_price_update = (new DateTime())->setTimestamp($food['lastPriceUpd']);
     // Try to parse as date string
-    elseif( is_string($food['lastPriceUpd']) && !empty($food['lastPriceUpd'])) {
+    elseif( is_string($food['lastPriceUpd']) && ! empty($food['lastPriceUpd'])) {
       try {
         $last_price_update = new DateTime($food['lastPriceUpd']);
       }
@@ -118,26 +118,25 @@ foreach( $foods as $food_name => $food)
       }
     }
     
-    if( $last_price_update) {
+    if( $last_price_update )
       $days_since_update = $this_day->diff($last_price_update)->days;
-    }
   }
   
-  $is_old = $days_since_update !== null && $days_since_update > $days_old;
-  $is_missing = !$has_price;
+  $is_old     = $days_since_update !== null && $days_since_update > $days_old;
+  $is_missing = ! $has_price;
   
   // Filter based on criteria
   if( ( $show_missing && $is_missing) || ($show_old && $is_old))
     if( empty($filter_vendor) || $filter_vendor === 'all' || $vendor === $filter_vendor) {
       $results[] = [
-        'name' => $food_name,
-        'vendor' => $vendor,
-        'price' => $food['price'] ?? '',
-        'dealPrice' => $food['dealPrice'] ?? '',
-        'lastPriceUpd' => $last_price_update ? $last_price_update->format('Y-m-d') : '',
+        'name'              => $food_name,
+        'vendor'            => $vendor,
+        'price'             => $food['price'] ?? '',
+        'dealPrice'         => $food['dealPrice'] ?? '',
+        'lastPriceUpd'      => $last_price_update ? $last_price_update->format('Y-m-d') : '',
         'days_since_update' => $days_since_update,
-        'is_missing' => $is_missing,
-        'is_old' => $is_old
+        'is_missing'        => $is_missing,
+        'is_old'            => $is_old
       ];
     }
 }
