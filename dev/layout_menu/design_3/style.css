@@ -222,6 +222,16 @@ main {
     padding: 0;
   }
   
+  /* Remove spacing for mobile - no sidebar to worry about */
+  .right-column .content-wrapper {
+    max-width: 100%;
+  }
+  
+  .nutrition-widgets .widgets-row,
+  .food-grid .row {
+    max-width: 100%;
+  }
+  
   /* Nutrition widgets arrow positioning */
   .nutrition-widgets .scroll-arrow {
     right: 10px; /* Reset to default on mobile since there's no sidebar */
