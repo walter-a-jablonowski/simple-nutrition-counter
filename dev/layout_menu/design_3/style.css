@@ -145,7 +145,7 @@ main {
 
 .nutrition-widgets .scroll-arrow {
   position: absolute;
-  right: 45px; /* Shifted left to avoid being hidden under the sidebar */
+  right: 10px; /* Shifted left to avoid being hidden under the sidebar */
   top: 50%;
   transform: translateY(-50%);
   background-color: rgba(255, 255, 255, 0.8);
