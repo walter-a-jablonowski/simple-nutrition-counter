@@ -163,3 +163,28 @@ main {
     right: 10px; /* Reset to default on mobile since there's no sidebar */
   }
 }
+
+/* Food grid scrolling styles */
+.food-grid {
+  position: relative;
+}
+
+.food-grid .row {
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.food-grid .row::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Apply to content-wrapper containing food-grid */
+.content-wrapper {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.content-wrapper::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
