@@ -160,6 +160,8 @@ main {
   cursor: pointer;
   opacity: 0;
   transition: opacity 0.3s ease;
+  border: none;
+  padding: 0;
 }
 
 .nutrition-widgets .scroll-arrow.visible {
@@ -171,6 +173,7 @@ main {
   color: #212529;
 }
 
+/* Widgets container with horizontal scrolling */
 .nutrition-widgets .widgets-container {
   display: flex;
   flex-wrap: nowrap;
@@ -178,6 +181,7 @@ main {
   width: 100%;
   max-width: calc(100% - 10px); /* Ensure widgets don't extend under sidebar */
   min-width: max-content;
+  padding: 0.25rem 0; /* Add some vertical padding */
 }
 
 .nutrition-widgets .nutrition-widget {
@@ -205,14 +209,11 @@ main {
   overflow-y: auto;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
+  max-width: calc(100% - 10px); /* Ensure content doesn't extend under sidebar */
 }
 
 .food-grid .row::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
-}
-
-.food-grid .row {
-  max-width: calc(100% - 10px); /* Ensure content doesn't extend under sidebar */
 }
 
 .food-grid .demo-content {
@@ -234,9 +235,10 @@ main {
     padding-bottom: 56px !important; /* Account for bottom nav */
   }
   
-  /* Ensure content wrapper has enough bottom padding */
+  /* Content wrapper adjustments for mobile */
   .right-column .content-wrapper {
     padding-bottom: 56px; /* Additional padding to prevent content being hidden */
+    max-width: 100%; /* Remove spacing since there's no sidebar on mobile */
   }
   
   /* Column adjustments */
@@ -252,11 +254,6 @@ main {
 
   .left-column, .right-column {
     padding: 0;
-  }
-  
-  /* Remove spacing for mobile - no sidebar to worry about */
-  .right-column .content-wrapper {
-    max-width: 100%;
   }
   
   .nutrition-widgets .widgets-container,

@@ -120,10 +120,11 @@
           <!-- Demo widg -->
 
           <section class="nutrition-widgets py-2 px-3 border-bottom">
-            <div class="overflow-auto">
-              <div class="scroll-arrow">
+            <h5 class="mb-2 visually-hidden">Nutrition Summary</h5>
+            <div class="overflow-auto position-relative">
+              <button class="scroll-arrow" aria-label="Scroll right">
                 <i class="bi bi-arrow-right"></i>
-              </div>
+              </button>
               <div class="widgets-container">
                 <div class="nutrition-widget border rounded bg-white text-center">
                   <div class="widget-label fw-bold">kcal</div>
@@ -274,7 +275,7 @@
     }
     
     // Check on load
-    checkScroll();
+    setTimeout(checkScroll, 100); // Small delay to ensure content is fully rendered
     
     // Check on window resize
     window.addEventListener('resize', checkScroll);
