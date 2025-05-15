@@ -36,11 +36,34 @@ else {
       if( $item === '.' || $item === '..')  continue;
       
       if( is_dir("$dir/$item"))
-        scanFoodDir("$dir/$item", $foods);
+      {
+        // Check if this is a food folder with a -this.yml file
+        if( file_exists("$dir/$item/$item-this.yml"))
+        {
+          try {
+            $food_data = Yaml::parseFile("$dir/$item/$item-this.yml");
+            $food_name = $item; // Use folder name as food name
+            $foods[$food_name] = $food_data;
+          }
+          catch( ParseException $e ) {
+            // Skip files that can't be parsed
+            continue;
+          }
+        }
+        else
+        {
+          // Regular subfolder, continue scanning
+          scanFoodDir("$dir/$item", $foods);
+        }
+      }
       elseif( pathinfo("$dir/$item", PATHINFO_EXTENSION) === 'yml')
       {
         // Skip template files that start with underscore
         if( substr($item, 0, 1) === '_')
+          continue;
+          
+        // Skip special -this.yml files
+        if( strpos($item, '-this.yml') !== false)
           continue;
         
         try {
