@@ -19,9 +19,9 @@ $show_old      = isset($_GET['old']) ? ($_GET['old'] === '1') : true;
 
 // Load food data from individual files
 $foods_dir = '../src/data/bundles/Default_' . $user_id . '/foods';
-$foods = [];
+$foods     = [];
 $error_message = '';
-$vendors = ['all' => true];
+$vendors   = ['all' => true];
 
 if( ! is_dir($foods_dir)) {
   $error_message = 'Foods directory missing: ' . $foods_dir;
@@ -31,23 +31,20 @@ else {
   // Function to recursively scan directory for YAML files
   function scanFoodDir($dir, &$foods)
   {
-    $items = scandir($dir);
-    foreach( $items as $item)
+    foreach( scandir($dir) as $item)
     {
-      if( $item === '.' || $item === '..') continue;
+      if( $item === '.' || $item === '..')  continue;
       
-      $path = $dir . '/' . $item;
-      if( is_dir($path)) {
-        scanFoodDir($path, $foods);
-      }
-      elseif( pathinfo($path, PATHINFO_EXTENSION) === 'yml')
+      if( is_dir("$dir/$item"))
+        scanFoodDir("$dir/$item", $foods);
+      elseif( pathinfo("$dir/$item", PATHINFO_EXTENSION) === 'yml')
       {
         // Skip template files that start with underscore
         if( substr($item, 0, 1) === '_')
           continue;
         
         try {
-          $food_data = Yaml::parseFile($path);
+          $food_data = Yaml::parseFile("$dir/$item");
           $food_name = pathinfo($item, PATHINFO_FILENAME);
           $foods[$food_name] = $food_data;
         }
