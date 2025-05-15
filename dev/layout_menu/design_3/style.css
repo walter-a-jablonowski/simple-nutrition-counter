@@ -1,10 +1,36 @@
-/* Custom styles for responsive navigation layout */
+/* ======================================
+   GLOBAL STYLES
+   ====================================== */
 
-/* Make the body and html full height */
+/* Base styles */
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+}
+
+/* Prevent content overflow */
+* {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* ======================================
+   NAVIGATION STYLES
+   ====================================== */
+
+/* Common navigation styles */
+.nav-link {
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.nav-link.active {
+  color: #fff !important;
 }
 
 /* Landscape mode navigation (right sidebar) */
@@ -52,6 +78,10 @@ html, body {
   font-size: 1.25rem;
 }
 
+/* ======================================
+   LAYOUT STYLES
+   ====================================== */
+
 /* Main content layout */
 main {
   padding-right: 60px !important; /* Account for sidebar width */
@@ -66,54 +96,22 @@ main {
   padding: 1rem;
 }
 
+/* Scrollable content areas */
 .content-wrapper {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
 }
 
-/* Portrait mode adjustments */
-@media (max-width: 767.98px) {
-  main {
-    padding-right: 0 !important;
-    padding-bottom: 56px !important; /* Account for bottom nav */
-  }
-  
-  .left-column {
-    border-right: none;
-    border-bottom: 1px solid #dee2e6;
-    height: 33.33% !important;
-  }
-
-  .right-column {
-    height: 66.67% !important;
-  }
-
-  .left-column, .right-column {
-    padding: 0.75rem;
-  }
+.content-wrapper::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
-/* Active link styling */
-.nav-link.active {
-  color: #fff !important;
-}
+/* ======================================
+   NUTRITION WIDGETS STYLES
+   ====================================== */
 
-.nav-link {
-  color: rgba(255, 255, 255, 0.7);
-  transition: color 0.2s ease-in-out;
-}
-
-.nav-link:hover {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-/* Prevent content overflow */
-* {
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-/* Nutrition widgets styling */
 .nutrition-widgets {
   position: relative;
 }
@@ -157,14 +155,10 @@ main {
   color: #212529;
 }
 
-/* Responsive arrow positioning */
-@media (max-width: 767.98px) {
-  .nutrition-widgets .scroll-arrow {
-    right: 10px; /* Reset to default on mobile since there's no sidebar */
-  }
-}
+/* ======================================
+   FOOD GRID STYLES
+   ====================================== */
 
-/* Food grid scrolling styles */
 .food-grid {
   position: relative;
 }
@@ -179,12 +173,34 @@ main {
   display: none; /* Chrome, Safari, Opera */
 }
 
-/* Apply to content-wrapper containing food-grid */
-.content-wrapper {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
-}
+/* ======================================
+   RESPONSIVE STYLES
+   ====================================== */
 
-.content-wrapper::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+@media (max-width: 767.98px) {
+  /* Main layout adjustments */
+  main {
+    padding-right: 0 !important;
+    padding-bottom: 56px !important; /* Account for bottom nav */
+  }
+  
+  /* Column adjustments */
+  .left-column {
+    border-right: none;
+    border-bottom: 1px solid #dee2e6;
+    height: 33.33% !important;
+  }
+
+  .right-column {
+    height: 66.67% !important;
+  }
+
+  .left-column, .right-column {
+    padding: 0.75rem;
+  }
+  
+  /* Nutrition widgets arrow positioning */
+  .nutrition-widgets .scroll-arrow {
+    right: 10px; /* Reset to default on mobile since there's no sidebar */
+  }
 }
