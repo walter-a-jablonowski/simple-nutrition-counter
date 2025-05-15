@@ -131,7 +131,7 @@ main {
 
 .nutrition-widgets .scroll-arrow {
   position: absolute;
-  right: 10px;
+  right: 45px; /* Shifted left to avoid being hidden under the sidebar */
   top: 50%;
   transform: translateY(-50%);
   background-color: rgba(255, 255, 255, 0.8);
@@ -155,4 +155,11 @@ main {
 .nutrition-widgets .scroll-arrow i {
   font-size: 1.2rem;
   color: #212529;
+}
+
+/* Responsive arrow positioning */
+@media (max-width: 767.98px) {
+  .nutrition-widgets .scroll-arrow {
+    right: 10px; /* Reset to default on mobile since there's no sidebar */
+  }
 }
