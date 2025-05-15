@@ -194,6 +194,13 @@ main {
   position: relative;
 }
 
+/* Ensure content isn't hidden under bottom nav on mobile */
+@media (max-width: 767.98px) {
+  .food-grid {
+    padding-bottom: 70px; /* Add padding to account for bottom nav */
+  }
+}
+
 .food-grid .row {
   overflow-y: auto;
   scrollbar-width: none; /* Firefox */
@@ -225,6 +232,11 @@ main {
   main {
     padding-right: 0 !important;
     padding-bottom: 56px !important; /* Account for bottom nav */
+  }
+  
+  /* Ensure content wrapper has enough bottom padding */
+  .right-column .content-wrapper {
+    padding-bottom: 56px; /* Additional padding to prevent content being hidden */
   }
   
   /* Column adjustments */
