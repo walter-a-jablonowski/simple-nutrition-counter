@@ -465,13 +465,17 @@ else { // vendor
     
     <form method="get" class="filters">
       <div class="filter-group">
-        <label for="days">Days threshold:</label>
-        <input type="number" id="days" name="days" value="<?= $days_old ?>" min="1" max="1000">
+        <select id="days" name="days" class="auto-submit">
+          <option value="30" <?= $days_old === 30 ? 'selected' : '' ?>>30 days</option>
+          <option value="60" <?= $days_old === 60 ? 'selected' : '' ?>>60 days</option>
+          <option value="90" <?= $days_old === 90 ? 'selected' : '' ?>>90 days</option>
+          <option value="180" <?= $days_old === 180 ? 'selected' : '' ?>>180 days</option>
+          <option value="365" <?= $days_old === 365 ? 'selected' : '' ?>>365 days</option>
+        </select>
       </div>
       
       <div class="filter-group">
-        <label for="vendor">Vendor:</label>
-        <select id="vendor" name="vendor">
+        <select id="vendor" name="vendor" class="auto-submit">
           <option value="all" <?= $filter_vendor === 'all' || empty($filter_vendor) ? 'selected' : '' ?>>All vendors</option>
           <?php foreach( array_keys($vendors) as $vendor): ?>
             <?php if( $vendor !== 'all'): ?>
@@ -484,30 +488,16 @@ else { // vendor
       </div>
       
       <div class="filter-group">
-        <label for="sort">Sort by:</label>
-        <select id="sort" name="sort">
-          <option value="vendor" <?= $sort_by === 'vendor' ? 'selected' : '' ?>>Vendor</option>
+        <select id="sort" name="sort" class="auto-submit">
           <option value="name" <?= $sort_by === 'name' ? 'selected' : '' ?>>Name</option>
           <option value="date" <?= $sort_by === 'date' ? 'selected' : '' ?>>Last Update Date</option>
           <option value="days" <?= $sort_by === 'days' ? 'selected' : '' ?>>Days Since Update</option>
         </select>
       </div>
       
-      <div class="filter-group">
-        <div class="checkbox-group">
-          <input type="checkbox" id="missing" name="missing" value="1" <?= $show_missing ? 'checked' : '' ?>>
-          <label for="missing">Show missing prices</label>
-        </div>
-        
-        <div class="checkbox-group">
-          <input type="checkbox" id="old" name="old" value="1" <?= $show_old ? 'checked' : '' ?>>
-          <label for="old">Show old prices</label>
-        </div>
-      </div>
-      
-      <div class="filter-group">
-        <button type="submit">Apply Filters</button>
-      </div>
+      <!-- Hidden fields to maintain default values -->
+      <input type="hidden" name="missing" value="1">
+      <input type="hidden" name="old" value="1">
     </form>
     
     <div class="results">
@@ -598,10 +588,8 @@ else { // vendor
   
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Add event listeners if needed
-      
-      // Example: Auto-submit form when certain filters change
-      const autoSubmitElements = document.querySelectorAll('#vendor, #sort, #missing, #old');
+      // Auto-submit form when any filter changes
+      const autoSubmitElements = document.querySelectorAll('.auto-submit');
       autoSubmitElements.forEach(element => {
         element.addEventListener('change', function() {
           document.querySelector('form').submit();
