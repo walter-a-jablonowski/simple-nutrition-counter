@@ -166,6 +166,12 @@ main {
   max-width: calc(100% - 10px); /* Ensure widgets don't extend under sidebar */
 }
 
+.nutrition-widgets .widget-item {
+  width: 140px;
+  flex: 0 0 auto;
+  padding: 0 0.5rem;
+}
+
 /* ======================================
    FOOD GRID STYLES
    ====================================== */
@@ -229,7 +235,16 @@ main {
   
   .nutrition-widgets .widgets-row,
   .food-grid .row {
-    max-width: 100%;
+    max-width: calc(100% - 15px);
+  }
+  
+  /* Mobile-specific widget adjustments */
+  .nutrition-widgets .widget-item {
+    width: 120px; /* Slightly smaller on mobile */
+  }
+  
+  .nutrition-widget {
+    padding: 0.5rem !important;
   }
   
   /* Nutrition widgets arrow positioning */
