@@ -87,6 +87,11 @@ main {
   padding-right: 60px !important; /* Account for sidebar width */
 }
 
+/* Fix for content being hidden under sidebar */
+.right-column .content-wrapper {
+  max-width: calc(100% - 60px); /* Ensure content doesn't extend under sidebar */
+}
+
 /* Column styling */
 .left-column {
   border-right: 1px solid #dee2e6;
@@ -157,6 +162,8 @@ main {
 
 .nutrition-widgets .widgets-row {
   min-width: max-content;
+  width: 100%;
+  max-width: calc(100% - 10px); /* Ensure widgets don't extend under sidebar */
 }
 
 /* ======================================
@@ -175,6 +182,18 @@ main {
 
 .food-grid .row::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
+}
+
+.food-grid .row {
+  max-width: calc(100% - 10px); /* Ensure content doesn't extend under sidebar */
+}
+
+.food-grid .demo-content {
+  max-width: 100%;
+}
+
+.food-grid .card {
+  max-width: 100%;
 }
 
 /* ======================================
