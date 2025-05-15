@@ -1,11 +1,13 @@
 <?php
 
+// Made with AI only
+
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Yaml\Exception\ParseException;
 
 require_once '../src/vendor/autoload.php';
 
-// Use hardcoded user ID - Default is typically used in the system
+// TASK: Use hardcoded user ID - Default is typically used in the system
 $user_id = 'JaneDoe@example.com-24080101000000';
 
 // Default values
