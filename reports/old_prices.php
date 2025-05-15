@@ -353,6 +353,19 @@ if ($sort_by === 'name') {
       color: #666;
     }
     
+    /* Common styles for both desktop and mobile */
+    .price-deal {
+      margin-left: 3px;
+    }
+    
+    /* Desktop-only elements */
+    @media (min-width: 769px) {
+      .mobile-main-row,
+      .list-row-details {
+        display: none;
+      }
+    }
+    
     /* Mobile styles */
     @media (max-width: 768px) {
       .filters {
@@ -381,16 +394,7 @@ if ($sort_by === 'name') {
         display: none;
       }
       
-      /* Show only the mobile-specific elements */
-      .list-row-details {
-        display: flex;
-        justify-content: space-between;
-        font-size: 12px;
-        color: #666;
-        width: 100%;
-        margin-top: 4px;
-      }
-      
+      /* Status badges */
       .status {
         display: none; /* Hide badges on mobile */
       }
@@ -408,12 +412,18 @@ if ($sort_by === 'name') {
         color: var(--info-color);
       }
       
-      /* Mobile specific elements */
-      .mobile-main-row {
+      /* Mobile layout elements */
+      .mobile-main-row,
+      .list-row-details {
         display: flex;
         justify-content: space-between;
-        align-items: center;
         width: 100%;
+      }
+      
+      .list-row-details {
+        font-size: 12px;
+        color: #666;
+        margin-top: 4px;
       }
       
       .mobile-name {
@@ -433,10 +443,6 @@ if ($sort_by === 'name') {
       
       .col-days {
         padding: 0;
-      }
-      
-      .price-deal {
-        margin-left: 3px;
       }
     }
   </style>
