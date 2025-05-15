@@ -155,6 +155,10 @@ main {
   color: #212529;
 }
 
+.nutrition-widgets .widgets-row {
+  min-width: max-content;
+}
+
 /* ======================================
    FOOD GRID STYLES
    ====================================== */
