@@ -24,7 +24,7 @@ foreach( $foods as $key => $food)
 
   $diff = (new DateTime())->diff($lastPriceUpdate);
 
-  if( ! $food['price'] || $diff->days > OLD_PRICE )
+  if( ( ! $food['price'] && ! $food['dealPrice']) || $diff->days > OLD_PRICE )
   {
     $r[$key] = [
       'price' => $food['price'],
@@ -33,7 +33,7 @@ foreach( $foods as $key => $food)
   }
 }
 
-// Print (AI generated modified)
+// Print
 
 $maxKeyLen   = max( array_map('strlen', array_keys($r))) + 1;
 $maxPriceLen = max( array_map( fn($item) => strlen($item['price']), $r));
