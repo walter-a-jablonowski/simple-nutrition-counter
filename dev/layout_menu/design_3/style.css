@@ -121,6 +121,17 @@ main {
   position: relative;
 }
 
+/* Make nutrition widgets sticky on desktop */
+@media (min-width: 768px) {
+  .nutrition-widgets {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+}
+
 .nutrition-widgets .overflow-auto {
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
