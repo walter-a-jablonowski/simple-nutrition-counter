@@ -160,16 +160,19 @@ main {
   color: #212529;
 }
 
-.nutrition-widgets .widgets-row {
-  min-width: max-content;
+.nutrition-widgets .widgets-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
   width: 100%;
   max-width: calc(100% - 10px); /* Ensure widgets don't extend under sidebar */
+  min-width: max-content;
 }
 
-.nutrition-widgets .widget-item {
+.nutrition-widgets .nutrition-widget {
   width: 140px;
   flex: 0 0 auto;
-  padding: 0 0.5rem;
+  padding: 0.5rem;
 }
 
 /* ======================================
@@ -233,18 +236,15 @@ main {
     max-width: 100%;
   }
   
-  .nutrition-widgets .widgets-row,
+  .nutrition-widgets .widgets-container,
   .food-grid .row {
     max-width: calc(100% - 15px);
+    gap: 0.75rem; /* Smaller gap on mobile */
   }
   
   /* Mobile-specific widget adjustments */
-  .nutrition-widgets .widget-item {
+  .nutrition-widgets .nutrition-widget {
     width: 120px; /* Slightly smaller on mobile */
-  }
-  
-  .nutrition-widget {
-    padding: 0.5rem !important;
   }
   
   /* Nutrition widgets arrow positioning */
