@@ -264,7 +264,7 @@ else { // vendor
     /* Table-like list using divs */
     .list-header {
       display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 1fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 3fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
       background-color: var(--dark-color);
       color: white;
       font-weight: bold;
@@ -275,7 +275,7 @@ else { // vendor
     
     .list-row {
       display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 1fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 3fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
       border-bottom: 1px solid var(--border-color);
       padding: 8px 10px;
       position: relative;
@@ -314,6 +314,10 @@ else { // vendor
       white-space: nowrap;
     }
     
+    .col-days {
+      text-align: center;
+    }
+    
     .price-regular {
       color: #333;
     }
@@ -336,10 +340,7 @@ else { // vendor
       font-size: 12px;
       font-weight: bold;
       color: white;
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
+      text-align: center;
     }
     
     .status.missing {
@@ -518,6 +519,7 @@ else { // vendor
           <div class="list-col col-name">Name</div>
           <div class="list-col col-price">Price</div>
           <div class="list-col col-days">Days</div>
+          <div class="list-col col-status">Status</div>
         </div>
         
         <!-- List items -->
@@ -542,12 +544,14 @@ else { // vendor
               <?= $item['days_since_update'] !== null ? $item['days_since_update'] : 'N/A' ?>
             </div>
             
-            <!-- Status badges (desktop only) -->
-            <?php if( $item['is_missing']): ?>
-              <span class="status missing">Missing</span>
-            <?php elseif( $item['is_old']): ?>
-              <span class="status old">Outdated</span>
-            <?php endif; ?>
+            <!-- Status column (desktop only) -->
+            <div class="list-col col-status">
+              <?php if( $item['is_missing']): ?>
+                <span class="status missing">Missing</span>
+              <?php elseif( $item['is_old']): ?>
+                <span class="status old">Outdated</span>
+              <?php endif; ?>
+            </div>
             
             <!-- Mobile view (only visible on small screens) -->
             <!-- First row: name and price -->
