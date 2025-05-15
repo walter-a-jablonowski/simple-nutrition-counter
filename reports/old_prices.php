@@ -11,11 +11,11 @@ require_once '../src/vendor/autoload.php';
 $user_id = 'JaneDoe@example.com-24080101000000';
 
 // Default values
-$days_old = isset($_GET['days']) ? intval($_GET['days']) : 180; // 6 months default
-$sort_by = isset($_GET['sort']) ? $_GET['sort'] : 'name';
+$days_old      = isset($_GET['days']) ? intval($_GET['days']) : 180; // 6 months default
+$sort_by       = isset($_GET['sort']) ? $_GET['sort'] : 'name';
 $filter_vendor = isset($_GET['vendor']) ? $_GET['vendor'] : '';
-$show_missing = isset($_GET['missing']) ? ($_GET['missing'] === '1') : true;
-$show_old = isset($_GET['old']) ? ($_GET['old'] === '1') : true;
+$show_missing  = isset($_GET['missing']) ? ($_GET['missing'] === '1') : true;
+$show_old      = isset($_GET['old']) ? ($_GET['old'] === '1') : true;
 
 // Load food data from individual files
 $foods_dir = '../src/data/bundles/Default_' . $user_id . '/foods';
@@ -24,23 +24,27 @@ $error_message = '';
 $vendors = ['all' => true];
 
 if( ! is_dir($foods_dir)) {
-  $error_message = 'Foods directory not found: ' . $foods_dir;
+  $error_message = 'Foods directory missing: ' . $foods_dir;
 }
 else {
+  
   // Function to recursively scan directory for YAML files
-  function scanFoodDir($dir, &$foods) {
+  function scanFoodDir($dir, &$foods)
+  {
     $items = scandir($dir);
-    foreach( $items as $item) {
+    foreach( $items as $item)
+    {
       if( $item === '.' || $item === '..') continue;
       
       $path = $dir . '/' . $item;
       if( is_dir($path)) {
         scanFoodDir($path, $foods);
-      } elseif( pathinfo($path, PATHINFO_EXTENSION) === 'yml') {
+      }
+      elseif( pathinfo($path, PATHINFO_EXTENSION) === 'yml')
+      {
         // Skip template files that start with underscore
-        if( substr($item, 0, 1) === '_') {
+        if( substr($item, 0, 1) === '_')
           continue;
-        }
         
         try {
           $food_data = Yaml::parseFile($path);
@@ -60,13 +64,13 @@ else {
 }
 
 // Process food data
-$results = [];
-$vendors = ['all' => true];
-$today = new DateTime();
+$results  = [];
+$vendors  = ['all' => true];
+$this_day = new DateTime();
 
 // Debug info
-$total_foods = count($foods);
-$debug_info = "Found $total_foods food items in $foods_dir";
+$foods_count = count($foods);
+$debug_info = "Found $foods_count food items in $foods_dir";
 
 foreach( $foods as $food_name => $food)
 {
@@ -95,7 +99,7 @@ foreach( $foods as $food_name => $food)
     }
     
     if( $last_price_update) {
-      $days_since_update = $today->diff($last_price_update)->days;
+      $days_since_update = $this_day->diff($last_price_update)->days;
     }
   }
   
@@ -360,7 +364,7 @@ else { // vendor
       color: #666;
     }
     
-    /* Common styles for both desktop and mobile */
+    /* Common styles for desktop and mobile */
     .price-deal {
       margin-left: 3px;
     }
@@ -579,7 +583,7 @@ else { // vendor
     </div>
     
     <div class="summary">
-      <p>Found <?= count($results) ?> items that need attention (out of <?= $total_foods ?> total items)</p>
+      <p>Found <?= count($results) ?> items that need attention (out of <?= $foods_count ?> items)</p>
       <?php if( ! empty($debug_info)): ?>
       <div class="debug-info">
         <p><small><?= htmlspecialchars($debug_info) ?></small></p>
