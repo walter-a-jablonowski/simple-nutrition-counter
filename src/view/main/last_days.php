@@ -25,7 +25,7 @@ time
         </ul>
       </div>
       <?php if( config::get('devMode') ): ?>
-        <a href="../reports/diagr" target="_blank">
+        <a href="reports/diagr" target="_blank">
           diagr
         </a>
       <?php endif; ?>

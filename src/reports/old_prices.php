@@ -5,7 +5,7 @@
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Yaml\Exception\ParseException;
 
-require_once '../src/vendor/autoload.php';
+require_once '../vendor/autoload.php';
 
 // TASK: Use hardcoded user ID - Default is typically used in the system
 $user_id = 'JaneDoe@example.com-24080101000000';
@@ -18,7 +18,7 @@ $show_missing  = isset($_GET['missing']) ? ($_GET['missing'] === '1') : true;
 $show_old      = isset($_GET['old'])     ? ($_GET['old'] === '1') : true;
 
 // Load food data from individual files
-$foods_dir     = '../src/data/bundles/Default_' . $user_id . '/foods';
+$foods_dir     = '../data/bundles/Default_' . $user_id . '/foods';
 $foods         = [];
 $error_message = '';
 $vendors       = ['all' => true];
