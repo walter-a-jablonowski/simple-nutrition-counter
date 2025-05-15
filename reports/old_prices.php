@@ -12,7 +12,7 @@ $user_id = 'JaneDoe@example.com-24080101000000';
 
 // Default values
 $days_old = isset($_GET['days']) ? intval($_GET['days']) : 180; // 6 months default
-$sort_by = isset($_GET['sort']) ? $_GET['sort'] : 'vendor';
+$sort_by = isset($_GET['sort']) ? $_GET['sort'] : 'name';
 $filter_vendor = isset($_GET['vendor']) ? $_GET['vendor'] : '';
 $show_missing = isset($_GET['missing']) ? ($_GET['missing'] === '1') : true;
 $show_old = isset($_GET['old']) ? ($_GET['old'] === '1') : true;
@@ -21,6 +21,7 @@ $show_old = isset($_GET['old']) ? ($_GET['old'] === '1') : true;
 $foods_dir = '../src/data/bundles/Default_' . $user_id . '/foods';
 $foods = [];
 $error_message = '';
+$vendors = ['all' => true];
 
 if (!is_dir($foods_dir)) {
   $error_message = 'Foods directory not found: ' . $foods_dir;
@@ -159,6 +160,8 @@ if ($sort_by === 'name') {
       --info-color: #f39c12;
       --light-color: #ecf0f1;
       --dark-color: #2c3e50;
+      --border-color: #ddd;
+      --spacing: 8px;
     }
     
     * {
@@ -172,7 +175,7 @@ if ($sort_by === 'name') {
       line-height: 1.6;
       color: #333;
       background-color: #f5f5f5;
-      padding: 20px;
+      padding: var(--spacing);
     }
     
     .container {
@@ -180,49 +183,51 @@ if ($sort_by === 'name') {
       margin: 0 auto;
       background-color: white;
       border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: var(--spacing);
     }
     
     h1 {
       color: var(--dark-color);
-      margin-bottom: 20px;
+      margin-bottom: var(--spacing);
       text-align: center;
+      font-size: 24px;
     }
     
     .filters {
       display: flex;
       flex-wrap: wrap;
-      gap: 15px;
-      margin-bottom: 20px;
-      padding: 15px;
+      gap: var(--spacing);
+      margin-bottom: var(--spacing);
+      padding: var(--spacing);
       background-color: var(--light-color);
       border-radius: 6px;
     }
     
     .filter-group {
-      flex: 1 1 200px;
+      flex: 1 1 150px;
     }
     
     label {
       display: block;
-      margin-bottom: 5px;
+      margin-bottom: 4px;
       font-weight: bold;
       color: var(--dark-color);
+      font-size: 14px;
     }
     
     select, input {
       width: 100%;
-      padding: 8px 12px;
-      border: 1px solid #ddd;
+      padding: 6px 8px;
+      border: 1px solid var(--border-color);
       border-radius: 4px;
-      font-size: 16px;
+      font-size: 14px;
     }
     
     .checkbox-group {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
     
     .checkbox-group input {
@@ -233,63 +238,97 @@ if ($sort_by === 'name') {
       background-color: var(--primary-color);
       color: white;
       border: none;
-      padding: 10px 15px;
+      padding: 8px 12px;
       border-radius: 4px;
       cursor: pointer;
-      font-size: 16px;
+      font-size: 14px;
       transition: background-color 0.2s;
+      width: 100%;
     }
     
     button:hover {
       background-color: var(--secondary-color);
     }
     
-    .results {
-      overflow-x: auto;
-    }
-    
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-    
-    th, td {
-      padding: 12px 15px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    }
-    
-    th {
+    /* Table-like list using divs */
+    .list-header {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 1fr) minmax(0, 1fr);
       background-color: var(--dark-color);
       color: white;
-      position: sticky;
-      top: 0;
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 4px 4px 0 0;
+      margin-top: var(--spacing);
     }
     
-    tr:nth-child(even) {
+    .list-row {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 1fr) minmax(0, 1fr);
+      border-bottom: 1px solid var(--border-color);
+      padding: 8px 10px;
+      position: relative;
+      align-items: center;
+    }
+    
+    .list-row:nth-child(even) {
       background-color: #f9f9f9;
     }
     
-    tr:hover {
+    .list-row:hover {
       background-color: #f1f1f1;
     }
     
-    .missing {
-      background-color: rgba(231, 76, 60, 0.1);
+    .list-row.missing {
+      border-left: 3px solid var(--warning-color);
     }
     
-    .old {
-      background-color: rgba(243, 156, 18, 0.1);
+    .list-row.old {
+      border-left: 3px solid var(--info-color);
     }
     
+    .list-col {
+      padding-right: 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .col-name {
+      font-weight: bold;
+      padding-left: 0;
+    }
+    
+    .col-price {
+      text-align: right;
+      white-space: nowrap;
+    }
+    
+    .price-regular {
+      color: #333;
+    }
+    
+    .price-deal {
+      color: var(--warning-color);
+      margin-left: 5px;
+    }
+    
+    .col-days {
+      flex: 1;
+      text-align: right;
+    }
+    
+    /* Status badges */
     .status {
       display: inline-block;
-      padding: 3px 8px;
+      padding: 2px 6px;
       border-radius: 3px;
       font-size: 12px;
       font-weight: bold;
       color: white;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
     }
     
     .status.missing {
@@ -301,24 +340,103 @@ if ($sort_by === 'name') {
     }
     
     .summary {
-      margin-top: 20px;
-      padding: 15px;
+      margin-top: var(--spacing);
+      padding: var(--spacing);
       background-color: var(--light-color);
       border-radius: 6px;
       text-align: center;
+      font-size: 14px;
     }
     
+    .debug-info {
+      font-size: 12px;
+      color: #666;
+    }
+    
+    /* Mobile styles */
     @media (max-width: 768px) {
       .filters {
-        flex-direction: column;
+        gap: 6px;
       }
       
-      th, td {
+      .filter-group {
+        flex: 1 1 100%;
+      }
+      
+      .list-header {
+        display: none; /* Hide header on mobile */
+      }
+      
+      .list-row {
+        display: flex;
+        flex-wrap: wrap;
         padding: 8px 10px;
+        margin-bottom: 6px;
+        border-radius: 4px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
       }
       
-      .container {
-        padding: 10px;
+      /* Hide desktop grid columns on mobile */
+      .list-row > .list-col {
+        display: none;
+      }
+      
+      /* Show only the mobile-specific elements */
+      .list-row-details {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        color: #666;
+        width: 100%;
+        margin-top: 4px;
+      }
+      
+      .status {
+        display: none; /* Hide badges on mobile */
+      }
+      
+      .mobile-status {
+        font-size: 12px;
+        font-weight: bold;
+      }
+      
+      .mobile-status.missing {
+        color: var(--warning-color);
+      }
+      
+      .mobile-status.old {
+        color: var(--info-color);
+      }
+      
+      /* Mobile specific elements */
+      .mobile-main-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+      
+      .mobile-name {
+        font-weight: bold;
+        padding: 0;
+        margin-right: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex: 1;
+      }
+      
+      .mobile-price {
+        text-align: right;
+        white-space: nowrap;
+        padding: 0;
+      }
+      
+      .col-days {
+        padding: 0;
+      }
+      
+      .price-deal {
+        margin-left: 3px;
       }
     }
   </style>
@@ -375,44 +493,76 @@ if ($sort_by === 'name') {
     </form>
     
     <div class="results">
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Vendor</th>
-            <th>Price</th>
-            <th>Deal Price</th>
-            <th>Last Updated</th>
-            <th>Days Since Update</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php if (empty($results)): ?>
-            <tr>
-              <td colspan="7" style="text-align: center;">No items found matching the criteria</td>
-            </tr>
-          <?php endif; ?>
-          
-          <?php foreach ($results as $item): ?>
-            <tr class="<?= $item['is_missing'] ? 'missing' : ($item['is_old'] ? 'old' : '') ?>">
-              <td><?= htmlspecialchars($item['name']) ?></td>
-              <td><?= htmlspecialchars($item['vendor']) ?></td>
-              <td><?= htmlspecialchars($item['price']) ?></td>
-              <td><?= htmlspecialchars($item['dealPrice']) ?></td>
-              <td><?= htmlspecialchars($item['lastPriceUpd']) ?></td>
-              <td><?= $item['days_since_update'] !== null ? $item['days_since_update'] : 'N/A' ?></td>
-              <td>
-                <?php if ($item['is_missing']): ?>
-                  <span class="status missing">Missing</span>
-                <?php elseif ($item['is_old']): ?>
-                  <span class="status old">Outdated</span>
+      <?php if (empty($results)): ?>
+        <div style="text-align: center; padding: 15px;">No items found matching the criteria</div>
+      <?php else: ?>
+        <!-- Desktop header -->
+        <div class="list-header">
+          <div class="list-col col-name">Name</div>
+          <div class="list-col col-price">Price</div>
+          <div class="list-col col-days">Days</div>
+        </div>
+        
+        <!-- List items -->
+        <?php foreach ($results as $item): ?>
+          <div class="list-row <?= $item['is_missing'] ? 'missing' : ($item['is_old'] ? 'old' : '') ?>">
+            <!-- Desktop layout - grid columns -->
+            <div class="list-col col-name"><?= htmlspecialchars($item['name']) ?></div>
+            
+            <div class="list-col col-price">
+              <?php if (!empty($item['price'])): ?>
+                <span class="price-regular"><?= htmlspecialchars($item['price']) ?></span>
+              <?php endif; ?>
+              <?php if (!empty($item['dealPrice'])): ?>
+                <span class="price-deal"><?= htmlspecialchars($item['dealPrice']) ?></span>
+              <?php endif; ?>
+              <?php if (empty($item['price']) && empty($item['dealPrice'])): ?>
+                <span>N/A</span>
+              <?php endif; ?>
+            </div>
+            
+            <div class="list-col col-days">
+              <?= $item['days_since_update'] !== null ? $item['days_since_update'] : 'N/A' ?>
+            </div>
+            
+            <!-- Status badges (desktop only) -->
+            <?php if ($item['is_missing']): ?>
+              <span class="status missing">Missing</span>
+            <?php elseif ($item['is_old']): ?>
+              <span class="status old">Outdated</span>
+            <?php endif; ?>
+            
+            <!-- Mobile view (only visible on small screens) -->
+            <!-- First row: name and price -->
+            <div class="mobile-main-row">
+              <div class="mobile-name"><?= htmlspecialchars($item['name']) ?></div>
+              <div class="mobile-price">
+                <?php if (!empty($item['price'])): ?>
+                  <span class="price-regular"><?= htmlspecialchars($item['price']) ?></span>
                 <?php endif; ?>
-              </td>
-            </tr>
-          <?php endforeach; ?>
-        </tbody>
-      </table>
+                <?php if (!empty($item['dealPrice'])): ?>
+                  <span class="price-deal"><?= htmlspecialchars($item['dealPrice']) ?></span>
+                <?php endif; ?>
+                <?php if (empty($item['price']) && empty($item['dealPrice'])): ?>
+                  <span>N/A</span>
+                <?php endif; ?>
+              </div>
+            </div>
+            
+            <!-- Second row: status and days -->
+            <div class="list-row-details">
+              <div>
+                <?php if ($item['is_missing']): ?>
+                  <span class="mobile-status missing">Missing price</span>
+                <?php elseif ($item['is_old']): ?>
+                  <span class="mobile-status old">Outdated</span>
+                <?php endif; ?>
+              </div>
+              <div class="col-days"><?= $item['days_since_update'] !== null ? $item['days_since_update'].' days' : 'N/A' ?></div>
+            </div>
+          </div>
+        <?php endforeach; ?>
+      <?php endif; ?>
     </div>
     
     <div class="summary">
