@@ -218,11 +218,9 @@ else { // vendor
       padding: var(--spacing);
     }
     
-    h1 {
+    h3 {
       color: var(--dark-color);
       margin-bottom: var(--spacing);
-      text-align: center;
-      font-size: 24px;
     }
     
     .filters {
@@ -481,7 +479,7 @@ else { // vendor
 </head>
 <body>
   <div class="container">
-    <h1>Price Checker</h1>
+    <h3>Old prices</h3>
     
     <form method="get" class="filters">
       <div class="filter-group">
