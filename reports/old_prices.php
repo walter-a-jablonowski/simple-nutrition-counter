@@ -546,12 +546,12 @@ else { // vendor
                 <span class="price-deal"><?= htmlspecialchars($item['dealPrice']) ?></span>
               <?php endif; ?>
               <?php if( empty($item['price']) && empty($item['dealPrice'])): ?>
-                <span>N/A</span>
+                <span>n/a</span>
               <?php endif; ?>
             </div>
             
             <div class="list-col col-days">
-              <?= $item['days_since_update'] !== null ? $item['days_since_update'] : 'N/A' ?>
+              <?= $item['days_since_update'] !== null ? $item['days_since_update'] : 'n/a' ?>
             </div>
             
             <!-- Status column (desktop only) -->
@@ -575,7 +575,7 @@ else { // vendor
                   <span class="price-deal"><?= htmlspecialchars($item['dealPrice']) ?></span>
                 <?php endif; ?>
                 <?php if( empty($item['price']) && empty($item['dealPrice'])): ?>
-                  <span>N/A</span>
+                  <span>n/a</span>
                 <?php endif; ?>
               </div>
             </div>
@@ -589,7 +589,7 @@ else { // vendor
                   <span class="mobile-status old">Outdated</span>
                 <?php endif; ?>
               </div>
-              <div class="col-days"><?= $item['days_since_update'] !== null ? $item['days_since_update'].' days' : 'N/A' ?></div>
+              <div class="col-days"><?= $item['days_since_update'] !== null ? $item['days_since_update'].' days' : 'n/a' ?></div>
             </div>
           </div>
         <?php endforeach; ?>
