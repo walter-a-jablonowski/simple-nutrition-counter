@@ -23,21 +23,22 @@ $foods = [];
 $error_message = '';
 $vendors = ['all' => true];
 
-if (!is_dir($foods_dir)) {
+if( ! is_dir($foods_dir)) {
   $error_message = 'Foods directory not found: ' . $foods_dir;
-} else {
+}
+else {
   // Function to recursively scan directory for YAML files
   function scanFoodDir($dir, &$foods) {
     $items = scandir($dir);
-    foreach ($items as $item) {
-      if ($item === '.' || $item === '..') continue;
+    foreach( $items as $item) {
+      if( $item === '.' || $item === '..') continue;
       
       $path = $dir . '/' . $item;
-      if (is_dir($path)) {
+      if( is_dir($path)) {
         scanFoodDir($path, $foods);
-      } elseif (pathinfo($path, PATHINFO_EXTENSION) === 'yml') {
+      } elseif( pathinfo($path, PATHINFO_EXTENSION) === 'yml') {
         // Skip template files that start with underscore
-        if (substr($item, 0, 1) === '_') {
+        if( substr($item, 0, 1) === '_') {
           continue;
         }
         
@@ -45,7 +46,8 @@ if (!is_dir($foods_dir)) {
           $food_data = Yaml::parseFile($path);
           $food_name = pathinfo($item, PATHINFO_FILENAME);
           $foods[$food_name] = $food_data;
-        } catch (ParseException $e) {
+        }
+        catch( ParseException $e ) {
           // Skip files that can't be parsed
           continue;
         }
@@ -66,7 +68,8 @@ $today = new DateTime();
 $total_foods = count($foods);
 $debug_info = "Found $total_foods food items in $foods_dir";
 
-foreach ($foods as $food_name => $food) {
+foreach( $foods as $food_name => $food)
+{
   $vendor = isset($food['vendor']) ? $food['vendor'] : 'none';
   $vendors[$vendor] = true;
   
@@ -76,20 +79,22 @@ foreach ($foods as $food_name => $food) {
   $last_price_update = null;
   $days_since_update = null;
   
-  if (isset($food['lastPriceUpd'])) {
-    if (is_numeric($food['lastPriceUpd'])) {
-      // It's a timestamp
+  if( isset($food['lastPriceUpd']))
+  {
+    // It's a timestamp
+    if( is_numeric($food['lastPriceUpd']))
       $last_price_update = (new DateTime())->setTimestamp($food['lastPriceUpd']);
-    } elseif (is_string($food['lastPriceUpd']) && !empty($food['lastPriceUpd'])) {
-      // Try to parse as date string
+    // Try to parse as date string
+    elseif( is_string($food['lastPriceUpd']) && !empty($food['lastPriceUpd'])) {
       try {
         $last_price_update = new DateTime($food['lastPriceUpd']);
-      } catch (Exception $e) {
+      }
+      catch( Exception $e ) {
         // Invalid date format, ignore
       }
     }
     
-    if ($last_price_update) {
+    if( $last_price_update) {
       $days_since_update = $today->diff($last_price_update)->days;
     }
   }
@@ -98,8 +103,8 @@ foreach ($foods as $food_name => $food) {
   $is_missing = !$has_price;
   
   // Filter based on criteria
-  if (($show_missing && $is_missing) || ($show_old && $is_old)) {
-    if (empty($filter_vendor) || $filter_vendor === 'all' || $vendor === $filter_vendor) {
+  if( ( $show_missing && $is_missing) || ($show_old && $is_old))
+    if( empty($filter_vendor) || $filter_vendor === 'all' || $vendor === $filter_vendor) {
       $results[] = [
         'name' => $food_name,
         'vendor' => $vendor,
@@ -111,29 +116,31 @@ foreach ($foods as $food_name => $food) {
         'is_old' => $is_old
       ];
     }
-  }
 }
 
 // Sort results
-if ($sort_by === 'name') {
+if( $sort_by === 'name') {
   usort($results, function($a, $b) {
     return strcmp($a['name'], $b['name']);
   });
-} elseif ($sort_by === 'date') {
+}
+elseif( $sort_by === 'date') {
   usort($results, function($a, $b) {
-    if ($a['lastPriceUpd'] === '' && $b['lastPriceUpd'] === '') return 0;
-    if ($a['lastPriceUpd'] === '') return 1;
-    if ($b['lastPriceUpd'] === '') return -1;
+    if( $a['lastPriceUpd'] === '' && $b['lastPriceUpd'] === '') return 0;
+    if( $a['lastPriceUpd'] === '') return 1;
+    if( $b['lastPriceUpd'] === '') return -1;
     return strcmp($b['lastPriceUpd'], $a['lastPriceUpd']);
   });
-} elseif ($sort_by === 'days') {
+}
+elseif( $sort_by === 'days') {
   usort($results, function($a, $b) {
-    if ($a['days_since_update'] === null && $b['days_since_update'] === null) return 0;
-    if ($a['days_since_update'] === null) return 1;
-    if ($b['days_since_update'] === null) return -1;
+    if( $a['days_since_update'] === null && $b['days_since_update'] === null) return 0;
+    if( $a['days_since_update'] === null) return 1;
+    if( $b['days_since_update'] === null) return -1;
     return $b['days_since_update'] - $a['days_since_update'];
   });
-} else { // vendor
+}
+else { // vendor
   usort($results, function($a, $b) {
     $vendor_cmp = strcmp($a['vendor'], $b['vendor']);
     return $vendor_cmp !== 0 ? $vendor_cmp : strcmp($a['name'], $b['name']);
@@ -147,7 +154,7 @@ if ($sort_by === 'name') {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Price Checker</title>
-  <?php if (!empty($error_message)): ?>
+  <?php if( ! empty($error_message)): ?>
   <script>
     console.error("<?= htmlspecialchars($error_message) ?>");
   </script>
@@ -461,8 +468,8 @@ if ($sort_by === 'name') {
         <label for="vendor">Vendor:</label>
         <select id="vendor" name="vendor">
           <option value="all" <?= $filter_vendor === 'all' || empty($filter_vendor) ? 'selected' : '' ?>>All vendors</option>
-          <?php foreach (array_keys($vendors) as $vendor): ?>
-            <?php if ($vendor !== 'all'): ?>
+          <?php foreach( array_keys($vendors) as $vendor): ?>
+            <?php if( $vendor !== 'all'): ?>
               <option value="<?= htmlspecialchars($vendor) ?>" <?= $filter_vendor === $vendor ? 'selected' : '' ?>>
                 <?= htmlspecialchars($vendor) ?>
               </option>
@@ -499,7 +506,7 @@ if ($sort_by === 'name') {
     </form>
     
     <div class="results">
-      <?php if (empty($results)): ?>
+      <?php if( empty($results)): ?>
         <div style="text-align: center; padding: 15px;">No items found matching the criteria</div>
       <?php else: ?>
         <!-- Desktop header -->
@@ -510,19 +517,19 @@ if ($sort_by === 'name') {
         </div>
         
         <!-- List items -->
-        <?php foreach ($results as $item): ?>
+        <?php foreach( $results as $item): ?>
           <div class="list-row <?= $item['is_missing'] ? 'missing' : ($item['is_old'] ? 'old' : '') ?>">
             <!-- Desktop layout - grid columns -->
             <div class="list-col col-name"><?= htmlspecialchars($item['name']) ?></div>
             
             <div class="list-col col-price">
-              <?php if (!empty($item['price'])): ?>
+              <?php if( ! empty($item['price'])): ?>
                 <span class="price-regular"><?= htmlspecialchars($item['price']) ?></span>
               <?php endif; ?>
-              <?php if (!empty($item['dealPrice'])): ?>
+              <?php if( ! empty($item['dealPrice'])): ?>
                 <span class="price-deal"><?= htmlspecialchars($item['dealPrice']) ?></span>
               <?php endif; ?>
-              <?php if (empty($item['price']) && empty($item['dealPrice'])): ?>
+              <?php if( empty($item['price']) && empty($item['dealPrice'])): ?>
                 <span>N/A</span>
               <?php endif; ?>
             </div>
@@ -532,9 +539,9 @@ if ($sort_by === 'name') {
             </div>
             
             <!-- Status badges (desktop only) -->
-            <?php if ($item['is_missing']): ?>
+            <?php if( $item['is_missing']): ?>
               <span class="status missing">Missing</span>
-            <?php elseif ($item['is_old']): ?>
+            <?php elseif( $item['is_old']): ?>
               <span class="status old">Outdated</span>
             <?php endif; ?>
             
@@ -543,13 +550,13 @@ if ($sort_by === 'name') {
             <div class="mobile-main-row">
               <div class="mobile-name"><?= htmlspecialchars($item['name']) ?></div>
               <div class="mobile-price">
-                <?php if (!empty($item['price'])): ?>
+                <?php if( ! empty($item['price'])): ?>
                   <span class="price-regular"><?= htmlspecialchars($item['price']) ?></span>
                 <?php endif; ?>
-                <?php if (!empty($item['dealPrice'])): ?>
+                <?php if( ! empty($item['dealPrice'])): ?>
                   <span class="price-deal"><?= htmlspecialchars($item['dealPrice']) ?></span>
                 <?php endif; ?>
-                <?php if (empty($item['price']) && empty($item['dealPrice'])): ?>
+                <?php if( empty($item['price']) && empty($item['dealPrice'])): ?>
                   <span>N/A</span>
                 <?php endif; ?>
               </div>
@@ -558,9 +565,9 @@ if ($sort_by === 'name') {
             <!-- Second row: status and days -->
             <div class="list-row-details">
               <div>
-                <?php if ($item['is_missing']): ?>
+                <?php if( $item['is_missing']): ?>
                   <span class="mobile-status missing">Missing price</span>
-                <?php elseif ($item['is_old']): ?>
+                <?php elseif( $item['is_old']): ?>
                   <span class="mobile-status old">Outdated</span>
                 <?php endif; ?>
               </div>
@@ -573,7 +580,7 @@ if ($sort_by === 'name') {
     
     <div class="summary">
       <p>Found <?= count($results) ?> items that need attention (out of <?= $total_foods ?> total items)</p>
-      <?php if (!empty($debug_info)): ?>
+      <?php if( ! empty($debug_info)): ?>
       <div class="debug-info">
         <p><small><?= htmlspecialchars($debug_info) ?></small></p>
       </div>
