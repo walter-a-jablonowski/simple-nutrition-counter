@@ -147,7 +147,9 @@ Meals:
       - Gugelhupf
       - Apfelmus
 
-  Greens, legumes, mushr (color:#32cd32):        # Ingredients
+Ingredients:
+
+  Greens, legumes, mushr (color:#32cd32):
 
     list:
 
