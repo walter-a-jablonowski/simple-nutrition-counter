@@ -1,0 +1,25 @@
+
+productName:       "REWE Bio Gemüsemais"
+vendor:            Rewe
+
+certificates:      { bio: true, vegan: true, NutriScore: A }
+ingredients:       "Mais*, Wasser, Speisesalz, Säuerungsmittel (Citronensäure)"
+packaging:         glass & rubber
+
+price:             0.85
+weight:            230g
+
+calories:          64
+nutritionalValues:
+
+  fat:             1.5
+  saturatedFat:    0.8
+  carbs:           9.2
+  sugar:           3.8
+  fibre:           2.2
+  amino:           2.3
+  salt:            0.35
+
+sources:           { nutriVal: "web (information on packaging may differ slightly)" }
+lastUpd:           2025-05-18
+lastPriceUpd:      2025-05-18
