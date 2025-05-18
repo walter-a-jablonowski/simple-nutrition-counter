@@ -2,7 +2,7 @@ vendor:            multiple
 comment:           "2 Meßlöffel orange = 20g"
 packaging:         cardboard
 
-price:             
+price:             9.95
 weight:            300g
 usedAmounts:       ["10g", "20g", "30g"]
 
@@ -19,4 +19,4 @@ nutritionalValues:
 
 sources:           { nutriVal: "web (information on packaging may differ slightly)" }
 lastUpd:           2024-03-13
-lastPriceUpd:
+lastPriceUpd:      2025-05-18
