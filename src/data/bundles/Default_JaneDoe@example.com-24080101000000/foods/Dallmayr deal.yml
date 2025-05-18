@@ -1,7 +1,7 @@
 xTimeLog:          true
 packaging:         alu
 
-dealPrice:         5.39
+dealPrice:         6.79
 weight:            500
 usedAmounts:       ["2.5g", "5g", "10g"]
 
@@ -23,8 +23,9 @@ misc:
 sources:           { nutriVal: "pack" }
 
 lastUpd:           2024-06-01
-lastPriceUpd:      2024-06-01
+lastPriceUpd:      2025-05-18
 
 dealPrices:
 
+  2024-06-01: 5.39
   2024-05-11: 4.99
