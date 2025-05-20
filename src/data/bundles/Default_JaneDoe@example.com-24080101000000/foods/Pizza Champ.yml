@@ -3,23 +3,23 @@ acceptable:        less
 packaging:         cardboard,plastic
 
 price:             3.59
-weight:            680g
+weight:            730g
 pieces:            2
 usedAmounts:       ["1/4", "1/2", "1"]
 
-calories:          258
+calories:          233
 nutritionalValues:
 
-  fat:             10.2
-  saturatedFat:    5.6
-  carbs:           29
-  sugar:           3.2
-  fibre:           1.8
-  amino:           11.6
+  fat:             8.6
+  saturatedFat:    3.5
+  carbs:           28.6
+  sugar:           2.4
+  fibre:           1.9
+  amino:           9.3
   salt:            0.8
 
 sources:           { nutriVal: "pack" }
-lastUpd:           2024-09-05
+lastUpd:           2025-05-20
 lastPriceUpd:      2025-03-11
 
 prices:

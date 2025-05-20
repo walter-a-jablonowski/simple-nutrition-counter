@@ -3,7 +3,7 @@ acceptable:        less
 packaging:         cardboard,plastic
 
 price:             2.99
-weight:            900
+weight:            900g
 pieces:            3
 usedAmounts:       ["1/4", "1/2", "1"]
 
