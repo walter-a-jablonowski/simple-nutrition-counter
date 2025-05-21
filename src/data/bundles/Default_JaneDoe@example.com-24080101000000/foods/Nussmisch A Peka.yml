@@ -3,7 +3,7 @@ vendor:            Aldi
 certificates:      { vegan: true, NutriScore: A }
 packaging:         plastic
 
-price:             2.89
+price:             3.29
 weight:            200
 usedAmounts:       ["25g", "50g", "100g"]
 
@@ -22,4 +22,8 @@ nutritionalValues:
 
 sources:           { nutriVal: "pack" }
 lastUpd:           2024-10-31
-lastPriceUpd:      2024-10-31
+lastPriceUpd:      2025-05-21
+
+prices:
+
+  2024-10-31: 2.89

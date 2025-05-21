@@ -2,7 +2,7 @@ vendor:            Aldi
 acceptable:        occasionally
 packaging:         plastic
 
-price:             2.89
+price:             2.99
 weight:            600g
 usedAmounts:       ["50g", "100g", "200g"]
 
@@ -18,4 +18,8 @@ nutritionalValues:
 
 sources:           { nutriVal: "pack" }
 lastUpd:           2024-05-13
-lastPriceUpd:      2024-05-13
+lastPriceUpd:      2025-05-21
+
+prices:
+
+  2024-05-13: 2.89
