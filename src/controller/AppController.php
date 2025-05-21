@@ -142,7 +142,7 @@ class AppController extends ControllerBase
             ? Yaml::parse( file_get_contents("$dir/$file"))
             : Yaml::parse( file_get_contents("$dir/$file/-this.yml"));
 
-      $this->supplementsModel->set( $name, Yaml::parse( file_get_contents("data/bundles/Default_$user->id/supplements/$file")) );
+      $this->supplementsModel->set( $name, Yaml::parse( file_get_contents("$dir/$file")) );
     }
 
     // Edit tab: Day entries
