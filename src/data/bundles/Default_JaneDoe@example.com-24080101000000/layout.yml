@@ -4,8 +4,6 @@
 # see readme
 #
 
-# #8a2be2
-
 Meals:
 
   "(first_entries)":
@@ -48,7 +46,7 @@ Meals:
       - Cashew R Bio
       - Pistazien
 
-  Veggie bowl, high fibre (color:#ffa500):
+  Veggie bowl, high fibre (color:#32cd32):
 
     (i):   "Ideal is nuts, veggie high in fibre some chicken, fish"       # TASK: move
     short: "add {#alittletasteGroup|a little taste} and {#greenslegumesmushrGroup|greens} ..."
@@ -70,6 +68,27 @@ Meals:
       - Salat A Country
       - Olivenöl
       - Öl
+
+  Cheese, a little taste (color:#32cd32):
+
+    (i): "Add only a little per meal makes it far more tasty and keeps it healthy"
+
+    list:
+
+      - Frischk R Bio
+      - Frischk R Bio 2
+      - Parmesan Bio R
+      - Patros 150
+      - Patros W
+      - Bergkäse R Bio
+      - Tilsiter small
+      - Tilsiter big
+      - Käse Gr Sch (all)
+      - Käse Gr W (all)
+      - Bresso
+      - Bresso mini
+      - Philadelphia
+      - Philadelphia mini
 
   Fish, meat, tofu, butter (color:#ffa500):
 
@@ -94,28 +113,7 @@ Meals:
       - Tofu N
       - Butter
 
-  Cheese, a little taste (color:#ffa500):
-
-    (i): "Add only a little per meal makes it far more tasty and keeps it healthy"
-
-    list:
-
-      - Frischk R Bio
-      - Frischk R Bio 2
-      - Parmesan Bio R
-      - Patros 150
-      - Patros W
-      - Bergkäse R Bio
-      - Tilsiter small
-      - Tilsiter big
-      - Käse Gr Sch (all)
-      - Käse Gr W (all)
-      - Bresso
-      - Bresso mini
-      - Philadelphia
-      - Philadelphia mini
-
-  Desserts & micro or sugar-less candy (color:#ffa500):
+  Desserts & micro or sugar-less candy (color:#ff69b4):
 
     (i): "Candy: Reduce amount per day (effectively: don't buy more or you will eat it)"
 
@@ -130,7 +128,7 @@ Meals:
       - Ferrero Kuesschen
       - Hanuta
 
-  Cheat day (color:#ffa500):
+  Cheat day (color:#ff69b4):
 
     list:
 
@@ -177,7 +175,7 @@ Ingredients:
       - Pfannegem A Ital
       - Wirsing
 
-  Misc starches, corn (color:#32cd32):
+  Misc starches, corn (color:#ffa500):
 
     (i):   "Avoid all mass produced that humans weren't meant to eat, even whole grains"
     short: "Careful, even whole grains"
@@ -201,7 +199,7 @@ Ingredients:
       - Br
       - Mehrkornbr
 
-  Foods used sometimes (color:#32cd32):
+  Foods used sometimes:
 
     (i): "Kinda suppl (fill up missing)"
 
@@ -221,7 +219,7 @@ Ingredients:
       - Chips light
       - Chips
 
-  Misc foods (color:#32cd32):
+  Misc foods:
 
     list:
 
@@ -311,11 +309,11 @@ Improve:
 
 Supplements:
 
-  Morning supplements (color:#ff69b4, fold:true):
+  Morning supplements:
 
     list:
 
-  Variable Suppl, Brain tuning (color:#ff69b4):
+  Variable Suppl, Brain tuning:
 
     list:
 
