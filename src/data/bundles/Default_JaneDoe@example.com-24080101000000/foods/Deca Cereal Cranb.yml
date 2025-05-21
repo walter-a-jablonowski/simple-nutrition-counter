@@ -1,0 +1,27 @@
+
+productName:       "Choco Cereal Bar Strawberry Cranberry"
+vendor:            Deca
+
+acceptable:        occasionally
+certificates:      { vegan: true }
+ingredients:       "Getreide 33&nbsp;% (Haferflocken*, Weizenmehl* 8&nbsp;%, Reismehl), weiße Schokolade 30&nbsp;% (Zucker, Kakaobutter, Vollmilchpulver, Emulgator: Soja- und Sonnenblumenlecithin, Vanilleextrakt), Weizensirup*, dehydrierter Weizensirup*, Sonnenblumenöl, lyophilisierte Früchte (Erdbeeren 2&nbsp;%, Cranberrys 1&nbsp;%), Dextrose, Zucker, natürliches Aroma, Salz, Emulgator: Sojalecithin, Antioxidationsmittel: tocopherolhaltiger Extrakt"
+allergy:           "*Enthält GLUTEN. Kann Spuren enthalten von Erdnüssen und Hülsenfrüchten"
+packaging:         plastic
+
+price:             0.99
+weight:            30g
+
+calories:          446
+nutritionalValues: 
+
+  fat:             18
+  saturatedFat:    8.9
+  carbs:           64
+  sugar:           40
+  fibre:           2.9
+  amino:           5.5
+  salt:            0.43
+
+sources:           { nutriVal: "pack", nutrients: "web" }
+lastUpd:           2025-05-21
+lastPriceUpd:      2025-05-21
