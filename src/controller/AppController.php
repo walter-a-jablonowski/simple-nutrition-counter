@@ -29,6 +29,7 @@ class AppController extends ControllerBase
 
   protected SimpleData $nutrientsModel;
   protected SimpleData $foodsModel;
+  protected SimpleData $supplementsModel;
 
   protected string     $dayEntriesTxt;   // edit tab
   protected array      $dayEntries;
@@ -38,7 +39,6 @@ class AppController extends ControllerBase
   protected SimpleData $nutrientsView;   // nutrients tab, last days
   protected array      $avg;
   protected SimpleData $lastDaysView;
-  protected array      $oldPricesList;
 
   protected array      $captions = [];
   protected SimpleData $inlineHelp;
@@ -81,7 +81,7 @@ class AppController extends ControllerBase
 
     // Nutrients model
 
-    $this->nutrientsModel = new SimpleData();      // TASK: (advanced) merge with bundle /nutrients
+    $this->nutrientsModel = new SimpleData();
 
     foreach( self::NUTRIENT_GROUPS as $groupName )
     {
@@ -91,7 +91,6 @@ class AppController extends ControllerBase
     }
 
     // Food model
-    // TASK: maybe also use -this > calories
 
     $this->foodsModel = new SimpleData();
 
@@ -110,9 +109,6 @@ class AppController extends ControllerBase
       // merge nutrients from food file (prio) over default foods
       // TASK: maybe we want to add at least an empty key if a type of nutrients is missing
 
-      // if( $name == 'Chick R Bio' )  // DEBUG
-      //   $debug = 'halt';
-
       if( isset( $food['type']) && file_exists("data/food_defaults/$food[type].yml"))
       {
         $nutrients = Yaml::parse( file_get_contents("data/food_defaults/$food[type].yml"));
@@ -130,6 +126,25 @@ class AppController extends ControllerBase
       $this->foodsModel->set( $name, $food );
     }
 
+    // Supplements
+
+    $this->supplementsModel = new SimpleData();
+
+    $dir = "data/bundles/Default_$user->id/supplements";
+
+    foreach( scandir($dir) as $file )
+    {
+      if( in_array( $file, ['.', '..']) || in_array( $file[0], ['_']) || ( pathinfo($file, PATHINFO_EXTENSION) !== 'yml' && ! is_dir("$dir/$file")))
+        continue;
+
+      $name  = is_dir("$dir/$file")  ?  $file  :  pathinfo($file, PATHINFO_FILENAME);
+      $suppl = is_file("$dir/$file")
+            ? Yaml::parse( file_get_contents("$dir/$file"))
+            : Yaml::parse( file_get_contents("$dir/$file/-this.yml"));
+
+      $this->supplementsModel->set( $name, Yaml::parse( file_get_contents("data/bundles/Default_$user->id/supplements/$file")) );
+    }
+
     // Edit tab: Day entries
 
     $this->dayEntriesTxt = trim( @file_get_contents('data/users/' . $config->get('defaultUser') . "/days/{$this->date}.tsv") ?: '', "\n");
@@ -141,9 +156,6 @@ class AppController extends ControllerBase
     unset($entry);  // needed cause in a later `<?php foreach( $this->dayEntries as $entry ): ? >`
                     // entry still exists as ref, which means the last entry gets replaced with the data of the first
 
-    // foreach( $this->dayEntries as $idx => $entry )
-    //   $this->dayEntries[$idx]['nutrients'] = Yaml::parse( $this->dayEntries[$idx]['nutrients'] );
-
     // Edit tab: Food list
 
     $this->makeLayoutView();
@@ -151,9 +163,6 @@ class AppController extends ControllerBase
 
     foreach( $this->layout as $tab => $layout )
     {
-      // if( $tab === 'On the go')
-      //   $debug = 'halt';
-
       $this->layout[$tab] =
         $layout = parse_attribs('@attribs', ['short', '(i)'], $layout);
 
@@ -175,14 +184,6 @@ class AppController extends ControllerBase
 
     $this->makeLastDaysView();
 
-    // Old prices list
-/*
-    $minDate = strtotime('-6 months');
-
-    $this->oldPricesList = $this->foodsModel->filter(  // TASK: method impl
-      fn( $key, $data ) => $data['lastPriceUpd'] < $minDate
-    );
-*/
     ob_start();
     require 'view/-this.php';
     return ob_get_clean();
@@ -198,10 +199,6 @@ class AppController extends ControllerBase
   */
   private function makeLayoutView()  /*@*/
   {
-    // TASK: add types for user > misc
-    // - type field
-    // - load data
-
     $settings = settings::instance();
     $user     = User::current();
 
@@ -209,11 +206,6 @@ class AppController extends ControllerBase
 
     foreach( $this->foodsModel->all() as $name => $data )
     {
-      // print "$name<br>";   // DEBUG
-
-      // if( $name == 'Chick R Bio')
-      //   $debug = 'halt';
-
       $data['weight'] = trim( $data['weight'], "mgl ");  // just for convenience, we don't need the unit here
 
       $usage = isset( $data['usedAmounts']) && (
@@ -230,9 +222,6 @@ class AppController extends ControllerBase
 
       foreach( $usedAmounts as $amount )
       {
-        // if( $name == 'Lieken Urkorn')  // DEBUG
-        //   $debug = 'halt';
-
         $multipl = trim( $amount, "mglpc ");
         $multipl = (float) eval("return $multipl;");  // 1/2 => 0.5 or: eval("\$multipl = $multipl;")
 
@@ -240,9 +229,6 @@ class AppController extends ControllerBase
                   $usage === 'pieces' ? ($data['weight'] / $data['pieces']) * $multipl
                 : $multipl  // precise
         );
-
-        // if( $name == 'Lieken Urkorn')  // DEBUG
-        //   error_log('DEBUG::' . $multipl);
 
         $perWeight = [
           'weight'   => round( $weight, 1),
@@ -270,9 +256,6 @@ class AppController extends ControllerBase
               if( $groupName != 'nutritionalValues' && ! $this->nutrientsModel->has("$groupName.substances.$nutrient"))
                 continue;
 
-              // if( $groupName != 'nutritionalValues' )          // DEBUG
-              //   $debug = 'halt';
-
               $short = $groupName === 'nutritionalValues' ? $nutrient  // short name for single nutrient
                      : $this->nutrientsModel->get("$groupName.substances.$nutrient.short");
 
@@ -280,7 +263,7 @@ class AppController extends ControllerBase
             }
         }
 
-        $safeAmount = str_replace('.', '_', $amount);            // enable floating point number as key
+        $safeAmount = str_replace('.', '_', $amount);             // enable floating point number as key
         $this->layoutView->set("$name.$safeAmount", $perWeight);
         // $id = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $name));  // TASK: shorten
       }
@@ -297,8 +280,6 @@ class AppController extends ControllerBase
   */
   private function makeNutrientsView()  /*@*/
   {
-    // TASK: group vals
-
     $this->nutrientsView = new SimpleData();
 
     foreach( self::NUTRIENT_GROUPS as $groupName )
