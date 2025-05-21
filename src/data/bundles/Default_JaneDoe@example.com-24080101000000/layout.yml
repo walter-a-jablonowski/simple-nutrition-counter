@@ -49,7 +49,7 @@ Meals:
   Veggie bowl, high fibre (color:#32cd32):
 
     (i):   "Ideal is nuts, veggie high in fibre some chicken, fish"       # TASK: move
-    short: "add {#alittletasteGroup|a little taste} and {#greenslegumesmushrGroup|greens} ..."
+    short: "add {#cheesealittletasteGroup|a little taste} and {#greenslegumesmushrGroup|greens} ..."
 
     list:
 
