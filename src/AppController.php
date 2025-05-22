@@ -144,8 +144,8 @@ class AppController extends ControllerBase
 
       $name  = is_dir("$dir/$file")  ?  $file  :  pathinfo($file, PATHINFO_FILENAME);
       $suppl = is_file("$dir/$file")
-            ? Yaml::parse( file_get_contents("$dir/$file"))
-            : Yaml::parse( file_get_contents("$dir/$file/-this.yml"));
+             ? Yaml::parse( file_get_contents("$dir/$file"))
+             : Yaml::parse( file_get_contents("$dir/$file/-this.yml"));
 
       $this->supplementsModel->set( $name, $suppl );
     }
