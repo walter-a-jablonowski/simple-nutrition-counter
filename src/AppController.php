@@ -93,7 +93,7 @@ class AppController extends ControllerBase
       );
     }
 
-    // Food model
+    // Combined foods and supplements model
 
     $this->combinedModel = new SimpleData();
 
