@@ -339,7 +339,7 @@ class MainController
     // console.log( queryData('.food-item ...', ['food']))
 
     let entry = {
-      type:     'F',
+      type:     target.dataset.category || 'F',  // Use category from data attribute (F=Food, S=Supplement)
       food:     food,  // TASK: rename
       calories: calories,
       fat:      nutritionalValues.fat,

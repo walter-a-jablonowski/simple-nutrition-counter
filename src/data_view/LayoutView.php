@@ -19,8 +19,23 @@ trait LayoutView
     $user     = User::current();
 
     $this->layoutView = new SimpleData();
+    
+    // Merge foods and supplements for processing
 
-    foreach( $this->foodsModel->all() as $name => $data )
+    $allItems = [];
+    foreach( $this->foodsModel->all() as $name => $data ) {
+      $data['category'] = 'F';
+      $allItems[$name] = $data;
+    }
+    
+    foreach( $this->supplementsModel->all() as $name => $data ) {
+      $data['category'] = 'S';
+      $allItems[$name] = $data;
+    }
+
+    // Calc amount data for combined food and supplement items
+    
+    foreach( $allItems as $name => $data )
     {
       $data['weight'] = trim($data['weight'], "mgl ");  // just for convenience, we don't need the unit here
       $usage = $this->determineFoodUsageType($data);
@@ -34,10 +49,11 @@ trait LayoutView
         $weight = $this->calculateWeight($usage, $data, $multipl);
         
         $perWeight = [
-          'weight'   => round($weight, 1),
-          'calories' => round($data['calories'] * ($weight / 100), 1),
-          'price'    => $this->calculatePrice($data, $weight),
-          'xTimeLog' => isset($data['xTimeLog']) && $data['xTimeLog'] ? true : false
+          'category'  => $data['category'],  // Add category for distinguishing foods vs supplements
+          'weight'    => round($weight, 1),
+          'calories'  => round($data['calories'] * ($weight / 100), 1),
+          'price'     => $this->calculatePrice($data, $weight),
+          'xTimeLog'  => isset($data['xTimeLog']) && $data['xTimeLog'] ? true : false
         ];
 
         // Calculate nutritional values for all nutrient groups

@@ -4,9 +4,6 @@ extract($args);
 
 $return['done'] = [];
 
-// if( $entryName == 'Nussmisch N old' )  // DEBUG
-//   $debug = 'halt';
-
 $entryId    = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $entryName));  // TASK: use id from SimpleData key as soon as upd, maybe we need prefix this so that no Ids get confused?
 $amountData = $this->layoutView->get($entryName);  // foods and recipes are merged in one
 
@@ -71,16 +68,10 @@ $showInfo = $showInfo || true === $this->foodsModel->get("$entryName.xTimeLog");
     ?>
   </div>
   <?php foreach( $amountData as $amount => $data ): ?>  <!-- TASK: don't print more than 3 entries (rest in menu) -->
-  <?php
-  
-  // if( stripos( $entryName, 'Amino misc') !== false )  // DEBUG
-  // if( ! isset($data['nutriVal']))
-  //   $debug = 'halt';
-  
-  ?>                     <!-- pe-0 is for bg color -->
+    <!-- pe-0 is for bg color -->
     <div class           = "amount-btn col-2 p-1 pe-0 text-center"
          onclick         = "mainCrl.layoutItemClick(event)"
-
+         data-category   = "<?= $data['category'] ?>"
          data-food       = "<?= $entryName ?>"
          data-calories   = "<?= $data['calories'] ?>"
          data-nutritionalvalues = "<?= htmlspecialchars( json_encode( $data['nutriVal'])) ?>"
