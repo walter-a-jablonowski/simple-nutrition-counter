@@ -9,7 +9,7 @@ require_once 'lib/frm/ConfigStatic_240323/config.php';
 require_once 'lib/settings.php';
 // require_once 'lib/frm/Routing_240324/Routing.php';
 require_once 'lib/frm/Controller_240323/ControllerBase.php';
-require_once 'controller/AppController.php';
+require_once 'AppController.php';
 
 
 // TASK: maybe use SimpleData inside cause static methods depend on the class

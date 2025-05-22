@@ -126,8 +126,8 @@ else:
 <script src="lib/frm/YAMLish_241016.js"></script>
 <script src="lib/frm/send_240420.js"></script>
 <!-- <script src="lib/frm/fade_230808.js"></script> -->
-<script src="controller/MainController.js?v=<?= time() ?>"></script>
-<!-- <script src="controller/SettingsController.js?v=<?= time() ?>"></script> -->
+<script src="MainController.js?v=<?= time() ?>"></script>
+<!-- <script src="SettingsController.js?v=<?= time() ?>"></script> -->
 <script>
 
 // ajax.file = 'ajax.php'
