@@ -190,12 +190,12 @@ class AppController extends ControllerBase
   }
 
   /*@
-
+  
   makeLayoutView()
-
+  
   - pre calc all food and recipes amounts for food grid
   - easy print in food grid, less js logic
-
+  
   */
   private function makeLayoutView()  /*@*/
   {
@@ -206,43 +206,27 @@ class AppController extends ControllerBase
 
     foreach( $this->foodsModel->all() as $name => $data )
     {
-      $data['weight'] = trim( $data['weight'], "mgl ");  // just for convenience, we don't need the unit here
-
-      $usage = isset( $data['usedAmounts']) && (
-                 strpos( $data['usedAmounts'][0], 'g')  !== false ||
-                 strpos( $data['usedAmounts'][0], 'ml') !== false
-               )
-             ? 'precise' : (
-               isset($data['pieces' ])
-             ? 'pieces'
-             : 'pack' 
-      );
-
-      $usedAmounts = $data['usedAmounts'] ?? ( $settings->get("foods.defaultAmounts.$usage") ?: 1);
+      $data['weight'] = trim($data['weight'], "mgl ");  // just for convenience, we don't need the unit here
+      $usage = $this->determineFoodUsageType($data);
+      $usedAmounts = $data['usedAmounts'] ?? ($settings->get("foods.defaultAmounts.$usage") ?: 1);
 
       foreach( $usedAmounts as $amount )
       {
-        $multipl = trim( $amount, "mglpc ");
+        // Convert expressions like "1/2" to 0.5
+        $multipl = trim($amount, "mglpc ");
         $multipl = (float) eval("return $multipl;");  // 1/2 => 0.5 or: eval("\$multipl = $multipl;")
-
-        $weight = $usage === 'pack'   ? $data['weight'] * $multipl : (
-                  $usage === 'pieces' ? ($data['weight'] / $data['pieces']) * $multipl
-                : $multipl  // precise
-        );
-
+        
+        $weight = $this->calculateWeight($usage, $data, $multipl);
+        
         $perWeight = [
-          'weight'   => round( $weight, 1),
-          'calories' => round( $data['calories'] * ($weight / 100), 1),
-          'price'    => isset( $data['price']) && $data['price']
-                     ?  round( $data['price'] * ($weight / $data['weight']), 2) : (
-                        isset( $data['dealPrice']) && $data['dealPrice']
-                     ?  round( $data['dealPrice'] * ($weight / $data['weight']), 2)
-                     :  0),
-          'xTimeLog' => isset( $data['xTimeLog']) && $data['xTimeLog'] ? true : false
+          'weight'   => round($weight, 1),
+          'calories' => round($data['calories'] * ($weight / 100), 1),
+          'price'    => $this->calculatePrice($data, $weight),
+          'xTimeLog' => isset($data['xTimeLog']) && $data['xTimeLog'] ? true : false
         ];
 
-        // nutritional values for all nutrient groups
-
+        // Calculate nutritional values for all nutrient groups
+        
         foreach( array_merge(['nutritionalValues'], self::NUTRIENT_GROUPS) as $groupName )
         {
           $shortName = $groupName === 'nutritionalValues' ? 'nutriVal'
@@ -250,26 +234,97 @@ class AppController extends ControllerBase
 
           $perWeight[$shortName] = [];
 
-          if( isset($data[$groupName]) && count($data[$groupName]) > 0)
+          if( isset($data[$groupName]) && count($data[$groupName]) > 0) {
             foreach( $data[$groupName] as $nutrient => $value )
             {
-              if( $groupName != 'nutritionalValues' && ! $this->nutrientsModel->has("$groupName.substances.$nutrient"))
+              // Skip if nutrient doesn't exist in the model (except for nutritionalValues)
+              if( $groupName != 'nutritionalValues' && 
+                  ! $this->nutrientsModel->has("$groupName.substances.$nutrient")) {
                 continue;
+              }
 
               $short = $groupName === 'nutritionalValues' ? $nutrient  // short name for single nutrient
                      : $this->nutrientsModel->get("$groupName.substances.$nutrient.short");
 
-              $perWeight[$shortName][$short] = round( $value * ($weight / 100), 1);
+              $perWeight[$shortName][$short] = round($value * ($weight / 100), 1);
             }
+          }
         }
 
-        $safeAmount = str_replace('.', '_', $amount);             // enable floating point number as key
+        $safeAmount = str_replace('.', '_', $amount);  // enable floating point number as key
         $this->layoutView->set("$name.$safeAmount", $perWeight);
         // $id = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $name));  // TASK: shorten
       }
     }
   }
 
+  /*@
+  
+  Helper for makeLayoutView(): determine food usage type based on data
+  
+  ARGS:
+    data: Food data array
+  
+  RETURN: string usage type ('precise', 'pieces', or 'pack')
+  
+  */
+  private function determineFoodUsageType( $data ) : string
+  {
+    if( isset($data['usedAmounts']) && (
+        strpos($data['usedAmounts'][0], 'g')  !== false ||
+        strpos($data['usedAmounts'][0], 'ml') !== false
+    ))
+      return 'precise';
+    elseif( isset($data['pieces']) )
+      return 'pieces';
+    else
+      return 'pack';
+  }
+  
+  /*@
+  
+  Helper for makeLayoutView(): calculate weight based on usage type
+  
+  ARGS:
+    usage:   Usage type ('precise', 'pieces', or 'pack')
+    data:    Food data array
+    multipl: Multiplier value
+  
+  RETURN: float calculated weight
+  
+  */
+  private function calculateWeight( $usage, $data, $multipl ) : float
+  {
+    switch( $usage ) {
+      case 'pack':
+        return $data['weight'] * $multipl;
+      case 'pieces':
+        return ($data['weight'] / $data['pieces']) * $multipl;
+      default:  // precise
+        return $multipl;
+    }
+  }
+  
+  /*@
+  
+  Helper for makeLayoutView(): calculate price based on weight
+  
+  ARGS:
+    data:   Food data array
+    weight: Calculated weight
+  
+  RETURN: float calculated price
+  
+  */
+  private function calculatePrice( $data, $weight ) : float
+  {
+    if( isset($data['price']) && $data['price'] )
+      return round($data['price'] * ($weight / $data['weight']), 2);
+    elseif( isset($data['dealPrice']) && $data['dealPrice'] )
+      return round($data['dealPrice'] * ($weight / $data['weight']), 2);
+    else
+      return 0;
+  }
 
   /*@
   
