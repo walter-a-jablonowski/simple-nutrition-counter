@@ -270,14 +270,13 @@ class AppController extends ControllerBase
     }
   }
 
-
   /*@
-  
+
   makeNutrientsView()
-  
+
   - pre calc nutrients (tab 2) recommended amounts per day
   - easy print in html, less js logic
-  
+
   */
   private function makeNutrientsView()  /*@*/
   {
@@ -291,48 +290,25 @@ class AppController extends ControllerBase
       foreach( $this->nutrientsModel->get("$groupName.substances") as $name => $attr )  // short is used as id
       {
         $a = $attr['amounts'][0];
-        
+
         $this->nutrientsView->set("$shortName.$attr[short]", [
-          'name'        => $name,       // TASK: (advanced) currently using first entry only
+
+          'name'  => $name,  // TASK: (advanced) currently using first entry only
           'displayName' => $attr['displayName'] ?? null,
-          'unit'        => $attr['unit'] ?? 'mg',
-          'group'       => $groupName,  // calc acceptable nutrient intake ideal with tolerance
-          'lower'       => $this->calculateBound( $a['amount'], $a['lower'], false),
-          'ideal'       => $a['amount'],
-          'upper'       => $this->calculateBound( $a['amount'], $a['upper'], true)
+          'unit'  => $attr['unit'] ?? 'mg',
+          'group' => $groupName,
+          'lower' => strpos($a['lower'], '%') === false
+                  ?  $a['amount'] - $a['lower']
+                  :  $a['amount'] - $a['amount'] * (floatval($a['lower']) / 100),  // floatval removes the percent
+          'ideal' => $a['amount'],
+          'upper' => strpos($a['upper'], '%') === false
+                  ?  $a['amount'] + $a['upper']
+                  :  $a['amount'] + $a['amount'] * (floatval($a['upper']) / 100)
         ]);
       }
     }
   }
 
-  /*@
-
-  Helper for makeNutrientsView(): calc acceptable nutrient intake based on ideal amount with tolerance
-  
-  ARGS:
-    amount:  Ideal amount
-    bound:   Tolerance value (absolute or percentage)
-    isUpper: Whether this is an upper or lower bound calculation
-
-  RETURN: float calculated bound value
-
-  */
-  private function calculateBound( $amount, $bound, $isUpper = false ) : float
-  {
-    $isPercentage = strpos($bound, '%') !== false;
-    
-    if( $isPercentage ) {
-      $percentage = floatval($bound) / 100;  // remove percent sign and convert to decimal
-      return $isUpper 
-        ? $amount + ($amount * $percentage)
-        : $amount - ($amount * $percentage);
-    }
-    else {
-      return $isUpper 
-        ? $amount + $bound
-        : $amount - $bound;
-    }
-  }
 
   private function makeLastDaysView()
   {
