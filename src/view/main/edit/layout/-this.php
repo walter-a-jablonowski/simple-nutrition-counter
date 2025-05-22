@@ -106,8 +106,8 @@
             if( count($allEntries) > count( array_unique($done)))  // entries can appear in layout multiple times
             {
               $leftEntries = array_diff( $allEntries, $done );
-              $miscEntries = array_filter( $leftEntries, fn($entry) => ! $this->foodsModel->get("$entry.removed"));
-              $removed     = array_filter( $leftEntries, fn($entry) =>   $this->foodsModel->get("$entry.removed"));
+              $miscEntries = array_filter( $leftEntries, fn($entry) => ! $this->combinedModel->get("$entry.removed"));
+              $removed     = array_filter( $leftEntries, fn($entry) =>   $this->combinedModel->get("$entry.removed"));
 
               error_log( print_r($removed, true));
 
