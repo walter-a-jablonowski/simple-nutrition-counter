@@ -131,8 +131,6 @@ class AppController extends ControllerBase
       $this->combinedModel->set( $name, $food );
     }
 
-    // Supplements
-
     $dir = "data/bundles/Default_$user->id/supplements";
 
     foreach( scandir($dir) as $file )
