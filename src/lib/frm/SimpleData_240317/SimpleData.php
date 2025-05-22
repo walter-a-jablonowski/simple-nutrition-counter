@@ -131,7 +131,7 @@ class SimpleData /*@*/
   public function push( string $key, $value )  /*@*/
   {
     $elem = &$this->findKey( $key );
-    $elem[$sub][] = $value;
+    $elem = $value;
   }
 
 
