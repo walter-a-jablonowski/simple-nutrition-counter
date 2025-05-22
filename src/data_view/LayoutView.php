@@ -44,12 +44,12 @@ trait LayoutView
       foreach( $usedAmounts as $amount )
       {
         $multipl = trim($amount, "mglpc ");
-        $multipl = (float) eval("return $multipl;");    // 1/2 => 0.5 or: eval("\$multipl = $multipl;")
+        $multipl = (float) eval("return $multipl;");   // 1/2 => 0.5 or: eval("\$multipl = $multipl;")
         
         $weight = $this->calculateWeight($usage, $data, $multipl);
         
         $perWeight = [
-          'category'  => $data['category'],  // Add category for distinguishing foods vs supplements
+          'category'  => $data['category'],  // add category for distinguishing foods vs supplements
           'weight'    => round($weight, 1),
           'calories'  => round($data['calories'] * ($weight / 100), 1),
           'price'     => $this->calculatePrice($data, $weight),
