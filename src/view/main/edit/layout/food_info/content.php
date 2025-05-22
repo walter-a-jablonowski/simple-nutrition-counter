@@ -2,10 +2,10 @@
 
 extract($args);
 
-$data = $this->foodsModel->get($entryName);
+$data = $this->combinedModel->get($entryName);
 
 $comment = $data['comment'] ?? '';
-$comment = true === $this->foodsModel->get("$entryName.xTimeLog")
+$comment = true === $this->combinedModel->get("$entryName.xTimeLog")
          ? '<b><i class="bi bi-clock small text-secondary"></i> excluded from eating time calculation</b><br><br>' . $comment
          : $comment;
 

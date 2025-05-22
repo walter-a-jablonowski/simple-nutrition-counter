@@ -38,6 +38,7 @@ class AppController extends ControllerBase
   protected SimpleData $nutrientsModel;
   protected SimpleData $foodsModel;
   protected SimpleData $supplementsModel;
+  protected SimpleData $combinedModel;
 
   protected string     $dayEntriesTxt;   // edit tab
   protected array      $dayEntries;
@@ -148,6 +149,10 @@ class AppController extends ControllerBase
 
       $this->supplementsModel->set( $name, $suppl );
     }
+
+    // Combined model (used in view)
+
+    $this->combinedModel = new SimpleData( $this->foodsModel->all(), $this->supplementsModel->all() );
 
     // Edit tab: Day entries
 

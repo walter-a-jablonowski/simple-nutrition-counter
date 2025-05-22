@@ -9,14 +9,14 @@ $amountData = $this->layoutView->get($entryName);  // foods and recipes are merg
 
 $return['done'][] = $entryName;  // left over will be printed below (done = foods and recipes in a single list)
 
-$accepColor  = $this->foodsModel->get("$entryName.acceptable") ?? 'n/a';  // TASK: colors also below, merge by using a class (also in app tips)
+$accepColor  = $this->combinedModel->get("$entryName.acceptable") ?? 'n/a';  // TASK: colors also below, merge by using a class (also in app tips)
 $accepColor  = ['less' => '#ffcccc', 'occasionally' => '#ffff88', 'n/a' => 'inherit'][$accepColor];
 
-$price       = $this->foodsModel->get("$entryName.price");
+$price       = $this->combinedModel->get("$entryName.price");
 if( ! $price )
-  $price     = $this->foodsModel->get("$entryName.dealPrice");
+  $price     = $this->combinedModel->get("$entryName.dealPrice");
 
-$weight      = (float) trim( $this->foodsModel->get("$entryName.weight"), "mgl ");
+$weight      = (float) trim( $this->combinedModel->get("$entryName.weight"), "mgl ");
 $pricePer100 = $weight ? $price / ( $weight / 100.0) : 0.0;
 
 if( $price )
@@ -25,11 +25,11 @@ if( $price )
   $expensive = $pricePer100 >= settings::get('expensive');
 }
 
-$showInfo = $this->foodsModel->get("$entryName.comment")  // has comment might mean sth important
+$showInfo = $this->combinedModel->get("$entryName.comment")  // has comment might mean sth important
           ? true : false;
-$showInfo = $showInfo || true === $this->foodsModel->get("$entryName.xTimeLog");
+$showInfo = $showInfo || true === $this->combinedModel->get("$entryName.xTimeLog");
 
-// $xTimeLog = true === $this->foodsModel->get("$entryName.xTimeLog");
+// $xTimeLog = true === $this->combinedModel->get("$entryName.xTimeLog");
 
 ?>
 <div class="layout-item row">  <!-- pe-0 is for bg color, TASK: alternative: highlight name only -->
