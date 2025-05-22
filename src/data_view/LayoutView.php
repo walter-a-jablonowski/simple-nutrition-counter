@@ -20,22 +20,9 @@ trait LayoutView
 
     $this->layoutView = new SimpleData();
     
-    // Merge foods and supplements for processing
-
-    $allItems = [];
-    foreach( $this->foodsModel->all() as $name => $data ) {
-      $data['category'] = 'F';
-      $allItems[$name] = $data;
-    }
-    
-    foreach( $this->supplementsModel->all() as $name => $data ) {
-      $data['category'] = 'S';
-      $allItems[$name] = $data;
-    }
-
     // Calc amount data for combined food and supplement items
     
-    foreach( $allItems as $name => $data )
+    foreach( $this->combinedModel->all() as $name => $data )
     {
       $data['weight'] = trim($data['weight'], "mgl ");  // just for convenience, we don't need the unit here
       $usage = $this->determineFoodUsageType($data);

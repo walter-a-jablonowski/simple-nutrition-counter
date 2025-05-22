@@ -36,8 +36,6 @@ class AppController extends ControllerBase
   protected string     $date;
 
   protected SimpleData $nutrientsModel;
-  protected SimpleData $foodsModel;
-  protected SimpleData $supplementsModel;
   protected SimpleData $combinedModel;
 
   protected string     $dayEntriesTxt;   // edit tab
@@ -97,7 +95,7 @@ class AppController extends ControllerBase
 
     // Food model
 
-    $this->foodsModel = new SimpleData();
+    $this->combinedModel = new SimpleData();
 
     $dir = "data/bundles/Default_$user->id/foods";
 
@@ -110,6 +108,8 @@ class AppController extends ControllerBase
       $food = is_file("$dir/$file")
             ? Yaml::parse( file_get_contents("$dir/$file"))
             : Yaml::parse( file_get_contents("$dir/$file/-this.yml"));
+
+      $food['category'] = 'F';
 
       // merge nutrients from food file (prio) over default foods
       // TASK: maybe we want to add at least an empty key if a type of nutrients is missing
@@ -128,12 +128,10 @@ class AppController extends ControllerBase
         }
       }
 
-      $this->foodsModel->set( $name, $food );
+      $this->combinedModel->set( $name, $food );
     }
 
     // Supplements
-
-    $this->supplementsModel = new SimpleData();
 
     $dir = "data/bundles/Default_$user->id/supplements";
 
@@ -147,12 +145,10 @@ class AppController extends ControllerBase
              ? Yaml::parse( file_get_contents("$dir/$file"))
              : Yaml::parse( file_get_contents("$dir/$file/-this.yml"));
 
-      $this->supplementsModel->set( $name, $suppl );
+      $suppl['category'] = 'S';
+
+      $this->combinedModel->set( $name, $suppl );
     }
-
-    // Combined model (used in view)
-
-    $this->combinedModel = new SimpleData( $this->foodsModel->all(), $this->supplementsModel->all() );
 
     // Edit tab: Day entries
 
