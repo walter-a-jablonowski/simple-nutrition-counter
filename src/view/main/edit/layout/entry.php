@@ -16,7 +16,8 @@ $price       = $this->foodsModel->get("$entryName.price");
 if( ! $price )
   $price     = $this->foodsModel->get("$entryName.dealPrice");
 
-$pricePer100 = $price / ( trim( $this->foodsModel->get("$entryName.weight"), "mgl ") / 100.0);
+$weight      = (float) trim( $this->foodsModel->get("$entryName.weight"), "mgl ");
+$pricePer100 = $weight ? $price / ( $weight / 100.0) : 0.0;
 
 if( $price )
 {
