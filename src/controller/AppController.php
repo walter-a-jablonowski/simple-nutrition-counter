@@ -9,6 +9,10 @@ require_once 'lib/frm/ConfigStatic_240323/config.php';
 require_once 'lib/frm/User.php';
 require_once 'lib/settings.php';
 
+require_once 'controller/data_view/LayoutView.php';
+require_once 'controller/data_view/NutrientsView.php';
+require_once 'controller/data_view/LastDaysView.php';
+
 foreach( scandir('ajax') as $fil)
   if( ! in_array( $fil, ['.', '..']))  require_once "ajax/$fil";
 
@@ -17,6 +21,10 @@ require_once 'lib/helper.php';
 
 class AppController extends ControllerBase
 {
+  use LayoutView;
+  use NutrientsView;
+  use LastDaysView;
+
   use SaveDayEntriesAjaxController;
   use ChangeUserAjaxController;
   use SavePriceAjaxController;
@@ -34,11 +42,7 @@ class AppController extends ControllerBase
   protected string     $dayEntriesTxt;   // edit tab
   protected array      $dayEntries;
   protected array      $layout;
-  protected SimpleData $layoutView;
 
-  protected SimpleData $nutrientsView;   // nutrients tab, last days
-  protected array      $avg;
-  protected SimpleData $lastDaysView;
 
   protected array      $captions = [];
   protected SimpleData $inlineHelp;
@@ -187,281 +191,6 @@ class AppController extends ControllerBase
     ob_start();
     require 'view/-this.php';
     return ob_get_clean();
-  }
-
-  /*@
-  
-  makeLayoutView()
-  
-  - pre calc all food and recipes amounts for food grid
-  - easy print in food grid, less js logic
-  
-  */
-  private function makeLayoutView()  /*@*/
-  {
-    $settings = settings::instance();
-    $user     = User::current();
-
-    $this->layoutView = new SimpleData();
-
-    foreach( $this->foodsModel->all() as $name => $data )
-    {
-      $data['weight'] = trim($data['weight'], "mgl ");  // just for convenience, we don't need the unit here
-      $usage = $this->determineFoodUsageType($data);
-      $usedAmounts = $data['usedAmounts'] ?? ($settings->get("foods.defaultAmounts.$usage") ?: 1);
-
-      foreach( $usedAmounts as $amount )
-      {
-        // Convert expressions like "1/2" to 0.5
-        $multipl = trim($amount, "mglpc ");
-        $multipl = (float) eval("return $multipl;");  // 1/2 => 0.5 or: eval("\$multipl = $multipl;")
-        
-        $weight = $this->calculateWeight($usage, $data, $multipl);
-        
-        $perWeight = [
-          'weight'   => round($weight, 1),
-          'calories' => round($data['calories'] * ($weight / 100), 1),
-          'price'    => $this->calculatePrice($data, $weight),
-          'xTimeLog' => isset($data['xTimeLog']) && $data['xTimeLog'] ? true : false
-        ];
-
-        // Calculate nutritional values for all nutrient groups
-        
-        foreach( array_merge(['nutritionalValues'], self::NUTRIENT_GROUPS) as $groupName )
-        {
-          $shortName = $groupName === 'nutritionalValues' ? 'nutriVal'
-                     : $this->nutrientsModel->get("$groupName.short");
-
-          $perWeight[$shortName] = [];
-
-          if( isset($data[$groupName]) && count($data[$groupName]) > 0) {
-            foreach( $data[$groupName] as $nutrient => $value )
-            {
-              // Skip if nutrient doesn't exist in the model (except for nutritionalValues)
-              if( $groupName != 'nutritionalValues' && 
-                  ! $this->nutrientsModel->has("$groupName.substances.$nutrient")) {
-                continue;
-              }
-
-              $short = $groupName === 'nutritionalValues' ? $nutrient  // short name for single nutrient
-                     : $this->nutrientsModel->get("$groupName.substances.$nutrient.short");
-
-              $perWeight[$shortName][$short] = round($value * ($weight / 100), 1);
-            }
-          }
-        }
-
-        $safeAmount = str_replace('.', '_', $amount);  // enable floating point number as key
-        $this->layoutView->set("$name.$safeAmount", $perWeight);
-        // $id = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $name));  // TASK: shorten
-      }
-    }
-  }
-
-  /*@
-  
-  Helper for makeLayoutView(): determine food usage type based on data
-  
-  ARGS:
-    data: Food data array
-  
-  RETURN: string usage type ('precise', 'pieces', or 'pack')
-  
-  */
-  private function determineFoodUsageType( $data ) : string
-  {
-    if( isset($data['usedAmounts']) && (
-        strpos($data['usedAmounts'][0], 'g')  !== false ||
-        strpos($data['usedAmounts'][0], 'ml') !== false
-    ))
-      return 'precise';
-    elseif( isset($data['pieces']) )
-      return 'pieces';
-    else
-      return 'pack';
-  }
-  
-  /*@
-  
-  Helper for makeLayoutView(): calculate weight based on usage type
-  
-  ARGS:
-    usage:   Usage type ('precise', 'pieces', or 'pack')
-    data:    Food data array
-    multipl: Multiplier value
-  
-  RETURN: float calculated weight
-  
-  */
-  private function calculateWeight( $usage, $data, $multipl ) : float
-  {
-    switch( $usage ) {
-      case 'pack':
-        return $data['weight'] * $multipl;
-      case 'pieces':
-        return ($data['weight'] / $data['pieces']) * $multipl;
-      default:  // precise
-        return $multipl;
-    }
-  }
-  
-  /*@
-  
-  Helper for makeLayoutView(): calculate price based on weight
-  
-  ARGS:
-    data:   Food data array
-    weight: Calculated weight
-  
-  RETURN: float calculated price
-  
-  */
-  private function calculatePrice( $data, $weight ) : float
-  {
-    if( isset($data['price']) && $data['price'] )
-      return round($data['price'] * ($weight / $data['weight']), 2);
-    elseif( isset($data['dealPrice']) && $data['dealPrice'] )
-      return round($data['dealPrice'] * ($weight / $data['weight']), 2);
-    else
-      return 0;
-  }
-
-  /*@
-  
-  makeNutrientsView()
-  
-  - pre calc nutrients (tab 2) recommended amounts per day
-  - easy print in html, less js logic
-  
-  */
-  private function makeNutrientsView()  /*@*/
-  {
-    $this->nutrientsView = new SimpleData();
-
-    foreach( self::NUTRIENT_GROUPS as $groupName )
-    {
-      $shortName = $this->nutrientsModel->get("$groupName.short");
-      $this->captions[$shortName] = $this->nutrientsModel->get("$groupName.name");
-
-      foreach( $this->nutrientsModel->get("$groupName.substances") as $name => $attr )  // short is used as id
-      {
-        $a = $attr['amounts'][0];
-        
-        $this->nutrientsView->set("$shortName.$attr[short]", [
-          'name'        => $name,       // TASK: (advanced) currently using first entry only
-          'displayName' => $attr['displayName'] ?? null,
-          'unit'        => $attr['unit'] ?? 'mg',
-          'group'       => $groupName,  // calc acceptable nutrient intake ideal with tolerance
-          'lower'       => $this->calculateBound( $a['amount'], $a['lower'], false),
-          'ideal'       => $a['amount'],
-          'upper'       => $this->calculateBound( $a['amount'], $a['upper'], true)
-        ]);
-      }
-    }
-  }
-
-  /*@
-
-  Helper for makeNutrientsView(): calc acceptable nutrient intake based on ideal amount with tolerance
-  
-  ARGS:
-    amount:  Ideal amount
-    bound:   Tolerance value (absolute or percentage)
-    isUpper: Whether this is an upper or lower bound calculation
-
-  RETURN: float calculated bound value
-
-  */
-  private function calculateBound( $amount, $bound, $isUpper = false ) : float
-  {
-    $isPercentage = strpos($bound, '%') !== false;
-    
-    if( $isPercentage ) {
-      $percentage = floatval($bound) / 100;  // remove percent sign and convert to decimal
-      return $isUpper 
-        ? $amount + ($amount * $percentage)
-        : $amount - ($amount * $percentage);
-    }
-    else {
-      return $isUpper 
-        ? $amount + $bound
-        : $amount - $bound;
-    }
-  }
-
-  private function makeLastDaysView()
-  {
-    $config   = config::instance();
-    $settings = settings::instance();
-
-    // Day list
-
-    $this->lastDaysView = new SimpleData();
-    $data = [];  $i = 1;
-
-    foreach( scandir('data/users/' . $config->get('defaultUser') . '/days', SCANDIR_SORT_DESCENDING) as $file)
-    {
-      $dat = pathinfo($file, PATHINFO_FILENAME);
-
-      if( pathinfo($file, PATHINFO_EXTENSION) !== 'tsv' || $dat === date('Y-m-d'))  // hide current day in last days tab
-        continue;
-
-      $i++;  if( $i > 30 )  break;  // leave here cause of first day hidden
-      $entries = parse_tsv( file_get_contents('data/users/' . $config->get('defaultUser') . "/days/$file"), self::DAY_HEADERS);
-
-      // foreach( $entries as $idx => $entry)  // TASK: for fibre
-      //   $entries[$idx][7] = Yaml::parse( $entries[$idx][7] );
-
-      $data[$dat] = $entries;
-
-      $this->lastDaysView->set( $dat, [
-        'calories' => ( ! $entries ? 0 : array_sum( array_column($entries, 'calories'))),
-        'fat'      => ( ! $entries ? 0 : array_sum( array_column($entries, 'fat'))),
-        'carbs'    => ( ! $entries ? 0 : array_sum( array_column($entries, 'carbs'))),
-        'amino'    => ( ! $entries ? 0 : array_sum( array_column($entries, 'amino'))),
-        'salt'     => ( ! $entries ? 0 : array_sum( array_column($entries, 'salt'))),
-        'price'    => ( ! $entries ? 0 : array_sum( array_column($entries, 'price')))
-      ]);
-    }
-
-    // Avg
-
-    $currentDate = new DateTime();  // TASK: maybe also look if current date is in data so that we have current data
-    $attributes  = ['price', 'calories', 'fat', 'carbs', 'amino', 'salt'];
-    $sums = [];
-
-    foreach([7, 15, 30] as $period )
-    {
-      $days = array_slice($data, 0, $period);
-
-      foreach( $attributes as $attr )
-      {
-        if( ! isset($sums[$attr][$period]))
-          $sums[$attr][$period] = 0;
-
-        foreach( $days as $day )
-          $sums[$attr][$period] += array_sum( array_column( $day, $attr));
-      }
-    }
-
-    foreach( $attributes as $attr )
-    {
-      if( $attr === 'price' )
-
-        $this->avg[$attr] = [
-          'week'   => ! $sums[$attr][7]  ? 'n/a' : round($sums[$attr][7]  / 7, 2),
-          '15days' => ! $sums[$attr][15] ? 'n/a' : round($sums[$attr][15] / 15, 2),
-          '30days' => ! $sums[$attr][30] ? 'n/a' : round($sums[$attr][30] / 30, 2)
-        ];
-
-      else
-
-        $this->avg[$attr] = [
-          'week'   => ! $sums[$attr][7]  ? 'n/a' : round($sums[$attr][7]  / 7),
-          '15days' => ! $sums[$attr][15] ? 'n/a' : round($sums[$attr][15] / 15),
-          '30days' => ! $sums[$attr][30] ? 'n/a' : round($sums[$attr][30] / 30)
-        ];
-    }
   }
 }
 
