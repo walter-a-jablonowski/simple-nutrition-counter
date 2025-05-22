@@ -80,6 +80,7 @@ $showInfo = $showInfo || true === $this->foodsModel->get("$entryName.xTimeLog");
   ?>                     <!-- pe-0 is for bg color -->
     <div class           = "amount-btn col-2 p-1 pe-0 text-center"
          onclick         = "mainCrl.layoutItemClick(event)"
+
          data-food       = "<?= $entryName ?>"
          data-calories   = "<?= $data['calories'] ?>"
          data-nutritionalvalues = "<?= htmlspecialchars( json_encode( $data['nutriVal'])) ?>"
