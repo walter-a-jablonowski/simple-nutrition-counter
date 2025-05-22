@@ -36,7 +36,7 @@ class AppController extends ControllerBase
   protected string     $date;
 
   protected SimpleData $nutrientsModel;
-  protected SimpleData $combinedModel;
+  protected SimpleData $combinedModel;   // foods and supplements
 
   protected string     $dayEntriesTxt;   // edit tab
   protected array      $dayEntries;
