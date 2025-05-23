@@ -34,17 +34,21 @@ $keep = [
   'src/data/users/JaneDoe@example.com-24080101000000/days'
 ];
 
-if( ! is_dir($sourceDir))
-  die("Source dir missing: $sourceDir\n");
 
+echo "Starting deployment...\n";
+
+echo "Backing up files...\n";
 backup( array_map( fn( $item ) => "$destDir/$item", $backup),
   $backupDir, $base = "$destDir/"
 );
 
+echo "Clearing destination directory...\n";
 clear_dest( $destDir, $keep );
+
+echo "Deploying files...\n";
 deploy( $sourceDir, $destDir, $keep );
 
-echo 'Done';
+echo "\nDeployment completed successfully!\n";
 
 
 function clear_dest( $dir, $keep )
@@ -52,7 +56,10 @@ function clear_dest( $dir, $keep )
   // Simple check if dir should be kept
   foreach( $keep as $item )
     if( strpos($dir, $item) !== false )
+    {
+      echo "  Keeping: $dir (matched $item)\n";
       return true;
+    }
   
   $keepFld = false;
   
@@ -80,7 +87,10 @@ function clear_dest( $dir, $keep )
       $keepFld = $keepFld || $keepSub;
       
       if( ! $keepSub )
+      {
+        echo "  Removing dir: $dir/$file\n";
         rmdir("$dir/$file");
+      }
     }
     elseif( is_file("$dir/$file") )
     {
@@ -90,11 +100,15 @@ function clear_dest( $dir, $keep )
         if( strpos("$dir/$file", $item) !== false )
         {
           $keepFile = true;
+          echo "  Keeping file: $dir/$file (matched $item)\n";
           break;
         }
       
-      if( ! $keepFile )
-        unlink("$dir/$file");
+      // if( ! $keepFile )
+      // {
+      //   echo "  Removing file: $dir/$file\n";
+      //   unlink("$dir/$file");
+      // }
     }
   }
 
@@ -129,10 +143,14 @@ function deploy( $source, $dest, $keep )
       if( ! is_dir("$dest/$file") )
         mkdir("$dest/$file", 0755, true);
       
+      echo "  Deploying dir: $source/$file\n";
       deploy("$source/$file", "$dest/$file", $keep);
     }
-    else 
-      copy("$source/$file", "$dest/$file");
+    // else 
+    // {
+    //   echo "  Copying file: $source/$file\n";
+    //   copy("$source/$file", "$dest/$file");
+    // }
   }
 }
 
