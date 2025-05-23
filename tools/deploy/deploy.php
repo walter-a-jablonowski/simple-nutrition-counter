@@ -3,26 +3,43 @@
 require 'lib_MOV.php';
 
 
-$sourceDir = 'debug/source';
-$dataDir   = 'days';
-$destDir   = 'debug/dest';
-$backupDir = 'debug/backup';
+// Will copy /src only
 
-// $sourceDir = '..';
-// $dataDir   = 'src/data/users/JaneDoe@example.com-24080101000000/days';
-// $destDir   = 'G:/Meine Ablage/80-dools/primary_dool/20_activity/simple-nutrition-counter (id-consump)';
-// $backupDir = 'G:/Meine Ablage/80-dools/primary_dool/20_activity/simple_running_SAV';
+// DEBUG
 
-// TASK: also keep config
-$keep = ['bootstrap-icons-1.11.3', '/days'];  // fil or fld, full dir may be used (last portion)
+// $sourceDir = 'debug/source';
+// $destDir   = 'debug/dest';
+// $backupDir = 'debug/backup';
+
+// $backup = [
+//
+// ];
+
+// $keep = [
+//
+// ];
+
+$sourceDir = '../src';
+$destDir   = 'G:/Meine Ablage/80-dools/primary_dool/20_activity/simple-nutrition-counter (id-consump)';
+$backupDir = 'G:/Meine Ablage/80-dools/primary_dool/20_activity/simple_running_backup';
+
+$backup = [
+  'config.yml',
+  'data/users/JaneDoe@example.com-24080101000000/days'
+];
+
+$keep = [
+  'config.yml',
+  'lib/bootstrap-icons-1.11.3',
+  'src/data/users/JaneDoe@example.com-24080101000000/days'
+];
 
 if( ! is_dir($sourceDir))
   die("Source dir missing: $sourceDir\n");
 
-// TASK: also backup config
 backup(["$sourceDir/file1.txt", "$sourceDir/$dataDir"], $backupDir, $base = "$sourceDir/");
-clear_dest( $destDir, $keep);
-deploy( $sourceDir, $destDir, $keep);
+clear_dest( $destDir, $keep );
+deploy( $sourceDir, $destDir, $keep );
 
 echo 'Done';
 
