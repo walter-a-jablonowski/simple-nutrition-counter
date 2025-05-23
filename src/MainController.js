@@ -673,70 +673,89 @@ class MainController
    */
   initTabSwipeGestures()
   {
-    // Find all tab panes
-    const tabPanes = query('.tab-content .tab-pane')
-    if( ! tabPanes.length ) return
+    console.log('Initializing tab swipe gestures...')
+    
+    // Find the tab content container instead of individual panes
+    const tabContent = query('.tab-content')
+    if( ! tabContent.length ) {
+      console.log('No tab content found')
+      return
+    }
     
     // Get all tab links for later use
     this.tabLinks = query('.nav-pills .nav-link')
-    if( ! this.tabLinks.length ) return
+    if( ! this.tabLinks.length ) {
+      console.log('No tab links found')
+      return
+    }
+    
+    console.log(`Found ${this.tabLinks.length} tab links`)
     
     // Variables to track events
     let startX = 0
     let startY = 0
     let isMouseDown = false
     const minSwipeDistance = 50  // Minimum distance required for a swipe
-    const maxVerticalDistance = 30  // Maximum vertical movement allowed for horizontal swipe
+    const maxVerticalDistance = 100  // Maximum vertical movement allowed for horizontal swipe
     
-    // Add event listeners to each tab pane
-    tabPanes.forEach(pane => {
-      // Touch events (for mobile devices)
-      pane.addEventListener('touchstart', e => {
-        startX = e.changedTouches[0].screenX
-        startY = e.changedTouches[0].screenY
-      }, { passive: true })
+    // Add touch events to the tab content container (for mobile devices)
+    tabContent[0].addEventListener('touchstart', e => {
+      startX = e.changedTouches[0].screenX
+      startY = e.changedTouches[0].screenY
+      console.log(`Touch start at X: ${startX}, Y: ${startY}`)
+    }, { passive: true })
+    
+    tabContent[0].addEventListener('touchend', e => {
+      const endX = e.changedTouches[0].screenX
+      const endY = e.changedTouches[0].screenY
+      console.log(`Touch end at X: ${endX}, Y: ${endY}`)
       
-      pane.addEventListener('touchend', e => {
-        const endX = e.changedTouches[0].screenX
-        const endY = e.changedTouches[0].screenY
+      // Calculate vertical distance to ensure it's a horizontal swipe
+      const verticalDistance = Math.abs(endY - startY)
+      const horizontalDistance = Math.abs(endX - startX)
+      
+      console.log(`Swipe distances - Horizontal: ${horizontalDistance}, Vertical: ${verticalDistance}`)
+      
+      // Only process horizontal swipes (not vertical scrolling)
+      if( horizontalDistance >= minSwipeDistance && verticalDistance <= maxVerticalDistance ) {
+        console.log('Processing swipe gesture')
+        this.handleTabSwipe(startX, endX, minSwipeDistance)
+      }
+    }, { passive: true })
+    
+    // Mouse events (for PC touchpads)
+    tabContent[0].addEventListener('mousedown', e => {
+      isMouseDown = true
+      startX = e.clientX
+      startY = e.clientY
+      console.log(`Mouse down at X: ${startX}, Y: ${startY}`)
+    })
+    
+    tabContent[0].addEventListener('mouseup', e => {
+      if( isMouseDown ) {
+        const endX = e.clientX
+        const endY = e.clientY
+        console.log(`Mouse up at X: ${endX}, Y: ${endY}`)
         
-        // Calculate vertical distance to ensure it's a horizontal swipe
+        // Calculate distances
         const verticalDistance = Math.abs(endY - startY)
+        const horizontalDistance = Math.abs(endX - startX)
+        
+        console.log(`Swipe distances - Horizontal: ${horizontalDistance}, Vertical: ${verticalDistance}`)
         
         // Only process horizontal swipes (not vertical scrolling)
-        if( verticalDistance <= maxVerticalDistance ) {
+        if( horizontalDistance >= minSwipeDistance && verticalDistance <= maxVerticalDistance ) {
+          console.log('Processing swipe gesture')
           this.handleTabSwipe(startX, endX, minSwipeDistance)
         }
-      }, { passive: true })
-      
-      // Mouse events (for PC touchpads)
-      pane.addEventListener('mousedown', e => {
-        isMouseDown = true
-        startX = e.clientX
-        startY = e.clientY
-      })
-      
-      pane.addEventListener('mouseup', e => {
-        if( isMouseDown ) {
-          const endX = e.clientX
-          const endY = e.clientY
-          
-          // Calculate vertical distance to ensure it's a horizontal swipe
-          const verticalDistance = Math.abs(endY - startY)
-          
-          // Only process horizontal swipes (not vertical scrolling)
-          if( verticalDistance <= maxVerticalDistance ) {
-            this.handleTabSwipe(startX, endX, minSwipeDistance)
-          }
-          
-          isMouseDown = false
-        }
-      })
-      
-      // Reset mouse down state if mouse leaves the element
-      pane.addEventListener('mouseleave', () => {
+        
         isMouseDown = false
-      })
+      }
+    })
+    
+    // Reset mouse down state if mouse leaves the element
+    tabContent[0].addEventListener('mouseleave', () => {
+      isMouseDown = false
     })
     
     console.log('Tab swipe gestures initialized for both touch and touchpad')
