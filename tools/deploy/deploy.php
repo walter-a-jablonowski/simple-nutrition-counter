@@ -49,49 +49,31 @@ echo 'Done';
 
 function clear_dest( $dir, $keep )
 {
-  global $destDir; // Access the global destDir variable
-  
-  // Check if the current directory should be kept
-  $normalized_dir = str_replace('\\', '/', $dir);
-  
-  foreach( $keep as $keep_item )
-  {
-    $keep_path = str_replace('\\', '/', "$destDir/$keep_item");
-    
-    // If this directory is or contains a path we want to keep
-    if( $normalized_dir == $keep_path || 
-        strpos($normalized_dir, $keep_path) === 0 || 
-        strpos($keep_path, $normalized_dir) === 0 )
+  // Simple check if directory should be kept
+  foreach( $keep as $item )
+    if( strpos($dir, $item) !== false )
       return true;
-  }
   
   $keepFld = false;
   
-  foreach( scandir($dir) as $file)
+  foreach( scandir($dir) as $file )
   {
     if( in_array( $file, ['.', '..']))
       continue;
     
     $path = "$dir/$file";
-    $normalized_path = str_replace('\\', '/', $path);
     
-    if( is_dir($path))
+    if( is_dir($path) )
     {
+      // Check if this subdirectory should be kept
       $keepSub = false;
       
-      // Check if this subdirectory should be kept
-      foreach( $keep as $keep_item )
-      {
-        $keep_path = str_replace('\\', '/', "$destDir/$keep_item");
-        
-        if( $normalized_path == $keep_path || 
-            strpos($normalized_path, $keep_path) === 0 || 
-            strpos($keep_path, $normalized_path) === 0 )
+      foreach( $keep as $item )
+        if( strpos($path, $item) !== false )
         {
           $keepSub = true;
           break;
         }
-      }
       
       // If not explicitly kept, check children
       if( ! $keepSub )
@@ -102,21 +84,16 @@ function clear_dest( $dir, $keep )
       if( ! $keepSub )
         rmdir($path);
     }
-    elseif( is_file($path))
+    elseif( is_file($path) )
     {
       $keepFile = false;
       
-      // Check if this file should be kept
-      foreach( $keep as $keep_item )
-      {
-        $keep_path = str_replace('\\', '/', "$destDir/$keep_item");
-        
-        if( $normalized_path == $keep_path )
+      foreach( $keep as $item )
+        if( strpos($path, $item) !== false )
         {
           $keepFile = true;
           break;
         }
-      }
       
       if( ! $keepFile )
         unlink($path);
@@ -128,8 +105,6 @@ function clear_dest( $dir, $keep )
 
 function deploy( $source, $dest, $keep )
 {
-  global $destDir; // Access the global destDir variable
-  
   foreach( scandir($source) as $file )
   {
     if( in_array( $file, ['.', '..']))
@@ -138,35 +113,25 @@ function deploy( $source, $dest, $keep )
     $dest_path = "$dest/$file";
     $source_path = "$source/$file";
     
-    // Check if this file/folder should be kept (already exists in destination)
-    $should_keep = false;
-    
+    // Skip if file exists and should be kept
     if( file_exists($dest_path) )
     {
-      $normalized_path = str_replace('\\', '/', $dest_path);
+      $should_keep = false;
       
-      foreach( $keep as $keep_item )
-      {
-        $keep_path = str_replace('\\', '/', "$destDir/$keep_item");
-        
-        // If this is a path we want to keep
-        if( $normalized_path == $keep_path || 
-            strpos($normalized_path, $keep_path) === 0 || 
-            strpos($keep_path, $normalized_path) === 0 )
+      foreach( $keep as $item )
+        if( strpos($dest_path, $item) !== false )
         {
           $should_keep = true;
           break;
         }
-      }
+      
+      if( $should_keep )
+        continue;
     }
-    
-    // Skip if it's a kept file/folder
-    if( $should_keep )
-      continue;
 
-    if( is_dir($source_path))
+    if( is_dir($source_path) )
     {
-      if( ! is_dir($dest_path))
+      if( ! is_dir($dest_path) )
         mkdir($dest_path, 0755, true);
       
       deploy($source_path, $dest_path, $keep);
