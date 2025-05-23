@@ -12,6 +12,7 @@ class MainController
 
     // Binding
 
+    this.showOverlayInfo        = this.showOverlayInfo.bind(this)
     this.userSelectChange       = this.userSelectChange.bind(this)
     this.switchDayBtnClick      = this.switchDayBtnClick.bind(this)
     this.settingsBtnClick       = this.settingsBtnClick.bind(this)
@@ -24,14 +25,18 @@ class MainController
     this.updPriceClick          = this.updPriceClick.bind(this)
     this.offLimitCheckChange    = this.offLimitCheckChange.bind(this)
     this.sportsToggleBtnClick   = this.sportsToggleBtnClick.bind(this)
-    this.showOverlayInfo        = this.showOverlayInfo.bind(this)
     // this.#addDayEntry        = this.#addDayEntry.bind(this)     // TASK: can't be done
     this.updSummary             = this.updSummary.bind(this)
     // this.#saveDayEntries     = this.#saveDayEntries.bind(this)
+    this.initTabSwipeGestures   = this.initTabSwipeGestures.bind(this)
+    this.handleTabSwipe         = this.handleTabSwipe.bind(this)
 
     let crl = this
 
 
+    // Initialize swipe gestures for tab navigation
+    this.initTabSwipeGestures()
+    
     // BS init
     
     // Popover
@@ -474,8 +479,8 @@ class MainController
       })
     }
   }
-
-
+  
+  
   // Helper
 
   /*@
@@ -659,5 +664,122 @@ class MainController
       else if( result !== 'success')
         query('#uiMsg').innerHTML = result.message
     })
+  }
+
+  /**
+   * Initialize swipe gestures for tab navigation
+   * This adds touch and mouse event listeners to tab content areas to allow swiping between tabs
+   * Works on both mobile touch devices and PC touchpads
+   */
+  initTabSwipeGestures()
+  {
+    // Find all tab panes
+    const tabPanes = query('.tab-content .tab-pane')
+    if( ! tabPanes.length ) return
+    
+    // Get all tab links for later use
+    this.tabLinks = query('.nav-pills .nav-link')
+    if( ! this.tabLinks.length ) return
+    
+    // Variables to track events
+    let startX = 0
+    let startY = 0
+    let isMouseDown = false
+    const minSwipeDistance = 50  // Minimum distance required for a swipe
+    const maxVerticalDistance = 30  // Maximum vertical movement allowed for horizontal swipe
+    
+    // Add event listeners to each tab pane
+    tabPanes.forEach(pane => {
+      // Touch events (for mobile devices)
+      pane.addEventListener('touchstart', e => {
+        startX = e.changedTouches[0].screenX
+        startY = e.changedTouches[0].screenY
+      }, { passive: true })
+      
+      pane.addEventListener('touchend', e => {
+        const endX = e.changedTouches[0].screenX
+        const endY = e.changedTouches[0].screenY
+        
+        // Calculate vertical distance to ensure it's a horizontal swipe
+        const verticalDistance = Math.abs(endY - startY)
+        
+        // Only process horizontal swipes (not vertical scrolling)
+        if( verticalDistance <= maxVerticalDistance ) {
+          this.handleTabSwipe(startX, endX, minSwipeDistance)
+        }
+      }, { passive: true })
+      
+      // Mouse events (for PC touchpads)
+      pane.addEventListener('mousedown', e => {
+        isMouseDown = true
+        startX = e.clientX
+        startY = e.clientY
+      })
+      
+      pane.addEventListener('mouseup', e => {
+        if( isMouseDown ) {
+          const endX = e.clientX
+          const endY = e.clientY
+          
+          // Calculate vertical distance to ensure it's a horizontal swipe
+          const verticalDistance = Math.abs(endY - startY)
+          
+          // Only process horizontal swipes (not vertical scrolling)
+          if( verticalDistance <= maxVerticalDistance ) {
+            this.handleTabSwipe(startX, endX, minSwipeDistance)
+          }
+          
+          isMouseDown = false
+        }
+      })
+      
+      // Reset mouse down state if mouse leaves the element
+      pane.addEventListener('mouseleave', () => {
+        isMouseDown = false
+      })
+    })
+    
+    console.log('Tab swipe gestures initialized for both touch and touchpad')
+  }
+  
+  /**
+   * Handle tab swipe gesture
+   * @param {number} startX - Starting X position of touch
+   * @param {number} endX - Ending X position of touch
+   * @param {number} minDistance - Minimum distance required for a swipe
+   */
+  handleTabSwipe(startX, endX, minDistance)
+  {
+    // Calculate swipe distance
+    const swipeDistance = endX - startX
+    
+    // If swipe distance is less than minimum, ignore
+    if( Math.abs(swipeDistance) < minDistance ) return
+    
+    // Find the active tab link
+    const activeTabLink = query('.nav-pills .nav-link.active')[0]
+    if( ! activeTabLink ) return
+    
+    // Find the index of the active tab
+    const activeIndex = Array.from(this.tabLinks).findIndex(link => link === activeTabLink)
+    if( activeIndex === -1 ) return
+    
+    // Determine which tab to show based on swipe direction
+    let targetIndex
+    
+    if( swipeDistance > 0 ) {
+      // Swipe right - show previous tab
+      targetIndex = activeIndex - 1
+      if( targetIndex < 0 ) targetIndex = this.tabLinks.length - 1  // Wrap to last tab
+    } else {
+      // Swipe left - show next tab
+      targetIndex = activeIndex + 1
+      if( targetIndex >= this.tabLinks.length ) targetIndex = 0  // Wrap to first tab
+    }
+    
+    // Click the target tab link to activate it
+    if( this.tabLinks[targetIndex] ) {
+      this.tabLinks[targetIndex].click()
+    }
   }
 }
