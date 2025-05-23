@@ -151,7 +151,7 @@ $comment = true === $this->combinedModel->get("$entryName.xTimeLog")
         <span class="d-inline-flex align-items-center">
           <span onclick="mainCrl.showOverlayInfo(event)" 
                 class="cursor-pointer"
-                data-content="<div class='p-2'>Weight is used to calculate nutrient amounts.<br><small class='text-muted'>Click anywhere to close</small></div>">
+                data-content="<div class='p-2'>Show overly info demo.<br><small class='text-muted'>Click anywhere to close</small></div>">
             Weight <i class="bi bi-info-circle" style="font-size: 0.8em;"></i>
           </span>
         </span>
