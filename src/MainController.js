@@ -24,6 +24,7 @@ class MainController
     this.updPriceClick          = this.updPriceClick.bind(this)
     this.offLimitCheckChange    = this.offLimitCheckChange.bind(this)
     this.sportsToggleBtnClick   = this.sportsToggleBtnClick.bind(this)
+    this.infoInModalDemo         = this.infoInModalDemo.bind(this)
     // this.#addDayEntry        = this.#addDayEntry.bind(this)     // TASK: can't be done
     this.updSummary             = this.updSummary.bind(this)
     // this.#saveDayEntries     = this.#saveDayEntries.bind(this)
@@ -153,11 +154,6 @@ class MainController
     // $('#dayEntries').disableSelection()
   }
 
-  /**
-   * Initialize popovers inside a modal
-   * This is crucial for making popovers work inside modals
-   * @param {HTMLElement} modalElement - The modal element containing popovers
-   */
   initModalPopovers(modalElement)
   {
     // Find all popover triggers inside the modal
@@ -190,6 +186,58 @@ class MainController
         })
       })
     }
+  }
+
+  infoInModalDemo(event)
+  {
+    // Get the clicked element
+    const clickedElement = event.currentTarget
+    
+    // Check if tooltip already exists and remove it if it does
+    const existingTooltip = document.getElementById('weight-info-tooltip')
+    if( existingTooltip ) {
+      existingTooltip.remove()
+      return
+    }
+    
+    // Create tooltip content
+    const tooltipContent = `
+      <div class="p-2">
+        Info in modal demo<br>
+        <small class="text-muted">Click anywhere to close</small>
+      </div>
+    `
+    
+    // Create tooltip element
+    const tooltip = document.createElement('div')
+    tooltip.id = 'weight-info-tooltip'
+    tooltip.className = 'popover popover-cus bs-popover-auto fade show'
+    tooltip.setAttribute('role', 'tooltip')
+    tooltip.style.position = 'absolute'
+    tooltip.style.zIndex = '9999'
+    tooltip.innerHTML = `
+      <div class="popover-arrow"></div>
+      <div class="popover-body">${tooltipContent}</div>
+    `
+    
+    // Add to document body
+    document.body.appendChild(tooltip)
+    
+    // Position the tooltip relative to the clicked element
+    const rect = clickedElement.getBoundingClientRect()
+    tooltip.style.top = `${rect.top + window.scrollY - 10}px`
+    tooltip.style.left = `${rect.right + window.scrollX + 10}px`
+    
+    // Close tooltip when clicking anywhere else
+    setTimeout(() => {
+      document.addEventListener('click', function closeTooltip(e) {
+        if( e.target !== clickedElement && !clickedElement.contains(e.target) ) {
+          const tooltip = document.getElementById('weight-info-tooltip')
+          if( tooltip ) tooltip.remove()
+          document.removeEventListener('click', closeTooltip)
+        }
+      })
+    }, 10)
   }
 
 

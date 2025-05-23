@@ -147,7 +147,13 @@ $comment = true === $this->combinedModel->get("$entryName.xTimeLog")
       </td>
     </tr>
     <tr>
-      <th>Weight</th>
+      <th>
+        <span class="d-inline-flex align-items-center">
+          <span onclick="mainCrl.infoInModalDemo(event)" class="cursor-pointer">
+            Weight <i class="bi bi-info-circle" style="font-size: 0.8em;"></i>
+          </span>
+        </span>
+      </th>
       <td>
         <?= $data['weight'] ?>&nbsp;
         <?php if( ! empty($data['pieces'])): ?>
