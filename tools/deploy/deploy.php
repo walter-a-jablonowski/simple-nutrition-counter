@@ -49,7 +49,7 @@ echo 'Done';
 
 function clear_dest( $dir, $keep )
 {
-  // Simple check if directory should be kept
+  // Simple check if dir should be kept
   foreach( $keep as $item )
     if( strpos($dir, $item) !== false )
       return true;
@@ -61,15 +61,13 @@ function clear_dest( $dir, $keep )
     if( in_array( $file, ['.', '..']))
       continue;
     
-    $path = "$dir/$file";
-    
-    if( is_dir($path) )
+    if( is_dir("$dir/$file") )
     {
       // Check if this subdirectory should be kept
       $keepSub = false;
       
       foreach( $keep as $item )
-        if( strpos($path, $item) !== false )
+        if( strpos("$dir/$file", $item) !== false )
         {
           $keepSub = true;
           break;
@@ -77,26 +75,26 @@ function clear_dest( $dir, $keep )
       
       // If not explicitly kept, check children
       if( ! $keepSub )
-        $keepSub = clear_dest($path, $keep);
+        $keepSub = clear_dest("$dir/$file", $keep);
       
       $keepFld = $keepFld || $keepSub;
       
       if( ! $keepSub )
-        rmdir($path);
+        rmdir("$dir/$file");
     }
-    elseif( is_file($path) )
+    elseif( is_file("$dir/$file") )
     {
       $keepFile = false;
       
       foreach( $keep as $item )
-        if( strpos($path, $item) !== false )
+        if( strpos("$dir/$file", $item) !== false )
         {
           $keepFile = true;
           break;
         }
       
       if( ! $keepFile )
-        unlink($path);
+        unlink("$dir/$file");
     }
   }
 
@@ -109,17 +107,14 @@ function deploy( $source, $dest, $keep )
   {
     if( in_array( $file, ['.', '..']))
       continue;
-
-    $dest_path = "$dest/$file";
-    $source_path = "$source/$file";
     
     // Skip if file exists and should be kept
-    if( file_exists($dest_path) )
+    if( file_exists("$dest/$file") )
     {
       $should_keep = false;
       
       foreach( $keep as $item )
-        if( strpos($dest_path, $item) !== false )
+        if( strpos("$dest/$file", $item) !== false )
         {
           $should_keep = true;
           break;
@@ -129,15 +124,15 @@ function deploy( $source, $dest, $keep )
         continue;
     }
 
-    if( is_dir($source_path) )
+    if( is_dir("$source/$file") )
     {
-      if( ! is_dir($dest_path) )
-        mkdir($dest_path, 0755, true);
+      if( ! is_dir("$dest/$file") )
+        mkdir("$dest/$file", 0755, true);
       
-      deploy($source_path, $dest_path, $keep);
+      deploy("$source/$file", "$dest/$file", $keep);
     }
     else 
-      copy($source_path, $dest_path);
+      copy("$source/$file", "$dest/$file");
   }
 }
 
