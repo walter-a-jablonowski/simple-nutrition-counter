@@ -6,22 +6,25 @@
 
 /*@
 
-Returns true if a string ends with a string from a list of valid strings
+Returns true if a path should be kept based on the keep list
 
 */
-function filter_str_ends( $string, $valid_strings )  /*@*/
+function filter_str_ends( $path, $keep_list )  /*@*/
 {
-  $keep = false;
+  $normalized_path = str_replace('\\', '/', $path); // Normalize path separators
   
-  foreach( $valid_strings as $s )
-    // if( strpos($string, $s) !== false && strpos($string, $s) + strlen($s) == strlen($string))
-    if( str_ends_with( $string, $s))
-    {
-      $keep = true;
-      break;
-    }
+  foreach( $keep_list as $keep_item )
+  {
+    $keep_item = str_replace('\\', '/', $keep_item); // Normalize keep item
+    
+    // Check if path ends with the keep item or contains it as a directory/file
+    if( str_ends_with( $normalized_path, $keep_item ) || 
+        strpos( $normalized_path, "/$keep_item" ) !== false || 
+        strpos( $normalized_path, "/$keep_item/" ) !== false )
+      return true;
+  }
   
-  return $keep;
+  return false;
 }
 
 

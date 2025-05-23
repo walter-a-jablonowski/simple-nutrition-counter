@@ -82,18 +82,20 @@ function deploy( $source, $dest, $keep )
     if( in_array( $file, ['.', '..']))
       continue;
 
-    if( filter_str_ends("$source/$file", $keep ))
+    // Skip files/folders that are in the keep list but already exist in destination
+    $dest_path = "$dest/$file";
+    if( file_exists($dest_path) && filter_str_ends($dest_path, $keep ))
       continue;
 
     if( is_dir("$source/$file"))
     {
-      if( ! is_dir("$dest/$file"))
-        mkdir("$dest/$file", 0755, true);
+      if( ! is_dir($dest_path))
+        mkdir($dest_path, 0755, true);
       
-      deploy("$source/$file", "$dest/$file", $keep);
+      deploy("$source/$file", $dest_path, $keep);
     }
     else 
-      copy("$source/$file", "$dest/$file");
+      copy("$source/$file", $dest_path);
   }
 }
 
