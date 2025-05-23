@@ -194,23 +194,23 @@ class MainController
     const clickedElement = event.currentTarget
     
     // Check if tooltip already exists and remove it if it does
-    const existingTooltip = document.getElementById('weight-info-tooltip')
+    const existingTooltip = document.getElementById('info-tooltip')
     if( existingTooltip ) {
       existingTooltip.remove()
       return
     }
     
-    // Create tooltip content
-    const tooltipContent = `
+    // Get tooltip content from data-content attribute
+    const tooltipContent = clickedElement.getAttribute('data-content') || `
       <div class="p-2">
-        Info in modal demo<br>
+        No content provided<br>
         <small class="text-muted">Click anywhere to close</small>
       </div>
     `
     
     // Create tooltip element
     const tooltip = document.createElement('div')
-    tooltip.id = 'weight-info-tooltip'
+    tooltip.id = 'info-tooltip'
     tooltip.className = 'popover popover-cus bs-popover-auto fade show'
     tooltip.setAttribute('role', 'tooltip')
     tooltip.style.position = 'absolute'
@@ -225,14 +225,14 @@ class MainController
     
     // Position the tooltip relative to the clicked element
     const rect = clickedElement.getBoundingClientRect()
-    tooltip.style.top = `${rect.top + window.scrollY - 10}px`
+    tooltip.style.top  = `${rect.top + window.scrollY - 10}px`
     tooltip.style.left = `${rect.right + window.scrollX + 10}px`
     
     // Close tooltip when clicking anywhere else
     setTimeout(() => {
       document.addEventListener('click', function closeTooltip(e) {
         if( e.target !== clickedElement && !clickedElement.contains(e.target) ) {
-          const tooltip = document.getElementById('weight-info-tooltip')
+          const tooltip = document.getElementById('info-tooltip')
           if( tooltip ) tooltip.remove()
           document.removeEventListener('click', closeTooltip)
         }
