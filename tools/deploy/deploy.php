@@ -37,7 +37,10 @@ $keep = [
 if( ! is_dir($sourceDir))
   die("Source dir missing: $sourceDir\n");
 
-backup(["$sourceDir/file1.txt", "$sourceDir/$dataDir"], $backupDir, $base = "$sourceDir/");
+backup( array_map( fn( $item ) => "$destDir/$item", $backup),
+  $backupDir, $base = "$destDir/"
+);
+
 clear_dest( $destDir, $keep );
 deploy( $sourceDir, $destDir, $keep );
 
