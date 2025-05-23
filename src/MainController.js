@@ -220,13 +220,75 @@ class MainController
       <div class="popover-body">${tooltipContent}</div>
     `
     
-    // Add to document body
+    // Add to document body to get dimensions
     document.body.appendChild(tooltip)
     
-    // Position the tooltip relative to the clicked element
+    // Get dimensions
     const rect = clickedElement.getBoundingClientRect()
-    tooltip.style.top  = `${rect.top + window.scrollY - 10}px`
-    tooltip.style.left = `${rect.right + window.scrollX + 10}px`
+    const tooltipRect = tooltip.getBoundingClientRect()
+    const viewportWidth = window.innerWidth
+    const viewportHeight = window.innerHeight
+    
+    // Check if data-position is specified
+    const preferredPosition = clickedElement.getAttribute('data-position') || 'auto'
+    
+    // Calculate available space in each direction
+    const spaceRight = viewportWidth - rect.right
+    const spaceLeft = rect.left
+    const spaceTop = rect.top
+    const spaceBottom = viewportHeight - rect.bottom
+    
+    // Determine best position
+    let position
+    
+    if( preferredPosition !== 'auto' ) {
+      // Use preferred position if specified
+      position = preferredPosition
+    } else {
+      // Auto-determine best position based on available space
+      const positions = [
+        { pos: 'right', space: spaceRight },
+        { pos: 'left', space: spaceLeft },
+        { pos: 'bottom', space: spaceBottom },
+        { pos: 'top', space: spaceTop }
+      ]
+      
+      // Sort positions by available space (descending)
+      positions.sort((a, b) => b.space - a.space)
+      
+      // Use position with most space
+      position = positions[0].pos
+    }
+    
+    // Set arrow class for proper direction
+    const arrow = tooltip.querySelector('.popover-arrow')
+    if( arrow ) {
+      arrow.className = 'popover-arrow'
+      arrow.classList.add(`position-${position}`)
+    }
+    
+    // Position tooltip based on determined position
+    switch( position ) {
+      case 'right':
+        tooltip.style.top = `${rect.top + window.scrollY + (rect.height / 2) - (tooltipRect.height / 2)}px`
+        tooltip.style.left = `${rect.right + window.scrollX + 10}px`
+        break
+      case 'left':
+        tooltip.style.top = `${rect.top + window.scrollY + (rect.height / 2) - (tooltipRect.height / 2)}px`
+        tooltip.style.left = `${rect.left + window.scrollX - tooltipRect.width - 10}px`
+        break
+      case 'top':
+        tooltip.style.top = `${rect.top + window.scrollY - tooltipRect.height - 10}px`
+        tooltip.style.left = `${rect.left + window.scrollX + (rect.width / 2) - (tooltipRect.width / 2)}px`
+        break
+      case 'bottom':
+        tooltip.style.top = `${rect.bottom + window.scrollY + 10}px`
+        tooltip.style.left = `${rect.left + window.scrollX + (rect.width / 2) - (tooltipRect.width / 2)}px`
+        break
+    }
+    
+    // Add position class to tooltip
+    tooltip.classList.add(`bs-popover-${position}`)
     
     // Close tooltip when clicking anywhere else
     setTimeout(() => {
