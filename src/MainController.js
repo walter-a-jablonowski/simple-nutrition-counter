@@ -105,9 +105,9 @@ class MainController
     
     // new entry modal event handler
     
-    query('#newEntryModal').event('show.bs.modal', event => {
-
-      // Reset form fields
+    // New entry modal - use the modal instance directly for better event handling
+    this.newEntryModal._element.event('show.bs.modal', event => {
+      // Reset form fields with consistent formatting
       query('#modalNameInput').value     = 'Misc entry'  // default
       query('#modalWeightInput').value   = ''
       query('#modalPiecesInput').value   = ''
@@ -121,19 +121,26 @@ class MainController
       query('#modalPriceInput').value    = ''
       // query('#flexCheckDefault').checked = false  // TASK: devMode only
       // TASK: maybe set tab (remains clicked)
+      
+      // Focus the first input for better UX
+      setTimeout(() => query('#modalNameInput').focus(), 500)
     })
     
     // Mermaid  // TASK: problems in modal (works in page)
-
+    //
     // mermaid.initialize({  // maybe unneeded
     //   securityLevel: 'loose',
     // })
 
-    query('#helpModal').event('shown.bs.modal', function() {
-      // mermaid.init( undefined, queryFirst('#helpModal .mermaid'))
+    // Help modal with Mermaid diagrams
+    this.helpModal._element.event('shown.bs.modal', event => {
+      // Initialize all Mermaid diagrams in the modal
       query('#helpModal .mermaid').forEach( diagr => {
         mermaid.init( undefined, diagr)
       })
+      
+      // Initialize any popovers inside the help modal
+      this.initModalPopovers(query('#helpModal'))
     })
 
     // Sortable (advanced)  #code/advancedDayEntries
