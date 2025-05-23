@@ -1,10 +1,10 @@
 /**
+ * Replacement for popover in modals (cause of problems)
+ * 
  * MOV (Modal Overlay View) - A lightweight library for creating overlay tooltips
  * 
  * This library provides a simple way to create tooltips that work in any context,
  * including inside modals, tables, and other complex UI elements.
- * 
- * Replacement for popover in modals (cause of problems)
  */
 
 /**

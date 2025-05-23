@@ -31,8 +31,6 @@ class MainController
 
     let crl = this
 
-    // TASK: popover in food modal (ingredients?)
-
 
     // BS init
     
@@ -196,10 +194,11 @@ class MainController
    */
   showOverlayInfo(event)
   {
-    // Use the external showOverlayInfo function with custom options
+    // TASK: popover in food modal (ingredients?)
+
     return showOverlayInfo(event, {
-      tooltipId: 'info-tooltip',
-      position: 'auto',
+      tooltipId:    'info-tooltip',
+      position:     'auto',
       closeOnClick: true
     })
   }
