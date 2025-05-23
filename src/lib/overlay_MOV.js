@@ -10,14 +10,14 @@
 /**
  * Show an overlay info tooltip near the specified element
  * 
- * @param {Event} event - The click event
- * @param {Object} options - Optional configuration
- * @param {string} options.content - HTML content to display (will use data-content attribute if not provided)
- * @param {string} options.position - Preferred position (auto, top, right, bottom, left)
- * @param {string} options.tooltipId - ID to use for the tooltip element
- * @param {number} options.zIndex - z-index for the tooltip
- * @param {boolean} options.closeOnClick - Whether to close when clicking outside
- * @returns {HTMLElement} - The created tooltip element
+ * @param   {Event}   event                The click event
+ * @param   {Object}  options              Optional configuration
+ * @param   {string}  options.content      HTML content to display (will use data-content attribute if not provided)
+ * @param   {string}  options.position     Preferred position (auto, top, right, bottom, left)
+ * @param   {string}  options.tooltipId    ID to use for the tooltip element
+ * @param   {number}  options.zIndex       z-index for the tooltip
+ * @param   {boolean} options.closeOnClick Whether to close when clicking outside
+ * @returns {HTMLElement} The created tooltip element
  */
 function showOverlayInfo(event, options = {}) {
   // Default options
