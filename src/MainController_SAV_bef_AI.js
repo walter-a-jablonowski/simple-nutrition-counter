@@ -30,13 +30,34 @@ class MainController
 
     let crl = this
 
-    // TASK: popover in food modal (ingredients?)
+    // BS
 
+    // TASK: make ingredients popover in food in work
+    // - Settings > Me popover is working, most likely there is a problem with z-index or sth in modal
+    // - currently using event on a div, maybe must be a btn
+    // - see also code below
 
-    // BS init
-    
-    // Popover
+    // Manual version (didn't work with modal for some reason)
+/*
+    this.popoverTriggerList = query('[data-bs-toggle="popover"]')
+    this.popoverList = [...this.popoverTriggerList].map( popoverTriggerEl => new bootstrap.Popover( popoverTriggerEl, {
+      html: true
+      customClass: 'popover-cus'
+    }))
+*/
+    // AI Version
 
+    // this.popoverTriggerList = [].slice.call( document.querySelectorAll('[data-bs-toggle="popover"]'))
+    this.popoverTriggerList = [].slice.call( query('[data-bs-toggle="popover"]'))
+    this.popoverList = this.popoverTriggerList.map( function( popoverTriggerEl) {
+      return new bootstrap.Popover( popoverTriggerEl, {
+        html: true,
+        customClass: 'popover-cus'
+      })
+    })
+
+    // Sample
+    //
     // <div class="popover popover-cus bs-popover-auto fade show"
     //      role="tooltip" id="popover653960"
     //      style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(103.2px, 66.4px, 0px);"
@@ -46,68 +67,65 @@ class MainController
     //   <div class="popover-body">These settings are used for calculating the right nutrient amounts</div>
     // </div>
 
-    // Get all elements with data-bs-toggle="popover"
-    this.popoverTriggerList = [].slice.call( query('[data-bs-toggle="popover"]'))
+    // if click was outside the popover and its trigger close
+    // TASK: alternative maybe: https://getbootstrap.com/docs/5.3/components/popovers/#dismiss-on-next-click
+    // see also upd in modal below
     
-    // Create popover instances with options
-    this.popoverList = this.popoverTriggerList.map( function( popoverTriggerEl) {
-      return new bootstrap.Popover( popoverTriggerEl, {
-        html: true,
-        customClass: 'popover-cus',
-        trigger:     'focus',        // Use focus instead of click for better accessibility
-        boundary:    'viewport'      // Ensures popover stays in viewport
-      })
-    })
-
-    // Modals
-
-    this.newEntryModal = new bootstrap.Modal( query('#newEntryModal'))
-    this.helpModal     = new bootstrap.Modal( query('#helpModal'))
-    
-    this.infoModal = new bootstrap.Modal( query('#infoModal'), {
-      backdrop: true,
-      keyboard: true,
-      focus: true
-    })
-
-    // global click handler to close popovers when clicking outside
-    
+    // document.addEventListener('click', function(e) {
     event('click', function(e) {
+    
       if( ! e.target.closest('.popover') && ! e.target.closest('[data-bs-toggle="popover"]')) {
         crl.popoverTriggerList.forEach( function(popoverTriggerEl) {
-          const popover = bootstrap.Popover.getInstance(popoverTriggerEl)
+          let popover = bootstrap.Popover.getInstance(popoverTriggerEl)
           if( popover ) popover.hide()
         })
       }
     })
+
+    const popover = new bootstrap.Popover('.info-popover', {
+      container: '#infoModal .modal-body'
+    })
+
+    // Info modal (used for groups and food)
     
-    // info modal event handler (used for groups and food)
-    
-    const infoModal = query('#infoModal')
+    const modal = query('#infoModal')
+    // modal.addEventListener('show.bs.modal', event => {
     event('show.bs.modal', event => {
+
       if( event.target.id != 'infoModal')
         return
-        
+
       const btn = event.relatedTarget
       
-      // Set modal title
       if( btn.getAttribute('data-title').startsWith('#'))
-        infoModal.find('.modal-title').innerHTML = query( btn.getAttribute('data-title')).innerHTML
+        modal.find('.modal-title').innerHTML = query( btn.getAttribute('data-title')).innerHTML
       else
-        infoModal.find('.modal-title').innerHTML = btn.getAttribute('data-title')
+        modal.find('.modal-title').innerHTML = btn.getAttribute('data-title')
       
-      // Set modal body content
-      infoModal.find('.modal-body').innerHTML = query( btn.getAttribute('data-source')).innerHTML
-      
-      // Reinitialize popovers inside the modal
-      this.initModalPopovers(infoModal)
-    })
-    
-    // new entry modal event handler
-    
-    query('#newEntryModal').event('show.bs.modal', event => {
+      modal.find('.modal-body').innerHTML = query( btn.getAttribute('data-source')).innerHTML
 
-      // Reset form fields
+      // upd needed for some reason (by AI)
+
+      crl.popoverList.forEach( function(popover) {
+        popover.update()
+      })
+      
+      // or
+      // var popover = bootstrap.Popover.getInstance(document.querySelector('[data-bs-toggle="popover"]'))
+      // if( popover )
+      //   popover.update()
+    })
+
+    // New modal
+
+    // const myModal = new bootstrap.Modal('#myModal'), options)  // some error
+    this.newEntryModal = new bootstrap.Modal( query('#newEntryModal'))
+    // myModal.show()  // also, you can pass a DOM element as an argument that can be received in the modal events (as the relatedTarget property). (i.e. const modalToggle = document.getElementById('toggleMyModal'); myModal.show(modalToggle)
+    // $('#newEntryModal').modal('hide')
+
+    // query('#newEntryModal').addEventListener('show.bs.modal', event => {
+    query('#newEntryModal').event('show.bs.modal', event => {
+      
       query('#modalNameInput').value     = 'Misc entry'  // default
       query('#modalWeightInput').value   = ''
       query('#modalPiecesInput').value   = ''
@@ -122,7 +140,7 @@ class MainController
       // query('#flexCheckDefault').checked = false  // TASK: devMode only
       // TASK: maybe set tab (remains clicked)
     })
-    
+
     // Mermaid  // TASK: problems in modal (works in page)
 
     // mermaid.initialize({  // maybe unneeded
@@ -135,7 +153,7 @@ class MainController
         mermaid.init( undefined, diagr)
       })
     })
-
+    
     // Sortable (advanced)  #code/advancedDayEntries
 
     // $('#dayEntries').sortable({
@@ -144,45 +162,6 @@ class MainController
     // })
     //    
     // $('#dayEntries').disableSelection()
-  }
-
-  /**
-   * Initialize popovers inside a modal
-   * This is crucial for making popovers work inside modals
-   * @param {HTMLElement} modalElement - The modal element containing popovers
-   */
-  initModalPopovers(modalElement)
-  {
-    // Find all popover triggers inside the modal
-    const popoverTriggers = modalElement.find('[data-bs-toggle="popover"]')
-    
-    // Create new popover instances for each trigger
-    if(popoverTriggers.length) {
-      const modalPopovers = [].slice.call(popoverTriggers).map( function(popoverTriggerEl) {
-        return new bootstrap.Popover( popoverTriggerEl, {
-          html: true,
-          customClass: 'popover-cus',
-          container:   'body',   // This is important - attach to body to avoid z-index issues
-          trigger:     'focus',
-          boundary:    'viewport'
-        })
-      })
-      
-      // Add these to the main popover list for global management
-      this.popoverList = [...this.popoverList, ...modalPopovers]
-    }
-    
-    // Initialize any info popovers with specific container
-    const infoPopovers = modalElement.find('.info-popover')
-    if( infoPopovers.length ) {
-      [].slice.call(infoPopovers).forEach(element => {
-        new bootstrap.Popover(element, {
-          container:   'body',  // attach to body to avoid z-index issues
-          html:        true,
-          customClass: 'popover-cus'
-        })
-      })
-    }
   }
 
 
@@ -631,7 +610,7 @@ class MainController
         '</table>';
     }
   }
-    
+
   #saveDayEntries( uiMsg = false )
   {
     ajax.send('saveDayEntries', { date: this.date, data: query('#dayEntries').value }, function( result, data ) {
