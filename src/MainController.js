@@ -683,7 +683,14 @@ class MainController
     }
     
     // Get all tab links for later use
-    this.tabLinks = query('#layout .nav-pills .nav-link')
+    // this.tabLinks = query('#layout .nav-pills .nav-link')
+    // Fix: exclude btn
+    // Get all tab links for later use, excluding the new entry button (which has ms-auto on its parent)
+    this.tabLinks = Array.from( query('#layout .nav-pills .nav-link')).filter( link => {
+      // Exclude the new entry button which is inside a nav-item with ms-auto class
+      return ! link.closest('.nav-item.ms-auto');
+    })
+    
     if( ! this.tabLinks.length ) {
       console.log('No tab links found')
       return
@@ -783,8 +790,18 @@ class MainController
     if( ! activeTabLink ) return
     
     // Find the index of the active tab
-    const activeIndex = Array.from( this.tabLinks ).findIndex( link => link === activeTabLink)
+    // const activeIndex = Array.from( this.tabLinks ).findIndex( link => link === activeTabLink)
+    // Fix: exclude btn
+    // Make sure the active tab is one of our filtered tabs (no the new entry button)
+    if( ! this.tabLinks.includes(activeTabLink) ) return
+    
+    // Find the index of the active tab in our filtered list
+    const activeIndex = this.tabLinks.indexOf(activeTabLink)
+    // (end fix)
+
     if( activeIndex === -1 ) return
+    
+    console.log(`Active tab index: ${activeIndex} of ${this.tabLinks.length} tabs`)
     
     // Determine which tab to show based on swipe direction
     let targetIndex
@@ -799,6 +816,8 @@ class MainController
       targetIndex = activeIndex + 1
       if( targetIndex >= this.tabLinks.length ) targetIndex = 0  // Wrap to first tab
     }
+    
+    console.log(`Target tab index: ${targetIndex}`)
     
     // Click the target tab link to activate it
     if( this.tabLinks[targetIndex] )
