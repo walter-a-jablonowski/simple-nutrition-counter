@@ -700,8 +700,6 @@ class MainController
     
     // Add touch events to the tab content container (for mobile devices)
     tabContent[0].addEventListener('touchstart', e => {
-      // Don't process swipes that start on the new entry button or other nav links
-      if (e.target.closest('.nav-link')) return  // TASK: trying to fix edit btn gets active when swiping left on the left tab
       
       startX = e.changedTouches[0].screenX
       startY = e.changedTouches[0].screenY
@@ -709,8 +707,6 @@ class MainController
     }, { passive: true })
     
     tabContent[0].addEventListener('touchend', e => {
-      // If we didn't record a start position or touch ends on a button, ignore
-      if (startX === 0 || e.target.closest('.nav-link')) return  // TASK: trying to fix edit btn gets active
       
       const endX = e.changedTouches[0].screenX
       const endY = e.changedTouches[0].screenY
@@ -726,18 +722,9 @@ class MainController
       if( horizontalDistance >= minSwipeDistance && verticalDistance <= maxVerticalDistance ) {
         console.log('Processing swipe gesture')
         this.handleTabSwipe(startX, endX, minSwipeDistance)
-        
-        // TASK: trying to fix edit btn gets active
-        // Prevent any other click events from firing
-        e.preventDefault()
-        e.stopPropagation()
       }
-      
-      // Reset start position
-      startX = 0
-      startY = 0
-    })
-    
+    }, { passive: true })
+
     // Mouse events (for PC touchpads)
     tabContent[0].addEventListener('mousedown', e => {
       isMouseDown = true
