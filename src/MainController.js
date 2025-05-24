@@ -695,8 +695,8 @@ class MainController
     let startX = 0
     let startY = 0
     let isMouseDown = false
-    const minSwipeDistance = 50  // Minimum distance required for a swipe
-    const maxVerticalDistance = 100  // Maximum vertical movement allowed for horizontal swipe
+    const minSwipeDistance = 50      // minimum distance required for a swipe
+    const maxVerticalDistance = 100  // maximum vertical movement allowed for horizontal swipe
     
     // Add touch events to the tab content container (for mobile devices)
     tabContent[0].addEventListener('touchstart', e => {
@@ -734,6 +734,7 @@ class MainController
     })
     
     tabContent[0].addEventListener('mouseup', e => {
+    
       if( isMouseDown ) {
         const endX = e.clientX
         const endY = e.clientY
@@ -792,15 +793,15 @@ class MainController
       // Swipe right - show previous tab
       targetIndex = activeIndex - 1
       if( targetIndex < 0 ) targetIndex = this.tabLinks.length - 1  // Wrap to last tab
-    } else {
+    }
+    else {
       // Swipe left - show next tab
       targetIndex = activeIndex + 1
       if( targetIndex >= this.tabLinks.length ) targetIndex = 0  // Wrap to first tab
     }
     
     // Click the target tab link to activate it
-    if( this.tabLinks[targetIndex] ) {
+    if( this.tabLinks[targetIndex] )
       this.tabLinks[targetIndex].click()
-    }
   }
 }
