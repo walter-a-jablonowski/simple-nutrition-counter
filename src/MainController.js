@@ -683,7 +683,7 @@ class MainController
     }
     
     // Get all tab links for later use
-    this.tabLinks = query('.nav-pills .nav-link')
+    this.tabLinks = query('#layout .nav-pills .nav-link')
     if( ! this.tabLinks.length ) {
       console.log('No tab links found')
       return
@@ -741,7 +741,7 @@ class MainController
         console.log(`Mouse up at X: ${endX}, Y: ${endY}`)
         
         // Calculate distances
-        const verticalDistance = Math.abs(endY - startY)
+        const verticalDistance   = Math.abs(endY - startY)
         const horizontalDistance = Math.abs(endX - startX)
         
         console.log(`Swipe distances - Horizontal: ${horizontalDistance}, Vertical: ${verticalDistance}`)
@@ -779,11 +779,11 @@ class MainController
     if( Math.abs(swipeDistance) < minDistance ) return
     
     // Find the active tab link
-    const activeTabLink = query('.nav-pills .nav-link.active')[0]
+    const activeTabLink = query('#layout .nav-pills .nav-link.active')[0]
     if( ! activeTabLink ) return
     
     // Find the index of the active tab
-    const activeIndex = Array.from(this.tabLinks).findIndex(link => link === activeTabLink)
+    const activeIndex = Array.from( this.tabLinks ).findIndex( link => link === activeTabLink)
     if( activeIndex === -1 ) return
     
     // Determine which tab to show based on swipe direction
