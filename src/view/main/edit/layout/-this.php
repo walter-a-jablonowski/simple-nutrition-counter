@@ -3,7 +3,7 @@
 
     <span id="uiMsg"></span>  <!-- TASK: mov somewhere outside tab or one msg per tab (or use a toast) -->
 
-    <!-- Tab content (only if more than one) -->
+    <!-- Tabs (only if more than one) -->
 
     <?php if( count($this->layout) > 1 ): ?>
       <div class="row">

@@ -676,7 +676,7 @@ class MainController
     console.log('Initializing tab swipe gestures...')
     
     // Find the tab content container instead of individual panes
-    const tabContent = query('.tab-content')
+    const tabContent = query('#layout .tab-content')
     if( ! tabContent.length ) {
       console.log('No tab content found')
       return
