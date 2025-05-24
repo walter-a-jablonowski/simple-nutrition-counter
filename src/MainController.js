@@ -695,8 +695,8 @@ class MainController
     let startX = 0
     let startY = 0
     let isMouseDown = false
-    const minSwipeDistance = 50      // minimum distance required for a swipe
-    const maxVerticalDistance = 100  // maximum vertical movement allowed for horizontal swipe
+    const minSwipeDistance = 100     // minimum distance required for a swipe (increased from 50)
+    const maxVerticalDistance = 50   // maximum vertical movement allowed for horizontal swipe (reduced from 100)
     
     // Add touch events to the tab content container (for mobile devices)
     tabContent[0].addEventListener('touchstart', e => {
@@ -713,7 +713,7 @@ class MainController
       console.log(`Touch end at X: ${endX}, Y: ${endY}`)
       
       // Calculate vertical distance to ensure it's a horizontal swipe
-      const verticalDistance = Math.abs(endY - startY)
+      const verticalDistance   = Math.abs(endY - startY)
       const horizontalDistance = Math.abs(endX - startX)
       
       console.log(`Swipe distances - Horizontal: ${horizontalDistance}, Vertical: ${verticalDistance}`)
