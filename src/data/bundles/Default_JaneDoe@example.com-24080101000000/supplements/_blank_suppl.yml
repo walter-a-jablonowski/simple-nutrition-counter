@@ -1,0 +1,56 @@
+
+removed:           true
+
+productName:       ""
+keywords:          []
+vendor:            
+url:                 # string or array  # TASK: name urls
+
+comment:           ""
+certificates:      { bio: true, vegan: true, oekotest: 1, warentest: 1, NutriScore: A, fairtrade: true, misc: "see attached" }
+details:           ""
+ingredients:       ""
+allergy:           ""
+mayContain:        ""
+packaging:         none|cardboard,alu,plastic,glass & rubber (maybe)  # outer --> inner (contact with food only)
+
+price:             
+dealPrice:         
+weight:            
+pieces:            
+usedAmounts:       []
+
+calories:          
+nutritionalValues: 
+
+  fat:             
+  saturatedFat:    
+  monoUnsaturated: 
+  polyUnsaturated: 
+  carbs:           
+  sugar:           
+  sugarAlcohol:    
+  fibre:           
+  amino:           
+  salt:            
+
+fattyAcids:          # TASK
+carbs:             
+aminoAcids:        
+vitamins:          
+minerals:          
+secondary:         
+
+misc:
+
+  water:             
+  caffeine:
+  alcohol:
+
+sources:           { nutriVal: "web|pack (information on packaging may differ slightly)", nutrients: "...", price: "..." }
+lastUpd:           
+lastPriceUpd:      
+
+prices:
+
+dealPrices:
