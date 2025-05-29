@@ -51,9 +51,6 @@ class AppController extends ControllerBase
   {
     parent::__construct();
 
-    $config   = config::instance();
-    $settings = settings::instance();
-
     // Help
 
     $this->inlineHelp = new SimpleData();
