@@ -545,7 +545,7 @@ class MainController
   */
   updSummary() /*@*/
   {
-    const foodEntries = dayEntries.filter( entry => entry.type === 'F' || entry.type === 'FE')
+    const foodEntries = dayEntries.filter( entry => entry.type === 'F' || entry.type === 'FE' || entry.type === 'S')
 
     if( foodEntries.length == 0)
       return
