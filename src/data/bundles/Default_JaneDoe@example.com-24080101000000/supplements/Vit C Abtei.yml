@@ -8,7 +8,7 @@ weight:            63g  # all
 pieces:            30
 usedAmounts:       [1]
 
-amountType:        "piece"
+amountPer:         "piece"
 
 calories:          0
 nutritionalValues: 

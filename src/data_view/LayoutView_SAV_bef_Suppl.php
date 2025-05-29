@@ -28,22 +28,17 @@ trait LayoutView
       $usage = $this->determineFoodUsageType($data);
       $usedAmounts = $data['usedAmounts'] ?? ($settings->get("foods.defaultAmounts.$usage") ?: 1);
 
-      // Check if nutrients are defined per piece instead of per 100g/ml
-      $nutrientsPerPiece = isset($data['amountPer']) && $data['amountPer'] === 'piece';
-
       foreach( $usedAmounts as $amount )
       {
         $multipl = trim($amount, "mglpc ");
-        $multipl = (float) eval("return $multipl;");  // 1/2 => 0.5 or: eval("\$multipl = $multipl;")
+        $multipl = (float) eval("return $multipl;");   // 1/2 => 0.5 or: eval("\$multipl = $multipl;")
         
         $weight = $this->calculateWeight($usage, $data, $multipl);
         
         $perWeight = [
-          'category' => $data['category'],  // add category for distinguishing foods vs supplements
+          'category' => $data['category'],             // add category for distinguishing foods vs supplements
           'weight'   => round( $weight, 1),
-          'calories' => $nutrientsPerPiece 
-                     ?  round( $data['calories'] * $multipl, 1)          // for per-piece: multiply by pieces count
-                     :  round( $data['calories'] * ($weight / 100), 1),  // for per-100g: scale by weight
+          'calories' => round( $data['calories'] * ($weight / 100), 1),
           'price'    => $this->calculatePrice($data, $weight),
           'xTimeLog' => isset($data['xTimeLog']) && $data['xTimeLog'] ? true : false
         ];
@@ -69,9 +64,7 @@ trait LayoutView
               $short = $groupName === 'nutritionalValues' ? $nutrient  // short name for single nutrient
                      : $this->nutrientsModel->get("$groupName.substances.$nutrient.short");
 
-              $perWeight[$shortName][$short] = $nutrientsPerPiece
-                                             ? round( $value * $multipl, 1)          // for per-piece: use the value directly multiplied by pieces count
-                                             : round( $value * ($weight / 100), 1);  // for per-100g: scale by weight
+              $perWeight[$shortName][$short] = round( $value * ($weight / 100), 1);
             }
           }
         }
