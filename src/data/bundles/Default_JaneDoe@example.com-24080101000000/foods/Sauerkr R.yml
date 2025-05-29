@@ -1,0 +1,24 @@
+productName:       "REWE Beste Wahl Mildes Weinsauerkraut"
+vendor:            Rewe
+
+certificates:      { bio: true, NutriScore: A }
+ingredients:       "Weißkohl, Wein 2%, Speisesalz"
+packaging:         alu (maybe)
+
+price:             
+weight:            760
+
+calories:          22
+nutritionalValues:
+
+  fat:             0.1
+  saturatedFat:    0.1
+  carbs:           1.9
+  sugar:           1.7
+  amino:           1.5
+  salt:            1.1
+
+sources:           { nutriVal: "web" }
+
+lastUpd:           2025-05-29
+lastPriceUpd:      

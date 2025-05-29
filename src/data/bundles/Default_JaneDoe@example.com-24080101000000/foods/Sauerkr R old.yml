@@ -1,3 +1,4 @@
+removed: true
 vendor:            Rewe
 
 certificates:      { bio: true, NutriScore: A }
