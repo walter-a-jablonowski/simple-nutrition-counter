@@ -36,11 +36,11 @@ trait LayoutView
         $weight = $this->calculateWeight($usage, $data, $multipl);
         
         $perWeight = [
-          'category'  => $data['category'],  // add category for distinguishing foods vs supplements
-          'weight'    => round($weight, 1),
-          'calories'  => round($data['calories'] * ($weight / 100), 1),
-          'price'     => $this->calculatePrice($data, $weight),
-          'xTimeLog'  => isset($data['xTimeLog']) && $data['xTimeLog'] ? true : false
+          'category' => $data['category'],             // add category for distinguishing foods vs supplements
+          'weight'   => round( $weight, 1),
+          'calories' => round( $data['calories'] * ($weight / 100), 1),
+          'price'    => $this->calculatePrice($data, $weight),
+          'xTimeLog' => isset($data['xTimeLog']) && $data['xTimeLog'] ? true : false
         ];
 
         // Calculate nutritional values for all nutrient groups
@@ -64,7 +64,7 @@ trait LayoutView
               $short = $groupName === 'nutritionalValues' ? $nutrient  // short name for single nutrient
                      : $this->nutrientsModel->get("$groupName.substances.$nutrient.short");
 
-              $perWeight[$shortName][$short] = round($value * ($weight / 100), 1);
+              $perWeight[$shortName][$short] = round( $value * ($weight / 100), 1);
             }
           }
         }
@@ -137,9 +137,9 @@ trait LayoutView
   private function calculatePrice( $data, $weight ) : float
   {
     if( isset($data['price']) && $data['price'] )
-      return round($data['price'] * ($weight / $data['weight']), 2);
+      return round( $data['price'] * ($weight / $data['weight']), 2);
     elseif( isset($data['dealPrice']) && $data['dealPrice'] )
-      return round($data['dealPrice'] * ($weight / $data['weight']), 2);
+      return round( $data['dealPrice'] * ($weight / $data['weight']), 2);
     else
       return 0;
   }
