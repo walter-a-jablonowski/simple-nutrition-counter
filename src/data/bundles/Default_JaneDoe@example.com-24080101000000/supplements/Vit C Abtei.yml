@@ -3,10 +3,12 @@ certificates:      { bio: true, vegan: true }
 ingredients:       "Zucker; Vitamin C; Maltodextrin: Trennmittel Siliciumdioxid und Magnesiumsalze der Speisefettsäuren; Zinkcitrat; Himbeeraroma; Acerolaextrakt; Hagebuttenextrakt; Johannisbeerpulver"
 packaging:         alu & plastic
 
-price:             
-weight:            100g
+price:             2.95
+weight:            63g  # all
 pieces:            30
 usedAmounts:       [1]
+
+amountType:        "piece"
 
 calories:          0
 nutritionalValues: 
@@ -17,7 +19,7 @@ nutritionalValues:
   amino:           0
   salt:            0
 
-vitamins:          
+vitamins:
 
   Vitamin C:       250  # 313 % TASK: EU-Lebensmittelinformationsverordnung
 

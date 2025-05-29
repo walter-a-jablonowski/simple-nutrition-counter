@@ -58,6 +58,7 @@ usedAmounts:
   required: false
   type:     "string"
 
+amountType:          { usage: "used for suppl: 'piece' means all nutrient amounts per piece (like on pack) while price is for whole pack", required: true, type: "int" }
 calories:            { usage: "per 100g or 100ml in grams or ml (depends on weight)", required: true, type: "int" }
 nutritionalValues:
 

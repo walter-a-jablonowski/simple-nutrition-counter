@@ -6,12 +6,14 @@ keywords:          []
 vendor:            
 url:                 # string or array  # TASK: name urls
 
+acceptable:        occasionally|less
 comment:           ""
 certificates:      { bio: true, vegan: true, oekotest: 1, warentest: 1, NutriScore: A, fairtrade: true, misc: "see attached" }
 details:           ""
 ingredients:       ""
 allergy:           ""
 mayContain:        ""
+origin:            ""
 packaging:         none|cardboard,alu,plastic,glass & rubber (maybe)  # outer --> inner (contact with food only)
 
 price:             
