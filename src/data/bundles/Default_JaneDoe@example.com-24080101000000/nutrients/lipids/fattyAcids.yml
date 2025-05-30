@@ -64,9 +64,9 @@ substances:
     amounts:  # currently we use the first entry hard coded only
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-        lower:  200
-        amount: 250
-        upper:  300
+        lower:  0.200
+        amount: 0.250
+        upper:  0.300
 
   # Omega-6 fatty acids
 
@@ -76,7 +76,7 @@ substances:
     altNames:   ["PUFA 18:2 n-6 c,c"]  # diff forms of Linoleic acid, AI says only one should be added, Skip: PUFA 18:2 c, PUFA 18:2 CLAs
     groups:     ["PolyUnsaturated/omega-6"]
     essential:  true
-    unit:        g
+    unit:       g
     comment:    "GPT 2408: Vegetable oils (sunflower, safflower, corn, soybean), nuts, and seeds"
     sources:    "GPT and Claude 2408 for now"
 
@@ -84,5 +84,5 @@ substances:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  5%
-        amount: 17
+        amount: 0.017
         upper:  5%
