@@ -61,12 +61,12 @@ vitamins:                     # mg
   Folate B9:     
   Vitamin B12:   
 
-minerals:                     # mg
+minerals:                     # g
   
   Salt:                       # TASK: we need to use the one from nutritional values cause sometimes salt is added (chickpeas)
   Potassium:     
   Calcium:       
-  Phosphorus:    
+  Phosphorus:                 # mg
   Magnesium:     
   Iron:          
   Iodine:        

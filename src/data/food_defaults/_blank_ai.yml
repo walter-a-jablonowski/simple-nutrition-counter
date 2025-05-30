@@ -55,12 +55,12 @@ vitamins:                     # mg
   Folate B9:     
   Vitamin B12:   
 
-minerals:                     # mg
+minerals:                     # g
   
   Salt:                       # Sodium, Na in source
   Potassium:     
   Calcium:       
-  Phosphorus:    
+  Phosphorus:                 # mg
   Magnesium:     
   Iron:          
   Iodine:        
