@@ -1,4 +1,6 @@
 
+# seems to have wrong unit for minerals
+
 acceptable:
 comment:         Nutritional values for raw broccoli, per 100g
                               # unit: kcal
