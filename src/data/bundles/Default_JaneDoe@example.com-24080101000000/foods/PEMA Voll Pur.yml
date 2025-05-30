@@ -1,0 +1,28 @@
+
+productName:       "PEMA Voll & Pur"
+
+acceptable:        occasionally
+comment:           "Use a small amout to simulate natural amount of corn"
+certificates:      { vegan: true, NutriScore: A }
+ingredients:       "Natursauerteig (Roggen-Vollkornschrot 52%, Wasser), Wasser, Sonnenblumenkerne 13%, Leinsamen 11%, Roggen-Vollkornschrot 8%, Haferflocken 3%, Dinkel-Vollkornschrot (eine alte Weizen-Art) 2%, Chiasamen (Salvia hispanica) 1%, Salz, Hefe"
+allergy:           "Weizen und Süßlupine"
+packaging:         plastic
+
+price:             
+weight:            375g
+pieces:            6
+
+calories:          246
+nutritionalValues: 
+
+  fat:             13
+  saturatedFat:    1.3
+  carbs:           17
+  sugar:           0.7
+  fibre:           10
+  amino:           8.9
+  salt:            1.1
+
+sources:           { nutriVal: "web" }
+lastUpd:           2025-05-30
+lastPriceUpd:      
