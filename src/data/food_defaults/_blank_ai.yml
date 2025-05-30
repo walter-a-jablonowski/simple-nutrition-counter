@@ -74,9 +74,9 @@ minerals:                     # mg
 
 # secondary:
 
-misc:
+misc:                         # ml or g
 
-  water:                      # ml or g
+  water:         
   alcohol:       
   caffeine:      
 
