@@ -74,12 +74,12 @@ vitamins:                     # unit: mg
   Folate B9:     
   Vitamin B12:   
 
-minerals:
+minerals:                     # default unit: mg except for Salt, Potassium and Calcium where grams need to be used
   
-  Salt:                       # unit: g starting from here
+  Salt:          
   Potassium:     
   Calcium:       
-  Phosphorus:                 # unit: mg starting from here
+  Phosphorus:    
   Magnesium:     
   Iron:          
   Iodine:        
