@@ -25,8 +25,8 @@ trait LayoutView
     foreach( $this->combinedModel->all() as $name => $data )
     {
       $data['weight'] = trim($data['weight'], "mgl ");  // just for convenience, we don't need the unit here
-      $usage = $this->determineFoodUsageType($data);
-      $usedAmounts = $data['usedAmounts'] ?? ($settings->get("foods.defaultAmounts.$usage") ?: 1);
+      $usage          = $this->determineFoodUsageType($data);
+      $usedAmounts    = $data['usedAmounts'] ?? ($settings->get("foods.defaultAmounts.$usage") ?: 1);
 
       // Check if nutrients are defined per piece instead of per 100g/ml
       $nutrientsPerPiece = isset($data['amountPer']) && $data['amountPer'] === 'piece';
@@ -36,7 +36,7 @@ trait LayoutView
         $multipl = trim($amount, "mglpc ");
         $multipl = (float) eval("return $multipl;");  // 1/2 => 0.5 or: eval("\$multipl = $multipl;")
         
-        $weight = $this->calculateWeight($usage, $data, $multipl);
+        $weight  = $this->calculateWeight($usage, $data, $multipl);
         
         $perWeight = [
           'category' => $data['category'],  // add category for distinguishing foods vs supplements
@@ -57,7 +57,7 @@ trait LayoutView
 
           $perWeight[$shortName] = [];
 
-          if( isset($data[$groupName]) && count($data[$groupName]) > 0) {
+          if( isset($data[$groupName]) && count($data[$groupName]) > 0)
             foreach( $data[$groupName] as $nutrient => $value )
             {
               // Skip if nutrient doesn't exist in the model (except for nutritionalValues)
@@ -73,7 +73,6 @@ trait LayoutView
                                              ? round( $value * $multipl, 1)          // for per-piece: use the value directly multiplied by pieces count
                                              : round( $value * ($weight / 100), 1);  // for per-100g: scale by weight
             }
-          }
         }
 
         $safeAmount = str_replace('.', '_', $amount);  // enable floating point number as key
