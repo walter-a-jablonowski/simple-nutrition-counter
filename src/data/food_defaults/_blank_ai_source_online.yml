@@ -1,0 +1,104 @@
+
+# Trying to use AI as data source again (deep research)
+
+# 
+# I am looking for reference nutritional values of [FILL ME]. Please fill out the yml below starting from calories.
+# 
+# Be sure that you have the most high quality data source for the reference values.
+# 
+# - Keep the yml formatting as it is, remove no blanks before the value
+# - Use the unit that is written above each nutrient group or beside the nutrients
+# - Enter "0" if the food doesn't contain the nutrient, leave it blank if this is unknown
+# - Add nutritional values with no "g" or "mg", just the float or int
+# - For each value you add write the source url as a comment beside it
+# - Leave out-commented lines as they are
+# 
+
+acceptable:
+comment:         
+                              # unit: kcal
+calories:          
+
+nutritionalValues:            # unit: g
+
+  fat:             
+  saturatedFat:    
+  monoUnsaturated: 
+  polyUnsaturated: 
+  carbs:           
+  sugar:           
+  sugarAlcohol:    
+  fibre:           
+  amino:           
+  salt:            
+
+fattyAcids:                   # unit: g
+
+  Alpha-linolenic acid: 
+  Docosahexaenoic acid: 
+  Linoleic acid:        
+
+carbs:                        # unit: g
+  
+  Fiber:         
+
+aminoAcids:                   # unit: mg
+  
+  Histidine:     
+  Isoleucine:    
+  Leucine:       
+  Lysine:        
+  Methionine:    
+  Phenylalanine: 
+  Threonine:     
+  Tryptophan:    
+  Valine:        
+
+vitamins:                     # unit: mg
+  
+  Vitamin A:     
+  Vitamin D:     
+  Vitamin E:     
+  Vitamin K:     
+  Vitamin C:     
+  Thiamin B1:    
+  Riboflavin B2: 
+  Niacin B3:     
+  Pantothenic acid B5: 
+  Vitamin B6:    
+  Biotin B7:     
+  Folate B9:     
+  Vitamin B12:   
+
+minerals:
+  
+  Salt:                       # unit: g starting from here
+  Potassium:     
+  Calcium:       
+  Phosphorus:                 # unit: mg starting from here
+  Magnesium:     
+  Iron:          
+  Iodine:        
+  Fluoride:      
+  Zinc:          
+  Selenium:      
+  Copper:        
+  Chromium:      
+  Manganese:     
+  Molybdenum:    
+
+# secondary:
+
+misc:                         # unit: ml or g
+
+  water:         
+  alcohol:       
+  caffeine:      
+
+sources:
+
+  - title:   
+    comment: 
+    source:  
+
+lastUpd: 
