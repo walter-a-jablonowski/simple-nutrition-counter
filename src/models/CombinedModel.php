@@ -48,6 +48,13 @@ trait CombinedModel
           //   // $food[$groupName] = $nutrients[$groupName];
           //   $food[$groupName] = $food[$groupName] ?? [];
         }
+
+        // Duplicate salt and fibre (food value more precise, overrides food default)
+
+        if( isset($food['nutritionalValues']['fibre']))
+          $food['carbs']['Fibre'] = $food['nutritionalValues']['fibre'];
+
+        $food['minerals']['Salt'] = $food['nutritionalValues']['salt'];
       }
 
       $this->combinedModel->set( $name, $food );
