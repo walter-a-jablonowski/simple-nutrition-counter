@@ -22,7 +22,7 @@ nutritionalValues:
   sugar:           34
   fibre:           3.8
   amino:           33
-  salt:            0.58
+  salt:            0.28
 
 vitamins:          
 
@@ -31,8 +31,8 @@ vitamins:
 
 minerals:          
 
-  Magnesium:       94
+  Magnesium:       93.8
 
 sources:           { nutriVal: "web (information on packaging may differ slightly)" } 
-lastUpd:           2024-11-11
+lastUpd:           2025-05-30
 lastPriceUpd:      2024-11-11

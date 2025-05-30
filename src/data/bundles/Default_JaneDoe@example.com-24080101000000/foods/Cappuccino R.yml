@@ -17,7 +17,7 @@ nutritionalValues:
 
 misc:
 
-  water:           100  # ca
+  water:           99  # ca
 
 sources:           { nutriVal: "is just a cp of Eni" }  # TASK: fix
 lastUpd:           2024-04-30

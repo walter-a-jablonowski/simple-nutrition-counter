@@ -18,19 +18,6 @@ nutritionalValues:
   fibre:           2
   salt:            0
 
-# vitamins:  # TASK
-
-#   Vitamin A:  5 μg
-#   Vitamin B1: 44 μg
-#   Vitamin B2: 57 μg
-#   Vitamin B3: 650 μg
-#   Vitamin B5: 230 μg
-#   Vitamin B6: 363 μg
-#   Vitamin B7: 5 μg
-#   Vitamin B9: 14 μg
-#   Vitamin C:  11000 μg
-#   Vitamin E:  270 μg
-
 sources:           { nutriVal: "web" }
 lastUpd:           2024-07-20
 lastPriceUpd:      2024-07-20

@@ -16,18 +16,6 @@ nutritionalValues:
   amino:           2
   salt:            0
 
-vitamins:
-
-  # Vitamin K
-  # Vitamin E
-  # Vitamin C
-  # B-Vitamine (insbesondere B5 und B6)
-
-minerals:
-
-  # Kalium
-  # Magnesium
-
 sources:           { nutriVal: "ChatGPT (vals on websites differ)" }
 lastUpd:           2024-04-19
 lastPriceUpd:      2024-04-28

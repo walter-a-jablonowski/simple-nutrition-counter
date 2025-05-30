@@ -20,7 +20,7 @@ nutritionalValues:
 
 misc:
 
-  water:           100  # ca
+  water:           99  # ca
 
 sources:           { nutriVal: "web (information on packaging may differ slightly)", price: "web" }
 

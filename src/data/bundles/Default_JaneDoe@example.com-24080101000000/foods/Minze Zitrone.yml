@@ -21,7 +21,7 @@ nutritionalValues:
 
 misc:
 
-  water:           100  # ca
+  water:           99  # ca
 
 sources:           { nutriVal: "web (third party, information on packaging may differ slightly)" }
 lastUpd:           2024-11-11

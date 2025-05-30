@@ -18,7 +18,7 @@ nutritionalValues:
 
 misc:
 
-  water:           100  # ca
+  water:           99  # ca
   # TASK: alcohol 2.6%
 
 sources:           { nutriVal: "web (third party, may differ, vendor has none even on pack)", price: "web" }

@@ -17,8 +17,8 @@ nutritionalValues:
 
 misc:
 
-  water:           100  # ca
-  caffeine:          
+  water:           99  # ca
+  # caffeine:      # TASK
 
 sources:           { nutriVal: "pack" }
 

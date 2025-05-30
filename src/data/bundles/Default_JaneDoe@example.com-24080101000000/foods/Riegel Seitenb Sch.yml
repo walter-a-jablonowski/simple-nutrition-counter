@@ -20,7 +20,7 @@ nutritionalValues:
 
 minerals:
 
-  Calcium:         360
+  Calcium:         0.36  # type is grams here
 
 sources:           { nutriVal: "web", nutrients: "calcium also from vendors page online" }
 lastUpd:           2024-02-18

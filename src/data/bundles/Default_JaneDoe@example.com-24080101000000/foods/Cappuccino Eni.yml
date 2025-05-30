@@ -17,7 +17,7 @@ nutritionalValues:
 
 misc:
 
-  water:           100  # ca
+  water:           99  # ca
 
 sources:           { nutriVal: "web (kind of impossible - third party - weight is a guess}" }
 lastUpd:           2024-04-30
