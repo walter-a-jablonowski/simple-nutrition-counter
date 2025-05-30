@@ -9,9 +9,9 @@ require_once 'lib/frm/ConfigStatic_240323/config.php';
 require_once 'lib/frm/User.php';
 require_once 'lib/settings.php';
 
-require_once 'data_view/LayoutView.php';
-require_once 'data_view/NutrientsView.php';
-require_once 'data_view/LastDaysView.php';
+require_once 'models/LayoutView.php';
+require_once 'models/NutrientsView.php';
+require_once 'models/LastDaysView.php';
 
 foreach( scandir('ajax') as $fil)
   if( ! in_array( $fil, ['.', '..']))  require_once "ajax/$fil";
