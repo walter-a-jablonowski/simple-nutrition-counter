@@ -1,0 +1,95 @@
+
+acceptable:
+comment:         Nutritional values for raw broccoli, per 100g
+                              # unit: kcal
+calories:          35         # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+
+nutritionalValues:            # unit: g
+
+  fat:             0.37       # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  saturatedFat:    0.04       # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  monoUnsaturated: 0.03       # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  polyUnsaturated: 0.04       # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  carbs:           6.64       # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  sugar:           1.70       # https://www.aprifel.com/en/fiche-nutritionnelle/broccoli/
+  sugarAlcohol:    0          # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  fibre:           2.60       # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  amino:           2.82       # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  salt:            0.03       # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+
+fattyAcids:                   # unit: g
+
+  Alpha-linolenic acid: 0.02  # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Docosahexaenoic acid: 0     # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Linoleic acid:   0.02       # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+
+carbs:                        # unit: g
+  
+  Fiber:           2.60       # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+
+aminoAcids:                   # unit: mg
+  
+  Histidine:       59         # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Isoleucine:      79         # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Leucine:         129        # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Lysine:          135        # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Methionine:      38         # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Phenylalanine:   117        # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Threonine:       88         # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Tryptophan:      33         # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Valine:          125        # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+
+vitamins:                     # unit: mg
+  
+  Vitamin A:       0.03       # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Vitamin D:       0          # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Vitamin E:       0.78       # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Vitamin K:       0.10       # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Vitamin C:       89.2       # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Thiamin B1:      0.07       # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Riboflavin B2:   0.12       # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Niacin B3:       0.64       # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Pantothenic acid B5: 0.57   # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Vitamin B6:      0.18       # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Biotin B7:                  # Unknown
+  Folate B9:       0.06       # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Vitamin B12:     0          # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+
+minerals:
+  
+  Salt:            0.03       # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Potassium:       0.32       # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Calcium:         0.05       # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Phosphorus:      66         # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Magnesium:       21         # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Iron:            0.73       # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Iodine:                     # Unknown
+  Fluoride:                   # Unknown
+  Zinc:            0.41       # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Selenium:        0.003      # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Copper:          0.05       # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Chromium:                   # Unknown
+  Manganese:       0.21       # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  Molybdenum:                 # Unknown
+
+# secondary:
+
+misc:                         # unit: ml or g
+
+  water:           89.3       # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  alcohol:         0          # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  caffeine:        0          # https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+
+sources:
+
+  - title:   Nutrition Facts for Broccoli, raw
+    comment: Primary source for most nutritional values
+    source:  https://www.nutritionvalue.org/Broccoli%2C_raw_nutritional_value.html
+  - title:   Broccoli: Calories & Nutritional Facts
+    comment: Used for sugar breakdown and cross-referencing
+    source:  https://www.aprifel.com/en/fiche-nutritionnelle/broccoli/
+  - title:   Broccoli 101: Nutrition Facts and Health Benefits
+    comment: Used for cross-referencing and additional context
+    source:  https://www.healthline.com/nutrition/foods/broccoli
+
+lastUpd: 2025-05-30
