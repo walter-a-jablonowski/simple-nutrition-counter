@@ -9,6 +9,7 @@ require_once 'lib/frm/ConfigStatic_240323/config.php';
 require_once 'lib/frm/User.php';
 require_once 'lib/settings.php';
 
+require_once 'models/CombinedModel.php';
 require_once 'models/LayoutView.php';
 require_once 'models/NutrientsView.php';
 require_once 'models/LastDaysView.php';
@@ -21,6 +22,7 @@ require_once 'lib/helper.php';
 
 class AppController extends ControllerBase
 {
+  use CombinedModel;
   use LayoutView;
   use NutrientsView;
   use LastDaysView;
@@ -36,7 +38,6 @@ class AppController extends ControllerBase
   protected string     $date;
 
   protected SimpleData $nutrientsModel;
-  protected SimpleData $combinedModel;   // foods and supplements
 
   protected string     $dayEntriesTxt;   // edit tab
   protected array      $dayEntries;
@@ -92,58 +93,7 @@ class AppController extends ControllerBase
 
     // Combined foods and supplements model
 
-    $this->combinedModel = new SimpleData();
-
-    $dir = "data/bundles/Default_$user->id/foods";
-
-    foreach( scandir($dir) as $file )
-    {
-      if( in_array( $file, ['.', '..']) || in_array( $file[0], ['_']) || ( pathinfo($file, PATHINFO_EXTENSION) !== 'yml' && ! is_dir("$dir/$file")))
-        continue;
-
-      $name = is_dir("$dir/$file")  ?  $file  :  pathinfo($file, PATHINFO_FILENAME);
-      $food = is_file("$dir/$file")
-            ? Yaml::parse( file_get_contents("$dir/$file"))
-            : Yaml::parse( file_get_contents("$dir/$file/-this.yml"));
-
-      $food['category'] = 'F';
-
-      // merge nutrients from food file (prio) over default foods
-      // TASK: maybe we want to add at least an empty key if a type of nutrients is missing
-
-      if( isset( $food['type']) && file_exists("data/food_defaults/$food[type].yml"))
-      {
-        $nutrients = Yaml::parse( file_get_contents("data/food_defaults/$food[type].yml"));
-
-        foreach( self::NUTRIENT_GROUPS as $groupName )
-        {
-          if( isset( $nutrients[$groupName] ))
-            $food[$groupName] = array_merge( $nutrients[$groupName], $food[$groupName] ?? []);
-          // else
-          //   // $food[$groupName] = $nutrients[$groupName];
-          //   $food[$groupName] = $food[$groupName] ?? [];
-        }
-      }
-
-      $this->combinedModel->set( $name, $food );
-    }
-
-    $dir = "data/bundles/Default_$user->id/supplements";
-
-    foreach( scandir($dir) as $file )
-    {
-      if( in_array( $file, ['.', '..']) || in_array( $file[0], ['_']) || ( pathinfo($file, PATHINFO_EXTENSION) !== 'yml' && ! is_dir("$dir/$file")))
-        continue;
-
-      $name  = is_dir("$dir/$file")  ?  $file  :  pathinfo($file, PATHINFO_FILENAME);
-      $suppl = is_file("$dir/$file")
-             ? Yaml::parse( file_get_contents("$dir/$file"))
-             : Yaml::parse( file_get_contents("$dir/$file/-this.yml"));
-
-      $suppl['category'] = 'S';
-
-      $this->combinedModel->set( $name, $suppl );
-    }
+    $this->makeCombinedModel();
 
     // Edit tab: Day entries
 
