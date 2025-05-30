@@ -84,5 +84,5 @@ substances:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  5%
-        amount: 0.017
+        amount: 17
         upper:  5%
