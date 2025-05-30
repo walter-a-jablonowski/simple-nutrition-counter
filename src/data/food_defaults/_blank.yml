@@ -6,28 +6,26 @@
 acceptable:
 comment:         
                               # kcal
-calories:          
+calories:                     # Atwater Specific: ?, Atwater General: ?
 
 nutritionalValues:            # g
 
-  fat:             
+  fat:                        # prefer lipid (fat) over fat (NLEA)
   saturatedFat:    
   monoUnsaturated: 
   polyUnsaturated: 
   carbs:           
   sugar:           
   sugarAlcohol:    
-  fibre:                      # TASK: dupl (see below)
+  fibre:           
   amino:           
-  salt:                       # TASK: dupl (see below)
-
-# 2501 added only what we already have active in nutrients
+  salt:                       # Sodium, Na in source
 
 fattyAcids:                   # g
 
-  Alpha-linolenic acid: 
-  Docosahexaenoic acid: 
-  Linoleic acid:        
+  Alpha-linolenic acid:       # AI says it's: PUFA 18:3 n-3 c,c,c
+  Docosahexaenoic acid:       # AI says it's: PUFA 22:6 n-3
+  Linoleic acid:              # AI says it's: PUFA 18:2 n-6 c,c
 
 carbs:                        # g
   
@@ -63,7 +61,7 @@ vitamins:                     # mg
 
 minerals:                     # g
   
-  Salt:                       # TASK: we need to use the one from nutritional values cause sometimes salt is added (chickpeas)
+  Salt:                       # Sodium, Na in source
   Potassium:     
   Calcium:       
   Phosphorus:                 # mg
@@ -78,7 +76,7 @@ minerals:                     # g
   Manganese:     
   Molybdenum:    
 
-# secondary:                  # TASK
+# secondary:
 
 misc:                         # ml or g
 
