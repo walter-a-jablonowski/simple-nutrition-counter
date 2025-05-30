@@ -58,12 +58,12 @@ vitamins:                     # mg
   Folate B9:     0
   Vitamin B12:   0
 
-minerals:                     # mg
+minerals:                     # g
   
-  Salt:          1            # Sodium, Na
-  Potassium:     636
-  Calcium:       49
-  Phosphorus:    380
+  Salt:          0.001        # Sodium, Na
+  Potassium:     0.636
+  Calcium:       0.049
+  Phosphorus:    380          # mg
   Magnesium:     180
   Iron:          1.55
   Iodine:        0
