@@ -10,10 +10,7 @@ trait CombinedModel
 
   /*@
   
-  makeLayoutView()
-  
-  - pre calc all food and recipes amounts for food grid
-  - easy print in food grid, less js logic
+  makeCombinedModel()
   
   */
   private function makeCombinedModel()  /*@*/
