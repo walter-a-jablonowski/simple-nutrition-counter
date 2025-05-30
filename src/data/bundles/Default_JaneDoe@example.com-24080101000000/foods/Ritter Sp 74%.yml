@@ -4,7 +4,7 @@ comment:           "Nicaragua (Cadmium)"
 origin:            "Nicaragua"
 packaging:         plastic
 
-price:             2.19
+price:             2.29
 weight:            100
 pieces:            25
 usedAmounts:       [1, 2, 4]
@@ -21,8 +21,9 @@ nutritionalValues:
 
 sources:           { nutriVal: "web" }
 lastUpd:           2024-06-18
-lastPriceUpd:      2024-11-28
+lastPriceUpd:      2025-05-30
 
 prices:
 
+  2024-11-28: 2.19
   2024-06-18: 1.69
