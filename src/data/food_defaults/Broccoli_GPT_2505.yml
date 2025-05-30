@@ -1,0 +1,91 @@
+
+# claims to have used USDA only but used miltiple sources
+
+acceptable:
+comment:         
+                              # unit: kcal
+calories:          34         # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+
+nutritionalValues:            # unit: g
+
+  fat:             0.37       # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  saturatedFat:    0.039      # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  monoUnsaturated: 0.011      # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  polyUnsaturated: 0.038      # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  carbs:           6.64       # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  sugar:           1.7        # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  sugarAlcohol:    0
+  fibre:           2.6        # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  amino:           2.82       # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  salt:            0.033      # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+
+fattyAcids:                   # unit: g
+
+  Alpha-linolenic acid: 0.021 # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  Docosahexaenoic acid: 0
+  Linoleic acid:         0.017 # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+
+carbs:                        # unit: g
+  
+  Fiber:          2.6         # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+
+aminoAcids:                   # unit: mg
+  
+  Histidine:     33           # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  Isoleucine:    56           # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  Leucine:       93           # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  Lysine:        97           # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  Methionine:    27           # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  Phenylalanine: 66           # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  Threonine:     65           # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  Tryptophan:    20           # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  Valine:        82           # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+
+vitamins:                     # unit: mg
+  
+  Vitamin A:     0.031        # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  Vitamin D:     0
+  Vitamin E:     0.78         # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  Vitamin K:     0.102        # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  Vitamin C:     89.2         # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  Thiamin B1:    0.071        # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  Riboflavin B2: 0.117        # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  Niacin B3:     0.639        # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  Pantothenic acid B5: 0.573  # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  Vitamin B6:    0.175        # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  Biotin B7:     
+  Folate B9:     63           # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  Vitamin B12:   0
+
+minerals:
+  
+  Salt:                       # unit: g starting from here
+  Potassium:     316          # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  Calcium:       47           # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  Phosphorus:    66           # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  Magnesium:     21           # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  Iron:          0.73         # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  Iodine:        
+  Fluoride:      
+  Zinc:          0.41         # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  Selenium:      2.5          # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  Copper:        0.049        # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  Chromium:      
+  Manganese:     0.21         # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  Molybdenum:    
+
+# secondary:
+
+misc:                         # unit: ml or g
+
+  water:         89.3         # https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+  alcohol:       0
+  caffeine:      0
+
+sources:
+
+  - title: USDA FoodData Central
+    comment: Comprehensive nutrient data for raw broccoli per 100g
+    source: https://fdc.nal.usda.gov/fdc-app.html#/food-details/11090/nutrients
+
+lastUpd: 2025-05-30
