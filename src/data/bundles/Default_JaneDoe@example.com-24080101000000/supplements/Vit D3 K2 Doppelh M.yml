@@ -1,0 +1,30 @@
+
+certificates:      { vegan: true }
+ingredients:       "Füllstoff Calciumcarbonat, Füllstoff mikrokristalline Cellulose, Maltodextrin, Überzugsmittel Hydroxypropylmethylcellulose, Füllstoff Isomalt, Trennmittel Magnesiumsalze der Speisefettsäuren, mittelkettige Triglyceride, Vitamin K, Vitamin D, Überzugsmittel Carnaubawachs"
+packaging:         alu & plastic
+
+price:             3.99   # TASK: maybe less
+dealPrice:         2.50
+weight:            13.1g  # all
+pieces:            30
+usedAmounts:       [1]
+
+amountPer:         "piece"
+
+calories:          0
+nutritionalValues: 
+
+  fat:             0
+  carbs:           0    # TASK: maybe
+  sugar:           0
+  amino:           0
+  salt:            0
+
+vitamins:
+
+  Vitamin D:       0.0625  # 1.250 % TASK: EU-Verordnung 1169/2011
+  Vitamin K:       0.1     # 133 % 
+
+sources:           { nutriVal: "web" }
+lastUpd:           2025-05-02
+lastPriceUpd:      2025-05-02
