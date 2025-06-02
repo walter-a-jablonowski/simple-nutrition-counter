@@ -1,0 +1,21 @@
+
+vendor:            Norma
+acceptable:        occasionally
+packaging:         plastic,cardboard
+
+price:             1.99  # TASK: guess
+weight:            200g
+
+calories:          265
+nutritionalValues: 
+
+  fat:             19
+  saturatedFat:    12
+  carbs:           0.5
+  sugar:           0.5
+  amino:           23
+  salt:            2.3
+
+sources:           { nutriVal: "pack" }
+lastUpd:           2025-06-02
+lastPriceUpd:      2025-06-02
