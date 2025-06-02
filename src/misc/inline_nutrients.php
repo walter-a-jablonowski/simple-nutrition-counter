@@ -2,14 +2,16 @@
 
 <ul class="no-indent">
   <li>exact plant variety</li>
-  <li>type soild where it was planted</li>
+  <li>soil type where it is from</li>
   <li>time of year, amount of sunlight</li>
   <li>and so on ... (also true for meat)</li>
 </ul>
 
-<p>All of these have influence on the amount of nutrients in the food. This list uses reference data that gives you a rough approximation of the actual amount of nutrients in your food. At least this gives you an idea about your nutrient supply as good as possible. You may want to eat some less of a cetain food if a value might be too high, or use a supplement if something is far too low.</p>
+<p>This list uses reference data that gives you a rough approximation of the amount of nutrients in your food. Nutrient recommendations where the recommended amount is higher might be more reliable (grams or high milligrams). Those where the recommended nutrient amount is low (only mg) are hard to track.</p>
 
-<p>Also keep in mind that it's hard to get a good approximation with food packages that contain multiple ingedients. Using single foods is best.</p>
+<p>It gives you an idea about your nutrient supply as good as possible. Eat some less of a cetain food if the amount might be too high, or use a supplement if if a bar with a high recommended amount is constantly emtpy.</p>
+
+<p>Also keep in mind that you need to use pure foods. It's hard to get a good approximation for food packages that contain multiple ingedients.</p>
 
 <p class="small">
   <b>Disclaimer:</b> <?php require('misc/disclaimer.php'); ?>
