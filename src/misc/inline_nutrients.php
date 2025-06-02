@@ -7,7 +7,7 @@
   <li>and so on ... (also true for meat)</li>
 </ul>
 
-<p>This list uses reference data that gives you a rough approximation of the amount of nutrients in your food. Nutrient recommendations where the recommended amount is higher might be more reliable (grams or high milligrams). Those where the recommended nutrient amount is low (only mg) are hard to track.</p>
+<p>This list uses reference data that gives you a rough approximation of the amount of nutrients in your food. Nutrient recommendations where the recommended amount is higher might be more reliable (grams or high milligrams). Those where the recommended nutrient amount is low (only low mg) are hard to track.</p>
 
 <p>It gives you an idea about your nutrient supply as good as possible. Eat some less of a cetain food if the amount might be too high, or use a supplement if if a bar with a high recommended amount is constantly emtpy.</p>
 
