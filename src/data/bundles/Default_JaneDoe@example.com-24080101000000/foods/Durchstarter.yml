@@ -3,7 +3,7 @@ vendor:            Edeka
 certificates:      { NutriScore: B }
 packaging:         alu (maybe)
 
-price:             3.29
+price:             3.59
 weight:            200
 usedAmounts:       ["25g", "50g", "100g"]
 
@@ -20,8 +20,9 @@ nutritionalValues:
 
 sources:           { nutriVal: "pack" }
 lastUpd:           2024-06-16
-lastPriceUpd:      2024-08-11
+lastPriceUpd:      2025-06-02
 
 prices:
 
+  2024-08-11: 3.29
   2024-06-16: 2.99
