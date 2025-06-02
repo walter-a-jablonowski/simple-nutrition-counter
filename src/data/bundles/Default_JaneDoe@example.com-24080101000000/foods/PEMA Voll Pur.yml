@@ -8,7 +8,7 @@ ingredients:       "Natursauerteig (Roggen-Vollkornschrot 52%, Wasser), Wasser, 
 allergy:           "Weizen und Süßlupine"
 packaging:         plastic
 
-price:             
+price:             2.19
 weight:            375g
 pieces:            6
 
@@ -25,4 +25,4 @@ nutritionalValues:
 
 sources:           { nutriVal: "web" }
 lastUpd:           2025-05-30
-lastPriceUpd:      
+lastPriceUpd:      2025-05-30
