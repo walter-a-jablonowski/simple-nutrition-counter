@@ -4,8 +4,10 @@
 
 # TASK: trans fat
 
-name:       Fatty acids
-short:      fat
+name:        Fatty acids
+short:       fat
+unit:        g
+defaultUnit: g
 sources:
 
   - title: "Claude: only first 2 (ALA, DHA), ChatGPT mentions: ALA, EPA, DHA, LA (below), Arachidonic acid"
@@ -39,7 +41,7 @@ substances:
     altNames:    ["PUFA 18:3 n-3 c,c,c"]
     groups:      ["PolyUnsaturated/omega-3"]
     essential:   true
-    unit:        g
+    # unit:      g
     comment:     "GPT 2408: Flaxseeds, chia seeds, walnuts, canola oil, and soybeans"
     sources:     "GPT and Claude 2408 for now"  # TASK: upd this
 
@@ -57,7 +59,7 @@ substances:
     altNames:    ["PUFA 22:6 n-3"]
     groups:      ["PolyUnsaturated/omega-3"]
     essential:   true
-    unit:        g
+    # unit:      g
     comment:     "GPT 2408: Fish (salmon, mackerel, sardines), fish oil, krill oil, and algae oil"
     sources:     "GPT and Claude 2408 for now"
 
@@ -76,7 +78,7 @@ substances:
     altNames:   ["PUFA 18:2 n-6 c,c"]  # diff forms of Linoleic acid, AI says only one should be added, Skip: PUFA 18:2 c, PUFA 18:2 CLAs
     groups:     ["PolyUnsaturated/omega-6"]
     essential:  true
-    unit:       g
+    # unit:     g
     comment:    "GPT 2408: Vegetable oils (sunflower, safflower, corn, soybean), nuts, and seeds"
     sources:    "GPT and Claude 2408 for now"
 

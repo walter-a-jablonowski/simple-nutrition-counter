@@ -2,9 +2,11 @@
 # Amino acids
 #
 
-name:      Amino acids
-short:     amino
-comment:   "Increased need if doing sports"
+name:        Amino acids
+short:       amino
+unit:        g
+defaultUnit: mg
+comment:     "Increased need if doing sports"
 sources:
 
   - title: "Essential (Claude and ChatGPT produce exactly same list 2408)"

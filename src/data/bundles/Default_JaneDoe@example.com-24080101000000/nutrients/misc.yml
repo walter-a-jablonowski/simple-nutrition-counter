@@ -2,8 +2,10 @@
 # Misc nutrients
 #
 
-name:         Misc
-short:        misc
+name:        Misc
+short:       misc
+unit:        g
+defaultUnit: mg
 
 substances:
 

@@ -5,8 +5,10 @@
 # TASK: unit calc in controller missing, add or maybe use mg for all
 #       sample last usage see Chickpeas
 
-name:         Minerals
-short:        min
+name:        Minerals
+short:       min
+unit:        g
+defaultUnit: mg
 sources:
 
   - title: "Essential by Claude and ChatGPT 2408, DGE"

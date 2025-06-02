@@ -19,17 +19,24 @@ trait NutrientsView
 
     foreach( self::NUTRIENT_GROUPS as $groupName )
     {
-      $shortName = $this->nutrientsModel->get("$groupName.short");
-      $this->captions[$shortName] = $this->nutrientsModel->get("$groupName.name");
+      // $shortName = $this->nutrientsModel->get("$groupName.short");
+      // $this->captions[$shortName] = $this->nutrientsModel->get("$groupName.name");
 
-      foreach( $this->nutrientsModel->get("$groupName.substances") as $name => $attr )  // short is used as id
+      $group     = $this->nutrientsModel->get($groupName);
+      $shortName = $group['short'];
+
+      $this->captions[$shortName] = $group['name'];
+
+      // foreach( $this->nutrientsModel->get("$groupName.substances") as $name => $attr )  // short is used as id
+      foreach( $group['substances'] as $name => $attr )  // short is used as id
       {
-        $a = $attr['amounts'][0];
+        $a = $attr['amounts'][0];  // currently one hard coded person type
         
         $this->nutrientsView->set("$shortName.$attr[short]", [
           'name'        => $name,       // TASK: (advanced) currently using first entry only
           'displayName' => $attr['displayName'] ?? null,
-          'unit'        => $attr['unit'] ?? 'mg',
+          // 'unit'     => $attr['unit'] ?? 'mg',
+          'unit'        => $attr['unit'] ?? $group['defaultUnit'] ?? 'mg',
           'group'       => $groupName,  // calc acceptable nutrient intake ideal with tolerance
           'lower'       => $this->calculateBound( $a['amount'], $a['lower'], false),
           'ideal'       => $a['amount'],

@@ -9,8 +9,10 @@
 # Sucrose:         
 # Starch:          
 
-name:    Carbs
-short:   carbs
+name:        Carbs
+short:       carbs
+unit:        g
+defaultUnit: g
 sources:
 
   - title: ""
@@ -26,8 +28,8 @@ substances:
 
   Fibre:  # technically fibre is complex carb, but can't be used by the body (harvard)
 
-    short: fibre
-    unit:  g
+    short:  fibre
+    # unit: g
 
     amounts:
 

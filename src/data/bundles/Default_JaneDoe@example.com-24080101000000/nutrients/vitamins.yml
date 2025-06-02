@@ -5,8 +5,10 @@
 # TASK: Choline?
 
 
-name:         Vitamins
-short:        vit
+name:        Vitamins
+short:       vit
+unit:        mg
+defaultUnit: mg
 sources:
 
   - title: "Essential (Claude and ChatGPT produce exactly same list 2408)"

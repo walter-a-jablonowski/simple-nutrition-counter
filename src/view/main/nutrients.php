@@ -51,7 +51,10 @@
       </li>
       <li id="<?= $shortName ?>Collapse" class="list-group-item collapse show">
 
-        <?php foreach( $group as $short => $data ): ?>
+        <?php foreach( $group as $short => $data ):
+        
+          $unit = $data['unit'] ?? $group['defaultUnit'] ?? 'g';
+        ?>
 
           <div class = "nutrients-entry mb-2"
 
@@ -66,7 +69,7 @@
                data-ideal     = "<?= $data['ideal'] ?>"
                data-upper     = "<?= $data['upper'] ?>"
                data-current   = "0"
-               data-unit      = "<?= $data['unit'] ?>"
+               data-unit      = "<?= $unit ?>"
           >
             <div class="row">
               <div class="col text-nowrap overflow-hidden">
@@ -74,7 +77,7 @@
                 <i class="bi bi-info-circle ms-1" style="color: #bfbfbf; font-size: 0.8em;"></i>
               </div>
               <div class="col-4 text-secondary text-end small text-nowrap overflow-hidden">
-                <span class="vals">0 / <?= $data['ideal'] ?></span> <?= $data['unit'] ?>
+                <span class="vals">0 / <?= $data['ideal'] ?></span> <?= $unit ?>
               </div>
               <div class="col-3 text-end">
                 <span class="percent">0</span>%

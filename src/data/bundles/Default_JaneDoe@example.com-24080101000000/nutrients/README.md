@@ -33,9 +33,10 @@ derived see below
 
 name:                            # (TASK: required ?)
 short:                           # (required) short name used as short unique id in daily files (file name is alternative id used in code)
-unit:      g                     # default is g for groups and mg for nutrients
-per:       day
-comment:   "Increased need if doing sports"
+unit:        g                   # group unit (default g)
+defaultUnit: mg                  # default unit for nutrients (default mg)
+per:         day
+comment:     "Increased need if doing sports"
 
 sources:                         # source of information, see data > shared > sources (see also below) 
 

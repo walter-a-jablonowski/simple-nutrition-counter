@@ -4,8 +4,10 @@
 
 # AI generated (see also wqikipedia)
 
-name:     Secondary plant substances
-short:    sec
+name:        Secondary plant substances
+short:       sec
+unit:        g
+defaultUnit: mg
 
 substances: []
 
