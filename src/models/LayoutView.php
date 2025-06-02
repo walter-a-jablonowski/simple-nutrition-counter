@@ -61,17 +61,22 @@ trait LayoutView
             foreach( $data[$groupName] as $nutrient => $value )
             {
               // Skip if nutrient doesn't exist in the model (except for nutritionalValues)
-              if( $groupName != 'nutritionalValues' && 
-                  ! $this->nutrientsModel->has("$groupName.substances.$nutrient")) {
+              if( $groupName != 'nutritionalValues' 
+              &&  ! $this->nutrientsModel->has("$groupName.substances.$nutrient"))
                 continue;
-              }
 
               $short = $groupName === 'nutritionalValues' ? $nutrient  // short name for single nutrient
                      : $this->nutrientsModel->get("$groupName.substances.$nutrient.short");
 
+              $unit  = $this->nutrientsModel->get("$groupName.substances.$nutrient.unit") 
+                    ?? $this->nutrientsModel->get("$groupName.defaultUnit") 
+                    ?? 'g';
+
+              $precision = $unit === 'g' ? 1 : 5;
+
               $perWeight[$shortName][$short] = $nutrientsPerPiece
-                                             ? round( $value * $multipl, 1)          // for per-piece: use the value directly multiplied by pieces count
-                                             : round( $value * ($weight / 100), 1);  // for per-100g: scale by weight
+                                             ? round( $value * $multipl, $precision)          // for per-piece: use the value directly multiplied by pieces count
+                                             : round( $value * ($weight / 100), $precision);  // for per-100g: scale by weight
             }
         }
 
