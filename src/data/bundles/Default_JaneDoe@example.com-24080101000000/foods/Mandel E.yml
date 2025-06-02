@@ -9,7 +9,7 @@ mayContain:        "andere SCHALENFRÜCHTE"
 details:           "naturbelassen"
 packaging:         alu & plastic (maybe)
 
-price:             
+price:             2.79
 weight:            200g
 usedAmounts:       ["25g", "50g", "100g"]
 
@@ -25,4 +25,4 @@ nutritionalValues:
 
 sources:           { nutriVal: "web (information on packaging may differ slightly)" }
 lastUpd:           2025-01-29
-lastPriceUpd:      
+lastPriceUpd:      2025-06-02
