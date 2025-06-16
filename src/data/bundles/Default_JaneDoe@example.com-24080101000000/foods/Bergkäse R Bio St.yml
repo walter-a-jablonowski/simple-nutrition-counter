@@ -1,0 +1,27 @@
+
+productName:       "REWE Bio Naturland Bergkäse 200g"
+vendor:            Rewe
+url:               "https://shop.rewe.de/p/rewe-bio-naturland-bergkaese-50-200g/8890687"
+
+acceptable:        occasionally
+certificates:      { bio: true, NutriScore: D }
+ingredients:       "MILCH*, Speisesalz, Säuerungskulturen, mikrobielles Lab. *aus kontrolliert biologischer Landwirtschaft"
+allergy:           "Milch und Milcherzeugnisse (einschließlich Lactose)"
+packaging:         plastic
+
+price:             2.69
+weight:            200g
+
+calories:          418
+nutritionalValues:
+
+  fat:             34
+  saturatedFat:    26
+  carbs:           0
+  sugar:           0
+  amino:           28
+  salt:            1.6
+
+sources:           { nutriVal: "web" }
+lastUpd:           2025-06-16
+lastPriceUpd:      2025-06-16
