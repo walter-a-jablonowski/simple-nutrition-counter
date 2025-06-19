@@ -1,0 +1,25 @@
+
+acceptable:        less
+certificates:      { vegan: true }
+ingredients:       "Weizenmehl Wasser Hefe Natronlauge Backmittel Öl Salz"
+packaging:         cardboard
+
+price:             0.75
+weight:            100g
+usedAmounts:       ["1"]
+
+calories:          350
+nutritionalValues:
+
+  fat:             3
+  saturatedFat:    1
+  carbs:           60
+  sugar:           2
+  fibre:           2
+  amino:           8
+  salt:            2.5
+
+sources:           { nutriVal: "web (gemini, ungenau)" }
+lastUpd:           2025-06-19
+lastPriceUpd:      2025-06-19
+
