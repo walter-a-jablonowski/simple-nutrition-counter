@@ -1,10 +1,11 @@
 
 Trying to use AI as data source again (deep research)
 
-results from 2 AIs that used different sources are pretty similar => could be used
+- results from 2 AIs that used different sources are pretty similar => could be used
+- added regional food
 
 
-I am looking for reference nutritional values of [FILL ME]. Please fill out the yml below starting from calories.
+I am looking for reference nutritional values of [FILL ME]. Please fill out the yml below starting from calories. If most likely this is a regional food, prefer values for Germany if possible.
 
 Be sure that you have the most high quality data source for the reference values.
 
