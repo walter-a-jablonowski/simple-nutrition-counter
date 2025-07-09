@@ -1,0 +1,79 @@
+
+calories: 208 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+macronutrients:
+  protein: 24.62 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+  fat:
+    total: 11.45 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+    saturated: 1.53 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+    monounsaturated: 3.87 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+    polyunsaturated: 5.15 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+    omega_3:
+      total: 1.478 # Calculated from EPA, DHA, ALA values below.
+      epa: 0.47 # https://foodstruct.com/food/fish-sardine-atlantic-cannedinoil-drainedsolidswithbone
+      dha: 0.51 # https://foodstruct.com/food/fish-sardine-atlantic-cannedinoil-drainedsolidswithbone
+      ala: 0.498 # Calculated from 572.7 mg in 115g: (572.7/115)*100. Source: https://nutrivore.com/foods/canned-sardine-nutrients/
+    omega_6:
+      total: 3.565 # Calculated from 4.1 g in 115g: (4.1/115)*100. Source: https://nutrivore.com/foods/canned-sardine-nutrients/
+      linoleic_acid: 3.565 # Calculated from 4.1 g in 115g: (4.1/115)*100. Source: https://nutrivore.com/foods/canned-sardine-nutrients/
+  carbohydrates:
+    total: 0 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+    sugars: 0 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+    #sugar_alcohols: # No specific data found for sugar alcohols.
+    fiber: 0 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+  water: 59.61 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+  alcohol: 0 # Sardines do not inherently contain alcohol.
+  caffeine: 0 # https://www.eatthismuch.com/calories/sardines-3341
+vitamins:
+  vitamin_a:
+    total: 32 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+    retinol: 32 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+  vitamin_c: 0 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+  vitamin_d: 4.8 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+  vitamin_e: 2.04 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+  vitamin_k: 2.6 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+  b_vitamins:
+    thiamin_b1: 0.08 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+    riboflavin_b2: 0.23 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+    niacin_b3: 5.25 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+    pantothenic_acid_b5: 0.64 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+    vitamin_b6: 0.17 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+    folate_b9: 10 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+    vitamin_b12: 8.94 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+minerals:
+  calcium: 382 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+  iron: 2.92 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+  magnesium: 39 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+  phosphorus: 490 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+  potassium: 397 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+  sodium: 505 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+  zinc: 1.31 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+  copper: 0.19 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+  manganese: 0.11 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+  selenium: 52.7 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+  iodine: 25.04 # Calculated from 28.8 µg in 115g: (28.8/115)*100. Source: https://nutrivore.com/foods/canned-sardine-nutrients/
+  fluoride: 0.35 # Calculated from 0.3 mg in 3oz (85g): (0.3/85)*100. Source: https://edis.ifas.ufl.edu/publication/FY887
+  chromium: 0 # https://afcd.foodstandards.gov.au/fooddetails.aspx?PFKID=F007973
+  molybdenum: 4.3 # https://afcd.foodstandards.gov.au/fooddetails.aspx?PFKID=F007973
+other_components:
+  cholesterol: 142 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+  fiber: 0 # https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+  salt: 1.28 # Calculated from Sodium: 505 mg * 2.54 / 1000 = 1.28 g. Source: https://www.zoeharcombe.com/nutrition-data/sardines-nutrition-data/
+  amino_acid_profile:
+    tryptophan: 0.2758 # Calculated from 0.411g in 149g: (0.411/149)*100. Source: https://cloudcookbook.jeffdelaney.com/usdafoods/15088/nutrition
+    threonine: 1.0792 # Calculated from 1.608g in 149g: (1.608/149)*100. Source: https://cloudcookbook.jeffdelaney.com/usdafoods/15088/nutrition
+    isoleucine: 1.1342 # Calculated from 1.69g in 149g: (1.69/149)*100. Source: https://cloudcookbook.jeffdelaney.com/usdafoods/15088/nutrition
+    leucine: 2.0007 # Calculated from 2.981g in 149g: (2.981/149)*100. Source: https://cloudcookbook.jeffdelaney.com/usdafoods/15088/nutrition
+    lysine: 2.2597 # Calculated from 3.367g in 149g: (3.367/149)*100. Source: https://cloudcookbook.jeffdelaney.com/usdafoods/15088/nutrition
+    methionine: 0.7288 # Calculated from 1.086g in 149g: (1.086/149)*100. Source: https://cloudcookbook.jeffdelaney.com/usdafoods/15088/nutrition
+    cystine: 0.2638 # Calculated from 0.393g in 149g: (0.393/149)*100. Source: https://cloudcookbook.jeffdelaney.com/usdafoods/15088/nutrition
+    phenylalanine: 0.9611 # Calculated from 1.432g in 149g: (1.432/149)*100. Source: https://cloudcookbook.jeffdelaney.com/usdafoods/15088/nutrition
+    tyrosine: 0.8309 # Calculated from 1.238g in 149g: (1.238/149)*100. Source: https://cloudcookbook.jeffdelaney.com/usdafoods/15088/nutrition
+    valine: 1.2678 # Calculated from 1.889g in 149g: (1.889/149)*100. Source: https://cloudcookbook.jeffdelaney.com/usdafoods/15088/nutrition
+    arginine: 1.4731 # Calculated from 2.195g in 149g: (2.195/149)*100. Source: https://cloudcookbook.jeffdelaney.com/usdafoods/15088/nutrition
+    histidine: 0.7248 # Calculated from 1.08g in 149g: (1.08/149)*100. Source: https://cloudcookbook.jeffdelaney.com/usdafoods/15088/nutrition
+    alanine: 1.4892 # Calculated from 2.219g in 149g: (2.219/149)*100. Source: https://cloudcookbook.jeffdelaney.com/usdafoods/15088/nutrition
+    aspartic_acid: 2.5199 # Calculated from 3.755g in 149g: (3.755/149)*100. Source: https://cloudcookbook.jeffdelaney.com/usdafoods/15088/nutrition
+    glutamic_acid: 3.6738 # Calculated from 5.474g in 149g: (5.474/149)*100. Source: https://cloudcookbook.jeffdelaney.com/usdafoods/15088/nutrition
+    glycine: 1.1812 # Calculated from 1.76g in 149g: (1.76/149)*100. Source: https://cloudcookbook.jeffdelaney.com/usdafoods/15088/nutrition
+    proline: 0.87 # Calculated from 1.296g in 149g: (1.296/149)*100. Source: https://cloudcookbook.jeffdelaney.com/usdafoods/15088/nutrition
+    serine: 1.004 # Calculated from 1.496g in 149g: (1.496/149)*100. Source: https://cloudcookbook.jeffdelaney.com/usdafoods/15088/nutrition

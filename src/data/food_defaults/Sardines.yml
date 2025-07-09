@@ -1,0 +1,95 @@
+# used Gemini for now, no deep research (cause didn't use the right result format)
+# jusr used the first result for now, low verification
+
+acceptable:
+comment:
+                              # unit: kcal
+calories: 221                 # https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+
+nutritionalValues:            # unit: g
+
+  fat: 13.90                  # https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  saturatedFat: 2.48          # https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  monoUnsaturated: 5.85       # https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  polyUnsaturated: 3.26       # https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  carbs: 0.00                 # https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  sugar: 0.00                 # https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  sugarAlcohol: 0             # https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php (Summe Zuckeralkohole: 0.00 mg, converted to g is 0)
+  fibre: 0.00                 # https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  amino: 24.10                # Sum of "Eiweiß" (Protein) from https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  salt: 0.93                  # Calculation from Sodium (Natrium 366.00 mg * 2.54 / 1000 = 0.92964 g) from https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+
+fattyAcids:                   # unit: g
+
+  Alpha-linolenic acid: 0.15  # "Linolensäure" from https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Docosahexaenoic acid: 1.24  # "C22:6 N-3 Fettsäure" from https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Linoleic acid: 0.30         # "Linolsäure" from https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+
+carbs:                        # unit: g
+ 
+  Fiber: 0.00                 # "Ballaststoffe gesamt" from https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+
+aminoAcids:                   # unit: mg
+ 
+  Histidine: 530              # https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Isoleucine: 1120            # https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Leucine: 1910               # https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Lysine: 2240                # https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Methionine: 740             # https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Phenylalanine: 890          # https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Threonine: 1130             # https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Tryptophan: 210             # https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Valine: 1300                # https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+
+vitamins:                     # unit: mg
+ 
+  Vitamin A: 0.05             # "Vitamin A Retinol" from https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Vitamin D: 0.00497          # "Vitamin D" (4.97 µg converted to mg) from https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Vitamin E: 7.42             # "Vitamin E Aktiv." from https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Vitamin K: 0.001            # "Vitamin K" (1.00 µg converted to mg) from https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Vitamin C: 0.22             # https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Thiamin B1: 0.04            # https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Riboflavin B2: 0.30         # https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Niacin B3: 9.98             # "Niacinäquivalent" (9980.00 µg converted to mg) from https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Pantothenic acid B5: 0.51   # https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Vitamin B6: 0.22            # https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Biotin B7: 0.009            # "Biotin" (9.00 µg converted to mg) from https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Folate B9: 0.008            # "Folsäure" (8.00 µg converted to mg) from https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Vitamin B12: 0.0002         # "Vitamin B12" (0.20 µg converted to mg) from https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+
+minerals:                     # default unit: mg except for Salt, Potassium and Calcium where grams need to be used
+ 
+  Salt: 0.93                  # Calculation from Sodium (Natrium 366.00 mg * 2.54 / 1000 = 0.92964 g) from https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Potassium: 0.388            # "Kalium" (388.00 mg converted to g) from https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Calcium: 0.33               # "Calcium" (330.00 mg converted to g) from https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Phosphorus: 430             # https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Magnesium: 24               # https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Iron: 2.7                   # https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Iodine: 0.096               # "Jodid" (96.00 µg converted to mg) from https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Fluoride: 0.53              # "Fluorid" (530.00 µg converted to mg) from https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Zinc: 1.43                  # https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Selenium: 0.0527            # From Wikipedia (52.7 µg converted to mg) https://en.wikipedia.org/wiki/Sardines_as_food
+  Copper: 0.04                # "Kupfer" (40.00 µg converted to mg) from https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Chromium: 0                 # Missing in the German source or common supplementary sources.
+  Manganese: 0.11             # "Mangan" (110.00 µg converted to mg) from https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Molybdenum: 0               # Missing in the German source or common supplementary sources.
+
+# secondary:
+
+misc:                         # unit: ml or g
+
+  water: 58.38                # https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  alcohol: 0.00               # https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  caffeine: 0                 # Not applicable for sardines.
+
+sources:
+
+  - title: Gemini, no deep research (cause didn't use the right result format)
+  - title: Ernaehrung.de
+    comment: Nutritional values for "Sardine Konserve in Öl, abgetropft" (Canned sardines in oil, drained), based on Bundeslebensmittelschlüssel 3.02 and Souci-Fachmann-Kraut, Nährwert-Tabellen 7. Auflage (2008).
+    source: https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  - title: Wikipedia
+    comment: Used for Selenium value as it was not explicitly listed in the primary German source.
+    source: https://en.wikipedia.org/wiki/Sardines_as_food
+
+lastUpd: 2025-07-09
