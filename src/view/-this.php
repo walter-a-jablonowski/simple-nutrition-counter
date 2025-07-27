@@ -127,6 +127,7 @@ else:
 <script src="lib/frm/YAMLish_241016.js"></script>
 <script src="lib/frm/send_240420.js"></script>
 <!-- <script src="lib/frm/fade_230808.js"></script> -->
+<script src="app.js?v=<?= time() ?>"></script>
 <script src="MainController.js?v=<?= time() ?>"></script>
 <!-- <script src="SettingsController.js?v=<?= time() ?>"></script> -->
 <script>
@@ -142,6 +143,8 @@ ready( function() {
   mainCrl = new MainController()
   mainCrl.date = '<?= $this->date ?>'
   mainCrl.updSummary()
+  
+  setupTabletErrorHandler()
 })
 
 </script>

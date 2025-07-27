@@ -34,7 +34,6 @@ class MainController
     let crl = this
 
 
-    // Initialize swipe gestures for tab navigation
     this.initTabSwipeGestures()
     
     // BS init
