@@ -122,13 +122,16 @@ Meals:
     list:
 
       - Ritter Sp 74%
-
       - Ritter Sp 61%      # less
       - Ritter Sp 50%
+
       - Duplo
       - Kinderriegel
-      - Ferrero Kuesschen
       - Hanuta
+      - Ferrero Kuesschen
+      - Snickers
+      - Löschzwerg R
+      - Karamalz
 
   Cheat day (color:#ff69b4):
 
@@ -348,7 +351,10 @@ On the go:
     list:
 
       - Riegel Seitenb Sch
+      - Duplo
+      - Kinderriegel
       - Hanuta
+      - Ferrero Kuesschen
       - Snickers
       - Löschzwerg R
       - Karamalz
