@@ -1,0 +1,29 @@
+
+productName:       "Nur Nur Natur Bio Das Pure Ölsaaten"
+vendor:            Aldi
+
+acceptable:        occasionally
+certificates:      { bio: true, vegan: true, NutriScore: B }
+ingredients:       "Wasser, 27 % Haferkerne, 13 % Sonnenblumenkerne, Apfelessig, 9% Leinsaat, 7 % Kürbiskerne, Flohsamenschalen, 2% Haferflocken, Steinsalz"
+allergy:           "Haferkerne"
+mayContain:        "Schalenfrüchte, Sesam, Soja"
+packaging:         plastic
+
+price:             1.75  # TASK: unverified
+weight:            300g
+pieces:            5     # TASK: unverified
+
+calories:          296
+nutritionalValues: 
+
+  fat:             18.1
+  saturatedFat:    2.5
+  carbs:           18.3
+  sugar:           0.7
+  fibre:           8.1
+  amino:           10.9
+  salt:            1.03
+
+sources:           { nutriVal: "pack" }
+lastUpd:           2025-07-27
+lastPriceUpd:      2025-07-27
