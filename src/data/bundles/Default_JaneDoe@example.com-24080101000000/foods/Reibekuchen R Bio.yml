@@ -1,0 +1,28 @@
+
+vendor:            Rewe
+url:               "https://shop.rewe.de/p/rewe-bio-kartoffelpuffer-600g-10-stueck/8393848"
+
+acceptable:        occasionally
+certificates:      { bio: true, vegan: true, NutriScore: C }
+ingredients:       "Kartoffeln¹ 90%, Kartoffelstärke¹, Kartoffelflocken¹, Meersalz, Rapsöl¹, Zwiebelpulver¹, Pfeffer¹, Antioxidationsmittel (Ascorbinsäure), Dextrose¹."
+packaging:         cardboard
+
+price:             3.49
+weight:            600g
+pieces:            10
+usedAmounts:       [1, 2, 3]
+
+calories:          96
+nutritionalValues:
+
+  fat:             0.4
+  saturatedFat:    0.1
+  carbs:           20
+  sugar:           0.5
+  fibre:           2
+  amino:           2
+  salt:            0.8
+
+sources:           { nutriVal: "web" }
+lastUpd:           2025-08-04
+lastPriceUpd:      2025-08-04
