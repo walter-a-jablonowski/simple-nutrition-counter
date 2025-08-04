@@ -1,4 +1,5 @@
-// Tablet detection function
+// JS error overlay for tabs
+// TASK: Tab check removed for now
 
 function isTablet()
 {
@@ -20,11 +21,9 @@ function isTablet()
   return isTabletUA || (isTabletSize && hasTouch)
 }
 
-// Error overlay functionality for tablets
-
 function createErrorOverlay()
 {
-  if( ! isTablet() ) return
+  // if( ! isTablet() ) return
   
   // Create overlay container
   const overlay = document.createElement('div')
@@ -113,10 +112,9 @@ function createErrorOverlay()
   return overlay
 }
 
-// Global error handler for tablets
 function setupTabletErrorHandler()
 {
-  if( ! isTablet() ) return
+  // if( ! isTablet() ) return
   
   const overlay = createErrorOverlay()
   if( ! overlay ) return
