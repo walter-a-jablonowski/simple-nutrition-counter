@@ -101,8 +101,8 @@ class AppController extends ControllerBase
     $parsedFile = parse_data_file($fileContent);
     
     $this->dayFileHeaders = $parsedFile['headers'];
-    $this->dayEntriesTxt = trim($parsedFile['data'], "\n");
-    $this->dayEntries    = parse_tsv( $this->dayEntriesTxt, self::DAY_HEADERS );
+    $this->dayEntriesTxt  = trim($parsedFile['data'], "\n");
+    $this->dayEntries     = parse_tsv( $this->dayEntriesTxt, self::DAY_HEADERS );
 
     foreach( $this->dayEntries as $idx => &$entry )
       $entry['nutrients'] = Yaml::parse( $entry['nutrients'] );
