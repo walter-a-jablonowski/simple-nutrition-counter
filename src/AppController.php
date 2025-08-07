@@ -28,6 +28,7 @@ class AppController extends ControllerBase
   use LastDaysView;
 
   use SaveDayEntriesAjaxController;
+  use UpdateUnpreciseHeaderAjaxController;
   use ChangeUserAjaxController;
   use SavePriceAjaxController;
 
@@ -101,6 +102,7 @@ class AppController extends ControllerBase
     $parsedFile  = parse_data_file($fileContent);
     
     $this->dayFileHeaders = $parsedFile['headers'];
+    $this->isUnprecise    = isset($parsedFile['headers']['unprecise']) && $parsedFile['headers']['unprecise'];
     $this->dayEntriesTxt  = trim($parsedFile['data'], "\n");
     $this->dayEntries     = parse_tsv( $this->dayEntriesTxt, self::DAY_HEADERS );
 

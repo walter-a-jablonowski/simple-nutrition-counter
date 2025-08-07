@@ -16,6 +16,7 @@ class MainController
     this.userSelectChange       = this.userSelectChange.bind(this)
     this.switchDayBtnClick      = this.switchDayBtnClick.bind(this)
     this.settingsBtnClick       = this.settingsBtnClick.bind(this)
+    this.toggleUnpreciseMode    = this.toggleUnpreciseMode.bind(this)
     this.deleteLastLineBtnClick = this.deleteLastLineBtnClick.bind(this)
     this.saveDayEntriesBtnClick = this.saveDayEntriesBtnClick.bind(this)
     this.newEntryBtn            = this.newEntryBtn.bind(this)
@@ -270,6 +271,43 @@ class MainController
 
 
   // List: btns
+
+  toggleUnpreciseMode(event)
+  {
+    event.preventDefault()
+    
+    const btn = query('#unpreciseToggleBtn')
+    const icon = btn.querySelector('i')
+    const isCurrentlyOn = icon.classList.contains('bi-toggle-on')
+    const newState = !isCurrentlyOn
+    
+    // Toggle button appearance
+    if( isCurrentlyOn )
+    {
+      // Turn off: gray toggle-off icon
+      icon.className = 'bi bi-toggle-off text-secondary'
+    }
+    else
+    {
+      // Turn on: colored toggle-on icon
+      icon.className = 'bi bi-toggle-on text-primary'
+    }
+    
+    // Update the data file header via AJAX
+    ajax.send('updateUnpreciseHeader', { date: this.date, unprecise: newState }, function(result, data) {
+      if( result !== 'success' )
+      {
+        console.error('Failed to update unprecise header:', data.message || 'Unknown error')
+        // Revert button state on error
+        const btn = query('#unpreciseToggleBtn')
+        const icon = btn.querySelector('i')
+        if( newState )
+          icon.className = 'bi bi-toggle-off text-secondary'
+        else
+          icon.className = 'bi bi-toggle-on text-primary'
+      }
+    })
+  }
 
   deleteLastLineBtnClick(event)
   {
