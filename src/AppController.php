@@ -97,7 +97,11 @@ class AppController extends ControllerBase
 
     // Edit tab: Day entries
 
-    $this->dayEntriesTxt = trim( @file_get_contents('data/users/' . $config->get('defaultUser') . "/days/{$this->date}.tsv") ?: '', "\n");
+    $fileContent = @file_get_contents('data/users/' . $config->get('defaultUser') . "/days/{$this->date}.tsv") ?: '';
+    $parsedFile = parse_file_with_headers($fileContent);
+    
+    $this->dayFileHeaders = $parsedFile['headers'];
+    $this->dayEntriesTxt = trim($parsedFile['data'], "\n");
     $this->dayEntries    = parse_tsv( $this->dayEntriesTxt, self::DAY_HEADERS );
 
     foreach( $this->dayEntries as $idx => &$entry )

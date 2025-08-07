@@ -1,9 +1,10 @@
 <?php
 
+// Layout file
+
 // TASK: mov in some lib
 // TASK: (advanced) make reusable (maybe recursive via AI)
 // TASK: (advanced) we could add a skip keys arg for (first_entries) is we use this
-
 function parse_attribs( string $attribsKey, array $largeAttribKeys, array $array)  // TASK: maybe some arg for first_entries
 {
   $r = [];
@@ -61,6 +62,108 @@ function parse_attribs( string $attribsKey, array $largeAttribKeys, array $array
   return $r;
 }
 
+// Data files
+
+/**
+ * Parse file headers from TSV content
+ * Headers are name-value pairs separated from data by an empty line
+ * Returns array with 'headers' and 'data' keys
+ */
+function parse_file_with_headers( $fileContent )
+{
+  $lines = explode("\n", $fileContent);
+  $headers = [];
+  $dataStartIndex = 0;
+  $foundEmptyLine = false;
+  
+  // Look for empty line that separates headers from data
+  for( $i = 0; $i < count($lines); $i++ )
+  {
+    $line = trim($lines[$i]);
+    
+    if( $line === '' )
+    {
+      $foundEmptyLine = true;
+      $dataStartIndex = $i + 1;
+      break;
+    }
+    
+    // Check if line looks like a header (contains colon and doesn't look like TSV data)
+    if( strpos($line, ':') !== false && !looks_like_tsv_data($line) )
+    {
+      list($key, $value) = explode(':', $line, 2);
+      $key = trim($key);
+      $value = trim($value);
+      
+      // Convert value to appropriate type
+      $headers[$key] = parse_header_value($value);
+    }
+    else
+    {
+      // No colon found or looks like TSV data, assume this is data, not headers
+      $dataStartIndex = 0;
+      break;
+    }
+  }
+  
+  // If we found headers but no empty line separator, it's probably not headers
+  if( !empty($headers) && !$foundEmptyLine )
+  {
+    $headers = [];
+    $dataStartIndex = 0;
+  }
+  
+  // Extract data lines
+  $dataLines = array_slice($lines, $dataStartIndex);
+  $dataContent = implode("\n", $dataLines);
+  
+  return [
+    'headers' => $headers,
+    'data' => trim($dataContent, "\n")
+  ];
+}
+
+/**
+ * Check if a line looks like TSV data rather than a header
+ * TSV data typically contains time stamps and multiple whitespace-separated values
+ */
+function looks_like_tsv_data( $line )
+{
+  // Check for time pattern (HH:MM:SS or --:--:--)
+  if( preg_match('/^\d{2}:\d{2}:\d{2}/', $line) || preg_match('/^--:--:--/', $line) )
+    return true;
+    
+  // Check for multiple consecutive spaces (typical TSV formatting)
+  if( preg_match('/\s{2,}/', $line) )
+    return true;
+    
+  return false;
+}
+
+/**
+ * Parse header value to appropriate type (int, float, bool, string)
+ */
+function parse_header_value( $value )
+{
+  // Boolean values
+  if( strtolower($value) === 'true' )
+    return true;
+  if( strtolower($value) === 'false' )
+    return false;
+    
+  // Numeric values
+  if( is_numeric($value) )
+  {
+    if( strpos($value, '.') !== false )
+      return (float)$value;
+    else
+      return (int)$value;
+  }
+  
+  // String value
+  return $value;
+}
+
 function parse_tsv( $entriesTxt, $header )
 {
   $r = [];
@@ -81,6 +184,25 @@ function parse_tsv( $entriesTxt, $header )
   }
 
   return $r;
+}
+
+/**
+ * Format headers back to string format for saving
+ */
+function format_headers_to_string( $headers )
+{
+  if( empty($headers) )
+    return '';
+    
+  $headerLines = [];
+  foreach( $headers as $key => $value )
+  {
+    if( is_bool($value) )
+      $value = $value ? 'true' : 'false';
+    $headerLines[] = "$key: $value";
+  }
+  
+  return implode("\n", $headerLines) . "\n\n";
 }
 
 /*@
