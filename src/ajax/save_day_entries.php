@@ -17,7 +17,7 @@ trait SaveDayEntriesAjaxController
     // Read existing file to preserve headers
     $filePath = 'data/users/' . $config->get('defaultUser') . "/days/$request[date].tsv";
     $existingContent = @file_get_contents($filePath) ?: '';
-    $parsedFile = parse_file_with_headers($existingContent);
+    $parsedFile = parse_data_file($existingContent);
     
     // Combine preserved headers with new data
     $headersString = format_headers_to_string($parsedFile['headers']);

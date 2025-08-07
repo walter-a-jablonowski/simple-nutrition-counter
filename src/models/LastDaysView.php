@@ -25,7 +25,7 @@ trait LastDaysView
 
       $i++;  if( $i > 30 )  break;  // leave here cause of first day hidden
       $fileContent = file_get_contents('data/users/' . $config->get('defaultUser') . "/days/$file");
-      $parsedFile = parse_file_with_headers($fileContent);
+      $parsedFile = parse_data_file($fileContent);
       $entries = parse_tsv( $parsedFile['data'], self::DAY_HEADERS);
 
       // foreach( $entries as $idx => $entry)  // TASK: for fibre

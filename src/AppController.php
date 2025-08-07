@@ -98,7 +98,7 @@ class AppController extends ControllerBase
     // Edit tab: Day entries
 
     $fileContent = @file_get_contents('data/users/' . $config->get('defaultUser') . "/days/{$this->date}.tsv") ?: '';
-    $parsedFile = parse_file_with_headers($fileContent);
+    $parsedFile = parse_data_file($fileContent);
     
     $this->dayFileHeaders = $parsedFile['headers'];
     $this->dayEntriesTxt = trim($parsedFile['data'], "\n");
@@ -118,7 +118,7 @@ class AppController extends ControllerBase
     foreach( $this->layout as $tab => $layout )
     {
       $this->layout[$tab] =
-        $layout = parse_attribs('@attribs', ['short', '(i)'], $layout);
+        $layout = parse_layout_attribs('@attribs', ['short', '(i)'], $layout);
 
       foreach( $layout as $group => $entries )
       {

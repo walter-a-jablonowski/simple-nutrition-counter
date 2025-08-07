@@ -5,7 +5,7 @@
 // TASK: mov in some lib
 // TASK: (advanced) make reusable (maybe recursive via AI)
 // TASK: (advanced) we could add a skip keys arg for (first_entries) is we use this
-function parse_attribs( string $attribsKey, array $largeAttribKeys, array $array)  // TASK: maybe some arg for first_entries
+function parse_layout_attribs( string $attribsKey, array $largeAttribKeys, array $array)  // TASK: maybe some arg for first_entries
 {
   $r = [];
 
@@ -68,10 +68,10 @@ function parse_attribs( string $attribsKey, array $largeAttribKeys, array $array
  * Parse file headers from TSV content
  * Headers are name-value pairs separated from data by an empty line
  */
-function parse_file_with_headers( $fileContent )
+function parse_data_file( $fileContent )
 {
-  $lines = explode("\n", $fileContent);
-  $headers = [];
+  $lines     = explode("\n", $fileContent);
+  $headers   = [];
   $dataStart = 0;
   
   foreach( $lines as $i => $line )
@@ -86,7 +86,7 @@ function parse_file_with_headers( $fileContent )
     
     if( strpos($line, ':') !== false && !preg_match('/^(\d{2}:|--:)/', $line) )
     {
-      list($key, $value) = explode(':', $line, 2);
+      [$key, $value] = explode(':', $line, 2);
       $headers[trim($key)] = parse_header_value(trim($value));
     }
     else
@@ -97,9 +97,10 @@ function parse_file_with_headers( $fileContent )
   }
   
   $dataLines = array_slice($lines, $dataStart);
+
   return [
     'headers' => $headers,
-    'data' => trim(implode("\n", $dataLines), "\n")
+    'data' => trim( implode("\n", $dataLines), "\n")
   ];
 }
 
@@ -109,9 +110,9 @@ function parse_file_with_headers( $fileContent )
 function parse_header_value( $value )
 {
   $lower = strtolower($value);
-  if( $lower === 'true' ) return true;
-  if( $lower === 'false' ) return false;
-  if( is_numeric($value) ) return strpos($value, '.') !== false ? (float)$value : (int)$value;
+  if( $lower === 'true' )   return true;
+  if( $lower === 'false' )  return false;
+  if( is_numeric($value) )  return strpos($value, '.') !== false ? (float)$value : (int)$value;
   return $value;
 }
 
