@@ -215,15 +215,15 @@ main {
 
 /* Color utility classes to apply in HTML on widgets */
 .nutrition-widgets .nutrition-widget.widget-red {
-  background-color: #dc3545;
-  color: #fff;
-  border-color: #dc3545;
+  background-color: #f1aeb5; /* slightly more intense red */
+  color: #842029;            /* readable text on red */
+  border-color: #f1aeb5;
 }
 
 .nutrition-widgets .nutrition-widget.widget-green {
-  background-color: #198754;
-  color: #fff;
-  border-color: #198754;
+  background-color: #a3cfbb; /* slightly more intense green */
+  color: #0f5132;            /* readable text on green */
+  border-color: #a3cfbb;
 }
 
 /* Light yellow background for informational/neutral emphasis */
