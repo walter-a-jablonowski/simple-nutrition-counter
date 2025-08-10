@@ -9,7 +9,7 @@ html, body {
   padding: 0;
 }
 
-/* Prevent content overflow */
+/* Prevent content overflow and ensure consistent box model */
 * {
   max-width: 100%;
   box-sizing: border-box;
@@ -152,23 +152,27 @@ main {
 
 .nutrition-widgets .scroll-arrow {
   position: absolute;
-  right: 10px; /* Shifted left to avoid being hidden under the sidebar */
+  right: 10px; /* Positioned to avoid sidebar overlap */
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
   border-radius: 50%;
   width: 32px;
   height: 32px;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   z-index: 10;
   cursor: pointer;
   opacity: 0;
-  transition: opacity 0.3s ease;
-  border: none;
-  padding: 0;
+  transition: opacity 0.3s ease, background-color 0.2s ease;
+}
+
+.nutrition-widgets .scroll-arrow:hover {
+  background-color: rgba(255, 255, 255, 1);
 }
 
 .nutrition-widgets .scroll-arrow.visible {
@@ -185,9 +189,9 @@ main {
   display: flex;
   flex-wrap: nowrap;
   gap: 1rem;
-  width: max-content;         /* grow to fit all widgets */
-  min-width: 100%;            /* but not smaller than viewport */
-  padding: 0.25rem 0; /* Add some vertical padding */
+  width: max-content; /* Grow to fit all widgets */
+  min-width: 100%; /* But not smaller than viewport */
+  padding: 0.25rem 0; /* Vertical padding for better spacing */
 }
 
 .nutrition-widgets .nutrition-widget {
@@ -298,16 +302,19 @@ main {
    ====================================== */
 
 @media (max-width: 767.98px) {
-  /* Main layout adjustments */
+  /* Mobile specific styles */
   main {
     padding-right: 0 !important;
-    padding-bottom: 56px !important; /* Account for bottom nav */
+    padding-bottom: 56px; /* Account for bottom navigation height */
   }
   
-  /* Content wrapper adjustments for mobile */
   .right-column .content-wrapper {
-    padding-bottom: 56px; /* Additional padding to prevent content being hidden */
-    max-width: 100%; /* Remove spacing since there's no sidebar on mobile */
+    max-width: 100%;
+  }
+  
+  #favoritesLayout {
+    padding-right: 0 !important;
+    padding-bottom: 56px; /* Account for bottom navigation height */
   }
   
   /* Column adjustments */
