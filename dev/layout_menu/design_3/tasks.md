@@ -1,4 +1,5 @@
 
+see ai.md
 added insert points in code as TASK
 
 - TASK: right layout col devides in goals and food layout, in mobile left and right are visible but food layout is hidden
