@@ -1,101 +1,128 @@
-document.addEventListener('DOMContentLoaded', function() {
+class NutritionWidgetsController {
 
-  // Get the nutrition widgets container and scroll arrow
+  constructor(root = document)
+  {
+    this.root = root;
 
-  const widgetsContainer = document.querySelector('.nutrition-widgets .overflow-auto');
-  const scrollArrow      = document.querySelector('.nutrition-widgets .scroll-arrow');
-  
-  // Mobile caret button functionality
+    // Elements
+    this.widgetsContainer = this.root.querySelector('.nutrition-widgets .overflow-auto');
+    this.scrollArrow      = this.root.querySelector('.nutrition-widgets .scroll-arrow');
+    this.mobileCaretBtn   = this.root.querySelector('.mobile-caret-btn');
 
-  const mobileCaretBtn = document.querySelector('.mobile-caret-btn');
-  if( mobileCaretBtn ) {
-    mobileCaretBtn.addEventListener('click', function() {
-      // Toggle the caret icon between down and up
-      const caretIcon = this.querySelector('i');
+    // State
+    this.lastScrollPosition = 0;
+    this.userHasScrolled = false;
+
+    // Bind handlers
+    this._onResize           = this._onResize.bind(this);
+    this._onScroll           = this._onScroll.bind(this);
+    this._onArrowClick       = this._onArrowClick.bind(this);
+    this._onMobileCaretClick = this._onMobileCaretClick.bind(this);
+
+    this.init();
+  }
+
+  init()
+  {
+    if( ! this.widgetsContainer || ! this.scrollArrow )
+      return; // nth to wire up
+
+    // Mobile caret button
+    if( this.mobileCaretBtn )
+      this.mobileCaretBtn.addEventListener('click', this._onMobileCaretClick);
+
+    // Core listeners
+    window.addEventListener('resize', this._onResize);
+    this.widgetsContainer.addEventListener('scroll', this._onScroll);
+    this.scrollArrow.addEventListener('click', this._onArrowClick);
+
+    // Initial visibility check after render
+    setTimeout(() => this.checkScroll(), 100);
+  }
+
+  _onMobileCaretClick(event)
+  {
+    // Toggle the caret icon between down and up
+    const caretIcon = event.currentTarget.querySelector('i');
+    if( caretIcon )
+    {
       if( caretIcon.classList.contains('bi-caret-down') ) {
         caretIcon.classList.remove('bi-caret-down');
         caretIcon.classList.add('bi-caret-up');
-      } else {
+      }
+      else {
         caretIcon.classList.remove('bi-caret-up');
         caretIcon.classList.add('bi-caret-down');
       }
-      
-      // Toggle visibility of the nutrition widgets section
-      const nutritionWidgets = document.querySelector('.nutrition-widgets');
-      if( nutritionWidgets ) {
-        if( nutritionWidgets.style.display === 'none' ) {
-          nutritionWidgets.style.display = '';
-        } else {
-          nutritionWidgets.style.display = 'none';
-        }
-      }
-    });
+    }
+
+    // Toggle visibility of the nutrition widgets section
+    const nutritionWidgets = this.root.querySelector('.nutrition-widgets');
+    if( nutritionWidgets )
+      nutritionWidgets.style.display = nutritionWidgets.style.display === 'none' ? '' : 'none';
   }
-  
-  // Track scroll position to hide arrow after user starts scrolling
 
-  let lastScrollPosition = 0;
-  let userHasScrolled = false;
-  
-  // Function to check if scrolling is needed and update arrow visibility
-
-  function checkScroll() {
-    // If user has manually scrolled more than 20px, hide the arrow
-    if (userHasScrolled && widgetsContainer.scrollLeft > 20) {
-      scrollArrow.classList.remove('visible');
-      return;
-    }
-    
-    if(widgetsContainer.scrollWidth > widgetsContainer.clientWidth) {
-      // Content is wider than container, show arrow
-      scrollArrow.classList.add('visible');
-    } else {
-      // No scrolling needed, hide arrow
-      scrollArrow.classList.remove('visible');
-    }
-    
-    // Hide arrow if scrolled to the end
-    if(widgetsContainer.scrollLeft + widgetsContainer.clientWidth >= widgetsContainer.scrollWidth - 10) {
-      scrollArrow.classList.remove('visible');
-    }
-  }
-  
-  // Check on load
-
-  setTimeout( checkScroll, 100);  // small delay to ensure content is fully rendered
-  
-  // Check on window resize
-
-  window.addEventListener('resize', function() {
+  _onResize()
+  {
     // Reset user scroll state on resize
-    userHasScrolled = false;
-    lastScrollPosition = widgetsContainer.scrollLeft;
-    checkScroll();
-  });
-  
-  // Handle scroll events
+    this.userHasScrolled = false;
+    this.lastScrollPosition = this.widgetsContainer.scrollLeft;
+    this.checkScroll();
+  }
 
-  widgetsContainer.addEventListener('scroll', function() {
+  _onScroll()
+  {
     // Detect if this is a user-initiated scroll
-    if (Math.abs(widgetsContainer.scrollLeft - lastScrollPosition) > 5) {
-      userHasScrolled = true;
+    if (Math.abs(this.widgetsContainer.scrollLeft - this.lastScrollPosition) > 5) {
+      this.userHasScrolled = true;
     }
-    
-    lastScrollPosition = widgetsContainer.scrollLeft;
-    checkScroll();
-  });
-  
-  // Handle click on arrow to scroll right
+    this.lastScrollPosition = this.widgetsContainer.scrollLeft;
+    this.checkScroll();
+  }
 
-  scrollArrow.addEventListener('click', function() {
-    widgetsContainer.scrollBy({ 
+  _onArrowClick()
+  {
+    this.widgetsContainer.scrollBy({ 
       left: 200, 
       behavior: 'smooth' 
     });
-    
     // This is not a user-initiated scroll
-    setTimeout(function() {
-      lastScrollPosition = widgetsContainer.scrollLeft;
+    setTimeout(() => {
+      this.lastScrollPosition = this.widgetsContainer.scrollLeft;
     }, 500);
-  });
-});
+  }
+
+  checkScroll()
+  {
+    // If user has manually scrolled more than 20px, hide the arrow
+    if( this.userHasScrolled && this.widgetsContainer.scrollLeft > 20) {
+      this.scrollArrow.classList.remove('visible');
+      return;
+    }
+
+    if( this.widgetsContainer.scrollWidth > this.widgetsContainer.clientWidth)
+      // Content is wider than container, show arrow
+      this.scrollArrow.classList.add('visible');
+    else
+      // No scrolling needed, hide arrow
+      this.scrollArrow.classList.remove('visible');
+
+    // Hide arrow if scrolled to the end
+    if (this.widgetsContainer.scrollLeft + this.widgetsContainer.clientWidth >= this.widgetsContainer.scrollWidth - 10)
+      this.scrollArrow.classList.remove('visible');
+  }
+
+  destroy()
+  {
+    if( this.mobileCaretBtn )
+      this.mobileCaretBtn.removeEventListener('click', this._onMobileCaretClick);
+
+    window.removeEventListener('resize', this._onResize);
+
+    if( this.widgetsContainer )
+      this.widgetsContainer.removeEventListener('scroll', this._onScroll);
+
+    if( this.scrollArrow )
+      this.scrollArrow.removeEventListener('click', this._onArrowClick);
+  }
+}
