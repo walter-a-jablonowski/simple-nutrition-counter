@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Radial Menu • gpt-5-high</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="page-header">
+    <h1>Radial Menu</h1>
+    <div class="actions">
+      <label class="ref-toggle">
+        <input id="refChk" type="checkbox"> Show reference
+      </label>
+    </div>
+  </header>
+
+  <aside id="refPane" class="ref-pane" aria-hidden="true">
+    <img src="../menu.jpg" alt="Reference menu design">
+  </aside>
+
+  <div class="radial-menu" id="radialMenu" aria-label="Radial Navigation">
+    <div class="sector" id="sector" aria-hidden="true"></div>
+    <div class="level level-1" id="level1" aria-label="Level 1"></div>
+    <div class="level level-2" id="level2" aria-label="Level 2"></div>
+    <button class="fab" id="fab" aria-label="Open menu" title="Open menu">+</button>
+  </div>
+
+  <script src="controller.js" defer></script>
+</body>
+</html>
