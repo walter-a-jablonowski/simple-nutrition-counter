@@ -8,16 +8,19 @@ class NutritionWidgetsController {
     this.widgetsContainer = this.root.querySelector('.nutrition-widgets .overflow-auto');
     this.scrollArrow      = this.root.querySelector('.nutrition-widgets .scroll-arrow');
     this.mobileCaretBtn   = this.root.querySelector('.mobile-caret-btn');
+    this.navLinks         = this.root.querySelectorAll('[data-nav]');
 
     // State
     this.lastScrollPosition = 0;
     this.userHasScrolled = false;
+    this.currentNav = 'day';
 
     // Bind handlers
     this._onResize           = this._onResize.bind(this);
     this._onScroll           = this._onScroll.bind(this);
     this._onArrowClick       = this._onArrowClick.bind(this);
     this._onMobileCaretClick = this._onMobileCaretClick.bind(this);
+    this._onNavClick         = this._onNavClick.bind(this);
 
     this.init();
   }
@@ -30,6 +33,11 @@ class NutritionWidgetsController {
     // Mobile caret button
     if( this.mobileCaretBtn )
       this.mobileCaretBtn.addEventListener('click', this._onMobileCaretClick);
+
+    // Navigation links
+    this.navLinks.forEach(link => {
+      link.addEventListener('click', this._onNavClick);
+    });
 
     // Core listeners
     window.addEventListener('resize', this._onResize);
@@ -124,5 +132,62 @@ class NutritionWidgetsController {
 
     if( this.scrollArrow )
       this.scrollArrow.removeEventListener('click', this._onArrowClick);
+  }
+
+  _onNavClick(event)
+  {
+    event.preventDefault();
+    
+    const navType = event.currentTarget.getAttribute('data-nav');
+    if( navType === this.currentNav )
+      return; // Already active
+    
+    this.switchToNav(navType);
+  }
+
+  switchToNav(navType)
+  {
+    // Update active nav link
+    this.navLinks.forEach(link => {
+      link.classList.remove('active');
+      if( link.getAttribute('data-nav') === navType )
+        link.classList.add('active');
+    });
+
+    // Get content elements
+    const mainLayout = document.getElementById('main-layout');
+    const favoritesLayout = document.getElementById('favorites-layout');
+    const rightContent = document.getElementById('right-content');
+    const dayContent = document.getElementById('day-content');
+    const nutrientsContent = document.getElementById('nutrients-content');
+
+    if( navType === 'day' )
+    {
+      // Show main layout, hide favorites layout
+      mainLayout.classList.remove('d-none');
+      favoritesLayout.classList.add('d-none');
+      
+      // Show day content, hide nutrients content
+      dayContent.classList.remove('d-none');
+      nutrientsContent.classList.add('d-none');
+    }
+    else if( navType === 'nutrients' )
+    {
+      // Show main layout, hide favorites layout
+      mainLayout.classList.remove('d-none');
+      favoritesLayout.classList.add('d-none');
+      
+      // Hide day content, show nutrients content
+      dayContent.classList.add('d-none');
+      nutrientsContent.classList.remove('d-none');
+    }
+    else if( navType === 'favorites' )
+    {
+      // Hide main layout, show favorites layout
+      mainLayout.classList.add('d-none');
+      favoritesLayout.classList.remove('d-none');
+    }
+
+    this.currentNav = navType;
   }
 }

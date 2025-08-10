@@ -87,6 +87,13 @@ main {
   padding-right: 60px !important; /* Account for sidebar width */
 }
 
+/* Favorites layout - same padding as main content on desktop */
+@media (min-width: 768px) {
+  #favorites-layout {
+    padding-right: 60px !important; /* Account for sidebar width on desktop */
+  }
+}
+
 /* Fix for content being hidden under sidebar */
 .right-column .content-wrapper {
   max-width: calc(100% - 60px); /* Ensure content doesn't extend under sidebar */
