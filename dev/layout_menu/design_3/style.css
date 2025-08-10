@@ -178,14 +178,14 @@ main {
   display: flex;
   flex-wrap: nowrap;
   gap: 1rem;
-  width: 100%;
-  max-width: calc(100% - 10px); /* Ensure widgets don't extend under sidebar */
-  min-width: max-content;
+  width: max-content;         /* grow to fit all widgets */
+  min-width: 100%;            /* but not smaller than viewport */
   padding: 0.25rem 0; /* Add some vertical padding */
 }
 
 .nutrition-widgets .nutrition-widget {
-  width: 140px;
+  min-width: 140px;
+  width: auto;
   flex: 0 0 auto;
   padding: 0.5rem;
 }
@@ -202,8 +202,8 @@ main {
   border-radius: 4px;
   margin-bottom: 0.25rem;
   white-space: nowrap;       /* keep in one line */
-  overflow: hidden;
-  text-overflow: ellipsis;   /* add ellipsis if too long */
+  overflow: visible;
+  text-overflow: clip;       /* show full text */
 }
 
 /* Value emphasis while inheriting color (white on colored cards) */
@@ -311,15 +311,21 @@ main {
     padding: 0;
   }
   
-  .nutrition-widgets .widgets-container,
+  /* Keep food list constrained, but allow widgets to grow */
   .food-grid .row {
     max-width: calc(100% - 15px);
+  }
+
+  .nutrition-widgets .widgets-container {
+    width: max-content;
+    min-width: 100%;
     gap: 0.75rem; /* Smaller gap on mobile */
   }
   
   /* Mobile-specific widget adjustments */
   .nutrition-widgets .nutrition-widget {
-    width: 120px; /* Slightly smaller on mobile */
+    min-width: 120px; /* baseline, can expand to fit label */
+    width: auto;
   }
   
   /* Nutrition widgets arrow positioning */
