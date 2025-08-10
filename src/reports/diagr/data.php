@@ -2,6 +2,8 @@
 
 use Symfony\Component\Yaml\Yaml;
 
+require_once '../../lib/helper.php';
+
 class DiagramController 
 {
   private $config;
@@ -24,7 +26,8 @@ class DiagramController
       
       $date    = substr($file, 0, 10);
       $content = file_get_contents( $this->sourceDir . '/' . $file);
-      $lines   = explode("\n", $content);
+      $parsedFile = parse_data_file($content);
+      $lines   = explode("\n", $parsedFile['data']);
       
       $daySum = [
         'calories'   => 0,
