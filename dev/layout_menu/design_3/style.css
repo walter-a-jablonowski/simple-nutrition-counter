@@ -213,16 +213,16 @@ main {
   line-height: 1.1;
 }
 
-/* Special backgrounds: kcal (2) red, price (7) green; others remain white */
-.nutrition-widgets .widgets-container .nutrition-widget:nth-child(2) {
-  background-color: #dc3545 !important; /* Bootstrap danger */
-  color: #fff; /* ensure value text readable */
+/* Color utility classes to apply in HTML on widgets */
+.nutrition-widgets .nutrition-widget.widget-red {
+  background-color: #dc3545;
+  color: #fff;
   border-color: #dc3545;
 }
 
-.nutrition-widgets .widgets-container .nutrition-widget:nth-child(7) {
-  background-color: #198754 !important; /* Bootstrap success */
-  color: #fff; /* ensure value text readable */
+.nutrition-widgets .nutrition-widget.widget-green {
+  background-color: #198754;
+  color: #fff;
   border-color: #198754;
 }
 
