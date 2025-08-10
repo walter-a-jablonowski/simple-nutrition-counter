@@ -15,4 +15,3 @@
 
 - [ ] hide the section for the entries instead of the widg
   - for some reason the section is hidden, but the rest of the content doesn't move up on mobile
-
