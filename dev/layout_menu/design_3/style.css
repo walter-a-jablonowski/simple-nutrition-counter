@@ -190,6 +190,42 @@ main {
   padding: 0.5rem;
 }
 
+/* Compact single-line label with grey background and unified size */
+.nutrition-widgets .nutrition-widget .widget-label {
+  display: block;
+  background-color: #f1f3f5; /* grey label bar */
+  color: #495057;
+  font-size: 0.8rem; /* unified label size */
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+  margin-bottom: 0.25rem;
+  white-space: nowrap;       /* keep in one line */
+  overflow: hidden;
+  text-overflow: ellipsis;   /* add ellipsis if too long */
+}
+
+/* Value emphasis while inheriting color (white on colored cards) */
+.nutrition-widgets .nutrition-widget .widget-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+/* Special backgrounds: kcal (2) red, price (7) green; others remain white */
+.nutrition-widgets .widgets-container .nutrition-widget:nth-child(2) {
+  background-color: #dc3545 !important; /* Bootstrap danger */
+  color: #fff; /* ensure value text readable */
+  border-color: #dc3545;
+}
+
+.nutrition-widgets .widgets-container .nutrition-widget:nth-child(7) {
+  background-color: #198754 !important; /* Bootstrap success */
+  color: #fff; /* ensure value text readable */
+  border-color: #198754;
+}
+
 /* ======================================
    FOOD GRID STYLES
    ====================================== */
