@@ -226,6 +226,13 @@ main {
   border-color: #198754;
 }
 
+/* Light yellow background for informational/neutral emphasis */
+.nutrition-widgets .nutrition-widget.widget-yellow {
+  background-color: #fff3cd; /* Bootstrap warning background */
+  color: #664d03;            /* readable text on yellow */
+  border-color: #ffecb5;
+}
+
 /* ======================================
    FOOD GRID STYLES
    ====================================== */
