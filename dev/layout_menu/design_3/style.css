@@ -55,26 +55,26 @@ html, body {
 }
 
 /* Portrait mode navigation (bottom bar) */
-#bottom-nav {
+#bottomNav {
   height: 56px;
   padding: 0;
 }
 
-#bottom-nav .nav-content {
+#bottomNav .nav-content {
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 100%;
 }
 
-#bottom-nav .nav-link {
+#bottomNav .nav-link {
   padding: 8px 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-#bottom-nav .bi {
+#bottomNav .bi {
   font-size: 1.25rem;
 }
 
@@ -89,7 +89,7 @@ main {
 
 /* Favorites layout - same padding as main content on desktop */
 @media (min-width: 768px) {
-  #favorites-layout {
+  #favoritesLayout {
     padding-right: 60px !important; /* Account for sidebar width on desktop */
   }
 }

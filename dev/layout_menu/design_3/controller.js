@@ -155,11 +155,11 @@ class NutritionWidgetsController {
     });
 
     // Get content elements
-    const mainLayout = document.getElementById('main-layout');
-    const favoritesLayout = document.getElementById('favorites-layout');
-    const rightContent = document.getElementById('right-content');
-    const dayContent = document.getElementById('day-content');
-    const nutrientsContent = document.getElementById('nutrients-content');
+    const mainLayout = document.getElementById('mainLayout');
+    const favoritesLayout = document.getElementById('favoritesLayout');
+    const rightContent = document.getElementById('rightContent');
+    const dayContent = document.getElementById('dayContent');
+    const nutrientsContent = document.getElementById('nutrientsContent');
 
     if( navType === 'day' )
     {
