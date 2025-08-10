@@ -23,7 +23,7 @@
 
     <!-- Toggle button for unprecise mode -->
     <button id="unpreciseToggleBtn" onclick="mainCrl.toggleUnpreciseMode(event)" class="btn p-1 border-0 bg-transparent" title="Toggle unprecise mode">
-      <i class="bi bi-bullseye<?= $this->isUnprecise ? ' text-warning' : ' text-secondary' ?>"></i>
+      <i class="bi bi-star-fill<?= $this->isUnprecise ? ' text-warning' : ' text-secondary' ?>"></i>
     </button>
 
     <!-- Backspace button to delete last line -->
