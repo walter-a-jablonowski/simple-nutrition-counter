@@ -317,10 +317,38 @@
     <!-- Favorites layout (hidden by default) -->
     <div class="row g-0 flex-grow-1 h-100 d-none" id="favorites-layout">
       <div class="col-12 h-100">
-        <div class="content-wrapper h-100 overflow-auto d-flex flex-column p-3">
-          <h4 class="mb-3">Favorite Foods & Last Days</h4>
-          
-          <div class="row g-3">
+        <div class="content-wrapper h-100 overflow-auto d-flex flex-column">
+
+          <!-- Header section -->
+          <header class="bg-light border-bottom py-2 px-3 text-break fs-5 d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <i class="bi bi-app"></i>
+              <select class="border-0 fs-5">
+                <option>
+                  Header
+                </option>
+              </select>
+              <button class="btn ms-1 p-1 py-0 border">
+                20.
+              </button>
+            </div>
+            <button class="btn d-md-none p-1 border-0 bg-transparent" title="Toggle unprecise food data">
+              <i class="bi bi-exclamation-circle-fill text-secondary"></i>
+            </button>
+            <button class="btn d-md-none p-1 border-0 bg-transparent">
+              <i class="bi bi-backspace"></i>
+            </button>
+            <button class="btn d-md-none p-1 border-0 bg-transparent">
+              <i class="bi bi-floppy"></i>
+            </button>
+            <button class="mobile-caret-btn d-md-none btn p-1" aria-label="Toggle view">
+              <i class="bi bi-caret-down"></i>
+            </button>
+          </header>
+
+          <!-- Scrollable content area -->
+          <div class="flex-grow-1 overflow-auto p-3">
+            <div class="row g-3">
             <div class="col-md-6">
               <div class="card">
                 <div class="card-header">⭐ Breakfast Favorites</div>
