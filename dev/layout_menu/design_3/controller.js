@@ -1,9 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
+
   // Get the nutrition widgets container and scroll arrow
+
   const widgetsContainer = document.querySelector('.nutrition-widgets .overflow-auto');
-  const scrollArrow = document.querySelector('.nutrition-widgets .scroll-arrow');
+  const scrollArrow      = document.querySelector('.nutrition-widgets .scroll-arrow');
   
   // Mobile caret button functionality
+
   const mobileCaretBtn = document.querySelector('.mobile-caret-btn');
   if( mobileCaretBtn ) {
     mobileCaretBtn.addEventListener('click', function() {
@@ -30,10 +33,12 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   // Track scroll position to hide arrow after user starts scrolling
+
   let lastScrollPosition = 0;
   let userHasScrolled = false;
   
   // Function to check if scrolling is needed and update arrow visibility
+
   function checkScroll() {
     // If user has manually scrolled more than 20px, hide the arrow
     if (userHasScrolled && widgetsContainer.scrollLeft > 20) {
@@ -56,9 +61,11 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   // Check on load
-  setTimeout(checkScroll, 100); // Small delay to ensure content is fully rendered
+
+  setTimeout( checkScroll, 100);  // small delay to ensure content is fully rendered
   
   // Check on window resize
+
   window.addEventListener('resize', function() {
     // Reset user scroll state on resize
     userHasScrolled = false;
@@ -67,6 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   // Handle scroll events
+
   widgetsContainer.addEventListener('scroll', function() {
     // Detect if this is a user-initiated scroll
     if (Math.abs(widgetsContainer.scrollLeft - lastScrollPosition) > 5) {
@@ -78,6 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   // Handle click on arrow to scroll right
+
   scrollArrow.addEventListener('click', function() {
     widgetsContainer.scrollBy({ 
       left: 200, 
