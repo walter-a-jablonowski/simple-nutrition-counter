@@ -278,19 +278,19 @@ class MainController
     
     const btn = query('#unpreciseToggleBtn')
     const icon = btn.querySelector('i')
-    const isCurrentlyOn = icon.classList.contains('bi-toggle-on')
+    const isCurrentlyOn = icon.classList.contains('text-primary')
     const newState = !isCurrentlyOn
     
     // Toggle button appearance
     if( isCurrentlyOn )
     {
-      // Turn off: gray toggle-off icon
-      icon.className = 'bi bi-toggle-off text-secondary'
+      // Turn off: muted circle icon
+      icon.className = 'bi bi-circle-fill text-muted'
     }
     else
     {
-      // Turn on: colored toggle-on icon
-      icon.className = 'bi bi-toggle-on text-primary'
+      // Turn on: colored circle icon
+      icon.className = 'bi bi-circle-fill text-primary'
     }
     
     // Update the data file header via AJAX
@@ -302,9 +302,9 @@ class MainController
         const btn = query('#unpreciseToggleBtn')
         const icon = btn.querySelector('i')
         if( newState )
-          icon.className = 'bi bi-toggle-off text-secondary'
+          icon.className = 'bi bi-circle-fill text-muted'
         else
-          icon.className = 'bi bi-toggle-on text-primary'
+          icon.className = 'bi bi-circle-fill text-primary'
       }
     })
   }

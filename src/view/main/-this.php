@@ -23,16 +23,16 @@
 
     <!-- Toggle button for unprecise mode -->
     <button id="unpreciseToggleBtn" onclick="mainCrl.toggleUnpreciseMode(event)" class="btn p-1 border-0 bg-transparent" title="Toggle unprecise mode">
-      <i class="bi bi-toggle-<?= $this->isUnprecise ? 'on text-primary' : 'off text-secondary' ?>"></i>
+      <i class="bi bi-circle-fill<?= $this->isUnprecise ? ' text-primary' : ' text-muted' ?>"></i>
     </button>
 
     <!-- Backspace button to delete last line -->
-    <button onclick = "mainCrl.deleteLastLineBtnClick(event)" class="btn p-1 border-0 bg-transparent">
+    <button onclick="mainCrl.deleteLastLineBtnClick(event)" class="btn p-1 border-0 bg-transparent">
       <i class="bi bi-backspace"></i>
     </button>
 
     <!-- TASK: rm currently used save btn -->
-    <button onclick = "mainCrl.saveDayEntriesBtnClick(event)" class="btn p-1 border-0 bg-transparent">
+    <button onclick="mainCrl.saveDayEntriesBtnClick(event)" class="btn p-1 border-0 bg-transparent">
       <i class="bi bi-floppy"></i>
     </button>
 
