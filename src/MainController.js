@@ -278,19 +278,19 @@ class MainController
     
     const btn = query('#unpreciseToggleBtn')
     const icon = btn.querySelector('i')
-    const isCurrentlyOn = icon.classList.contains('text-primary')
+    const isCurrentlyOn = icon.classList.contains('text-warning')
     const newState = !isCurrentlyOn
     
     // Toggle button appearance
     if( isCurrentlyOn )
     {
-      // Turn off: muted circle icon
-      icon.className = 'bi bi-circle-fill text-muted'
+      // Turn off: secondary bullseye icon
+      icon.className = 'bi bi-bullseye text-secondary'
     }
     else
     {
-      // Turn on: colored circle icon
-      icon.className = 'bi bi-circle-fill text-primary'
+      // Turn on: warning bullseye icon
+      icon.className = 'bi bi-bullseye text-warning'
     }
     
     // Update the data file header via AJAX
@@ -302,9 +302,9 @@ class MainController
         const btn = query('#unpreciseToggleBtn')
         const icon = btn.querySelector('i')
         if( newState )
-          icon.className = 'bi bi-circle-fill text-muted'
+          icon.className = 'bi bi-bullseye text-secondary'
         else
-          icon.className = 'bi bi-circle-fill text-primary'
+          icon.className = 'bi bi-bullseye text-warning'
       }
     })
   }
