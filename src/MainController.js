@@ -284,13 +284,13 @@ class MainController
     // Toggle button appearance
     if( isCurrentlyOn )
     {
-      // Turn off: secondary star icon
-      icon.className = 'bi bi-star-fill text-secondary'
+      // Turn off: secondary warning icon
+      icon.className = 'bi bi-exclamation-circle-fill text-secondary'
     }
     else
     {
-      // Turn on: warning star icon
-      icon.className = 'bi bi-star-fill text-warning'
+      // Turn on: warning circle icon
+      icon.className = 'bi bi-exclamation-circle-fill text-warning'
     }
     
     // Update the data file header via AJAX
@@ -302,9 +302,9 @@ class MainController
         const btn = query('#unpreciseToggleBtn')
         const icon = btn.querySelector('i')
         if( newState )
-          icon.className = 'bi bi-star-fill text-secondary'
+          icon.className = 'bi bi-exclamation-circle-fill text-secondary'
         else
-          icon.className = 'bi bi-star-fill text-warning'
+          icon.className = 'bi bi-exclamation-circle-fill text-warning'
       }
     })
   }
