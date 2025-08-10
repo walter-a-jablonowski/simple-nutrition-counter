@@ -5,22 +5,22 @@ class NutritionWidgetsController {
     this.root = root;
 
     // Elements
+    this.navLinks         = this.root.querySelectorAll('[data-nav]');
     this.widgetsContainer = this.root.querySelector('.nutrition-widgets .overflow-auto');
     this.scrollArrow      = this.root.querySelector('.nutrition-widgets .scroll-arrow');
     this.mobileCaretBtn   = this.root.querySelector('.mobile-caret-btn');
-    this.navLinks         = this.root.querySelectorAll('[data-nav]');
 
     // State
     this.lastScrollPosition = 0;
-    this.userHasScrolled = false;
-    this.currentNav = 'day';
+    this.userHasScrolled    = false;
+    this.currentNav         = 'day';
 
     // Bind handlers
+    this._onNavClick         = this._onNavClick.bind(this);
     this._onResize           = this._onResize.bind(this);
     this._onScroll           = this._onScroll.bind(this);
     this._onArrowClick       = this._onArrowClick.bind(this);
     this._onMobileCaretClick = this._onMobileCaretClick.bind(this);
-    this._onNavClick         = this._onNavClick.bind(this);
 
     this.init();
   }
@@ -46,6 +46,17 @@ class NutritionWidgetsController {
 
     // Initial visibility check after render
     setTimeout(() => this.checkScroll(), 100);
+  }
+
+  _onNavClick(event)
+  {
+    event.preventDefault();
+    
+    const navType = event.currentTarget.getAttribute('data-nav');
+    if( navType === this.currentNav )
+      return; // Already active
+    
+    this.switchToNav(navType);
   }
 
   _onMobileCaretClick(event)
@@ -132,17 +143,6 @@ class NutritionWidgetsController {
 
     if( this.scrollArrow )
       this.scrollArrow.removeEventListener('click', this._onArrowClick);
-  }
-
-  _onNavClick(event)
-  {
-    event.preventDefault();
-    
-    const navType = event.currentTarget.getAttribute('data-nav');
-    if( navType === this.currentNav )
-      return; // Already active
-    
-    this.switchToNav(navType);
   }
 
   switchToNav(navType)
