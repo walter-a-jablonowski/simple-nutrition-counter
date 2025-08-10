@@ -1,3 +1,6 @@
+
+added insert points in code as TASK
+
 - TASK: right layout col devides in goals and food layout, in mobile left and right are visible but food layout is hidden
 - TASK: add left-layout-col .. limit the styles
 - Header (less imp menu functions, looks like content)
