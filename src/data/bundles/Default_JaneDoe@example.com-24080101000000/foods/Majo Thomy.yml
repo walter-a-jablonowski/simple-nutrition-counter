@@ -1,0 +1,30 @@
+
+productName:       "Delikatess Mayonnaise, 500ml Squeeze-Flasche"
+url:               "https://www.thomy.de/produkte/thomy-delikatess-mayonnaise-500ml-squeeze-flasche"
+
+acceptable:        occasionally
+comment:           "Teelöffel 5ml, Esslöffel 15ml"
+certificates:      { NutriScore: D }
+ingredients:       "80% Sonnenblumenöl*, 8% EIGELB*, Branntweinessig*, SENFKÖRNER*, Gewürze* (Kurkuma, Koriander, Paprika, Piment), Jodsalz (Salz, Kaliumjodat), Zucker"
+allergy:           "Senf und Senferzeugnisse, Ei und Eierzeugnisse"
+mayContain:        "MILCH"
+packaging:         plastic
+
+price:             2.99
+weight:            500ml
+usedAmounts:       ["5ml", "10ml", "15ml"]
+
+calories:          705
+nutritionalValues:
+
+  fat:             77.5
+  saturatedFat:    8.0
+  carbs:           0.5
+  sugar:           0.5
+  fibre:           0.5
+  amino:           1.2
+  salt:            0.8
+
+sources:           { nutriVal: "web", price: "web" }
+lastUpd:           2025-08-11
+lastPriceUpd:      2025-08-11
