@@ -29,6 +29,7 @@ class AppController extends ControllerBase
 
   use SaveDayEntriesAjaxController;
   use UpdateUnpreciseHeaderAjaxController;
+  use UpdateUnpreciseTimeHeaderAjaxController;
   use ChangeUserAjaxController;
   use SavePriceAjaxController;
 
@@ -101,10 +102,11 @@ class AppController extends ControllerBase
     $fileContent = @file_get_contents('data/users/' . $config->get('defaultUser') . "/days/{$this->date}.tsv") ?: '';
     $parsedFile  = parse_data_file($fileContent);
     
-    $this->dayFileHeaders = $parsedFile['headers'];
-    $this->isUnprecise    = isset($parsedFile['headers']['unprecise']) && $parsedFile['headers']['unprecise'];
-    $this->dayEntriesTxt  = trim($parsedFile['data'], "\n");
-    $this->dayEntries     = parse_tsv( $this->dayEntriesTxt, self::DAY_HEADERS );
+    $this->dayFileHeaders  = $parsedFile['headers'];
+    $this->isUnprecise     = isset($parsedFile['headers']['unprecise']) && $parsedFile['headers']['unprecise'];
+    $this->isUnpreciseTime = isset($parsedFile['headers']['unpreciseTime']) && $parsedFile['headers']['unpreciseTime'];
+    $this->dayEntriesTxt   = trim($parsedFile['data'], "\n");
+    $this->dayEntries      = parse_tsv( $this->dayEntriesTxt, self::DAY_HEADERS );
 
     foreach( $this->dayEntries as $idx => &$entry )
       $entry['nutrients'] = Yaml::parse( $entry['nutrients'] );

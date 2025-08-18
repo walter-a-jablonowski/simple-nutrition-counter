@@ -17,6 +17,7 @@ class MainController
     this.switchDayBtnClick      = this.switchDayBtnClick.bind(this)
     this.settingsBtnClick       = this.settingsBtnClick.bind(this)
     this.toggleUnpreciseMode    = this.toggleUnpreciseMode.bind(this)
+    this.toggleUnpreciseTimeMode = this.toggleUnpreciseTimeMode.bind(this)
     this.deleteLastLineBtnClick = this.deleteLastLineBtnClick.bind(this)
     this.saveDayEntriesBtnClick = this.saveDayEntriesBtnClick.bind(this)
     this.newEntryBtn            = this.newEntryBtn.bind(this)
@@ -305,6 +306,43 @@ class MainController
           icon.className = 'bi bi-exclamation-circle-fill text-secondary'
         else
           icon.className = 'bi bi-exclamation-circle-fill text-warning'
+      }
+    })
+  }
+
+  toggleUnpreciseTimeMode(event)
+  {
+    event.preventDefault()
+    
+    const btn = query('#unpreciseTimeToggleBtn')
+    const icon = btn.querySelector('i')
+    const isCurrentlyOn = icon.classList.contains('text-info')
+    const newState = !isCurrentlyOn
+    
+    // Toggle button appearance
+    if( isCurrentlyOn )
+    {
+      // Turn off: secondary stopwatch icon
+      icon.className = 'bi bi-stopwatch text-secondary'
+    }
+    else
+    {
+      // Turn on: info stopwatch icon
+      icon.className = 'bi bi-stopwatch text-info'
+    }
+    
+    // Update the data file header via AJAX
+    ajax.send('updateUnpreciseTimeHeader', { date: this.date, unpreciseTime: newState }, function(result, data) {
+      if( result !== 'success' )
+      {
+        console.error('Failed to update unprecise time header:', data.message || 'Unknown error')
+        // Revert button state on error
+        const btn = query('#unpreciseTimeToggleBtn')
+        const icon = btn.querySelector('i')
+        if( newState )
+          icon.className = 'bi bi-stopwatch text-secondary'
+        else
+          icon.className = 'bi bi-stopwatch text-info'
       }
     })
   }
