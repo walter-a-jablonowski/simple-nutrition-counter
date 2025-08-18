@@ -1,0 +1,28 @@
+
+productName:       "Bio Lassi vegan Zitrone 230ml"
+vendor:            Denns
+url:               "https://www.molkerei-biedermann.ch/che/de/produkte/drinks/mobi-vegan-lassi-zitrone-230ml"
+
+acceptable:        less
+certificates:      { bio: true }
+ingredients:       "Wasser, Zitronensaft aus Konzentrat*  12 %, Rohrohrzucker*, Cashewnüsse* 5.9 %, Kokosnussextrakt* 1.3 %, Zitronenöl*, mit Milchsäurebakterien. *aus kontrolliert biologischem Anbau"
+mayContain:        "Mandeln, Haselnüssen und Pistazien"
+packaging:         alu & plastic
+
+price:             1.99
+weight:            230ml
+usedAmounts:       [1]
+
+calories:          79
+nutritionalValues:
+
+  fat:             3.8
+  saturatedFat:    1.5
+  carbs:           9.7
+  sugar:           9.6
+  amino:           1.3
+  salt:            0.01
+
+sources:           { nutriVal: "pack" }
+lastUpd:           2025-08-18
+lastPriceUpd:      2025-08-18
