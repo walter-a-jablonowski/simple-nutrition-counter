@@ -23,7 +23,7 @@
 
     <!-- Toggle button for unprecise time mode -->
     <button id="unpreciseTimeToggleBtn" onclick="mainCrl.toggleUnpreciseTimeMode(event)" class="btn p-1 border-0 bg-transparent" title="Toggle unprecise time data">
-      <i class="bi bi-stopwatch<?= $this->isUnpreciseTime ? ' text-info' : ' text-secondary' ?>"></i>
+      <i class="bi bi-stopwatch-fill<?= $this->isUnpreciseTime ? ' text-warning' : ' text-secondary' ?>"></i>
     </button>
 
     <!-- Toggle button for unprecise mode -->

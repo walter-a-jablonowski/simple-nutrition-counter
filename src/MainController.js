@@ -316,19 +316,19 @@ class MainController
     
     const btn = query('#unpreciseTimeToggleBtn')
     const icon = btn.querySelector('i')
-    const isCurrentlyOn = icon.classList.contains('text-info')
+    const isCurrentlyOn = icon.classList.contains('text-warning')
     const newState = !isCurrentlyOn
     
     // Toggle button appearance
     if( isCurrentlyOn )
     {
       // Turn off: secondary stopwatch icon
-      icon.className = 'bi bi-stopwatch text-secondary'
+      icon.className = 'bi bi-stopwatch-fill text-secondary'
     }
     else
     {
-      // Turn on: info stopwatch icon
-      icon.className = 'bi bi-stopwatch text-info'
+      // Turn on: warning stopwatch icon
+      icon.className = 'bi bi-stopwatch-fill text-warning'
     }
     
     // Update the data file header via AJAX
@@ -340,9 +340,9 @@ class MainController
         const btn = query('#unpreciseTimeToggleBtn')
         const icon = btn.querySelector('i')
         if( newState )
-          icon.className = 'bi bi-stopwatch text-secondary'
+          icon.className = 'bi bi-stopwatch-fill text-secondary'
         else
-          icon.className = 'bi bi-stopwatch text-info'
+          icon.className = 'bi bi-stopwatch-fill text-warning'
       }
     })
   }
