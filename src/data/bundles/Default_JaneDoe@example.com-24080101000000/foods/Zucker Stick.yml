@@ -1,0 +1,23 @@
+
+acceptable:        less
+comment:           "1 Stick 5g"
+certificates:      { NutriScore: D }
+packaging:         cardboard
+
+price:             0
+weight:            5g
+usedAmounts:       ["1.25g", "2.5g", "5g"]
+
+calories:          400
+nutritionalValues: 
+
+  fat:             0
+  saturatedFat:    0
+  carbs:           100
+  sugar:           100
+  amino:           0
+  salt:            0
+
+sources:           { nutriVal: "web" }
+lastUpd:           2025-08-23
+lastPriceUpd:      2025-08-23
