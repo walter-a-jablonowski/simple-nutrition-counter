@@ -1,0 +1,28 @@
+url:               "https://www.hafervoll.de/organic-flapjack-cranberry-cocoa-nib.html"
+
+acceptable:        less
+comment:           "\"Ohne Zusatzstoffe\""
+certificates:      { bio: true, vegan: true }
+ingredients:       "HAFERFLOCKEN* (42,6 %), Dattelsaftkonzentrat*, Sonnenblumenöl*, Cranberries* (7,5 %), Kürbiskerne*, Apfelsaftkonzentrat*, Kakaobohnenstücke* (2,0 %), Kakaopulver*, Cranberrypulver*"
+mayContain:        "Milch, Soja und Schalenfrüchten"
+packaging:         plastic
+
+price:             1.79
+weight:            60g
+usedAmounts:       [1]
+
+calories:          443
+nutritionalValues: 
+
+  fat:             21
+  saturatedFat:    3.4
+  carbs:           52
+  sugar:           24
+  fibre:           5.8
+  amino:           8.8
+  salt:            0.03
+
+sources:           { nutriVal: "web" }
+
+lastUpd:           2025-08-23
+lastPriceUpd:      2025-08-23
