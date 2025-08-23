@@ -1,0 +1,28 @@
+
+productName:       "REWE Bio Tortilla Chips gesalzen 125g"
+vendor:            Rewe
+url:               "https://www.rewe.de/shop/p/rewe-bio-tortilla-chips-gesalzen-125g/9949902"
+
+acceptable:        less
+certificates:      { bio: true, vegan: true, NutriScore: C }
+ingredients:       "Mais*, Sonnenblumenöl*, Meersalz"
+mayContain:        "Gluten und Milch"
+packaging:         alu
+
+price:             1.29
+weight:            125g
+
+calories:          499
+nutritionalValues:
+
+  fat:             25
+  saturatedFat:    2.2
+  carbs:           59
+  sugar:           0.9
+  fibre:           5.3
+  amino:           6.5
+  salt:            0.8
+
+sources:           { nutriVal: "pack" }
+lastUpd:           2025-08-23
+lastPriceUpd:      2025-08-23
