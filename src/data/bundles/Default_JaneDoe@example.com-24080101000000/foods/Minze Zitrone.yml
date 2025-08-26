@@ -25,4 +25,8 @@ misc:
 
 sources:           { nutriVal: "web (third party, information on packaging may differ slightly)" }
 lastUpd:           2024-11-11
-lastPriceUpd:      2024-11-11
+lastPriceUpd:      2025-08-26
+
+prices:
+
+  2024-11-11: 0.95
