@@ -1,0 +1,28 @@
+productName:       "Cashew Cranberry Mix"
+vendor:            Edeka
+url:               "https://www.edeka.de/unsere-marken/produkte/gut-guenstig-cashew-cranberry-mix-4311501709290.jsp"
+acceptable:        occasionally
+certificates:      { NutriScore: D }
+ingredients:       "51% geröstete CASHEWKERNE, 49% getrocknete gezuckerte Cranberries (64% Cranberries1, Zucker, Sonnenblumenöl). 1 entspricht 31% Cranberries im Gesamterzeugnis"
+allergy:           "Schalenfrüchte, d. h. Mandeln, div. Nüsse, Pistazien und daraus hergestellte Erzeugnisse, Kaschunüsse (Anacardium occidentale) sowie daraus hergestellte Erzeugnisse"
+mayContain:        "Schalenfrüchte, d. h. Mandeln, div. Nüsse, Pistazien und daraus hergestellte Erzeugnisse, Erdnüsse und daraus hergestellte Erzeugnisse, Sojabohnen und daraus hergestellte Erzeugnisse"
+packaging:         alu (maybe) & plastic
+
+price:             2.29
+weight:            200g
+usedAmounts:       ["10g", "25g", "50g"]
+
+calories:          461
+nutritionalValues:
+
+  fat:             23.3
+  saturatedFat:    4.3
+  carbs:           49.7
+  sugar:           38.9
+  fibre:           4
+  amino:           10.5
+  salt:            0.02
+
+sources:           { nutriVal: "pack" }
+lastUpd:           2024-08-26
+lastPriceUpd:      2024-08-26
