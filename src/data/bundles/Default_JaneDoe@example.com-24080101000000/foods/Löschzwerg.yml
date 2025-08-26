@@ -1,5 +1,6 @@
 acceptable:        less
-ingredients:       "Bier (Wasser, GERSTENMALZ, Hopfen), natürliches Mineralwasser, Glucose-Fruktose-Sirup, Zucker, Zitronenkonzentrat (Zitrone, Zitronensaftkonzentrat, Zitronenöl), Kohlensäure, Konservierungsstoff, Kaliumsorbat, Antioxidationsmittel Ascorbinsäure, natürliches Aroma, Stabilisator Johannisbrotkernmehl"
+ingredients:       "Bier (Wasser, GERSTENMALZ, Hopfen), Zitronenlimonade (natürliches Mineralwasser, Glukose-Fruktose-Sirup, Zucker, Kohlensäure, Säuerungsmittel Zitronensäure, natürliche Aromen, Konservierungsstoff Kaliumsorbat), Antioxidationsmittel Ascorbinsäure"
+allergy:           "Gerste und Gerstenerzeugnisse (glutenhaltiges Getreide)"
 packaging:         glass & rubber
 
 price:             1.09
@@ -23,4 +24,8 @@ misc:
 
 sources:           { nutriVal: "web (third party, may differ, vendor has none even on pack)", price: "web" }
 lastUpd:           2024-06-18
-lastPriceUpd:      2025-01-15
+lastPriceUpd:      2025-08-26
+
+prices:
+
+  2025-01-15: 1.09

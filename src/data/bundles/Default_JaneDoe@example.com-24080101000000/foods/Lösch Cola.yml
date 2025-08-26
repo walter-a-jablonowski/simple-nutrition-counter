@@ -1,0 +1,31 @@
+acceptable:        less
+ingredients:       "Weizenbier (Wasser, WEIZENMALZ, GERSTENMALZ, Hopfen), coffeinhaltige Limonade (Mineralwasser, Glukose-Fruktose-Sirup, Zucker, Kohlensäure, Farbstoff E 150 c, Säuerungsmittel Phosphorsäure, Aroma Coffein, natürliches Aroma, Konservierungsstoff Kaliumsorbat)"
+allergy:           "Gerste und Gerstenerzeugnisse (glutenhaltiges Getreide). Weizen und Weizenerzeugnisse (glutenhaltiges Getreide)"
+packaging:         glass & rubber
+
+price:             1.09
+weight:            330ml
+usedAmounts:       [1]
+
+calories:          44
+nutritionalValues:
+
+  fat:             0
+  saturatedFat:    0
+  carbs:           6.56
+  sugar:           6.56
+  amino:           0
+  salt:            0.02
+
+misc:
+
+  water:           99  # ca
+  # TASK: alcohol 2.6%
+
+sources:           { nutriVal: "web (third party, may differ, vendor has none even on pack)", price: "web" }
+lastUpd:           2025-08-26
+lastPriceUpd:      2025-08-26
+
+prices:
+
+  2025-01-15: 1.09
