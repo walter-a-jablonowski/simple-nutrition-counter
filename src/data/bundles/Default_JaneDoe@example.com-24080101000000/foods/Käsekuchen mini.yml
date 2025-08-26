@@ -1,8 +1,9 @@
+vendor:            Norma
 acceptable:        less
 ingredients:       "Frischkäse Magerstufe, Zucker, Vollei, Palmfett, Hühnereiweiß, Buttermilch, Weizenmehl, Weizenstärke, Stärke, Reisquellmehl, Süßmolkenpulver, modifizierte Stärke, Feuchthaltemittel E 420, E 422; Backtriebmittel E 450, E 500; Salz, Säureregulator E 262; Säuerungsmittel E 270; Emulgator E 471; Zitronenschalenöl, Limettenschalenöl, natürliches Aroma"
 packaging:         alu (maybe)
 
-price:             1.25
+price:             1.39
 weight:            70
 usedAmounts:       ["1"]
 
@@ -18,4 +19,8 @@ nutritionalValues:
 
 sources:           { nutriVal: "web" }
 lastUpd:           2024-08-16
-lastPriceUpd:      2024-08-16
+lastPriceUpd:      2025-08-26
+
+prices:
+
+  2024-08-16: 1.25
