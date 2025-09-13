@@ -5,6 +5,7 @@ origin:            "Nicaragua"
 packaging:         plastic
 
 price:             2.29
+dealPrice:         1.69
 weight:            100
 pieces:            25
 usedAmounts:       [1, 2, 4]
