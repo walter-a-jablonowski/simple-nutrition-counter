@@ -5,7 +5,7 @@ certificates:      { bio: true, vegan: true }
 ingredients:       "Natürliches Mineralwasser, 3,5 % Zitronensaft aus Zitronensaftkonzentrat*, Zucker*, Apfelsaft aus Apfelsaftkonzentrat*, Kohlensäure, 0,15 % Pfefferminzextrakt*, natürliches Zitronenaroma, Antioxidationsmittel: Ascorbinsäure, Stabilisator: Guarkemmehl*"
 packaging:         plastic
 
-price:             0.95
+price:             1.25
 weight:            500ml
 usedAmounts:       ["1"]
 
@@ -25,8 +25,9 @@ misc:
 
 sources:           { nutriVal: "web (third party, information on packaging may differ slightly)" }
 lastUpd:           2024-11-11
-lastPriceUpd:      2025-08-26
+lastPriceUpd:      2025-09-13
 
 prices:
 
+  2025-08-26: 0.95
   2024-11-11: 0.95
