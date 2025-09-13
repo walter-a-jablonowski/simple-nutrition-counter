@@ -5,7 +5,7 @@ acceptable:        less
 certificates:      { NutriScore: C }
 packaging:         plastic
 
-price:             
+price:             1.99
 weight:            185g
 usedAmounts:       [1]
 
