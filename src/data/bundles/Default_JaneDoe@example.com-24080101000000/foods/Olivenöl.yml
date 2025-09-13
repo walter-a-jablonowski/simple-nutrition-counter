@@ -2,7 +2,7 @@ type:              Olive oil
 vendor:            Denns
 packaging:         glass & rubber
 
-price:             18.49
+price:             17.49
 weight:            500ml
 usedAmounts:       ["15ml", "30ml", "60ml"]
 
@@ -20,10 +20,11 @@ nutritionalValues:
 
 sources:           { nutriVal: "pack" }
 lastUpd:           2024-04-08
-lastPriceUpd:      2025-03-29
+lastPriceUpd:      2025-09-13
 
 prices:
 
+  2025-03-29: 18.49
   2024-09-28: 18.49
   2024-06-18: 17.49
   2024-04-24: 16.99
