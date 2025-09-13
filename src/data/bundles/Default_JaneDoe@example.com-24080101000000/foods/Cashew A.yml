@@ -2,7 +2,7 @@ type:              Cashew
 vendor:            Aldi
 packaging:         plastic (maybe)
 
-price:             2.49
+price:             2.99
 weight:            200
 usedAmounts:       ["25g", "50g", "100g"]
 
@@ -23,8 +23,9 @@ minerals:
 
 sources:           { nutriVal: "pack" }
 lastUpd:           2024-05-29
-lastPriceUpd:      2025-03-29
+lastPriceUpd:      2025-09-13
 
 prices:
 
+  2025-03-29: 2.49
   2024-05-29: 2.29
