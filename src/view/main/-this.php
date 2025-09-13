@@ -22,22 +22,22 @@
   <li class="nav-item ms-auto" role="presentation">
 
     <!-- Toggle button for unprecise time mode -->
-    <button id="unpreciseTimeToggleBtn" onclick="mainCrl.toggleUnpreciseTimeMode(event)" class="btn p-1 border-0 bg-transparent" title="Toggle unprecise time data">
+    <button id="unpreciseTimeToggleBtn" onclick="mainCrl.toggleUnpreciseTimeMode(event)" class="btn p-1 border-0 bg-transparent me-2" title="Toggle unprecise time data">
       <i class="bi bi-stopwatch-fill<?= $this->isUnpreciseTime ? ' text-warning' : ' text-secondary' ?>"></i>
     </button>
 
     <!-- Toggle button for unprecise mode -->
-    <button id="unpreciseToggleBtn" onclick="mainCrl.toggleUnpreciseMode(event)" class="btn p-1 border-0 bg-transparent" title="Toggle unprecise food data">
+    <button id="unpreciseToggleBtn" onclick="mainCrl.toggleUnpreciseMode(event)" class="btn p-1 border-0 bg-transparent me-3" title="Toggle unprecise food data">
       <i class="bi bi-exclamation-circle-fill<?= $this->isUnprecise ? ' text-warning' : ' text-secondary' ?>"></i>
     </button>
 
     <!-- Backspace button to delete last line -->
-    <button onclick="mainCrl.deleteLastLineBtnClick(event)" class="btn p-1 border-0 bg-transparent">
+    <button onclick="mainCrl.deleteLastLineBtnClick(event)" class="btn p-1 border-0 bg-transparent me-2">
       <i class="bi bi-backspace"></i>
     </button>
 
     <!-- TASK: rm currently used save btn -->
-    <button onclick="mainCrl.saveDayEntriesBtnClick(event)" class="btn p-1 border-0 bg-transparent">
+    <button onclick="mainCrl.saveDayEntriesBtnClick(event)" class="btn p-1 border-0 bg-transparent me-2">
       <i class="bi bi-floppy"></i>
     </button>
 
