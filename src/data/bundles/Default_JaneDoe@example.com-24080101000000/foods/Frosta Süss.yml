@@ -1,0 +1,22 @@
+vendor:            Rewe
+acceptable:        occasionally
+packaging:         plastic
+
+price:             3.49
+weight:            375
+usedAmounts:       ["1/3", "1/2", "1"]
+
+calories:          87
+nutritionalValues:
+
+  fat:             0.56
+  saturatedFat:    0.2
+  carbs:           15.3
+  sugar:           4.8
+  fibre:           1.1
+  amino:           4.6
+  salt:            0.76
+
+sources:           { nutriVal: "web", price: "web" }
+lastUpd:           2024-09-13
+lastPriceUpd:      2024-09-13
