@@ -14,7 +14,7 @@ function handle_save_import( array $payload ) : array
   $price     = array_key_exists('price', $payload) ? (string)$payload['price'] : '';
   $dealPrice = array_key_exists('dealPrice', $payload) ? (string)$payload['dealPrice'] : '';
 
-  $import_file = 'import.yml';
+  $import_file = dirname(__DIR__) . '/import.yml';
 
   // Load existing
   $data = [];
