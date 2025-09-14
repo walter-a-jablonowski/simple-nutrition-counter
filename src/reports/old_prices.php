@@ -15,6 +15,8 @@ $user_id = 'JaneDoe@example.com-24080101000000';
 // Default values
 $days_old      = isset($_GET['days'])    ? intval($_GET['days']) : 180;  // 6 months default
 $sort_by       = isset($_GET['sort'])    ? $_GET['sort'] : 'name';
+// Normalize deprecated sort option
+if( $sort_by === 'date') $sort_by = 'days';
 $filter_vendor = isset($_GET['vendor'])  ? $_GET['vendor'] : '';
 $show_missing  = isset($_GET['missing']) ? ($_GET['missing'] === '1') : true;
 $show_old      = isset($_GET['old'])     ? ($_GET['old'] === '1') : true;
@@ -147,14 +149,6 @@ foreach( $foods as $food_name => $food)
 if( $sort_by === 'name') {
   usort($results, function($a, $b) {
     return strcmp($a['name'], $b['name']);
-  });
-}
-elseif( $sort_by === 'date') {
-  usort($results, function($a, $b) {
-    if( $a['lastPriceUpd'] === '' && $b['lastPriceUpd'] === '') return 0;
-    if( $a['lastPriceUpd'] === '') return 1;
-    if( $b['lastPriceUpd'] === '') return -1;
-    return strcmp($b['lastPriceUpd'], $a['lastPriceUpd']);
   });
 }
 elseif( $sort_by === 'days') {
@@ -509,7 +503,6 @@ else { // vendor
       <div class="filter-group">
         <select id="sort" name="sort" class="auto-submit">
           <option value="name" <?= $sort_by === 'name' ? 'selected' : '' ?>>Name</option>
-          <option value="date" <?= $sort_by === 'date' ? 'selected' : '' ?>>Last Update Date</option>
           <option value="days" <?= $sort_by === 'days' ? 'selected' : '' ?>>Days Since Update</option>
         </select>
       </div>
