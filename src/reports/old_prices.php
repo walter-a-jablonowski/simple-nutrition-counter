@@ -161,6 +161,22 @@ elseif( $sort_by === 'days') {
     return $b['days_since_update'] - $a['days_since_update'];
   });
 }
+elseif( $sort_by === 'price') {
+  usort($results, function($a, $b) {
+    // Determine numeric price: prefer regular price, else dealPrice
+    $ap = ($a['price'] !== '' ? floatval($a['price']) : ($a['dealPrice'] !== '' ? floatval($a['dealPrice']) : null));
+    $bp = ($b['price'] !== '' ? floatval($b['price']) : ($b['dealPrice'] !== '' ? floatval($b['dealPrice']) : null));
+
+    // n/a (no price data) first
+    if( $ap === null && $bp === null) return 0;
+    if( $ap === null) return -1;
+    if( $bp === null) return 1;
+
+    // then by price desc (higher first)
+    if( $ap === $bp) return 0;
+    return ($ap < $bp) ? 1 : -1;
+  });
+}
 else { // vendor
   usort($results, function($a, $b) {
     $vendor_cmp = strcmp($a['vendor'], $b['vendor']);
@@ -506,6 +522,7 @@ else { // vendor
         <select id="sort" name="sort" class="auto-submit">
           <option value="name" <?= $sort_by === 'name' ? 'selected' : '' ?>>Name</option>
           <option value="days" <?= $sort_by === 'days' ? 'selected' : '' ?>>Days Since Update</option>
+          <option value="price" <?= $sort_by === 'price' ? 'selected' : '' ?>>Price</option>
         </select>
       </div>
       
