@@ -2,12 +2,23 @@
 
 Overview
 
-- [Common](#common)
+- [Tools overview](#tools-overview)
+- [App design](#app-design)
 - [Model](#model)
+  - [YML representation](#yml-representation)
 - [UI design](UI_Design.md)
 
 
-Common
+Tools overview
+----------------------------------------------------------
+
+```
+/tools        # dev tools
+/src/tools    # tools
+/src/reports
+```
+
+App design
 ----------------------------------------------------------
 
 - Code is minimalistic intentionally
@@ -40,7 +51,6 @@ Model
   |               |
    ---------------
 ```
-
 
 
 ### YML representation
