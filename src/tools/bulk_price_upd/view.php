@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Price Checker</title>
+  <title>Bulk price upd</title>
   <?php if( ! empty($error_message)): ?>
   <script>
     console.error("<?= htmlspecialchars($error_message) ?>");
@@ -13,7 +13,7 @@
 </head>
 <body>
   <div class="container">
-    <h3>Old prices</h3>
+    <h3>Bulk price upd</h3>
     
     <form method="get" class="filters">
       <div class="filter-group">
