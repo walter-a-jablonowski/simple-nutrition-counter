@@ -87,6 +87,35 @@ function set_scalar_value( array &$lines, string $key, string $value ) : void
   }
 }
 
+// Insert or set a key, creating it directly after an anchor key if it doesn't yet exist
+function set_scalar_value_after( array &$lines, string $key, string $value, string $afterKey ) : void
+{
+  $idx = find_key_line($lines, $key);
+  $newLine = "$key: $value";
+  if( $idx !== -1)
+  {
+    if( preg_match('/^(\s*)'.preg_quote($key,'/').':/u', $lines[$idx], $m))
+      $newLine = $m[1].$newLine;
+    $lines[$idx] = $newLine;
+    return;
+  }
+
+  // create below the anchor if present
+  $anchorIdx = find_key_line($lines, $afterKey);
+  if( $anchorIdx !== -1)
+  {
+    // preserve indentation of anchor line
+    $indent = '';
+    if( preg_match('/^(\s*)'.preg_quote($afterKey,'/').':/u', $lines[$anchorIdx], $m))
+      $indent = $m[1];
+    array_splice($lines, $anchorIdx + 1, 0, [$indent.$newLine]);
+    return;
+  }
+
+  // fallback to generic setter (append near end)
+  set_scalar_value($lines, $key, $value);
+}
+
 function find_section_start( array $lines, string $sectionKey ) : int
 {
   $pattern = '/^\s*'.preg_quote($sectionKey,'/').':\s*$/u';
@@ -169,6 +198,7 @@ foreach( $import_map as $food_name => $entry)
 
   $new_price     = array_key_exists('price', $entry) ? normalize_number($entry['price']) : null;
   $new_deal      = array_key_exists('dealPrice', $entry) ? normalize_number($entry['dealPrice']) : null;
+  $import_last   = array_key_exists('lastPriceUpd', $entry) ? (string)$entry['lastPriceUpd'] : null;
   $today         = (new DateTime())->format('Y-m-d');
 
   // 1) Move old current price(s) to history using lastPriceUpd as date
@@ -184,10 +214,11 @@ foreach( $import_map as $food_name => $entry)
   if( $new_price !== null)
     set_scalar_value($lines, 'price', $new_price);
   if( $new_deal !== null)
-    set_scalar_value($lines, 'dealPrice', $new_deal);
+    set_scalar_value_after($lines, 'dealPrice', $new_deal, 'price');
 
   // 3) Update lastPriceUpd to today
-  set_scalar_value($lines, 'lastPriceUpd', $today);
+  $new_last_upd = $import_last !== null && $import_last !== '' ? $import_last : $today;
+  set_scalar_value($lines, 'lastPriceUpd', $new_last_upd);
 
   if( write_lines($path, $lines)) {
     $updated++;

@@ -1,4 +1,17 @@
 
+- [ ] try import with (only a few tryed see debug_import.yml)
+
+  - missing price
+  - price upd
+  - add deal price
+  - existing his
+  - non existing his
+  - food with file -this.yml
+
+  - [ ] some problems with indent
+
+- [ ] remove import.yml when done
+
 - [-] -this.yml already works?
 - [ ] 
 
@@ -36,3 +49,20 @@ dealPrice:
 ```
 
 3. Update lastPriceUpd key
+```
+
+```
+I made a sample import file: src\tools\bulk_price_upd\debug_import.yml
+
+For "Lyoner R Bio" there is no dealPrice field added. According to @_blank_food.yml it must below the price field.
+
+Also the content of dealPrices is the same as for prices:
+
+dealPrices:
+
+  2024-11-28: 2.19
+  2024-10-23: 1.69
+
+Please try to keep the indentation of the values
+```
+
