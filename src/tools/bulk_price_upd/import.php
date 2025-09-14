@@ -71,7 +71,11 @@ function read_scalar_value( array $lines, string $key ) : ?string
 function set_scalar_value( array &$lines, string $key, string $value ) : void
 {
   $idx = find_key_line($lines, $key);
-  $newLine = "$key: $value";
+  // Determine indentation to preserve
+  $indent = '';
+  if( $idx !== -1 && preg_match('/^(\s*)'.preg_quote($key,'/').':/u', $lines[$idx], $m))
+    $indent = $m[1];
+  $newLine = build_aligned_line($indent, $key, $value);
   if( $idx === -1)
   {
     // append near end but before trailing empty lines
@@ -80,10 +84,10 @@ function set_scalar_value( array &$lines, string $key, string $value ) : void
     array_splice($lines, $insertAt, 0, [$newLine]);
   }
   else {
-    // preserve any leading indentation of the existing key
-    if( preg_match('/^(\s*)'.preg_quote($key,'/').':/u', $lines[$idx], $m))
-      $newLine = $m[1].$newLine;
-    $lines[$idx] = $newLine;
+    // preserve trailing inline comment if present
+    $comment = '';
+    if( preg_match('/(\s+#.*)$/u', $lines[$idx], $mC)) $comment = $mC[1];
+    $lines[$idx] = $newLine.$comment;
   }
 }
 
@@ -91,12 +95,16 @@ function set_scalar_value( array &$lines, string $key, string $value ) : void
 function set_scalar_value_after( array &$lines, string $key, string $value, string $afterKey ) : void
 {
   $idx = find_key_line($lines, $key);
-  $newLine = "$key: $value";
+  $indent = '';
+  if( $idx !== -1 && preg_match('/^(\s*)'.preg_quote($key,'/').':/u', $lines[$idx], $m))
+    $indent = $m[1];
+  $newLine = build_aligned_line($indent, $key, $value);
   if( $idx !== -1)
   {
-    if( preg_match('/^(\s*)'.preg_quote($key,'/').':/u', $lines[$idx], $m))
-      $newLine = $m[1].$newLine;
-    $lines[$idx] = $newLine;
+    // preserve trailing inline comment if present
+    $comment = '';
+    if( preg_match('/(\s+#.*)$/u', $lines[$idx], $mC)) $comment = $mC[1];
+    $lines[$idx] = $newLine.$comment;
     return;
   }
 
@@ -108,7 +116,8 @@ function set_scalar_value_after( array &$lines, string $key, string $value, stri
     $indent = '';
     if( preg_match('/^(\s*)'.preg_quote($afterKey,'/').':/u', $lines[$anchorIdx], $m))
       $indent = $m[1];
-    array_splice($lines, $anchorIdx + 1, 0, [$indent.$newLine]);
+    $newLine = build_aligned_line($indent, $key, $value);
+    array_splice($lines, $anchorIdx + 1, 0, [$newLine]);
     return;
   }
 
@@ -155,11 +164,25 @@ function normalize_number( $val ) : string
 {
   if( is_numeric($val)) {
     $num = 0 + $val;
-    // Keep as-is (no forced decimals), but convert using '.' decimal separator
-    return rtrim(rtrim(number_format($num, 2, '.', ''), '0'), '.');
+    // Always show two decimals (currency format)
+    return number_format($num, 2, '.', '');
   }
   // Keep quoted string if needed
   return (string)$val;
+}
+
+// Build a key/value line with value starting at column 20 (1-based)
+function build_aligned_line( string $indent, string $key, string $value, int $valueCol = 20 ) : string
+{
+  // Base part up to colon
+  $base = $indent.$key.':';
+  $len  = strlen($base);
+  // Compute spaces so that value begins at column $valueCol
+  $currentCol = $len + 1; // position of next character (1-based)
+  $spaces = 1; // at least one space after colon
+  if( $currentCol + $spaces < $valueCol)
+    $spaces = $valueCol - $currentCol;
+  return $base.str_repeat(' ', $spaces).$value;
 }
 
 function find_food_file( string $foods_dir, string $name ) : ?array
