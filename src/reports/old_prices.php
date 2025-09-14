@@ -14,7 +14,7 @@ $user_id = 'JaneDoe@example.com-24080101000000';
 
 // Default values
 $days_old      = isset($_GET['days'])    ? intval($_GET['days']) : 180;  // 6 months default
-$sort_by       = isset($_GET['sort'])    ? $_GET['sort'] : 'name';
+$sort_by       = isset($_GET['sort'])    ? $_GET['sort'] : 'days';
 // Normalize deprecated sort option
 if( $sort_by === 'date') $sort_by = 'days';
 $filter_vendor = isset($_GET['vendor'])  ? $_GET['vendor'] : '';
@@ -153,9 +153,11 @@ if( $sort_by === 'name') {
 }
 elseif( $sort_by === 'days') {
   usort($results, function($a, $b) {
+    // n/a (no date) first
     if( $a['days_since_update'] === null && $b['days_since_update'] === null) return 0;
-    if( $a['days_since_update'] === null) return 1;
-    if( $b['days_since_update'] === null) return -1;
+    if( $a['days_since_update'] === null) return -1;
+    if( $b['days_since_update'] === null) return 1;
+    // then by days desc (oldest first)
     return $b['days_since_update'] - $a['days_since_update'];
   });
 }
