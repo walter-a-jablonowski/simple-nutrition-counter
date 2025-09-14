@@ -1,6 +1,6 @@
 <?php
 
-chdir('..');
+chdir('../..');
 
 // Made with AI only
 
@@ -182,6 +182,19 @@ else { // vendor
     $vendor_cmp = strcmp($a['vendor'], $b['vendor']);
     return $vendor_cmp !== 0 ? $vendor_cmp : strcmp($a['name'], $b['name']);
   });
+}
+
+// Load import.yml to know which items already have new prices
+$import_map = [];
+$import_file = __DIR__ . '/import.yml';
+if( file_exists($import_file)) {
+  try {
+    $parsed_import = Yaml::parseFile($import_file);
+    if( is_array($parsed_import)) $import_map = $parsed_import;
+  }
+  catch( \Exception $e ) {
+    // ignore, keep empty map
+  }
 }
 
 ?>
@@ -400,6 +413,8 @@ else { // vendor
     .price-deal {
       margin-left: 3px;
     }
+    /* Row highlight when import exists */
+    .list-row.has-import { background-color: #e6f4ea; }
     
     /* Desktop-only elements */
     @media (min-width: 769px) {
@@ -553,7 +568,8 @@ else { // vendor
         
         <!-- List items -->
         <?php foreach( $results as $item): ?>
-          <div class="list-row <?= $item['is_missing'] ? 'missing' : ($item['is_old'] ? 'old' : '') ?>">
+          <?php $has_import = isset($import_map[$item['name']]); ?>
+          <div class="list-row <?= $item['is_missing'] ? 'missing' : ($item['is_old'] ? 'old' : '') ?> <?= $has_import ? 'has-import' : '' ?>" data-name="<?= htmlspecialchars($item['name']) ?>">
             <!-- Desktop layout - grid columns -->
             <div class="list-col col-name"><?= htmlspecialchars($item['name']) ?></div>
             
@@ -625,8 +641,30 @@ else { // vendor
     </div>
   </div>
   
+  <!-- Modal overlay for entering prices -->
+  <div id="price-modal-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.4); z-index:1000; align-items:center; justify-content:center;">
+    <div style="background:#fff; width:min(420px,92vw); border-radius:8px; padding:16px; box-shadow:0 10px 30px rgba(0,0,0,.25);">
+      <h4 id="price-modal-title" style="margin-bottom:12px;">Enter prices</h4>
+      <div style="margin-bottom:10px;">
+        <label for="price-input" style="display:block; font-weight:600; margin-bottom:4px;">Price</label>
+        <input id="price-input" type="number" step="0.01" placeholder="e.g. 1.49" style="width:100%; padding:8px 10px; border:1px solid #ddd; border-radius:4px;">
+      </div>
+      <div style="margin-bottom:10px;">
+        <label for="dealprice-input" style="display:block; font-weight:600; margin-bottom:4px;">Deal price</label>
+        <input id="dealprice-input" type="number" step="0.01" placeholder="e.g. 0.99" style="width:100%; padding:8px 10px; border:1px solid #ddd; border-radius:4px;">
+      </div>
+      <div style="display:flex; gap:8px; justify-content:flex-end; margin-top:14px;">
+        <button id="price-cancel" type="button" style="background:#fff; color:#333; border:1px solid #ddd; padding:8px 12px; border-radius:4px; cursor:pointer;">Cancel</button>
+        <button id="price-save" type="button" style="background:#3498db; color:#fff; border:0; padding:8px 12px; border-radius:4px; cursor:pointer;">Save</button>
+      </div>
+    </div>
+  </div>
+  
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // Import map embedded from PHP
+      const importMap = <?= json_encode($import_map, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?> || {};
+
       // Auto-submit form when dropdowns change
       const autoSubmitDropdowns = document.querySelectorAll('select.auto-submit');
       autoSubmitDropdowns.forEach(element => {
@@ -649,6 +687,81 @@ else { // vendor
           }
           document.querySelector('form').submit();
         });
+      });
+
+      // Modal logic
+      const overlay = document.getElementById('price-modal-overlay');
+      const priceInput = document.getElementById('price-input');
+      const dealInput = document.getElementById('dealprice-input');
+      const modalTitle = document.getElementById('price-modal-title');
+      const btnCancel = document.getElementById('price-cancel');
+      const btnSave = document.getElementById('price-save');
+      let currentName = '';
+
+      function openModal(name) {
+        currentName = name;
+        modalTitle.textContent = `Enter prices — ${name}`;
+        const existing = importMap[name] || {};
+        priceInput.value = existing.price != null ? existing.price : '';
+        dealInput.value = existing.dealPrice != null ? existing.dealPrice : '';
+        overlay.style.display = 'flex';
+        priceInput.focus();
+      }
+      function closeModal() {
+        overlay.style.display = 'none';
+        currentName = '';
+      }
+      btnCancel.addEventListener('click', closeModal);
+      overlay.addEventListener('click', (e) => { if( e.target === overlay) closeModal(); });
+
+      // Click row to open modal
+      document.querySelectorAll('.list-row').forEach(row => {
+        row.addEventListener('click', function(e) {
+          // Avoid clicks on form elements
+          if( e.target.closest('select, input, a, button')) return;
+          const name = this.getAttribute('data-name');
+          if( name) openModal(name);
+        });
+      });
+
+      // Save via ajax router
+      btnSave.addEventListener('click', async function() {
+        const payload = {
+          action: 'save_import',
+          name: currentName,
+          price: priceInput.value.trim(),
+          dealPrice: dealInput.value.trim()
+        };
+        // Remove empty strings so backend can treat as removal when both empty
+        if( payload.price === '') delete payload.price;
+        if( payload.dealPrice === '') delete payload.dealPrice;
+
+        try {
+          const res = await fetch('ajax.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          const json = await res.json();
+          if( json.status !== 'success') throw new Error(json.message || 'Save failed');
+
+          // Update local map and UI highlight
+          if( json.data && Object.keys(json.data).length) {
+            importMap[currentName] = json.data;
+            const row = document.querySelector(`.list-row[data-name="${CSS.escape(currentName)}"]`);
+            if( row) row.classList.add('has-import');
+          }
+          else {
+            delete importMap[currentName];
+            const row = document.querySelector(`.list-row[data-name="${CSS.escape(currentName)}"]`);
+            if( row) row.classList.remove('has-import');
+          }
+
+          closeModal();
+        }
+        catch(err) {
+          alert(err.message || 'Error saving');
+        }
       });
     });
   </script>
