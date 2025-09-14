@@ -17,6 +17,10 @@
     
     <form method="get" class="filters">
       <div class="filter-group">
+        <input id="search-filter" type="text" placeholder="Search...">
+      </div>
+      
+      <div class="filter-group">
         <select id="days" name="days" class="auto-submit">
           <option value="30" <?= $days_old === 30 ? 'selected' : '' ?>>30 days</option>
           <option value="60" <?= $days_old === 60 ? 'selected' : '' ?>>60 days</option>

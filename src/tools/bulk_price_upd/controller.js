@@ -98,4 +98,29 @@ document.addEventListener('DOMContentLoaded', function() {
       alert(err.message || 'Error saving');
     }
   });
+
+  // Client-side search filter by name
+  const searchInput = document.getElementById('search-filter');
+  if( searchInput )
+  {
+    const rows = Array.from(document.querySelectorAll('.list-row'));
+    const getName = (row) => (row.getAttribute('data-name') || row.querySelector('.col-name')?.textContent || '').toLowerCase();
+    const names = new Map(rows.map(r => [r, getName(r)]));
+
+    function applyFilter()
+    {
+      const q = searchInput.value.trim().toLowerCase();
+      rows.forEach(row => {
+        const match = q === '' || names.get(row).includes(q);
+        row.style.display = match ? '' : 'none';
+      });
+    }
+
+    // Debounce to avoid excessive reflow on fast typing
+    let t = null;
+    searchInput.addEventListener('input', function() {
+      clearTimeout(t);
+      t = setTimeout(applyFilter, 80);
+    });
+  }
 });
