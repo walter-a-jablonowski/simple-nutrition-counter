@@ -47,7 +47,7 @@
         <select id="sort" name="sort" class="auto-submit">
           <option value="name" <?= $sort_by === 'name' ? 'selected' : '' ?>>Name</option>
           <option value="days" <?= $sort_by === 'days' ? 'selected' : '' ?>>Days Since Update</option>
-          <option value="price" <?= $sort_by === 'price' ? 'selected' : '' ?>>Price</option>
+          <option value="price" <?= $sort_by === 'price' ? 'selected' : '' ?>>Price desc (missing first)</option>
         </select>
       </div>
       
