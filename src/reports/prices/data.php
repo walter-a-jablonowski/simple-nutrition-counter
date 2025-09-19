@@ -154,8 +154,16 @@ class PricesReportController
     {
       $num = $this->toNumber($val);
       if( $num === null) continue;
-      // normalize date
-      try { $dt = new DateTime((string)$date); } catch(\Throwable $e){ continue; }
+      // normalize date - handle both string dates and Unix timestamps
+      try { 
+        if( ctype_digit((string)$date) ) {
+          // Unix timestamp
+          $dt = new DateTime('@' . $date);
+        } else {
+          // String date
+          $dt = new DateTime((string)$date);
+        }
+      } catch(\Throwable $e){ continue; }
       $out[$dt->format('Y-m-d')] = $num;
     }
     ksort($out);
