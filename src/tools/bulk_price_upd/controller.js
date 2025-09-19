@@ -36,9 +36,27 @@ document.addEventListener('DOMContentLoaded', function() {
   function openModal(name) {
     currentName = name;
     modalTitle.textContent = `Enter prices — ${name}`;
-    const existing = importMap[name] || {};
-    priceInput.value = existing.price != null ? existing.price : '';
-    dealInput.value = existing.dealPrice != null ? existing.dealPrice : '';
+    // Prefer the currently displayed values in the clicked row (existing entry prices)
+    // Fallback to any staged values present in importMap
+    const row = document.querySelector(`.list-row[data-name="${CSS.escape(name)}"]`);
+    let priceVal = '';
+    let dealVal = '';
+    if( row ) {
+      const regEl = row.querySelector('.price-regular');
+      const dealEl = row.querySelector('.price-deal');
+      const t1 = regEl ? regEl.textContent.trim() : '';
+      const t2 = dealEl ? dealEl.textContent.trim() : '';
+      // Keep as-is unless it's clearly not available
+      priceVal = (t1 && t1.toLowerCase() !== 'n/a') ? t1 : '';
+      dealVal  = (t2 && t2.toLowerCase() !== 'n/a') ? t2 : '';
+    }
+    if( priceVal === '' || dealVal === '' ) {
+      const staged = importMap[name] || {};
+      if( priceVal === '' && staged.price != null ) priceVal = staged.price;
+      if( dealVal === '' && staged.dealPrice != null ) dealVal = staged.dealPrice;
+    }
+    priceInput.value = priceVal;
+    dealInput.value = dealVal;
     overlay.style.display = 'flex';
     priceInput.focus();
   }
