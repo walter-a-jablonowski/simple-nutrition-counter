@@ -30,6 +30,20 @@ class PricesReportController
       $curPrice = $this->toNumber($entry['price'] ?? '');
       $curDeal  = $this->toNumber($entry['dealPrice'] ?? '');
       $lastUpd  = isset($entry['lastPriceUpd']) ? (string)$entry['lastPriceUpd'] : '';
+      // Normalize last update for display
+      $lastOut = $lastUpd;
+      if( $lastUpd !== '' )
+      {
+        if( preg_match('/^\d{4}-\d{2}-\d{2}$/', $lastUpd) ) {
+          // already in YYYY-MM-DD, keep
+          $lastOut = $lastUpd;
+        }
+        elseif( ctype_digit($lastUpd) ) {
+          // likely epoch seconds => format to YYYY-MM-DD
+          $ts = (int)$lastUpd;
+          if( $ts > 0 ) $lastOut = gmdate('Y-m-d', $ts);
+        }
+      }
 
       $histP = $this->parseHistory($entry['prices'] ?? null);
       $histD = $this->parseHistory($entry['dealPrices'] ?? null);
@@ -69,7 +83,7 @@ class PricesReportController
         'firstDeal'   => $firstD,
         'pct'         => $changePct,
         'pctDeal'     => $changePctDeal,
-        'lastPriceUpd'=> $lastUpd,
+        'lastPriceUpd'=> $lastOut,
       ];
     }
 
