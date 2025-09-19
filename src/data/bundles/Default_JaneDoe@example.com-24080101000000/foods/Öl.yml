@@ -1,7 +1,7 @@
 vendor:            Rewe
 packaging:         glass & rubber
 
-price:             1.39
+price:             1.19
 weight:            500ml
 usedAmounts:       ["15ml", "30ml", "60ml"]
 
@@ -21,9 +21,10 @@ vitamins:
 
 sources:           { nutriVal: "web", price: "guess" }
 lastUpd:           2024-04-24
-lastPriceUpd:      2024-07-20
+lastPriceUpd:      2025-09-19
 
 prices:
 
+  2024-07-20: 1.39
   2024-06-18: 1.49
   2024-05-01: 1.99

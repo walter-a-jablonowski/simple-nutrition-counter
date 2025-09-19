@@ -3,7 +3,7 @@ vendor:            Rewe
 acceptable:        occasionally
 packaging:         plastic
 
-price:             1.79
+price:             1.75
 weight:            70
 usedAmounts:       ["1/4", "1/2", "1"]
 
@@ -20,8 +20,9 @@ nutritionalValues:
 
 sources:           { nutriVal: "web" }
 lastUpd:           2024-02-18
-lastPriceUpd:      2025-03-11
+lastPriceUpd:      2025-09-19
 
 prices:
 
+  2025-03-11: 1.79
   2024-03-23: 1.79

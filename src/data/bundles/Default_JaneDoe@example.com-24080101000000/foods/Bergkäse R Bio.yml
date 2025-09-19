@@ -8,7 +8,7 @@ certificates:      { bio: true, NutriScore: D }
 allergy:           "Milch und Milcherzeugnisse (einschließlich Lactose)"
 packaging:         plastic
 
-price:             2.19
+price:             2.39
 weight:            150g
 pieces:            7
 usedAmounts:       [1, 2, 3]
@@ -25,4 +25,8 @@ nutritionalValues:
 
 sources:           { nutriVal: "web" }
 lastUpd:           2025-05-01
-lastPriceUpd:      2025-05-01
+lastPriceUpd:      2025-09-19
+
+prices:
+
+  2025-05-01: 2.19

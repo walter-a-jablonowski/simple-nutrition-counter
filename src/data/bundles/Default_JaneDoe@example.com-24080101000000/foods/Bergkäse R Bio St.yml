@@ -9,7 +9,7 @@ ingredients:       "MILCH*, Speisesalz, Säuerungskulturen, mikrobielles Lab. *a
 allergy:           "Milch und Milcherzeugnisse (einschließlich Lactose)"
 packaging:         plastic
 
-price:             2.69
+price:             2.99
 weight:            200g
 
 calories:          418
@@ -24,4 +24,8 @@ nutritionalValues:
 
 sources:           { nutriVal: "web" }
 lastUpd:           2025-06-16
-lastPriceUpd:      2025-06-16
+lastPriceUpd:      2025-09-19
+
+prices:
+
+  2025-06-16: 2.69
