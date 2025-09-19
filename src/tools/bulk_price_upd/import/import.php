@@ -1,6 +1,6 @@
 <?php
 
-chdir('../..');
+chdir('../../..');
 
 use Symfony\Component\Yaml\Yaml;
 
