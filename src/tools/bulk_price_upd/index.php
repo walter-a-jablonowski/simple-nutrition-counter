@@ -12,14 +12,35 @@ require_once 'vendor/autoload.php';
 // TASK: Use hardcoded user ID - Default is typically used in the system
 $user_id = 'JaneDoe@example.com-24080101000000';
 
-// Default values
-$days_old      = isset($_GET['days'])    ? intval($_GET['days']) : 180;  // 6 months default
-$sort_by       = isset($_GET['sort'])    ? $_GET['sort'] : 'days';
+// Load initial filter defaults from local config.yml (if present)
+$config_defaults = [
+  'days'    => 180,
+  'vendor'  => 'all',
+  'missing' => true,
+  'old'     => true,
+  'sort'    => 'days'
+];
+try {
+  $cfgFile = __DIR__ . '/config.yml';
+  if( file_exists($cfgFile))
+  {
+    $cfg = Yaml::parseFile($cfgFile);
+    if( is_array($cfg) && isset($cfg['initialFilters']) && is_array($cfg['initialFilters']))
+      $config_defaults = array_merge($config_defaults, $cfg['initialFilters']);
+  }
+}
+catch( ParseException $e ) {
+  // Keep hardcoded defaults if config fails to parse
+}
+
+// Resolve effective filters: query string overrides config defaults
+$days_old      = isset($_GET['days'])    ? intval($_GET['days']) : intval($config_defaults['days']);
+$sort_by       = isset($_GET['sort'])    ? $_GET['sort'] : (string)$config_defaults['sort'];
 // Normalize deprecated sort option
 if( $sort_by === 'date') $sort_by = 'days';
-$filter_vendor = isset($_GET['vendor'])  ? $_GET['vendor'] : '';
-$show_missing  = isset($_GET['missing']) ? ($_GET['missing'] === '1') : true;
-$show_old      = isset($_GET['old'])     ? ($_GET['old'] === '1') : true;
+$filter_vendor = isset($_GET['vendor'])  ? $_GET['vendor'] : (string)$config_defaults['vendor'];
+$show_missing  = isset($_GET['missing']) ? ($_GET['missing'] === '1') : (bool)$config_defaults['missing'];
+$show_old      = isset($_GET['old'])     ? ($_GET['old'] === '1') : (bool)$config_defaults['old'];
 
 // Load food data from individual files
 $foods_dir     = "data/bundles/Default_$user_id/foods";

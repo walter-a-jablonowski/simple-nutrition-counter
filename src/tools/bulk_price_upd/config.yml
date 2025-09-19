@@ -1,0 +1,7 @@
+
+initialFilters:
+  days:    90
+  vendor:  all
+  missing: true
+  old:     true
+  sort:    price
