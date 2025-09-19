@@ -11,7 +11,7 @@ $chartData  = $controller->getData();
 <head>
   <title>Nutrition Charts</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=<?= time() ?>">
 </head>
 <body>
   <div class="view-controls">
@@ -95,6 +95,6 @@ $chartData  = $controller->getData();
   <script>
     const chartData = <?php echo json_encode($chartData); ?>;
   </script>
-  <script src="controller.js"></script>
+  <script src="controller.js?v=<?= time() ?>"></script>
 </body>
 </html> 
