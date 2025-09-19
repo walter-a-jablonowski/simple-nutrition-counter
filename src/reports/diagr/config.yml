@@ -1,6 +1,6 @@
 
-# source:   ../../data/users/JaneDoe@example.com-24080101000000/days
-source: ../../data/users/walterjab@gmail.com-25042801000000/days  # copy for dev use
+source:   ../../data/users/JaneDoe@example.com-24080101000000/days
+# source: ../../data/users/walterjab@gmail.com-25042801000000/days  # copy for dev use
 
 avg: 7              # in days
 movingAvg: 7
