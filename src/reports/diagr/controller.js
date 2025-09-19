@@ -18,10 +18,39 @@ document.addEventListener('DOMContentLoaded', function()
   let currentView = 'all';
   let noUnprecise = false;
   let noUnpreciseTime = false;
+  const rangeSelect = document.getElementById('date-range');
+  let dateRange = rangeSelect ? rangeSelect.value : '6m';
+
+  function parseYMD(d)
+  {
+    const [y, m, dd] = d.split('-').map(n => parseInt(n, 10));
+    return new Date(y, m - 1, dd);
+  }
+
+  function computeCutoff(latest, range)
+  {
+    const dt = new Date(latest.getTime());
+    if( range === 'all') return null;
+    if( range === '1m') { dt.setMonth(dt.getMonth() - 1); return dt; }
+    if( range === '2m') { dt.setMonth(dt.getMonth() - 2); return dt; }
+    if( range === '3m') { dt.setMonth(dt.getMonth() - 3); return dt; }
+    if( range === '6m') { dt.setMonth(dt.getMonth() - 6); return dt; }
+    if( range === '1y') { dt.setFullYear(dt.getFullYear() - 1); return dt; }
+    return null;
+  }
 
   function getFilteredDates()
   {
+    // Determine range cutoff based on latest available date
+    const latestDate = allDates.length ? parseYMD(allDates[allDates.length - 1]) : null;
+    const cutoff = latestDate ? computeCutoff(latestDate, dateRange) : null;
+
     return allDates.filter(d => {
+      // range filter
+      if( cutoff ) {
+        if( parseYMD(d) < cutoff ) return false;
+      }
+      // header flag filters
       const f = chartData.flags?.[d] || {};
       if( noUnprecise && f.unprecise ) return false;
       if( noUnpreciseTime && f.unpreciseTime ) return false;
@@ -208,4 +237,13 @@ document.addEventListener('DOMContentLoaded', function()
       metrics.forEach(metric => createChart(metric));
     });
   });
+
+  // Date range change
+  if( rangeSelect )
+  {
+    rangeSelect.addEventListener('change', function() {
+      dateRange = this.value || 'all';
+      metrics.forEach(metric => createChart(metric));
+    });
+  }
 });

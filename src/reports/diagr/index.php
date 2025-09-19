@@ -15,6 +15,14 @@ $chartData  = $controller->getData();
 </head>
 <body>
   <div class="view-controls">
+    <select id="date-range" title="Limit date range">
+      <option value="1m">1 Month</option>
+      <option value="2m">2 Months</option>
+      <option value="3m">3 Month</option>
+      <option value="6m" selected>6 Month</option>
+      <option value="1y">1 year</option>
+      <option value="all">All</option>
+    </select>
     <button class="view-btn active" data-view="all">Show All</button>
     <button class="view-btn" data-view="data">Data</button>
     <button class="view-btn" data-view="average">Moving Average</button>
