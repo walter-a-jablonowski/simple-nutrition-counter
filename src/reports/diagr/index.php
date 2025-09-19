@@ -18,6 +18,8 @@ $chartData  = $controller->getData();
     <button class="view-btn active" data-view="all">Show All</button>
     <button class="view-btn" data-view="data">Data</button>
     <button class="view-btn" data-view="average">Moving Average</button>
+    <button id="btn-no-unprecise" class="view-btn" data-toggle="no-unprecise" title="Exclude days with unprecise header">No unprecise</button>
+    <button id="btn-no-unprecisetime" class="view-btn" data-toggle="no-unprecisetime" title="Exclude days with unpreciseTime header">No unpr. time</button>
   </div>
 
   <div class="charts-container">

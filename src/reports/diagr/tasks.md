@@ -1,4 +1,6 @@
 
+- [ ] unsure if the unprecise btns really filter out date
+  - looks like we don't see all data (until 2025-03)
 - [ ] verfiy that data shown in chart is right
 - [x] timespan
 

@@ -11,10 +11,23 @@ function calculateMovingAverage(values, windowSize)
 document.addEventListener('DOMContentLoaded', function() 
 {
   const metrics = ['eatingTime', 'calories', 'fat', 'carbs', 'amino', 'salt', 'price'];
-  const dates = Object.keys(chartData.data);
+  const allDates = Object.keys(chartData.data);
   const movingAvgDays = chartData.config.movingAvg || 7;
   const avgPeriod = chartData.config.avg || 30;  // period from config
   const chartInstances = new Map();
+  let currentView = 'all';
+  let noUnprecise = false;
+  let noUnpreciseTime = false;
+
+  function getFilteredDates()
+  {
+    return allDates.filter(d => {
+      const f = chartData.flags?.[d] || {};
+      if( noUnprecise && f.unprecise ) return false;
+      if( noUnpreciseTime && f.unpreciseTime ) return false;
+      return true;
+    });
+  }
   
   function calculateAverages(values) {
     // average
@@ -66,8 +79,9 @@ document.addEventListener('DOMContentLoaded', function()
     return `${hours.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}`;
   }
 
-  function createChart(metric, view = 'all') 
+  function createChart(metric, view = currentView) 
   {
+    const dates = getFilteredDates();
     let values = dates.map(date => chartData.data[date][metric]);
     let yAxisLabel = metric;
     
@@ -78,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function()
       yAxisLabel = 'Eating Time (hours)';
     }
     
-    // Update average badges
+    // Update average badges (for eating time use minutes for averages)
     updateAverageBadges(metric, metric === 'eatingTime' ? 
       dates.map(date => chartData.data[date][metric]) : values);
     
@@ -166,20 +180,32 @@ document.addEventListener('DOMContentLoaded', function()
   }
 
   // Initialize all charts
-  metrics.forEach(metric => createChart(metric, 'all'));
+  metrics.forEach(metric => createChart(metric));
 
   // Add click handlers for view buttons
   document.querySelectorAll('.view-btn').forEach(button => {
     button.addEventListener('click', function() {
-      // Update active button state
-      document.querySelectorAll('.view-btn').forEach(btn => 
-        btn.classList.remove('active')
-      );
-      this.classList.add('active');
-      
-      // Update all charts with new view
       const view = this.dataset.view;
-      metrics.forEach(metric => createChart(metric, view));
+      const toggle = this.dataset.toggle;
+
+      if( view )
+      {
+        // Update active state for view buttons only
+        document.querySelectorAll('.view-btn[data-view]').forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+        currentView = view;
+      }
+
+      if( toggle )
+      {
+        // Toggle filter flags, buttons behave like on/off switches
+        if( toggle === 'no-unprecise')      noUnprecise = !noUnprecise;
+        if( toggle === 'no-unprecisetime')  noUnpreciseTime = !noUnpreciseTime;
+        this.classList.toggle('active', (toggle === 'no-unprecise') ? noUnprecise : noUnpreciseTime);
+      }
+
+      // Re-render all charts using current filters and view
+      metrics.forEach(metric => createChart(metric));
     });
   });
 });

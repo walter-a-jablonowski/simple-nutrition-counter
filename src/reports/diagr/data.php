@@ -17,7 +17,8 @@ class DiagramController
 
   public function getData()
   {
-    $data = [];
+    $data  = [];
+    $flags = [];
     
     foreach( scandir($this->sourceDir) as $file )
     {
@@ -28,6 +29,13 @@ class DiagramController
       $content = file_get_contents( $this->sourceDir . '/' . $file);
       $parsedFile = parse_data_file($content);
       $lines   = explode("\n", $parsedFile['data']);
+
+      // collect header flags for filtering in UI
+      $hdrs = $parsedFile['headers'];
+      $flags[$date] = [
+        'unprecise'     => isset($hdrs['unprecise']) && $hdrs['unprecise'],
+        'unpreciseTime' => isset($hdrs['unpreciseTime']) && $hdrs['unpreciseTime']
+      ];
       
       $daySum = [
         'calories'   => 0,
@@ -93,9 +101,11 @@ class DiagramController
     }
     
     ksort($data);
+    ksort($flags);
 
     return [
-      'data' => $data,
+      'data'   => $data,
+      'flags'  => $flags,
       'limits' => isset($this->config['limits']) ? $this->config['limits'] : [],
       'config' => [
         'avg'       => isset($this->config['avg']) ? $this->config['avg'] : 30,
