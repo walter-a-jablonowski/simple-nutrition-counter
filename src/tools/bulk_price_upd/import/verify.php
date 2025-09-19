@@ -125,13 +125,18 @@ foreach( $import_map as $name => $entry )
 
   $cur_price  = to_num_or_null($cur['price']     ?? null);
   $cur_deal   = to_num_or_null($cur['dealPrice'] ?? null);
-  $cur_eff    = $cur_price !== null ? $cur_price : ($cur_deal !== null ? $cur_deal : null);
 
   $new_price  = to_num_or_null($entry['price']     ?? null);
   $new_deal   = to_num_or_null($entry['dealPrice'] ?? null);
-  $new_eff    = $new_price !== null ? $new_price : ($new_deal !== null ? $new_deal : null);
 
-  $flags = looks_unlikely($cur_eff, $new_eff);
+  // Compare independently: price vs price, dealPrice vs dealPrice
+  $flags_price = $new_price !== null ? looks_unlikely($cur_price, $new_price) : [];
+  $flags_deal  = $new_deal  !== null ? looks_unlikely($cur_deal,  $new_deal)  : [];
+  // Merge for quick counting
+  $flags = [];
+  if( $flags_price ) $flags[] = 'price: ' . implode(', ', $flags_price);
+  if( $flags_deal )  $flags[] = 'deal: '  . implode(', ', $flags_deal);
+
   $row = [
     'name'      => $name,
     'cur_price' => $cur_price,
@@ -139,6 +144,8 @@ foreach( $import_map as $name => $entry )
     'new_price' => $new_price,
     'new_deal'  => $new_deal,
     'flags'     => $flags,
+    'flags_price' => $flags_price,
+    'flags_deal'  => $flags_deal,
   ];
   $rows[] = $row;
   if( $flags ) $flagged[] = $row;
@@ -152,7 +159,10 @@ if( PHP_SAPI === 'cli')
   echo "Verify import: {$bad} flagged out of {$total}\n";
   foreach( $flagged as $r )
   {
-    echo "- {$r['name']}  cur=".format2($r['cur_price'])."/".format2($r['cur_deal'])."  new=".format2($r['new_price'])."/".format2($r['new_deal'])."  [".implode(', ', $r['flags'])."]\n";
+    $parts = [];
+    if( !empty($r['flags_price'])) $parts[] = 'price: ' . implode(', ', $r['flags_price']) . ' ('.format2($r['cur_price']).' → '.format2($r['new_price']).')';
+    if( !empty($r['flags_deal']))  $parts[] = 'deal: '  . implode(', ', $r['flags_deal'])  . ' ('.format2($r['cur_deal']).' → '.format2($r['new_deal']).')';
+    echo "- {$r['name']}  " . implode(' | ', $parts) . "\n";
   }
   exit( $bad ? 10 : 0 );
 }
