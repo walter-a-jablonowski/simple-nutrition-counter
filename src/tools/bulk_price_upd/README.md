@@ -24,3 +24,5 @@ Import
     - no current price (informational)
 
 2. import.php (browser)
+
+3. remove import.yml when done
