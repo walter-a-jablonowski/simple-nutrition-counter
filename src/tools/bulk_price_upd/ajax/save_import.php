@@ -28,9 +28,18 @@ function handle_save_import( array $payload ) : array
     }
   }
 
+  // Currency formatter: always two decimals with dot
+  $formatCurrency = function( $s ) {
+    $s = trim((string)$s);
+    if( $s === '' ) return '';
+    // minimal locale normalization
+    $s = str_replace(',', '.', $s);
+    return is_numeric($s) ? sprintf('%.2f', (float)$s) : $s;
+  };
+
   $entry = [];
-  if( $price !== '')     $entry['price'] = is_numeric($price) ? 0 + $price : $price;
-  if( $dealPrice !== '') $entry['dealPrice'] = is_numeric($dealPrice) ? 0 + $dealPrice : $dealPrice;
+  if( $price !== '' )     $entry['price'] = $formatCurrency($price);
+  if( $dealPrice !== '' ) $entry['dealPrice'] = $formatCurrency($dealPrice);
 
   if( ! empty($entry)) {
     $entry['lastPriceUpd'] = (new DateTime())->format('Y-m-d');
@@ -42,6 +51,9 @@ function handle_save_import( array $payload ) : array
 
   // Dump YAML (indent 2)
   $yaml = Yaml::dump($data, 4, 2);
+  // Ensure currency looks like a number with two decimals (no quo)
+  $yaml = preg_replace("/(^|\n)(\s*price: )'(\d+\.\d{2})'/", '$1$2$3', $yaml);
+  $yaml = preg_replace("/(^|\n)(\s*dealPrice: )'(\d+\.\d{2})'/", '$1$2$3', $yaml);
   if( file_put_contents($import_file, $yaml) === false)
     return ['status' => 'error', 'message' => 'Failed to write file'];
 
