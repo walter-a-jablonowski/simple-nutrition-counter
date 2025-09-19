@@ -155,7 +155,7 @@ button:hover {
 }
 
 .price-deal {
-  color: var(--warning-color);
+  color: var(--info-color);
   margin-left: 5px;
 }
 

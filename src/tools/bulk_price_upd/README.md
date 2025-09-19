@@ -6,4 +6,4 @@ Entering new prices
 
 Misc
 
-- deal prices are red
+- deal prices are orange
