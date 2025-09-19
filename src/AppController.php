@@ -49,6 +49,11 @@ class AppController extends ControllerBase
   protected array      $captions = [];
   protected SimpleData $inlineHelp;
 
+  // TASK: added, was missing
+  protected array      $dayFileHeaders = [];
+  protected bool       $isUnprecise = false;
+  protected bool       $isUnpreciseTime = false;
+
 
   public function __construct(/* $model = null, $view = null */)
   {
