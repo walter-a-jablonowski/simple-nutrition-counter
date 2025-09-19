@@ -93,12 +93,24 @@ class PricesReportController
       ];
     }
 
-    // Sort by highest absolute percentage change (consider price then deal)
+    // Sort by sign priority, then absolute change
+    // - Positive changes first, negatives after
+    // - Mix price/deal by picking the metric with larger absolute value
+    // - Within each sign group: order by |change| desc, then name asc
     uasort($items, function($a, $b){
-      $ap = max(abs($a['pct'] ?? 0), abs($a['pctDeal'] ?? 0));
-      $bp = max(abs($b['pct'] ?? 0), abs($b['pctDeal'] ?? 0));
-      if( $ap == $bp ) return strcmp($a['name'], $b['name']);
-      return ($ap < $bp) ? 1 : -1;
+      $ap = $a['pct'] ?? null; $ad = $a['pctDeal'] ?? null;
+      $bp = $b['pct'] ?? null; $bd = $b['pctDeal'] ?? null;
+
+      $av = ($ap === null && $ad === null) ? 0 : (($ap === null) ? $ad : (($ad === null) ? $ap : (abs($ap) >= abs($ad) ? $ap : $ad)));
+      $bv = ($bp === null && $bd === null) ? 0 : (($bp === null) ? $bd : (($bd === null) ? $bp : (abs($bp) >= abs($bd) ? $bp : $bd)));
+
+      $aPos = $av >= 0; $bPos = $bv >= 0;
+      if( $aPos && ! $bPos ) return -1; // positives before negatives
+      if( ! $aPos && $bPos ) return 1;
+
+      $aa = abs($av); $bb = abs($bv);
+      if( $aa === $bb ) return strcmp($a['name'], $b['name']);
+      return ($aa < $bb) ? 1 : -1;
     });
 
     return [
