@@ -4,12 +4,12 @@
 
 chdir('..');
 
-require_once 'src/lib/helper.php';
+require_once 'lib/helper.php';
 
 // Config
 
-$from    = '2025-09-01';  // use in console
-$to      = '2025-09-19';
+$from    = '2025-06-01';  // use in console
+$to      = '2025-08-31';
 $addUnp  = true;          // add unprecise: true
 $addUnpt = true;          // add unpreciseTime: true
 
