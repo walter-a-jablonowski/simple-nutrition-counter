@@ -93,10 +93,11 @@ class PricesReportController
       ];
     }
 
-    // Sort by sign priority, then absolute change
-    // - Positive changes first, negatives after
-    // - Mix price/deal by picking the metric with larger absolute value
-    // - Within each sign group: order by |change| desc, then name asc
+    // Sort by sign priority, then absolute change with different tie-breakers per sign
+    // - Positive changes first: order by |change| DESC
+    // - Negative changes after: order by |change| ASC (less severe decreases first)
+    // - Mix price/deal by picking the metric with larger absolute value, preserving sign
+    // - Name asc as final tiebreaker
     uasort($items, function($a, $b){
       $ap = $a['pct'] ?? null; $ad = $a['pctDeal'] ?? null;
       $bp = $b['pct'] ?? null; $bd = $b['pctDeal'] ?? null;
@@ -109,8 +110,13 @@ class PricesReportController
       if( ! $aPos && $bPos ) return 1;
 
       $aa = abs($av); $bb = abs($bv);
+      if( $aPos && $bPos ) {
+        if( $aa === $bb ) return strcmp($a['name'], $b['name']);
+        return ($aa < $bb) ? 1 : -1; // positives: larger first
+      }
+      // both negative: smaller absolute first
       if( $aa === $bb ) return strcmp($a['name'], $b['name']);
-      return ($aa < $bb) ? 1 : -1;
+      return ($aa < $bb) ? -1 : 1;
     });
 
     return [
