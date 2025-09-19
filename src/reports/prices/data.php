@@ -51,14 +51,20 @@ class PricesReportController
       $firstP = $this->firstLevel($histP);
       $firstD = $this->firstLevel($histD);
 
-      // Determine if we should show: only if current went above first level (price or deal)
+      // Determine if we should show: only if there's actual price change
       $show = false;
       $changePct = null; $changePctDeal = null;
-      if( $curPrice !== null && $firstP !== null && $curPrice > $firstP ) {
-        $show = true; $changePct = $firstP > 0 ? ($curPrice - $firstP) / $firstP * 100.0 : null;
+      
+      // Show if we have current price, price history, AND there's a change
+      if( $curPrice !== null && $firstP !== null && $curPrice != $firstP ) {
+        $show = true; 
+        $changePct = $firstP > 0 ? ($curPrice - $firstP) / $firstP * 100.0 : null;
       }
-      if( $curDeal !== null && $firstD !== null && $curDeal > $firstD ) {
-        $show = true; $changePctDeal = $firstD > 0 ? ($curDeal - $firstD) / $firstD * 100.0 : null;
+      
+      // Show if we have current deal price, deal history, AND there's a change
+      if( $curDeal !== null && $firstD !== null && $curDeal != $firstD ) {
+        $show = true; 
+        $changePctDeal = $firstD > 0 ? ($curDeal - $firstD) / $firstD * 100.0 : null;
       }
 
       // Filter by date range if provided and we have lastPriceUpd
@@ -87,10 +93,10 @@ class PricesReportController
       ];
     }
 
-    // Sort by highest percentage change (consider price then deal)
+    // Sort by highest absolute percentage change (consider price then deal)
     uasort($items, function($a, $b){
-      $ap = max($a['pct'] ?? -INF, $a['pctDeal'] ?? -INF);
-      $bp = max($b['pct'] ?? -INF, $b['pctDeal'] ?? -INF);
+      $ap = max(abs($a['pct'] ?? 0), abs($a['pctDeal'] ?? 0));
+      $bp = max(abs($b['pct'] ?? 0), abs($b['pctDeal'] ?? 0));
       if( $ap == $bp ) return strcmp($a['name'], $b['name']);
       return ($ap < $bp) ? 1 : -1;
     });

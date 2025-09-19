@@ -53,16 +53,16 @@ $items = $report['items'];
               <?php 
                 $pct  = isset($it['pct']) && $it['pct'] !== null ? number_format($it['pct'], 1, '.', '') : '';
                 $pctD = isset($it['pctDeal']) && $it['pctDeal'] !== null ? number_format($it['pctDeal'], 1, '.', '') : '';
-                $rowWarn = ($pct !== '' && (float)$pct >= 10.0) || ($pctD !== '' && (float)$pctD >= 10.0);
+                $rowWarn = ($pct !== '' && abs((float)$pct) >= 10.0) || ($pctD !== '' && abs((float)$pctD) >= 10.0);
               ?>
               <tr class="<?= $rowWarn ? 'warn' : '' ?>">
                 <td><?= htmlspecialchars($it['name']) ?></td>
                 <td class="num"><?= $it['firstPrice'] !== null ? number_format($it['firstPrice'], 2, '.', '') : '' ?></td>
                 <td class="num"><?= $it['price'] !== null ? number_format($it['price'], 2, '.', '') : '' ?></td>
-                <td class="num strong"><?= $pct !== '' ? ($pct.'%') : '' ?></td>
+                <td class="num strong"><?= $pct !== '' ? (($pct >= 0 ? '+' : '') . $pct.'%') : '' ?></td>
                 <td class="num"><?= $it['firstDeal'] !== null ? number_format($it['firstDeal'], 2, '.', '') : '' ?></td>
                 <td class="num"><?= $it['dealPrice'] !== null ? number_format($it['dealPrice'], 2, '.', '') : '' ?></td>
-                <td class="num strong"><?= $pctD !== '' ? ($pctD.'%') : '' ?></td>
+                <td class="num strong"><?= $pctD !== '' ? (($pctD >= 0 ? '+' : '') . $pctD.'%') : '' ?></td>
                 <td><?= htmlspecialchars($it['lastPriceUpd']) ?></td>
               </tr>
             <?php endforeach; ?>
@@ -79,17 +79,17 @@ $items = $report['items'];
           <?php 
             $pct  = isset($it['pct']) && $it['pct'] !== null ? number_format($it['pct'], 1, '.', '') : '';
             $pctD = isset($it['pctDeal']) && $it['pctDeal'] !== null ? number_format($it['pctDeal'], 1, '.', '') : '';
-            $isWarn = ($pct !== '' && (float)$pct >= 10.0) || ($pctD !== '' && (float)$pctD >= 10.0);
+            $isWarn = ($pct !== '' && abs((float)$pct) >= 10.0) || ($pctD !== '' && abs((float)$pctD) >= 10.0);
           ?>
           <div class="card <?= $isWarn ? 'warn' : '' ?>">
             <div class="card-head">
               <div class="title"><?= htmlspecialchars($it['name']) ?></div>
               <div class="badges">
                 <?php if($pct !== ''): ?>
-                  <span class="badge">+<?= $pct ?>%</span>
+                  <span class="badge"><?= ($pct >= 0 ? '+' : '') . $pct ?>%</span>
                 <?php endif; ?>
                 <?php if($pctD !== ''): ?>
-                  <span class="badge alt">Deal +<?= $pctD ?>%</span>
+                  <span class="badge alt">Deal <?= ($pctD >= 0 ? '+' : '') . $pctD ?>%</span>
                 <?php endif; ?>
               </div>
             </div>
