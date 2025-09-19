@@ -8,10 +8,10 @@ require_once 'src/lib/helper.php';
 
 // Config
 
-$from    = '2025-09-01';
+$from    = '2025-09-01';  // use in console
 $to      = '2025-09-19';
-$addUnp  = true;  // add unprecise: true
-$addUnpt = true;  // add unpreciseTime: true
+$addUnp  = true;          // add unprecise: true
+$addUnpt = true;          // add unpreciseTime: true
 
 $userId  = 'JaneDoe@example.com-24080101000000';
 $daysDir = "data/users/$userId/days";
@@ -37,6 +37,8 @@ $toStr   = $to;
 $processed = 0;
 $updated   = 0;
 $errors    = [];
+
+header('Content-Type: text/plain; charset=utf-8');
 
 foreach( scandir($daysDir) as $file )
 {
@@ -71,10 +73,10 @@ foreach( scandir($daysDir) as $file )
     continue;
   }
 
+  echo "- updated: $file\n";
   $updated++;
 }
 
-header('Content-Type: text/plain; charset=utf-8');
 echo "Processed: $processed\n";
 echo "Updated:   $updated\n";
 if( $errors )
