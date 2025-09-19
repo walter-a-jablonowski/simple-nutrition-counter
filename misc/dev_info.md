@@ -2,11 +2,23 @@
 
 Overview
 
+- [File format](#file-format)
 - [Tools overview](#tools-overview)
 - [App design](#app-design)
 - [Model](#model)
   - [YML representation](#yml-representation)
 - [UI design](UI_Design.md)
+
+
+File format
+----------------------------------------------------------
+
+```
+unprecise: true
+unpreciseTime: true
+
+food data...
+```
 
 
 Tools overview
