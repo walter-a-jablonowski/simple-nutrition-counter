@@ -1,0 +1,52 @@
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px;
+  font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.controls select {
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  border: 1px solid #e5e5e5;
+  padding: 8px 10px;
+}
+
+.table th {
+  background: #f7f7f7;
+  text-align: left;
+}
+
+.table tr.warn {
+  background: #fff7f0;
+}
+
+.table .num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.table .strong {
+  font-weight: 600;
+}
+
+.table .empty {
+  text-align: center;
+  color: #777;
+}
