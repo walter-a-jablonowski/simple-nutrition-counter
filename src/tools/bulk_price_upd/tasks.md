@@ -14,7 +14,12 @@
 
 - [ ] remove import.yml when done
 
+
+Done
+----------------------------------------------------------
+
 - [-] -this.yml already works?
+
 - [x] 
 
   ```
@@ -67,4 +72,3 @@
 
   Please try to keep the indentation of the values
   ```
-
