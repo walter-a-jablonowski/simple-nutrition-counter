@@ -103,11 +103,43 @@ document.addEventListener('DOMContentLoaded', function() {
         importMap[currentName] = json.data;
         const row = document.querySelector(`.list-row[data-name="${CSS.escape(currentName)}"]`);
         if( row) row.classList.add('has-import');
+
+        // Reflect new values in the visible list immediately
+        if( row )
+        {
+          const setOrRemove = (selector, cls, value) => {
+            let el = row.querySelector(selector);
+            if( value === undefined || value === '' ) {
+              if( el ) el.remove();
+              return;
+            }
+            if( ! el ) {
+              el = document.createElement('span');
+              el.className = cls;
+              const container = row.querySelector('.col-price') || row.querySelector('.mobile-price') || row;
+              // Insert regular before deal if possible
+              if( cls === 'price-regular') {
+                const before = row.querySelector('.price-deal');
+                if( before && before.parentNode === container) container.insertBefore(el, before);
+                else container.appendChild(el);
+              } else {
+                container.appendChild(el);
+              }
+            }
+            el.textContent = value;
+          };
+
+          setOrRemove('.price-regular', 'price-regular', json.data.price);
+          setOrRemove('.price-deal', 'price-deal', json.data.dealPrice);
+        }
       }
       else {
         delete importMap[currentName];
         const row = document.querySelector(`.list-row[data-name="${CSS.escape(currentName)}"]`);
         if( row) row.classList.remove('has-import');
+
+        // Remove displayed values if none are staged now (fall back to original remains in markup only if present)
+        // Here we do nothing further; on next page load PHP will render source prices.
       }
 
       closeModal();

@@ -78,19 +78,27 @@
         
         <!-- List items -->
         <?php foreach( $results as $item): ?>
-          <?php $has_import = isset($import_map[$item['name']]); ?>
+          <?php 
+            $has_import = isset($import_map[$item['name']]);
+            $override   = $has_import ? $import_map[$item['name']] : [];
+            $disp_price = isset($override['price']) ? $override['price'] : ($item['price'] ?? '');
+            $disp_deal  = isset($override['dealPrice']) ? $override['dealPrice'] : ($item['dealPrice'] ?? '');
+            $fmt = function($v) { return ($v !== '' && is_numeric($v)) ? number_format((float)$v, 2, '.', '') : $v; };
+            $disp_price_fmt = $fmt($disp_price);
+            $disp_deal_fmt  = $fmt($disp_deal);
+          ?>
           <div class="list-row <?= $item['is_missing'] ? 'missing' : ($item['is_old'] ? 'old' : '') ?> <?= $has_import ? 'has-import' : '' ?>" data-name="<?= htmlspecialchars($item['name']) ?>">
             <!-- Desktop layout - grid columns -->
             <div class="list-col col-name"><?= htmlspecialchars($item['name']) ?></div>
             
             <div class="list-col col-price">
-              <?php if( ! empty($item['price'])): ?>
-                <span class="price-regular"><?= htmlspecialchars($item['price']) ?></span>
+              <?php if( $disp_price !== ''): ?>
+                <span class="price-regular"><?= htmlspecialchars($disp_price_fmt) ?></span>
               <?php endif; ?>
-              <?php if( ! empty($item['dealPrice'])): ?>
-                <span class="price-deal"><?= htmlspecialchars($item['dealPrice']) ?></span>
+              <?php if( $disp_deal !== ''): ?>
+                <span class="price-deal"><?= htmlspecialchars($disp_deal_fmt) ?></span>
               <?php endif; ?>
-              <?php if( empty($item['price']) && empty($item['dealPrice'])): ?>
+              <?php if( $disp_price === '' && $disp_deal === ''): ?>
                 <span>n/a</span>
               <?php endif; ?>
             </div>
@@ -113,13 +121,13 @@
             <div class="mobile-main-row">
               <div class="mobile-name"><?= htmlspecialchars($item['name']) ?></div>
               <div class="mobile-price">
-                <?php if( ! empty($item['price'])): ?>
-                  <span class="price-regular"><?= htmlspecialchars($item['price']) ?></span>
+                <?php if( $disp_price !== ''): ?>
+                  <span class="price-regular"><?= htmlspecialchars($disp_price_fmt) ?></span>
                 <?php endif; ?>
-                <?php if( ! empty($item['dealPrice'])): ?>
-                  <span class="price-deal"><?= htmlspecialchars($item['dealPrice']) ?></span>
+                <?php if( $disp_deal !== ''): ?>
+                  <span class="price-deal"><?= htmlspecialchars($disp_deal_fmt) ?></span>
                 <?php endif; ?>
-                <?php if( empty($item['price']) && empty($item['dealPrice'])): ?>
+                <?php if( $disp_price === '' && $disp_deal === ''): ?>
                   <span>n/a</span>
                 <?php endif; ?>
               </div>
