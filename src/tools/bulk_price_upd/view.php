@@ -165,7 +165,7 @@
       </div>
       <div style="display:flex; gap:8px; justify-content:flex-end; margin-top:14px;">
         <button id="price-cancel" type="button" style="background:#fff; color:#333; border:1px solid #ddd; padding:8px 12px; border-radius:4px; cursor:pointer;">Cancel</button>
-        <button id="price-save" type="button" style="background:#3498db; color:#fff; border:0; padding:8px 12px; border-radius:4px; cursor:pointer;">Save</button>
+        <button id="price-save" type="button" style="background:#3498db; color:#fff; border:0; padding:8px 12px; border-radius:4px; cursor:pointer;">Acccept</button>
       </div>
     </div>
   </div>

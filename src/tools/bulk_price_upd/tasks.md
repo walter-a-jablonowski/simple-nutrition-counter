@@ -1,5 +1,7 @@
 
 - [ ] try import with (only a few tryed see debug_import.yml)
+  
+  - verify that an accepted price where the date changed only is imported right
 
   - missing price
   - price upd
