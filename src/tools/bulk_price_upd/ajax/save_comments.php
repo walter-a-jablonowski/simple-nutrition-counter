@@ -2,7 +2,7 @@
 
 function handle_save_comments( array $payload ) : array
 {
-  $commentsFile = dirname(__DIR__) . '/comments.md';
+  $commentsFile = dirname(__DIR__) . '/data/comments.md';
 
   $content = isset($payload['content']) ? (string)$payload['content'] : null;
   if( $content === null ) {

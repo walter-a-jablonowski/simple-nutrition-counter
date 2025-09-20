@@ -4,7 +4,7 @@ use Symfony\Component\Yaml\Yaml;
 
 // Handler: save_import
 // Expects $payload = ['name' => string, 'price' => optional, 'dealPrice' => optional]
-// Writes to ../import.yml (sibling of ajax/)
+// Writes to ../data/import.yml (under tool's data/ folder)
 function handle_save_import( array $payload ) : array
 {
   $name = isset($payload['name']) ? trim((string)$payload['name']) : '';
@@ -14,7 +14,7 @@ function handle_save_import( array $payload ) : array
   $price     = array_key_exists('price', $payload) ? (string)$payload['price'] : '';
   $dealPrice = array_key_exists('dealPrice', $payload) ? (string)$payload['dealPrice'] : '';
 
-  $import_file = dirname(__DIR__) . '/import.yml';
+  $import_file = dirname(__DIR__) . '/data/import.yml';
 
   // Load existing
   $data = [];
@@ -47,6 +47,13 @@ function handle_save_import( array $payload ) : array
   }
   else {
     if( isset($data[$name])) unset($data[$name]);
+  }
+
+  // Ensure target directory exists
+  $dir = dirname($import_file);
+  if( ! is_dir($dir)) {
+    if( ! mkdir($dir, 0777, true))
+      return ['status' => 'error', 'message' => 'Cannot create data directory'];
   }
 
   // Dump YAML (indent 2)

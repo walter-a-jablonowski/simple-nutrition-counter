@@ -2,8 +2,8 @@
 
 function handle_get_comments() : array
 {
-  // comments.md is located one level up from this ajax/ folder
-  $commentsFile = dirname(__DIR__) . '/comments.md';
+  // comments.md is now stored under the data/ subfolder
+  $commentsFile = dirname(__DIR__) . '/data/comments.md';
 
   try {
     $content = '';

@@ -10,7 +10,7 @@ require_once 'vendor/autoload.php';
 // SETTINGS (adjust if needed)
 $user_id    = 'JaneDoe@example.com-24080101000000';
 $foods_dir  = "data/bundles/Default_{$user_id}/foods";
-$import_yml = 'tools/bulk_price_upd/import.yml';
+$import_yml = 'tools/bulk_price_upd/data/import.yml';
 
 // Helpers
 function nrm($v)
@@ -90,7 +90,7 @@ function format2(?float $v) : string { return $v === null ? 'n/a' : number_forma
 $import_map = [];
 if( ! file_exists($import_yml) )
 {
-  $msg = "import.yml not found: {$import_yml}";
+  $msg = "import.yml missing: {$import_yml}";
   if( PHP_SAPI === 'cli') { fwrite(STDERR, $msg."\n"); exit(1); }
   header('Content-Type: text/plain; charset=utf-8');
   echo $msg; exit;

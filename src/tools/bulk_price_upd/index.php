@@ -206,7 +206,7 @@ else { // vendor
 
 // Load import.yml to know which items already have new prices
 $import_map = [];
-$import_file = __DIR__ . '/import.yml';
+$import_file = __DIR__ . '/data/import.yml';
 if( file_exists($import_file)) {
   try {
     $parsed_import = Yaml::parseFile($import_file);

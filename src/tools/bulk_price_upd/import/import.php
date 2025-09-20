@@ -9,8 +9,7 @@ require_once 'vendor/autoload.php';
 // SETTINGS
 $user_id    = 'JaneDoe@example.com-24080101000000';
 $foods_dir  = "data/bundles/Default_$user_id/foods";
-// $import_yml = 'tools/bulk_price_upd/import/debug_import.yml';
-$import_yml = 'tools/bulk_price_upd/import.yml';
+$import_yml = 'tools/bulk_price_upd/data/import.yml';
 
 header('Content-Type: text/html; charset=utf-8');
 
