@@ -149,6 +149,63 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
+  // Comments modal logic
+  const btnOpenComments = document.getElementById('btn-open-comments');
+  const commentsOverlay = document.getElementById('comments-modal-overlay');
+  const commentsTextarea = document.getElementById('comments-text');
+  const commentsCancel = document.getElementById('comments-cancel');
+  const commentsSave = document.getElementById('comments-save');
+
+  function openCommentsModal(content) {
+    commentsTextarea.value = content || '';
+    commentsOverlay.style.display = 'flex';
+    commentsTextarea.focus();
+  }
+  function closeCommentsModal() {
+    commentsOverlay.style.display = 'none';
+  }
+
+  if( btnOpenComments ) {
+    btnOpenComments.addEventListener('click', async function() {
+      try {
+        const res = await fetch('ajax.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'get_comments' })
+        });
+        const json = await res.json();
+        if( json.status !== 'success' ) throw new Error(json.message || 'Load failed');
+        const content = (json.data && typeof json.data.content === 'string') ? json.data.content : '';
+        openCommentsModal(content);
+      }
+      catch(err) {
+        alert(err.message || 'Error loading comments');
+      }
+    });
+  }
+
+  if( commentsCancel ) commentsCancel.addEventListener('click', closeCommentsModal);
+  if( commentsOverlay ) commentsOverlay.addEventListener('click', (e) => { if( e.target === commentsOverlay ) closeCommentsModal(); });
+
+  if( commentsSave ) {
+    commentsSave.addEventListener('click', async function() {
+      const content = commentsTextarea ? commentsTextarea.value : '';
+      try {
+        const res = await fetch('ajax.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'save_comments', content })
+        });
+        const json = await res.json();
+        if( json.status !== 'success' ) throw new Error(json.message || 'Save failed');
+        closeCommentsModal();
+      }
+      catch(err) {
+        alert(err.message || 'Error saving comments');
+      }
+    });
+  }
+
   // Client-side search filter by name
   const searchInput = document.getElementById('search-filter');
   if( searchInput )

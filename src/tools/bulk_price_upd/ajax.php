@@ -35,7 +35,21 @@ try {
     echo json_encode($result);
     exit;
   }
-  
+  elseif( $action === 'get_comments')
+  {
+    require_once __DIR__ . '/ajax/get_comments.php';
+    $result = handle_get_comments();
+    echo json_encode($result);
+    exit;
+  }
+  elseif( $action === 'save_comments')
+  {
+    require_once __DIR__ . '/ajax/save_comments.php';
+    $result = handle_save_comments($payload);
+    echo json_encode($result);
+    exit;
+  }
+
   http_response_code(400);
   echo json_encode(['status' => 'error', 'message' => 'Unknown action']);
 }

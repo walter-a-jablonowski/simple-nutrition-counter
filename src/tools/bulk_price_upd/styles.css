@@ -37,6 +37,31 @@ h3 {
   margin-bottom: var(--spacing);
 }
 
+/* Header layout */
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: var(--spacing);
+}
+.header-title {
+  margin: 0;
+}
+.header-action {
+  background: #fff;
+  color: #333;
+  border: 1px solid var(--border-color);
+  width: auto; /* override default 100% button width */
+}
+.header-action:hover {
+  background: #f9f9f9;
+}
+.btn-compact {
+  padding: 4px 10px; /* narrower */
+  font-size: 13px;
+}
+
 .filters {
   display: flex;
   flex-wrap: wrap;
@@ -214,6 +239,9 @@ button:hover {
 
 /* Mobile styles */
 @media (max-width: 768px) {
+  .header-row { gap: 6px; }
+  .btn-compact { padding: 4px 8px; font-size: 12px; }
+  .header-action { width: auto; }
   .filters {
     gap: 6px;
   }

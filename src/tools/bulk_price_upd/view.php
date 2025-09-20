@@ -13,7 +13,10 @@
 </head>
 <body>
   <div class="container">
-    <h3>Bulk price upd</h3>
+    <div class="header-row">
+      <h3 class="header-title">Bulk price upd</h3>
+      <button id="btn-open-comments" type="button" class="header-action btn-compact">Comments</button>
+    </div>
     
     <form method="get" class="filters">
       <div class="filter-group">
@@ -178,11 +181,23 @@
     </div>
   </div>
   
+  <!-- Modal overlay for comments -->
+  <div id="comments-modal-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.4); z-index:1001; align-items:center; justify-content:center;">
+    <div style="background:#fff; width:min(700px,92vw); max-height:85vh; border-radius:8px; padding:16px; box-shadow:0 10px 30px rgba(0,0,0,.25); display:flex; flex-direction:column;">
+      <h4 style="margin-bottom:12px;">Comments</h4>
+      <div style="flex:1; overflow:auto;">
+        <textarea id="comments-text" placeholder="Write notes in Markdown..." style="width:100%; height:50vh; min-height:200px; padding:10px; border:1px solid #ddd; border-radius:4px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;"></textarea>
+      </div>
+      <div style="display:flex; gap:8px; justify-content:flex-end; margin-top:14px;">
+        <button id="comments-cancel" type="button" style="background:#fff; color:#333; border:1px solid #ddd; padding:8px 12px; border-radius:4px; cursor:pointer;">Cancel</button>
+        <button id="comments-save" type="button" style="background:#3498db; color:#fff; border:0; padding:8px 12px; border-radius:4px; cursor:pointer;">Save</button>
+      </div>
+    </div>
+  </div>
+  
   <script>
-
     // Import map embedded from PHP
     const importMap = <?= json_encode($import_map, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?> || {};
-
   </script>
   <script src="controller.js?v=<?= time() ?>"></script>
 </body>
