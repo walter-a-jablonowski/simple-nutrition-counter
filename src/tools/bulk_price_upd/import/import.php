@@ -18,7 +18,7 @@ $logs   = [];
 
 if( ! file_exists($import_yml))
 {
-  echo '<p style="color:#a00">import.yml not found: '.htmlspecialchars($import_yml).'</p>';
+  echo '<p style="color:#a00">import.yml missing: '.htmlspecialchars($import_yml).'</p>';
   exit;
 }
 
