@@ -1,0 +1,25 @@
+vendor:            Rewe
+acceptable:        less
+packaging:         glass & rubber
+
+price:             1.99                # (TASK) for 2 variants
+weight:            500ml
+usedAmounts:       ["500ml"]
+
+calories:          44
+nutritionalValues:
+
+  fat:             0
+  saturatedFat:    0
+  carbs:           10.5
+  sugar:           8
+  amino:           0.4
+  salt:            0.01
+
+misc:
+
+  water:           99  # ca
+
+sources:           { nutriVal: "web", price: "web" }
+lastUpd:           2024-04-17
+lastPriceUpd:      2025-09-20
