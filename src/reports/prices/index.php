@@ -20,7 +20,7 @@ $items = $report['items'];
     <h3>Price Changes</h3>
 
     <div class="controls">
-      <label for="range">Range</label>
+      <label for="range">Sel</label>
       <select id="range" name="range">
         <option value="1m" <?= $range==='1m'?'selected':'' ?>>1 Month</option>
         <option value="2m" <?= $range==='2m'?'selected':'' ?>>2 Months</option>
@@ -47,7 +47,7 @@ $items = $report['items'];
         </thead>
         <tbody>
           <?php if( empty($items)): ?>
-            <tr><td colspan="8" class="empty">No items in this range</td></tr>
+            <tr><td colspan="8" class="empty">No items</td></tr>
           <?php else: ?>
             <?php foreach( $items as $it ): ?>
               <?php 
@@ -73,7 +73,7 @@ $items = $report['items'];
 
     <div class="cards">
       <?php if( empty($items)): ?>
-        <div class="empty">No items in this range</div>
+        <div class="empty">No items</div>
       <?php else: ?>
         <?php foreach( $items as $it ): ?>
           <?php 
