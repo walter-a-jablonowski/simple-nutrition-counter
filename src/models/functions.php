@@ -85,7 +85,7 @@ function find_food_source( $foodName, $userId )
       return [
         'file' => $filePath,
         'isVariant' => false,
-        'variantIndex' => null
+        'variantName' => null
       ];
     }
     
@@ -104,7 +104,7 @@ function find_food_source( $foodName, $userId )
               return [
                 'file' => $filePath,
                 'isVariant' => true,
-                'variantIndex' => $variantName
+                'variantName' => $variantName
               ];
             }
           }
@@ -151,7 +151,7 @@ function update_food_price( $foodName, $newPrice, $userId )
   else
   {
     // Variant food - need to update the specific variant
-    $variantName = $sourceInfo['variantIndex']; // This is now the variant name, not index
+    $variantName = $sourceInfo['variantName'];
     $updatedContent = yml_replace_variant_value( $content, $variantName, 'price', $newPrice );
   }
   
