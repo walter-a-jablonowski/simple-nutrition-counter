@@ -1,0 +1,36 @@
+acceptable:        less
+packaging:         glass & rubber
+
+variants:
+
+  - variantName:   "Karamalz 330ml R"
+    vendor:        Rewe
+    price:         0.75
+    weight:        330ml
+    usedAmounts:   ["330ml"]
+    sources:       { price: "web" }
+    lastPriceUpd:  2024-05-15
+    
+  - variantName:   "Karamalz 500ml Eni"
+    vendor:        Eni
+    price:         1.99
+    weight:        500ml
+    usedAmounts:   ["500ml"]
+    lastPriceUpd:  2025-09-20
+
+calories:          44
+nutritionalValues:
+
+  fat:             0
+  saturatedFat:    0
+  carbs:           10.5
+  sugar:           8
+  amino:           0.4
+  salt:            0.01
+
+misc:
+
+  water:           99  # ca
+
+sources:           { nutriVal: "web" }
+lastUpd:           2024-04-17
