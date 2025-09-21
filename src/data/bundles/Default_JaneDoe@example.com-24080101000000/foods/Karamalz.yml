@@ -3,7 +3,7 @@ packaging:         glass & rubber
 
 variants:
 
-  - variantName:   "Karamalz R"
+  "Karamalz R":
     vendor:        Rewe
     price:         0.75
     weight:        330ml
@@ -11,7 +11,7 @@ variants:
     sources:       { price: "web" }
     lastPriceUpd:  2024-05-15
     
-  - variantName:   "Karamalz Eni"
+  "Karamalz Eni":
     vendor:        Eni
     price:         1.99
     weight:        500ml

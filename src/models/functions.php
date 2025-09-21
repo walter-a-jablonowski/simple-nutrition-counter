@@ -23,19 +23,16 @@ function expand_food_variants( $baseName, $foodData )
   // Remove variants from base data to avoid duplication
   unset($baseData['variants']);
 
-  foreach( $foodData['variants'] as $variant )
+  foreach( $foodData['variants'] as $variantName => $variant )
   {
-    if( ! is_array($variant) || ! isset($variant['variantName']))
+    if( ! is_array($variant))
       continue;
 
-    $variantName = $variant['variantName'];
     $variantData = $baseData; // Start with base data as default
 
     // Override base data with variant-specific values
     foreach( $variant as $key => $value )
     {
-      if( $key === 'variantName')
-        continue;
 
       // Handle array fields that need nested merging (like sources)
       if( is_array($value) && isset($variantData[$key]) && is_array($variantData[$key]))
@@ -100,14 +97,14 @@ function find_food_source( $foodName, $userId )
         
         if( isset($foodData['variants']) && is_array($foodData['variants']))
         {
-          foreach( $foodData['variants'] as $index => $variant )
+          foreach( $foodData['variants'] as $variantName => $variant )
           {
-            if( isset($variant['variantName']) && $variant['variantName'] === $foodName )
+            if( $variantName === $foodName )
             {
               return [
                 'file' => $filePath,
                 'isVariant' => true,
-                'variantIndex' => $index
+                'variantIndex' => $variantName
               ];
             }
           }
@@ -154,8 +151,8 @@ function update_food_price( $foodName, $newPrice, $userId )
   else
   {
     // Variant food - need to update the specific variant
-    $variantIndex = $sourceInfo['variantIndex'];
-    $updatedContent = yml_replace_variant_value( $content, $variantIndex, 'price', $newPrice );
+    $variantName = $sourceInfo['variantIndex']; // This is now the variant name, not index
+    $updatedContent = yml_replace_variant_value( $content, $variantName, 'price', $newPrice );
   }
   
   return file_put_contents( $filePath, $updatedContent ) !== false;
@@ -165,19 +162,18 @@ function update_food_price( $foodName, $newPrice, $userId )
  * Updates a value within a specific variant in YAML content
  * 
  * @param string $yamlContent The YAML content
- * @param int $variantIndex The index of the variant to update
+ * @param string $variantName The name of the variant to update
  * @param string $key The key to update
  * @param string $newValue The new value
  * @return string Updated YAML content
  */
-function yml_replace_variant_value( $yamlContent, $variantIndex, $key, $newValue )
+function yml_replace_variant_value( $yamlContent, $variantName, $key, $newValue )
 {
   // This is a simplified approach - in a production environment, 
   // you might want to use a proper YAML parser/writer
   
   $lines = explode("\n", $yamlContent);
   $inVariants = false;
-  $currentVariantIndex = -1;
   $foundVariant = false;
   
   for( $i = 0; $i < count($lines); $i++ )
@@ -191,29 +187,35 @@ function yml_replace_variant_value( $yamlContent, $variantIndex, $key, $newValue
       continue;
     }
     
-    // If we're in variants and find a new variant (starts with - )
-    if( $inVariants && preg_match('/^\s*-\s/', $line))
+    if( $inVariants )
     {
-      $currentVariantIndex++;
-      if( $currentVariantIndex === $variantIndex )
+      // Look for the specific variant key
+      if( preg_match('/^\s*(["\']?)' . preg_quote($variantName, '/') . '\1:\s*$/', $line))
+      {
         $foundVariant = true;
-      elseif( $foundVariant )
+        continue;
+      }
+      
+      // If we found another variant key after finding our target, we're done
+      if( $foundVariant && preg_match('/^\s*(["\']?)[^-\s].*?\1:\s*$/', $line))
+      {
         break; // We've moved past our target variant
+      }
+      
+      // If we're in the target variant and find the key to update
+      if( $foundVariant && preg_match('/^(\s+)' . preg_quote($key, '/') . '(\s*:\s*)/', $line, $matches))
+      {
+        // Replace the value on this line, preserving indentation and key
+        $indentation = $matches[1];
+        $keyAndColon = $matches[2];
+        $lines[$i] = $indentation . $key . $keyAndColon . $newValue;
+        break;
+      }
+      
+      // If we hit a non-indented line after being in variants, we're done
+      if( $foundVariant && preg_match('/^[a-zA-Z]/', $line))
+        break;
     }
-    
-    // If we're in the target variant and find the key to update
-    if( $foundVariant && preg_match('/^(\s+)' . preg_quote($key, '/') . '(\s*:\s*)/', $line, $matches))
-    {
-      // Replace the value on this line, preserving indentation and key
-      $indentation = $matches[1];
-      $keyAndColon = $matches[2];
-      $lines[$i] = $indentation . $key . $keyAndColon . $newValue;
-      break;
-    }
-    
-    // If we hit a non-indented line after being in variants, we're done
-    if( $inVariants && $foundVariant && preg_match('/^[a-zA-Z]/', $line))
-      break;
   }
   
   return implode("\n", $lines);
