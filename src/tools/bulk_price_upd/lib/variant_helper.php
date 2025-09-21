@@ -116,6 +116,33 @@ function bulk_find_food_source( $foodName, $dir )
  */
 function bulk_update_price( $foodName, $newPrice, $dir )
 {
+  return bulk_update_food_value( $foodName, 'price', $newPrice, $dir );
+}
+
+/**
+ * Updates a dealPrice in a YAML file (supports both regular foods and variants)
+ * 
+ * @param string $foodName The food name
+ * @param float $newDealPrice The new deal price
+ * @param string $dir The foods directory path
+ * @return bool Success status
+ */
+function bulk_update_deal_price( $foodName, $newDealPrice, $dir )
+{
+  return bulk_update_food_value( $foodName, 'dealPrice', $newDealPrice, $dir );
+}
+
+/**
+ * Updates any value in a YAML file (supports both regular foods and variants)
+ * 
+ * @param string $foodName The food name
+ * @param string $key The key to update (price, dealPrice, etc.)
+ * @param mixed $newValue The new value
+ * @param string $dir The foods directory path
+ * @return bool Success status
+ */
+function bulk_update_food_value( $foodName, $key, $newValue, $dir )
+{
   $sourceInfo = bulk_find_food_source( $foodName, $dir );
   
   if( ! $sourceInfo )
@@ -130,14 +157,14 @@ function bulk_update_price( $foodName, $newPrice, $dir )
   
   if( ! $sourceInfo['isVariant'])
   {
-    // Regular food - update price directly
-    $updatedContent = bulk_replace_yaml_value( $content, 'price', $newPrice );
+    // Regular food - update value directly
+    $updatedContent = bulk_replace_yaml_value( $content, $key, $newValue );
   }
   else
   {
     // Variant food - update specific variant
     $variantName = $sourceInfo['variantName'];
-    $updatedContent = bulk_replace_variant_price( $content, $variantName, $newPrice );
+    $updatedContent = bulk_replace_variant_value( $content, $variantName, $key, $newValue );
   }
   
   return file_put_contents( $filePath, $updatedContent ) !== false;
@@ -168,14 +195,15 @@ function bulk_replace_yaml_value( $yamlContent, $key, $newValue )
 }
 
 /**
- * Updates a price within a specific variant in YAML content
+ * Updates a value within a specific variant in YAML content
  * 
  * @param string $yamlContent The YAML content
  * @param string $variantName The variant name
- * @param float $newPrice The new price
+ * @param string $key The key to update
+ * @param mixed $newValue The new value
  * @return string Updated YAML content
  */
-function bulk_replace_variant_price( $yamlContent, $variantName, $newPrice )
+function bulk_replace_variant_value( $yamlContent, $variantName, $key, $newValue )
 {
   $lines = explode("\n", $yamlContent);
   $inVariants = false;
@@ -207,12 +235,12 @@ function bulk_replace_variant_price( $yamlContent, $variantName, $newPrice )
         break;
       }
       
-      // Update price in our variant
-      if( $foundVariant && preg_match('/^(\s+)price(\s*:\s*)/', $line, $matches))
+      // Update the key in our variant
+      if( $foundVariant && preg_match('/^(\s+)' . preg_quote($key, '/') . '(\s*:\s*)/', $line, $matches))
       {
         $indentation = $matches[1];
         $keyAndColon = $matches[2];
-        $lines[$i] = $indentation . 'price' . $keyAndColon . $newPrice;
+        $lines[$i] = $indentation . $key . $keyAndColon . $newValue;
         break;
       }
       

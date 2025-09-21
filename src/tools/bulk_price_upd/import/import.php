@@ -232,15 +232,20 @@ foreach( $import_map as $food_name => $entry)
   if( $dest['isVariant'])
   {
     // Handle variant foods using our simple helper functions
+    $priceSuccess = true;
+    $dealSuccess = true;
+    
     if( $new_price !== null)
     {
-      $success = bulk_update_price( $food_name, $new_price, $foods_dir );
+      $priceSuccess = bulk_update_price( $food_name, $new_price, $foods_dir );
     }
-    // Note: dealPrice not supported for variants in simple implementation
+    
     if( $new_deal !== null)
     {
-      $logs[] = "Warning: dealPrice not supported for variant '$food_name'";
+      $dealSuccess = bulk_update_deal_price( $food_name, $new_deal, $foods_dir );
     }
+    
+    $success = $priceSuccess && $dealSuccess;
   }
   else
   {
