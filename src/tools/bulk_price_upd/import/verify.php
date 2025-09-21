@@ -1,17 +1,15 @@
 <?php
 
-chdir('../../..');
-
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Yaml\Exception\ParseException;
 
-require_once 'vendor/autoload.php';
+require_once '../../../vendor/autoload.php';
 require_once '../lib/variant_helper.php';
 
 // SETTINGS (adjust if needed)
 $user_id    = 'JaneDoe@example.com-24080101000000';
-$foods_dir  = "data/bundles/Default_{$user_id}/foods";
-$import_yml = 'tools/bulk_price_upd/data/import.yml';
+$foods_dir  = "../../../data/bundles/Default_{$user_id}/foods";
+$import_yml = '../data/import.yml';
 
 // Helpers
 function nrm($v)
