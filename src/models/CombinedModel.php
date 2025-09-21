@@ -3,6 +3,8 @@
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Yaml\Exception\ParseException;
 
+require_once 'models/functions.php';
+
 trait CombinedModel
 {
   protected SimpleData $combinedModel;  // foods and supplements
@@ -31,33 +33,39 @@ trait CombinedModel
             ? Yaml::parse( file_get_contents("$dir/$file"))
             : Yaml::parse( file_get_contents("$dir/$file/-this.yml"));
 
-      $food['category'] = 'F';
-
-      // Merge nutrients from food file (prio) over default foods
-      // TASK: maybe we want to add at least an empty key if a type of nutrients is missing
-
-      if( isset( $food['type']) && file_exists("data/food_defaults/$food[type].yml"))
+      // Expand food variants into separate food entries first
+      $expandedFoods = expand_food_variants( $name, $food );
+      
+      foreach( $expandedFoods as $foodName => $foodData )
       {
-        $nutrients = Yaml::parse( file_get_contents("data/food_defaults/$food[type].yml"));
+        $foodData['category'] = 'F';
+        
+        // Merge nutrients from food file (prio) over default foods for each expanded food
+        // TASK: maybe we want to add at least an empty key if a type of nutrients is missing
 
-        foreach( self::NUTRIENT_GROUPS as $groupName )
+        if( isset( $foodData['type']) && file_exists("data/food_defaults/$foodData[type].yml"))
         {
-          if( isset( $nutrients[$groupName] ))
-            $food[$groupName] = array_merge( $nutrients[$groupName], $food[$groupName] ?? []);
-          // else
-          //   // $food[$groupName] = $nutrients[$groupName];
-          //   $food[$groupName] = $food[$groupName] ?? [];
+          $nutrients = Yaml::parse( file_get_contents("data/food_defaults/$foodData[type].yml"));
+
+          foreach( self::NUTRIENT_GROUPS as $groupName )
+          {
+            if( isset( $nutrients[$groupName] ))
+              $foodData[$groupName] = array_merge( $nutrients[$groupName], $foodData[$groupName] ?? []);
+            // else
+            //   // $foodData[$groupName] = $nutrients[$groupName];
+            //   $foodData[$groupName] = $foodData[$groupName] ?? [];
+          }
+
+          // Duplicate salt and fibre (food value more precise, overrides food default)
+
+          if( isset($foodData['nutritionalValues']['fibre']))
+            $foodData['carbs']['Fibre'] = $foodData['nutritionalValues']['fibre'];
+
+          $foodData['minerals']['Salt'] = $foodData['nutritionalValues']['salt'];
         }
 
-        // Duplicate salt and fibre (food value more precise, overrides food default)
-
-        if( isset($food['nutritionalValues']['fibre']))
-          $food['carbs']['Fibre'] = $food['nutritionalValues']['fibre'];
-
-        $food['minerals']['Salt'] = $food['nutritionalValues']['salt'];
+        $this->combinedModel->set( $foodName, $foodData );
       }
-
-      $this->combinedModel->set( $name, $food );
     }
 
     $dir = "data/bundles/Default_$user->id/supplements";

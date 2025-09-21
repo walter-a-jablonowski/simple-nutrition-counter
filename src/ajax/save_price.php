@@ -1,6 +1,7 @@
 <?php
 
 require_once 'lib/yml_preserve_MOV/yml_preserve.php';
+require_once 'models/functions.php';
 
 trait SavePriceAjaxController
 {
@@ -10,11 +11,13 @@ trait SavePriceAjaxController
     // TASK: add user
     // TASK: maybe add stuff from misc ajax
 
-    $file = 'data/bundles/Default_' . User::current('id') . "/foods/$request[name].yml";
-    $data = yml_replace_value( file_get_contents($file), 'price', $request['price']);
+    $userId = User::current('id');
+    $foodName = $request['name'];
+    $newPrice = $request['price'];
 
-    if( ! file_put_contents( $file, $data))
-      return ['result' => 'error', 'message' => 'Error saving'];
+    // Use the new update_food_price function that handles regular foods and variants
+    if( ! update_food_price( $foodName, $newPrice, $userId ))
+      return ['result' => 'error', 'message' => 'Error saving price - food not found or file error'];
 
     // TASK: save prev price
       
