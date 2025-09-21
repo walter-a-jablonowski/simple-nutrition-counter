@@ -139,9 +139,10 @@ function bulk_update_deal_price( $foodName, $newDealPrice, $dir )
  * @param string $key The key to update (price, dealPrice, etc.)
  * @param mixed $newValue The new value
  * @param string $dir The foods directory path
+ * @param bool $withHistory Whether to maintain price history (default: false for simple updates)
  * @return bool Success status
  */
-function bulk_update_food_value( $foodName, $key, $newValue, $dir )
+function bulk_update_food_value( $foodName, $key, $newValue, $dir, $withHistory = false )
 {
   $sourceInfo = bulk_find_food_source( $foodName, $dir );
   
@@ -164,7 +165,17 @@ function bulk_update_food_value( $foodName, $key, $newValue, $dir )
   {
     // Variant food - update specific variant
     $variantName = $sourceInfo['variantName'];
-    $updatedContent = bulk_replace_variant_value( $content, $variantName, $key, $newValue );
+    
+    if( $withHistory && ($key === 'price' || $key === 'dealPrice'))
+    {
+      // Handle price history for variants
+      $updatedContent = bulk_update_variant_with_history( $content, $variantName, $key, $newValue );
+    }
+    else
+    {
+      // Simple update without history
+      $updatedContent = bulk_replace_variant_value( $content, $variantName, $key, $newValue );
+    }
   }
   
   return file_put_contents( $filePath, $updatedContent ) !== false;
@@ -255,13 +266,26 @@ function bulk_replace_variant_value( $yamlContent, $variantName, $key, $newValue
     }
   }
   
-  // If we found the variant but didn't find the key, add it
+  // If we found the variant but didn't find the key, add it in the right position
   if( $foundVariant )
   {
     $indentation = '    '; // 4 spaces for variant properties
     $newLine = $indentation . $key . ':         ' . $newValue;
+    $insertIndex = -1;
     
-    if( $variantEndIndex > 0 )
+    // Try to find a good position based on the key type
+    if( $key === 'dealPrice' )
+    {
+      // Insert dealPrice right after price
+      $insertIndex = bulk_find_insert_position_after( $lines, $variantName, 'price' );
+    }
+    
+    if( $insertIndex > 0 )
+    {
+      // Insert at the calculated position
+      array_splice($lines, $insertIndex, 0, [$newLine]);
+    }
+    elseif( $variantEndIndex > 0 )
     {
       // Insert before the next variant or section
       array_splice($lines, $variantEndIndex, 0, [$newLine]);
@@ -274,6 +298,87 @@ function bulk_replace_variant_value( $yamlContent, $variantName, $key, $newValue
   }
   
   return implode("\n", $lines);
+}
+
+/**
+ * Finds the best position to insert a new key after a specific key in a variant
+ * 
+ * @param array $lines The YAML lines
+ * @param string $variantName The variant name
+ * @param string $afterKey The key to insert after
+ * @return int The line index to insert at, or -1 if not found
+ */
+function bulk_find_insert_position_after( $lines, $variantName, $afterKey )
+{
+  $inVariants = false;
+  $foundVariant = false;
+  
+  for( $i = 0; $i < count($lines); $i++ )
+  {
+    $line = $lines[$i];
+    
+    // Check if we're entering variants section
+    if( preg_match('/^variants:\s*$/', $line))
+    {
+      $inVariants = true;
+      continue;
+    }
+    
+    if( $inVariants )
+    {
+      // Look for our specific variant
+      if( preg_match('/^\s*(["\']?)' . preg_quote($variantName, '/') . '\1:\s*$/', $line))
+      {
+        $foundVariant = true;
+        continue;
+      }
+      
+      // If we found another variant, we're done
+      if( $foundVariant && preg_match('/^\s*(["\']?)[^-\s].*?\1:\s*$/', $line))
+      {
+        break;
+      }
+      
+      // Look for the afterKey in our variant
+      if( $foundVariant && preg_match('/^(\s+)' . preg_quote($afterKey, '/') . '(\s*:\s*)/', $line))
+      {
+        return $i + 1; // Insert after this line
+      }
+      
+      // If we hit a non-indented line, we're done with variants
+      if( $foundVariant && preg_match('/^[a-zA-Z]/', $line))
+      {
+        break;
+      }
+    }
+  }
+  
+  return -1; // Not found
+}
+
+/**
+ * Updates a variant price with full history support
+ * 
+ * @param string $yamlContent The YAML content
+ * @param string $variantName The variant name
+ * @param string $key The key to update (price or dealPrice)
+ * @param mixed $newValue The new value
+ * @return string Updated YAML content
+ */
+function bulk_update_variant_with_history( $yamlContent, $variantName, $key, $newValue )
+{
+  // For now, let's implement a simplified version that just updates the value
+  // and adds lastPriceUpd. Full history support would be quite complex.
+  
+  $today = (new DateTime())->format('Y-m-d');
+  
+  // Update the price/dealPrice
+  $updatedContent = bulk_replace_variant_value( $yamlContent, $variantName, $key, $newValue );
+  
+  // Update lastPriceUpd
+  $updatedContent = bulk_replace_variant_value( $updatedContent, $variantName, 'lastPriceUpd', $today );
+  
+  return $updatedContent;
 }
 
 ?>

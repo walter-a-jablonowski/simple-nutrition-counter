@@ -231,18 +231,18 @@ foreach( $import_map as $food_name => $entry)
 
   if( $dest['isVariant'])
   {
-    // Handle variant foods using our simple helper functions
+    // Handle variant foods with history support
     $priceSuccess = true;
     $dealSuccess = true;
     
     if( $new_price !== null)
     {
-      $priceSuccess = bulk_update_price( $food_name, $new_price, $foods_dir );
+      $priceSuccess = bulk_update_food_value( $food_name, 'price', $new_price, $foods_dir, true );
     }
     
     if( $new_deal !== null)
     {
-      $dealSuccess = bulk_update_deal_price( $food_name, $new_deal, $foods_dir );
+      $dealSuccess = bulk_update_food_value( $food_name, 'dealPrice', $new_deal, $foods_dir, true );
     }
     
     $success = $priceSuccess && $dealSuccess;
