@@ -33,7 +33,7 @@ trait CombinedModel
 
       $food['category'] = 'F';
 
-      // merge nutrients from food file (prio) over default foods
+      // Merge nutrients from food file (prio) over default foods
       // TASK: maybe we want to add at least an empty key if a type of nutrients is missing
 
       if( isset( $food['type']) && file_exists("data/food_defaults/$food[type].yml"))

@@ -2,7 +2,7 @@
 
 // Layout file
 
-// TASK: mov in some lib
+// TASK: mov some in models/functions
 // TASK: (advanced) make reusable (maybe recursive via AI)
 // TASK: (advanced) we could add a skip keys arg for (first_entries) is we use this
 function parse_layout_attribs( string $attribsKey, array $largeAttribKeys, array $array)  // TASK: maybe some arg for first_entries
