@@ -17,11 +17,11 @@ trait SavePriceAjaxController
 
     // Use the new update_food_price function that handles regular foods and variants
     if( ! update_food_price( $foodName, $newPrice, $userId ))
-      return ['result' => 'error', 'message' => 'Error saving price - food not found or file error'];
+      return ['result' => 'error', 'message' => 'Error saving price - food missing or file error'];
 
     // TASK: save prev price
       
-    echo json_encode(['status' => 'success']);
+    return ['result' => 'success'];
   }
 }
 
