@@ -5,6 +5,7 @@ chdir('../../..');
 use Symfony\Component\Yaml\Yaml;
 
 require_once 'vendor/autoload.php';
+require_once '../lib/variant_helper.php';
 
 // SETTINGS
 $user_id    = 'JaneDoe@example.com-24080101000000';
@@ -187,12 +188,26 @@ function build_aligned_line( string $indent, string $key, string $value, int $va
 
 function find_food_file( string $foods_dir, string $name ) : ?array
 {
+  // First try direct file/folder match (base foods)
   $fileA = "$foods_dir/$name.yml";
-  if( is_file($fileA)) return ['mode' => 'file', 'path' => $fileA];
+  if( is_file($fileA)) return ['mode' => 'file', 'path' => $fileA, 'isVariant' => false];
 
   $dir = "$foods_dir/$name";
   $fileB = "$dir/$name-this.yml";
-  if( is_dir($dir) && is_file($fileB)) return ['mode' => 'this', 'path' => $fileB];
+  if( is_dir($dir) && is_file($fileB)) return ['mode' => 'this', 'path' => $fileB, 'isVariant' => false];
+
+  // If not found, check if it's a variant using our helper function
+  $sourceInfo = bulk_find_food_source( $name, 'JaneDoe@example.com-24080101000000' );
+  if( $sourceInfo && $sourceInfo['isVariant'])
+  {
+    $mode = strpos($sourceInfo['file'], '-this.yml') !== false ? 'this' : 'file';
+    return [
+      'mode' => $mode, 
+      'path' => $sourceInfo['file'], 
+      'isVariant' => true,
+      'variantName' => $sourceInfo['variantName']
+    ];
+  }
 
   return null;
 }
@@ -211,44 +226,66 @@ foreach( $import_map as $food_name => $entry)
     continue;
   }
 
-  $path  = $dest['path'];
-  $lines = read_lines($path);
-
-  // Read current values from file
-  $cur_price     = read_scalar_value($lines, 'price');
-  $cur_deal      = read_scalar_value($lines, 'dealPrice');
-  $cur_last_upd  = read_scalar_value($lines, 'lastPriceUpd');
-
   $new_price     = array_key_exists('price', $entry) ? normalize_number($entry['price']) : null;
   $new_deal      = array_key_exists('dealPrice', $entry) ? normalize_number($entry['dealPrice']) : null;
-  $import_last   = array_key_exists('lastPriceUpd', $entry) ? (string)$entry['lastPriceUpd'] : null;
-  $today         = (new DateTime())->format('Y-m-d');
 
-  // 1) Move old current price(s) to history using lastPriceUpd as date
-  if( $cur_last_upd !== null && $cur_last_upd !== '')
+  $success = false;
+
+  if( $dest['isVariant'])
   {
-    if( $cur_price !== null && $cur_price !== '')
-      insert_history_entry($lines, 'prices', $cur_last_upd, $cur_price);
-    if( $cur_deal !== null && $cur_deal !== '')
-      insert_history_entry($lines, 'dealPrices', $cur_last_upd, $cur_deal);
+    // Handle variant foods using our simple helper functions
+    if( $new_price !== null)
+    {
+      $success = bulk_update_price( $food_name, $new_price, $user_id );
+    }
+    // Note: dealPrice not supported for variants in simple implementation
+    if( $new_deal !== null)
+    {
+      $logs[] = "Warning: dealPrice not supported for variant '$food_name'";
+    }
+  }
+  else
+  {
+    // Handle regular foods with full history support
+    $path  = $dest['path'];
+    $lines = read_lines($path);
+
+    // Read current values from file
+    $cur_price     = read_scalar_value($lines, 'price');
+    $cur_deal      = read_scalar_value($lines, 'dealPrice');
+    $cur_last_upd  = read_scalar_value($lines, 'lastPriceUpd');
+
+    $import_last   = array_key_exists('lastPriceUpd', $entry) ? (string)$entry['lastPriceUpd'] : null;
+    $today         = (new DateTime())->format('Y-m-d');
+
+    // 1) Move old current price(s) to history using lastPriceUpd as date
+    if( $cur_last_upd !== null && $cur_last_upd !== '')
+    {
+      if( $cur_price !== null && $cur_price !== '')
+        insert_history_entry($lines, 'prices', $cur_last_upd, $cur_price);
+      if( $cur_deal !== null && $cur_deal !== '')
+        insert_history_entry($lines, 'dealPrices', $cur_last_upd, $cur_deal);
+    }
+
+    // 2) Set new prices if provided (create keys if missing)
+    if( $new_price !== null)
+      set_scalar_value($lines, 'price', $new_price);
+    if( $new_deal !== null)
+      set_scalar_value_after($lines, 'dealPrice', $new_deal, 'price');
+
+    // 3) Update lastPriceUpd to today
+    $new_last_upd = $import_last !== null && $import_last !== '' ? $import_last : $today;
+    set_scalar_value($lines, 'lastPriceUpd', $new_last_upd);
+
+    $success = write_lines($path, $lines);
   }
 
-  // 2) Set new prices if provided (create keys if missing)
-  if( $new_price !== null)
-    set_scalar_value($lines, 'price', $new_price);
-  if( $new_deal !== null)
-    set_scalar_value_after($lines, 'dealPrice', $new_deal, 'price');
-
-  // 3) Update lastPriceUpd to today
-  $new_last_upd = $import_last !== null && $import_last !== '' ? $import_last : $today;
-  set_scalar_value($lines, 'lastPriceUpd', $new_last_upd);
-
-  if( write_lines($path, $lines)) {
+  if( $success ) {
     $updated++;
-    $logs[] = "Updated: ".htmlspecialchars($food_name);
+    $logs[] = "Updated: ".htmlspecialchars($food_name) . ($dest['isVariant'] ? ' (variant)' : '');
   }
   else {
-    $errors[] = "Failed to write: ".htmlspecialchars($path);
+    $errors[] = "Failed to update: ".htmlspecialchars($food_name);
   }
 }
 

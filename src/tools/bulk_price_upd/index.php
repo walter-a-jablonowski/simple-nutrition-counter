@@ -8,6 +8,7 @@ use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Yaml\Exception\ParseException;
 
 require_once 'vendor/autoload.php';
+require_once __DIR__ . '/lib/variant_helper.php';
 
 // TASK: Use hardcoded user ID - Default is typically used in the system
 $user_id = 'JaneDoe@example.com-24080101000000';
@@ -67,9 +68,13 @@ else {
           try {
             $food_data = Yaml::parseFile("$dir/$item/$item-this.yml");
             $food_name = $item; // Use folder name as food name
-            $foods[$food_name] = $food_data;
-          }
-          catch( ParseException $e ) {
+            
+            // Expand variants if they exist
+            $expanded = bulk_expand_variants( $food_name, $food_data );
+            foreach( $expanded as $name => $data )
+              $foods[$name] = $data;
+
+          } catch( ParseException $e ) {
             // Skip files that can't be parsed
             continue;
           }
@@ -93,7 +98,11 @@ else {
         try {
           $food_data = Yaml::parseFile("$dir/$item");
           $food_name = pathinfo($item, PATHINFO_FILENAME);
-          $foods[$food_name] = $food_data;
+          
+          // Expand variants if they exist
+          $expanded = bulk_expand_variants( $food_name, $food_data );
+          foreach( $expanded as $name => $data )
+            $foods[$name] = $data;
         }
         catch( ParseException $e ) {
           // Skip files that can't be parsed

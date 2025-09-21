@@ -6,6 +6,7 @@ use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Yaml\Exception\ParseException;
 
 require_once 'vendor/autoload.php';
+require_once '../lib/variant_helper.php';
 
 // SETTINGS (adjust if needed)
 $user_id    = 'JaneDoe@example.com-24080101000000';
@@ -52,7 +53,10 @@ function scan_foods($dir)
     if( str_ends_with($fn, '-this.yml') )
     {
       $name = basename($file->getPath());
-      $foods[$name] = $data;
+      // Expand variants if they exist
+      $expanded = bulk_expand_variants( $name, $data );
+      foreach( $expanded as $expandedName => $expandedData )
+        $foods[$expandedName] = $expandedData;
     }
     else
     {
@@ -60,7 +64,10 @@ function scan_foods($dir)
       if( substr($fn, 0, 1) === '_' ) continue;
       // Plain file food
       $name = pathinfo($fn, PATHINFO_FILENAME);
-      $foods[$name] = $data;
+      // Expand variants if they exist
+      $expanded = bulk_expand_variants( $name, $data );
+      foreach( $expanded as $expandedName => $expandedData )
+        $foods[$expandedName] = $expandedData;
     }
   }
   return $foods;
@@ -69,7 +76,7 @@ function scan_foods($dir)
 function looks_unlikely(?float $cur, ?float $new) : array
 {
   $flags = [];
-  if( $new === null ) return $flags; // nothing to verify
+  if( $new === null ) return $flags; // nix to verify
   if( $new <= 0 ) { $flags[] = 'non-positive new price'; return $flags; }
   if( $cur === null ) { $flags[] = 'no current price'; return $flags; }
 
