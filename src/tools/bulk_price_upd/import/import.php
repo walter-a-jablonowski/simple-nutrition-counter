@@ -195,7 +195,7 @@ function find_food_file( string $foods_dir, string $name ) : ?array
   if( is_dir($dir) && is_file($fileB)) return ['mode' => 'this', 'path' => $fileB, 'isVariant' => false];
 
   // If not found, check if it's a variant using our helper function
-  $sourceInfo = bulk_find_food_source( $name, 'JaneDoe@example.com-24080101000000' );
+  $sourceInfo = bulk_find_food_source( $name, $foods_dir );
   if( $sourceInfo && $sourceInfo['isVariant'])
   {
     $mode = strpos($sourceInfo['file'], '-this.yml') !== false ? 'this' : 'file';
@@ -234,7 +234,7 @@ foreach( $import_map as $food_name => $entry)
     // Handle variant foods using our simple helper functions
     if( $new_price !== null)
     {
-      $success = bulk_update_price( $food_name, $new_price, $user_id );
+      $success = bulk_update_price( $food_name, $new_price, $foods_dir );
     }
     // Note: dealPrice not supported for variants in simple implementation
     if( $new_deal !== null)

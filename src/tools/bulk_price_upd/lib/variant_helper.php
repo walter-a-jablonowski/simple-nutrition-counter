@@ -44,12 +44,11 @@ function bulk_expand_variants( $baseName, $foodData )
  * Finds which file contains a specific food (including variants)
  * 
  * @param string $foodName The food name to find
- * @param string $userId The user ID
+ * @param string $dir The foods directory path
  * @return array|null ['file' => path, 'isVariant' => bool, 'variantName' => name|null]
  */
-function bulk_find_food_source( $foodName, $userId )
+function bulk_find_food_source( $foodName, $dir )
 {
-  $dir = "data/bundles/Default_$userId/foods";
   
   if( ! is_dir($dir))
     return null;
@@ -112,12 +111,12 @@ function bulk_find_food_source( $foodName, $userId )
  * 
  * @param string $foodName The food name
  * @param float $newPrice The new price
- * @param string $userId The user ID
+ * @param string $dir The foods directory path
  * @return bool Success status
  */
-function bulk_update_price( $foodName, $newPrice, $userId )
+function bulk_update_price( $foodName, $newPrice, $dir )
 {
-  $sourceInfo = bulk_find_food_source( $foodName, $userId );
+  $sourceInfo = bulk_find_food_source( $foodName, $dir );
   
   if( ! $sourceInfo )
     return false;
