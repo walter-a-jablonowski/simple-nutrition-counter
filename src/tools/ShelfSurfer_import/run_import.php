@@ -7,7 +7,7 @@ try
 {
   echo "Starting price import...\n";
   
-  $importer = new PriceImporter('in/places.yml', '../../../data/bundles/Default_JaneDoe@example.com-24080101000000/foods');
+  $importer = new PriceImporter('in/places.yml', '../../data/bundles/Default_JaneDoe@example.com-24080101000000/foods');
   $result = $importer->run();
   
   echo "Price import completed successfully.\n";
