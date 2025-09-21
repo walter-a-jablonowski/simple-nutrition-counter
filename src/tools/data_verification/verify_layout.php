@@ -1,6 +1,6 @@
 <?php
 
-chdir('..');
+chdir('../..');
 
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Yaml\Exception\ParseException;
@@ -8,10 +8,9 @@ use Symfony\Component\Yaml\Exception\ParseException;
 require_once 'vendor/autoload.php';
 
 
-# TASK: layout was modified (added list key)
-# this maybe still can be used cause can show more than Misc foods group?
-
-// TASK: AI suggests "layout.yml might contain duplicate entries under different categories"
+// TASK: foods are now in single files (this tool looks old)
+// TASK: foods now have variants (take name from file, folder or variantName)
+// TASK: layout was modified (added list key)
 
 $foods  = array_keys( Yaml::parse( file_get_contents('data/bundles/Default_' . User::current('id') . '/foods.yml')));
 $layout = Yaml::parse( file_get_contents('data/bundles/Default_' . User::current('id') . '/layouts/food.yml'));
