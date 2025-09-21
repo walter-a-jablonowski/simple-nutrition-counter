@@ -208,6 +208,7 @@ function bulk_replace_variant_value( $yamlContent, $variantName, $key, $newValue
   $lines = explode("\n", $yamlContent);
   $inVariants = false;
   $foundVariant = false;
+  $variantEndIndex = -1;
   
   for( $i = 0; $i < count($lines); $i++ )
   {
@@ -229,24 +230,46 @@ function bulk_replace_variant_value( $yamlContent, $variantName, $key, $newValue
         continue;
       }
       
-      // If we found another variant after ours, we're done
+      // If we found another variant after ours, mark end of our variant
       if( $foundVariant && preg_match('/^\s*(["\']?)[^-\s].*?\1:\s*$/', $line))
       {
+        $variantEndIndex = $i;
         break;
       }
       
-      // Update the key in our variant
+      // Update the key in our variant if it exists
       if( $foundVariant && preg_match('/^(\s+)' . preg_quote($key, '/') . '(\s*:\s*)/', $line, $matches))
       {
         $indentation = $matches[1];
         $keyAndColon = $matches[2];
         $lines[$i] = $indentation . $key . $keyAndColon . $newValue;
-        break;
+        return implode("\n", $lines); // Found and updated, return immediately
       }
       
-      // If we hit a non-indented line, we're done with variants
+      // If we hit a non-indented line, mark end of variants section
       if( $foundVariant && preg_match('/^[a-zA-Z]/', $line))
+      {
+        $variantEndIndex = $i;
         break;
+      }
+    }
+  }
+  
+  // If we found the variant but didn't find the key, add it
+  if( $foundVariant )
+  {
+    $indentation = '    '; // 4 spaces for variant properties
+    $newLine = $indentation . $key . ':         ' . $newValue;
+    
+    if( $variantEndIndex > 0 )
+    {
+      // Insert before the next variant or section
+      array_splice($lines, $variantEndIndex, 0, [$newLine]);
+    }
+    else
+    {
+      // Add at the end of the variant (end of file)
+      $lines[] = $newLine;
     }
   }
   
