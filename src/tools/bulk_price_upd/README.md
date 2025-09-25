@@ -1,4 +1,9 @@
 
+This uses no nutri lib functions for reading data but local functions
+
+Usage
+----------------------------------------------------------
+
 Entering new prices
 
 - Accept existing prices just by clicking "Accept"
@@ -26,3 +31,4 @@ Import
 2. import.php (browser)
 
 3. remove import.yml when done
+
