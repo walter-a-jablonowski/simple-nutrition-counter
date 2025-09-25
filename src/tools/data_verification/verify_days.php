@@ -1,6 +1,7 @@
 <?php
 
 // TASK: make a btn (cmd line arg) "add-unprecise" and upd the found files if header missing
+//   add_unpr_header does sth similar, maybe just prepend or use existing lib function if any
 
 // Day files with line counts below average
 // - Scans: src/data/users/JaneDoe@example.com-24080101000000/days
