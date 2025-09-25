@@ -149,13 +149,14 @@ if( php_sapi_name() === 'cli' )
   else
   {
     foreach( $flagged as $s )
-      fwrite(STDOUT, sprintf(
-        "  %-30s  %5d lines  unprecise=%s  unpreciseTime=%s\n",
-        $s['file'],
-        $s['count'],
-        $s['unprecise'] ? 'yes' : 'no',
-        $s['unpreciseTime'] ? 'yes' : 'no'
-      ));
+    {
+      $line = sprintf("  %-30s  %5d lines", $s['file'], $s['count']);
+      if( ! empty($s['unprecise']) )
+        $line .= "  unprecise=yes";
+      if( ! empty($s['unpreciseTime']) )
+        $line .= "  unpreciseTime=yes";
+      fwrite(STDOUT, $line . "\n");
+    }
   }
 }
 else
