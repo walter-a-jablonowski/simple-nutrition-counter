@@ -216,8 +216,8 @@ else
             <tr class="flag">
               <td><?= htmlspecialchars($s['file']) ?></td>
               <td class="right"><?= (int)$s['count'] ?></td>
-              <td><?= $s['unprecise'] ? 'Yes' : 'No' ?></td>
-              <td><?= $s['unpreciseTime'] ? 'Yes' : 'No' ?></td>
+              <td><?= $s['unprecise'] ? 'Yes' : '' ?></td>
+              <td><?= $s['unpreciseTime'] ? 'Yes' : '' ?></td>
             </tr>
           <?php endforeach; ?>
         </tbody>
