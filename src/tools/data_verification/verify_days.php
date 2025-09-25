@@ -150,7 +150,7 @@ if( php_sapi_name() === 'cli' )
   {
     foreach( $flagged as $s )
     {
-      $line = sprintf("  %-30s  %5d lines", $s['file'], $s['count']);
+      $line = sprintf("  %-15s  %5d lines", $s['file'], $s['count']);
       if( ! empty($s['unprecise']) )
         $line .= "  unprecise=yes";
       if( ! empty($s['unpreciseTime']) )
