@@ -116,7 +116,9 @@ foreach( $files as $f )
   $stats[] = [
     'file'  => $f,
     'path'  => $path,
-    'count' => $count
+    'count' => $count,
+    'unprecise' => ! empty($parsed['headers']['unprecise']),
+    'unpreciseTime' => ! empty($parsed['headers']['unpreciseTime'])
   ];
 
   if( $count > 0 )
@@ -147,7 +149,13 @@ if( php_sapi_name() === 'cli' )
   else
   {
     foreach( $flagged as $s )
-      fwrite(STDOUT, sprintf("  %-30s  %5d lines\n", $s['file'], $s['count']));
+      fwrite(STDOUT, sprintf(
+        "  %-30s  %5d lines  unprecise=%s  unpreciseTime=%s\n",
+        $s['file'],
+        $s['count'],
+        $s['unprecise'] ? 'yes' : 'no',
+        $s['unpreciseTime'] ? 'yes' : 'no'
+      ));
   }
 }
 else
@@ -199,6 +207,8 @@ else
           <tr>
             <th>File</th>
             <th class="right">Data lines</th>
+            <th>Unprecise</th>
+            <th>UnpreciseTime</th>
           </tr>
         </thead>
         <tbody>
@@ -206,6 +216,8 @@ else
             <tr class="flag">
               <td><?= htmlspecialchars($s['file']) ?></td>
               <td class="right"><?= (int)$s['count'] ?></td>
+              <td><?= $s['unprecise'] ? 'Yes' : 'No' ?></td>
+              <td><?= $s['unpreciseTime'] ? 'Yes' : 'No' ?></td>
             </tr>
           <?php endforeach; ?>
         </tbody>
