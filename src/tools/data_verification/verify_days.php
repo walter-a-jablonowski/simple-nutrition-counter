@@ -1,5 +1,7 @@
 <?php
 
+// TASK: make a tool "add_unpricise" and upd the found files if header missing
+
 // Day files with line counts below average
 // - Scans: src/data/users/JaneDoe@example.com-24080101000000/days
 // - Ignores headers (separated from data by a blank line)
