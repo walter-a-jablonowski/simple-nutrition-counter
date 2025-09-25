@@ -6,32 +6,34 @@ class MainController
     const dateParam = urlParams.get('date')
 
     if( dateParam )  // date updated in switchDayBtnClick()
-      this.date = new Date(dateParam).toISOString().split('T')[0]
-    else
-      this.date = new Date().toISOString().split('T')[0]  // all entries will be saved to this date (YYYY-MM-DD)
+      this.date = dateParam
+    else {
+      const now = new Date()
+      this.date = this.#formatDateLocal( now )  // all entries will be saved to this date (YYYY-MM-DD)
+    }
 
     // Binding
 
-    this.showOverlayInfo        = this.showOverlayInfo.bind(this)
-    this.userSelectChange       = this.userSelectChange.bind(this)
-    this.switchDayBtnClick      = this.switchDayBtnClick.bind(this)
-    this.settingsBtnClick       = this.settingsBtnClick.bind(this)
-    this.toggleUnpreciseMode    = this.toggleUnpreciseMode.bind(this)
+    this.showOverlayInfo         = this.showOverlayInfo.bind(this)
+    this.userSelectChange        = this.userSelectChange.bind(this)
+    this.switchDayBtnClick       = this.switchDayBtnClick.bind(this)
+    this.settingsBtnClick        = this.settingsBtnClick.bind(this)
+    this.toggleUnpreciseMode     = this.toggleUnpreciseMode.bind(this)
     this.toggleUnpreciseTimeMode = this.toggleUnpreciseTimeMode.bind(this)
-    this.deleteLastLineBtnClick = this.deleteLastLineBtnClick.bind(this)
-    this.saveDayEntriesBtnClick = this.saveDayEntriesBtnClick.bind(this)
-    this.newEntryBtn            = this.newEntryBtn.bind(this)
-    this.newEntrySaveBtn        = this.newEntrySaveBtn.bind(this)
-    this.layoutItemClick        = this.layoutItemClick.bind(this)
-    this.priceColClick          = this.priceColClick.bind(this)
-    this.updPriceClick          = this.updPriceClick.bind(this)
-    this.offLimitCheckChange    = this.offLimitCheckChange.bind(this)
-    this.sportsToggleBtnClick   = this.sportsToggleBtnClick.bind(this)
-    // this.#addDayEntry        = this.#addDayEntry.bind(this)     // TASK: can't be done
-    this.updSummary             = this.updSummary.bind(this)
-    // this.#saveDayEntries     = this.#saveDayEntries.bind(this)
-    this.initTabSwipeGestures   = this.initTabSwipeGestures.bind(this)
-    this.handleTabSwipe         = this.handleTabSwipe.bind(this)
+    this.deleteLastLineBtnClick  = this.deleteLastLineBtnClick.bind(this)
+    this.saveDayEntriesBtnClick  = this.saveDayEntriesBtnClick.bind(this)
+    this.newEntryBtn             = this.newEntryBtn.bind(this)
+    this.newEntrySaveBtn         = this.newEntrySaveBtn.bind(this)
+    this.layoutItemClick         = this.layoutItemClick.bind(this)
+    this.priceColClick           = this.priceColClick.bind(this)
+    this.updPriceClick           = this.updPriceClick.bind(this)
+    this.offLimitCheckChange     = this.offLimitCheckChange.bind(this)
+    this.sportsToggleBtnClick    = this.sportsToggleBtnClick.bind(this)
+    // this.#addDayEntry         = this.#addDayEntry.bind(this)     // TASK: can't be done
+    this.updSummary              = this.updSummary.bind(this)
+    // this.#saveDayEntries      = this.#saveDayEntries.bind(this)
+    this.initTabSwipeGestures    = this.initTabSwipeGestures.bind(this)
+    this.handleTabSwipe          = this.handleTabSwipe.bind(this)
 
     let crl = this
 
@@ -228,23 +230,27 @@ class MainController
 
   switchDayBtnClick(event)  // see also construct
   {
-    this.date = new Date().toISOString().split('T')[0]  // update (YYYY-MM-DD) in case behind midnight
+    // Refresh today's date safely using local time
+    this.date = this.#formatDateLocal( new Date() )  // update (YYYY-MM-DD) in case behind midnight
 
-    if( event.target.dataset.sel === 'current')
+    // Make dataset selection robust against clicks on child elements
+    const sel = event.currentTarget?.dataset?.sel || event.target.closest('button')?.dataset?.sel
+
+    if( sel === 'current')
     {
-      let currentDate = new Date( this.date )
-
-      currentDate.setDate( currentDate.getDate() - 1)
-      window.location.href = `?date=${ currentDate.toISOString().split('T')[0]}`
+      const [y, m, d] = this.date.split('-').map(Number)
+      let currentDate = new Date( y, m - 1, d )
+      currentDate.setDate( currentDate.getDate() - 1 )
+      window.location.href = `?date=${ this.#formatDateLocal(currentDate) }`
     }
-    else if( event.target.dataset.sel === 'last')
+    else if( sel === 'last')
     {
-      let currentDate = new Date( this.date )
-
-      currentDate.setDate( currentDate.getDate() + 1)
-      window.location.href = `?date=${ currentDate.toISOString().split('T')[0]}`
+      const [y, m, d] = this.date.split('-').map(Number)
+      let currentDate = new Date( y, m - 1, d )
+      currentDate.setDate( currentDate.getDate() + 1 )
+      window.location.href = `?date=${ this.#formatDateLocal(currentDate) }`
     }
-    else if( event.target.dataset.sel === 'next')
+    else if( sel === 'next')
     {
       window.location.href = `index.php`
     }
@@ -876,5 +882,14 @@ class MainController
     // Click the target tab link to activate it
     if( this.tabLinks[targetIndex] )
       this.tabLinks[targetIndex].click()
+  }
+
+  // Helper: format a Date to local YYYY-MM-DD
+  #formatDateLocal(dateObj) /*@*/
+  {
+    const y = dateObj.getFullYear()
+    const m = String( dateObj.getMonth() + 1 ).padStart(2, '0')
+    const d = String( dateObj.getDate()       ).padStart(2, '0')
+    return `${y}-${m}-${d}`
   }
 }
