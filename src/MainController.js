@@ -871,12 +871,12 @@ class MainController
     if( swipeDistance > 0 ) {
       // Swipe right - show previous tab
       targetIndex = activeIndex - 1
-      if( targetIndex < 0 ) targetIndex = this.tabLinks.length - 1  // Wrap to last tab
+      if( targetIndex < 0 ) targetIndex = this.tabLinks.length - 1  // wrap to last tab
     }
     else {
       // Swipe left - show next tab
       targetIndex = activeIndex + 1
-      if( targetIndex >= this.tabLinks.length ) targetIndex = 0  // Wrap to first tab
+      if( targetIndex >= this.tabLinks.length ) targetIndex = 0     // wrap to first tab
     }
     
     // Click the target tab link to activate it
