@@ -199,22 +199,25 @@ main {
   width: auto;
   flex: 0 0 auto;
   padding: 0.5rem;
+  padding-top: 0;    /* remove space above label */
+  padding-left: 0;   /* remove left padding */
+  padding-right: 0;  /* remove right padding */
 }
 
 /* Compact single-line label with grey background and unified size */
 .nutrition-widgets .nutrition-widget .widget-label {
   display: block;
-  background-color: #f1f3f5; /* grey label bar */
-  color: #495057;
-  font-size: 0.8rem; /* unified label size */
+  background-color: #000;   /* black label bar */
+  color: #fff;
+  font-size: 0.8rem;          /* unified label size */
   text-transform: uppercase;
   letter-spacing: 0.02em;
   padding: 0.15rem 0.35rem;
-  border-radius: 4px;
+  border-radius: 4px 4px 0 0; /* no rounded edges at the bottom */
   margin-bottom: 0.25rem;
-  white-space: nowrap;       /* keep in one line */
+  white-space: nowrap;        /* keep in one line */
   overflow: visible;
-  text-overflow: clip;       /* show full text */
+  text-overflow: clip;        /* show full text */
 }
 
 /* Value emphasis while inheriting color (white on colored cards) */
