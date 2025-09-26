@@ -129,37 +129,39 @@ foreach( $files as $f )
   }
 }
 
-$avg = $nonEmptyFiles > 0 ? $sumLinesAll / $nonEmptyFiles : 0;
-$cutoff = $avg * (1 - $threshold);
+  $avg = $nonEmptyFiles > 0 ? $sumLinesAll / $nonEmptyFiles : 0;
+  $cutoff = $avg * (1 - $threshold);
 
-$flagged = array_values(array_filter($stats, function($s) use ($cutoff) {
-  // Flag strictly below cutoff, only if average is meaningful (>0)
-  return $cutoff > 0 && $s['count'] < $cutoff;
-}));
+  $flagged = array_values(array_filter($stats, function($s) use ($cutoff) {
+    // Flag strictly below cutoff, only if average is meaningful (>0)
+    return $cutoff > 0 && $s['count'] < $cutoff;
+  }));
 
-// Output
-if( php_sapi_name() === 'cli' )
-{
-  fwrite(STDOUT, "Scan dir: {$daysDir}\n");
-  fwrite(STDOUT, sprintf("Files: %d, Non-empty: %d, Avg(data lines): %.2f, Threshold: %.0f%% below, Cutoff: %.2f\n",
-    count($stats), $nonEmptyFiles, $avg, $threshold * 100, $cutoff));
-  fwrite(STDOUT, "\nFlagged files (below cutoff):\n");
-
-  if( empty($flagged) )
-    fwrite(STDOUT, "  None\n");
-  else
+  // Output
+  if( php_sapi_name() === 'cli' )
   {
-    foreach( $flagged as $s )
-    {
+    fwrite(STDOUT, "Scan dir: {$daysDir}\n");
+    fwrite(STDOUT, sprintf("\nFiles: %d, Non-empty: %d, Avg(data lines): %.2f, Threshold: %.0f%% below, Cutoff: %.2f\n",
+      count($stats), $nonEmptyFiles, $avg, $threshold * 100, $cutoff));
+    // Console note mirroring the HTML warning, printed in red (ANSI)
+    fwrite(STDOUT, "\033[31mlow kcal day vs missing data\033[0m\n");
+    fwrite(STDOUT, "\nFlagged files (below cutoff):\n");
+
+      if( empty($flagged) )
+        fwrite(STDOUT, "  None\n");
+      else
+      {
+        foreach( $flagged as $s )
+        {
       $line = sprintf("  %-15s  %5d lines", $s['file'], $s['count']);
-      if( ! empty($s['unprecise']) )
+          if( ! empty($s['unprecise']) )
         $line .= "  unprecise=yes";
-      if( ! empty($s['unpreciseTime']) )
+          if( ! empty($s['unpreciseTime']) )
         $line .= "  unpreciseTime=yes";
-      fwrite(STDOUT, $line . "\n");
+          fwrite(STDOUT, $line . "\n");
+        }
+      }
     }
-  }
-}
 else
 {
   header('Content-Type: text/html; charset=utf-8');
@@ -192,6 +194,10 @@ else
       Avg(data lines): <?= number_format($avg, 2) ?>,
       Threshold: <?= number_format($threshold * 100, 0) ?>% below,
       Cutoff: <?= number_format($cutoff, 2) ?>
+    </p>
+
+    <p style="color: red;">
+      low kcal day vs missing data
     </p>
 
     <form method="get" class="small">
