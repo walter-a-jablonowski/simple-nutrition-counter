@@ -4,7 +4,7 @@ acceptable:        occasionally
 ingredients:       "Kartoffeln 95%, Sonnenblumenöl 4,5 %, Dextrose"
 packaging:         plastic
 
-price:             1.89
+price:             1.69
 weight:            1000
 usedAmounts:       ["25g", "50g", "100g"]
 
@@ -20,9 +20,10 @@ nutritionalValues:
 
 sources:           { nutriVal: "web (information on packaging may differ slightly)", price: "web" }
 lastUpd:           2024-04-16
-lastPriceUpd:      2024-07-01
+lastPriceUpd:      2025-09-22
 
 prices:
 
+  2024-07-01: 1.89
   2024-05-11: 1.89
 

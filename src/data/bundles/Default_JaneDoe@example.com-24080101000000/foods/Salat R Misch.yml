@@ -5,7 +5,7 @@ certificates:      { vegan: true }
 ingredients:       "Endivien, Gemüse 40% (Weißkohl, Möhren), Radicchi"
 packaging:         plastic
 
-price:             0.69
+price:             0.79
 weight:            200g
 usedAmounts:       ["25g", "50g", "100g"]
 
@@ -22,4 +22,8 @@ nutritionalValues:
 sources:           { nutriVal: "info missing on packaging, might have some but unknown", price: "online" }
 
 lastUpd:           2025-01-05
-lastPriceUpd:      2025-01-05
+lastPriceUpd:      2025-09-26
+
+prices:
+
+  2025-01-05: 0.69

@@ -5,7 +5,7 @@ certificates:      { vegan: true }
 ingredients:       "Endivien, Frisée, Radicchio"
 packaging:         plastic
 
-price:             0.89
+price:             0.79
 weight:            150g
 usedAmounts:       ["25g", "50g", "100g"]
 
@@ -22,8 +22,9 @@ nutritionalValues:
 sources:           { nutriVal: "info missing on packaging, might have some but unknown", price: "online" }
 
 lastUpd:           2024-12-11
-lastPriceUpd:      2025-03-11
+lastPriceUpd:      2025-09-26
 
 prices:
 
+  2025-03-11: 0.89
   2024-12-11: 0.89

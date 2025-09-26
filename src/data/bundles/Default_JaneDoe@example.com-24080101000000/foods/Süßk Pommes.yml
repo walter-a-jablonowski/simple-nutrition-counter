@@ -4,7 +4,7 @@ certificates:      { NutriScore: B }
 ingredients:       "Süßkartoffeln 89%, Sonnenblumenöl, Würzung 4% (modifizierte Stärke, Reismehl, Dextrin, Speisesalz, Gewürze (Paprika, schwarzer Pfeffer), Knoblauchpulver, Zwiebelpulver, Backtriebmittel (Diphosphate, Natriumcarbonate), Verdickungsmittel (Xanthan), Paprikaextrakt)"
 packaging:         plastic
 
-price:             2.69
+price:             2.29
 weight:            500
 usedAmounts:       ["25g", "50g", "100g"]
 
@@ -20,4 +20,8 @@ nutritionalValues:
 
 sources:           { nutriVal: "pack" }
 lastUpd:           2024-06-18
-lastPriceUpd:      2024-06-18
+lastPriceUpd:      2025-09-22
+
+prices:
+
+  2024-06-18: 2.69

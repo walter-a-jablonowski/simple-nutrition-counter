@@ -25,4 +25,8 @@ nutritionalValues:
 
 sources:           { nutriVal: "web (information on packaging may differ slightly)" }
 lastUpd:           2024-12-20
-lastPriceUpd:      2024-12-20
+lastPriceUpd:      2025-09-26
+
+prices:
+
+  2024-12-20: 1.59

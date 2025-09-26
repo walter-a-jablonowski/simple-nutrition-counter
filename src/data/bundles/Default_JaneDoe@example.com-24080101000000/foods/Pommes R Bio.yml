@@ -5,7 +5,7 @@ certificates:      { bio: true }
 ingredients:       "Kartoffeln 96%, Sonnenblumenöl"
 packaging:         plastic
 
-price:             2.49
+price:             2.99
 weight:            750
 usedAmounts:       ["25g", "50g", "100g"]
 
@@ -21,4 +21,8 @@ nutritionalValues:
 
 sources:           { nutriVal: "web (information on packaging may differ slightly)", price: "web" }
 lastUpd:           2024-05-11
-lastPriceUpd:      2024-05-11
+lastPriceUpd:      2025-09-22
+
+prices:
+
+  2024-05-11: 2.49
