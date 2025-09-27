@@ -3,7 +3,7 @@ acceptable:        less
 comment:           "2 smaller pieces count as one"
 packaging:         plastic & cardboard
 
-price:             
+price:             1.89
 weight:            500g
 pieces:            12
 
@@ -20,4 +20,4 @@ nutritionalValues:
 
 sources:           { nutriVal: "pack" }
 lastUpd:           2024-04-23
-lastPriceUpd:
+lastPriceUpd:      2025-09-27
