@@ -1,0 +1,30 @@
+
+vendor:            Rewe
+
+acceptable:        less
+certificates:      { vegan: true, NutriScore: C }
+ingredients:       "Pink Grapefruitsaft mit Fruchtfleisch, Antioxidationsmittel (Ascorbinsäure)"
+packaging:         plastic (maybe)
+
+price:             2.49
+weight:            1000ml
+usedAmounts:       ["50ml", "100ml", "200ml"]
+
+calories:          42
+nutritionalValues:
+
+  fat:             0.1
+  saturatedFat:    0
+  carbs:           8.3
+  sugar:           8.3
+  fibre:           0.6
+  amino:           0.6
+  salt:            0.01
+
+misc:
+
+  water:           99    # ca
+
+sources:           { nutriVal: "web|pack (information on packaging may differ slightly)", nutrients: "...", price: "..." }
+lastUpd:           2025-09-27
+lastPriceUpd:      2025-09-27

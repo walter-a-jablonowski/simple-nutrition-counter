@@ -1,20 +1,19 @@
 vendor:            Rewe
 acceptable:        less
 comment:           "Sometimes nice for good mood"
-certificates:      { NutriScore: C }
 packaging:         plastic (maybe)
 
-price:             1.09
+price:             1.69
 weight:            1000
 usedAmounts:       ["50ml", "100ml", "200ml"]
 
-calories:          64  # actu
+calories:          64
 nutritionalValues:
 
   fat:             3.5
   saturatedFat:    2.3
-  carbs:           4.8
-  sugar:           4.8
+  carbs:           4.7
+  sugar:           4.7
   amino:           3.3
   salt:            0.13
 
@@ -27,5 +26,9 @@ misc:
   water:           99    # ca
 
 sources:           { nutriVal: "web", nutrients: "nutrients: calcium also from vendors page online", price: "price: web" }
-lastUpd:           2025-09-27
-lastPriceUpd:      2025-09-27
+lastUpd:           2024-04-11
+lastPriceUpd:      2025-09-22
+
+prices:
+
+  2024-05-15: 1.49

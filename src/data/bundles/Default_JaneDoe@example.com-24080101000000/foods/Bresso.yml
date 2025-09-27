@@ -2,7 +2,7 @@ vendor:            Rewe
 acceptable:        less
 packaging:         plastic,alu
 
-price:             1.19
+dealPrice:         1.19
 weight:            150
 usedAmounts:       ["10g", "20g", "30g"]
 
