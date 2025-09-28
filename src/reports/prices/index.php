@@ -2,7 +2,7 @@
 
 require_once 'data.php';
 
-$range = isset($_GET['range']) ? (string)$_GET['range'] : '6m';
+$range = isset($_GET['range']) ? (string) $_GET['range'] : '6m';
 $controller = new PricesReportController();
 $report = $controller->getData($range);
 $items = $report['items'];
@@ -29,6 +29,7 @@ $items = $report['items'];
         <option value="1y" <?= $range==='1y'?'selected':'' ?>>1 year</option>
         <option value="all" <?= $range==='all'?'selected':'' ?>>All</option>
       </select>
+      <span class="record-count"><?= count($items) ?> records</span>
     </div>
 
     <div class="table-wrap">

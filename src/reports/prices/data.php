@@ -24,12 +24,12 @@ class PricesReportController
     $items = [];
     $now = new DateTime();
     $cutoff = $this->computeCutoff($now, $range);
-
+    
     foreach( $this->scanFoods($this->foodsDir) as $name => $entry )
     {
       $curPrice = $this->toNumber($entry['price'] ?? '');
       $curDeal  = $this->toNumber($entry['dealPrice'] ?? '');
-      $lastUpd  = isset($entry['lastPriceUpd']) ? (string)$entry['lastPriceUpd'] : '';
+      $lastUpd  = isset($entry['lastPriceUpd']) ? (string) $entry['lastPriceUpd'] : '';
       // Normalize last update for display
       $lastOut = $lastUpd;
       if( $lastUpd !== '' )
@@ -71,8 +71,18 @@ class PricesReportController
       if( $show && $cutoff )
       {
         if( $lastUpd ) {
-          try { $dt = new DateTime($lastUpd); } catch(\Throwable $e){ $dt = null; }
-          if( $dt && $dt < $cutoff ) $show = false;
+          try { 
+            if( ctype_digit($lastUpd) ) {
+              // Unix timestamp
+              $dt = new DateTime('@' . $lastUpd);
+            } else {
+              // String date
+              $dt = new DateTime($lastUpd);
+            }
+          } catch(\Throwable $e){ $dt = null; }
+          if( $dt && $dt < $cutoff ) {
+            $show = false;
+          }
         } else {
           // no date -> exclude when filtering by range
           $show = false;
@@ -142,7 +152,7 @@ class PricesReportController
   {
     $foods = [];
     if( ! is_dir($dir)) return $foods;
-    $rii = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir, FilesystemIterator::SKIP_DOTS));
+    $rii = new RecursiveIteratorIterator( new RecursiveDirectoryIterator($dir, FilesystemIterator::SKIP_DOTS));
     foreach( $rii as $file )
     {
       if( $file->isDir()) continue;
@@ -155,7 +165,8 @@ class PricesReportController
       if( ! is_array($data)) continue;
       if( str_ends_with($fn, '-this.yml')) {
         $name = basename($file->getPath());
-      } else {
+      }
+      else {
         if( strpos($fn, '-this.yml') !== false ) continue; // skip any -this variants accidentally matched
         $name = pathinfo($fn, PATHINFO_FILENAME);
       }
