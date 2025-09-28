@@ -1,4 +1,5 @@
 type:              Cashew
+group:             nuts
 vendor:            Rewe
 certificates:      { bio: true }
 packaging:         plastic (maybe)

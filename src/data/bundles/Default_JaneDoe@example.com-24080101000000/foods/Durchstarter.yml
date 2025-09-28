@@ -1,3 +1,4 @@
+group:             nuts
 productName:       "Durchstarter Gut & Günstig"
 vendor:            Edeka
 certificates:      { NutriScore: B }

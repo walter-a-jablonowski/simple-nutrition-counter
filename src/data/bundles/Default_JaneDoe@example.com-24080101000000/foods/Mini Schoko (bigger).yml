@@ -1,3 +1,4 @@
+group:             candy
 vendor:            Denns
 acceptable:        less
 certificates:      { bio: true }

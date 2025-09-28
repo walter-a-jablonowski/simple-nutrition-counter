@@ -1,4 +1,5 @@
 type:              Almonds
+group:             nuts
 vendor:            Norma
 certificates:      { vegan: true }
 packaging:         plastic

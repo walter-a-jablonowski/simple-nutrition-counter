@@ -1,3 +1,4 @@
+group:             vegetables
 vendor:            Rewe  # TASK: old prod img or wrong url (but only one)
 url:               "https://shop.rewe.de/p/rewe-beste-wahl-gruene-bohnen-280g/371368?sv1=affiliate&sv_campaign_id=101248&awc=11652_1724611075_2312944b013c94e7e7028c2e9f9c171d&ecid=aff_awin_101248_takeads.com_0_nn_nn_nn_pm01&zanpid=11652_1724611075_2312944b013c94e7e7028c2e9f9c171d"
 certificates:      { NutriScore: A }

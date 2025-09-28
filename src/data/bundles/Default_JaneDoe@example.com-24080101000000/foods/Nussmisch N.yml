@@ -1,3 +1,4 @@
+group:             nuts
 productName:       "Nussvariationen"
 vendor:            Norma
 certificates:      { vegan: true, NutriScore: A }

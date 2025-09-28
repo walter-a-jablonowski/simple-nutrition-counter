@@ -1,3 +1,4 @@
+group:             nuts
 productName:       "Feinste Nussvariationen"  # big pack
 vendor:            Aldi
 certificates:      { NutriScore: A }

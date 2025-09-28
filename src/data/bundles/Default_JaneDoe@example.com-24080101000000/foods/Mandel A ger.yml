@@ -1,4 +1,5 @@
 type:              Almonds
+group:             nuts
 vendor:            Aldi
 certificates:      { vegan: true, NutriScore: B }
 packaging:         alu

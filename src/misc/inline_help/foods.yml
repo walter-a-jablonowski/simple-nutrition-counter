@@ -19,6 +19,7 @@ removed:             { usage: "hide in UI (unused food), currently no function (
 
 category:            { usage: "default: food or supplement", required: false, type: "string" }
 type:                { usage: "A food type like 'chickpeas' from data/food_defaults", required: false, type: "string" }
+group:               { usage: "Food group for use in price view", required: false, type: "string" }
 xTimeLog:            { usage: "counts as eating time", required: false, type: "bool" }
 productName:         { usage: "might be used for online search: use exact title from detail page e.g. name plus amount => in first place",  required: false, type: "string" }
 keywords:            { usage: "as used in SelfSurfer", required: false, type: "array(string)" }

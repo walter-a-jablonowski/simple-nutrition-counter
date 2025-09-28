@@ -1,3 +1,4 @@
+group:             nuts
 productName:       "Premium Nussmix Pekannusskerne (orange)"  # big pack
 vendor:            Aldi
 certificates:      { vegan: true, NutriScore: A }

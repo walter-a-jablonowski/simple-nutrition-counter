@@ -1,4 +1,5 @@
 type:              Chicken
+group:             meat
 vendor:            Rewe
 acceptable:        less
 certificates:      { bio: true }

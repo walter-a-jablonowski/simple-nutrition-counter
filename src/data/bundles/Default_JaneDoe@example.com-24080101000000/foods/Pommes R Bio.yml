@@ -1,4 +1,5 @@
 type:              Poato
+group:             vegetables
 vendor:            Rewe
 acceptable:        occasionally
 certificates:      { bio: true }

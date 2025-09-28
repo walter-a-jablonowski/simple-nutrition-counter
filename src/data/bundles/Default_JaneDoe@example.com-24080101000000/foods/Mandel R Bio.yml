@@ -1,4 +1,5 @@
 type:              Almonds
+group:             nuts
 vendor:            Rewe
 certificates:      { bio: true, vegan: true }
 packaging:         plastic (maybe)
