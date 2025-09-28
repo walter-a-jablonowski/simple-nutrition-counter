@@ -11,6 +11,7 @@ packaging:         plastic
 
 price:             2.99
 weight:            200g
+usedAmounts:       ["1/8", "1/4", "1"]
 
 calories:          418
 nutritionalValues:
