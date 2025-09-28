@@ -100,6 +100,7 @@ class PricesReportController
         'pct'         => $changePct,
         'pctDeal'     => $changePctDeal,
         'lastPriceUpd'=> $lastOut,
+        'group'       => isset($entry['group']) && $entry['group'] !== '' ? (string)$entry['group'] : null,
       ];
     }
 
@@ -129,9 +130,52 @@ class PricesReportController
       return ($aa < $bb) ? -1 : 1;
     });
 
+    // Build per-group summary (ignore items without a group)
+    $summary = [];
+    foreach( $items as $it )
+    {
+      $grp = isset($it['group']) ? trim((string)$it['group']) : '';
+      if( $grp === '' ) continue;
+
+      // choose the change metric with the larger absolute value (like sorting)
+      $ap = $it['pct'] ?? null; $ad = $it['pctDeal'] ?? null;
+      $v  = ($ap === null && $ad === null) ? 0 : (($ap === null) ? $ad : (($ad === null) ? $ap : (abs($ap) >= abs($ad) ? $ap : $ad)));
+
+      if( ! isset($summary[$grp]))
+      {
+        $summary[$grp] = [
+          'group' => $grp,
+          'count' => 0,
+          'pos'   => 0,
+          'neg'   => 0,
+          'sum'   => 0.0,
+          'avg'   => 0.0,
+        ];
+      }
+      $summary[$grp]['count']++;
+      $summary[$grp]['sum'] += (float)$v;
+      if( $v >= 0 ) $summary[$grp]['pos']++; else $summary[$grp]['neg']++;
+    }
+
+    // finalize averages and sort by count desc then by avg desc
+    foreach( $summary as &$g )
+    {
+      $g['avg'] = $g['count'] > 0 ? $g['sum'] / $g['count'] : 0.0;
+    }
+    unset($g);
+    uasort($summary, function($a, $b){
+      // Primary: highest average increase first (desc)
+      if( $a['avg'] !== $b['avg']) return ($a['avg'] < $b['avg']) ? 1 : -1;
+      // Secondary: higher count first (desc)
+      if( $a['count'] !== $b['count']) return ($a['count'] < $b['count']) ? 1 : -1;
+      // Tertiary: group name asc
+      return strcmp($a['group'], $b['group']);
+    });
+
     return [
-      'range' => $range,
-      'items' => $items,
+      'range'   => $range,
+      'items'   => $items,
+      'summary' => $summary,
     ];
   }
 

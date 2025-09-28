@@ -111,13 +111,89 @@
 
 .label { color: #666; font-size: 13px; }
 .value { font-weight: 600; text-align: right; }
-.value.sub { font-weight: 500; color: #444; }
 
 .foot { display: flex; justify-content: flex-end; }
 .meta { color: #666; font-size: 12px; }
 
 /* Toggle table/cards per screen size */
-.table-wrap { display: block; }
+  .table-wrap { display: block; }
+  @media (max-width: 700px) {
+    .table-wrap { display: none; }
+  }
+ 
+ /* Summary */
+ .summary {
+   border: none;
+   border-radius: 0;
+   background: transparent;
+   padding: 0;
+   box-shadow: none;
+   margin-bottom: 14px;
+ }
+ .summary-head {
+   display: flex;
+   align-items: baseline;
+   justify-content: space-between;
+   gap: 10px;
+   margin-bottom: 10px;
+ }
+ .summary-title { font-weight: 600; color: #333; }
+ .summary-meta { color: #666; font-size: 13px; }
+ .summary-grid {
+   display: grid;
+   grid-template-columns: repeat(3, minmax(220px, 1fr));
+   gap: 10px;
+ }
+ @media (max-width: 1080px) {
+   .summary-grid { grid-template-columns: repeat(2, minmax(220px, 1fr)); }
+ }
+ @media (max-width: 700px) {
+   .summary-grid { grid-template-columns: 1fr; }
+ }
+ .summary-item {
+   border: 1px solid #e7e7e7;
+   border-radius: 8px;
+   background: #fff;
+   padding: 10px 12px;
+ }
+ .g-head {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 8px;
+   margin-bottom: 6px;
+ }
+ .g-title { font-weight: 600; color: #333; }
+ .g-badge {
+   display: inline-block;
+   padding: 2px 8px;
+   font-size: 12px;
+   border-radius: 999px;
+ }
+ .g-badge.avg-pos { background: #e7f4ff; color: #004b7a; }
+ .g-badge.avg-neg { background: #ffe7e7; color: #7a0000; }
+ .g-stats { display: flex; gap: 6px; flex-wrap: wrap; }
+ .g-chip {
+   display: inline-block;
+   padding: 2px 8px;
+   font-size: 12px;
+   border-radius: 999px;
+   background: #f7f7f7;
+   color: #444;
+ }
+ .g-chip.pos { background: #e9f7ef; color: #0a6b3a; }
+ .g-chip.neg { background: #fff0f0; color: #8a1d1d; }
+
+/* Summary responsive toggles to mirror table/cards */
+.summary-desktop { display: block; }
 @media (max-width: 700px) {
-  .table-wrap { display: none; }
+  .summary-desktop { display: none; }
 }
+.summary-mobile { display: none; }
+@media (max-width: 700px) {
+  .summary-mobile { display: block; }
+}
+
+/* Positive/negative coloring for desktop summary avg cell */
+.table .strong.pos { color: #0a6b3a; }
+.table .strong.neg { color: #8a1d1d; }

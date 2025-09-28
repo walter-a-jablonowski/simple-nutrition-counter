@@ -6,6 +6,7 @@ $range = isset($_GET['range']) ? (string) $_GET['range'] : '6m';
 $controller = new PricesReportController();
 $report = $controller->getData($range);
 $items = $report['items'];
+$summary = $report['summary'];
 
 ?><!doctype html>
 <html>
@@ -31,6 +32,75 @@ $items = $report['items'];
       </select>
       <span class="record-count"><?= count($items) ?> records</span>
     </div>
+
+    <?php if( !empty($summary)): ?>
+      <!-- Desktop summary (table-like) -->
+      <div class="summary summary-desktop">
+        <div class="summary-head">
+          <div class="summary-title">Summary</div>
+          <div class="summary-meta">
+            some foods may have no group entry - 
+            <?= count($summary) ?> groups · <?= array_sum(array_map(fn($g)=>$g['count'], $summary)) ?> items
+          </div>
+        </div>
+        <div class="summary-table-wrap">
+          <table class="table summary-table">
+            <thead>
+              <tr>
+                <th>Group</th>
+                <th class="num">Items</th>
+                <th class="num">+</th>
+                <th class="num">-</th>
+                <th class="num">Avg %</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php foreach( $summary as $g ): ?>
+                <?php $avg = number_format($g['avg'], 1, '.', ''); ?>
+                <tr>
+                  <td><?= htmlspecialchars($g['group']) ?></td>
+                  <td class="num"><?= (int)$g['count'] ?></td>
+                  <td class="num"><?= (int)$g['pos'] ?></td>
+                  <td class="num"><?= (int)$g['neg'] ?></td>
+                  <td class="num strong <?= ($g['avg']>=0?'pos':'neg') ?>"><?= ($g['avg']>=0?'+':'') . $avg ?>%</td>
+                </tr>
+              <?php endforeach; ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Mobile summary (cards) -->
+      <div class="summary summary-mobile">
+        <div class="summary-head">
+          <div class="summary-title">Summary</div>
+          <div class="summary-meta">
+            <?= count($summary) ?> groups · <?= array_sum(array_map(fn($g)=>$g['count'], $summary)) ?> items
+          </div>
+        </div>
+        <div class="summary-grid">
+          <?php foreach( $summary as $g ): ?>
+            <?php 
+              $avg = number_format($g['avg'], 1, '.', '');
+              $avgCls = ($g['avg'] >= 0) ? 'avg-pos' : 'avg-neg';
+            ?>
+            <div class="summary-item">
+              <div class="g-head">
+                <div class="g-title"><?= htmlspecialchars($g['group']) ?></div>
+                <span class="g-badge <?= $avgCls ?>"><?= ($g['avg']>=0?'+':'') . $avg ?>%</span>
+              </div>
+              <div class="g-stats">
+                <span class="g-chip"><?= (int)$g['count'] ?> items</span>
+                <span class="g-chip pos">+<?= (int)$g['pos'] ?></span>
+                <span class="g-chip neg">-<?= (int)$g['neg'] ?></span>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
+    <?php endif; ?>
+
+    <h4 class="section-title">Details</h4>
 
     <div class="table-wrap">
       <table class="table">
