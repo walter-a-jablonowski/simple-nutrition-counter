@@ -215,37 +215,24 @@ Ingredients:
       - Br R 1904 Ru
       - Mehrkornbr
 
-  Foods used sometimes:
-
-    (i): "Kinda suppl (fill up missing)"
+  Normal food limited use:
 
     list:
 
-      - Apfelsaft N                            # misc
-      - Milch H
-      - Milch H Fr
-      - Banane
-
-      - Aldi Bratk                             # kcal
-      - Tortell A
-      - Frikassee A
-      - Frosta Süss
-      - Frosta Frikassee
-      - Paella A
-      - Frosta Paella
-      - Frosta Gorg
-      - Chips light
-      - Chips
-
-  Misc foods:
-
-    list:
-
+      - Aldi Bratk
       - Frosta Bratk
+
+      - Tortell A
       - Frosta Gesch
       - Frosta Paprika
-      - Linsen vegan
+      - Frosta Süss
+      - Frosta Gorg
+      - Frosta Frikassee
+      - Frikassee A
+      - Frosta Paella
+      - Paella A
       - Geb Bohnen
+      - Linsen vegan
       - Chili vegan
 
 Improve:
@@ -256,6 +243,12 @@ Improve:
 
       - Sardine R
       - Sardine
+
+  Minerals:
+
+    list:
+
+      - Banane
 
   Almonds:
 
@@ -313,7 +306,7 @@ Improve:
       - Hähnchen Gyros
       - Hähnchen Kebab
 
-  Misc:  # TASK: we may want to add a (i) feature to nutrients and get it here
+  kcal:  # TASK: we may want to add a (i) feature to nutrients and get it here
          #       for per nutrient information
 
     short: <b>Why?</b> autumn, winter less freezing
@@ -326,6 +319,14 @@ Improve:
       - Br R mild
       - Br R 1904 Ru
       - Mehrkornbr
+      - Chips light
+      - Chips
+
+  Misc:
+    
+    list:
+
+      - Apfelsaft N
 
 Supplements:
 
@@ -349,6 +350,7 @@ Supplements:
       - Jogh N gr
       - Milch H
       - Milch H Fr
+      - Banane
       - Zitronenm
       - Zitronenm mini
       - Fruit
@@ -382,6 +384,8 @@ On the go:
       - Cappuccino R                           
       - Cappuccino Eni
       - Zucker Stick
+      - Chips light
+      - Chips
       - Tortilla R
       - Laugenbr
 

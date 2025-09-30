@@ -1,5 +1,6 @@
 url:               "https://www.geo.de/wissen/ernaehrung/vitamin-lexikon/20293-rtkl-bananen-diese-vitamine-stecken-drin"
 acceptable:        less
+comment:           "Kalium"
 
 price:             0.44  # price from larger one
 weight:            220
