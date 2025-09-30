@@ -1,0 +1,23 @@
+productName:       "Tortelloni Käse Sahne"
+vendor:            Aldi
+
+acceptable:        less
+certificates:      { NutriScore: B }
+packaging:         plastic
+
+price:             2.99
+weight:            750g
+
+calories:          121
+nutritionalValues: 
+
+  fat:             6
+  saturatedFat:    2.3
+  carbs:           12
+  sugar:           2.2
+  amino:           3.9
+  salt:            0.65
+
+sources:           { nutriVal: "pack", price: "web" }
+lastUpd:           2025-09-30
+lastPriceUpd:      2025-09-30
