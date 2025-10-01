@@ -9,6 +9,7 @@ packaging:         plastic & rubber
 
 price:             0.99
 weight:            190g
+usedAmounts:       ["1/8", "1/4", "1/2"]
 
 calories:          48
 nutritionalValues:

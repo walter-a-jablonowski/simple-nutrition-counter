@@ -7,6 +7,7 @@ packaging:         alu (maybe)
 
 price:             
 weight:            760
+usedAmounts:       ["1/8", "1/4", "1/2"]
 
 calories:          22
 nutritionalValues:

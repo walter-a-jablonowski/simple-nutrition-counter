@@ -1,8 +1,11 @@
+removed:           true
+
 productName:       "REWE Beste Wahl Feinschmecker-Rotkohl mit Preiselbeeren 400g"
 vendor:            Rewe
 url:               "https://shop.rewe.de/p/rewe-beste-wahl-feinschmecker-rotkohl-mit-preiselbeeren-400g/2136522"
 
 acceptable:        occasionally
+comment:           "less good"
 certificates:      { vegan: true, NutriScore: C }
 ingredients:       "Rotkohl 66 %, Wasser, Zucker, Branntweinessig, Preiselbeeren 2 %, Johannisbeersaftkonzentrat 1 %, Speisesalz, modifizierte Stärke"
 origin:            Deutschland

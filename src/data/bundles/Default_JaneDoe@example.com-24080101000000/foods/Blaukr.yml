@@ -7,7 +7,8 @@ packaging:         plastic,alu (maybe)
 
 price:             1.19
 weight:            400
-usedAmounts:       ["50g", "100g"]
+# usedAmounts:     ["50g", "100g"]
+usedAmounts:       ["1/8", "1/4", "1/2"]
 
 calories:          57
 nutritionalValues: 
