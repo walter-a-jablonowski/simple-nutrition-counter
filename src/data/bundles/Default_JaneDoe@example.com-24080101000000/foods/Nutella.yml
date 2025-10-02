@@ -1,0 +1,23 @@
+
+acceptable:        less
+comment:           "Teelöffel gestrichen 10g (CharGPT)"
+ingredients:       "Zucker, Palmöl, HASELNÜSSE (13 %), MAGERMILCHPULVER (8,7 %), fettarmer Kakao (7,4%), Emulgator Lecithine (SOJA), Vanillin"
+packaging:         glass & alu
+
+price:             3.79
+weight:            450g
+usedAmounts:       ["10g", "20g", "30g"]
+
+calories:          539
+nutritionalValues:
+
+  fat:             30.9
+  saturatedFat:    10.6
+  carbs:           57.5
+  sugar:           56.3
+  amino:           6.3
+  salt:            0.107
+
+sources:           { nutriVal: "web" }
+lastUpd:           2025-10-02
+lastPriceUpd:      2025-10-02
