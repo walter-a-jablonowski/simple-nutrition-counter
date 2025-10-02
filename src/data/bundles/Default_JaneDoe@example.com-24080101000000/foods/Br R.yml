@@ -1,0 +1,29 @@
+productName:       "ja! Bauernbr 500g"
+vendor:            Rewe
+
+acceptable:        less
+certificates:      { NutriScore: B }
+ingredients:       "WEIZENMEHL, Natursauerteig (Wasser, ROGGENVOLLKORNMEHL, ROGGENMEHL, WEIZENMEHL), ROGGENMEHL, Wasser, Speisesalz, Hefe, Säureregulator (Natriumacetate)"
+allergy:           "Glutenhaltiges Getreide (Weizen, Gerste, Roggen, Hafer, Dinkel, Kamut oder Hybridstämme)"
+mayContain:        "Sesam"
+packaging:         plastic
+
+price:             0.89
+weight:            500g
+pieces:            9
+usedAmounts:       [1, 2]
+
+calories:          220
+nutritionalValues:
+
+  fat:             1.5
+  saturatedFat:    0.3
+  carbs:           42
+  sugar:           1.7
+  fibre:           5.2
+  amino:           7.1
+  salt:            1
+
+sources:           { nutriVal: "web (information on packaging may differ slightly)" }
+lastUpd:           2025-10-02
+lastPriceUpd:      2025-10-02
