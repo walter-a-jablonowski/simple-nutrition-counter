@@ -90,7 +90,7 @@
             $disp_price_fmt = $fmt($disp_price);
             $disp_deal_fmt  = $fmt($disp_deal);
           ?>
-          <div class="list-row <?= $item['is_missing'] ? 'missing' : ($item['is_old'] ? 'old' : '') ?> <?= $has_import ? 'has-import' : '' ?>" data-name="<?= htmlspecialchars($item['name']) ?>">
+          <div class="list-row <?= $item['is_missing'] ? 'missing' : ($item['is_old'] ? 'old' : '') ?> <?= $has_import ? 'has-import' : '' ?>" data-name="<?= htmlspecialchars($item['name']) ?>" data-product-name="<?= htmlspecialchars($item['productName']) ?>" data-weight="<?= htmlspecialchars($item['weight']) ?>" data-pieces="<?= htmlspecialchars($item['pieces']) ?>">
             <!-- Desktop layout - grid columns -->
             <div class="list-col col-name"><?= htmlspecialchars($item['name']) ?></div>
             
@@ -166,6 +166,7 @@
   <div id="price-modal-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.4); z-index:1000; align-items:center; justify-content:center;">
     <div style="background:#fff; width:min(420px,92vw); border-radius:8px; padding:16px; box-shadow:0 10px 30px rgba(0,0,0,.25);">
       <h4 id="price-modal-title" style="margin-bottom:12px;">Enter prices</h4>
+      <div id="price-modal-details" style="margin-bottom:12px; font-size:0.9em; color:#666;"></div>
       <div style="margin-bottom:10px;">
         <label for="price-input" style="display:block; font-weight:600; margin-bottom:4px;">Price</label>
         <input id="price-input" type="number" step="0.01" placeholder="e.g. 1.49" style="width:100%; padding:8px 10px; border:1px solid #ddd; border-radius:4px;">

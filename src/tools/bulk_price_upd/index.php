@@ -169,7 +169,10 @@ foreach( $foods as $food_name => $food)
         'lastPriceUpd'      => $last_price_update ? $last_price_update->format('Y-m-d') : '',
         'days_since_update' => $days_since_update,
         'is_missing'        => $is_missing,
-        'is_old'            => $is_old
+        'is_old'            => $is_old,
+        'productName'       => $food['productName'] ?? '',
+        'weight'            => $food['weight'] ?? '',
+        'pieces'            => $food['pieces'] ?? ''
       ];
     }
 }

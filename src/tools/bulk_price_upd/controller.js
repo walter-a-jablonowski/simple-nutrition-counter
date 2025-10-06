@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const priceInput = document.getElementById('price-input');
   const dealInput = document.getElementById('dealprice-input');
   const modalTitle = document.getElementById('price-modal-title');
+  const modalDetails = document.getElementById('price-modal-details');
   const btnCancel = document.getElementById('price-cancel');
   const btnSave = document.getElementById('price-save');
   let currentName = '';
@@ -36,12 +37,26 @@ document.addEventListener('DOMContentLoaded', function() {
   function openModal(name) {
     currentName = name;
     modalTitle.textContent = `Enter prices — ${name}`;
+    
     // Prefer the currently displayed values in the clicked row (existing entry prices)
     // Fallback to any staged values present in importMap
     const row = document.querySelector(`.list-row[data-name="${CSS.escape(name)}"]`);
     let priceVal = '';
     let dealVal = '';
+    
+    // Build details line from data attributes
     if( row ) {
+      const productName = row.getAttribute('data-product-name') || '';
+      const weight = row.getAttribute('data-weight') || '';
+      const pieces = row.getAttribute('data-pieces') || '';
+      
+      const detailsParts = [];
+      if( productName ) detailsParts.push(productName);
+      if( weight ) detailsParts.push(weight);
+      if( pieces ) detailsParts.push(`${pieces} pieces`);
+      
+      modalDetails.textContent = detailsParts.join(' • ');
+      
       const regEl = row.querySelector('.price-regular');
       const dealEl = row.querySelector('.price-deal');
       const t1 = regEl ? regEl.textContent.trim() : '';
