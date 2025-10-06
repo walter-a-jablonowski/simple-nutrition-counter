@@ -123,6 +123,82 @@ function expand_food_variants( $baseName, $foodData )
 
 
 /**
+ * Updates a price field with history tracking
+ * 
+ * @param string $foodName The name of the food
+ * @param string $fieldName The field to update ('price' or 'dealPrice')
+ * @param string $dateField The date field to update ('lastPriceUpd' or 'lastDealPriceUpd')
+ * @param string $historyKey The history key ('prices' or 'dealPrices')
+ * @param string $newValue The new value
+ * @param string $userId The user ID
+ * @return bool Success status
+ */
+function update_price_with_history( $foodName, $fieldName, $dateField, $historyKey, $newValue, $userId )
+{
+  $sourceInfo = find_food_source( $foodName, $userId );
+  
+  if( ! $sourceInfo || $sourceInfo['isVariant'])
+    return false; // Only handle first-level prices, not variants
+    
+  $filePath = $sourceInfo['file'];
+  
+  if( ! file_exists($filePath))
+    return false;
+    
+  // Parse the YAML file to get current price and date
+  $yamlData = Yaml::parseFile($filePath);
+  $currentValue = $yamlData[$fieldName] ?? null;
+  $currentDate = $yamlData[$dateField] ?? null;
+  
+  // Read file content for text-based updates
+  $content = file_get_contents($filePath);
+  
+  // Add old price to history if it exists and is different
+  if( $currentValue !== null && $currentValue != $newValue && $currentDate )
+  {
+    // Ensure date is in string format (YYYY-MM-DD), not timestamp
+    $dateStr = is_numeric($currentDate) ? date('Y-m-d', $currentDate) : $currentDate;
+    $historyEntry = "$dateStr: $currentValue";
+    $content = add_price_history_entry( $content, $historyKey, $historyEntry );
+  }
+  
+  // Update the price field and date
+  $content = yml_replace_value( $content, $fieldName, $newValue );
+  $content = yml_replace_value( $content, $dateField, date('Y-m-d'));
+  
+  // Safety check: don't save if content is empty or too short
+  if( strlen(trim($content)) < 50 )
+    return false;
+  
+  return file_put_contents( $filePath, $content ) !== false;
+}
+
+/**
+ * Adds a price history entry to the YAML content (first-level only)
+ * 
+ * @param string $content The YAML content
+ * @param string $historyKey The history key ('prices' or 'dealPrices')
+ * @param string $entry The history entry (e.g., "2025-10-06: 1.99")
+ * @return string Updated YAML content
+ */
+function add_price_history_entry( $content, $historyKey, $entry )
+{
+  // Check if history section exists at root level
+  if( preg_match('/^' . preg_quote($historyKey, '/') . ':\s*$/m', $content))
+  {
+    // History section exists, add entry after the key
+    $content = preg_replace('/^(' . preg_quote($historyKey, '/') . ':\s*)$/m', "$1\n  $entry", $content);
+  }
+  else
+  {
+    // History section doesn't exist, create it at the end
+    $content = rtrim($content) . "\n\n$historyKey:\n  $entry\n";
+  }
+  
+  return $content;
+}
+
+/**
  * Updates a price for a food, handling both regular foods and variants
  * 
  * @param string $foodName The name of the food
@@ -130,6 +206,7 @@ function expand_food_variants( $baseName, $foodData )
  * @param string $userId The user ID
  * @return bool Success status
  */
+/*  // TASK: looks unused now
 function update_food_price( $foodName, $newPrice, $userId )
 {
   $sourceInfo = find_food_source( $foodName, $userId );
@@ -158,6 +235,7 @@ function update_food_price( $foodName, $newPrice, $userId )
   
   return file_put_contents( $filePath, $updatedContent ) !== false;
 }
+*/
 
 /**
  * Updates a value within a specific variant in YAML content

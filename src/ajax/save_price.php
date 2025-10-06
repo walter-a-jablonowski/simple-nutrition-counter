@@ -8,18 +8,19 @@ trait SavePriceAjaxController
 
   public function savePrice( $request )
   {
-    // TASK: add user
-    // TASK: maybe add stuff from misc ajax
+    $userId    = User::current('id');
+    $foodName  = $request['name'];
+    $priceType = $request['priceType'] ?? 'price'; // 'price' or 'dealPrice'
+    $newValue  = $request['value'];
 
-    $userId = User::current('id');
-    $foodName = $request['name'];
-    $newPrice = $request['price'];
+    // Determine which field and history key to update
+    $fieldName = $priceType;
+    $dateField = $priceType === 'price' ? 'lastPriceUpd' : 'lastDealPriceUpd';
+    $historyKey = $priceType === 'price' ? 'prices' : 'dealPrices';
 
-    // Use the new update_food_price function that handles regular foods and variants
-    if( ! update_food_price( $foodName, $newPrice, $userId ))
+    // Update the price with history
+    if( ! update_price_with_history( $foodName, $fieldName, $dateField, $historyKey, $newValue, $userId ))
       return ['result' => 'error', 'message' => 'Error saving price - food missing or file error'];
-
-    // TASK: save prev price
       
     return ['result' => 'success'];
   }

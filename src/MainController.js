@@ -490,19 +490,34 @@ class MainController
   priceColClick(event)
   {
     let target = event.target.tagName !== 'TD' ? event.target.closest('td') : event.target
-
-    target.find('.price-label-view').style.display = 'none'
-    target.find('.price-input-view').style.display = 'block'
+    
+    // Check if clicking on deal badge
+    if( event.target.classList.contains('badge') || event.target.closest('.badge'))
+    {
+      target.find('.price-label-view').style.display = 'none'
+      target.find('.deal-price-input-view').style.display = 'block'
+    }
+    else
+    {
+      target.find('.price-label-view').style.display = 'none'
+      target.find('.price-input-view').style.display = 'block'
+    }
   }
 
 
   updPriceClick(event)
   {
-    let name  = event.target.dataset.name
-    let input = event.target.closest('.price-col').find('.price-inp')
-    let price = input.textContent.trim()
+    let name      = event.target.dataset.name
+    let priceType = event.target.dataset.priceType
+    let priceCol  = event.target.closest('.price-col')
+    let value     = ''
+    
+    if( priceType === 'price' )
+      value = priceCol.find('.price-inp').textContent.trim()
+    else
+      value = priceCol.find('.deal-price-inp').textContent.trim()
 
-    ajax.send('savePrice', { name: name, price: price }, function(result, data) {
+    ajax.send('savePrice', { name: name, priceType: priceType, value: value }, function(result, data) {
       if( result === 'success' )
         window.location.reload()       // TASK: maybe show the label again
       else

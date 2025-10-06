@@ -149,7 +149,13 @@ $comment = true === $this->combinedModel->get("$entryName.xTimeLog")
             <div contenteditable="true" class="price-inp d-inline-block border px-1 py-0" style="min-width: 60px;">
               <?= $data['price'] ?? '' ?>
             </div>  <!-- TASK: maybe move data-name or use id -->
-            <button onclick="mainCrl.updPriceClick(event)" data-name="<?= $entryName ?>" class="upd-price btn btn-sm btn-secondary ml-1 px-1 py-0" style="margin-top: -4px;">update</button> 
+            <button onclick="mainCrl.updPriceClick(event)" data-name="<?= $entryName ?>" data-price-type="price" class="upd-price btn btn-sm btn-secondary ml-1 px-1 py-0" style="margin-top: -4px;">update</button> 
+          </span>
+          <span class="deal-price-input-view" style="display: none;">
+            <div contenteditable="true" class="deal-price-inp d-inline-block border px-1 py-0" style="min-width: 60px;">
+              <?= $data['dealPrice'] ?? '' ?>
+            </div>
+            <button onclick="mainCrl.updPriceClick(event)" data-name="<?= $entryName ?>" data-price-type="dealPrice" class="upd-price btn btn-sm btn-secondary ml-1 px-1 py-0" style="margin-top: -4px;">update</button> 
           </span>
         <?php endif; ?>
       </td>
