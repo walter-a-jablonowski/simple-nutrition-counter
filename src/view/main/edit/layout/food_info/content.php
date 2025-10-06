@@ -115,34 +115,44 @@ $comment = true === $this->combinedModel->get("$entryName.xTimeLog")
     <?php endif; ?>
     <tr>
       <th>Price</th>
-      <td class="price-col"<?= self::iif( ! empty($data['price']), ' onclick="mainCrl.priceColClick(event)"') ?>>
-        <?php if( ! empty($data['price'])): ?>
+      <td class="price-col"<?= self::iif( ! empty($data['price']) || ! empty($data['dealPrice']), ' onclick="mainCrl.priceColClick(event)"') ?>>
+        <?php if( ! empty($data['price']) || ! empty($data['dealPrice'])): ?>
           <span class="price-label-view">
-            <?= settings::get('currencySymbol') ?>
             <!-- price (highlight expensive and cheap) -->
-            <?php if( $pricePer100 >= settings::get('expensive')): ?>
-              <span style="color: red;"><?= $data['price'] ?></span>
-            <?php elseif( $pricePer100 <  settings::get('cheap')): ?>
-              <span style="color: green;"><?= $data['price'] ?></span>
-            <?php else: ?>
-              <?= $data['price'] ?>
-            <?php endif; ?>
-            <?php if( $data['lastPriceUpd'] ): ?>
-              <span class="text-secondary small">
-                on <?= date('Y-m-d', $data['lastPriceUpd'] ) ?>
-              </span>
+            <?php if( ! empty($data['price'])): ?>
+              <?php if( $pricePer100 >= settings::get('expensive')): ?>
+                <span style="color: red;"><?= $data['price'] ?></span>
+              <?php elseif( $pricePer100 <  settings::get('cheap')): ?>
+                <span style="color: green;"><?= $data['price'] ?></span>
+              <?php else: ?>
+                <?= $data['price'] ?>
+              <?php endif; ?>
+              <?php if( $data['lastPriceUpd'] ): ?>
+                <span class="text-secondary small">
+                  on <?= date('Y-m-d', $data['lastPriceUpd'] ) ?>
+                </span>
+              <?php endif; ?>
+              <?= settings::get('currencySymbol') ?>
             <?php endif; ?>
             <?php if( isset($data['dealPrice']) && $data['dealPrice'] ): ?>
-              &nbsp;<span class="badge bg-warning text-dark">deal: <?= $data['dealPrice'] ?></span>
+              <?php if( ! empty($data['price'])): ?>&nbsp;<?php endif; ?>
+              <span class="badge bg-warning text-dark">deal: <?= $data['dealPrice'] ?></span>
+              <?php if( empty($data['price'])): ?>
+                <span class="text-secondary small">
+                  on <?= date('Y-m-d', $data['lastPriceUpd'] ) ?>
+                </span>
+              <?php endif; ?>
             <?php endif; ?>
           </span>
-          <span class="price-input-view" style="display: none;">
-            <!-- <input value="< ?= $data['price'] ?>" class="price-inp form-control form-control-sm d-inline-block" type="text" style="width: 80px; padding: 0;"> -->
-            <div contenteditable="true" class="price-inp d-inline-block border px-1 py-0" style="min-width: 60px;">
-              <?= $data['price'] ?>
-            </div>  <!-- TASK: maybe move data-name or use id -->
-            <button onclick="mainCrl.updPriceClick(event)" data-name="<?= $entryName ?>" class="upd-price btn btn-sm btn-secondary ml-1 px-1 py-0" style="margin-top: -4px;">update</button> 
-          </span>
+          <?php if( ! empty($data['price'])): ?>
+            <span class="price-input-view" style="display: none;">
+              <!-- <input value="< ?= $data['price'] ?>" class="price-inp form-control form-control-sm d-inline-block" type="text" style="width: 80px; padding: 0;"> -->
+              <div contenteditable="true" class="price-inp d-inline-block border px-1 py-0" style="min-width: 60px;">
+                <?= $data['price'] ?>
+              </div>  <!-- TASK: maybe move data-name or use id -->
+              <button onclick="mainCrl.updPriceClick(event)" data-name="<?= $entryName ?>" class="upd-price btn btn-sm btn-secondary ml-1 px-1 py-0" style="margin-top: -4px;">update</button> 
+            </span>
+          <?php endif; ?>
         <?php endif; ?>
       </td>
     </tr>
