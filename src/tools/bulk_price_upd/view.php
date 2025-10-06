@@ -165,7 +165,7 @@
   <!-- Modal overlay for entering prices -->
   <div id="price-modal-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.4); z-index:1000; align-items:center; justify-content:center;">
     <div style="background:#fff; width:min(420px,92vw); border-radius:8px; padding:16px; box-shadow:0 10px 30px rgba(0,0,0,.25);">
-      <h4 id="price-modal-title" style="margin-bottom:12px;">Enter prices</h4>
+      <h4 id="price-modal-title">Enter prices</h4>
       <div id="price-modal-details" style="margin-bottom:12px; font-size:0.9em; color:#666;"></div>
       <div style="margin-bottom:10px;">
         <label for="price-input" style="display:block; font-weight:600; margin-bottom:4px;">Price</label>
