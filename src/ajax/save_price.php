@@ -15,7 +15,6 @@ trait SavePriceAjaxController
 
     // Check if this is a variant
     $sourceInfo = find_food_source( $foodName, $userId );
-    // error_log( print_r($sourceInfo, true) );
     if( $sourceInfo && $sourceInfo['isVariant'])
       return ['result' => 'error', 'data' => ['message' => 'Updating variant prices is unsupported yet'] ];
 
