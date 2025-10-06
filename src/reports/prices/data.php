@@ -29,21 +29,12 @@ class PricesReportController
     {
       $curPrice = $this->toNumber($entry['price'] ?? '');
       $curDeal  = $this->toNumber($entry['dealPrice'] ?? '');
-      $lastUpd  = isset($entry['lastPriceUpd']) ? (string) $entry['lastPriceUpd'] : '';
-      // Normalize last update for display
-      $lastOut = $lastUpd;
-      if( $lastUpd !== '' )
-      {
-        if( preg_match('/^\d{4}-\d{2}-\d{2}$/', $lastUpd) ) {
-          // already in YYYY-MM-DD, keep
-          $lastOut = $lastUpd;
-        }
-        elseif( ctype_digit($lastUpd) ) {
-          // likely epoch seconds => format to YYYY-MM-DD
-          $ts = (int)$lastUpd;
-          if( $ts > 0 ) $lastOut = gmdate('Y-m-d', $ts);
-        }
-      }
+      $lastPriceUpd = isset($entry['lastPriceUpd']) ? (string) $entry['lastPriceUpd'] : '';
+      $lastDealPriceUpd = isset($entry['lastDealPriceUpd']) ? (string) $entry['lastDealPriceUpd'] : '';
+      
+      // Normalize last updates for display
+      $lastPriceOut = $this->normalizeDate($lastPriceUpd);
+      $lastDealPriceOut = $this->normalizeDate($lastDealPriceUpd);
 
       $histP = $this->parseHistory($entry['prices'] ?? null);
       $histD = $this->parseHistory($entry['dealPrices'] ?? null);
@@ -67,24 +58,31 @@ class PricesReportController
         $changePctDeal = $firstD > 0 ? ($curDeal - $firstD) / $firstD * 100.0 : null;
       }
 
-      // Filter by date range if provided and we have lastPriceUpd
+      // Filter by date range if provided
+      // Show if either price or deal price was updated within range
       if( $show && $cutoff )
       {
-        if( $lastUpd ) {
-          try { 
-            if( ctype_digit($lastUpd) ) {
-              // Unix timestamp
-              $dt = new DateTime('@' . $lastUpd);
-            } else {
-              // String date
-              $dt = new DateTime($lastUpd);
-            }
-          } catch(\Throwable $e){ $dt = null; }
-          if( $dt && $dt < $cutoff ) {
-            $show = false;
+        $priceInRange = false;
+        $dealInRange = false;
+        
+        // Check if regular price update is in range
+        if( $lastPriceUpd && $curPrice !== null && $firstP !== null && $curPrice != $firstP ) {
+          $dt = $this->parseDate($lastPriceUpd);
+          if( $dt && $dt >= $cutoff ) {
+            $priceInRange = true;
           }
-        } else {
-          // no date -> exclude when filtering by range
+        }
+        
+        // Check if deal price update is in range
+        if( $lastDealPriceUpd && $curDeal !== null && $firstD !== null && $curDeal != $firstD ) {
+          $dt = $this->parseDate($lastDealPriceUpd);
+          if( $dt && $dt >= $cutoff ) {
+            $dealInRange = true;
+          }
+        }
+        
+        // Only show if at least one price type was updated in range
+        if( ! $priceInRange && ! $dealInRange ) {
           $show = false;
         }
       }
@@ -92,15 +90,16 @@ class PricesReportController
       if( ! $show ) continue;
 
       $items[$name] = [
-        'name'        => $name,
-        'price'       => $curPrice,
-        'dealPrice'   => $curDeal,
-        'firstPrice'  => $firstP,
-        'firstDeal'   => $firstD,
-        'pct'         => $changePct,
-        'pctDeal'     => $changePctDeal,
-        'lastPriceUpd'=> $lastOut,
-        'group'       => isset($entry['group']) && $entry['group'] !== '' ? (string)$entry['group'] : null,
+        'name'            => $name,
+        'price'           => $curPrice,
+        'dealPrice'       => $curDeal,
+        'firstPrice'      => $firstP,
+        'firstDeal'       => $firstD,
+        'pct'             => $changePct,
+        'pctDeal'         => $changePctDeal,
+        'lastPriceUpd'    => $lastPriceOut,
+        'lastDealPriceUpd'=> $lastDealPriceOut,
+        'group'           => isset($entry['group']) && $entry['group'] !== '' ? (string)$entry['group'] : null,
       ];
     }
 
@@ -260,5 +259,40 @@ class PricesReportController
     $parts = explode('.', $s);
     if( count($parts) > 2 ) $s = implode('', array_slice($parts, 0, -1)) . '.' . end($parts);
     return is_numeric($s) ? 0 + $s : null;
+  }
+
+  private function normalizeDate( string $date ) : string
+  {
+    if( $date === '' ) return '';
+    
+    if( preg_match('/^\d{4}-\d{2}-\d{2}$/', $date) ) {
+      // already in YYYY-MM-DD, keep
+      return $date;
+    }
+    elseif( ctype_digit($date) ) {
+      // likely epoch seconds => format to YYYY-MM-DD
+      $ts = (int)$date;
+      if( $ts > 0 ) return gmdate('Y-m-d', $ts);
+    }
+    return $date;
+  }
+
+  private function parseDate( string $date ) : ?DateTime
+  {
+    if( ! $date ) return null;
+    
+    try {
+      if( ctype_digit($date) ) {
+        // Unix timestamp
+        return new DateTime('@' . $date);
+      }
+      else {
+        // String date
+        return new DateTime($date);
+      }
+    }
+    catch( \Throwable $e ) {
+      return null;
+    }
   }
 }

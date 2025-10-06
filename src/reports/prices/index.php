@@ -113,12 +113,13 @@ $summary = $report['summary'];
             <th class="num">First deal</th>
             <th class="num">Current deal</th>
             <th class="num">Change % (deal)</th>
-            <th>Last update</th>
+            <th>Price upd</th>
+            <th>Deal upd</th>
           </tr>
         </thead>
         <tbody>
           <?php if( empty($items)): ?>
-            <tr><td colspan="8" class="empty">No items</td></tr>
+            <tr><td colspan="9" class="empty">No items</td></tr>
           <?php else: ?>
             <?php foreach( $items as $it ): ?>
               <?php 
@@ -135,6 +136,7 @@ $summary = $report['summary'];
                 <td class="num"><?= $it['dealPrice'] !== null ? number_format($it['dealPrice'], 2, '.', '') : '' ?></td>
                 <td class="num strong"><?= $pctD !== '' ? (($pctD >= 0 ? '+' : '') . $pctD.'%') : '' ?></td>
                 <td><?= htmlspecialchars($it['lastPriceUpd']) ?></td>
+                <td><?= htmlspecialchars($it['lastDealPriceUpd']) ?></td>
               </tr>
             <?php endforeach; ?>
           <?php endif; ?>
@@ -179,7 +181,13 @@ $summary = $report['summary'];
               </div>
             </div>
             <div class="foot">
-              <span class="meta">Last update: <?= htmlspecialchars($it['lastPriceUpd']) ?></span>
+              <?php if( $it['lastPriceUpd'] || $it['lastDealPriceUpd']): ?>
+                <span class="meta">
+                  <?php if( $it['lastPriceUpd']): ?>Price: <?= htmlspecialchars($it['lastPriceUpd']) ?><?php endif; ?>
+                  <?php if( $it['lastPriceUpd'] && $it['lastDealPriceUpd']): ?> · <?php endif; ?>
+                  <?php if( $it['lastDealPriceUpd']): ?>Deal: <?= htmlspecialchars($it['lastDealPriceUpd']) ?><?php endif; ?>
+                </span>
+              <?php endif; ?>
             </div>
           </div>
         <?php endforeach; ?>
