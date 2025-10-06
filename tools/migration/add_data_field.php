@@ -24,6 +24,14 @@ function process_file( $file_path )
     return;
   }
   
+  // Check if dealPrice exists at first level (not indented)
+  if( ! preg_match('/^dealPrice:/m', $content))
+  {
+    echo "  SKIP (no dealPrice field): $file_path\n";
+    $skipped++;
+    return;
+  }
+  
   // Check if lastPriceUpd exists
   if( ! preg_match('/^(lastPriceUpd:\s*.*)$/m', $content, $matches))
   {
