@@ -38,11 +38,18 @@ function handle_save_import( array $payload ) : array
   };
 
   $entry = [];
-  if( $price !== '' )     $entry['price'] = $formatCurrency($price);
-  if( $dealPrice !== '' ) $entry['dealPrice'] = $formatCurrency($dealPrice);
+  $currentDate = (new DateTime())->format('Y-m-d');
+  
+  if( $price !== '' ) {
+    $entry['price'] = $formatCurrency($price);
+    $entry['lastPriceUpd'] = $currentDate;
+  }
+  if( $dealPrice !== '' ) {
+    $entry['dealPrice'] = $formatCurrency($dealPrice);
+    $entry['lastDealPriceUpd'] = $currentDate;
+  }
 
   if( ! empty($entry)) {
-    $entry['lastPriceUpd'] = (new DateTime())->format('Y-m-d');
     $data[$name] = $entry;
   }
   else {

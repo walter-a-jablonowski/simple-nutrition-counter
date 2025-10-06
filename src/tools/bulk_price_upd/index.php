@@ -137,10 +137,12 @@ foreach( $foods as $food_name => $food)
   
   $has_price = ! empty($food['price']) || ! empty($food['dealPrice']);
   
-  // Handle lastPriceUpd which could be a date string in YYYY-MM-DD format
+  // Handle both lastPriceUpd and lastDealPriceUpd - use most recent for days calculation
   $last_price_update = null;
+  $last_deal_price_update = null;
   $days_since_update = null;
   
+  // Parse lastPriceUpd
   if( isset($food['lastPriceUpd']))
   {
     // It's a timestamp
@@ -155,12 +157,41 @@ foreach( $foods as $food_name => $food)
         // Invalid date format, ignore
       }
     }
-    
-    if( $last_price_update )
-      $days_since_update = $this_day->diff($last_price_update)->days;
   }
   
-  $is_old     = $days_since_update !== null && $days_since_update > $days_old;
+  // Parse lastDealPriceUpd
+  if( isset($food['lastDealPriceUpd']))
+  {
+    // It's a timestamp
+    if( is_numeric($food['lastDealPriceUpd']))
+      $last_deal_price_update = (new DateTime())->setTimestamp($food['lastDealPriceUpd']);
+    // Try to parse as date string
+    elseif( is_string($food['lastDealPriceUpd']) && ! empty($food['lastDealPriceUpd'])) {
+      try {
+        $last_deal_price_update = new DateTime($food['lastDealPriceUpd']);
+      }
+      catch( Exception $e ) {
+        // Invalid date format, ignore
+      }
+    }
+  }
+  
+  // Calculate days since update for each price type
+  $days_since_price_update = $last_price_update ? $this_day->diff($last_price_update)->days : null;
+  $days_since_deal_update = $last_deal_price_update ? $this_day->diff($last_deal_price_update)->days : null;
+  
+  // Use the most recent date for display purposes
+  $days_since_update = null;
+  if( $days_since_price_update !== null && $days_since_deal_update !== null )
+    $days_since_update = min($days_since_price_update, $days_since_deal_update);
+  elseif( $days_since_price_update !== null )
+    $days_since_update = $days_since_price_update;
+  elseif( $days_since_deal_update !== null )
+    $days_since_update = $days_since_deal_update;
+  
+  // Item is old if ANY price is older than threshold
+  $is_old = ($days_since_price_update !== null && $days_since_price_update > $days_old) ||
+            ($days_since_deal_update !== null && $days_since_deal_update > $days_old);
   $is_missing = ! $has_price;
   
   // Filter based on criteria
@@ -172,6 +203,7 @@ foreach( $foods as $food_name => $food)
         'price'             => $food['price'] ?? '',
         'dealPrice'         => $food['dealPrice'] ?? '',
         'lastPriceUpd'      => $last_price_update ? $last_price_update->format('Y-m-d') : '',
+        'lastDealPriceUpd'  => $last_deal_price_update ? $last_deal_price_update->format('Y-m-d') : '',
         'days_since_update' => $days_since_update,
         'is_missing'        => $is_missing,
         'is_old'            => $is_old,
