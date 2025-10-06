@@ -1,5 +1,5 @@
 
-removed:           true
+state:             removed|unavailable
 
 productName:       ""
 keywords:          []

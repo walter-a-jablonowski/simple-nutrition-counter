@@ -12,7 +12,7 @@ $return['done'] = [];
 
         <?php
 
-          if( ! ($args['showRemoved'] ?? false) && $this->combinedModel->get("$entryName.removed"))
+          if( ! ($args['showRemoved'] ?? false) && $this->combinedModel->get("$entryName.state") === 'removed')
             continue;  // no removed entries, even if in layout (see group Removed in UI)
 
           print $this->renderView( __DIR__ . '/entry.php', [

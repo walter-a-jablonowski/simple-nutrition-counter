@@ -106,10 +106,10 @@
             if( count($allEntries) > count( array_unique($done)))  // entries can appear in layout multiple times
             {
               $leftEntries = array_diff( $allEntries, $done );
-              $miscEntries = array_filter( $leftEntries, fn($entry) => ! $this->combinedModel->get("$entry.removed"));
-              $removed     = array_filter( $leftEntries, fn($entry) =>   $this->combinedModel->get("$entry.removed"));
+              $miscEntries = array_filter( $leftEntries, fn($entry) => $this->combinedModel->get("$entry.state") !== 'removed');
+              $removed     = array_filter( $leftEntries, fn($entry) => $this->combinedModel->get("$entry.state") === 'removed');
 
-              error_log( print_r($removed, true));
+              // error_log( print_r($removed, true));
 
               // Entries missing in layout (non removed)
 
