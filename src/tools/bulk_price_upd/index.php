@@ -54,7 +54,7 @@ if( ! is_dir($foods_dir)) {
 else {
   
   // Function to recursively scan directory for YAML files
-  function scanFoodDir($dir, &$foods)
+  function scan_food_dir($dir, &$foods)
   {
     foreach( scandir($dir) as $item)
     {
@@ -82,7 +82,7 @@ else {
         else
         {
           // Regular subfolder, continue scanning
-          scanFoodDir("$dir/$item", $foods);
+          scan_food_dir("$dir/$item", $foods);
         }
       }
       elseif( pathinfo("$dir/$item", PATHINFO_EXTENSION) === 'yml')
@@ -113,7 +113,7 @@ else {
   }
   
   // Scan the foods directory
-  scanFoodDir($foods_dir, $foods);
+  scan_food_dir($foods_dir, $foods);
 }
 
 // Process food data
