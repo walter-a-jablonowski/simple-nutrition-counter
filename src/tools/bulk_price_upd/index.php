@@ -35,13 +35,14 @@ catch( ParseException $e ) {
 }
 
 // Resolve effective filters: query string overrides config defaults
-$days_old      = isset($_GET['days'])    ? intval($_GET['days']) : (isset($config_defaults['days']) ? intval($config_defaults['days']) : null);
-$sort_by       = isset($_GET['sort'])    ? $_GET['sort'] : (string)($config_defaults['sort'] ?? '');
+$days_old          = isset($_GET['days'])        ? intval($_GET['days']) : (isset($config_defaults['days']) ? intval($config_defaults['days']) : null);
+$sort_by           = isset($_GET['sort'])        ? $_GET['sort'] : (string)($config_defaults['sort'] ?? '');
 // Normalize deprecated sort option
 if( $sort_by === 'date') $sort_by = 'days';
-$filter_vendor = isset($_GET['vendor'])  ? $_GET['vendor'] : (string)($config_defaults['vendor'] ?? '');
-$show_missing  = isset($_GET['missing']) ? ($_GET['missing'] === '1') : (bool)($config_defaults['missing'] ?? false);
-$show_old      = isset($_GET['old'])     ? ($_GET['old'] === '1') : (bool)($config_defaults['old'] ?? false);
+$filter_vendor     = isset($_GET['vendor'])      ? $_GET['vendor'] : (string)($config_defaults['vendor'] ?? '');
+$show_missing      = isset($_GET['missing'])     ? ($_GET['missing'] === '1') : (bool)($config_defaults['missing'] ?? false);
+$show_old          = isset($_GET['old'])         ? ($_GET['old'] === '1') : (bool)($config_defaults['old'] ?? false);
+$show_unavailable  = isset($_GET['unavailable']) ? ($_GET['unavailable'] === '1') : (bool)($config_defaults['unavailable'] ?? false);
 
 // Load food data from individual files
 $foods_dir     = "data/bundles/Default_$user_id/foods";
@@ -127,6 +128,10 @@ $debug_info = "Found $foods_count food items in $foods_dir";
 
 foreach( $foods as $food_name => $food)
 {
+  // Skip unavailable items unless explicitly requested
+  if( ! $show_unavailable && isset($food['state']) && $food['state'] === 'unavailable')
+    continue;
+  
   $vendor = isset($food['vendor']) ? $food['vendor'] : 'none';
   $vendors[$vendor] = true;
   

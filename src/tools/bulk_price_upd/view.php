@@ -64,6 +64,11 @@
           <input type="checkbox" id="old" name="old" value="1" <?= $show_old ? 'checked' : '' ?> class="auto-submit">
           <label for="old">Show old prices</label>
         </div>
+        
+        <div class="checkbox-group">
+          <input type="checkbox" id="unavailable" name="unavailable" value="1" <?= $show_unavailable ? 'checked' : '' ?> class="auto-submit">
+          <label for="unavailable">Show unavailable</label>
+        </div>
       </div>
     </form>
     
