@@ -5,59 +5,6 @@ use Symfony\Component\Yaml\Yaml;
 require_once 'lib/functions.php';
 
 /**
- * Expands a food with variants into multiple separate food entries
- * 
- * @param string $baseName The original food name (from file/folder name)
- * @param array $foodData The food data array
- * @return array Array of expanded foods where key is the food name and value is the food data
- */
-function expand_food_variants( $baseName, $foodData )
-{
-  // If no variants are defined, return the original food
-  if( ! isset($foodData['variants']) || ! is_array($foodData['variants']))
-    return [$baseName => $foodData];
-
-  $expandedFoods = [];
-  $baseData = $foodData;
-  
-  // Remove variants from base data to avoid duplication
-  unset($baseData['variants']);
-
-  foreach( $foodData['variants'] as $variantName => $variant )
-  {
-    if( ! is_array($variant))
-      continue;
-
-    $variantData = $baseData; // Start with base data as default
-
-    // Override base data with variant-specific values
-    foreach( $variant as $key => $value )
-    {
-
-      // Handle array fields that need nested merging (like sources)
-      if( is_array($value) && isset($variantData[$key]) && is_array($variantData[$key]))
-      {
-        // For associative arrays, merge recursively
-        if( is_assoc_array($value) && is_assoc_array($variantData[$key]))
-          $variantData[$key] = array_merge($variantData[$key], $value);
-        else
-          // For indexed arrays, replace completely
-          $variantData[$key] = $value;
-      }
-      else
-      {
-        // For non-array values, simply override
-        $variantData[$key] = $value;
-      }
-    }
-
-    $expandedFoods[$variantName] = $variantData;
-  }
-
-  return $expandedFoods;
-}
-
-/**
  * Finds the source file and variant information for a given food name
  * 
  * @param string $foodName The name of the food to find
@@ -120,6 +67,60 @@ function find_food_source( $foodName, $userId )
   
   return null;
 }
+
+/**
+ * Expands a food with variants into multiple separate food entries
+ * 
+ * @param string $baseName The original food name (from file/folder name)
+ * @param array $foodData The food data array
+ * @return array Array of expanded foods where key is the food name and value is the food data
+ */
+function expand_food_variants( $baseName, $foodData )
+{
+  // If no variants are defined, return the original food
+  if( ! isset($foodData['variants']) || ! is_array($foodData['variants']))
+    return [$baseName => $foodData];
+
+  $expandedFoods = [];
+  $baseData = $foodData;
+  
+  // Remove variants from base data to avoid duplication
+  unset($baseData['variants']);
+
+  foreach( $foodData['variants'] as $variantName => $variant )
+  {
+    if( ! is_array($variant))
+      continue;
+
+    $variantData = $baseData; // Start with base data as default
+
+    // Override base data with variant-specific values
+    foreach( $variant as $key => $value )
+    {
+
+      // Handle array fields that need nested merging (like sources)
+      if( is_array($value) && isset($variantData[$key]) && is_array($variantData[$key]))
+      {
+        // For associative arrays, merge recursively
+        if( is_assoc_array($value) && is_assoc_array($variantData[$key]))
+          $variantData[$key] = array_merge($variantData[$key], $value);
+        else
+          // For indexed arrays, replace completely
+          $variantData[$key] = $value;
+      }
+      else
+      {
+        // For non-array values, simply override
+        $variantData[$key] = $value;
+      }
+    }
+
+    $expandedFoods[$variantName] = $variantData;
+  }
+
+  return $expandedFoods;
+}
+
 
 /**
  * Updates a price for a food, handling both regular foods and variants
