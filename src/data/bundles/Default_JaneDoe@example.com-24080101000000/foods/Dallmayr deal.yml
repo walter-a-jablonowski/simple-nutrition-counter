@@ -3,7 +3,7 @@ xTimeLog:          true
 packaging:         alu
 
 dealPrice:         6.79
-weight:            500
+weight:            500g
 usedAmounts:       ["2.5g", "5g", "10g"]
 
 calories:          0
