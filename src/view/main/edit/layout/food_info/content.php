@@ -139,7 +139,7 @@ $comment = true === $this->combinedModel->get("$entryName.xTimeLog")
               <span class="badge bg-warning text-dark">deal: <?= $data['dealPrice'] ?></span>
               <?php if( empty($data['price'])): ?>
                 <span class="text-secondary small">
-                  on <?= date('Y-m-d', $data['lastPriceUpd'] ) ?>
+                  on <?= date('Y-m-d', $data['lastDealPriceUpd'] ) ?>
                 </span>
               <?php endif; ?>
             <?php endif; ?>

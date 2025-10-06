@@ -110,7 +110,7 @@ scan_directory($foods_dir);
 
 echo "\n";
 echo "========================================\n";
-echo "Migration complete!\n";
+echo "Migration done!\n";
 echo "Files processed: $processed\n";
 echo "Files updated:   $updated\n";
 echo "Files skipped:   $skipped\n";
