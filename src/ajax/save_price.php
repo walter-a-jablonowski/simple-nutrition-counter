@@ -13,6 +13,12 @@ trait SavePriceAjaxController
     $priceType = $request['priceType'] ?? 'price'; // 'price' or 'dealPrice'
     $newValue  = $request['value'];
 
+    // Check if this is a variant
+    $sourceInfo = find_food_source( $foodName, $userId );
+    // error_log( print_r($sourceInfo, true) );
+    if( $sourceInfo && $sourceInfo['isVariant'])
+      return ['result' => 'error', 'message' => 'Updating variant prices is unsupported yet'];
+
     // Determine which field and history key to update
     $fieldName = $priceType;
     $dateField = $priceType === 'price' ? 'lastPriceUpd' : 'lastDealPriceUpd';

@@ -520,8 +520,10 @@ class MainController
     ajax.send('savePrice', { name: name, priceType: priceType, value: value }, function(result, data) {
       if( result === 'success' )
         window.location.reload()       // TASK: maybe show the label again
-      else
-        alert('Error updating price')  // TASK: some inline error
+      else {
+        console.log(data)
+        alert(data.message || 'Error updating price')  // TASK: some inline error
+      }
     })
   }
 
