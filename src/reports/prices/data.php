@@ -211,7 +211,7 @@ class PricesReportController
         $name = basename($file->getPath());
       }
       else {
-        if( strpos($fn, '-this.yml') !== false ) continue; // skip any -this variants accidentally matched
+        if( strpos($fn, '-this.yml') !== false ) continue;  // skip any -this variants accidentally matched
         $name = pathinfo($fn, PATHINFO_FILENAME);
       }
       $foods[$name] = $data;

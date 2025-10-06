@@ -2,7 +2,7 @@ vendor:            Norma
 
 price:             1.89
 weight:            500g
-pieces:            5
+pieces:            4  # 5
 usedAmounts:       [1, 2, 4]
 
 calories:          160  # TASK: same as Avocado, right (via ChatGPT)?
