@@ -136,7 +136,7 @@ $comment = true === $this->combinedModel->get("$entryName.xTimeLog")
             <?php endif; ?>
             <?php if( isset($data['dealPrice']) && $data['dealPrice'] ): ?>
               <?php if( ! empty($data['price'])): ?>&nbsp;<?php endif; ?>
-              <span class="badge bg-warning text-dark">deal: <?= $data['dealPrice'] ?></span>
+              <span class="badge bg-warning text-dark" title="<?= date('Y-m-d', $data['lastDealPriceUpd'] ) ?>">deal: <?= $data['dealPrice'] ?></span>
               <?php if( empty($data['price'])): ?>
                 <span class="text-secondary small">
                   on <?= date('Y-m-d', $data['lastDealPriceUpd'] ) ?>
@@ -144,15 +144,13 @@ $comment = true === $this->combinedModel->get("$entryName.xTimeLog")
               <?php endif; ?>
             <?php endif; ?>
           </span>
-          <?php if( ! empty($data['price'])): ?>
-            <span class="price-input-view" style="display: none;">
-              <!-- <input value="< ?= $data['price'] ?>" class="price-inp form-control form-control-sm d-inline-block" type="text" style="width: 80px; padding: 0;"> -->
-              <div contenteditable="true" class="price-inp d-inline-block border px-1 py-0" style="min-width: 60px;">
-                <?= $data['price'] ?>
-              </div>  <!-- TASK: maybe move data-name or use id -->
-              <button onclick="mainCrl.updPriceClick(event)" data-name="<?= $entryName ?>" class="upd-price btn btn-sm btn-secondary ml-1 px-1 py-0" style="margin-top: -4px;">update</button> 
-            </span>
-          <?php endif; ?>
+          <span class="price-input-view" style="display: none;">
+            <!-- <input value="< ?= $data['price'] ?>" class="price-inp form-control form-control-sm d-inline-block" type="text" style="width: 80px; padding: 0;"> -->
+            <div contenteditable="true" class="price-inp d-inline-block border px-1 py-0" style="min-width: 60px;">
+              <?= $data['price'] ?? '' ?>
+            </div>  <!-- TASK: maybe move data-name or use id -->
+            <button onclick="mainCrl.updPriceClick(event)" data-name="<?= $entryName ?>" class="upd-price btn btn-sm btn-secondary ml-1 px-1 py-0" style="margin-top: -4px;">update</button> 
+          </span>
         <?php endif; ?>
       </td>
     </tr>
