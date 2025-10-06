@@ -522,7 +522,7 @@ class MainController
         window.location.reload()       // TASK: maybe show the label again
       else {
         console.log(data)
-        alert(data.message || 'Error updating price')  // TASK: some inline error
+        alert(data.message || 'Error updating price')
       }
     })
   }

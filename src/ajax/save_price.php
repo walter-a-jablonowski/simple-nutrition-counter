@@ -17,7 +17,7 @@ trait SavePriceAjaxController
     $sourceInfo = find_food_source( $foodName, $userId );
     // error_log( print_r($sourceInfo, true) );
     if( $sourceInfo && $sourceInfo['isVariant'])
-      return ['result' => 'error', 'message' => 'Updating variant prices is unsupported yet'];
+      return ['result' => 'error', 'data' => ['message' => 'Updating variant prices is unsupported yet'] ];
 
     // Determine which field and history key to update
     $fieldName = $priceType;
@@ -26,7 +26,7 @@ trait SavePriceAjaxController
 
     // Update the price with history
     if( ! update_price_with_history( $foodName, $fieldName, $dateField, $historyKey, $newValue, $userId ))
-      return ['result' => 'error', 'message' => 'Error saving price - food missing or file error'];
+      return ['result' => 'error', 'data' => ['message' => 'Error saving price - food missing or file error'] ];
       
     return ['result' => 'success'];
   }
