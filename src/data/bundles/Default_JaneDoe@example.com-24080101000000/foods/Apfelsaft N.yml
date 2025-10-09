@@ -2,7 +2,7 @@ vendor:            Norma
 acceptable:        occasionally
 packaging:         plastic
 
-price:             
+price:             0.43
 weight:            500ml
 usedAmounts:       ["1/8", "1/4", "1/3"]
 
@@ -18,4 +18,4 @@ nutritionalValues:
 
 sources:           { nutriVal: "pack" }
 lastUpd:           2024-08-31
-lastPriceUpd:
+lastPriceUpd:      2025-10-06

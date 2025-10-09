@@ -4,6 +4,7 @@ acceptable:        occasionally
 packaging:         plastic
 
 price:             1.15
+dealPrice:         1.19
 weight:            150
 pieces:            6
 usedAmounts:       [1, 2, 3]
@@ -21,4 +22,9 @@ nutritionalValues:
 sources:           { nutriVal: "pack" }
 
 lastUpd:           2024-09-03
-lastPriceUpd:      2024-09-03
+lastPriceUpd:      2025-10-06
+lastDealPriceUpd:  2025-10-06
+
+prices:
+
+  2024-09-03: 1.15

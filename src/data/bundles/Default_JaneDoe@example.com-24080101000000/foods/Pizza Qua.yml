@@ -3,6 +3,7 @@ acceptable:        less
 packaging:         cardboard,plastic
 
 price:             3.59
+dealPrice:         3.49
 weight:            680g
 pieces:            2
 usedAmounts:       ["1/4", "1/2", "1"]
@@ -20,8 +21,10 @@ nutritionalValues:
 
 sources:           { nutriVal: "pack" }
 lastUpd:           2024-09-05
-lastPriceUpd:      2025-03-11
+lastPriceUpd:      2025-10-06
+lastDealPriceUpd:  2025-10-06
 
 prices:
 
+  2025-03-11: 3.59
   2024-09-05: 3.59

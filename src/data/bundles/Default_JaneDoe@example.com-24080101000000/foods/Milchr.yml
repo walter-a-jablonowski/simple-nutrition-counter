@@ -4,6 +4,7 @@ acceptable:        less
 packaging:         alu & plastic
 
 price:             
+dealPrice:         0.39
 weight:            200g
 usedAmounts:       [1]
 
@@ -21,3 +22,4 @@ sources:           { nutriVal: "pack" }
 
 lastUpd:           2024-10-11
 lastPriceUpd:
+lastDealPriceUpd:  2025-10-06

@@ -1,6 +1,6 @@
 vendor:            Norma
 
-price:             1.29
+price:             1.39
 weight:            260g
 usedAmounts:       ["1/2", "1"]
 
@@ -17,4 +17,8 @@ nutritionalValues:
 
 sources:           { nutriVal: "ChatGPT (vals on websites differ)" }
 lastUpd:           2024-06-18
-lastPriceUpd:      2024-06-18
+lastPriceUpd:      2025-10-06
+
+prices:
+
+  2024-06-18: 1.29

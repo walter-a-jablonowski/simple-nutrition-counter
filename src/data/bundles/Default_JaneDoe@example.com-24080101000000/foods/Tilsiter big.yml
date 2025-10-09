@@ -3,7 +3,7 @@ vendor:            Norma
 acceptable:        occasionally
 packaging:         plastic
 
-price:             
+price:             2.99
 weight:            400g
 pieces:            11
 usedAmounts:       [1, 2, 3]
@@ -21,4 +21,4 @@ nutritionalValues:
 sources:           { nutriVal: "pack" }
 
 lastUpd:           2024-09-03
-lastPriceUpd:      
+lastPriceUpd:      2025-10-06

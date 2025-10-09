@@ -5,7 +5,7 @@ vendor:            Norma
 certificates:      { bio: true, vegan: true, NutriScore: B }
 packaging:         plastic & alu
 
-price:             
+price:             1.15
 weight:            500g
 
 calories:          65
@@ -20,4 +20,4 @@ nutritionalValues:
 
 sources:           { nutriVal: "pack" }
 lastUpd:           2025-03-31
-lastPriceUpd:      2025-03-31
+lastPriceUpd:      2025-10-06

@@ -3,7 +3,7 @@ productName:       "Premium 3 Nuss Mix (orange)"
 vendor:            Norma
 packaging:         plastic (maybe)
 
-price:             3.29
+price:             3.99
 weight:            200
 usedAmounts:       ["25g", "50g", "100g"]
 
@@ -20,8 +20,9 @@ nutritionalValues:
 
 sources:           { nutriVal: "pack" }
 lastUpd:           2024-09-05
-lastPriceUpd:      2025-03-11
+lastPriceUpd:      2025-10-06
 
 prices:
 
+  2025-03-11: 3.29
   2024-09-05: 2.89

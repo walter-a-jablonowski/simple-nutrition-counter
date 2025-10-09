@@ -5,7 +5,7 @@ packaging:         cardboard
 
 cookingInstructions: ">= 12 min"
 
-price:             2.79 
+price:             2.99
 weight:            400
 pieces:            4
 usedAmounts:       [2, 4]
@@ -22,4 +22,8 @@ nutritionalValues:
 
 sources:           { nutriVal: "pack" }
 lastUpd:           2024-06-18
-lastPriceUpd:      2024-06-18
+lastPriceUpd:      2025-10-06
+
+prices:
+
+  2024-06-18: 2.79
