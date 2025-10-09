@@ -4,7 +4,7 @@ certificates:      { bio: true }
 ingredients:       "Zucker* (Rohrzucker*, Vollrohrzucker*), Kakaomasse*, Kakaobutter*, HASELNÜSSE*, Sonnenblumenöl*, Kaffeepulver*(5,00%), Kakaopulver*, VOLLMILCHPULVER*, BUTTERREINFETT*, Emulgator Sonnenblumenlecithin*, Bourbon Vanille"
 packaging:         plastic (maybe)
 
-price:             0.99
+price:             1.19
 weight:            22
 usedAmounts:       ["1"]
 
@@ -21,4 +21,8 @@ nutritionalValues:
 
 sources:           { nutriVal: "web" }
 lastUpd:           2024-06-18
-lastPriceUpd:      2024-06-18
+lastPriceUpd:      2025-10-09
+
+prices:
+
+  2024-06-18: 0.99

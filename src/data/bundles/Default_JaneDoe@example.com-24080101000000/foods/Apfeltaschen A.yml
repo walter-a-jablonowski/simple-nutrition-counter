@@ -4,7 +4,7 @@ vendor:            Aldi
 acceptable:        less
 packaging:         cardboard & plastic
 
-price:             1.99
+price:             2.09
 weight:            250g
 pieces:            2
 usedAmounts:       [2]
@@ -22,4 +22,8 @@ nutritionalValues:
 
 sources:           { nutriVal: "pack" }
 lastUpd:           2024-11-26
-lastPriceUpd:      2024-11-26
+lastPriceUpd:      2025-10-09
+
+prices:
+
+  2024-11-26: 1.99

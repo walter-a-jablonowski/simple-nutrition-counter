@@ -15,7 +15,7 @@ ingredients: |
 
 packaging:         plastic,cardboard
 
-price:             2.99
+price:             2.79
 weight:            300
 usedAmounts:       ["1"]
 
@@ -32,4 +32,8 @@ nutritionalValues:
 
 sources:           { nutriVal: "pack" }
 lastUpd:           2024-06-18
-lastPriceUpd:      2024-06-18
+lastPriceUpd:      2025-10-09
+
+prices:
+
+  2024-06-18: 2.99

@@ -4,7 +4,7 @@ acceptable:        less
 certificates:      { bio: true }
 packaging:         plastic,alu,cardboard
 
-price:             
+price:             0.69
 weight:            12.5
 usedAmounts:       ["1"]
 
@@ -20,4 +20,4 @@ nutritionalValues:
 
 sources:           { nutriVal: "pack" }
 lastUpd:           2024-04-23
-lastPriceUpd:
+lastPriceUpd:      2025-10-09

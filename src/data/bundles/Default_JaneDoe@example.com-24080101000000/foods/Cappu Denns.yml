@@ -6,7 +6,7 @@ certificates:      { bio: true }
 ingredients:       "Vollmilch*, Rohrohrzucker*, 1% Löskaffee*, Maisstärke*, Verdickungsmittel: Johannisbrotkernmehl"
 packaging:         plastic & alu
 
-price:             1.29  # TASK: price is a guess
+price:             1.29
 weight:            230ml
 usedAmounts:       ["1"]
 
@@ -26,4 +26,8 @@ misc:
 
 sources:           { nutriVal: "pack" }
 lastUpd:           2024-06-08
-lastPriceUpd:      2024-06-08
+lastPriceUpd:      2025-10-09
+
+prices:
+
+  2024-06-08: 1.29

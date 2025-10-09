@@ -3,7 +3,7 @@ vendor:            Aldi
 certificates:      { bio: true, vegan: true, NutriScore: C }
 packaging:         glass & rubber
 
-price:             1.69
+price:             1.79
 weight:            180
 usedAmounts:       ["1/8", "1/4", "1/3"]
 
@@ -19,4 +19,8 @@ nutritionalValues:
 
 sources:           { nutriVal: "pack (fibre is from web)" }
 lastUpd:           2025-05-21
-lastPriceUpd:      2025-05-21
+lastPriceUpd:      2025-10-09
+
+prices:
+
+  2025-05-21: 1.69

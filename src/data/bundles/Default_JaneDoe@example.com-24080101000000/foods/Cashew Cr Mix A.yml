@@ -6,7 +6,7 @@ certificates:      { vegan: true, NutriScore: D }
 ingredients:       "Cashew, Cr, Zucker, Sonnenblumenöl"
 packaging:         plastic
 
-price:             
+price:             2.29
 weight:            200g
 usedAmounts:       ["10g", "25g", "50g"]
 
@@ -23,4 +23,4 @@ nutritionalValues:
 
 sources:           { nutriVal: "pack" }
 lastUpd:           2025-04-08
-lastPriceUpd:      2025-04-08
+lastPriceUpd:      2025-10-09

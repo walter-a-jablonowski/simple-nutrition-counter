@@ -4,7 +4,7 @@ certificates:      { vegan: true, NutriScore: A }
 ingredients:       "Cachew, Madel, Blaubeere, Crnberry"
 packaging:         plastic
 
-price:             3.69
+price:             3.29
 weight:            200g
 
 calories:          465
@@ -20,4 +20,8 @@ nutritionalValues:
 
 sources:           { nutriVal: "pack" }
 lastUpd:           2025-03-29
-lastPriceUpd:      2025-03-29
+lastPriceUpd:      2025-10-09
+
+prices:
+
+  2025-03-29: 3.69

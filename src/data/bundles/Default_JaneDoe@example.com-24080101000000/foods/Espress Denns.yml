@@ -25,8 +25,9 @@ misc:
 
 sources:           { nutriVal: "pack" }
 lastUpd:           2024-09-11
-lastPriceUpd:      2025-03-29
+lastPriceUpd:      2025-10-09
 
 prices:
 
+  2025-03-29: 1.39
   2024-09-11: 1.29

@@ -30,8 +30,9 @@ minerals:
 
 sources:           { nutriVal: "pack" }
 lastUpd:           2024-05-29
-lastPriceUpd:      2025-04-11
+lastPriceUpd:      2025-10-09
 
 prices:
 
+  2025-04-11: 2.99
   2024-06-18: 2.79

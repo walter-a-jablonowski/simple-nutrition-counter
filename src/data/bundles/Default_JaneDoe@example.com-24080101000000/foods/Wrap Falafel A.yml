@@ -6,7 +6,7 @@ allergy:           "Eier, Gluten"
 mayContain:        "Sesam, Sellerie, Schalen - früchten, Lupinen, Soja, Senf, Milch und Fisch enthalten"
 packaging:         plastic & cardboard
 
-price:             2.19
+price:             1.99
 weight:            190
 usedAmounts:       ["1"]
 
@@ -22,4 +22,8 @@ nutritionalValues:
 
 sources:           { nutriVal: "web (third party)" }
 lastUpd:           2024-06-18
-lastPriceUpd:      2024-11-11
+lastPriceUpd:      2025-10-09
+
+prices:
+
+  2024-11-11: 2.19
