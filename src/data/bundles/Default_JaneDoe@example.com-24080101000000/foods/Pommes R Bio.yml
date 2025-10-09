@@ -7,7 +7,7 @@ ingredients:       "Kartoffeln 96%, Sonnenblumenöl"
 packaging:         plastic
 
 price:             2.99
-weight:            750
+weight:            750g
 usedAmounts:       ["25g", "50g", "100g"]
 
 calories:          145
