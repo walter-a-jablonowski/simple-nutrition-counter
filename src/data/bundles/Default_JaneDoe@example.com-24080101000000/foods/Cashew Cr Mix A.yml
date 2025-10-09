@@ -1,13 +1,14 @@
-
+productName:       "Cashew Cranberry Mix"
 vendor:            Aldi
-comment:           "has sugar"
 acceptable:        occasionally
+comment:           "has sugar"
 certificates:      { vegan: true, NutriScore: D }
 ingredients:       "Cashew, Cr, Zucker, Sonnenblumenöl"
 packaging:         plastic
 
 price:             
 weight:            200g
+usedAmounts:       ["10g", "25g", "50g"]
 
 calories:          466
 nutritionalValues: 

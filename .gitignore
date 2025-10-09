@@ -22,3 +22,5 @@ src/tools/bulk_price_upd/data/import.yml
 src/tools/bulk_price_upd/data/import_1_done.yml
 src/tools/bulk_price_upd/data/import_2_done.yml
 src/tools/bulk_price_upd/data/import_3_SAV.yml
+src/tools/bulk_price_upd/data/import_3_done.yml
+src/tools/bulk_price_upd/data/import_4_SAV.yml

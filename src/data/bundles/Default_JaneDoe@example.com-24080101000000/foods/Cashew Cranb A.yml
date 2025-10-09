@@ -1,8 +1,11 @@
+state:             unavailable
+
 productName:       "Cashew Cranberry Mix"
 vendor:            Aldi
 acceptable:        occasionally  
-comment:           "4.3g sugar per 1/8"
+comment:           "looks like old food, we have a new one"
 certificates:      { NutriScore: D }
+ingredients:       "Cashew, Cr, Zucker, Sonnenblumenöl"
 packaging:         plastic
 
 price:             2.29
