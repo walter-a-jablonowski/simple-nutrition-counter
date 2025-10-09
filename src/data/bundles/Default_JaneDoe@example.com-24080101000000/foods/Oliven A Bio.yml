@@ -1,3 +1,4 @@
+group:             vegetables
 productName:       "Gut Bio Griechische Oliven"
 vendor:            Aldi
 certificates:      { bio: true, vegan: true, NutriScore: C }
