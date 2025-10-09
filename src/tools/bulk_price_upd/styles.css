@@ -208,6 +208,10 @@ button:hover {
   background-color: var(--info-color);
 }
 
+.status.unavail {
+  background-color: #c0392b;
+}
+
 .summary {
   margin-top: var(--spacing);
   padding: var(--spacing);
@@ -284,6 +288,10 @@ button:hover {
   
   .mobile-status.old {
     color: var(--info-color);
+  }
+  
+  .mobile-status.unavail {
+    color: #c0392b;
   }
   
   /* Mobile layout elements */

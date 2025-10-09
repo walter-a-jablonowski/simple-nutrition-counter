@@ -56,16 +56,6 @@
       
       <div class="filter-group">
         <div class="checkbox-group">
-          <input type="checkbox" id="missing" name="missing" value="1" <?= $show_missing ? 'checked' : '' ?> class="auto-submit">
-          <label for="missing">Show missing prices</label>
-        </div>
-        
-        <div class="checkbox-group">
-          <input type="checkbox" id="old" name="old" value="1" <?= $show_old ? 'checked' : '' ?> class="auto-submit">
-          <label for="old">Show old prices</label>
-        </div>
-        
-        <div class="checkbox-group">
           <input type="checkbox" id="unavailable" name="unavailable" value="1" <?= $show_unavailable ? 'checked' : '' ?> class="auto-submit">
           <label for="unavailable">Show unavailable</label>
         </div>
@@ -117,7 +107,9 @@
             
             <!-- Status column (desktop only) -->
             <div class="list-col col-status">
-              <?php if( $item['is_missing']): ?>
+              <?php if( $item['is_unavailable']): ?>
+                <span class="status unavail">Unavail</span>
+              <?php elseif( $item['is_missing']): ?>
                 <span class="status missing">Missing</span>
               <?php elseif( $item['is_old']): ?>
                 <span class="status old">Outdated</span>
@@ -144,7 +136,9 @@
             <!-- Second row: status and days -->
             <div class="list-row-details">
               <div>
-                <?php if( $item['is_missing']): ?>
+                <?php if( $item['is_unavailable']): ?>
+                  <span class="mobile-status unavail">Unavailable</span>
+                <?php elseif( $item['is_missing']): ?>
                   <span class="mobile-status missing">Missing price</span>
                 <?php elseif( $item['is_old']): ?>
                   <span class="mobile-status old">Outdated</span>

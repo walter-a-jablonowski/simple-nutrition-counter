@@ -40,9 +40,11 @@ $sort_by           = isset($_GET['sort'])        ? $_GET['sort'] : (string)($con
 // Normalize deprecated sort option
 if( $sort_by === 'date') $sort_by = 'days';
 $filter_vendor     = isset($_GET['vendor'])      ? $_GET['vendor'] : (string)($config_defaults['vendor'] ?? '');
-$show_missing      = isset($_GET['missing'])     ? ($_GET['missing'] === '1') : (bool)($config_defaults['missing'] ?? false);
-$show_old          = isset($_GET['old'])         ? ($_GET['old'] === '1') : (bool)($config_defaults['old'] ?? false);
 $show_unavailable  = isset($_GET['unavailable']) ? ($_GET['unavailable'] === '1') : (bool)($config_defaults['unavailable'] ?? false);
+
+// Always show missing and old prices (removed filters)
+$show_missing = true;
+$show_old = true;
 
 // Load food data from individual files
 $foods_dir     = "data/bundles/Default_$user_id/foods";
@@ -193,6 +195,7 @@ foreach( $foods as $food_name => $food)
   $is_old = ($days_since_price_update !== null && $days_since_price_update > $days_old) ||
             ($days_since_deal_update !== null && $days_since_deal_update > $days_old);
   $is_missing = ! $has_price;
+  $is_unavailable = isset($food['state']) && $food['state'] === 'unavailable';
   
   // Filter based on criteria
   if( ( $show_missing && $is_missing) || ($show_old && $is_old))
@@ -207,6 +210,7 @@ foreach( $foods as $food_name => $food)
         'days_since_update' => $days_since_update,
         'is_missing'        => $is_missing,
         'is_old'            => $is_old,
+        'is_unavailable'    => $is_unavailable,
         'productName'       => $food['productName'] ?? '',
         'weight'            => $food['weight'] ?? '',
         'pieces'            => $food['pieces'] ?? ''
