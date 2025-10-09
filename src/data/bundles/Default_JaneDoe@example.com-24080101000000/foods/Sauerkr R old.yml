@@ -1,4 +1,4 @@
-state:             removed
+state:             unavailable
 vendor:            Rewe
 
 certificates:      { bio: true, NutriScore: A }
