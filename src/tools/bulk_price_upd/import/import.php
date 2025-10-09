@@ -226,6 +226,8 @@ foreach( $import_map as $food_name => $entry)
 
   $new_price     = array_key_exists('price', $entry) ? normalize_number($entry['price']) : null;
   $new_deal      = array_key_exists('dealPrice', $entry) ? normalize_number($entry['dealPrice']) : null;
+  $last_price_upd = array_key_exists('lastPriceUpd', $entry) ? (string)$entry['lastPriceUpd'] : null;
+  $last_deal_upd  = array_key_exists('lastDealPriceUpd', $entry) ? (string)$entry['lastDealPriceUpd'] : null;
 
   $success = false;
 
@@ -237,12 +239,12 @@ foreach( $import_map as $food_name => $entry)
     
     if( $new_price !== null)
     {
-      $priceSuccess = bulk_update_food_value( $food_name, 'price', $new_price, $foods_dir, true );
+      $priceSuccess = bulk_update_food_value( $food_name, 'price', $new_price, $foods_dir, true, $last_price_upd );
     }
     
     if( $new_deal !== null)
     {
-      $dealSuccess = bulk_update_food_value( $food_name, 'dealPrice', $new_deal, $foods_dir, true );
+      $dealSuccess = bulk_update_food_value( $food_name, 'dealPrice', $new_deal, $foods_dir, true, $last_deal_upd );
     }
     
     $success = $priceSuccess && $dealSuccess;
@@ -254,20 +256,24 @@ foreach( $import_map as $food_name => $entry)
     $lines = read_lines($path);
 
     // Read current values from file
-    $cur_price     = read_scalar_value($lines, 'price');
-    $cur_deal      = read_scalar_value($lines, 'dealPrice');
-    $cur_last_upd  = read_scalar_value($lines, 'lastPriceUpd');
+    $cur_price         = read_scalar_value($lines, 'price');
+    $cur_deal          = read_scalar_value($lines, 'dealPrice');
+    $cur_last_price    = read_scalar_value($lines, 'lastPriceUpd');
+    $cur_last_deal     = read_scalar_value($lines, 'lastDealPriceUpd');
 
-    $import_last   = array_key_exists('lastPriceUpd', $entry) ? (string)$entry['lastPriceUpd'] : null;
-    $today         = (new DateTime())->format('Y-m-d');
+    $today = (new DateTime())->format('Y-m-d');
 
-    // 1) Move old current price(s) to history using lastPriceUpd as date
-    if( $cur_last_upd !== null && $cur_last_upd !== '')
+    // 1) Move old prices to history using their respective lastUpd dates
+    if( $new_price !== null && $cur_last_price !== null && $cur_last_price !== '')
     {
       if( $cur_price !== null && $cur_price !== '')
-        insert_history_entry($lines, 'prices', $cur_last_upd, $cur_price);
+        insert_history_entry($lines, 'prices', $cur_last_price, $cur_price);
+    }
+    
+    if( $new_deal !== null && $cur_last_deal !== null && $cur_last_deal !== '')
+    {
       if( $cur_deal !== null && $cur_deal !== '')
-        insert_history_entry($lines, 'dealPrices', $cur_last_upd, $cur_deal);
+        insert_history_entry($lines, 'dealPrices', $cur_last_deal, $cur_deal);
     }
 
     // 2) Set new prices if provided (create keys if missing)
@@ -276,9 +282,18 @@ foreach( $import_map as $food_name => $entry)
     if( $new_deal !== null)
       set_scalar_value_after($lines, 'dealPrice', $new_deal, 'price');
 
-    // 3) Update lastPriceUpd to today
-    $new_last_upd = $import_last !== null && $import_last !== '' ? $import_last : $today;
-    set_scalar_value($lines, 'lastPriceUpd', $new_last_upd);
+    // 3) Update date fields individually
+    if( $new_price !== null)
+    {
+      $new_last_price = $last_price_upd !== null && $last_price_upd !== '' ? $last_price_upd : $today;
+      set_scalar_value($lines, 'lastPriceUpd', $new_last_price);
+    }
+    
+    if( $new_deal !== null)
+    {
+      $new_last_deal = $last_deal_upd !== null && $last_deal_upd !== '' ? $last_deal_upd : $today;
+      set_scalar_value_after($lines, 'lastDealPriceUpd', $new_last_deal, 'lastPriceUpd');
+    }
 
     $success = write_lines($path, $lines);
   }

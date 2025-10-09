@@ -140,9 +140,10 @@ function bulk_update_deal_price( $foodName, $newDealPrice, $dir )
  * @param mixed $newValue The new value
  * @param string $dir The foods directory path
  * @param bool $withHistory Whether to maintain price history (default: false for simple updates)
+ * @param string|null $dateValue Optional date value for lastPriceUpd or lastDealPriceUpd
  * @return bool Success status
  */
-function bulk_update_food_value( $foodName, $key, $newValue, $dir, $withHistory = false )
+function bulk_update_food_value( $foodName, $key, $newValue, $dir, $withHistory = false, $dateValue = null )
 {
   $sourceInfo = bulk_find_food_source( $foodName, $dir );
   
@@ -169,7 +170,7 @@ function bulk_update_food_value( $foodName, $key, $newValue, $dir, $withHistory 
     if( $withHistory && ($key === 'price' || $key === 'dealPrice'))
     {
       // Handle price history for variants
-      $updatedContent = bulk_update_variant_with_history( $content, $variantName, $key, $newValue );
+      $updatedContent = bulk_update_variant_with_history( $content, $variantName, $key, $newValue, $dateValue );
     }
     else
     {
@@ -363,20 +364,29 @@ function bulk_find_insert_position_after( $lines, $variantName, $afterKey )
  * @param string $variantName The variant name
  * @param string $key The key to update (price or dealPrice)
  * @param mixed $newValue The new value
+ * @param string|null $dateValue Optional date value (uses today if null)
  * @return string Updated YAML content
  */
-function bulk_update_variant_with_history( $yamlContent, $variantName, $key, $newValue )
+function bulk_update_variant_with_history( $yamlContent, $variantName, $key, $newValue, $dateValue = null )
 {
   // For now, let's implement a simplified version that just updates the value
-  // and adds lastPriceUpd. Full history support would be quite complex.
+  // and adds the appropriate lastUpd field. Full history support would be quite complex.
   
   $today = (new DateTime())->format('Y-m-d');
+  $date = $dateValue !== null && $dateValue !== '' ? $dateValue : $today;
   
   // Update the price/dealPrice
   $updatedContent = bulk_replace_variant_value( $yamlContent, $variantName, $key, $newValue );
   
-  // Update lastPriceUpd
-  $updatedContent = bulk_replace_variant_value( $updatedContent, $variantName, 'lastPriceUpd', $today );
+  // Update the appropriate date field
+  if( $key === 'price' )
+  {
+    $updatedContent = bulk_replace_variant_value( $updatedContent, $variantName, 'lastPriceUpd', $date );
+  }
+  elseif( $key === 'dealPrice' )
+  {
+    $updatedContent = bulk_replace_variant_value( $updatedContent, $variantName, 'lastDealPriceUpd', $date );
+  }
   
   return $updatedContent;
 }
