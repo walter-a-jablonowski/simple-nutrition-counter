@@ -3,8 +3,24 @@
   <ul class="list-group mt-3">
     <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
       <div class="d-flex align-items-center py-1">
+
+        <div class="dropdown me-3">
+          <button id="" class="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            <span class="fw-bold">This day</span>
+          </button>
+          <ul class="dropdown-menu" onclick="">  <!-- Last days tab has only: Last week, 15 days, 30 days -->
+            <li><a class="dropdown-item small" data-value="" href="#">This day</a></li>
+            <li><a class="dropdown-item small" data-value="" href="#">This week</a></li>
+            <li><a class="dropdown-item small" data-value="" href="#">Last week</a></li>
+            <li><a class="dropdown-item small" data-value="" href="#">Last 2 weeks</a></li>
+            <li><a class="dropdown-item small" data-value="" href="#">7 days</a></li>
+            <li><a class="dropdown-item small" data-value="" href="#">15 days</a></li>
+            <li><a class="dropdown-item small" data-value="" href="#">30 days</a></li>
+          </ul>
+        </div>
+
         <div class="form-check form-switch me-3 mb-0">
-          <input id="offLimitCheck" onchange="mainCrl.offLimitCheckChange(event)" type="checkbox" role="switch" class="form-check-input">
+          <input id="offLimitCheck" onchange="mainCrl.offLimitCheckChange(event)" type="checkbox" role="switch" class="form-check-input" style="margin-top: 5px;">
           <label class="form-check-label small" for="offLimitCheck">
             off limit only
           </label>
