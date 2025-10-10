@@ -22,6 +22,8 @@ weight:
 pieces:            
 usedAmounts:       []
 
+amountPer:         "piece"  # we already have this feature !
+
 calories:          
 nutritionalValues: 
 

@@ -6,10 +6,13 @@ certificates:      { vegan: true }
 ingredients:       "Maltodextrin; Nicotinamid; Calcium-D-pantothenat; Überzugmittel Hydroxypropylmethylcellulose; Vitamin B6; Vitamin B1; Vitamin B2; Überzugmittel Polydextrose, mikrokristalline Cellulose; Trennmittel Siliciumdioxid, Speisefettsäuren, Magnesiumsalze der Speisefettsäuren, Talkum; Farbstoffe Riboflavin, Calciumcarbonat; Folsäure; Stabilisator Speisefettsäuren; Biotin; pflanzliche Öle (Kokos, Palmkern); Vitamin B12"
 packaging:         alu & plastic
 
+price:             
 dealPrice:         2.95
-weight:            580g  # all
+weight:            11.6     # all
 pieces:            50
 usedAmounts:       [1]
+
+amountPer:         "piece"  # we already have this feature !
 
 calories:          0
 nutritionalValues: 

@@ -34,6 +34,7 @@ trait CombinedModel
             : Yaml::parse( file_get_contents("$dir/$file/-this.yml"));
 
       // Expand food variants into separate food entries first
+
       $expandedFoods = expand_food_variants( $name, $food );
       
       foreach( $expandedFoods as $foodName => $foodData )
@@ -67,6 +68,8 @@ trait CombinedModel
         $this->combinedModel->set( $foodName, $foodData );
       }
     }
+
+    // Supplements
 
     $dir = "data/bundles/Default_$user->id/supplements";
 

@@ -55,6 +55,8 @@ weight:
 pieces:            
 # usedAmounts:     []
 
+# amountPer:       "piece"
+
 calories:          
 nutritionalValues: 
 
