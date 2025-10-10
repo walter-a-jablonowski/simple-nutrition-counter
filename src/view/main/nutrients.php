@@ -4,7 +4,7 @@
     <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
       <div class="d-flex align-items-center py-1">
 
-        <div class="dropdown me-3">
+        <div class="dropdown me-2">
           <button id="" class="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
             <span class="fw-bold">This day</span>
           </button>
@@ -19,7 +19,7 @@
           </ul>
         </div>
 
-        <div class="form-check form-switch me-3 mb-0">
+        <div class="form-check form-switch me-2 mb-0">
           <input id="offLimitCheck" onchange="mainCrl.offLimitCheckChange(event)" type="checkbox" role="switch" class="form-check-input" style="margin-top: 5px;">
           <label class="form-check-label small" for="offLimitCheck">
             off limit only
