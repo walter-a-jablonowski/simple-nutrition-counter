@@ -1,5 +1,5 @@
 
-certificates:      { bio: true, vegan: true }
+certificates:      { vegan: true }
 ingredients:       "Zucker; Vitamin C; Maltodextrin: Trennmittel Siliciumdioxid und Magnesiumsalze der Speisefettsäuren; Zinkcitrat; Himbeeraroma; Acerolaextrakt; Hagebuttenextrakt; Johannisbeerpulver"
 packaging:         alu & plastic
 
@@ -14,6 +14,7 @@ calories:          0
 nutritionalValues: 
 
   fat:             0
+  saturatedFat:    0
   carbs:           0    # TASK: has some carbs
   sugar:           0
   amino:           0

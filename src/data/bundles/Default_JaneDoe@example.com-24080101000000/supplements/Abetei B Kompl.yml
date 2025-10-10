@@ -1,0 +1,38 @@
+
+productName:       "Abtei B-Komplex Forte"
+
+comment:           "Täglich 1 Tablette Abtei B-Komplex, Vor Wärme und Sonneneinstrahlung schützen"
+certificates:      { vegan: true }
+ingredients:       "Maltodextrin; Nicotinamid; Calcium-D-pantothenat; Überzugmittel Hydroxypropylmethylcellulose; Vitamin B6; Vitamin B1; Vitamin B2; Überzugmittel Polydextrose, mikrokristalline Cellulose; Trennmittel Siliciumdioxid, Speisefettsäuren, Magnesiumsalze der Speisefettsäuren, Talkum; Farbstoffe Riboflavin, Calciumcarbonat; Folsäure; Stabilisator Speisefettsäuren; Biotin; pflanzliche Öle (Kokos, Palmkern); Vitamin B12"
+packaging:         alu & plastic
+
+dealPrice:         2.95
+weight:            580g  # all
+pieces:            50
+usedAmounts:       [1]
+
+calories:          0
+nutritionalValues: 
+
+  fat:             0
+  saturatedFat:    0
+  carbs:           0
+  sugar:           0
+  amino:           0
+  salt:            0
+
+vitamins:
+
+  Thiamin B1:           4.2  # 382 %              Referenzmenge nach EU-Lebensmittelinformationsverordnung
+  Riboflavin B2:        4.8  # 343 %
+  Niacin B3:            36   # 225 %   36 mg NE
+  Pantothenic acid B5:  24   # 400 %
+  Vitamin B6:           6    # 429 %
+  Biotin B7:            0.3  # 600 %   300 µg
+  Folate B9:            0.8  # 400 %   800 µg
+  Vitamin B12:          0.1  # 4000 %  100 µg
+
+sources:           { nutriVal: "web", price: "web" }
+lastUpd:           2025-10-10
+lastPriceUpd:      
+lastDealPriceUpd:  2025-10-10
