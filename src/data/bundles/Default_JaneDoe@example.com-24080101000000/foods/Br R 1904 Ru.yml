@@ -13,7 +13,7 @@ packaging:         plastic
 price:             1.99
 weight:            500g
 pieces:            8
-usedAmounts:       [1, 2]
+usedAmounts:       ["1/2", "1", "2"]
 
 calories:          224
 nutritionalValues:
