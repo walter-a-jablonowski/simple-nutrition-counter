@@ -4,7 +4,7 @@ use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Yaml\Exception\ParseException;
 
 require_once '../../vendor/autoload.php';
-require_once 'shared/variant_helper.php';
+require_once '../shared/variant_helper.php';
 
 // SETTINGS (adjust if needed)
 $user_id    = 'JaneDoe@example.com-24080101000000';
