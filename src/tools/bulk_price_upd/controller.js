@@ -13,10 +13,10 @@ document.addEventListener('DOMContentLoaded', function() {
   checkboxes.forEach(checkbox => {
     checkbox.addEventListener('change', function() {
       // Create hidden input to ensure unchecked boxes send a value of 0
-      if (!this.checked) {
+      if( ! this.checked) {
         const hiddenInput = document.createElement('input');
-        hiddenInput.type = 'hidden';
-        hiddenInput.name = this.name;
+        hiddenInput.type  = 'hidden';
+        hiddenInput.name  = this.name;
         hiddenInput.value = '0';
         document.querySelector('form').appendChild(hiddenInput);
       }
@@ -34,7 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const btnSave = document.getElementById('price-save');
   let currentName = '';
 
-  function openModal(name) {
+  function openModal(name)
+  {
     currentName = name;
     modalTitle.textContent = `Enter prices — ${name}`;
     
@@ -65,24 +66,30 @@ document.addEventListener('DOMContentLoaded', function() {
       priceVal = (t1 && t1.toLowerCase() !== 'n/a') ? t1 : '';
       dealVal  = (t2 && t2.toLowerCase() !== 'n/a') ? t2 : '';
     }
+
     if( priceVal === '' || dealVal === '' ) {
       const staged = importMap[name] || {};
       if( priceVal === '' && staged.price != null ) priceVal = staged.price;
       if( dealVal === '' && staged.dealPrice != null ) dealVal = staged.dealPrice;
     }
+
     priceInput.value = priceVal;
     dealInput.value = dealVal;
     overlay.style.display = 'flex';
     priceInput.focus();
   }
-  function closeModal() {
+
+  function closeModal()
+  {
     overlay.style.display = 'none';
     currentName = '';
   }
+
   btnCancel.addEventListener('click', closeModal);
   overlay.addEventListener('click', (e) => { if( e.target === overlay) closeModal(); });
 
   // Click row to open modal
+
   document.querySelectorAll('.list-row').forEach(row => {
     row.addEventListener('click', function(e) {
       // Avoid clicks on form elements
@@ -93,21 +100,25 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Save via ajax router
+
   btnSave.addEventListener('click', async function() {
+
     const payload = {
       action: 'save_import',
       name: currentName,
       price: priceInput.value.trim(),
       dealPrice: dealInput.value.trim()
     };
+
     // Remove empty strings so backend can treat as removal when both empty
-    if( payload.price === '') delete payload.price;
-    if( payload.dealPrice === '') delete payload.dealPrice;
+    if( payload.price === '')      delete payload.price;
+    if( payload.dealPrice === '')  delete payload.dealPrice;
 
     try {
+
       const res = await fetch('ajax.php', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(payload)
       });
       const json = await res.json();
@@ -165,6 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Comments modal logic
+  
   const btnOpenComments = document.getElementById('btn-open-comments');
   const commentsOverlay = document.getElementById('comments-modal-overlay');
   const commentsTextarea = document.getElementById('comments-text');
@@ -185,8 +197,8 @@ document.addEventListener('DOMContentLoaded', function() {
       try {
         const res = await fetch('ajax.php', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ action: 'get_comments' })
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ action: 'get_comments'})
         });
         const json = await res.json();
         if( json.status !== 'success' ) throw new Error(json.message || 'Load failed');
@@ -208,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function() {
       try {
         const res = await fetch('ajax.php', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({ action: 'save_comments', content })
         });
         const json = await res.json();
