@@ -4,7 +4,7 @@ vendor:            Norma
 acceptable:        occasionally
 packaging:         plastic,cardboard
 
-price:             2.29  # TASK: guess
+price:             2.29
 weight:            200g
 pieces:            8
 usedAmounts:       [1, 2, 3]
