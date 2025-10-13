@@ -6,6 +6,8 @@ packaging:         plastic,cardboard
 
 price:             2.29  # TASK: guess
 weight:            200g
+pieces:            8
+usedAmounts:       [1, 2, 3]
 
 calories:          265
 nutritionalValues: 
