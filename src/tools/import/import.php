@@ -2,13 +2,13 @@
 
 use Symfony\Component\Yaml\Yaml;
 
-require_once '../../../vendor/autoload.php';
-require_once '../lib/variant_helper.php';
+require_once '../../vendor/autoload.php';
+require_once 'bulk_price_upd/lib/variant_helper.php';
 
 // SETTINGS
 $user_id    = 'JaneDoe@example.com-24080101000000';
-$foods_dir  = "../../../data/bundles/Default_$user_id/foods";
-$import_yml = '../data/import.yml';
+$foods_dir  = "../../data/bundles/Default_$user_id/foods";
+$import_yml = 'bulk_price_upd/data/import.yml';
 
 header('Content-Type: text/html; charset=utf-8');
 
