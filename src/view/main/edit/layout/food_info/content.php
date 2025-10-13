@@ -229,7 +229,7 @@ $comment = true === $this->combinedModel->get("$entryName.xTimeLog")
 
     $headlines = [
       'nutritionalValues' => 'Nutritional values',
-      'fattyAcids'        => 'Fatty acids',
+      'lipids/fattyAcids' => 'Fatty acids',
       'carbs'             => 'Carbs',
       'aminoAcids'        => 'Amino acids',
       'vitamins'          => 'Vitamins',
