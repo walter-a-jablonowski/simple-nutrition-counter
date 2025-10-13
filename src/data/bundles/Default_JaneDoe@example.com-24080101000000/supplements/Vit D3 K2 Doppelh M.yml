@@ -1,4 +1,12 @@
 
+productName:       "Vitamin K2 + D3 2500 I.E."
+
+comment: |
+  Usage: Einmal täglich 1 Tablette zu einer Mahlzeit
+  - Es wird empfohlen, bei längerer Einnahme den Vitamin D-Spiegel im Blut überprüfen zu lassen
+  - Bei erhöhtem Calciumspiegel im Blut (Hypercalciämie) oder einer erhöhten Calciumkonzentration im Harn (Hypercalciurie) darf das Produkt nicht angewendet werden
+  - Bei Einnahme von Blutgerinnungshemmern nur nach Rücksprache
+
 certificates:      { vegan: true }
 ingredients:       "Füllstoff Calciumcarbonat, Füllstoff mikrokristalline Cellulose, Maltodextrin, Überzugsmittel Hydroxypropylmethylcellulose, Füllstoff Isomalt, Trennmittel Magnesiumsalze der Speisefettsäuren, mittelkettige Triglyceride, Vitamin K, Vitamin D, Überzugsmittel Carnaubawachs"
 packaging:         alu & plastic
@@ -15,6 +23,7 @@ calories:          0
 nutritionalValues: 
 
   fat:             0
+  saturatedFat:    0
   carbs:           0    # TASK: maybe
   sugar:           0
   amino:           0
