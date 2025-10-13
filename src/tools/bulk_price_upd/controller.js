@@ -28,10 +28,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const overlay = document.getElementById('price-modal-overlay');
   const priceInput = document.getElementById('price-input');
   const dealInput = document.getElementById('dealprice-input');
+  const unavailableCheckbox = document.getElementById('unavailable-checkbox');
   const modalTitle = document.getElementById('price-modal-title');
   const modalDetails = document.getElementById('price-modal-details');
   const btnCancel = document.getElementById('price-cancel');
   const btnSave = document.getElementById('price-save');
+  const btnReset = document.getElementById('price-reset');
   let currentName = '';
 
   function openModal(name)
@@ -73,6 +75,10 @@ document.addEventListener('DOMContentLoaded', function() {
       if( dealVal === '' && staged.dealPrice != null ) dealVal = staged.dealPrice;
     }
 
+    // Set unavailable checkbox state
+    const staged = importMap[name] || {};
+    unavailableCheckbox.checked = staged.state === 'unavailable';
+
     priceInput.value = priceVal;
     dealInput.value = dealVal;
     overlay.style.display = 'flex';
@@ -107,7 +113,8 @@ document.addEventListener('DOMContentLoaded', function() {
       action: 'save_import',
       name: currentName,
       price: priceInput.value.trim(),
-      dealPrice: dealInput.value.trim()
+      dealPrice: dealInput.value.trim(),
+      unavailable: unavailableCheckbox.checked
     };
 
     // Remove empty strings so backend can treat as removal when both empty
@@ -172,6 +179,56 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     catch(err) {
       alert(err.message || 'Error saving');
+    }
+  });
+
+  // Reset button - removes entire food entry from import.yml
+  btnReset.addEventListener('click', async function() {
+    if( ! confirm(`Reset all entered data for "${currentName}"?`)) return;
+
+    const payload = {
+      action: 'reset_import',
+      name: currentName
+    };
+
+    try {
+      const res = await fetch('ajax.php', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(payload)
+      });
+      const json = await res.json();
+      if( json.status !== 'success') throw new Error(json.message || 'Reset failed');
+
+      // Remove from local map
+      delete importMap[currentName];
+      
+      // Update UI
+      const row = document.querySelector(`.list-row[data-name="${CSS.escape(currentName)}"]`);
+      if( row ) {
+        row.classList.remove('has-import');
+        
+        // Remove price displays (will show original or n/a)
+        const priceRegular = row.querySelector('.price-regular');
+        const priceDeal = row.querySelector('.price-deal');
+        if( priceRegular ) priceRegular.remove();
+        if( priceDeal ) priceDeal.remove();
+        
+        // Add n/a if no prices shown
+        const priceContainers = row.querySelectorAll('.col-price, .mobile-price');
+        priceContainers.forEach(container => {
+          if( ! container.textContent.trim()) {
+            const span = document.createElement('span');
+            span.textContent = 'n/a';
+            container.appendChild(span);
+          }
+        });
+      }
+
+      closeModal();
+    }
+    catch(err) {
+      alert(err.message || 'Error resetting');
     }
   });
 

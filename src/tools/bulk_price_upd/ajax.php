@@ -49,6 +49,13 @@ try {
     echo json_encode($result);
     exit;
   }
+  elseif( $action === 'reset_import')
+  {
+    require_once __DIR__ . '/ajax/reset_import.php';
+    $result = handle_reset_import($payload);
+    echo json_encode($result);
+    exit;
+  }
 
   http_response_code(400);
   echo json_encode(['status' => 'error', 'message' => 'Unknown action']);

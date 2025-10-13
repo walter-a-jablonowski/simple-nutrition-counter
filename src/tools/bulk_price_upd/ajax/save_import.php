@@ -3,7 +3,7 @@
 use Symfony\Component\Yaml\Yaml;
 
 // Handler: save_import
-// Expects $payload = ['name' => string, 'price' => optional, 'dealPrice' => optional]
+// Expects $payload = ['name' => string, 'price' => optional, 'dealPrice' => optional, 'unavailable' => optional]
 // Writes to ../data/import.yml (under tool's data/ folder)
 function handle_save_import( array $payload ) : array
 {
@@ -11,8 +11,9 @@ function handle_save_import( array $payload ) : array
   if( $name === '')
     return ['status' => 'error', 'message' => 'Missing name'];
 
-  $price     = array_key_exists('price', $payload) ? (string)$payload['price'] : '';
-  $dealPrice = array_key_exists('dealPrice', $payload) ? (string)$payload['dealPrice'] : '';
+  $price       = array_key_exists('price', $payload) ? (string)$payload['price'] : '';
+  $dealPrice   = array_key_exists('dealPrice', $payload) ? (string)$payload['dealPrice'] : '';
+  $unavailable = isset($payload['unavailable']) ? (bool)$payload['unavailable'] : false;
 
   $import_file = dirname(__DIR__) . '/data/import.yml';
 
@@ -37,7 +38,8 @@ function handle_save_import( array $payload ) : array
     return is_numeric($s) ? sprintf('%.2f', (float)$s) : $s;
   };
 
-  $entry = [];
+  // Start with existing entry or empty array
+  $entry = isset($data[$name]) && is_array($data[$name]) ? $data[$name] : [];
   $currentDate = (new DateTime())->format('Y-m-d');
   
   if( $price !== '' ) {
@@ -48,6 +50,12 @@ function handle_save_import( array $payload ) : array
     $entry['dealPrice'] = $formatCurrency($dealPrice);
     $entry['lastDealPriceUpd'] = $currentDate;
   }
+  
+  // Handle unavailable state
+  if( $unavailable )
+    $entry['state'] = 'unavailable';
+  else
+    unset($entry['state']);
 
   if( ! empty($entry)) {
     $data[$name] = $entry;
