@@ -3,7 +3,7 @@
 use Symfony\Component\Yaml\Yaml;
 
 require_once '../../vendor/autoload.php';
-require_once 'bulk_price_upd/lib/variant_helper.php';
+require_once 'shared/variant_helper.php';
 
 // SETTINGS
 $user_id    = 'JaneDoe@example.com-24080101000000';

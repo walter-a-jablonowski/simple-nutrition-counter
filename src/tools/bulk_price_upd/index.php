@@ -8,7 +8,7 @@ use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Yaml\Exception\ParseException;
 
 require_once 'vendor/autoload.php';
-require_once __DIR__ . '/lib/variant_helper.php';
+require_once __DIR__ . '/../shared/variant_helper.php';
 
 // TASK: Use hardcoded user ID - Default is typically used in the system
 $user_id = 'JaneDoe@example.com-24080101000000';
