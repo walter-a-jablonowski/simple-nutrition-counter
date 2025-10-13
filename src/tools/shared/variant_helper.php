@@ -221,6 +221,7 @@ function bulk_replace_variant_value( $yamlContent, $variantName, $key, $newValue
   $inVariants = false;
   $foundVariant = false;
   $variantEndIndex = -1;
+  $variantStartIndex = -1;
   
   for( $i = 0; $i < count($lines); $i++ )
   {
@@ -239,6 +240,7 @@ function bulk_replace_variant_value( $yamlContent, $variantName, $key, $newValue
       if( preg_match('/^\s*(["\']?)' . preg_quote($variantName, '/') . '\1:\s*$/', $line))
       {
         $foundVariant = true;
+        $variantStartIndex = $i;
         continue;
       }
       
@@ -254,7 +256,17 @@ function bulk_replace_variant_value( $yamlContent, $variantName, $key, $newValue
       {
         $indentation = $matches[1];
         $keyAndColon = $matches[2];
-        $lines[$i] = $indentation . $key . $keyAndColon . $newValue;
+        
+        // Special handling for state field - ensure proper spacing
+        if( $key === 'state' )
+        {
+          // Build aligned line with proper spacing (13 spaces before value)
+          $lines[$i] = $indentation . $key . ':' . str_repeat(' ', 13) . $newValue;
+        }
+        else
+        {
+          $lines[$i] = $indentation . $key . $keyAndColon . $newValue;
+        }
         return implode("\n", $lines); // Found and updated, return immediately
       }
       
@@ -271,6 +283,17 @@ function bulk_replace_variant_value( $yamlContent, $variantName, $key, $newValue
   if( $foundVariant )
   {
     $indentation = '    '; // 4 spaces for variant properties
+    
+    // Special handling for 'state' field - insert as first field with blank line after
+    if( $key === 'state' && $variantStartIndex > 0 )
+    {
+      // Build state line with proper spacing (13 spaces before value)
+      $newLine = $indentation . $key . ':' . str_repeat(' ', 13) . $newValue;
+      $blankLine = '';
+      array_splice($lines, $variantStartIndex + 1, 0, [$newLine, $blankLine]);
+      return implode("\n", $lines);
+    }
+    
     $newLine = $indentation . $key . ':         ' . $newValue;
     $insertIndex = -1;
     

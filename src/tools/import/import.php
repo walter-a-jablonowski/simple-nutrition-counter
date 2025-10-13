@@ -3,12 +3,12 @@
 use Symfony\Component\Yaml\Yaml;
 
 require_once '../../vendor/autoload.php';
-require_once 'shared/variant_helper.php';
+require_once '../shared/variant_helper.php';
 
 // SETTINGS
 $user_id    = 'JaneDoe@example.com-24080101000000';
 $foods_dir  = "../../data/bundles/Default_$user_id/foods";
-$import_yml = 'bulk_price_upd/data/import.yml';
+$import_yml = '../bulk_price_upd/data/import.yml';
 
 header('Content-Type: text/html; charset=utf-8');
 
@@ -87,6 +87,23 @@ function set_scalar_value( array &$lines, string $key, string $value ) : void
     $comment = '';
     if( preg_match('/(\s+#.*)$/u', $lines[$idx], $mC)) $comment = $mC[1];
     $lines[$idx] = $newLine.$comment;
+  }
+}
+
+function set_state_as_first_field( array &$lines, string $value ) : void
+{
+  $idx = find_key_line($lines, 'state');
+  $newLine = build_aligned_line('', 'state', $value);
+  
+  if( $idx !== -1)
+  {
+    // Replace existing state field
+    $lines[$idx] = $newLine;
+  }
+  else
+  {
+    // Insert as first field with blank line after
+    array_splice($lines, 0, 0, [$newLine, '']);
   }
 }
 
@@ -224,10 +241,11 @@ foreach( $import_map as $food_name => $entry)
     continue;
   }
 
-  $new_price     = array_key_exists('price', $entry) ? normalize_number($entry['price']) : null;
-  $new_deal      = array_key_exists('dealPrice', $entry) ? normalize_number($entry['dealPrice']) : null;
+  $new_price      = array_key_exists('price', $entry) ? normalize_number($entry['price']) : null;
+  $new_deal       = array_key_exists('dealPrice', $entry) ? normalize_number($entry['dealPrice']) : null;
   $last_price_upd = array_key_exists('lastPriceUpd', $entry) ? (string)$entry['lastPriceUpd'] : null;
   $last_deal_upd  = array_key_exists('lastDealPriceUpd', $entry) ? (string)$entry['lastDealPriceUpd'] : null;
+  $new_state      = array_key_exists('state', $entry) ? (string)$entry['state'] : null;
 
   $success = false;
 
@@ -236,6 +254,7 @@ foreach( $import_map as $food_name => $entry)
     // Handle variant foods with history support
     $priceSuccess = true;
     $dealSuccess = true;
+    $stateSuccess = true;
     
     if( $new_price !== null)
     {
@@ -247,7 +266,12 @@ foreach( $import_map as $food_name => $entry)
       $dealSuccess = bulk_update_food_value( $food_name, 'dealPrice', $new_deal, $foods_dir, true, $last_deal_upd );
     }
     
-    $success = $priceSuccess && $dealSuccess;
+    if( $new_state !== null)
+    {
+      $stateSuccess = bulk_update_food_value( $food_name, 'state', $new_state, $foods_dir, false, null );
+    }
+    
+    $success = $priceSuccess && $dealSuccess && $stateSuccess;
   }
   else
   {
@@ -262,6 +286,10 @@ foreach( $import_map as $food_name => $entry)
     $cur_last_deal     = read_scalar_value($lines, 'lastDealPriceUpd');
 
     $today = (new DateTime())->format('Y-m-d');
+
+    // 0) Set state as first field if provided
+    if( $new_state !== null)
+      set_state_as_first_field($lines, $new_state);
 
     // 1) Move old prices to history using their respective lastUpd dates
     if( $new_price !== null && $cur_last_price !== null && $cur_last_price !== '')
