@@ -1,0 +1,38 @@
+
+productName:       "Omega-3 Algenöl"
+vendor:            DM
+
+comment: |
+  Usage:   1 Kapsel pro Tag, bei erhöhtem Bedarf 2 Kapseln pro Tag
+  Storage: Unter 25 °C, trocken und vor Licht geschützt aufbewahren
+
+certificates:      { bio: true, vegan: true }
+ingredients:       "Mikroalge Schizochytrium sp. (63%), modifizierte Stärke (Kapselhülle), Feuchthaltemittel: Glycerin, Antioxidationsmittel: stark tocopherolhaltige Extrakte, Extrakt aus Rosmarin, Ascorbylpalmitat"
+origin:            "Hergestellt in Spanien. Algenöl aus EU und Nicht-EU"
+packaging:         alu & plastic
+
+price:             3.95
+weight:            21.6
+pieces:            30
+usedAmounts:       [1, 2]
+
+amountPer:         "piece"  # we already have this feature !
+
+calories:          5
+nutritionalValues:
+
+  fat:             0.5
+  saturatedFat:    0.1
+  carbs:           0.5
+  sugar:           0
+  amino:           0
+  salt:            0
+
+"lipids/fattyAcids":
+
+  Docosahexaenoic acid:  250
+  Eicosapentaenoic acid: 15
+
+sources:           { nutriVal: "web" }
+lastUpd:           2025-10-13
+lastPriceUpd:      2025-10-13

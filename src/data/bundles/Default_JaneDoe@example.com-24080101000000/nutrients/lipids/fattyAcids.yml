@@ -52,6 +52,23 @@ substances:
         amount: 1.6
         upper:  5%
 
+  Eicosapentaenoic acid:
+
+    short:       EPA
+    displayName: EPA
+    altNames:    []  # TASK
+    groups:      []
+    essential:   false
+    comment:     "GPT 2408: Fish (salmon, mackerel, sardines), fish oil, krill oil, and algae oil"
+    sources:     "GPT and Claude 2408 for now"
+
+    amounts:  # currently we use the first entry hard coded only
+
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  250  # TASK. rough guess
+        amount: 275
+        upper:  300
+
   Docosahexaenoic acid:
 
     short:       DHA
@@ -66,9 +83,9 @@ substances:
     amounts:  # currently we use the first entry hard coded only
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-        lower:  0.200
-        amount: 0.250
-        upper:  0.300
+        lower:  200
+        amount: 250
+        upper:  300
 
   # Omega-6 fatty acids
 
