@@ -175,14 +175,14 @@
         <input id="dealprice-input" type="number" step="0.01" placeholder="e.g. 0.99" style="width:100%; padding:8px 10px; border:1px solid #ddd; border-radius:4px;">
       </div>
       <div style="margin-bottom:10px;">
-        <label style="display:flex; align-items:center; gap:6px; cursor:pointer;">
-          <input id="unavailable-checkbox" type="checkbox" style="cursor:pointer;">
+        <label style="display:inline-flex; align-items:center; gap:6px; cursor:pointer;">
+          <input id="unavailable-checkbox" type="checkbox" style="width:auto; cursor:pointer;">
           <span style="font-weight:600;">Unavailable</span>
         </label>
       </div>
-      <div style="display:flex; gap:8px; justify-content:space-between; margin-top:14px;">
-        <button id="price-reset" type="button" style="background:#fff; color:#dc3545; border:1px solid #dc3545; padding:8px 12px; border-radius:4px; cursor:pointer;">Reset</button>
-        <div style="display:flex; gap:8px;">
+      <div style="display:flex; gap:50px; justify-content:space-between; margin-top:14px;">
+        <button id="price-reset" type="button" style="background:#fff; color:#dc3545; border:1px solid #dc3545; padding:6px 10px; border-radius:4px; cursor:pointer; font-size:0.9em;">Reset</button>
+        <div style="display:flex; gap:8px; margin-left:auto;">
           <button id="price-cancel" type="button" style="background:#fff; color:#333; border:1px solid #ddd; padding:8px 12px; border-radius:4px; cursor:pointer;">Cancel</button>
           <button id="price-save" type="button" style="background:#3498db; color:#fff; border:0; padding:8px 12px; border-radius:4px; cursor:pointer;">Acccept</button>
         </div>
