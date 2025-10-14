@@ -1,4 +1,7 @@
 
+AI: bitter substances fit under secrondary plant substances
+
+
 special substances like Caffeine see misc.yml
 
 - https://en.wikipedia.org/wiki/Lipid

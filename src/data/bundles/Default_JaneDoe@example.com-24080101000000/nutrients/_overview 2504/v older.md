@@ -8,6 +8,34 @@ https://de.m.wikipedia.org/wiki/Aminos%C3%A4uren
 8 Essentielle: Valin, Methionin, Leucin, Isoleucin, Phenylalanin, Tryptophan, Threonin und Lysin
 
 
+(from secondary)
+
+# - Phytonutrients: Compounds found in plants that have various health benefits, including anti-inflammatory and antioxidant properties, which can help reduce the risk of chronic diseases
+#   - Polyphenols
+#     - Flavonoids
+#       - Catechins
+#       - Flavonols
+#       - Flavones
+#       - Flavanones
+#       - Isoflavones
+#       - Anthocyanins
+#     - Phenolic Acids
+#     - Stilbenes
+#     - Lignans
+#   - Caroenoids
+#     - Beta-carotene
+#     - Lycopene
+#     - Lutein
+#     - Zeaxanthin
+#   - Glucosinolates
+#   - Saponins
+#   - Tannins
+#   - Allicin
+#   - Capsaicin
+#   - Phytic Acid
+#   - Sterols and Stanols: Found in plants, these substances can help lower cholesterol levels in the body, which may reduce the risk of heart disease
+
+
 (reduced list)
 
 - Hormones

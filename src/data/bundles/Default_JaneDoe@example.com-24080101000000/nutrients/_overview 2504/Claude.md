@@ -105,7 +105,7 @@ FUNCTIONAL CLASSIFICATION OF NUTRIENTS
 │   ├── Minerals
 │   └── Water
 │
-└── PROTECTIVE NUTRIENTS
+└── PROECTIVE NUTRIENTS
     ├── Antioxidants
     │   ├── Vitamin C
     │   ├── Vitamin E
