@@ -25,6 +25,8 @@
       
       <div class="filter-group">
         <select id="days" name="days" class="auto-submit">
+          <option value="1" <?= $days_old === 1 ? 'selected' : '' ?>>1 days</option>
+          <option value="7" <?= $days_old === 7 ? 'selected' : '' ?>>7 days</option>
           <option value="30" <?= $days_old === 30 ? 'selected' : '' ?>>30 days</option>
           <option value="60" <?= $days_old === 60 ? 'selected' : '' ?>>60 days</option>
           <option value="90" <?= $days_old === 90 ? 'selected' : '' ?>>90 days</option>
