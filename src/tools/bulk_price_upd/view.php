@@ -189,7 +189,7 @@
       </div>
       <div style="margin-bottom:10px;">
         <label style="display:block; font-weight:600; margin-bottom:8px;">Status</label>
-        <div style="display:flex; flex-direction:column; gap:8px;">
+        <div style="display:flex; gap:20px;">
           <label style="display:inline-flex; align-items:center; gap:6px; cursor:pointer;">
             <input id="unavailable-radio" name="item-status" type="radio" value="unavailable" style="width:auto; cursor:pointer;">
             <span>Unavailable</span>
@@ -200,7 +200,7 @@
           </label>
           <label style="display:inline-flex; align-items:center; gap:6px; cursor:pointer;">
             <input id="normal-radio" name="item-status" type="radio" value="normal" style="width:auto; cursor:pointer;">
-            <span>Normal (clear status)</span>
+            <span>Normal</span>
           </label>
         </div>
       </div>
