@@ -60,6 +60,13 @@
           <label for="unavailable">Show unavailable</label>
         </div>
       </div>
+      
+      <div class="filter-group">
+        <div class="checkbox-group">
+          <input type="checkbox" id="removed" name="removed" value="1" <?= $show_removed ? 'checked' : '' ?> class="auto-submit">
+          <label for="removed">Show removed</label>
+        </div>
+      </div>
     </form>
     
     <div class="results">
@@ -109,6 +116,8 @@
             <div class="list-col col-status">
               <?php if( $item['is_unavailable']): ?>
                 <span class="status unavail">Unavail</span>
+              <?php elseif( $item['is_removed']): ?>
+                <span class="status removed">Removed</span>
               <?php elseif( $item['is_missing']): ?>
                 <span class="status missing">Missing</span>
               <?php elseif( $item['is_old']): ?>
@@ -138,6 +147,8 @@
               <div>
                 <?php if( $item['is_unavailable']): ?>
                   <span class="mobile-status unavail">Unavailable</span>
+                <?php elseif( $item['is_removed']): ?>
+                  <span class="mobile-status removed">Removed</span>
                 <?php elseif( $item['is_missing']): ?>
                   <span class="mobile-status missing">Missing price</span>
                 <?php elseif( $item['is_old']): ?>
@@ -174,10 +185,14 @@
         <label for="dealprice-input" style="display:block; font-weight:600; margin-bottom:4px;">Deal price</label>
         <input id="dealprice-input" type="number" step="0.01" placeholder="e.g. 0.99" style="width:100%; padding:8px 10px; border:1px solid #ddd; border-radius:4px;">
       </div>
-      <div style="margin-bottom:10px;">
+      <div style="margin-bottom:10px; display:flex; gap:20px;">
         <label style="display:inline-flex; align-items:center; gap:6px; cursor:pointer;">
           <input id="unavailable-checkbox" type="checkbox" style="width:auto; cursor:pointer;">
           <span style="font-weight:600;">Unavailable</span>
+        </label>
+        <label style="display:inline-flex; align-items:center; gap:6px; cursor:pointer;">
+          <input id="removed-checkbox" type="checkbox" style="width:auto; cursor:pointer;">
+          <span style="font-weight:600;">Removed</span>
         </label>
       </div>
       <div style="display:flex; gap:50px; justify-content:space-between; margin-top:14px;">

@@ -41,6 +41,7 @@ $sort_by           = isset($_GET['sort'])        ? $_GET['sort'] : (string)($con
 if( $sort_by === 'date') $sort_by = 'days';
 $filter_vendor     = isset($_GET['vendor'])      ? $_GET['vendor'] : (string)($config_defaults['vendor'] ?? '');
 $show_unavailable  = isset($_GET['unavailable']) ? ($_GET['unavailable'] === '1') : (bool)($config_defaults['unavailable'] ?? false);
+$show_removed      = isset($_GET['removed'])     ? ($_GET['removed'] === '1')     : (bool)($config_defaults['removed'] ?? false);
 
 // Always show missing and old prices (removed filters)
 $show_missing = true;
@@ -134,6 +135,10 @@ foreach( $foods as $food_name => $food)
   if( ! $show_unavailable && isset($food['state']) && $food['state'] === 'unavailable')
     continue;
   
+  // Skip removed items unless explicitly requested
+  if( ! $show_removed && isset($food['state']) && $food['state'] === 'removed')
+    continue;
+  
   $vendor = isset($food['vendor']) ? $food['vendor'] : 'none';
   $vendors[$vendor] = true;
   
@@ -196,6 +201,7 @@ foreach( $foods as $food_name => $food)
             ($days_since_deal_update !== null && $days_since_deal_update > $days_old);
   $is_missing = ! $has_price;
   $is_unavailable = isset($food['state']) && $food['state'] === 'unavailable';
+  $is_removed = isset($food['state']) && $food['state'] === 'removed';
   
   // Filter based on criteria
   if( ( $show_missing && $is_missing) || ($show_old && $is_old))
@@ -211,6 +217,7 @@ foreach( $foods as $food_name => $food)
         'is_missing'        => $is_missing,
         'is_old'            => $is_old,
         'is_unavailable'    => $is_unavailable,
+        'is_removed'        => $is_removed,
         'productName'       => $food['productName'] ?? '',
         'weight'            => $food['weight'] ?? '',
         'pieces'            => $food['pieces'] ?? ''

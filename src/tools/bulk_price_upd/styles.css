@@ -212,6 +212,10 @@ button:hover {
   background-color: #c0392b;
 }
 
+.status.removed {
+  background-color: #c0392b;
+}
+
 .summary {
   margin-top: var(--spacing);
   padding: var(--spacing);
@@ -291,6 +295,10 @@ button:hover {
   }
   
   .mobile-status.unavail {
+    color: #c0392b;
+  }
+  
+  .mobile-status.removed {
     color: #c0392b;
   }
   

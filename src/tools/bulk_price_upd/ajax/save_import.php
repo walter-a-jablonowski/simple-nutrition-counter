@@ -3,7 +3,7 @@
 use Symfony\Component\Yaml\Yaml;
 
 // Handler: save_import
-// Expects $payload = ['name' => string, 'price' => optional, 'dealPrice' => optional, 'unavailable' => optional]
+// Expects $payload = ['name' => string, 'price' => optional, 'dealPrice' => optional, 'unavailable' => optional, 'removed' => optional]
 // Writes to ../data/import.yml (under tool's data/ folder)
 function handle_save_import( array $payload ) : array
 {
@@ -14,6 +14,7 @@ function handle_save_import( array $payload ) : array
   $price       = array_key_exists('price', $payload) ? (string)$payload['price'] : '';
   $dealPrice   = array_key_exists('dealPrice', $payload) ? (string)$payload['dealPrice'] : '';
   $unavailable = isset($payload['unavailable']) ? (bool)$payload['unavailable'] : false;
+  $removed     = isset($payload['removed']) ? (bool)$payload['removed'] : false;
 
   $import_file = dirname(__DIR__) . '/data/import.yml';
 
@@ -51,9 +52,11 @@ function handle_save_import( array $payload ) : array
     $entry['lastDealPriceUpd'] = $currentDate;
   }
   
-  // Handle unavailable state
+  // Handle unavailable and removed states
   if( $unavailable )
     $entry['state'] = 'unavailable';
+  elseif( $removed )
+    $entry['state'] = 'removed';
   else
     unset($entry['state']);
 

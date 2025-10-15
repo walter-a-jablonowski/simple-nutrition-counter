@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const priceInput = document.getElementById('price-input');
   const dealInput = document.getElementById('dealprice-input');
   const unavailableCheckbox = document.getElementById('unavailable-checkbox');
+  const removedCheckbox = document.getElementById('removed-checkbox');
   const modalTitle = document.getElementById('price-modal-title');
   const modalDetails = document.getElementById('price-modal-details');
   const btnCancel = document.getElementById('price-cancel');
@@ -75,9 +76,10 @@ document.addEventListener('DOMContentLoaded', function() {
       if( dealVal === '' && staged.dealPrice != null ) dealVal = staged.dealPrice;
     }
 
-    // Set unavailable checkbox state
+    // Set unavailable and removed checkbox states
     const staged = importMap[name] || {};
     unavailableCheckbox.checked = staged.state === 'unavailable';
+    removedCheckbox.checked = staged.state === 'removed';
 
     priceInput.value = priceVal;
     dealInput.value = dealVal;
@@ -114,7 +116,8 @@ document.addEventListener('DOMContentLoaded', function() {
       name: currentName,
       price: priceInput.value.trim(),
       dealPrice: dealInput.value.trim(),
-      unavailable: unavailableCheckbox.checked
+      unavailable: unavailableCheckbox.checked,
+      removed: removedCheckbox.checked
     };
 
     // Remove empty strings so backend can treat as removal when both empty
