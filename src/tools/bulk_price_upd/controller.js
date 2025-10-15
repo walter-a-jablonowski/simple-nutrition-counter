@@ -28,8 +28,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const overlay = document.getElementById('price-modal-overlay');
   const priceInput = document.getElementById('price-input');
   const dealInput = document.getElementById('dealprice-input');
-  const unavailableCheckbox = document.getElementById('unavailable-checkbox');
-  const removedCheckbox = document.getElementById('removed-checkbox');
+  const unavailableRadio = document.getElementById('unavailable-radio');
+  const removedRadio = document.getElementById('removed-radio');
+  const normalRadio = document.getElementById('normal-radio');
   const modalTitle = document.getElementById('price-modal-title');
   const modalDetails = document.getElementById('price-modal-details');
   const btnCancel = document.getElementById('price-cancel');
@@ -76,10 +77,15 @@ document.addEventListener('DOMContentLoaded', function() {
       if( dealVal === '' && staged.dealPrice != null ) dealVal = staged.dealPrice;
     }
 
-    // Set unavailable and removed checkbox states
+    // Set radio button states based on current status
     const staged = importMap[name] || {};
-    unavailableCheckbox.checked = staged.state === 'unavailable';
-    removedCheckbox.checked = staged.state === 'removed';
+    if( staged.state === 'unavailable' ) {
+      unavailableRadio.checked = true;
+    } else if( staged.state === 'removed' ) {
+      removedRadio.checked = true;
+    } else {
+      normalRadio.checked = true;
+    }
 
     priceInput.value = priceVal;
     dealInput.value = dealVal;
@@ -111,13 +117,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
   btnSave.addEventListener('click', async function() {
 
+    // Get selected status from radio buttons
+    let selectedStatus = null;
+    if( unavailableRadio.checked ) {
+      selectedStatus = 'unavailable';
+    } else if( removedRadio.checked ) {
+      selectedStatus = 'removed';
+    }
+
     const payload = {
       action: 'save_import',
       name: currentName,
       price: priceInput.value.trim(),
       dealPrice: dealInput.value.trim(),
-      unavailable: unavailableCheckbox.checked,
-      removed: removedCheckbox.checked
+      unavailable: selectedStatus === 'unavailable',
+      removed: selectedStatus === 'removed'
     };
 
     // Remove empty strings so backend can treat as removal when both empty

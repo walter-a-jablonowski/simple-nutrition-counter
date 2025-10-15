@@ -187,15 +187,22 @@
         <label for="dealprice-input" style="display:block; font-weight:600; margin-bottom:4px;">Deal price</label>
         <input id="dealprice-input" type="number" step="0.01" placeholder="e.g. 0.99" style="width:100%; padding:8px 10px; border:1px solid #ddd; border-radius:4px;">
       </div>
-      <div style="margin-bottom:10px; display:flex; gap:20px;">
-        <label style="display:inline-flex; align-items:center; gap:6px; cursor:pointer;">
-          <input id="unavailable-checkbox" type="checkbox" style="width:auto; cursor:pointer;">
-          <span style="font-weight:600;">Unavailable</span>
-        </label>
-        <label style="display:inline-flex; align-items:center; gap:6px; cursor:pointer;">
-          <input id="removed-checkbox" type="checkbox" style="width:auto; cursor:pointer;">
-          <span style="font-weight:600;">Removed</span>
-        </label>
+      <div style="margin-bottom:10px;">
+        <label style="display:block; font-weight:600; margin-bottom:8px;">Status</label>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <label style="display:inline-flex; align-items:center; gap:6px; cursor:pointer;">
+            <input id="unavailable-radio" name="item-status" type="radio" value="unavailable" style="width:auto; cursor:pointer;">
+            <span>Unavailable</span>
+          </label>
+          <label style="display:inline-flex; align-items:center; gap:6px; cursor:pointer;">
+            <input id="removed-radio" name="item-status" type="radio" value="removed" style="width:auto; cursor:pointer;">
+            <span>Removed</span>
+          </label>
+          <label style="display:inline-flex; align-items:center; gap:6px; cursor:pointer;">
+            <input id="normal-radio" name="item-status" type="radio" value="normal" style="width:auto; cursor:pointer;">
+            <span>Normal (clear status)</span>
+          </label>
+        </div>
       </div>
       <div style="display:flex; gap:50px; justify-content:space-between; margin-top:14px;">
         <button id="price-reset" type="button" style="background:#fff; color:#dc3545; border:1px solid #dc3545; padding:6px 10px; border-radius:4px; cursor:pointer; font-size:0.9em;">Reset</button>
