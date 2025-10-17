@@ -85,11 +85,11 @@ tabName:
 
 -- Data --------     -- Layout --------
                       ___________________    
-  My nutrient group:   | My nutrient group     # nutrient names are from recipes.yml, foods.yml
+  My nutrient group:   | My nutrient group     # nutrient names are from recipes.yml, foods
     list:              |-------------------    # or misc.yml (use multiple times possible)
       - Recipe         | Recipe   |
       - or nutrient    | Nutrient | 1/4 | ...  < amounts as defined in
-      - ...            |          |              foods.yml
+      - ...            |          |              foods
 
   My nutrient group (color:#e0e0e0, fold:true):  # Visually group with color
     (i):                                         # Comment (i) switch in UI
