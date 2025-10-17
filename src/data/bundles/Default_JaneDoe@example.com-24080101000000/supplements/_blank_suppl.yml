@@ -17,7 +17,7 @@ origin:            ""
 packaging:         none|cardboard,alu,plastic,glass & rubber (maybe)  # outer --> inner (contact with food only)
 
 interactions:      ""     # similar to the ones in nutrients
-sideEffects:       ""           
+sideEffects:       ""
 careful:           false
 usage:             ""
 
