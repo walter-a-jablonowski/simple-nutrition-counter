@@ -1,10 +1,14 @@
 
 productName:       "Abtei B-Komplex Forte"
 
-comment:           "Täglich 1 Tablette Abtei B-Komplex, Vor Wärme und Sonneneinstrahlung schützen"
 certificates:      { vegan: true }
 ingredients:       "Maltodextrin; Nicotinamid; Calcium-D-pantothenat; Überzugmittel Hydroxypropylmethylcellulose; Vitamin B6; Vitamin B1; Vitamin B2; Überzugmittel Polydextrose, mikrokristalline Cellulose; Trennmittel Siliciumdioxid, Speisefettsäuren, Magnesiumsalze der Speisefettsäuren, Talkum; Farbstoffe Riboflavin, Calciumcarbonat; Folsäure; Stabilisator Speisefettsäuren; Biotin; pflanzliche Öle (Kokos, Palmkern); Vitamin B12"
 packaging:         alu & plastic
+
+interactions:      ""           
+sideEffects:       ""           
+careful:           false
+usage:             "Täglich 1 Tablette Abtei B-Komplex, Vor Wärme und Sonneneinstrahlung schützen"
 
 price:             
 dealPrice:         2.95

@@ -47,6 +47,11 @@ mayContain:        ""
 origin:            ""
 packaging:         # none|cardboard,alu,plastic,glass & rubber (maybe)  # outer --> inner (contact with food only)
 
+interactions:      ""           
+sideEffects:       ""           
+careful:           false  # use careful
+usage:             ""     # e.g. amount per day
+
 # cookingInstructions: "" 
 
 price:             

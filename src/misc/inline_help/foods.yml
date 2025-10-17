@@ -37,6 +37,11 @@ mayContain:          { usage: "Ingredients that may be contained cause of produc
 packaging:           { usage: "outer contact with food only --> none|cardboard->alu->plastic -> glass & rubber (maybe) <-- inner",
                          required: false, type: "string(array)" }
 
+interactions:        { usage: "For supplements but also food", required: false, type: "string" }
+sideEffects:         { usage: "For supplements but also food", required: false, type: "string" }
+careful:             { usage: "For supplements but also food", required: false, type: "bool" }
+usage:               { usage: "For supplements but also food (simple field, nutrrients have better)", required: false, type: "string" }
+
 cookingInstructions: { usage: "We can use html here or multi line using yml syntax", required: false, type: "string" }
 
 price:               { usage: "like 1.00 may be null", required: false, type: "currency" }
