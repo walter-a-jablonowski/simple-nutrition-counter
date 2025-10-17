@@ -7,4 +7,17 @@ short:       sec
 unit:        g
 defaultUnit: mg
 
-substances: []
+substances:
+
+  Creatine:
+    
+    short:     Crn
+    unit:      g
+    essential: false
+    sources:   "WHO (Wikipedia) for now"
+    amounts:
+
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  10%
+        amount: 10
+        upper:  10%
