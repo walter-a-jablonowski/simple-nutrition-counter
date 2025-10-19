@@ -14,10 +14,32 @@ substances:
     short:     Crn
     unit:      g
     essential: false
-    sources:   "WHO (Wikipedia) for now"
     amounts:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%
         amount: 10
+        upper:  10%
+
+  NMN:
+    
+    short:     NMN
+    unit:      g
+    essential: false
+    amounts:
+
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  10%
+        amount: 1
+        upper:  10%
+
+  Aspirin:  # TASK: move (missing in js)
+ 
+    short:     Asp
+    essential: false
+    amounts:
+
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  10%
+        amount: 500
         upper:  10%

@@ -1,0 +1,30 @@
+
+certificates:      { vegan: true }
+ingredients:       "NMN"
+packaging:         alu (maybe)
+
+interactions:      ""
+sideEffects:       ""
+careful:           false
+
+price:             21.90
+weight:            15g
+usedAmounts:       ["1g"]
+
+calories:          0
+nutritionalValues: 
+
+  fat:             0
+  saturatedFat:    0
+  carbs:           0
+  sugar:           0
+  amino:           0
+  salt:            0
+
+secondary:         
+
+  NMN:             100
+
+sources:           { nutriVal: "pack" }
+lastUpd:           2025-10-20
+lastPriceUpd:      2025-10-20

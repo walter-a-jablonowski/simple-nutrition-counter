@@ -1,5 +1,5 @@
 #
-# Misc nutrients
+# Misc
 #
 
 name:        Misc
@@ -8,17 +8,6 @@ unit:        g
 defaultUnit: mg
 
 substances:
-
-  Alcohol:
-
-    short:      Alc
-
-    amounts:  # currently we use the first entry hard coded only
-
-      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-        lower:  0%
-        amount: 0   # TASK: dummy entry
-        upper:  0%
 
   Caffeine:
 
@@ -30,3 +19,14 @@ substances:
         lower:  5%
         amount: 100  # TASK: dummy entry
         upper:  5%
+
+  Alcohol:
+
+    short:      Alc
+
+    amounts:  # currently we use the first entry hard coded only
+
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  0%
+        amount: 0   # TASK: dummy entry
+        upper:  0%
