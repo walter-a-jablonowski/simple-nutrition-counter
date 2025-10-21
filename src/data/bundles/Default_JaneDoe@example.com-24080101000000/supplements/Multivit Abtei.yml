@@ -1,59 +1,68 @@
 
 certificates:      { vegan: true }
-details:           ""
-ingredients:       ""
+ingredients:       "Calciumcarbonat; Überzugmittel Hydroxypropylmethylcellulose; Vitamin C; Füllstoff mikrokristalline Cellulose; Magnesiumoxid; Eisenfumarat; Maltodextrin; Trennmittel Speisefettsäuren, Siliciumdioxid, Magnesiumsalze der Speisefettsäuren, Talkum; Vitamin E; Nicotinamid; Zinkoxid; Überzugmittel Polydextrose; Calcium-D-pantothenat; Farbstoffe Calciumcarbonat, Eisenoxide; Mangansulfat; Acerola-Fruchtsaftpulver; Kupfersulfat; Feuchthaltemittel Glycerin; Vitamin B6; Vitamin B2; Vitamin B1; Vitamin A; luteinhaltiger Ringelblumenextrakt; pflanzliche Öle (Kokos, Palmkern); Folsäure; Chromchlorid; Kaliumiodid; Natriumselenat; Natriummolybdat; Vitamin K; Biotin; Vitamin D; Vitamin B12"
 allergy:           ""
 mayContain:        ""
 origin:            ""
-packaging:         none|cardboard,alu,plastic,glass & rubber (maybe)  # outer --> inner (contact with food only)
+packaging:         alu & plastic
 
 noUseIf:           ""
-interactions:      ""     # similar to the ones in nutrients
+interactions:      "Auf den Verzehr weiterer zinkhaltiger Nahrungsergänzungsmittel sollte verzichtet werden"
 sideEffects:       ""
 careful:           false
-usage:             ""
+usage:             "Täglich 1 Tablette"
 keeping:           ""
 
 price:             
-dealPrice:         
-weight:            
-pieces:            
-usedAmounts:       []
+weight:            47g
+pieces:            40
+usedAmounts:       [1]
 
-amountPer:         "piece"  # we already have this feature !
+amountPer:         "piece"
 
-calories:          
+calories:          0
 nutritionalValues: 
 
-  fat:             
-  saturatedFat:    
-  monoUnsaturated: 
-  polyUnsaturated: 
-  carbs:           
-  sugar:           
-  sugarAlcohol:    
-  fibre:           
-  amino:           
-  salt:            
+  fat:             0
+  saturatedFat:    0
+  carbs:           0
+  sugar:           0
+  amino:           0
+  salt:            0
 
-fattyAcids:          # TASK
-carbs:             
-aminoAcids:        
 vitamins:          
+
+  Vitamin A:     0.5  # **
+  Thiamin B1:    0.8  # RE 100%
+  Riboflavin B2: 
+  Vitamin B6:    
+  Vitamin B12:   
+  Biotin B7:     
+  Folate B9:     
+  Niacin B3:     
+  Pantothenic acid B5:
+  Vitamin C:     
+  Vitamin D:     
+  Vitamin E:     
+  Vitamin K:     
+
 minerals:          
+
+  Calcium:       
+  Chromium:      
+  Iron:          
+  Iodine:        
+  Copper:        
+  Magnesium:     
+  Manganese:     
+  Molybdenum:    
+  Selenium:      
+  Zinc:          
+
 secondary:         
 
-misc:
+  # Lutein  # TASK
 
-  water:             
-  caffeine:
-  alcohol:
-
-sources:           { nutriVal: "web|pack (information on packaging may differ slightly)", nutrients: "...", price: "..." }
-lastUpd:           
+sources:           { nutriVal: "web" }
+lastUpd:           2025-10-21
 lastPriceUpd:      
-lastDealPriceUpd:  
-
-prices:
-
-dealPrices:

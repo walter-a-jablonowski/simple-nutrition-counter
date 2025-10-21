@@ -2,9 +2,6 @@
 # Minerals
 #
 
-# TASK: unit calc in controller missing, add or maybe use mg for all
-#       sample last usage see Chickpeas
-
 name:        Minerals
 short:       min
 unit:        g
@@ -93,7 +90,7 @@ substances:
 
       - criteria: { dayType: workout, gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%
-        amount: 500 # TASK: dummy entry
+        amount: 500  # TASK: dummy entry
         upper:  10%
 
 
@@ -160,8 +157,6 @@ substances:
         lower:  10%
         amount: 0.07
         upper:  10%
-
-  # TASK: Copper, Chromium, Manganese, Molybdenum are mentioned in one page at DGE
 
   Copper:
 
