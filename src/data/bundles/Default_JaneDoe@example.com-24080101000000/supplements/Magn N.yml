@@ -1,11 +1,14 @@
 
 vendor:            Norma
 
-comment: |
-  Usage: Einmal täglich 1 Tablette
-
 certificates:      { vegan: true }
 packaging:         plastic
+
+interactions:      ""     # similar to the ones in nutrients
+sideEffects:       ""
+careful:           false
+usage:             "Einmal täglich 1 Tablette"
+keeping:           ""
 
 price:             
 weight:            120

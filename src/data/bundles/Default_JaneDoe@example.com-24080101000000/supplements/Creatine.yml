@@ -2,15 +2,17 @@
 vendor:            Decathlon
 url:               "https://www.decathlon.de/p/kreatin-monohydrat-geschmacksneutral-creapure-300-g/_/R-p-327680?mc=8601333&fl=Neutral"
 
-comment: |
-  lt. ggf. nicht unbed länger als 2 Mon
-  Kühl, trocken und vor Licht geschützt lagern
-
 certificates:      { vegan: true }
 ingredients:       "Kreatin"
 mayContain:        "Kann Spuren enthalten von: Gluten, Soja, Ei, Sulfiten, Krustentieren, Fisch, Sellerie, Schalenfrüchten, Milch und Senf"
 origin:            "Deutschland, zusammengesetzt in Frankreich"
 packaging:         plastic
+
+interactions:      ""     # similar to the ones in nutrients
+sideEffects:       ""
+careful:           false
+usage:             "lt. Deca ggf. nicht unbed länger als 2 Mon"
+keeping:           "Kühl, trocken und vor Licht geschützt lagern"
 
 price:             19.99
 weight:            300g
