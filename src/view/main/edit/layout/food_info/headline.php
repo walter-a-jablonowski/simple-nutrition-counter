@@ -1,5 +1,26 @@
 <?php
 
+/*
+
+Overview:
+
+- entryName
+- vendor
+- url
+- acceptable
+- certificates
+  - bio
+  - vegan
+  - oekotest
+  - warentest
+  - NutriScore
+  - fairtrade
+- nutritionalValues
+  - fat
+- ingredients
+
+*/
+
 extract($args);
 
 $data = $this->combinedModel->get($entryName);
