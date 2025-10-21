@@ -8,7 +8,16 @@ Overview
   - xTimeLog
 
 - Table
+
   - productName
+
+  - noUseIf
+  - interactions
+  - sideEffects
+  - careful
+  - usage
+  - keeping
+
   - details
   - ingredients
   - allergy
@@ -17,14 +26,7 @@ Overview
   - packaging
   - url
   - price, dealPrice, lastPriceUpd, lastDealPriceUpd
-  - weight
-  - pieces
-  - noUseIf
-  - interactions
-  - sideEffects
-  - careful
-  - usage
-  - keeping
+  - weight, pieces
 
 - Sources
   - sources.nutriVal
@@ -76,6 +78,77 @@ $comment = true === $this->combinedModel->get("$entryName.xTimeLog")
       <tr>
         <th>Product name</th>
         <td><?= htmlspecialchars($data['productName']) ?></td>
+      </tr>
+    <?php endif; ?>
+    <?php if( ! empty($data['noUseIf'])): ?>
+      <tr>
+        <th>No use if</th>
+        <td>
+          <a data-bs-toggle="collapse" href="#<?= $entryId ?>NoUseCollapse" class="text-decoration-none" role="button">
+            <span class="text-secondary small">show</span>
+          </a>
+        </td>
+      </tr>
+      <tr id="<?= $entryId ?>NoUseCollapse" class="collapse">
+        <td colspan="2" class="text-wrap" style="white-space: pre-wrap;"><?= htmlspecialchars($data['noUseIf']) ?></td>
+      </tr>
+    <?php endif; ?>
+    <?php if( ! empty($data['interactions'])): ?>
+      <tr>
+        <th>Interactions</th>
+        <td>
+          <a data-bs-toggle="collapse" href="#<?= $entryId ?>InterCollapse" class="text-decoration-none" role="button">
+            <span class="text-secondary small">show</span>
+          </a>
+        </td>
+      </tr>
+      <tr id="<?= $entryId ?>InterCollapse" class="collapse">
+        <td colspan="2" class="text-wrap" style="white-space: pre-wrap;"><?= htmlspecialchars($data['interactions']) ?></td>
+      </tr>
+    <?php endif; ?>
+    <?php if( ! empty($data['sideEffects'])): ?>
+      <tr>
+        <th>Side effects</th>
+        <td>
+          <a data-bs-toggle="collapse" href="#<?= $entryId ?>SideCollapse" class="text-decoration-none" role="button">
+            <span class="text-secondary small">show</span>
+          </a>
+        </td>
+      </tr>
+      <tr id="<?= $entryId ?>SideCollapse" class="collapse">
+        <td colspan="2" class="text-wrap" style="white-space: pre-wrap;"><?= htmlspecialchars($data['sideEffects']) ?></td>
+      </tr>
+    <?php endif; ?>
+    <?php if( ! empty($data['careful'])): ?>
+      <tr>
+        <th>Careful</th>
+        <td><?= htmlspecialchars($data['careful']) ?></td>
+      </tr>
+    <?php endif; ?>
+    <?php if( ! empty($data['usage'])): ?>
+      <tr>
+        <th>Usage</th>
+        <td>
+          <a data-bs-toggle="collapse" href="#<?= $entryId ?>UsageCollapse" class="text-decoration-none" role="button">
+            <span class="text-secondary small">show</span>
+          </a>
+        </td>
+      </tr>
+      <tr id="<?= $entryId ?>UsageCollapse" class="collapse">
+        <td colspan="2" class="text-wrap" style="white-space: pre-wrap;"><?= htmlspecialchars($data['usage']) ?></td>
+      </tr>
+    <?php endif; ?>
+    <?php if( ! empty($data['keeping'])): ?>
+      <tr>
+        <th>Keeping</th>
+        <td>
+          <a data-bs-toggle="collapse" href="#<?= $entryId ?>KeepCollapse" class="text-decoration-none" role="button">
+            <span class="text-secondary small">show</span>
+          </a>
+        </td>
+      </tr>
+      <tr id="<?= $entryId ?>KeepCollapse" class="collapse">
+        <td colspan="2" class="text-wrap" style="white-space: pre-wrap;"><?= htmlspecialchars($data['keeping']) ?></td>
       </tr>
     <?php endif; ?>
     <?php if( ! empty($data['details'])): ?>
@@ -160,77 +233,6 @@ $comment = true === $this->combinedModel->get("$entryName.xTimeLog")
             - <a href="<?= $url ?>" target="_blank" class="text-decoration-none"><?= $url ?></a><br>
           <?php endforeach; ?>
         </td>
-      </tr>
-    <?php endif; ?>
-    <?php if( ! empty($data['noUseIf'])): ?>
-      <tr>
-        <th>No use if</th>
-        <td>
-          <a data-bs-toggle="collapse" href="#<?= $entryId ?>NoUseCollapse" class="text-decoration-none" role="button">
-            <span class="text-secondary small">show</span>
-          </a>
-        </td>
-      </tr>
-      <tr id="<?= $entryId ?>NoUseCollapse" class="collapse">
-        <td colspan="2" class="text-wrap" style="white-space: pre-wrap;"><?= htmlspecialchars($data['noUseIf']) ?></td>
-      </tr>
-    <?php endif; ?>
-    <?php if( ! empty($data['interactions'])): ?>
-      <tr>
-        <th>Interactions</th>
-        <td>
-          <a data-bs-toggle="collapse" href="#<?= $entryId ?>InterCollapse" class="text-decoration-none" role="button">
-            <span class="text-secondary small">show</span>
-          </a>
-        </td>
-      </tr>
-      <tr id="<?= $entryId ?>InterCollapse" class="collapse">
-        <td colspan="2" class="text-wrap" style="white-space: pre-wrap;"><?= htmlspecialchars($data['interactions']) ?></td>
-      </tr>
-    <?php endif; ?>
-    <?php if( ! empty($data['sideEffects'])): ?>
-      <tr>
-        <th>Side effects</th>
-        <td>
-          <a data-bs-toggle="collapse" href="#<?= $entryId ?>SideCollapse" class="text-decoration-none" role="button">
-            <span class="text-secondary small">show</span>
-          </a>
-        </td>
-      </tr>
-      <tr id="<?= $entryId ?>SideCollapse" class="collapse">
-        <td colspan="2" class="text-wrap" style="white-space: pre-wrap;"><?= htmlspecialchars($data['sideEffects']) ?></td>
-      </tr>
-    <?php endif; ?>
-    <?php if( ! empty($data['careful'])): ?>
-      <tr>
-        <th>Careful</th>
-        <td><?= htmlspecialchars($data['careful']) ?></td>
-      </tr>
-    <?php endif; ?>
-    <?php if( ! empty($data['usage'])): ?>
-      <tr>
-        <th>Usage</th>
-        <td>
-          <a data-bs-toggle="collapse" href="#<?= $entryId ?>UsageCollapse" class="text-decoration-none" role="button">
-            <span class="text-secondary small">show</span>
-          </a>
-        </td>
-      </tr>
-      <tr id="<?= $entryId ?>UsageCollapse" class="collapse">
-        <td colspan="2" class="text-wrap" style="white-space: pre-wrap;"><?= htmlspecialchars($data['usage']) ?></td>
-      </tr>
-    <?php endif; ?>
-    <?php if( ! empty($data['keeping'])): ?>
-      <tr>
-        <th>Keeping</th>
-        <td>
-          <a data-bs-toggle="collapse" href="#<?= $entryId ?>KeepCollapse" class="text-decoration-none" role="button">
-            <span class="text-secondary small">show</span>
-          </a>
-        </td>
-      </tr>
-      <tr id="<?= $entryId ?>KeepCollapse" class="collapse">
-        <td colspan="2" class="text-wrap" style="white-space: pre-wrap;"><?= htmlspecialchars($data['keeping']) ?></td>
       </tr>
     <?php endif; ?>
     <tr>
