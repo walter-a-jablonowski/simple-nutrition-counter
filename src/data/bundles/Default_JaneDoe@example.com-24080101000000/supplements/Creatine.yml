@@ -8,6 +8,7 @@ mayContain:        "Kann Spuren enthalten von: Gluten, Soja, Ei, Sulfiten, Krust
 origin:            "Deutschland, zusammengesetzt in Frankreich"
 packaging:         plastic
 
+noUseIf:           ""
 interactions:      ""     # similar to the ones in nutrients
 sideEffects:       ""
 careful:           false

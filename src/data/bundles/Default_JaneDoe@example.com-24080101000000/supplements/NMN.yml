@@ -3,9 +3,12 @@ certificates:      { vegan: true }
 ingredients:       "NMN"
 packaging:         alu (maybe)
 
+noUseIf:           ""
 interactions:      ""
 sideEffects:       ""
 careful:           false
+usage:             ""
+keeping:           ""
 
 price:             21.90
 weight:            15g

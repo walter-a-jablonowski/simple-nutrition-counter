@@ -37,6 +37,7 @@ mayContain:          { usage: "Ingredients that may be contained cause of produc
 packaging:           { usage: "outer contact with food only --> none|cardboard->alu->plastic -> glass & rubber (maybe) <-- inner",
                          required: false, type: "string(array)" }
 
+noUseIf:             { usage: "For supplements but also food", required: false, type: "string" }
 interactions:        { usage: "For supplements but also food", required: false, type: "string" }
 sideEffects:         { usage: "For supplements but also food", required: false, type: "string" }
 careful:             { usage: "For supplements but also food", required: false, type: "bool" }

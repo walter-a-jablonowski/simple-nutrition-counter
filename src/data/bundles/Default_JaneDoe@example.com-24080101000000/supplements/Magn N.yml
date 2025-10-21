@@ -4,6 +4,7 @@ vendor:            Norma
 certificates:      { vegan: true }
 packaging:         plastic
 
+noUseIf:           ""
 interactions:      ""     # similar to the ones in nutrients
 sideEffects:       ""
 careful:           false

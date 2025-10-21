@@ -4,10 +4,12 @@ certificates:      { vegan: true }
 ingredients:       "Acetylsalicylsäure (ASS), Tablettenkern: Natriumcarbonat, Hochdisperses Siliciumdioxid. Tablettenüberzug: Hypromellose, Zinkstearat (Ph.Eur.), Carnaubawachs."
 packaging:         plastic & alu
 
+noUseIf:           ""
 interactions:      ""
 sideEffects:       ""
 careful:           false
 usage:             "Tagesgesamtdosis: 4"
+keeping:           ""
 
 price:             
 weight:            15g  # TASK: unknown

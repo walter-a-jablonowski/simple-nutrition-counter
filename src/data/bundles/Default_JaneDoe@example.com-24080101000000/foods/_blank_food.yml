@@ -18,6 +18,7 @@ mayContain:        ""
 origin:            ""
 packaging:         none|cardboard,alu,plastic,glass & rubber (maybe)  # outer --> inner (contact with food only)
 
+noUseIf:           ""
 interactions:      ""           
 sideEffects:       ""           
 careful:           false
