@@ -1,6 +1,16 @@
 <?php
 
-trait NutrientsView
+/*@
+
+NutrientsView
+
+view for the nutrients tab
+
+- pre calc nutrients (tab 2) recommended amounts per day
+- easy print in html, less js logic
+
+*/
+trait NutrientsView  /*@*/
 {
   protected SimpleData $nutrientsView;
 
@@ -8,9 +18,6 @@ trait NutrientsView
   /*@
   
   makeNutrientsView()
-  
-  - pre calc nutrients (tab 2) recommended amounts per day
-  - easy print in html, less js logic
   
   */
   private function makeNutrientsView()  /*@*/

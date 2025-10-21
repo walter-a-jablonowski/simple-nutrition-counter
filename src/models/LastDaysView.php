@@ -1,6 +1,11 @@
 <?php
 
-trait LastDaysView
+/*@
+
+LastDaysView
+
+*/
+trait LastDaysView  /*@*/
 {
   protected SimpleData $lastDaysView;
   protected array      $avg;

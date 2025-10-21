@@ -5,7 +5,18 @@ use Symfony\Component\Yaml\Exception\ParseException;
 
 require_once 'models/functions.php';
 
-trait CombinedModel
+/*@
+
+CombinedModel (food model)
+
+combined food model (merged foods and food defaults) also /supplements
+
+- expands foods variants and merges food defaults
+- sets some values manuelly cause more precise (salt, fibre)
+- used as data source for LayoutView and as food model in app
+
+*/
+trait CombinedModel  /*@*/
 {
   protected SimpleData $combinedModel;  // foods and supplements
 

@@ -1,6 +1,16 @@
 <?php
 
-trait LayoutView
+/*@
+
+LayoutView
+
+view for the food grid, extends combined by nutrients
+
+- pre calc all food and recipes amounts for food grid
+- easy print in food grid, less js logic
+
+*/
+trait LayoutView  /*@*/
 {
   protected SimpleData $layoutView;
 
@@ -8,9 +18,6 @@ trait LayoutView
   /*@
   
   makeLayoutView()
-  
-  - pre calc all food and recipes amounts for food grid
-  - easy print in food grid, less js logic
   
   */
   private function makeLayoutView()  /*@*/
