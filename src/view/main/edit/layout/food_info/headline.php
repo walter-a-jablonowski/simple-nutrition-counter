@@ -16,6 +16,7 @@ Overview
     - warentest
     - NutriScore
     - fairtrade
+    - misc
   - nutritionalValues
     - fat
   - ingredients
@@ -77,6 +78,9 @@ $data = $this->combinedModel->get($entryName);
 <span class="badge bg-<?= self::iif( ! empty($data['certificates']['fairtrade']), 'success', 'secondary') ?>">
   <?= self::iif( ! empty($data['certificates']['fairtrade']), 'fair', '<s>fair</s>') ?>  <!-- TASK: non working -->
 </span>
+<?php if( ! empty($data['certificates']['misc'])): ?>
+  <span class="badge bg-info"><?= htmlspecialchars($data['certificates']['misc']) ?></span>
+<?php endif; ?>
 
 <!-- High fat ... -->
 <!-- TASK: add -->
