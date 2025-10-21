@@ -2,22 +2,23 @@
 
 /*
 
-Overview:
+Overview
 
 - entryName
 - vendor
 - url
-- acceptable
-- certificates
-  - bio
-  - vegan
-  - oekotest
-  - warentest
-  - NutriScore
-  - fairtrade
-- nutritionalValues
-  - fat
-- ingredients
+- Badges
+  - acceptable
+  - certificates
+    - bio
+    - vegan
+    - oekotest
+    - warentest
+    - NutriScore
+    - fairtrade
+  - nutritionalValues
+    - fat
+  - ingredients
 
 */
 
