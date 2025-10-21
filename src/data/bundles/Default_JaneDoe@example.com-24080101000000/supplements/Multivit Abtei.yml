@@ -1,9 +1,6 @@
 
 certificates:      { vegan: true }
 ingredients:       "Calciumcarbonat; Überzugmittel Hydroxypropylmethylcellulose; Vitamin C; Füllstoff mikrokristalline Cellulose; Magnesiumoxid; Eisenfumarat; Maltodextrin; Trennmittel Speisefettsäuren, Siliciumdioxid, Magnesiumsalze der Speisefettsäuren, Talkum; Vitamin E; Nicotinamid; Zinkoxid; Überzugmittel Polydextrose; Calcium-D-pantothenat; Farbstoffe Calciumcarbonat, Eisenoxide; Mangansulfat; Acerola-Fruchtsaftpulver; Kupfersulfat; Feuchthaltemittel Glycerin; Vitamin B6; Vitamin B2; Vitamin B1; Vitamin A; luteinhaltiger Ringelblumenextrakt; pflanzliche Öle (Kokos, Palmkern); Folsäure; Chromchlorid; Kaliumiodid; Natriumselenat; Natriummolybdat; Vitamin K; Biotin; Vitamin D; Vitamin B12"
-allergy:           ""
-mayContain:        ""
-origin:            ""
 packaging:         alu & plastic
 
 noUseIf:           ""
@@ -29,40 +26,41 @@ nutritionalValues:
   sugar:           0
   amino:           0
   salt:            0
+                               # TASK: from web (pack may differ)
+vitamins:                      # % der empf. Tageszufuhr pro Tablette **
 
-vitamins:          
-
-  Vitamin A:     0.5  # **
-  Thiamin B1:    0.8  # RE 100%
-  Riboflavin B2: 
-  Vitamin B6:    
-  Vitamin B12:   
-  Biotin B7:     
-  Folate B9:     
-  Niacin B3:     
-  Pantothenic acid B5:
-  Vitamin C:     
-  Vitamin D:     
-  Vitamin E:     
-  Vitamin K:     
+  Vitamin A:           0.8     # RE 100%
+  Thiamin B1:          1.1     # 100%
+  Riboflavin B2:       1.4     # 100%
+  Vitamin B6:          1.4     # 100%
+  Vitamin B12:         0.0025  # 100%
+  Biotin B7:           0.05    # 100%
+  Folate B9:           0.2     # 100%
+  Niacin B3:           16      # NE 100%
+  Pantothenic acid B5: 6       # 100%
+  Vitamin C:           150     # 188% (12 mg natural = 15%)
+  Vitamin D:           0.02    # 400%
+  Vitamin E:           12      # α-TE 100%
+  Vitamin K:           0.075   # 100%
 
 minerals:          
 
-  Calcium:       
-  Chromium:      
-  Iron:          
-  Iodine:        
-  Copper:        
-  Magnesium:     
-  Manganese:     
-  Molybdenum:    
-  Selenium:      
-  Zinc:          
+  Calcium:             120     # 15%
+  Chromium:            0.04    # 100%
+  Iron:                14      # 100%
+  Iodine:              0.15    # 100%
+  Copper:              1       # 100%
+  Magnesium:           56      # 15%
+  Manganese:           2       # 100%
+  Molybdenum:          0.05    # 100%
+  Selenium:            0.055   # 100%
+  Zinc:                10      # 100%
+ 
 
 secondary:         
 
-  # Lutein  # TASK
+  # Lutein             0.5     # **  TASK: missing
 
-sources:           { nutriVal: "web" }
+sources:           { nutriVal: "web (information on packaging may differ slightly)" }
 lastUpd:           2025-10-21
 lastPriceUpd:      
