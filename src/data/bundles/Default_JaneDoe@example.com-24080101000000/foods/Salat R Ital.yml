@@ -1,0 +1,25 @@
+productName:       "Bonduelle Italian Style"
+vendor:            Rewe
+
+certificates:      { vegan: true }
+ingredients:       "Lollo Bionda, Einsberg, Radicchio, Ruccola"
+packaging:         plastic
+
+price:             
+weight:            140g
+usedAmounts:       ["25g", "50g", "100g"]
+
+calories:          0
+nutritionalValues: 
+  fat:             0
+  saturatedFat:    0
+  carbs:           0
+  sugar:           0
+  fiber:           0
+  amino:           0
+  salt:            0
+
+sources:           { nutriVal: "pack" }
+
+lastUpd:           2024-12-11
+lastPriceUpd:      
