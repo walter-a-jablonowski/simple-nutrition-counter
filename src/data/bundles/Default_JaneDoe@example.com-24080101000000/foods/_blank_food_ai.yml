@@ -51,6 +51,7 @@ interactions:      ""
 sideEffects:       ""           
 careful:           false  # use careful
 usage:             ""     # e.g. amount per day
+keeping:           ""
 
 # cookingInstructions: "" 
 

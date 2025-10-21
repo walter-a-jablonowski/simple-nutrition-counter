@@ -41,6 +41,7 @@ interactions:        { usage: "For supplements but also food", required: false, 
 sideEffects:         { usage: "For supplements but also food", required: false, type: "string" }
 careful:             { usage: "For supplements but also food", required: false, type: "bool" }
 usage:               { usage: "For supplements but also food (simple field, nutrrients have better)", required: false, type: "string" }
+keeping:             { usage: "For supplements but also food", required: false, type: "string" }
 
 cookingInstructions: { usage: "We can use html here or multi line using yml syntax", required: false, type: "string" }
 
