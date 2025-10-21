@@ -19,6 +19,7 @@ Overview
   - price, dealPrice, lastPriceUpd, lastDealPriceUpd
   - weight
   - pieces
+  - noUseIf
   - interactions
   - sideEffects
   - careful
@@ -159,6 +160,19 @@ $comment = true === $this->combinedModel->get("$entryName.xTimeLog")
             - <a href="<?= $url ?>" target="_blank" class="text-decoration-none"><?= $url ?></a><br>
           <?php endforeach; ?>
         </td>
+      </tr>
+    <?php endif; ?>
+    <?php if( ! empty($data['noUseIf'])): ?>
+      <tr>
+        <th>No use if</th>
+        <td>
+          <a data-bs-toggle="collapse" href="#<?= $entryId ?>NoUseCollapse" class="text-decoration-none" role="button">
+            <span class="text-secondary small">show</span>
+          </a>
+        </td>
+      </tr>
+      <tr id="<?= $entryId ?>NoUseCollapse" class="collapse">
+        <td colspan="2" class="text-wrap" style="white-space: pre-wrap;"><?= htmlspecialchars($data['noUseIf']) ?></td>
       </tr>
     <?php endif; ?>
     <?php if( ! empty($data['interactions'])): ?>
