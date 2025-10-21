@@ -26,6 +26,9 @@ Overview
   - keeping
 
 - Sources
+  - sources.nutriVal
+  - sources.nutrients
+  - sources.price
   - lastUpd
 
 - Instructions
