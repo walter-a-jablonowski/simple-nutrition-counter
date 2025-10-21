@@ -80,6 +80,12 @@ $comment = true === $this->combinedModel->get("$entryName.xTimeLog")
         <td><?= htmlspecialchars($data['productName']) ?></td>
       </tr>
     <?php endif; ?>
+    <?php if( ! empty($data['careful'])): ?>
+      <tr>
+        <th>Careful</th>
+        <td><?= htmlspecialchars($data['careful']) ?></td>
+      </tr>
+    <?php endif; ?>
     <?php if( ! empty($data['noUseIf'])): ?>
       <tr>
         <th>No use if</th>
@@ -90,7 +96,7 @@ $comment = true === $this->combinedModel->get("$entryName.xTimeLog")
         </td>
       </tr>
       <tr id="<?= $entryId ?>NoUseCollapse" class="collapse">
-        <td colspan="2" class="text-wrap" style="white-space: pre-wrap;"><?= htmlspecialchars($data['noUseIf']) ?></td>
+        <td colspan="2"><pre style="white-space: pre-wrap; word-wrap: break-word; margin: 0;"><?= htmlspecialchars($data['noUseIf']) ?></pre></td>
       </tr>
     <?php endif; ?>
     <?php if( ! empty($data['interactions'])): ?>
@@ -103,7 +109,7 @@ $comment = true === $this->combinedModel->get("$entryName.xTimeLog")
         </td>
       </tr>
       <tr id="<?= $entryId ?>InterCollapse" class="collapse">
-        <td colspan="2" class="text-wrap" style="white-space: pre-wrap;"><?= htmlspecialchars($data['interactions']) ?></td>
+        <td colspan="2"><pre style="white-space: pre-wrap; word-wrap: break-word; margin: 0;"><?= htmlspecialchars($data['interactions']) ?></pre></td>
       </tr>
     <?php endif; ?>
     <?php if( ! empty($data['sideEffects'])): ?>
@@ -116,13 +122,7 @@ $comment = true === $this->combinedModel->get("$entryName.xTimeLog")
         </td>
       </tr>
       <tr id="<?= $entryId ?>SideCollapse" class="collapse">
-        <td colspan="2" class="text-wrap" style="white-space: pre-wrap;"><?= htmlspecialchars($data['sideEffects']) ?></td>
-      </tr>
-    <?php endif; ?>
-    <?php if( ! empty($data['careful'])): ?>
-      <tr>
-        <th>Careful</th>
-        <td><?= htmlspecialchars($data['careful']) ?></td>
+        <td colspan="2"><pre style="white-space: pre-wrap; word-wrap: break-word; margin: 0;"><?= htmlspecialchars($data['sideEffects']) ?></pre></td>
       </tr>
     <?php endif; ?>
     <?php if( ! empty($data['usage'])): ?>
@@ -135,7 +135,7 @@ $comment = true === $this->combinedModel->get("$entryName.xTimeLog")
         </td>
       </tr>
       <tr id="<?= $entryId ?>UsageCollapse" class="collapse">
-        <td colspan="2" class="text-wrap" style="white-space: pre-wrap;"><?= htmlspecialchars($data['usage']) ?></td>
+        <td colspan="2"><pre style="white-space: pre-wrap; word-wrap: break-word; margin: 0;"><?= htmlspecialchars($data['usage']) ?></pre></td>
       </tr>
     <?php endif; ?>
     <?php if( ! empty($data['keeping'])): ?>
@@ -148,7 +148,7 @@ $comment = true === $this->combinedModel->get("$entryName.xTimeLog")
         </td>
       </tr>
       <tr id="<?= $entryId ?>KeepCollapse" class="collapse">
-        <td colspan="2" class="text-wrap" style="white-space: pre-wrap;"><?= htmlspecialchars($data['keeping']) ?></td>
+        <td colspan="2"><pre style="white-space: pre-wrap; word-wrap: break-word; margin: 0;"><?= htmlspecialchars($data['keeping']) ?></pre></td>
       </tr>
     <?php endif; ?>
     <?php if( ! empty($data['details'])): ?>

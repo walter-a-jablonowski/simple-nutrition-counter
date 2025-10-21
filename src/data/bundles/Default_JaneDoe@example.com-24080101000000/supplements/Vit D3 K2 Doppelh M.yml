@@ -11,7 +11,9 @@ interactions: |
   - Bei Einnahme von Blutgerinnungshemmern nur nach Rücksprache
 sideEffects:       ""
 careful:           false
-usage:             "Einmal täglich 1 Tablette zu einer Mahlzeit, Es wird empfohlen, bei längerer Einnahme den Vitamin D-Spiegel im Blut überprüfen zu lassen"
+usage: |
+  - Einmal täglich 1 Tablette zu einer Mahlzeit
+  - Es wird empfohlen, bei längerer Einnahme den Vitamin D-Spiegel im Blut überprüfen zu lassen
 keeping:           ""
 
 price:             3.99   # TASK: maybe less
