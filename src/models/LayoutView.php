@@ -4,7 +4,7 @@
 
 LayoutView
 
-view for the food grid, extends combined by nutrients
+view for the food grid
 
 - pre calc all food and recipes amounts for food grid
 - easy print in food grid, less js logic
