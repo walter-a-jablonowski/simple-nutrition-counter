@@ -10,7 +10,7 @@ interactions: |
   - Bei erhöhtem Calciumspiegel im Blut (Hypercalciämie) oder einer erhöhten Calciumkonzentration im Harn (Hypercalciurie) darf das Produkt nicht angewendet werden"
   - Bei Einnahme von Blutgerinnungshemmern nur nach Rücksprache
 sideEffects:       ""
-careful:           false
+careful:           true
 usage: |
   - Einmal täglich 1 Tablette zu einer Mahlzeit
   - Es wird empfohlen, bei längerer Einnahme den Vitamin D-Spiegel im Blut überprüfen zu lassen

@@ -80,10 +80,10 @@ $comment = true === $this->combinedModel->get("$entryName.xTimeLog")
         <td><?= htmlspecialchars($data['productName']) ?></td>
       </tr>
     <?php endif; ?>
-    <?php if( ! empty($data['careful'])): ?>
+    <?php if( ! empty($data['careful']) && true === $data['careful']): ?>
       <tr>
         <th>Careful</th>
-        <td><?= htmlspecialchars($data['careful']) ?></td>
+        <td><span class="badge bg-danger">careful</span></td>
       </tr>
     <?php endif; ?>
     <?php if( ! empty($data['noUseIf'])): ?>
