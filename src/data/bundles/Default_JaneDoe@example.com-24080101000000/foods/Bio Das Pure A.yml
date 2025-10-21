@@ -11,7 +11,8 @@ packaging:         plastic
 
 price:             1.75  # TASK: unverified
 weight:            300g
-pieces:            5     # TASK: unverified
+pieces:            5
+usedAmounts:       ["1/2", "1", "2"]
 
 calories:          296
 nutritionalValues: 
