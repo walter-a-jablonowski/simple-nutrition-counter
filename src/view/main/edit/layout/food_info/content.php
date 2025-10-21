@@ -1,5 +1,35 @@
 <?php
 
+/*
+
+Overview:
+
+- comment
+- productName
+- details
+- ingredients
+- allergy
+- mayContain
+- origin
+- packaging
+- url
+- price
+- weight
+- sources
+- cookingInstructions
+- calories
+- nutritionalValues
+- lipids/fattyAcids
+- carbs
+- aminoAcids
+- vitamins
+- minerals
+- secondary
+- misc
+- water
+
+*/
+
 extract($args);
 
 $data = $this->combinedModel->get($entryName);
