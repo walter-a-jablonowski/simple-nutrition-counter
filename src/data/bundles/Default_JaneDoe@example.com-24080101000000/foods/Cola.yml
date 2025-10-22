@@ -1,0 +1,23 @@
+
+acceptable:        less
+certificates:      { vegan: true }
+ingredients:       "Wasser, Zucker, Kohlensäure, Farbstoff E 150d (Zuckerkulör), Säuerungsmittel Phosphorsäure (E 338) und natürliche Aromen, darunter Koffein"
+packaging:         plastic
+
+price:             0.75
+weight:            330ml
+usedAmounts:       ["1"]
+
+calories:          42
+nutritionalValues: 
+
+  fat:             0
+  saturatedFat:    0
+  carbs:           10.6
+  sugar:           10.6
+  amino:           0
+  salt:            0
+
+sources:           { nutriVal: "pack" }
+lastUpd:           2025-10-22
+lastPriceUpd:      2025-10-22
