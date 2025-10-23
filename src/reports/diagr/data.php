@@ -61,7 +61,7 @@ class DiagramController
 
             $time = $matches[1];
             
-            // Add seconds if not present
+            // Add seconds if missing
             if( substr_count($time, ':') === 1 )
               $time .= ':00';
             
