@@ -17,7 +17,7 @@
 state:               { usage: "unavailable (vendor removed it), removed (unused food hide in UI)",
                          required: false, type: "enum" }
 
-category:            { usage: "default: food or supplement", required: false, type: "string" }
+category:            { usage: "Used in JS and day files 'F' food, 'M' food with no time logging, or 'S' supplement (set in CombinedModel)", required: false, type: "string" }
 type:                { usage: "A food type like 'chickpeas' from data/food_defaults", required: false, type: "string" }
 group:               { usage: "Food group for use in price view", required: false, type: "string" }
 xTimeLog:            { usage: "counts as eating time", required: false, type: "bool" }

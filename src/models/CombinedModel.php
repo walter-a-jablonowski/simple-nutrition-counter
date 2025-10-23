@@ -50,7 +50,7 @@ trait CombinedModel  /*@*/
       
       foreach( $expandedFoods as $foodName => $foodData )
       {
-        $foodData['category'] = 'F';
+        $foodData['category'] = isset($foodData['xTimeLog']) && $foodData['xTimeLog'] ? 'M' : 'F';
         
         // Merge nutrients from food file (prio) over default foods for each expanded food
         // TASK: maybe we want to add at least an empty key if a type of nutrients is missing

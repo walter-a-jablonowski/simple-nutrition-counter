@@ -43,7 +43,7 @@ trait LayoutView  /*@*/
         $multipl = trim($amount, "mglpc ");
         $multipl = (float) eval("return $multipl;");  // 1/2 => 0.5 or: eval("\$multipl = $multipl;")
         
-        $weight  = $this->calculateWeight($usage, $data, $multipl);
+        $weight  = $this->calculateWeight( $usage, $data, $multipl);
         
         $perWeight = [
           'category' => $data['category'],  // add category for distinguishing foods vs supplements
