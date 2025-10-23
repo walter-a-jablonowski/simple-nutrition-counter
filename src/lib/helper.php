@@ -84,7 +84,7 @@ function parse_data_file( $fileContent )
       break;
     }
     
-    if( strpos($line, ':') !== false && !preg_match('/^(\d{2}:|--:)/', $line) )
+    if( strpos($line, ':') !== false && ! preg_match('/^(\d{2}:|--:)/', $line))
     {
       [$key, $value] = explode(':', $line, 2);
       $headers[trim($key)] = parse_header_value(trim($value));

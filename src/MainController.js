@@ -464,7 +464,7 @@ class MainController
     // console.log( queryData('.food-item ...', ['food']))
 
     let entry = {
-      type:     target.dataset.category || 'F',  // Use category from data attribute (F=Food, S=Supplement)
+      type:     target.dataset.category || 'F',  // use category from data attribute (F=Food, S=Supplement)
       food:     food,  // TASK: rename
       calories: calories,
       fat:      nutritionalValues.fat,
@@ -651,8 +651,9 @@ class MainController
     // let caloriesSum = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.calories), 0).toFixed(1))  // one decimal place
     query('#caloriesSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.calories), 0))
 
-    // eating time - filter out entries with xTimeLog
-    const timeLogEntries = foodEntries.filter( entry => ! entry.xTimeLog && entry.time !== "--:--:--")
+    // eating time - filter out entries with xTimeLog and supplements (type "S")
+    // const timeLogEntries = foodEntries.filter( entry => ! entry.xTimeLog && entry.time !== "--:--:--")
+    const timeLogEntries = foodEntries.filter( entry => ( ! entry.xTimeLog && entry.time !== "--:--:--") && entry.type !== 'S')
   
     if( timeLogEntries.length >= 2 ) {
 
