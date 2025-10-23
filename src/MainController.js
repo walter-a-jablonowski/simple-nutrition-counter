@@ -652,8 +652,8 @@ class MainController
     query('#caloriesSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.calories), 0))
 
     // eating time - filter out entries with xTimeLog and supplements (type "S")
-    // const timeLogEntries = foodEntries.filter( entry => ! entry.xTimeLog && entry.time !== "--:--:--")
-    const timeLogEntries = foodEntries.filter( entry => ( ! entry.xTimeLog && entry.time !== "--:--:--") && entry.type !== 'S')
+    // const timeLogEntries = foodEntries.filter( entry => ( ! entry.xTimeLog && entry.time !== "--:--:--") && entry.type !== 'S')
+    const timeLogEntries = foodEntries.filter( entry => entry.type !== "S" && entry.type !== 'M')
   
     if( timeLogEntries.length >= 2 ) {
 
