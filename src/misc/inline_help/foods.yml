@@ -1,18 +1,11 @@
-#
-# Main key like
-# 
-# My food S Bio:
-#
-
-(main_key):          "(required) Display name like \"My food S Bio\",
-                      also used as id, S = short for store if needed (save some space)"
-
 # TASK: improved version for UI
 #   
 #   sample: true|false (non required)
 #   some usage ...
 
 # verification design see advanced tasks (but we might use some json scheme)
+
+(main_key):          "= file name (required) Display name like \"My food S Bio\" (also used as id with no blanks)"
 
 state:               { usage: "unavailable (vendor removed it), removed (unused food hide in UI)",
                          required: false, type: "enum" }
