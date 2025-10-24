@@ -10,6 +10,12 @@ Overview
 - [UI design](UI_Design.md)
 
 
+Misc
+----------------------------------------------------------
+
+- we currently keep old time format "--:--:--" (entries excluded from eating time) for compatibility
+
+
 File format
 ----------------------------------------------------------
 

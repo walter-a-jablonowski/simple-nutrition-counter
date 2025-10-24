@@ -587,13 +587,9 @@ class MainController
     // TASK: (advanced) time on server (currently a problem cause we still use save btn))
     //       user needs a timezone setting if done on server
 
-    // Entries that shouldn't count for eating time
-    if( entry.xTimeLog === true )
-      entry.time = "--:--:--"
-    else {
-      let now = new Date()
-      entry.time = now.toTimeString().split(' ')[0]  // .replaceAll(':', '')  // gives HHMMSS format
-    }
+    // Set normal time for all new entries (compatibility: old entries may still use "--:--:--")
+    let now = new Date()
+    entry.time = now.toTimeString().split(' ')[0]  // .replaceAll(':', '')  // gives HHMMSS format
 
     // TASK: add types for user > misc
     // if type === MiscBuyable
@@ -651,9 +647,8 @@ class MainController
     // let caloriesSum = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.calories), 0).toFixed(1))  // one decimal place
     query('#caloriesSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.calories), 0))
 
-    // eating time - filter out entries with xTimeLog and supplements (type "S")
-    // const timeLogEntries = foodEntries.filter( entry => ( ! entry.xTimeLog && entry.time !== "--:--:--") && entry.type !== 'S')
-    const timeLogEntries = foodEntries.filter( entry => entry.type !== "S" && entry.type !== 'M')
+    // eating time - filter out supplements, time-logged foods, and old "--:--:--" format for compatibility
+    const timeLogEntries = foodEntries.filter( entry => entry.type !== "S" && entry.type !== 'M' && entry.time !== "--:--:--")
   
     if( timeLogEntries.length >= 2 ) {
 
