@@ -9,8 +9,8 @@ as simple as possible, see [mission](#mission).
 - [Project state](#project-state)
 - [Upcoming features](#upcoming-features)
 - [Usage](misc/usage.md)
-- [Developer information](misc/dev_info.md)
-  - [Model](misc/dev_info.md#model)
+- [Developer information](dev_info/-this.md)
+  - [Model](dev_info/Design.md#model)
 - [License](#license)
 
 
@@ -115,7 +115,7 @@ Beside that improved app layout might be done occasionally (less important).
 
 Advanced: extend features (finance and similar see Mission)
 
-Full UI design see [UI design](misc/UI_Design.md)
+Full UI design see [UI design](dev_info/UI_Design.md)
 
 <table>
   <tr>

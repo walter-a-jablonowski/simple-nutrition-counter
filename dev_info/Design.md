@@ -1,40 +1,10 @@
-# Dev info
+# Dev info - Design
 
 Overview
 
-- [File format](#file-format)
-- [Tools overview](#tools-overview)
 - [App design](#app-design)
 - [Model](#model)
   - [YML representation](#yml-representation)
-- [UI design](UI_Design.md)
-
-
-Misc
-----------------------------------------------------------
-
-- we currently keep old time format "--:--:--" (entries excluded from eating time) for compatibility
-
-
-File format
-----------------------------------------------------------
-
-```
-unprecise: true
-unpreciseTime: true
-
-food data...
-```
-
-
-Tools overview
-----------------------------------------------------------
-
-```
-/tools        # dev tools
-/src/tools    # tools
-/src/reports
-```
 
 App design
 ----------------------------------------------------------

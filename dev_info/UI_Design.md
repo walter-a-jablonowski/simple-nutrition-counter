@@ -1,10 +1,10 @@
+# Dev info - UI Design
 
 Overview
 
 - [PC, Tablet wide screen](#pc-tablet-wide-screen)
 - [Smartphone (portrait)](#smartphone-portrait)
 - [Grid structure food page](#grid-structure-food-page)
-- [AI](#ai)
 
 
 PC, Tablet wide screen
