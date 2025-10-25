@@ -19,8 +19,8 @@ origin:            ""
 packaging:         none|cardboard,alu,plastic,glass & rubber (maybe)  # outer --> inner (contact with food only)
 
 noUseIf:           ""
-interactions:      ""           
-sideEffects:       ""           
+interactions:      ""
+sideEffects:       ""
 careful:           false
 usage:             ""
 limit:             ""

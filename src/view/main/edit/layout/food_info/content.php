@@ -16,6 +16,7 @@ Overview
   - sideEffects
   - careful
   - usage
+  - limit
   - keeping
 
   - details
@@ -136,6 +137,19 @@ $comment = true === $this->combinedModel->get("$entryName.xTimeLog")
       </tr>
       <tr id="<?= $entryId ?>UsageCollapse" class="collapse">
         <td colspan="2"><pre style="white-space: pre-wrap; word-wrap: break-word; margin: 0;"><?= htmlspecialchars($data['usage']) ?></pre></td>
+      </tr>
+    <?php endif; ?>
+    <?php if( ! empty($data['limit'])): ?>
+      <tr>
+        <th>Limit</th>
+        <td>
+          <a data-bs-toggle="collapse" href="#<?= $entryId ?>LimitCollapse" class="text-decoration-none" role="button">
+            <span class="text-secondary small">show</span>
+          </a>
+        </td>
+      </tr>
+      <tr id="<?= $entryId ?>LimitCollapse" class="collapse">
+        <td colspan="2"><pre style="white-space: pre-wrap; word-wrap: break-word; margin: 0;"><?= htmlspecialchars($data['limit']) ?></pre></td>
       </tr>
     <?php endif; ?>
     <?php if( ! empty($data['keeping'])): ?>
