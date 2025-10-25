@@ -29,6 +29,14 @@ $showInfo = $this->combinedModel->get("$entryName.comment")  // has comment migh
           ? true : false;
 $showInfo = $showInfo || true === $this->combinedModel->get("$entryName.xTimeLog");
 
+$interactions = $this->combinedModel->get("$entryName.interactions");
+$careful      = $this->combinedModel->get("$entryName.careful");
+$limit        = $this->combinedModel->get("$entryName.limit");
+
+$showWarning  = ( ! empty($interactions) && trim($interactions) !== '')
+             || ( true === $careful )
+             || ( ! empty($limit) && trim($limit) !== '');
+
 // $xTimeLog = true === $this->combinedModel->get("$entryName.xTimeLog");
 
 ?>
@@ -41,7 +49,11 @@ $showInfo = $showInfo || true === $this->combinedModel->get("$entryName.xTimeLog
   >
     <div class="text-nowrap ms-1 ps-1 py-1 overflow-hidden" style="background-color: <?= $accepColor ?>;">
       <?= $entryName ?>
-      <?= self::iif( $showInfo, '<i class="bi bi-info-circle-fill" style="color: orange;"></i>') ?>
+      <?php if( $showWarning ): ?>
+        <i class="bi bi-info-circle-fill" style="color: red;"></i>
+      <?php elseif( $showInfo ): ?>
+        <i class="bi bi-info-circle-fill" style="color: orange;"></i>
+      <?php endif; ?>
       <?= self::iif( $price && $cheap, '<i class="bi bi-currency-exchange small text-secondary"></i>') ?>
       <!-- < ?= self::iif( $price && $expensive, settings::get('currencySymbol')) ?> -->
       <?= self::iif( $price && $expensive, '<i class="bi ' . settings::get('currencyIcon') . ' small text-secondary"></i>') ?>
