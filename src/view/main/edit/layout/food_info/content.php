@@ -102,7 +102,7 @@ $comment = true === $this->combinedModel->get("$entryName.xTimeLog")
     <?php endif; ?>
     <?php if( ! empty($data['interactions'])): ?>
       <tr>
-        <th>Interactions</th>
+        <th style="color: red;">Interactions</th>
         <td>
           <a data-bs-toggle="collapse" href="#<?= $entryId ?>InterCollapse" class="text-decoration-none" role="button">
             <span class="text-secondary small">show</span>
@@ -141,7 +141,7 @@ $comment = true === $this->combinedModel->get("$entryName.xTimeLog")
     <?php endif; ?>
     <?php if( ! empty($data['limit'])): ?>
       <tr>
-        <th>Limit</th>
+        <th style="color: red;">Limit</th>
         <td>
           <a data-bs-toggle="collapse" href="#<?= $entryId ?>LimitCollapse" class="text-decoration-none" role="button">
             <span class="text-secondary small">show</span>
