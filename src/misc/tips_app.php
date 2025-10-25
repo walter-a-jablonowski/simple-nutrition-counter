@@ -45,8 +45,10 @@
   </li>
   <li>
     <!-- <i class="bi bi-info-circle small text-secondary"></i> -->
+    <i class="bi bi-info-circle-fill small" style="color: red;"></i>
+    or
     <i class="bi bi-info-circle-fill small" style="color: orange;"></i>
-    means important things in food info
+    means important things in food info (click food name)
   </li>
   <li>click on each food name to see food info</li>
 </ul>
