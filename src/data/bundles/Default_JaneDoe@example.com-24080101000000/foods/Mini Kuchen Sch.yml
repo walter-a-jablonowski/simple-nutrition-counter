@@ -1,0 +1,26 @@
+group:             candy
+productName:       "4x Schoko kleine Kuchen"
+acceptable:        less
+certificates:      { NutriScore: D }
+ingredients:       "WEIZENMEHL, Rapsöl, Zucker, HÜHNERVOLLEI, Feuchthaltemittel (Sorbit, Glycerin), Wasser, Schokoladenstückchen (Zucker, Kakaomasse, fettarmes Kakaopulver, Kakaobutter, Emulgator (Lecithine)), 3,9% fettarmes Kakaopulver, weiße Schokolade (Zucker, Kakaobutter, VOLLMILCHPULVER, Emulgator (Lecithine), natürliches Aroma), Glukose-Fruktose-Sirup, Emulgator (Mono- und Diglyceride von Speisefettsäuren), Backtriebmittel (Diphosphate, Natriumcarbonate), Stärke (WEIZEN), natürliches Aroma. Kann enthalten: SOJA, MANDELN, HASELNÜSSE, WALNÜSSE, PEKANNÜSSE"
+packaging:         plastic
+
+price:             2.69
+weight:            140g
+pieces:            4
+usedAmounts:       [1, 2, 4]
+
+calories:          451
+nutritionalValues:
+
+  fat:             27
+  saturatedFat:    4
+  carbs:           49
+  sugar:           24
+  fibre:           2.2
+  amino:           5.5
+  salt:            0.39
+
+sources:           { nutriVal: "web" }
+lastUpd:           2025-10-25
+lastPriceUpd:      2025-10-25
