@@ -1,21 +1,4 @@
 /* ======================================
-   MOBILE RESPONSIVE STYLES
-   ====================================== */
-
-/* Mobile collapsed state for main content section */
-@media (max-width: 767.98px) {
-  .left-column.collapsed {
-    height: 10vh !important; /* Make the entire left column much smaller */
-    overflow-y: auto;
-  }
-  
-  .left-column section.flex-grow-1.collapsed {
-    height: auto; /* Let the section fill available space */
-    overflow-y: auto;
-  }
-}
-
-/* ======================================
    GLOBAL STYLES
    ====================================== */
 
@@ -323,6 +306,17 @@ main {
    ====================================== */
 
 @media (max-width: 767.98px) {
+  /* Mobile collapsed state for main content section */
+  .left-column.collapsed {
+    height: 10vh !important; /* Make the entire left column much smaller */
+    overflow-y: auto;
+  }
+  
+  .left-column section.flex-grow-1.collapsed {
+    height: auto; /* Let the section fill available space */
+    overflow-y: auto;
+  }
+
   /* Mobile specific styles */
   main {
     padding-right: 0 !important;
