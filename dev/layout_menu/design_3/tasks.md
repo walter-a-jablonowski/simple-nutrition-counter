@@ -13,6 +13,14 @@
   - [x] Menu items have tooltip
   - [x] Moved main menues up cause easier handling (touch above)
 
-- [ ] hide the section for the entries instead of the widg
+- [x] hide the section for the entries instead of the widg
   - section is hidden when adding display none, but the rest of the content doesn't move up on mobile
   - some class or style or tag structure causes the problem
+
+  ```
+  ... This button in smartphones currently seems to hide .nutrition-widgets. Instead use it to make ... smaller
+
+   --
+  
+  I can see that something happens with the section when I press the button, but the rest of the content (.nutrition-widgets and below) doesn't move up on mobile. Some class or style or tag structure may causes the problem.
+  ```

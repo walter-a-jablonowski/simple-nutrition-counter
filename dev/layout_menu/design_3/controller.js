@@ -59,26 +59,20 @@ class NutritionWidgetsController {
     this.switchToNav(navType);
   }
 
-  _onMobileCaretClick(event)
-  {
-    // Toggle the caret icon between down and up
-    const caretIcon = event.currentTarget.querySelector('i');
-    if( caretIcon )
-    {
-      if( caretIcon.classList.contains('bi-caret-down') ) {
-        caretIcon.classList.remove('bi-caret-down');
-        caretIcon.classList.add('bi-caret-up');
-      }
-      else {
-        caretIcon.classList.remove('bi-caret-up');
-        caretIcon.classList.add('bi-caret-down');
-      }
+  _onMobileCaretClick() {
+    const caretIcon = document.querySelector('.mobile-caret-btn i');
+    const leftColumn = document.querySelector('.left-column');
+    const mainContentSection = document.querySelector('.left-column section.flex-grow-1');
+    
+    if( leftColumn.classList.contains('collapsed') ) {
+      leftColumn.classList.remove('collapsed');
+      mainContentSection.classList.remove('collapsed');
+      caretIcon.className = 'bi bi-caret-down';
+    } else {
+      leftColumn.classList.add('collapsed');
+      mainContentSection.classList.add('collapsed');
+      caretIcon.className = 'bi bi-caret-up';
     }
-
-    // Toggle visibility of the nutrition widgets section
-    const nutritionWidgets = this.root.querySelector('.nutrition-widgets');
-    if( nutritionWidgets )
-      nutritionWidgets.style.display = nutritionWidgets.style.display === 'none' ? '' : 'none';
   }
 
   _onResize()
