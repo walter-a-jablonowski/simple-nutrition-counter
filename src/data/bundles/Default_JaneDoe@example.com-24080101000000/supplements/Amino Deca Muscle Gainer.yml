@@ -2,6 +2,14 @@ vendor:            Deca
 acceptable:        occasionally
 packaging:         plastic
 
+noUseIf:           ""
+interactions:      ""     # similar to the ones in nutrients
+sideEffects:       ""
+careful:           false
+usage:             ""
+limit:             ""
+keeping:           ""
+
 price:             17.99
 weight:            700g
 usedAmounts:       ["20g"]

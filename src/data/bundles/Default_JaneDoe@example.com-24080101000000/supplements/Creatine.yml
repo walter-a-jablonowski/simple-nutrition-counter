@@ -13,6 +13,7 @@ interactions:      ""     # similar to the ones in nutrients
 sideEffects:       ""
 careful:           false
 usage:             "lt. Deca ggf. nicht unbed länger als 2 Mon"
+limit:             ""
 keeping:           "Kühl, trocken und vor Licht geschützt lagern"
 
 price:             19.99

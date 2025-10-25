@@ -8,6 +8,7 @@ interactions:      "Auf den Verzehr weiterer zinkhaltiger Nahrungsergänzungsmit
 sideEffects:       ""
 careful:           false
 usage:             "Täglich 1 Tablette"
+limit:             ""
 keeping:           ""
 
 price:             

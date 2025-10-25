@@ -23,6 +23,7 @@ interactions:      ""
 sideEffects:       ""           
 careful:           false
 usage:             ""
+limit:             ""
 keeping:           ""
 
 cookingInstructions: "" 

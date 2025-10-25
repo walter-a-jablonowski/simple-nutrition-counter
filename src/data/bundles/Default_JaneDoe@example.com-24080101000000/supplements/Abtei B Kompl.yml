@@ -10,6 +10,7 @@ interactions:      ""
 sideEffects:       ""           
 careful:           false
 usage:             "Täglich 1 Tablette Abtei B-Komplex, Vor Wärme und Sonneneinstrahlung schützen"
+limit:             ""
 keeping:           ""
 
 price:             

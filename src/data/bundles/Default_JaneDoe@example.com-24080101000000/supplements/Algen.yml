@@ -12,6 +12,7 @@ interactions:      ""
 sideEffects:       ""           
 careful:           false
 usage:             "1 Kapsel pro Tag, bei erhöhtem Bedarf 2 Kapseln pro Tag"
+limit:             ""
 keeping:           "Unter 25 °C, trocken und vor Licht geschützt aufbewahren"
 
 price:             3.95

@@ -9,6 +9,7 @@ interactions:      ""
 sideEffects:       ""
 careful:           false
 usage:             "Tagesgesamtdosis: 4"
+limit:             ""
 keeping:           ""
 
 price:             

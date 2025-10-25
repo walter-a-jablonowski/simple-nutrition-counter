@@ -9,6 +9,7 @@ interactions:      ""     # similar to the ones in nutrients
 sideEffects:       ""
 careful:           false
 usage:             "Einmal täglich 1 Tablette"
+limit:             ""
 keeping:           ""
 
 price:             

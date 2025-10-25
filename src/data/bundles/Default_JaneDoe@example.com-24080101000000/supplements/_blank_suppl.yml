@@ -21,6 +21,7 @@ interactions:      ""     # similar to the ones in nutrients
 sideEffects:       ""
 careful:           false
 usage:             ""
+limit:             ""
 keeping:           ""
 
 price:             

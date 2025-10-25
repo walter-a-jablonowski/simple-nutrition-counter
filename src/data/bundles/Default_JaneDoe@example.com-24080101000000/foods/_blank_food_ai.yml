@@ -51,6 +51,7 @@ noUseIf:           ""
 interactions:      ""           
 sideEffects:       ""           
 careful:           false  # use careful
+limit:             ""
 usage:             ""     # e.g. amount per day
 keeping:           ""
 

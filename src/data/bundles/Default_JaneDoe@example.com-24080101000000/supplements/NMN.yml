@@ -8,6 +8,7 @@ interactions:      ""
 sideEffects:       ""
 careful:           false
 usage:             ""
+limit:             ""
 keeping:           ""
 
 price:             21.90
