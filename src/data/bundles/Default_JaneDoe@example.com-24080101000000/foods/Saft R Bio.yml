@@ -1,0 +1,23 @@
+vendor:            Rewe
+acceptable:        less
+certificates:      { bio: true, vegan: true, NutriScore: E }
+packaging:         plastic (maybe)
+
+price:             2.29
+weight:            500ml
+usedAmounts:       ["10ml", "20ml", "30ml"]
+
+calories:          70
+nutritionalValues:
+
+  fat:             0
+  saturatedFat:    0
+  carbs:           17
+  sugar:           17
+  fibre:           0.5
+  amino:           0.5
+  salt:            0
+
+sources:           { nutriVal: "pack" }
+lastUpd:           2025-10-28
+lastPriceUpd:      2025-10-28
