@@ -1,0 +1,24 @@
+productName:       "Denns Kesselchips Paprika"
+vendor:            Denns
+acceptable:        less
+certificates:      { bio: true, vegan: true }
+ingredients:       "Kartoffeln* (72%), Sonnenblumenöl*, Paprika* (1,3%), Meersalz, Gewürze* (Knoblauch*, Piment*, Zwiebel*), Tomatenpulver*, Zucker*, Paprikaextrakt**"
+packaging:         alu (maybe)
+
+price:             1.99
+weight:            125
+
+calories:          478
+nutritionalValues:
+
+  fat:             24
+  saturatedFat:    3.4
+  carbs:           56
+  sugar:           1.9
+  fibre:           4.9
+  amino:           7
+  salt:            1.1
+
+sources:           { nutriVal: "pack" }
+lastUpd:           2025-10-28
+lastPriceUpd:      2025-10-28
