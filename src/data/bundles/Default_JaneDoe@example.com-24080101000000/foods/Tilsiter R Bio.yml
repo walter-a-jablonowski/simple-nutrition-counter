@@ -1,0 +1,26 @@
+group:             cheese
+vendor:            Rewe
+
+certificates:      { bio: true, NutriScore: D }
+ingredients:       "HEUMILCH* g.t.S., Speisesalz, Käsereikulturen, mikrobielles Lab, Calciumchlorid"
+allergy:           "Milch und Milcherzeugnisse (einschließlich Lactose)"
+packaging:         plastic
+
+price:             1.99
+weight:            150g
+pieces:            6        # TASK: most likely
+usedAmounts:       [1,2,3]
+
+calories:          324
+nutritionalValues:
+
+  fat:             26
+  saturatedFat:    19
+  carbs:           0.5
+  sugar:           0.5
+  amino:           22
+  salt:            1.5
+
+sources:           { nutriVal: "web (information on packaging may differ slightly)" }
+lastUpd:           2025-10-31
+lastPriceUpd:      2025-10-31
