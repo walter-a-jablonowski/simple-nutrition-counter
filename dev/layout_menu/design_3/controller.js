@@ -1,5 +1,5 @@
-class NutritionWidgetsController {
-
+class NutritionWidgetsController
+{
   constructor(root = document)
   {
     this.root = root;
