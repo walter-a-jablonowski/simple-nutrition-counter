@@ -6,8 +6,10 @@ vendor:            Aldi
 certificates:      { NutriScore: A }
 packaging:         plastic
 
-weight:            300g
+cookingInstructions: "3-4 Min 600 W - muss ggf lönger" 
+
 price:             2.99
+weight:            300g
 usedAmounts:       ["50g", "100g", "200g"]
 
 calories:          160
