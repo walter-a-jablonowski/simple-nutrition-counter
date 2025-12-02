@@ -1,0 +1,25 @@
+
+type:              Chicken
+group:             meat
+vendor:            Aldi
+
+certificates:      { NutriScore: A }
+packaging:         plastic
+
+weight:            300g
+price:             2.99
+usedAmounts:       ["50g", "100g", "200g"]
+
+calories:          160
+nutritionalValues: 
+
+  fat:             9
+  saturatedFat:    2
+  carbs:           0.7
+  sugar:           0.5
+  amino:           19
+  salt:            1
+
+sources:           { nutriVal: "pack", price: "web" }
+lastUpd:           2025-12-02
+lastPriceUpd:      2025-12-02

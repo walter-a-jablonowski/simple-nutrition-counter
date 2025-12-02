@@ -107,9 +107,10 @@ Meals:
       - Sardine
       - Sardine R
 
-      - Hähnchen Kebab
-      - Hähnchen Gyros
-      - Hähnchenbrust
+      - Gyros A
+      - Gyros Spr
+      - Kebab Spr
+      - Hähnchenbr Spr
       - Salami R
       - Salami R Wilt (Innens)
       - Salami N
@@ -310,8 +311,10 @@ Improve:
 
     list:
 
-      - Hähnchen Gyros
-      - Hähnchen Kebab
+      - Gyros A
+      - Gyros Spr
+      - Kebab Spr
+      - Hähnchenbr Spr
 
   kcal:  # TASK: we may want to add a (i) feature to nutrients and get it here
          #       for per nutrient information
