@@ -1,0 +1,45 @@
+
+productName:       "Vitamin B12 500 Dep"
+url:               "https://tetesept.de/products/vitamin-b12-500-depot-4008491102957m200000384"
+
+certificates:      { vegan: true }
+ingredients:       "Füllstoff: Mikrokristalline Cellulose, Hydroxypropylmethylcellulose; Farbstoff: Calciumcarbonat; Trennmittel: Speisefettsäure; Überzugsmittel: Hydroxypropylcellulose; Trennmittel: Magnesiumsalz der Speisefettsäure; Cyanocobalamin (Vitamin B12)"
+packaging:         alu & plastic
+
+noUseIf:           ""
+interactions:      ""
+sideEffects:       ""
+careful:           false
+usage:             "täglich 1 Tablette unzerkaut mit ausreichend Flüssigkeit"
+limit:             ""
+keeping:           ""
+
+variants:
+
+  "Vit B12 T DM":
+    vendor:        DM
+    price:         1.95
+    lastPriceUpd:  2025-12-08
+
+weight:            8.3
+pieces:            30
+usedAmounts:       [1]
+
+amountPer:         "piece"
+
+calories:          0
+nutritionalValues: 
+
+  fat:             0
+  saturatedFat:    0
+  carbs:           0
+  sugar:           0
+  amino:           0
+  salt:            0
+
+vitamins:          
+
+  Vitamin B12:     0.05  # 20000 % NRV=Nutrient Reference
+
+sources:           { nutriVal: "web" }
+lastUpd:           2025-12-08

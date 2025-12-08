@@ -19,8 +19,9 @@ keeping:           ""
 variants:
 
   "Vit D3 T DM":
-    vendor:            DM
-    price:             1.95
+    vendor:        DM
+    price:             
+    lastPriceUpd:      
 
 weight:            15.35
 pieces:            60
@@ -28,7 +29,7 @@ usedAmounts:       [1]
 
 amountPer:         "piece"
 
-calories:          
+calories:          0
 nutritionalValues: 
 
   fat:             0
@@ -44,4 +45,3 @@ vitamins:
 
 sources:           { nutriVal: "web" }
 lastUpd:           2025-12-08
-lastPriceUpd:      2025-12-08
