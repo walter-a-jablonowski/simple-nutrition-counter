@@ -5,7 +5,7 @@ certificates:      { vegan: true }
 ingredients:       "Füllstoff Calciumcarbonat, Füllstoff mikrokristalline Cellulose, Maltodextrin, Überzugsmittel Hydroxypropylmethylcellulose, Füllstoff Isomalt, Trennmittel Magnesiumsalze der Speisefettsäuren, mittelkettige Triglyceride, Vitamin K, Vitamin D, Überzugsmittel Carnaubawachs"
 packaging:         alu & plastic
 
-noUseIf:           ""
+noUseIf:           ""  # Info is from orig vendor
 interactions: |
   - Bei erhöhtem Calciumspiegel im Blut (Hypercalciämie) oder einer erhöhten Calciumkonzentration im Harn (Hypercalciurie) darf das Produkt nicht angewendet werden"
   - Bei Einnahme von Blutgerinnungshemmern nur nach Rücksprache

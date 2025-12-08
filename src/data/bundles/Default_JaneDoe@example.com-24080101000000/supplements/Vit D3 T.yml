@@ -1,0 +1,47 @@
+
+productName:       "Vitamin D3 2000"
+url:               "https://tetesept.de/products/vitamin-d3-2000-4008491277297m27729"
+
+certificates:      { vegan: true }
+ingredients:       "Füllstoff: Mikrokristalline Cellulose; Maltodextrin; Stärke; Trennmittel: Magnesiumsalze der Speisefettsäuren; Überzugsmittel: Hydroxypropylcellulose, Hydroxypropylmethylcellulose; Saccharose; Farbstoff: Calciumcarbonat; Trennmittel: Talkum, Speisefettsäure; Ã–l, pflanzlich (Kokosnuss); Farbstoff: Eisenoxid gelb; Cholecalciferol (Vitamin D3)"
+packaging:         alu & plastic
+
+noUseIf:           ""  # TASK: duplicate from Deppelh (make some general Info?)
+interactions:      |
+  - Bei erhöhtem Calciumspiegel im Blut (Hypercalciämie) oder einer erhöhten Calciumkonzentration im Harn (Hypercalciurie) darf das Produkt nicht angewendet werden"
+  - Bei Einnahme von Blutgerinnungshemmern nur nach Rücksprache
+sideEffects:       ""
+careful:           true
+usage:             "1×täglich 1 Tablette mit Flüssigkeit verzehren"
+limit:             ""
+keeping:           ""
+
+variants:
+
+  "Vit D3 T DM":
+    vendor:            DM
+    price:             1.95
+
+weight:            15.35
+pieces:            60
+usedAmounts:       [1]
+
+amountPer:         "piece"
+
+calories:          
+nutritionalValues: 
+
+  fat:             0
+  saturatedFat:    0
+  carbs:           0
+  sugar:           0
+  amino:           0
+  salt:            0
+
+vitamins:          
+
+  Vitamin D:       0.05  # 1000 % NRV=Nutrient Reference
+
+sources:           { nutriVal: "web" }
+lastUpd:           2025-12-08
+lastPriceUpd:      2025-12-08
