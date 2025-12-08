@@ -24,6 +24,13 @@ usage:             ""
 limit:             ""
 keeping:           ""
 
+# cookingInstructions: "" 
+
+variants:
+
+  "Food Name Key":
+     # ...
+
 price:             
 dealPrice:         
 weight:            

@@ -40,6 +40,8 @@ keeping:             { usage: "For supplements but also food", required: false, 
 
 cookingInstructions: { usage: "We can use html here or multi line using yml syntax", required: false, type: "string" }
 
+variants:            { usage: "Full food name: any key", required: false, type: "array" }
+
 price:               { usage: "like 1.00 may be null", required: false, type: "currency" }
 dealPrice:           { usage: "typical deal price", required: false, type: "currency" }
 weight:              { usage: "like 100g of whole pack in case of pieces, unit g or ml is optional",
