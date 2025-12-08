@@ -94,9 +94,15 @@ trait CombinedModel  /*@*/
              ? Yaml::parse( file_get_contents("$dir/$file"))
              : Yaml::parse( file_get_contents("$dir/$file/-this.yml"));
 
-      $suppl['category'] = 'S';
+      // Expand supplement variants into separate entries
 
-      $this->combinedModel->set( $name, $suppl );
+      $expandedSupplements = expand_food_variants( $name, $suppl );
+
+      foreach( $expandedSupplements as $supplName => $supplData )
+      {
+        $supplData['category'] = 'S';
+        $this->combinedModel->set( $supplName, $supplData );
+      }
     }
   }
 }
