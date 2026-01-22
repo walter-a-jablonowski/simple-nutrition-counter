@@ -1,0 +1,27 @@
+
+productName:       "Feine Quarkcreme Erdbeer"
+vendor:            Rewe
+
+acceptable:        less
+certificates:      { NutriScore: C }
+ingredients:       "Zutaten: Frischkäse, JOGHURT AUS ENTRAHMTER MILCH, Zucker, Erdbeeren, modifizierte Stärke, Glukose-Fruktose-Sirup, färbende Pflanzenkonzentrate (Rote Betesaft, Karotten), Verdickungsmittel (Pektine, Guarkernmehl), natürliches Aroma, Säureregulatoren (Calciumcitrate, Natriumcitrate)"
+packaging:         alu & plastic
+
+price:             0.85
+weight:            200g
+usedAmounts:       [1]
+
+calories:          128
+nutritionalValues:
+
+  fat:             5.5
+  saturatedFat:    3.8
+  carbs:           13.5
+  sugar:           13
+  fibre:           0.2
+  amino:           5.5
+  salt:            0.09
+
+sources:           { nutriVal: "web (information on packaging may differ slightly)" }
+lastUpd:           2026-01-22
+lastPriceUpd:      2026-01-22
