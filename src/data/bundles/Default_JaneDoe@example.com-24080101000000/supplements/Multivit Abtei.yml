@@ -31,6 +31,10 @@ nutritionalValues:
 vitamins:                      # % der empf. Tageszufuhr pro Tablette **
 
   Vitamin A:           0.8     # RE 100%
+  Vitamin D:           0.02    # 400%
+  Vitamin E:           12      # α-TE 100%
+  Vitamin K:           0.075   # 100%
+  Vitamin C:           150     # 188% (12 mg natural = 15%)
   Thiamin B1:          1.1     # 100%
   Riboflavin B2:       1.4     # 100%
   Vitamin B6:          1.4     # 100%
@@ -39,10 +43,6 @@ vitamins:                      # % der empf. Tageszufuhr pro Tablette **
   Folate B9:           0.2     # 100%
   Niacin B3:           16      # NE 100%
   Pantothenic acid B5: 6       # 100%
-  Vitamin C:           150     # 188% (12 mg natural = 15%)
-  Vitamin D:           0.02    # 400%
-  Vitamin E:           12      # α-TE 100%
-  Vitamin K:           0.075   # 100%
 
 minerals:          
 
