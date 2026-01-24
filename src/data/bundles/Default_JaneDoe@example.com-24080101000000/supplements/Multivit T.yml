@@ -1,0 +1,79 @@
+
+productName:       "Vitamin A-Z Kompl"
+
+certificates:      { vegan: true }
+ingredients:       "üllstoff: Mikrokristalline Cellulose; Calciumcarbonat; Füllstoff: Hydroxypropylmethylcellulose; Magnesiumoxid; Ascorbinsäure (Vitamin C); Maltodextrin; DL-alpha Tocopherylacetat (Vitamin E); Füllstoff: Gummi Arabicum; Nicotinamid (Niacin); Eisenfumarat; Trennmittel: Magnesiumsalze der Speisefettsäuren; Füllstoff: Mannitol; Modifizierte Stärke; Überzugsmittel: Hydroxypropylcellulose; Calcium-D-Pantothenat; Zinkoxid; Saccharose; Maisstärke; Trennmittel: Talkum; Kupfersulfat; Pyridoxin-Hydrochlorid (Vitamin B6); Riboflavin (Vitamin B2); Thiaminmononitrat (Vitamin B1); Öl, pflanzlich (Kokosnuss, Palmkern); Füllstoff: Gelatine (Schwein); Retinylacetat (Vitamin A); Trennmittel: Speisefettsäure, Siliciumdioxid; Farbstoff: Eisenoxid gelb; Pteroylmonoglutaminosäure (Folsäure); Kaliumiodid; Cyanocobalamin (Vitamin B12); Phytomenadion (Vitamin K1); Trennmittel: Tricalciumphosphat; Natriumselenat; Biotin; Cholecalciferol (Vitamin D)"
+packaging:         alu & plastic
+
+noUseIf:           ""
+interactions:      "Keine weiteren Vitamin B12- und Vitamin D-haltigen Präparate zusätzlich"
+sideEffects:       ""
+careful:           false
+usage:             "1 Mal täglich 1 Tablette mit ausreichend Flüssigkeit unzerkaut"
+limit:             ""
+keeping:           "Vor Hitze und direkter Lichteinstrahlung schützen"
+
+variants:
+
+  "Multivit T DM":
+    vendor:        DM
+    price:         5.45
+    sources:       { nutriVal: "web", price: "web" }
+    lastPriceUpd:  2026-01-24
+
+  "Multivit T Mu":
+    vendor:        Mu
+    price:         4.75
+    sources:       { nutriVal: "web", price: "web" }
+    lastPriceUpd:  2026-01-24
+
+weight:            48g
+pieces:            40
+usedAmounts:       [1]
+
+amountPer:         "piece"  # we already have this feature !
+
+calories:          0
+nutritionalValues: 
+
+  fat:             0
+  saturatedFat:    0
+  carbs:           0
+  sugar:           0
+  amino:           0
+  salt:            0
+
+vitamins:                      # % NRV: täglich Europäischer Lebensmittelinformationsverordnung (LMIV)
+
+  Vitamin A:           0.8     # RE, 100%
+  Vitamin D:           0.025   # 500%
+  Vitamin E:           12      # α-TE, 100%
+  Vitamin K:           0.08    # 106%
+  Vitamin C:           95      # 118%
+  Thiamin B1:          1.1     # 100%
+  Riboflavin B2:       1.4     # 100%
+  Niacin B3:           16      # NE, 100%
+  Pantothenic acid B5: 6       # 100%
+  Vitamin B6:          1.4     # 100%
+  Biotin B7:           0.05    # 100%
+  Folate B9:           0.2     # 100%
+  Vitamin B12:         0.1     # 4000%
+
+minerals:          
+
+  # Salt:
+  # Potassium:
+  Calcium:             120     # 15%
+  # Phosphorus:
+  Magnesium:           60      # 16%
+  Iron:                5       # 35%
+  Iodine:              0.1     # 66%
+  # Fluoride:
+  Zinc:                5       # 50%
+  Selenium:            0.06    # 109%
+  Copper:              0.5     # 50%
+  # Chromium:
+  # Manganese:
+  # Molybdenum:
+
+lastUpd:           2025-10-21

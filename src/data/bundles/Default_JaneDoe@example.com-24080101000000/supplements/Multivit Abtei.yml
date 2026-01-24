@@ -62,6 +62,6 @@ secondary:
 
   # Lutein             0.5     # **  TASK: missing
 
-sources:           { nutriVal: "web (information on packaging may differ slightly)" }
+sources:           { nutriVal: "web (information on packaging may differ slightly)", price: "web" }
 lastUpd:           2025-10-21
 lastPriceUpd:      
