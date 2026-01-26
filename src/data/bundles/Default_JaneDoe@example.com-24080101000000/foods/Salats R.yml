@@ -14,14 +14,14 @@ uusedAmounts:       ["1/8", "1/3", "1/4"]
 calories:          220
 nutritionalValues:
 
-  fat:             19.7
+  fat:             20
   saturatedFat:    2.2
   carbs:           8.5
   sugar:           7.5
-  fibre:           0.3
+  fibre:           0.5
   amino:           1.9
-  salt:            1.33
+  salt:            1.3
 
-sources:           { nutriVal: "web (information on packaging may differ slightly)" }
+sources:           { nutriVal: "pack" }
 lastUpd:           2026-01-26
 lastPriceUpd:      2026-01-26
