@@ -2,7 +2,7 @@
 vendor:            Rewe
 
 acceptable:        occasionally
-certificates:      { bio: true, vegan: true }
+certificates:      { bio: true, vegan: true, NutriScore: A }
 ingredients:       "SELLERIE*, Wasser, Branntweinessig*, Rübenzucker*, Meersalz"
 packaging:         glass & rubber
 
