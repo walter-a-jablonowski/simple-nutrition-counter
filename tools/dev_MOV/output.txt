@@ -1,8 +1,0 @@
-Context:
-
-debug/code1.php
-
-```
-code 1
-```
-

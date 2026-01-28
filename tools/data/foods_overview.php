@@ -1,13 +1,15 @@
 <?php
 
+// food format description as html page
+
 require __DIR__ . '/../../src/vendor/autoload.php';
 
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Yaml\Exception\ParseException;
 
-$file = realpath(__DIR__ . '/../../src/misc/inline_help/foods.yml');
-$raw = $file && is_file($file) ? file_get_contents($file) : '';
-$data = null;
+$file  = realpath(__DIR__ . '/../../src/misc/inline_help/foods.yml');
+$orig  = $file && is_file($file) ? file_get_contents($file) : '';
+$data  = null;
 $error = null;
 
 try {
@@ -163,8 +165,8 @@ $rows = collect_rows($data);
           <?php endforeach; ?>
         <?php else : ?>
           <?php
-            // Fallback: quick scan of raw lines for keys when parsing fully failed
-            $lines = explode("\n", (string)$raw);
+            // Fallback: quick scan of lines for keys when parsing fully failed
+            $lines = explode("\n", (string) $orig );
             foreach ($lines as $ln) {
               $trim = trim($ln);
               if ($trim === '' || str_starts_with($trim, '#')) { continue; }
