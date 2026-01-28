@@ -18,4 +18,3 @@ Import
 2. import.php (browser)
 
 3. remove import.yml when done
-

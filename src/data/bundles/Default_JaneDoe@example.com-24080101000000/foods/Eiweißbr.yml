@@ -21,4 +21,8 @@ nutritionalValues:
 
 sources:           { nutriVal: "pack" }
 lastUpd:           2024-05-11
-lastPriceUpd:      2024-05-11
+lastPriceUpd:      2025-10-15
+
+prices:
+
+  2024-05-11: 1.89

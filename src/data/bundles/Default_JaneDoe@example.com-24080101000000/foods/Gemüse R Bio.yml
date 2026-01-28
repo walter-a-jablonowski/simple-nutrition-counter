@@ -8,7 +8,7 @@ certificates:      { bio: true, vegan: true, NutriScore: A }
 ingredients:       "Gemüsemischung 91% (Zucchini* 25%, Broccoli* 20%, Karotten* 15%, gelbe Karotten* 13%, Cherrytomaten* 12%, Zwiebeln*), Kräuter (Basilikum*, Oregano*), BUTTER*, Meersalz, Sonnenblumenöl*, Stärke*, Honig*, Gewürze*, Olivenöl*"
 packaging:         plastic
 
-price:             1.99
+price:             2.49
 weight:            450
 usedAmounts:       ["25g", "50g", "100g"]
 
@@ -24,4 +24,8 @@ nutritionalValues:
 
 sources:           { nutriVal: "web (information on packaging may differ slightly)", price: "web" }
 lastUpd:           2024-05-17
-lastPriceUpd:      2024-05-17
+lastPriceUpd:      2025-10-09
+
+prices:
+
+  2024-05-17: 1.99
