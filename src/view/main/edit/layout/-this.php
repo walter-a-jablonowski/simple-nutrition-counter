@@ -6,24 +6,39 @@
     <!-- Tabs (only if more than one) -->
 
     <?php if( count($this->layout) > 1 ): ?>
+      <?php
+        $displayMode = User::current('settings.displayMode') ?? 'right-handed';
+        $isLeftHanded = $displayMode === 'left-handed';
+      ?>
       <div class="row">
         <div class="col-12">
           <div class="overflow-auto">
-            <ul class="nav nav-pills flex-nowrap">  <!-- flex is for scrolling -->
+            <ul class="nav nav-pills flex-nowrap">
+              <?php if( ! $isLeftHanded ): ?>
+                <li class="nav-item">
+                  <a onclick="mainCrl.newEntryBtn(event)" class="nav-link px-2 py-1 text-black" role="tab">
+                    <i class="bi bi-pencil-square"></i>
+                  </a>
+                </li>
+              <?php endif; ?>
+              
               <?php $i=0; foreach( $this->layout as $tab => $layout ): ?>
                 <?php
                   $i++;
                   $tabId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $tab));
                 ?>
-                <li class="nav-item">
+                <li class="nav-item<?= ! $isLeftHanded && $i === 1 ? ' ms-auto' : '' ?>">
                   <a class="nav-link px-2 py-1 text-nowrap overflow-hidden<?= self::iif( $i === 1, ' active') ?>" data-bs-toggle="tab" href="#<?= $tabId ?>LayoutPane" role="tab"><?= $tab ?></a>
                 </li>
               <?php endforeach; ?>
-              <li class="nav-item ms-auto">
-                <a onclick="mainCrl.newEntryBtn(event)" class="nav-link px-2 py-1 text-black" role="tab">
-                  <i class="bi bi-pencil-square"></i>
-                </a>
-              </li>
+              
+              <?php if( $isLeftHanded ): ?>
+                <li class="nav-item ms-auto">
+                  <a onclick="mainCrl.newEntryBtn(event)" class="nav-link px-2 py-1 text-black" role="tab">
+                    <i class="bi bi-pencil-square"></i>
+                  </a>
+                </li>
+              <?php endif; ?>
             </ul>
           </div>
         </div>

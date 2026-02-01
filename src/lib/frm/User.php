@@ -23,9 +23,15 @@ class User extends SimpleData  /*@*/
 
   public static function byId( string $userId )
   {
+    $userData = Yaml::parse( file_get_contents("data/users/$userId/-this.yml"));
+    
+    $settingsFile = "data/users/$userId/settings.yml";
+    $settings = file_exists($settingsFile) ? Yaml::parse( file_get_contents($settingsFile)) : [];
+    
     return new SimpleData( array_merge(
       ['id' => $userId],
-      Yaml::parse( file_get_contents("data/users/$userId/-this.yml"))
+      $userData,
+      ['settings' => $settings]
     ));
   }
 
