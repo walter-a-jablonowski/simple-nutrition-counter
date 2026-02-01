@@ -8,8 +8,8 @@ require_once 'lib/helper.php';
 
 // Config
 
-$from    = '2025-06-01';  // use in console
-$to      = '2025-08-31';
+$from    = '2025-10-30';  // use in console
+$to      = '2026-01-28';
 $addUnp  = true;          // add unprecise: true
 $addUnpt = true;          // add unpreciseTime: true
 
@@ -33,6 +33,9 @@ if( ! is_dir($daysDir) )            bad_request("Days directory not found: $days
 
 $fromStr = $from;  // filenames are YYYY-MM-DD.tsv; string compare is OK when formats are fixed
 $toStr   = $to;
+
+if( $fromStr > $toStr )
+  bad_request("Invalid date range: from ($fromStr) is after to ($toStr)");
 
 $processed = 0;
 $updated   = 0;
@@ -61,8 +64,16 @@ foreach( scandir($daysDir) as $file )
   $dataBody = $parsed['data'];
 
   $changed = false;
-  if( $addUnp  && empty($headers['unprecise']) )     { $headers['unprecise'] = true; $changed = true; }
-  if( $addUnpt && empty($headers['unpreciseTime']) ) { $headers['unpreciseTime'] = true; $changed = true; }
+  if( $addUnp && empty($headers['unprecise']) )
+  {
+    $headers['unprecise'] = true;
+    $changed = true;
+  }
+  if( $addUnpt && empty($headers['unpreciseTime']) )
+  {
+    $headers['unpreciseTime'] = true;
+    $changed = true;
+  }
 
   if( ! $changed )  continue; // nothing to write
 
