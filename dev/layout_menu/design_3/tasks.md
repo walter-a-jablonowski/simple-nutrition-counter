@@ -2,15 +2,18 @@
 - see ai.md
 - added insert points in code as TASK
 
-- [ ] applying to app
+- [ ] applying to app, left orver tasks
 
-  - we have the small buttons 2 times. currently using ids in one menur, needs to be class
+  - most on clicks, ids and modal attribs were added from current app
+  - see also readme for structure
+
+  - [ ] we have the small buttons 2 times. currently using ids in one menur, needs to be class
     - Large: Toolbar in left column (d-none d-md-flex)
     - Mobile: Header buttons (d-md-none)
   - #sidebar #bottomNav
-    - similar: info-circle (originally btn now link)
-    - similar: bi-person (originally btn now link)
-  - header with user select exists 2 times: second time for own layout tab 3 (favoritesLayout)
+    - [ ] similar: info-circle (originally btn now link)
+    - [ ] similar: bi-person (originally btn now link)
+  - [ ] header with user select exists 2 times: second time for own layout tab 3 (favoritesLayout)
 
 - [x] right layout col devides in goals and food layout
 - [-] in mobile left and right are visible but food layout is hidden
