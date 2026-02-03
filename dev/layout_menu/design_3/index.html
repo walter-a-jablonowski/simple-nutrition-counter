@@ -35,7 +35,10 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" title="Info">
+          <a id="settingsBtn" class="nav-link" href="#" title="Info"
+            data-bs-toggle = "modal"
+            data-bs-target = "#tipsModal"
+          >
             <i class="bi bi-info-circle"></i>
           </a>
         </li>
@@ -91,12 +94,12 @@
           <header class="bg-light border-bottom py-2 px-3 text-break fs-5 d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center">
               <i class="bi bi-app"></i>
-              <select class="border-0 fs-5">
+              <select id="userSelect" onchange="mainCrl.userSelectChange(event)" class="border-0 fs-5">
                 <option>
                   Header
                 </option>
               </select>
-              <button class="btn ms-1 p-1 py-0 border">
+              <button onclick="mainCrl.switchDayBtnClick(event)" data-sel="current" class="btn ms-1 p-1 py-0 border">
                 20.
               </button>
             </div>
@@ -109,10 +112,13 @@
             <button class="btn d-md-none p-1 border-0 bg-transparent" aria-label="Delete">
               <i class="bi bi-backspace" aria-hidden="true"></i>
             </button>
-            <button class="btn d-md-none p-1 border-0 bg-transparent" aria-label="Save">
+            <button class="btn d-md-none p-1 border-0 bg-transparent" aria-label="Save"
+              data-bs-toggle = "modal"
+              data-bs-target = "#tipsModal"
+            >
               <i class="bi bi-floppy" aria-hidden="true"></i>
             </button>
-            <button class="mobile-caret-btn d-md-none btn p-1" aria-label="Toggle view">
+            <button id="expandBtn" class="mobile-caret-btn d-md-none btn p-1" aria-label="Toggle view">
               <i class="bi bi-caret-down" aria-hidden="true"></i>
             </button>
           </header>
@@ -122,23 +128,25 @@
           <section class="flex-grow-1 mt-2 px-3">
             <div class="row g-2">
               <div class="col-12">
-<!-- TASK: Food list (currently insert textarea #dayEntries, ideally fills the container) -->
+
+                <!-- TASK: insert #dayEntries here (fills the container) -->
+
               </div>
             </div>
           </section>
 
           <!-- Desktop action buttons (visible only on large screens) -->
           <div class="d-none d-md-flex justify-content-center gap-3 py-2 px-3" role="toolbar">
-            <button class="btn p-1 border-0 bg-transparent" title="Toggle unprecise time">
+            <button id="unpreciseTimeToggleBtn" class="btn p-1 border-0 bg-transparent" title="Toggle unprecise time">
               <i class="bi bi-stopwatch text-secondary"></i>
             </button>
-            <button class="btn p-1 border-0 bg-transparent" title="Toggle unprecise food data">
+            <button id="unpreciseToggleBtn" class="btn p-1 border-0 bg-transparent" title="Toggle unprecise food data">
               <i class="bi bi-exclamation-circle-fill text-secondary"></i>
             </button>
-            <button class="btn p-1 border-0 bg-transparent">
+            <button onclick="mainCrl.deleteLastLineBtnClick(event)" class="btn p-1 border-0 bg-transparent">
               <i class="bi bi-backspace"></i>
             </button>
-            <button class="btn p-1 border-0 bg-transparent">
+            <button onclick="mainCrl.saveDayEntriesBtnClick(event)" class="btn p-1 border-0 bg-transparent">
               <i class="bi bi-floppy"></i>
             </button>
           </div>
@@ -150,37 +158,54 @@
       <div class="right-column col-md-10 h-100">
         <div class="content-wrapper h-100 overflow-auto d-flex flex-column">
 
-          <!-- Demo widg -->
-
           <section class="nutrition-widgets py-2 px-3 border-bottom">
-<!-- TASK: new layout for #quickSummary -->
             <h5 class="mb-2 visually-hidden">Nutrition Summary</h5>
             <div class="overflow-auto position-relative">
               <button class="scroll-arrow" aria-label="Scroll right">
                 <i class="bi bi-arrow-right"></i>
               </button>
-              <div class="widgets-container">
-                <div class="nutrition-widget widget-yellow border rounded text-center">
+              <div id="quickSummary" class="widgets-container">
+                <div class="nutrition-widget widget-yellow border rounded text-center"
+                  data-bs-toggle = "modal"
+                  data-bs-target = "#infoModal"
+                  data-title     = "&lt;span class=&quot;fs-4&quot;&gt;Meat 2-3 mon&lt;/span&gt;"
+                  data-source    = "#myStrategyData"
+                >
                   <div class="widget-label fw-bold">Strategy</div>
                   <div class="widget-value">Meat</div>
                 </div>
-                <div class="nutrition-widget widget-red border rounded text-center">
+                <div class="nutrition-widget widget-red border rounded text-center"
+                  data-bs-toggle = "modal"
+                  data-bs-target = "#tipsModal"
+                >
                   <div class="widget-label fw-bold">kcal 18-24k</div>
                   <div class="widget-value">1000</div>
                 </div>
-                <div class="nutrition-widget border rounded bg-white text-center">
+                <div class="nutrition-widget border rounded bg-white text-center"
+                  data-bs-toggle = "modal"
+                  data-bs-target = "#tipsModal"
+                >
                   <div class="widget-label fw-bold">Fat / amino (2:1)</div>
                   <div class="widget-value">0 / 0 g</div>
                 </div>
-                <div class="nutrition-widget border rounded bg-white text-center">
+                <div class="nutrition-widget border rounded bg-white text-center"
+                  data-bs-toggle = "modal"
+                  data-bs-target = "#tipsModal"
+                >
                   <div class="widget-label fw-bold">Carbs &le; 80g (sugar)</div>
                   <div class="widget-value">0 / 0 g</div>
                 </div>
-                <div class="nutrition-widget border rounded bg-white text-center">
+                <div class="nutrition-widget border rounded bg-white text-center"
+                  data-bs-toggle = "modal"
+                  data-bs-target = "#tipsModal"
+                >
                   <div class="widget-label fw-bold">Fibre 40-50g</div>
                   <div class="widget-value">0 g</div>
                 </div>
-                <div class="nutrition-widget border rounded bg-white text-center">
+                <div class="nutrition-widget border rounded bg-white text-center"
+                  data-bs-toggle = "modal"
+                  data-bs-target = "#tipsModal"
+                >
                   <div class="widget-label fw-bold">Salt 4-6g</div>
                   <div class="widget-value">0.0 g</div>
                 </div>
@@ -203,120 +228,26 @@
           <!-- Food grid -->
 
           <section class="food-grid flex-grow-1 py-2 px-3">
-<!-- TASK: insert #layout here -->
             <div class="row g-3">
-              <div id="rightContent" class="col-12">
+              <div id="layout" class="col-12">
 
-<div id="dayContent" class="demo-content">
-  <h6>Demo Content for Scrolling</h6>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula.</p>
-  
-  <div class="card mb-3">
-    <div class="card-header">Food Item #1</div>
-    <div class="card-body">
-      <p class="card-text">Vegetable mix - 150g</p>
-      <div class="d-flex justify-content-between">
-        <span>Calories: 120</span>
-        <span>Protein: 5g</span>
-        <span>Carbs: 18g</span>
-      </div>
-    </div>
-  </div>
-  
-  <div class="card mb-3">
-    <div class="card-header">Food Item #2</div>
-    <div class="card-body">
-      <p class="card-text">Grilled chicken - 200g</p>
-      <div class="d-flex justify-content-between">
-        <span>Calories: 330</span>
-        <span>Protein: 62g</span>
-        <span>Fat: 7g</span>
-      </div>
-    </div>
-  </div>
-  
-  <div class="card mb-3">
-    <div class="card-header">Food Item #3</div>
-    <div class="card-body">
-      <p class="card-text">Brown rice - 150g</p>
-      <div class="d-flex justify-content-between">
-        <span>Calories: 216</span>
-        <span>Carbs: 45g</span>
-        <span>Fiber: 3.5g</span>
-      </div>
-    </div>
-  </div>
-  
-  <div class="card mb-3">
-    <div class="card-header">Food Item #4</div>
-    <div class="card-body">
-      <p class="card-text">Mixed nuts - 30g</p>
-      <div class="d-flex justify-content-between">
-        <span>Calories: 170</span>
-        <span>Fat: 15g</span>
-        <span>Protein: 6g</span>
-      </div>
-    </div>
-  </div>
-  
-  <div class="card mb-3">
-    <div class="card-header">Food Item #5</div>
-    <div class="card-body">
-      <p class="card-text">Greek yogurt - 200g</p>
-      <div class="d-flex justify-content-between">
-        <span>Calories: 130</span>
-        <span>Protein: 22g</span>
-        <span>Calcium: 20%</span>
-      </div>
-    </div>
-  </div>
-</div>
+                <div id="dayContent" class="demo-content">
+                  
+                  <!-- TASK: insert content of layout here -->
 
-<!-- Nutrients content (hidden by default) -->
-<div id="nutrientsContent" class="demo-content d-none">
-  <h6>Nutrients Overview</h6>
-  <p>Track your daily nutrient intake and see detailed breakdowns.</p>
-  
-  <div class="card mb-3">
-    <div class="card-header">Daily Nutrients</div>
-    <div class="card-body">
-      <div class="row">
-        <div class="col-6">
-          <strong>Vitamins</strong>
-          <ul class="list-unstyled">
-            <li>Vitamin C: 85%</li>
-            <li>Vitamin D: 45%</li>
-            <li>Vitamin B12: 120%</li>
-          </ul>
-        </div>
-        <div class="col-6">
-          <strong>Minerals</strong>
-          <ul class="list-unstyled">
-            <li>Iron: 78%</li>
-            <li>Calcium: 92%</li>
-            <li>Zinc: 65%</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="card mb-3">
-    <div class="card-header">Macronutrients</div>
-    <div class="card-body">
-      <div class="progress mb-2">
-        <div class="progress-bar bg-success" style="width: 65%">Protein 65%</div>
-      </div>
-      <div class="progress mb-2">
-        <div class="progress-bar bg-warning" style="width: 80%">Carbs 80%</div>
-      </div>
-      <div class="progress">
-        <div class="progress-bar bg-info" style="width: 45%">Fat 45%</div>
-      </div>
-    </div>
-  </div>
-</div>
+                </div>
+                <div id="nutrientsContent" class="demo-content d-none">
 
+                  <!-- TASK: insert content of #nutrientsPane here -->
+
+                </div>
+
+                <!-- Moved to #favoritesLayout -->
+<!--
+                <div id="" class="demo-content d-none">
+
+                </div>
+-->
               </div>
             </div>
           </section>
@@ -346,101 +277,10 @@
 
           <!-- Scrollable content area -->
           <div class="flex-grow-1 overflow-auto p-3">
-            <div class="row g-3">
-            <div class="col-md-6">
-              <div class="card">
-                <div class="card-header">⭐ Breakfast Favorites</div>
-                <div class="card-body">
-                  <div class="mb-3">
-                    <p class="card-text">Oatmeal with berries - 250g</p>
-                    <div class="d-flex justify-content-between">
-                      <span>Calories: 180</span>
-                      <button class="btn btn-sm btn-primary">Add</button>
-                    </div>
-                  </div>
-                  <div class="mb-3">
-                    <p class="card-text">Greek yogurt with honey - 200g</p>
-                    <div class="d-flex justify-content-between">
-                      <span>Calories: 150</span>
-                      <button class="btn btn-sm btn-primary">Add</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="col-md-6">
-              <div class="card">
-                <div class="card-header">⭐ Lunch Favorites</div>
-                <div class="card-body">
-                  <div class="mb-3">
-                    <p class="card-text">Chicken salad - 300g</p>
-                    <div class="d-flex justify-content-between">
-                      <span>Calories: 320</span>
-                      <button class="btn btn-sm btn-primary">Add</button>
-                    </div>
-                  </div>
-                  <div class="mb-3">
-                    <p class="card-text">Quinoa bowl - 250g</p>
-                    <div class="d-flex justify-content-between">
-                      <span>Calories: 280</span>
-                      <button class="btn btn-sm btn-primary">Add</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="col-md-6">
-              <div class="card">
-                <div class="card-header">📅 Last Days Overview</div>
-                <div class="card-body">
-                  <div class="mb-2">
-                    <div class="d-flex justify-content-between">
-                      <span>Yesterday</span>
-                      <small>1850 kcal</small>
-                    </div>
-                    <small class="text-muted">5 meals logged</small>
-                  </div>
-                  <div class="mb-2">
-                    <div class="d-flex justify-content-between">
-                      <span>2 days ago</span>
-                      <small>1920 kcal</small>
-                    </div>
-                    <small class="text-muted">4 meals logged</small>
-                  </div>
-                  <div class="mb-2">
-                    <div class="d-flex justify-content-between">
-                      <span>3 days ago</span>
-                      <small>1780 kcal</small>
-                    </div>
-                    <small class="text-muted">6 meals logged</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="col-md-6">
-              <div class="card">
-                <div class="card-header">⭐ Snack Favorites</div>
-                <div class="card-body">
-                  <div class="mb-3">
-                    <p class="card-text">Apple with peanut butter</p>
-                    <div class="d-flex justify-content-between">
-                      <span>Calories: 190</span>
-                      <button class="btn btn-sm btn-primary">Add</button>
-                    </div>
-                  </div>
-                  <div class="mb-3">
-                    <p class="card-text">Mixed nuts - 30g</p>
-                    <div class="d-flex justify-content-between">
-                      <span>Calories: 170</span>
-                      <button class="btn btn-sm btn-primary">Add</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <!-- <div class="row g-3"> -->  <!-- TASK what is this ? -->
+
+            <!-- TASK: insert content of #lastDaysView here -->
+
           </div>
         </div>
       </div>

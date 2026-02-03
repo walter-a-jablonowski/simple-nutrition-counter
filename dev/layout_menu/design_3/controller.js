@@ -151,7 +151,7 @@ class NutritionWidgetsController
     // Get content elements
     const mainLayout = document.getElementById('mainLayout');
     const favoritesLayout = document.getElementById('favoritesLayout');
-    const rightContent = document.getElementById('rightContent');
+    const rightContent = document.getElementById('layout');
     const dayContent = document.getElementById('dayContent');
     const nutrientsContent = document.getElementById('nutrientsContent');
 
