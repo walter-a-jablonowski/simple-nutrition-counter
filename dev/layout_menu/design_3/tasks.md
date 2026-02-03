@@ -15,6 +15,7 @@
     - [ ] similar: bi-person (originally btn now link)
   - [ ] header with user select exists 2 times: second time for own layout tab 3 (favoritesLayout)
 
+
 - [x] right layout col devides in goals and food layout
 - [-] in mobile left and right are visible but food layout is hidden
 - [-] add left-layout-col .. limit the styles
