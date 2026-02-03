@@ -2,6 +2,7 @@
 - see ai.md
 - added insert points in code as TASK
 
+- [ ] prettify the design a bit?
 - [ ] applying to app, left orver tasks
 
   - most on clicks, ids and modal attribs were added from current app
