@@ -106,25 +106,45 @@
             </div>
 
             <!-- Mobile action buttons -->
-
-            <button class="btn d-md-none p-1 border-0 bg-transparent" title="Toggle unprecise time" aria-label="Toggle unprecise time">
-              <i class="bi bi-stopwatch text-secondary" aria-hidden="true"></i>
-            </button>
-            <button class="btn d-md-none p-1 border-0 bg-transparent" title="Toggle unprecise food data" aria-label="Toggle unprecise mode">
-              <i class="bi bi-exclamation-circle-fill text-secondary" aria-hidden="true"></i>
-            </button>
-            <button class="btn d-md-none p-1 border-0 bg-transparent" aria-label="Delete">
-              <i class="bi bi-backspace" aria-hidden="true"></i>
-            </button>
-            <button class="btn d-md-none p-1 border-0 bg-transparent" aria-label="Save"
-              data-bs-toggle = "modal"
-              data-bs-target = "#tipsModal"
-            >
-              <i class="bi bi-floppy" aria-hidden="true"></i>
-            </button>
-            <button id="expandBtn" class="mobile-caret-btn d-md-none btn p-1" aria-label="Toggle view">
-              <i class="bi bi-caret-down" aria-hidden="true"></i>
-            </button>
+            <div class="d-flex align-items-center gap-3 d-md-none">
+              <div class="dropdown">
+                <button class="btn p-1 border-0 bg-transparent" type="button" id="unpreciseDropdown" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Unprecise options">
+                  <i class="bi bi-exclamation-circle-fill" aria-hidden="true"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="unpreciseDropdown">
+                  <li>
+                    <a class="dropdown-item d-flex align-items-center" href="#" id="toggleNutrients">
+                      <i class="bi bi-check me-2 text-primary" style="visibility: hidden;"></i>
+                      <span>Nutrients</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item d-flex align-items-center" href="#" id="toggleTime">
+                      <i class="bi bi-check me-2 text-primary" style="visibility: hidden;"></i>
+                      <span>Time</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item d-flex align-items-center" href="#" id="togglePrice">
+                      <i class="bi bi-check me-2 text-primary" style="visibility: hidden;"></i>
+                      <span>Price</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <button class="btn p-1 border-0 bg-transparent" aria-label="Delete">
+                <i class="bi bi-backspace" aria-hidden="true"></i>
+              </button>
+              <button class="btn p-1 border-0 bg-transparent" aria-label="Save"
+                data-bs-toggle = "modal"
+                data-bs-target = "#tipsModal"
+              >
+                <i class="bi bi-floppy" aria-hidden="true"></i>
+              </button>
+              <button id="expandBtn" class="mobile-caret-btn btn p-1" aria-label="Toggle view">
+                <i class="bi bi-caret-down" aria-hidden="true"></i>
+              </button>
+            </div>
           </header>
 
           <!-- Main left content -->

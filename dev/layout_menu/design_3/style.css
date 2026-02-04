@@ -302,6 +302,39 @@ main {
 }
 
 /* ======================================
+   UNPRECISE DROPDOWN MENU
+   ====================================== */
+
+#unpreciseDropdown {
+  color: #6c757d;
+  position: relative;
+  top: -1px;
+}
+
+#unpreciseDropdown:hover {
+  color: #495057;
+}
+
+.dropdown-menu {
+  min-width: 160px;
+  font-size: 0.95rem;
+}
+
+.dropdown-item {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.dropdown-item:active {
+  background-color: #e9ecef;
+}
+
+.dropdown-item i.bi-check-square {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* ======================================
    RESPONSIVE STYLES
    ====================================== */
 

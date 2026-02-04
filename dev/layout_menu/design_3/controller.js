@@ -14,6 +14,11 @@ class NutritionWidgetsController
     this.lastScrollPosition = 0;
     this.userHasScrolled    = false;
     this.currentNav         = 'day';
+    this.unpreciseStates    = {
+      nutrients: false,
+      time: false,
+      price: false
+    };
 
     // Bind handlers
     this._onNavClick         = this._onNavClick.bind(this);
@@ -21,6 +26,9 @@ class NutritionWidgetsController
     this._onScroll           = this._onScroll.bind(this);
     this._onArrowClick       = this._onArrowClick.bind(this);
     this._onMobileCaretClick = this._onMobileCaretClick.bind(this);
+    this._onToggleNutrients  = this._onToggleNutrients.bind(this);
+    this._onToggleTime       = this._onToggleTime.bind(this);
+    this._onTogglePrice      = this._onTogglePrice.bind(this);
 
     this.init();
   }
@@ -38,6 +46,18 @@ class NutritionWidgetsController
     this.navLinks.forEach(link => {
       link.addEventListener('click', this._onNavClick);
     });
+
+    // Dropdown toggle items
+    const toggleNutrients = this.root.querySelector('#toggleNutrients');
+    const toggleTime = this.root.querySelector('#toggleTime');
+    const togglePrice = this.root.querySelector('#togglePrice');
+    
+    if( toggleNutrients )
+      toggleNutrients.addEventListener('click', this._onToggleNutrients);
+    if( toggleTime )
+      toggleTime.addEventListener('click', this._onToggleTime);
+    if( togglePrice )
+      togglePrice.addEventListener('click', this._onTogglePrice);
 
     // Core listeners
     window.addEventListener('resize', this._onResize);
@@ -72,6 +92,45 @@ class NutritionWidgetsController
       leftColumn.classList.add('collapsed');
       mainContentSection.classList.add('collapsed');
       caretIcon.className = 'bi bi-caret-up';
+    }
+  }
+
+  _onToggleNutrients(event) {
+    event.preventDefault();
+    this.unpreciseStates.nutrients = !this.unpreciseStates.nutrients;
+    this._updateCheckbox(event.currentTarget, this.unpreciseStates.nutrients);
+    this._updateDropdownIcon();
+  }
+
+  _onToggleTime(event) {
+    event.preventDefault();
+    this.unpreciseStates.time = !this.unpreciseStates.time;
+    this._updateCheckbox(event.currentTarget, this.unpreciseStates.time);
+    this._updateDropdownIcon();
+  }
+
+  _onTogglePrice(event) {
+    event.preventDefault();
+    this.unpreciseStates.price = !this.unpreciseStates.price;
+    this._updateCheckbox(event.currentTarget, this.unpreciseStates.price);
+    this._updateDropdownIcon();
+  }
+
+  _updateCheckbox(element, isChecked) {
+    const checkbox = element.querySelector('i.bi-check');
+    if( checkbox )
+      checkbox.style.visibility = isChecked ? 'visible' : 'hidden';
+  }
+
+  _updateDropdownIcon() {
+    const dropdownIcon = this.root.querySelector('#unpreciseDropdown i');
+    const anyChecked = this.unpreciseStates.nutrients || this.unpreciseStates.time || this.unpreciseStates.price;
+    
+    if( dropdownIcon ) {
+      if( anyChecked )
+        dropdownIcon.style.color = '#fd7e14'; // Bootstrap orange
+      else
+        dropdownIcon.style.color = ''; // Reset to default
     }
   }
 
