@@ -3,6 +3,15 @@
 - added insert points in code as TASK
 
 - [ ] prettify the design a bit?
+
+- [ ] maybe
+
+  For the Desktop action buttons merge unpreciseToggleBtn unpreciseTimeToggleBtn in a single icon. When it is clicked show a drop up menu and move the currently used buttons there, text only no icons: Nutrients, Time. When one of these is clicked show a checkbox in front. Add a third entry Price.
+
+  Make sure that it looks good with our design.
+
+  Do the same for Mobile action buttons but use a drop down menu instead of drop up.
+
 - [ ] applying to app, left orver tasks
 
   - most on clicks, ids and modal attribs were added from current app
