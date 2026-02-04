@@ -4,6 +4,9 @@ class NutritionWidgetsController
   {
     this.root = root;
 
+    // Configuration
+    this.maxWidgetTextLength = 15;
+
     // Elements
     this.navLinks         = this.root.querySelectorAll('[data-nav]');
     this.widgetsContainer = this.root.querySelector('.nutrition-widgets .overflow-auto');
@@ -66,6 +69,9 @@ class NutritionWidgetsController
 
     // Initial visibility check after render
     setTimeout(() => this.checkScroll(), 100);
+    
+    // Initialize widget value scrolling for long text
+    setTimeout(() => this._initWidgetValueScrolling(), 200);
   }
 
   _onNavClick(event)
@@ -132,6 +138,58 @@ class NutritionWidgetsController
       else
         dropdownIcon.style.color = ''; // Reset to default
     }
+  }
+
+  _initWidgetValueScrolling() {
+    const widgetValues = this.root.querySelectorAll('.nutrition-widget .widget-value');
+    
+    widgetValues.forEach(valueEl => {
+      const text = valueEl.textContent.trim();
+      
+      if( text.length > this.maxWidgetTextLength ) {
+        const fullText = text;
+        const truncatedText = text.substring(0, this.maxWidgetTextLength) + '...';
+        
+        valueEl.style.overflow = 'hidden';
+        valueEl.style.whiteSpace = 'nowrap';
+        valueEl.style.position = 'relative';
+        
+        this._scrollTextOnce(valueEl, fullText, truncatedText);
+      }
+    });
+  }
+
+  _scrollTextOnce(element, fullText, truncatedText) {
+    const wrapper = document.createElement('span');
+    wrapper.style.display = 'inline-block';
+    wrapper.style.whiteSpace = 'nowrap';
+    wrapper.textContent = fullText;
+    
+    element.textContent = '';
+    element.appendChild(wrapper);
+    
+    setTimeout(() => {
+      const containerWidth = element.clientWidth;
+      const textWidth = wrapper.scrollWidth;
+      const scrollDistance = textWidth - containerWidth;
+      
+      if( scrollDistance <= 0 ) {
+        element.textContent = truncatedText;
+        return;
+      }
+      
+      wrapper.style.transition = 'transform 3s linear';
+      wrapper.style.transform = `translateX(-${scrollDistance}px)`;
+      
+      setTimeout(() => {
+        wrapper.style.transition = 'transform 0.5s ease-out';
+        wrapper.style.transform = 'translateX(0)';
+        
+        setTimeout(() => {
+          element.textContent = truncatedText;
+        }, 500);
+      }, 3000);
+    }, 1000);
   }
 
   _onResize()

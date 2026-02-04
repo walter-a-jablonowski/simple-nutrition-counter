@@ -197,6 +197,7 @@ main {
 
 .nutrition-widgets .nutrition-widget {
   min-width: 140px;
+  max-width: 180px;
   width: auto;
   flex: 0 0 auto;
   padding: 0.5rem;
@@ -227,6 +228,8 @@ main {
   font-weight: 700;
   line-height: 1.1;
   padding: 0 0.35rem; /* slight inset for long text */
+  max-width: 100%;
+  display: block;
 }
 
 /* Color utility classes to apply in HTML on widgets */

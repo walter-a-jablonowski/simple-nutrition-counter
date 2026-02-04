@@ -3,6 +3,10 @@
 - added insert points in code as TASK
 
 - [ ] prettify the design a bit?
+- [ ] started scrolling effect strategy
+  - keep padding left right while scrolling
+  - fix height problem
+  - limit this effect to strategy only
 
 - [ ] applying to app, left orver tasks
 
