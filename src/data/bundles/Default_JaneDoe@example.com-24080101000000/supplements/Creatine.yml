@@ -18,7 +18,7 @@ keeping:           "Kühl, trocken und vor Licht geschützt lagern"
 
 price:             19.99
 weight:            300g
-usedAmounts:       ["10g", "20g", "30g"]
+usedAmounts:       ["10g", "15g", "20g"]
 
 calories:          0
 nutritionalValues: 

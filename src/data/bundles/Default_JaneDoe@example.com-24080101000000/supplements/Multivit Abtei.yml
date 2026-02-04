@@ -14,7 +14,7 @@ keeping:           ""
 price:             
 weight:            47g
 pieces:            40
-usedAmounts:       [1]
+usedAmounts:       ["1/2", "1"]
 
 amountPer:         "piece"
 

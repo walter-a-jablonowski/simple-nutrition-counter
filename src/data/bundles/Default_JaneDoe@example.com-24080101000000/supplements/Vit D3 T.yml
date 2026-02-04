@@ -25,7 +25,7 @@ variants:
 
 weight:            15.35
 pieces:            60
-usedAmounts:       [1]
+usedAmounts:       ["1/2", "1"]
 
 amountPer:         "piece"
 

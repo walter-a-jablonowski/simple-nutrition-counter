@@ -29,7 +29,7 @@ variants:
 
 weight:            48g
 pieces:            40
-usedAmounts:       [1]
+usedAmounts:       ["1/2", "1"]
 
 amountPer:         "piece"  # we already have this feature !
 

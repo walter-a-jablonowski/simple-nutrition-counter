@@ -17,7 +17,7 @@ price:
 dealPrice:         2.95
 weight:            11.6     # all
 pieces:            50
-usedAmounts:       [1]
+usedAmounts:       ["1/2", "1"]
 
 amountPer:         "piece"  # we already have this feature !
 

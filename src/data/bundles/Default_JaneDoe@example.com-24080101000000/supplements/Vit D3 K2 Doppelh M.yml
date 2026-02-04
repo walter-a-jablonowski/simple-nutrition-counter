@@ -21,7 +21,7 @@ price:             3.99   # TASK: maybe less
 dealPrice:         2.50
 weight:            13.1g  # all
 pieces:            30
-usedAmounts:       [1]
+usedAmounts:       ["1/2", "1"]
 
 amountPer:         "piece"
 
