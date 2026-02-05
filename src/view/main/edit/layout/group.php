@@ -16,7 +16,7 @@ $return['done'] = [];
           <?= $groupName ?>
           <?php if( isset($def['@attribs']['(i)'])): ?>
             &nbsp;
-            <button type="button" class="border-0 p-1 bg-transparent"
+            <button type="button" class="info-btn border-0 p-1 bg-transparent"
                     data-bs-toggle = "modal"
                     data-bs-target = "#infoModal"
                     data-title     = "<?= $groupName ?>"

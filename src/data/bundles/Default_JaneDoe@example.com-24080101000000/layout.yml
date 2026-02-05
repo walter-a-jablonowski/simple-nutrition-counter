@@ -201,8 +201,8 @@ Ingredients:
 
   Misc starches, corn (color:#ffa500):
 
-    (i):   "Avoid all mass produced that humans weren't meant to eat, even whole grains"
     short: "Careful, even whole grains"
+    (i):   "Avoid all mass produced that humans weren't meant to eat, even whole grains"
 
     list:
 
@@ -345,6 +345,19 @@ Improve:
 Supplements:
 
   Morning supplements:
+
+    short: "<span style=\"color: orange;\">see Info</span>"
+    (i): |
+
+      Deficiencies most people (Brecka)
+
+      - D3, B12 (see gd "highest doses")
+      - Magnesium, Kalium
+
+      List of most important
+
+      - Omega 3
+      - ...
 
     list:
 

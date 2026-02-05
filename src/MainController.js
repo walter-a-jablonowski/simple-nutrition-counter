@@ -103,8 +103,14 @@ class MainController
       else
         infoModal.find('.modal-title').innerHTML = btn.getAttribute('data-title')
       
-      // Set modal body content
-      infoModal.find('.modal-body').innerHTML = query( btn.getAttribute('data-source')).innerHTML
+      // Set modal body content with markdown rendering
+      let content = query( btn.getAttribute('data-source')).innerHTML
+      
+      // Check if button has info-btn class (group headers) to enable markdown
+      if( btn.classList.contains('info-btn'))
+        content = this.renderMarkdown(content)
+      
+      infoModal.find('.modal-body').innerHTML = content
       
       // Reinitialize popovers inside the modal
       this.initModalPopovers(infoModal)
@@ -902,5 +908,30 @@ class MainController
     const m = String( dateObj.getMonth() + 1 ).padStart(2, '0')
     const d = String( dateObj.getDate()      ).padStart(2, '0')
     return `${y}-${m}-${d}`
+  }
+
+  renderMarkdown(markdownText)
+  {
+    marked.setOptions({
+      gfm: true,
+      breaks: false,
+      pedantic: false,
+      langPrefix: 'language-'
+    })
+
+    let html = marked.parse(markdownText)
+
+    // same as overview
+
+    // Outlining lists
+    // html = html.replace(/<li>\s*<p>(.*?)<\/p>\s*<\/li>/gs, '<li>$1</li>');
+    html = html.replace(/<li>/gi, '<li class="md-li">');
+    html = html.replace(/<li class="md-li">(.*?)<\/p>\s*(<ul|<ol)/gs, '<li class="md-li">$1$2');
+    html = html.replace(/<p>\s*<\/p>\s*/gs, '');
+    html = html.replace(/(<\/[^>]+>)\s*<p><\/p>/gs, '$1');
+    html = html.replace(/<ul>/gi, '<ul class="no-indent">');
+    html = html.replace(/<ul class="([^"]*)"/gi, '<ul class="$1 no-indent"');
+
+    return html
   }
 }
