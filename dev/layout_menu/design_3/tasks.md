@@ -6,8 +6,8 @@
 - started scrolling effect strategy
   - [x] limit this effect to strategy only
   - [x] keep padding left right while scrolling
-  - [ ] limit strategy widg width (initially longer)
   - [x] fix height problem
+  - [ ] maybe limit strategy widg width (initially longer)
 
 - [ ] applying to app, left orver tasks
 
