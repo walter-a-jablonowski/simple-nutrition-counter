@@ -230,6 +230,8 @@ main {
   padding: 0 0.35rem; /* slight inset for long text */
   max-width: 100%;
   display: block;
+  white-space: nowrap; /* prevent text wrapping */
+  overflow: hidden; /* hide overflowing text */
 }
 
 /* Color utility classes to apply in HTML on widgets */
