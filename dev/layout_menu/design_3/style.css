@@ -227,7 +227,7 @@ main {
   font-size: 1.1rem;
   font-weight: 700;
   line-height: 1.1;
-  padding: 0 0.35rem; /* slight inset for long text */
+  padding: 0 0.55rem; /* slight inset for long text */
   max-width: 100%;
   display: block;
   white-space: nowrap; /* prevent text wrapping */

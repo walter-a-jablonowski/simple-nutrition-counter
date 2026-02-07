@@ -150,9 +150,10 @@ class NutritionWidgetsController
         const fullText = text;
         const truncatedText = text.substring(0, this.maxWidgetTextLength) + '...';
         
-        valueEl.style.overflow = 'hidden';
+        valueEl.style.overflow = 'visible';
         valueEl.style.whiteSpace = 'nowrap';
         valueEl.style.position = 'relative';
+        valueEl.style.clipPath = 'inset(0 0.35rem)'; // Clip with visible padding
         
         this._scrollTextOnce(valueEl, fullText, truncatedText);
       }
