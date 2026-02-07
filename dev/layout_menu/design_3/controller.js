@@ -141,7 +141,7 @@ class NutritionWidgetsController
   }
 
   _initWidgetValueScrolling() {
-    const widgetValues = this.root.querySelectorAll('.nutrition-widget .widget-value');
+    const widgetValues = this.root.querySelectorAll('#strategy .widget-value');
     
     widgetValues.forEach(valueEl => {
       const text = valueEl.textContent.trim();
