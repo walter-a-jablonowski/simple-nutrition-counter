@@ -19,8 +19,8 @@ trait SavePriceAjaxController
       return ['result' => 'error', 'data' => ['message' => 'Updating variant prices is unsupported yet'] ];
 
     // Determine which field and history key to update
-    $fieldName = $priceType;
-    $dateField = $priceType === 'price' ? 'lastPriceUpd' : 'lastDealPriceUpd';
+    $fieldName  = $priceType;
+    $dateField  = $priceType === 'price' ? 'lastPriceUpd' : 'lastDealPriceUpd';
     $historyKey = $priceType === 'price' ? 'prices' : 'dealPrices';
 
     // Update the price with history

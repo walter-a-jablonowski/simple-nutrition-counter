@@ -282,12 +282,14 @@ $comment = true === $this->combinedModel->get("$entryName.xTimeLog")
           </span>
           <span class="price-input-view" style="display: none;">
             <!-- <input value="< ?= $data['price'] ?>" class="price-inp form-control form-control-sm d-inline-block" type="text" style="width: 80px; padding: 0;"> -->
+            Price: 
             <div contenteditable="true" class="price-inp d-inline-block border px-1 py-0" style="min-width: 60px;">
               <?= $data['price'] ?? '' ?>
             </div>  <!-- TASK: maybe move data-name or use id -->
             <button onclick="mainCrl.updPriceClick(event)" data-name="<?= $entryName ?>" data-price-type="price" class="upd-price btn btn-sm btn-secondary ml-1 px-1 py-0" style="margin-top: -4px;">update</button> 
           </span>
           <span class="deal-price-input-view" style="display: none;">
+            Deal: 
             <div contenteditable="true" class="deal-price-inp d-inline-block border px-1 py-0" style="min-width: 60px;">
               <?= $data['dealPrice'] ?? '' ?>
             </div>
