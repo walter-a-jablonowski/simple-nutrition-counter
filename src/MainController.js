@@ -921,7 +921,7 @@ class MainController
 
     let html = marked.parse(markdownText)
 
-    // same as overview
+    // same as overview, HalfDoneHero
 
     // Outlining lists
     // html = html.replace(/<li>\s*<p>(.*?)<\/p>\s*<\/li>/gs, '<li>$1</li>');

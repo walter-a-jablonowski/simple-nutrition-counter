@@ -201,6 +201,7 @@ function build_aligned_line( string $indent, string $key, string $value, int $va
   return $base.str_repeat(' ', $spaces).$value;
 }
 
+// TASK: maybe duplicate of shared function bulk_find_food_source( $foodName, $dir )
 function find_food_file( string $foods_dir, string $name ) : ?array
 {
   // First try direct file/folder match (base foods)
