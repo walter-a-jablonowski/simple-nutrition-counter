@@ -1,7 +1,5 @@
 <?php
 
-// TASK: move lib functions
-
 function backup( $sources, $backupDir, $base )
 {
   $destDir = "$backupDir/" . date('ymd_Hi');
@@ -10,6 +8,9 @@ function backup( $sources, $backupDir, $base )
   
   foreach( $sources as $source )
   {
+    if( strtolower( basename($source)) === 'desktop.ini' )
+      continue;
+
     $sub = str_replace( $base, '', $source);
   
     if( is_dir($source) )
@@ -18,7 +19,13 @@ function backup( $sources, $backupDir, $base )
       cp_recursive( $source, $destDir, $base);
     }
     elseif( is_file($source) )
+    {
+      $parentDir = dirname("$destDir/$sub");
+      if( ! is_dir($parentDir) )
+        mkdir($parentDir, 0755, true);
+
       copy( $source, "$destDir/$sub");
+    }
   }
 }
 
@@ -29,12 +36,15 @@ function cp_recursive( $dir, $destDir, $base )
     if( in_array( $fil, ['.', '..']))
       continue;
 
+    if( strtolower($fil) === 'desktop.ini' )
+      continue;
+
     $sub = str_replace( $base, '', $dir);
 
     if( is_dir("$dir/$fil") )
     {
       mkdir("$destDir/$sub/$fil", 0755, true);
-      cp_recursive("$dir/$fil", "$destDir/$sub/$fil");
+      cp_recursive("$dir/$fil", $destDir, $base);
     }
     else
       copy("$dir/$fil", "$destDir/$sub/$fil");
