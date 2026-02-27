@@ -6,7 +6,7 @@ packaging:         plastic
 price:             2.99
 weight:            400g
 pieces:            11
-usedAmounts:       [1, 2, 3]
+usedAmounts:       ["1/2", 1, 2]
 
 calories:          343
 nutritionalValues: 
