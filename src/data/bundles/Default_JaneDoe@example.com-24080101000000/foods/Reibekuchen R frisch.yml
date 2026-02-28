@@ -1,0 +1,30 @@
+
+productName:       "ja! Frische Reibekuchen 300g"
+vendor:            Rewe
+url:               https://www.rewe.de/shop/p/ja-frische-reibekuchen-300g/7700915
+
+acceptable:        occasionally
+certificates:      { NutriScore: C }
+ingredients:       "artoffeln 74 %, Rapsöl, WEIZENMEHL, Zwiebeln 6 %, VOLLEI*, Speisesalz. *aus Bodenhaltung"
+mayContain:        "Sellerie"
+packaging:         plastic
+
+price:             1.69
+weight:            300g
+pieces:            3
+usedAmounts:       [1,2,3]
+
+calories:          175
+nutritionalValues: 
+
+  fat:             7.7
+  saturatedFat:    0.7
+  carbs:           21.9
+  sugar:           0.5
+  fibre:           2.4
+  amino:           3.2
+  salt:            1.18
+
+sources:           { nutriVal: "web (information on packaging may differ slightly)" }
+lastUpd:           2026-02-28
+lastPriceUpd:      2026-02-28
