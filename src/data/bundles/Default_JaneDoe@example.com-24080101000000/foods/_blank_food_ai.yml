@@ -8,7 +8,7 @@
 
  --
 
-Please fill out the yml below with data from @_in.html and save it to a new yml file in
+Please fill out the yml below with data from @_foods_in.html and save it to a new yml file in
 
   src\data\bundles\Default_JaneDoe@example.com-24080101000000\foods
 
@@ -22,9 +22,6 @@ Rules
 - Add nutritional values with no "g", just the float or int
 - No changes in: field source
 - lastUpdate, lastPriceUpd: YYYY-MM-DD
-
-
-URL: [URL]
 
 
 The yml
@@ -51,8 +48,8 @@ noUseIf:           ""
 interactions:      ""
 sideEffects:       ""
 careful:           false  # use careful
-limit:             ""
 usage:             ""     # e.g. amount per day
+limit:             ""
 keeping:           ""
 
 # cookingInstructions: "" 

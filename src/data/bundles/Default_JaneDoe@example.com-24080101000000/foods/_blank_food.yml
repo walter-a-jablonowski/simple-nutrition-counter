@@ -20,7 +20,7 @@ origin:            ""
 packaging:         none|cardboard,alu,plastic,glass & rubber (maybe)  # outer --> inner (contact with food only)
 
 noUseIf:           ""
-interactions:      ""
+interactions:      ""     # similar to the ones in nutrients
 sideEffects:       ""
 careful:           false
 usage:             ""
@@ -39,6 +39,8 @@ dealPrice:
 weight:            
 pieces:            
 usedAmounts:       []
+
+amountPer:         "piece"  # we already have this feature !
 
 calories:          
 nutritionalValues: 

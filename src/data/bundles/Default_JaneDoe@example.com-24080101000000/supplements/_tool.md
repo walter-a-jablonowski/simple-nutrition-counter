@@ -1,4 +1,6 @@
 
+use foods > _blank
+
 used Gemini Flash 3
 
   --
