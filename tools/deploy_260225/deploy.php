@@ -11,9 +11,19 @@ $backupDir = DEPLOY_BACKUP_DIR;
 $backup = DEPLOY_BACKUP;
 $keep   = DEPLOY_KEEP;
 
-echo "Keep list (DEPLOY_KEEP):\n";
+echo "\nKeep list (DEPLOY_KEEP):\n";
 foreach( $keep as $item )
   echo "- $item\n";
+
+echo "\nBackup list (DEPLOY_BACKUP):\n";
+foreach( $backup as $item )
+  echo "- $item\n";
+
+echo "\nBackup folder (DEPLOY_BACKUP_DIR):\n";
+echo "- $backupDir\n";
+
+echo "\nDestination (DEPLOY_DEST_DIR):\n";
+echo "- $destDir\n";
 
 echo "\nProceed? Type 'yes' to continue: ";
 $confirm = strtolower( trim( fgets(STDIN)));
