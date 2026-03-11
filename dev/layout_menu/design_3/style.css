@@ -7,6 +7,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  background-color: #d9dde3 !important; /* Slightly darker than bg-light, creates panel depth */
 }
 
 /* Prevent content overflow and ensure consistent box model */
@@ -42,6 +43,7 @@ html, body {
   top: 0;
   padding: 1rem 0;
   z-index: 1030;
+  background-color: #111318 !important; /* darker than bg-dark */
   /* background-color: #e95420 !important; */  /* removed for now */
 }
 
@@ -59,6 +61,7 @@ html, body {
 #bottomNav {
   height: 56px;
   padding: 0;
+  background-color: #111318 !important; /* darker than bg-dark */
 }
 
 #bottomNav .nav-content {
@@ -103,6 +106,17 @@ main {
 /* Column styling */
 .left-column {
   border-right: 1px solid #dee2e6;
+  background-color: #ffffff;
+}
+
+/* Override bg-light on headers inside columns */
+.left-column header,
+#favoritesLayout header {
+  background-color: #ffffff !important;
+}
+
+.right-column {
+  background-color: #ffffff;
 }
 
 .left-column, .right-column {
@@ -135,8 +149,7 @@ main {
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: #f8f9fa;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    background-color: #ffffff;
   }
 }
 
@@ -236,22 +249,21 @@ main {
 
 /* Color utility classes to apply in HTML on widgets */
 .nutrition-widgets .nutrition-widget.widget-red {
-  background-color: #f1aeb5; /* slightly more intense red */
-  color: #842029;            /* readable text on red */
-  border-color: #f1aeb5;
+  background-color: #e87080;
+  color: #842029;
+  border-color: #e87080;
 }
 
 .nutrition-widgets .nutrition-widget.widget-green {
-  background-color: #a3cfbb; /* slightly more intense green */
-  color: #0f5132;            /* readable text on green */
-  border-color: #a3cfbb;
+  background-color: #5cad88;
+  color: #0f5132;
+  border-color: #5cad88;
 }
 
-/* Light yellow background for informational/neutral emphasis */
 .nutrition-widgets .nutrition-widget.widget-yellow {
-  background-color: #fff3cd; /* Bootstrap warning background */
-  color: #664d03;            /* readable text on yellow */
-  border-color: #ffecb5;
+  background-color: #ffd86b;
+  color: #664d03;
+  border-color: #ffd86b;
 }
 
 /* ======================================
@@ -350,7 +362,7 @@ main {
     height: 10vh !important; /* Make the entire left column much smaller */
     overflow-y: auto;
   }
-  
+
   .left-column section.flex-grow-1.collapsed {
     height: auto; /* Let the section fill available space */
     overflow-y: auto;
@@ -361,16 +373,16 @@ main {
     padding-right: 0 !important;
     padding-bottom: 56px; /* Account for bottom navigation height */
   }
-  
+
   .right-column .content-wrapper {
     max-width: 100%;
   }
-  
+
   #favoritesLayout {
     padding-right: 0 !important;
     padding-bottom: 56px; /* Account for bottom navigation height */
   }
-  
+
   /* Column adjustments */
   .left-column {
     border-right: none;
@@ -385,7 +397,7 @@ main {
   .left-column, .right-column {
     padding: 0;
   }
-  
+
   /* Keep food list constrained, but allow widgets to grow */
   .food-grid .row {
     max-width: calc(100% - 15px);
@@ -396,13 +408,13 @@ main {
     min-width: 100%;
     gap: 0.75rem; /* Smaller gap on mobile */
   }
-  
+
   /* Mobile-specific widget adjustments */
   .nutrition-widgets .nutrition-widget {
     min-width: 120px; /* baseline, can expand to fit label */
     width: auto;
   }
-  
+
   /* Nutrition widgets arrow positioning */
   .nutrition-widgets .scroll-arrow {
     right: 10px; /* Reset to default on mobile since there's no sidebar */

@@ -1,4 +1,52 @@
 
+In the folder design_3 I made a new app design. Try to improve it.
+
+What I like:
+
+- Right sidebar (menu)
+- The nutrition-widgets (maybe the bg colors of widget-value could be improved)
+- The buttons and controlls already look good
+- The sizing or content panels looks good
+
+What needs update
+
+- Basically background colors of content panels (left, nutrition widgets, main content area)
+
+There might be areas that are duplicates and vidible on mobile only
+
+  --
+
+- Also set the bg color of header section to white
+- I reverted the widget color changes, try widget-value bg color look better
+- Try to make the navigation for landscape (and navigation for mobile) bg color a bit more black
+
+  --
+
+Less intense colors:
+
+Yellow widg was:
+
+.nutrition-widgets .nutrition-widget.widget-yellow {
+  background-color: #fff3cd; /* Bootstrap warning background */
+  color: #664d03;            /* readable text on yellow */
+  border-color: #ffecb5;
+}
+
+Less good looking:
+
+.nutrition-widgets .nutrition-widget.widget-red {
+  background-color: #f1aeb5; /* slightly more intense red */
+  color: #842029;            /* readable text on red */
+  border-color: #f1aeb5;
+}
+
+.nutrition-widgets .nutrition-widget.widget-green {
+  background-color: #a3cfbb; /* slightly more intense green */
+  color: #0f5132;            /* readable text on green */
+  border-color: #a3cfbb;
+}
+
+
 - see ai.md
 - added insert points in code as TASK
 
@@ -14,7 +62,7 @@
   - most on clicks, ids and modal attribs were added from current app
   - see also readme for structure
 
-  - [ ] 
+  - [ ]
 
   - [ ] we have the small buttons 2 times. currently using ids in one menur, needs to be class
     - added new ids for the mobile version and a dropdown
@@ -60,6 +108,6 @@ Done
   ... This button in smartphones currently seems to hide .nutrition-widgets. Instead use it to make ... smaller
 
    --
-  
+
   I can see that something happens with the section when I press the button, but the rest of the content (.nutrition-widgets and below) doesn't move up on mobile. Some class or style or tag structure may causes the problem.
   ```
