@@ -1,26 +1,5 @@
 
-In the folder design_3 I made a new app design. Try to improve it.
-
-What I like:
-
-- Right sidebar (menu)
-- The nutrition-widgets (maybe the bg colors of widget-value could be improved)
-- The buttons and controlls already look good
-- The sizing or content panels looks good
-
-What needs update
-
-- Basically background colors of content panels (left, nutrition widgets, main content area)
-
-There might be areas that are duplicates and vidible on mobile only
-
-  --
-
-- Also set the bg color of header section to white
-- I reverted the widget color changes, try widget-value bg color look better
-- Try to make the navigation for landscape (and navigation for mobile) bg color a bit more black
-
-  --
+- improve widgt font colors?
 
 Less intense colors:
 
@@ -79,6 +58,29 @@ Less good looking:
 
 Done
 -----------------------------------------------------
+
+# 2026-03-11
+
+- [x] In the folder design_3 I made a new app design. Try to improve it.
+
+  What I like:
+
+  - Right sidebar (menu)
+  - The nutrition-widgets (maybe the bg colors of widget-value could be improved)
+  - The buttons and controlls already look good
+  - The sizing or content panels looks good
+
+  What needs update
+
+  - Basically background colors of content panels (left, nutrition widgets, main content area)
+
+  There might be areas that are duplicates and vidible on mobile only
+
+    --
+
+  - Also set the bg color of header section to white
+  - I reverted the widget color changes, try widget-value bg color look better
+  - Try to make the navigation for landscape (and navigation for mobile) bg color a bit more black
 
 # 2026-02-03
 
