@@ -417,16 +417,17 @@ main.app-d3 {
 
 .food-grid {
   position: relative;
+  min-width: 0;               /* allow flex parent to shrink this column */
+  overflow-x: hidden;         /* clip any incidental horizontal overflow on small viewports */
 }
 
 @media (max-width: 767.98px) {
   .food-grid {
-    padding-bottom: 70px;        /* room for bottom nav */
+    padding-bottom: 70px;     /* room for bottom nav */
   }
 }
 
 .food-grid .row {
-  /* keep current overflow as in design but avoid clipping the layout tabs */
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -526,10 +527,6 @@ main.app-d3 {
 
   .left-column, .right-column {
     padding: 0;
-  }
-
-  .food-grid .row {
-    max-width: calc(100% - 15px);
   }
 
   .nutrition-widgets .widgets-container {
