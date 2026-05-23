@@ -260,9 +260,9 @@ main.app-d3 {
   }
 }
 
-.right-column .content-wrapper {
-  max-width: calc(100% - 60px);
-}
+/* No content-wrapper max-width offset: <main>'s 60px right padding already keeps content
+   off the sidebar. The original design_3 had calc(100% - 60px) here too which double-subtracted
+   and produced a large empty gap on desktop. */
 
 .left-column {
   border-right: 1px solid #dee2e6;
