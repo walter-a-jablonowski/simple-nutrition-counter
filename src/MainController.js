@@ -264,60 +264,49 @@ class MainController
 
 
   // Settings btn (tab content see below)
+  // <main id="mainView"> uses d-flex (Bootstrap !important) so we toggle visibility via the d-none class
 
   settingsBtnClick(event)
   {
+    if( event ) event.preventDefault()
+
     var mainView     = query('#mainView')
     var settingsView = query('#settingsView')
 
-    if( mainView.style.display === 'block')
+    const showingSettings = ! settingsView.classList.contains('d-none')
+
+    if( showingSettings )
     {
-      mainView.style.display     = 'none'
-      settingsView.style.display = 'block'
+      mainView.classList.remove('d-none')
+      settingsView.classList.add('d-none')
     }
     else
     {
-      mainView.style.display     = 'block'
-      settingsView.style.display = 'none'
+      mainView.classList.add('d-none')
+      settingsView.classList.remove('d-none')
     }
   }
 
 
   // List: btns
+  // Unprecise toggles drive two visuals at once: desktop button (text-warning vs text-secondary)
+  // and the mobile dropdown item (.bi-check .invisible flag)
 
   toggleUnpreciseMode(event)
   {
     event.preventDefault()
-    
-    const btn = query('#unpreciseToggleBtn')
-    const icon = btn.querySelector('i')
-    const isCurrentlyOn = icon.classList.contains('text-warning')
-    const newState = !isCurrentlyOn
-    
-    // Toggle button appearance
-    if( isCurrentlyOn )
-    {
-      // Turn off: secondary warning icon
-      icon.className = 'bi bi-exclamation-circle-fill text-secondary'
-    }
-    else
-    {
-      // Turn on: warning circle icon
-      icon.className = 'bi bi-exclamation-circle-fill text-warning'
-    }
-    
-    // Update the data file header via AJAX
-    ajax.send('updateUnpreciseHeader', { date: this.date, unprecise: newState }, function(result, data) {
-      if( result !== 'success' )
+
+    const desktopIcon = query('#unpreciseToggleBtn').querySelector('i')
+    const isOn        = desktopIcon.classList.contains('text-warning')
+    const newState    = ! isOn
+
+    this.applyUnpreciseUi('nutrients', newState)
+
+    ajax.send('updateUnpreciseHeader', { date: this.date, unprecise: newState }, (result, data) => {
+      if( result !== 'success')
       {
         console.error('Failed to update unprecise header:', data.message || 'Unknown error')
-        // Revert button state on error
-        const btn = query('#unpreciseToggleBtn')
-        const icon = btn.querySelector('i')
-        if( newState )
-          icon.className = 'bi bi-exclamation-circle-fill text-secondary'
-        else
-          icon.className = 'bi bi-exclamation-circle-fill text-warning'
+        this.applyUnpreciseUi('nutrients', ! newState)   // revert
       }
     })
   }
@@ -325,38 +314,50 @@ class MainController
   toggleUnpreciseTimeMode(event)
   {
     event.preventDefault()
-    
-    const btn = query('#unpreciseTimeToggleBtn')
-    const icon = btn.querySelector('i')
-    const isCurrentlyOn = icon.classList.contains('text-warning')
-    const newState = !isCurrentlyOn
-    
-    // Toggle button appearance
-    if( isCurrentlyOn )
-    {
-      // Turn off: secondary stopwatch icon
-      icon.className = 'bi bi-stopwatch-fill text-secondary'
-    }
-    else
-    {
-      // Turn on: warning stopwatch icon
-      icon.className = 'bi bi-stopwatch-fill text-warning'
-    }
-    
-    // Update the data file header via AJAX
-    ajax.send('updateUnpreciseTimeHeader', { date: this.date, unpreciseTime: newState }, function(result, data) {
-      if( result !== 'success' )
+
+    const desktopIcon = query('#unpreciseTimeToggleBtn').querySelector('i')
+    const isOn        = desktopIcon.classList.contains('text-warning')
+    const newState    = ! isOn
+
+    this.applyUnpreciseUi('time', newState)
+
+    ajax.send('updateUnpreciseTimeHeader', { date: this.date, unpreciseTime: newState }, (result, data) => {
+      if( result !== 'success')
       {
         console.error('Failed to update unprecise time header:', data.message || 'Unknown error')
-        // Revert button state on error
-        const btn = query('#unpreciseTimeToggleBtn')
-        const icon = btn.querySelector('i')
-        if( newState )
-          icon.className = 'bi bi-stopwatch-fill text-secondary'
-        else
-          icon.className = 'bi bi-stopwatch-fill text-warning'
+        this.applyUnpreciseUi('time', ! newState)        // revert
       }
     })
+  }
+
+  applyUnpreciseUi( type, on )    // type: 'nutrients' | 'time'
+  {
+    const isTime    = type === 'time'
+    const desktopId = isTime ? 'unpreciseTimeToggleBtn' : 'unpreciseToggleBtn'
+    const mobileId  = isTime ? 'toggleTime'             : 'toggleNutrients'
+    const iconBase  = isTime ? 'bi-stopwatch-fill'      : 'bi-exclamation-circle-fill'
+
+    const desktopIcon = document.querySelector('#' + desktopId + ' i')
+    if( desktopIcon )
+      desktopIcon.className = 'bi ' + iconBase + (on ? ' text-warning' : ' text-secondary')
+
+    const mobileCheck = document.querySelector('#' + mobileId + ' i.bi-check')
+    if( mobileCheck )
+      mobileCheck.classList.toggle('invisible', ! on)
+
+    this.updateUnpreciseDropdownIcon()
+  }
+
+  updateUnpreciseDropdownIcon()   // mobile trigger turns orange if any unprecise flag is set
+  {
+    const trigger = document.querySelector('#unpreciseDropdown i')
+    if( ! trigger ) return
+
+    const anyOn = ['#toggleNutrients', '#toggleTime', '#togglePrice'].some( sel => {
+      const c = document.querySelector( sel + ' i.bi-check')
+      return c && ! c.classList.contains('invisible')
+    })
+    trigger.style.color = anyOn ? '#fd7e14' : ''   // Bootstrap orange / reset
   }
 
   deleteLastLineBtnClick(event)

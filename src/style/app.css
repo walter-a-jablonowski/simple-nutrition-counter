@@ -163,3 +163,387 @@ body.ext {
 /* .ext-btn { background-color: #eb6864; color: white; border: none; } */
 .ext-btn { background-color: #e95420; color: white; border: none; }
 .ext-btn:hover { background-color: #e55347; }
+
+
+/* ======================================
+   DESIGN 3 LAYOUT
+   merged from dev/layout_menu/design_3/style.css
+   ====================================== */
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #d9dde3 !important;  /* slightly darker than bg-light, creates panel depth */
+}
+
+/* Prevent content overflow and ensure consistent box model */
+.app-d3 *, .app-d3 *::before, .app-d3 *::after {
+  box-sizing: border-box;
+}
+
+/* Navigation (common) */
+
+.app-d3 .nav-link {
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.2s ease-in-out;
+}
+.app-d3 .nav-link:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+.app-d3 .nav-link.active {
+  color: #fff !important;
+}
+
+/* Landscape sidebar */
+
+#sidebar {
+  width: 60px;
+  height: 100vh;
+  position: fixed;
+  right: 0;
+  top: 0;
+  padding: 1rem 0;
+  z-index: 1030;
+  background-color: #111318 !important;     /* darker than bg-dark */
+  /* background-color: #e95420 !important; */  /* removed for now */
+}
+
+#sidebar .nav-link {
+  padding: 0.75rem 0;
+  text-align: center;
+  width: 100%;
+}
+
+#sidebar .bi {
+  font-size: 1.5rem;
+}
+
+/* Portrait bottom nav */
+
+#bottomNav {
+  height: 56px;
+  padding: 0;
+  background-color: #111318 !important;
+}
+
+#bottomNav .nav-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+#bottomNav .nav-link {
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#bottomNav .bi {
+  font-size: 1.25rem;
+}
+
+/* Main layout */
+
+main.app-d3 {
+  padding-right: 60px !important;  /* account for sidebar width */
+}
+
+@media (min-width: 768px) {
+  #favoritesLayout {
+    padding-right: 60px !important;
+  }
+}
+
+.right-column .content-wrapper {
+  max-width: calc(100% - 60px);
+}
+
+.left-column {
+  border-right: 1px solid #dee2e6;
+  background-color: #ffffff;
+}
+
+.left-column header,
+#favoritesLayout header {
+  background-color: #ffffff !important;
+}
+
+.right-column {
+  background-color: #ffffff;
+}
+
+.left-column, .right-column {
+  padding: 0;
+}
+
+/* Scrollable content areas */
+
+.content-wrapper {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE/Edge */
+}
+.content-wrapper::-webkit-scrollbar {
+  display: none;                /* Chrome/Safari/Opera */
+}
+
+/* Nutrition widgets */
+
+.nutrition-widgets {
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .nutrition-widgets {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #ffffff;
+  }
+}
+
+.nutrition-widgets .overflow-auto {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overflow-x: auto;
+  position: relative;
+}
+.nutrition-widgets .overflow-auto::-webkit-scrollbar {
+  display: none;
+}
+
+.nutrition-widgets .scroll-arrow {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease, background-color 0.2s ease;
+}
+.nutrition-widgets .scroll-arrow:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+.nutrition-widgets .scroll-arrow.visible {
+  opacity: 1;
+}
+.nutrition-widgets .scroll-arrow i {
+  font-size: 1.2rem;
+  color: #212529;
+}
+
+.nutrition-widgets .widgets-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  width: max-content;
+  min-width: 100%;
+  padding: 0.25rem 0;
+}
+
+.nutrition-widgets .nutrition-widget {
+  min-width: 140px;
+  max-width: 180px;
+  width: auto;
+  flex: 0 0 auto;
+  padding: 0.5rem;
+  padding-top: 0;     /* remove space above label */
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Compact label with dark bar */
+.nutrition-widgets .nutrition-widget .widget-label {
+  display: block;
+  background-color: #000;
+  color: #fff;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px 4px 0 0;   /* no rounding on bottom */
+  margin-bottom: 0.25rem;
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+.nutrition-widgets .nutrition-widget .widget-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.1;
+  padding: 0 0.55rem;
+  max-width: 100%;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.nutrition-widgets .nutrition-widget.widget-red {
+  background-color: #e87080;
+  color: #842029;
+  border-color: #e87080;
+}
+.nutrition-widgets .nutrition-widget.widget-green {
+  background-color: #5cad88;
+  color: #0f5132;
+  border-color: #5cad88;
+}
+.nutrition-widgets .nutrition-widget.widget-yellow {
+  background-color: #ffd86b;
+  color: #664d03;
+  border-color: #ffd86b;
+}
+
+/* Food grid */
+
+.food-grid {
+  position: relative;
+}
+
+@media (max-width: 767.98px) {
+  .food-grid {
+    padding-bottom: 70px;        /* room for bottom nav */
+  }
+}
+
+.food-grid .row {
+  /* keep current overflow as in design but avoid clipping the layout tabs */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.food-grid .row::-webkit-scrollbar {
+  display: none;
+}
+
+.food-grid .demo-content {
+  max-width: 100%;
+}
+
+.food-grid .card {
+  max-width: 100%;
+}
+
+/* Mobile caret button */
+
+.mobile-caret-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+}
+.mobile-caret-btn i {
+  font-size: 1.2rem;
+}
+
+/* Unprecise dropdown menu */
+
+#unpreciseDropdown {
+  color: #6c757d;
+  position: relative;
+  top: -1px;
+}
+#unpreciseDropdown:hover {
+  color: #495057;
+}
+
+.app-d3 .dropdown-menu {
+  min-width: 160px;
+  font-size: 0.95rem;
+}
+.app-d3 .dropdown-item {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+.app-d3 .dropdown-item:active {
+  background-color: #e9ecef;
+}
+.app-d3 .dropdown-item i.bi-check-square {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* Responsive */
+
+@media (max-width: 767.98px) {
+
+  /* Mobile collapsed state for the left column */
+
+  .left-column.collapsed {
+    height: 10vh !important;
+    overflow-y: auto;
+  }
+  .left-column section.flex-grow-1.collapsed {
+    height: auto;
+    overflow-y: auto;
+  }
+
+  main.app-d3 {
+    padding-right: 0 !important;
+    padding-bottom: 56px;        /* room for bottom nav */
+  }
+
+  .right-column .content-wrapper {
+    max-width: 100%;
+  }
+
+  #favoritesLayout {
+    padding-right: 0 !important;
+    padding-bottom: 56px;
+  }
+
+  .left-column {
+    border-right: none;
+    border-bottom: 1px solid #dee2e6;
+    height: 33.33% !important;
+  }
+
+  .right-column {
+    height: 66.67% !important;
+  }
+
+  .left-column, .right-column {
+    padding: 0;
+  }
+
+  .food-grid .row {
+    max-width: calc(100% - 15px);
+  }
+
+  .nutrition-widgets .widgets-container {
+    width: max-content;
+    min-width: 100%;
+    gap: 0.75rem;
+  }
+
+  .nutrition-widgets .nutrition-widget {
+    min-width: 120px;
+    width: auto;
+  }
+
+  .nutrition-widgets .scroll-arrow {
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+  }
+}

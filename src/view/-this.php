@@ -24,79 +24,292 @@ elseif( ! session_id() ):
 else:
 ?>
 -->
-  <nav class="navbar navbar-expand-lg bg-primary">
-    <div class="container-fluid">
-      <div class="d-flex w-100 justify-content-between">
 
-        <!-- Simplified -->
+  <!-- Sidebar (landscape / desktop) -->
 
-        <div class="navbar-brand text-white">  <!-- div for flex align -->
+  <nav id="sidebar" class="navbar navbar-dark bg-dark d-none d-md-flex flex-column">
+    <div class="container-fluid p-0 h-100 d-flex flex-column justify-content-between">
 
-          <i class="bi bi-app"></i>  <!-- some app logo -->
+      <!-- Top: section switcher -->
 
-          <select id="userSelect" onchange="mainCrl.userSelectChange(event)" class="bg-transparent border-0 text-white">
-            <?php foreach( User::getAll() as $userId ): ?>
-              <option value="<?= $userId ?>"<?= self::iif( $userId == User::current('id'), ' selected') ?>>
-                <?= User::byId( $userId )->get('name') ?>
-              </option>
-            <?php endforeach; ?>
-          </select>
-
-          <button onclick="mainCrl.switchDayBtnClick(event)"
-            data-sel = "<?= $this->mode ?>"
-            class    = "btn btn-sm ms-1 mb-1 text-white p-1 py-0 border-light"
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a data-nav="day" class="nav-link active" href="#" title="This day">
+            <i class="bi bi-calendar-day"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a data-nav="nutrients" class="nav-link" href="#" title="Nutrients">
+            <i class="bi bi-cup-straw"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a data-nav="favorites" class="nav-link" href="#" title="Last days">
+            <i class="bi bi-calendar-range"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" title="Info"
+            data-bs-toggle = "modal"
+            data-bs-target = "#tipsModal"
           >
-            <?php
-              $weekdays = ['Mon' => 'Mo', 'Tue' => 'Tu', 'Wed' => 'We', 'Thu' => 'Th', 'Fri' => 'Fr', 'Sat' => 'Sa', 'Sun' => 'Su'];
-              $day = $weekdays[date('D')] . ' ' . date('j') . '.';
-            ?>
-            <?= self::switch( $this->mode, [
-                'current' => $day,
-                'last'    => '-1 day',
-                'next'    => '+1 day'
-              ]) ?? $day
-            ?>
-          </button>
-        </div>
-        
-        <div class="navbar-brand me-1">   <!-- div for flex align, currently just added a sec navbar-brand and mb for same paddings -->
-          <button data-bs-toggle="modal" data-bs-target="#tipsModal" class="btn btn-sm mb-1 text-white" type="button">
-            <i class="bi bi-info-circle icon-circle"></i>
-          </button>
-          <button id="settingsBtn" onclick="mainCrl.settingsBtnClick(event)" class="btn btn-sm mb-1" type="button">
-            <i class="bi bi-gear-fill text-white"></i>
-          </button>
-        </div>
-      </div>
-      <!--
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      -->
-      <div class="collapse navbar-collapse">
-        <ul class="navbar-nav">
-        <!--
-          <li class="nav-item">
-            <a class="nav-link active" data-bs-toggle="tab" href="#import" role="tab">Import</a>
-          </li>
-        -->
-        </ul>
+            <i class="bi bi-info-circle"></i>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Bottom: settings -->
+
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a id="settingsBtn" onclick="mainCrl.settingsBtnClick(event)" class="nav-link" href="#" title="Settings">
+            <i class="bi bi-person"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Bottom nav (portrait / mobile) -->
+
+  <nav id="bottomNav" class="navbar navbar-dark bg-dark fixed-bottom d-md-none">
+    <div class="container-fluid px-2">
+      <div class="nav-content">
+        <a data-nav="day" class="nav-link active" href="#" title="This day">
+          <i class="bi bi-calendar-day"></i>
+        </a>
+        <a data-nav="nutrients" class="nav-link" href="#" title="Nutrients">
+          <i class="bi bi-cup-straw"></i>
+        </a>
+        <a data-nav="favorites" class="nav-link" href="#" title="Last days">
+          <i class="bi bi-calendar-range"></i>
+        </a>
+        <a class="nav-link" href="#" title="Info"
+          data-bs-toggle = "modal"
+          data-bs-target = "#tipsModal"
+        >
+          <i class="bi bi-info-circle"></i>
+        </a>
+        <a onclick="mainCrl.settingsBtnClick(event)" class="nav-link" href="#" title="Settings">
+          <i class="bi bi-person"></i>
+        </a>
       </div>
     </div>
   </nav>
 
-  <div id="mainView" class="container-fluid mt-3" style="display: block;">  <!-- needed -->
+  <!-- Main content -->
 
-    <?php require( __DIR__ . '/main/-this.php'); ?>
+  <main id="mainView" class="app-d3 container-fluid h-100 p-0 d-flex flex-column">
 
-  </div>
+    <div id="mainLayout" class="row g-0 flex-grow-1 h-100">
 
-  <div id="settingsView" class="container-fluid mt-3" style="display: none;">
+      <!-- Left column (day textarea + action buttons) -->
+
+      <div class="left-column col-md-2 h-100">
+        <div class="content-wrapper h-100 overflow-auto d-flex flex-column">
+
+          <!-- Header -->
+
+          <header class="bg-light border-bottom py-2 px-3 text-break fs-5 d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+
+              <i class="bi bi-app"></i>  <!-- some app logo -->
+
+              <select onchange="mainCrl.userSelectChange(event)" class="js-userSelect border-0 fs-5">
+                <?php foreach( User::getAll() as $userId ): ?>
+                  <option value="<?= $userId ?>"<?= self::iif( $userId == User::current('id'), ' selected') ?>>
+                    <?= User::byId( $userId )->get('name') ?>
+                  </option>
+                <?php endforeach; ?>
+              </select>
+
+              <button onclick="mainCrl.switchDayBtnClick(event)"
+                data-sel = "<?= $this->mode ?>"
+                class    = "js-switchDayBtn btn ms-1 p-1 py-0 border"
+              >
+                <?php
+                  $weekdays = ['Mon' => 'Mo', 'Tue' => 'Tu', 'Wed' => 'We', 'Thu' => 'Th', 'Fri' => 'Fr', 'Sat' => 'Sa', 'Sun' => 'Su'];
+                  $day = $weekdays[date('D')] . ' ' . date('j') . '.';
+                ?>
+                <?= self::switch( $this->mode, [
+                    'current' => $day,
+                    'last'    => '-1 day',
+                    'next'    => '+1 day'
+                  ]) ?? $day
+                ?>
+              </button>
+            </div>
+
+            <!-- Mobile action buttons -->
+
+            <div class="d-flex align-items-center gap-3 d-md-none">
+
+              <div class="dropdown">
+                <button class="btn p-1 border-0 bg-transparent" type="button" id="unpreciseDropdown" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Unprecise options">
+                  <i class="bi bi-exclamation-circle-fill" aria-hidden="true"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="unpreciseDropdown">
+                  <li>
+                    <a class="dropdown-item d-flex align-items-center" href="#" id="toggleNutrients" onclick="mainCrl.toggleUnpreciseMode(event)">
+                      <i class="bi bi-check me-2 text-primary<?= $this->isUnprecise ? '' : ' invisible' ?>"></i>
+                      <span>Nutrients</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item d-flex align-items-center" href="#" id="toggleTime" onclick="mainCrl.toggleUnpreciseTimeMode(event)">
+                      <i class="bi bi-check me-2 text-primary<?= $this->isUnpreciseTime ? '' : ' invisible' ?>"></i>
+                      <span>Time</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item d-flex align-items-center" href="#" id="togglePrice">
+                      <i class="bi bi-check me-2 text-primary invisible"></i>
+                      <span>Price</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <button onclick="mainCrl.deleteLastLineBtnClick(event)" class="btn p-1 border-0 bg-transparent" aria-label="Delete">
+                <i class="bi bi-backspace" aria-hidden="true"></i>
+              </button>
+
+              <button onclick="mainCrl.saveDayEntriesBtnClick(event)" class="btn p-1 border-0 bg-transparent" aria-label="Save">
+                <i class="bi bi-floppy" aria-hidden="true"></i>
+              </button>
+
+              <button id="expandBtn" class="mobile-caret-btn btn p-1" aria-label="Toggle view">
+                <i class="bi bi-caret-down" aria-hidden="true"></i>
+              </button>
+            </div>
+          </header>
+
+          <!-- Day entries textarea -->
+
+          <section class="flex-grow-1 mt-2 px-3 d-flex flex-column">
+
+            <?php require( __DIR__ . '/main/edit/day_entries.php'); ?>
+
+          </section>
+
+          <!-- Desktop action buttons -->
+
+          <div class="d-none d-md-flex justify-content-center gap-3 py-2 px-3" role="toolbar">
+
+            <!-- Toggle button for unprecise time mode -->
+            <button id="unpreciseTimeToggleBtn" onclick="mainCrl.toggleUnpreciseTimeMode(event)" class="btn p-1 border-0 bg-transparent" title="Toggle unprecise time data">
+              <i class="bi bi-stopwatch-fill<?= $this->isUnpreciseTime ? ' text-warning' : ' text-secondary' ?>"></i>
+            </button>
+
+            <!-- Toggle button for unprecise mode -->
+            <button id="unpreciseToggleBtn" onclick="mainCrl.toggleUnpreciseMode(event)" class="btn p-1 border-0 bg-transparent" title="Toggle unprecise food data">
+              <i class="bi bi-exclamation-circle-fill<?= $this->isUnprecise ? ' text-warning' : ' text-secondary' ?>"></i>
+            </button>
+
+            <!-- Backspace button to delete last line -->
+            <button onclick="mainCrl.deleteLastLineBtnClick(event)" class="btn p-1 border-0 bg-transparent">
+              <i class="bi bi-backspace"></i>
+            </button>
+
+            <!-- TASK: rm currently used save btn -->
+            <button onclick="mainCrl.saveDayEntriesBtnClick(event)" class="btn p-1 border-0 bg-transparent">
+              <i class="bi bi-floppy"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right column (widgets + content panes) -->
+
+      <div class="right-column col-md-10 h-100">
+        <div class="content-wrapper h-100 overflow-auto d-flex flex-column">
+
+          <?php require( __DIR__ . '/main/edit/quick_summary.php'); ?>
+
+          <!-- Food grid -->
+
+          <section class="food-grid flex-grow-1 py-2 px-3">
+            <div class="row g-3">
+              <div class="col-12">
+
+                <div id="dayContent">
+
+                  <?php require( __DIR__ . '/main/edit/layout/-this.php'); ?>
+
+                </div>
+
+                <div id="nutrientsContent" class="d-none">
+
+                  <?php require( __DIR__ . '/main/nutrients.php'); ?>
+
+                </div>
+
+                <!-- Moved to #favoritesLayout -->
+<!--
+                <div id="lastDaysContent" class="d-none">
+                </div>
+-->
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- Favorites layout (Last days; hidden by default) -->
+
+    <div id="favoritesLayout" class="row g-0 flex-grow-1 h-100 d-none">
+      <div class="col-12 h-100">
+        <div class="content-wrapper h-100 overflow-auto d-flex flex-column">
+
+          <!-- Header (duplicate of main; wired live to the same handlers) -->
+
+          <header class="bg-light border-bottom py-2 px-3 text-break fs-5 d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+
+              <i class="bi bi-app"></i>
+
+              <select onchange="mainCrl.userSelectChange(event)" class="js-userSelect border-0 fs-5">
+                <?php foreach( User::getAll() as $userId ): ?>
+                  <option value="<?= $userId ?>"<?= self::iif( $userId == User::current('id'), ' selected') ?>>
+                    <?= User::byId( $userId )->get('name') ?>
+                  </option>
+                <?php endforeach; ?>
+              </select>
+
+              <button onclick="mainCrl.switchDayBtnClick(event)"
+                data-sel = "<?= $this->mode ?>"
+                class    = "js-switchDayBtn btn ms-1 p-1 py-0 border"
+              >
+                <?= self::switch( $this->mode, [
+                    'current' => $day,
+                    'last'    => '-1 day',
+                    'next'    => '+1 day'
+                  ]) ?? $day
+                ?>
+              </button>
+            </div>
+          </header>
+
+          <!-- Scrollable content area -->
+
+          <div class="flex-grow-1 overflow-auto p-3">
+            <!-- <div class="row g-3"> -->  <!-- TASK what is this ? -->
+
+            <?php require( __DIR__ . '/main/last_days.php'); ?>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="settingsView" class="container-fluid mt-3 d-none">
 
     <?php require( __DIR__ . '/settings.php'); ?>
 
   </div>
-  
+
   <?php print $this->renderView( __DIR__ . '/modal/tips.php'); ?>  <!-- prefer new scope when much code -->
   <?php require( __DIR__ . '/modal/help.php'); ?>
   <?php require( __DIR__ . '/modal/about.php'); ?>
@@ -130,12 +343,13 @@ else:
 <!-- <script src="lib/frm/fade_230808.js"></script> -->
 <script src="app.js?v=<?= time() ?>"></script>
 <script src="MainController.js?v=<?= time() ?>"></script>
+<script src="NutritionWidgetsController.js?v=<?= time() ?>"></script>
 <!-- <script src="SettingsController.js?v=<?= time() ?>"></script> -->
 <script>
 
 // ajax.file = 'ajax.php'
 
-var dayEntries, mainCrl
+var dayEntries, mainCrl, widgetsCrl
 
 ready( function() {
 
@@ -144,7 +358,9 @@ ready( function() {
   mainCrl = new MainController()
   mainCrl.date = '<?= $this->date ?>'
   mainCrl.updSummary()
-  
+
+  widgetsCrl = new NutritionWidgetsController()
+
   setupTabletErrorHandler()
 })
 
