@@ -1,0 +1,425 @@
+/* ======================================
+   GLOBAL STYLES
+   ====================================== */
+
+/* Base styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #d9dde3 !important; /* Slightly darker than bg-light, creates panel depth */
+}
+
+/* Prevent content overflow and ensure consistent box model */
+* {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* ======================================
+   NAVIGATION STYLES
+   ====================================== */
+
+/* Common navigation styles */
+.nav-link {
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.nav-link.active {
+  color: #fff !important;
+}
+
+/* Landscape mode navigation (right sidebar) */
+#sidebar {
+  width: 60px;
+  height: 100vh;
+  position: fixed;
+  right: 0;
+  top: 0;
+  padding: 1rem 0;
+  z-index: 1030;
+  background-color: #111318 !important; /* darker than bg-dark */
+  /* background-color: #e95420 !important; */  /* removed for now */
+}
+
+#sidebar .nav-link {
+  padding: 0.75rem 0;
+  text-align: center;
+  width: 100%;
+}
+
+#sidebar .bi {
+  font-size: 1.5rem;
+}
+
+/* Portrait mode navigation (bottom bar) */
+#bottomNav {
+  height: 56px;
+  padding: 0;
+  background-color: #111318 !important; /* darker than bg-dark */
+}
+
+#bottomNav .nav-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+#bottomNav .nav-link {
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#bottomNav .bi {
+  font-size: 1.25rem;
+}
+
+/* ======================================
+   LAYOUT STYLES
+   ====================================== */
+
+/* Main content layout */
+main {
+  padding-right: 60px !important; /* Account for sidebar width */
+}
+
+/* Favorites layout - same padding as main content on desktop */
+@media (min-width: 768px) {
+  #favoritesLayout {
+    padding-right: 60px !important; /* Account for sidebar width on desktop */
+  }
+}
+
+/* Fix for content being hidden under sidebar */
+.right-column .content-wrapper {
+  max-width: calc(100% - 60px); /* Ensure content doesn't extend under sidebar */
+}
+
+/* Column styling */
+.left-column {
+  border-right: 1px solid #dee2e6;
+  background-color: #ffffff;
+}
+
+/* Override bg-light on headers inside columns */
+.left-column header,
+#favoritesLayout header {
+  background-color: #ffffff !important;
+}
+
+.right-column {
+  background-color: #ffffff;
+}
+
+.left-column, .right-column {
+  padding: 0;
+}
+
+/* Scrollable content areas */
+.content-wrapper {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.content-wrapper::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* ======================================
+   NUTRITION WIDGETS STYLES
+   ====================================== */
+
+.nutrition-widgets {
+  position: relative;
+}
+
+/* Make nutrition widgets sticky on desktop */
+@media (min-width: 768px) {
+  .nutrition-widgets {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #ffffff;
+  }
+}
+
+.nutrition-widgets .overflow-auto {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  overflow-x: auto;
+  position: relative;
+}
+
+.nutrition-widgets .overflow-auto::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.nutrition-widgets .scroll-arrow {
+  position: absolute;
+  right: 10px; /* Positioned to avoid sidebar overlap */
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease, background-color 0.2s ease;
+}
+
+.nutrition-widgets .scroll-arrow:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.nutrition-widgets .scroll-arrow.visible {
+  opacity: 1;
+}
+
+.nutrition-widgets .scroll-arrow i {
+  font-size: 1.2rem;
+  color: #212529;
+}
+
+/* Widgets container with horizontal scrolling */
+.nutrition-widgets .widgets-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  width: max-content; /* Grow to fit all widgets */
+  min-width: 100%; /* But not smaller than viewport */
+  padding: 0.25rem 0; /* Vertical padding for better spacing */
+}
+
+.nutrition-widgets .nutrition-widget {
+  min-width: 140px;
+  max-width: 180px;
+  width: auto;
+  flex: 0 0 auto;
+  padding: 0.5rem;
+  padding-top: 0;    /* remove space above label */
+  padding-left: 0;   /* remove left padding */
+  padding-right: 0;  /* remove right padding */
+}
+
+/* Compact single-line label with grey background and unified size */
+.nutrition-widgets .nutrition-widget .widget-label {
+  display: block;
+  background-color: #000;   /* black label bar */
+  color: #fff;
+  font-size: 0.8rem;          /* unified label size */
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px 4px 0 0; /* no rounded edges at the bottom */
+  margin-bottom: 0.25rem;
+  white-space: nowrap;        /* keep in one line */
+  overflow: visible;
+  text-overflow: clip;        /* show full text */
+}
+
+/* Value emphasis while inheriting color (white on colored cards) */
+.nutrition-widgets .nutrition-widget .widget-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.1;
+  padding: 0 0.55rem; /* slight inset for long text */
+  max-width: 100%;
+  display: block;
+  white-space: nowrap; /* prevent text wrapping */
+  overflow: hidden; /* hide overflowing text */
+}
+
+/* Color utility classes to apply in HTML on widgets */
+.nutrition-widgets .nutrition-widget.widget-red {
+  background-color: #e87080;
+  color: #842029;
+  border-color: #e87080;
+}
+
+.nutrition-widgets .nutrition-widget.widget-green {
+  background-color: #5cad88;
+  color: #0f5132;
+  border-color: #5cad88;
+}
+
+.nutrition-widgets .nutrition-widget.widget-yellow {
+  background-color: #ffd86b;
+  color: #664d03;
+  border-color: #ffd86b;
+}
+
+/* ======================================
+   FOOD GRID STYLES
+   ====================================== */
+
+.food-grid {
+  position: relative;
+}
+
+/* Ensure content isn't hidden under bottom nav on mobile */
+@media (max-width: 767.98px) {
+  .food-grid {
+    padding-bottom: 70px; /* Add padding to account for bottom nav */
+  }
+}
+
+.food-grid .row {
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  max-width: calc(100% - 10px); /* Ensure content doesn't extend under sidebar */
+}
+
+.food-grid .row::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.food-grid .demo-content {
+  max-width: 100%;
+}
+
+.food-grid .card {
+  max-width: 100%;
+}
+
+/* ======================================
+   MOBILE CARET BUTTON
+   ====================================== */
+
+.mobile-caret-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+}
+
+.mobile-caret-btn i {
+  font-size: 1.2rem;
+}
+
+/* ======================================
+   UNPRECISE DROPDOWN MENU
+   ====================================== */
+
+#unpreciseDropdown {
+  color: #6c757d;
+  position: relative;
+  top: -1px;
+}
+
+#unpreciseDropdown:hover {
+  color: #495057;
+}
+
+.dropdown-menu {
+  min-width: 160px;
+  font-size: 0.95rem;
+}
+
+.dropdown-item {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.dropdown-item:active {
+  background-color: #e9ecef;
+}
+
+.dropdown-item i.bi-check-square {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* ======================================
+   RESPONSIVE STYLES
+   ====================================== */
+
+@media (max-width: 767.98px) {
+  /* Mobile collapsed state for main content section */
+  .left-column.collapsed {
+    height: 10vh !important; /* Make the entire left column much smaller */
+    overflow-y: auto;
+  }
+
+  .left-column section.flex-grow-1.collapsed {
+    height: auto; /* Let the section fill available space */
+    overflow-y: auto;
+  }
+
+  /* Mobile specific styles */
+  main {
+    padding-right: 0 !important;
+    padding-bottom: 56px; /* Account for bottom navigation height */
+  }
+
+  .right-column .content-wrapper {
+    max-width: 100%;
+  }
+
+  #favoritesLayout {
+    padding-right: 0 !important;
+    padding-bottom: 56px; /* Account for bottom navigation height */
+  }
+
+  /* Column adjustments */
+  .left-column {
+    border-right: none;
+    border-bottom: 1px solid #dee2e6;
+    height: 33.33% !important;
+  }
+
+  .right-column {
+    height: 66.67% !important;
+  }
+
+  .left-column, .right-column {
+    padding: 0;
+  }
+
+  /* Keep food list constrained, but allow widgets to grow */
+  .food-grid .row {
+    max-width: calc(100% - 15px);
+  }
+
+  .nutrition-widgets .widgets-container {
+    width: max-content;
+    min-width: 100%;
+    gap: 0.75rem; /* Smaller gap on mobile */
+  }
+
+  /* Mobile-specific widget adjustments */
+  .nutrition-widgets .nutrition-widget {
+    min-width: 120px; /* baseline, can expand to fit label */
+    width: auto;
+  }
+
+  /* Nutrition widgets arrow positioning */
+  .nutrition-widgets .scroll-arrow {
+    right: 10px; /* Reset to default on mobile since there's no sidebar */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%);
+    z-index: 100; /* Ensure it's above other elements */
+  }
+}
