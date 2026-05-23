@@ -1,0 +1,37 @@
+/* AI generated */
+
+:root {
+  /* --bs-primary: #ff6347 !important; */
+  /* --bs-primary: #eb6864 !important; */
+  --bs-primary: #e95420 !important;
+}
+
+.bg-primary {
+  background-color: var(--bs-primary) !important;
+}
+
+.btn-primary {
+  background-color: var(--bs-primary) !important;
+  border-color: var(--bs-primary) !important;
+}
+
+.nav-tabs .nav-link {
+  color: var(--bs-primary) !important;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-link.active:hover, .nav-tabs .nav-link.active:focus {
+  color: var(--bs-primary) !important;
+}
+
+.nav-pills .nav-link {
+  color: var(--bs-primary);
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: var(--bs-primary);
+}
+
+.progress-bar.bg-success {
+  background-color: #38B44A !important;
+}
