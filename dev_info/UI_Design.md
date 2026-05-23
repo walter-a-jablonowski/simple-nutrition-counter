@@ -80,11 +80,13 @@ row
 Scrollbars
 ----------------------------------------------------------
 
-Detection by input device, not viewport size, via `@media (hover: hover) and (pointer: fine)`.
+Detection by input device, not viewport size, via `@media (hover: none), (pointer: coarse)` (matches touch).
 
 - PC (mouse / fine pointer): visible (native scrollbar acts as affordance)
 - Tablet: hidden (touch input)
 - Smartphone: hidden (touch input)
 - User opt-out via `settings.yml > hideScrollbars: true` -> `body.no-scrollbars` hides them on every device (e.g. touchpad-only PC users)
+
+Scrolling lives in inner containers (`.food-grid`, settings view, modal bodies, textarea), never on the page itself - so there is only ever one scrollbar in view.
 
 Exception: the nutrition widgets bar (`.nutrition-widgets .overflow-auto`) never shows a horizontal scrollbar - a custom scroll-arrow button is the affordance.

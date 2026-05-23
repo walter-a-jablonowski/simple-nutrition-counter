@@ -276,29 +276,30 @@ main.app-d3 {
   padding: 0;
 }
 
-/* Scrollable content areas */
+/* Scrollable content areas
+   The .food-grid section (with its tabs + food list) is the right-hand scroll
+   container - NOT .content-wrapper. That way scrolling stays scoped to the food
+   list area; the nutrition-widgets bar sits above as a static flex sibling.
+   Making content-wrapper scroll too produces a second scrollbar covering the
+   whole right column. */
 
 .content-wrapper {
-  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  /* Default: scrollbars hidden (matches touch devices - tablets and phones).
-     PCs with a mouse override this below. */
-  scrollbar-width: none;          /* Firefox */
-  -ms-overflow-style: none;       /* IE/Edge */
-}
-.content-wrapper::-webkit-scrollbar {
-  display: none;                  /* Chrome/Safari/Opera */
 }
 
-/* PC (mouse with fine pointer): restore native scrollbar as an affordance.
-   Tablets and phones lack `pointer: fine` / `hover: hover`, so they keep scrollbars hidden. */
-@media (hover: hover) and (pointer: fine) {
-  .content-wrapper {
-    scrollbar-width: auto;
-    -ms-overflow-style: auto;
+/* Touch devices only (tablets, phones) - hide scrollbars on the scroll containers
+   inside the app layout. PC (mouse / fine pointer) is left untouched so native
+   scrollbars show as an affordance. The widget bar (.nutrition-widgets .overflow-auto)
+   opts out further below - its affordance is the dedicated scroll-arrow button. */
+@media (hover: none), (pointer: coarse) {
+  .food-grid,
+  .app-d3 .overflow-auto {
+    scrollbar-width: none;          /* Firefox */
+    -ms-overflow-style: none;       /* IE/Edge */
   }
-  .content-wrapper::-webkit-scrollbar {
-    display: initial;
+  .food-grid::-webkit-scrollbar,
+  .app-d3 .overflow-auto::-webkit-scrollbar {
+    display: none;                  /* Chrome/Safari/Opera */
   }
 }
 
@@ -438,7 +439,8 @@ body.no-scrollbars::-webkit-scrollbar {
 .food-grid {
   position: relative;
   min-width: 0;               /* allow flex parent to shrink this column */
-  overflow-x: hidden;         /* clip any incidental horizontal overflow on small viewports */
+  min-height: 0;              /* allow this flex item to shrink below content height (required for overflow scrolling in a flex column) */
+  overflow-y: auto;           /* scroll container for the food list (PC shows native scrollbar; touch hides it via the rule above) */
 }
 
 @media (max-width: 767.98px) {
