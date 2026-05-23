@@ -254,15 +254,9 @@ main.app-d3 {
   padding-right: 60px !important;  /* account for sidebar width */
 }
 
-@media (min-width: 768px) {
-  #favoritesLayout {
-    padding-right: 60px !important;
-  }
-}
-
-/* No content-wrapper max-width offset: <main>'s 60px right padding already keeps content
-   off the sidebar. The original design_3 had calc(100% - 60px) here too which double-subtracted
-   and produced a large empty gap on desktop. */
+/* No #favoritesLayout right-padding on desktop: it lives inside <main>, which already
+   adds the 60px sidebar gutter. Adding it again would double-pad.
+   Also no .right-column .content-wrapper max-width offset for the same reason. */
 
 .left-column {
   border-right: 1px solid #dee2e6;
