@@ -14,7 +14,7 @@
   <link href="style/app.css?v=<?= time() ?>"   rel="stylesheet">
 
 </head>
-<body>
+<body class="<?= User::current('settings.hideScrollbars') ? 'no-scrollbars' : '' ?>">
 <!--
 < ?php
 if( error ):  // TASK: also add class "ext" in body

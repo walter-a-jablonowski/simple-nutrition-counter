@@ -1,1 +1,4 @@
 displayMode: right-handed  # or left-handed
+
+hideScrollbars: false      # true: hide scrollbars everywhere (touchpad / touch users)
+                           # explicit switch for PC, gernerally done via styles

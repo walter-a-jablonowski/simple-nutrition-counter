@@ -5,6 +5,7 @@ Overview
 - [PC, Tablet wide screen](#pc-tablet-wide-screen)
 - [Smartphone (portrait)](#smartphone-portrait)
 - [Grid structure food page](#grid-structure-food-page)
+- [Scrollbars](#scrollbars)
 
 
 PC, Tablet wide screen
@@ -74,3 +75,16 @@ row
 
         ... food list grid ...
 ```
+
+
+Scrollbars
+----------------------------------------------------------
+
+Detection by input device, not viewport size, via `@media (hover: hover) and (pointer: fine)`.
+
+- PC (mouse / fine pointer): visible (native scrollbar acts as affordance)
+- Tablet: hidden (touch input)
+- Smartphone: hidden (touch input)
+- User opt-out via `settings.yml > hideScrollbars: true` -> `body.no-scrollbars` hides them on every device (e.g. touchpad-only PC users)
+
+Exception: the nutrition widgets bar (`.nutrition-widgets .overflow-auto`) never shows a horizontal scrollbar - a custom scroll-arrow button is the affordance.

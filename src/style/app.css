@@ -281,11 +281,37 @@ main.app-d3 {
 .content-wrapper {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;        /* Firefox */
-  -ms-overflow-style: none;     /* IE/Edge */
+  /* Default: scrollbars hidden (matches touch devices - tablets and phones).
+     PCs with a mouse override this below. */
+  scrollbar-width: none;          /* Firefox */
+  -ms-overflow-style: none;       /* IE/Edge */
 }
 .content-wrapper::-webkit-scrollbar {
-  display: none;                /* Chrome/Safari/Opera */
+  display: none;                  /* Chrome/Safari/Opera */
+}
+
+/* PC (mouse with fine pointer): restore native scrollbar as an affordance.
+   Tablets and phones lack `pointer: fine` / `hover: hover`, so they keep scrollbars hidden. */
+@media (hover: hover) and (pointer: fine) {
+  .content-wrapper {
+    scrollbar-width: auto;
+    -ms-overflow-style: auto;
+  }
+  .content-wrapper::-webkit-scrollbar {
+    display: initial;
+  }
+}
+
+/* User opt-out: hide scrollbars everywhere (settings.hideScrollbars).
+   Wins over the PC restore via higher specificity (.no-scrollbars *). */
+body.no-scrollbars,
+body.no-scrollbars * {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+body.no-scrollbars ::-webkit-scrollbar,
+body.no-scrollbars::-webkit-scrollbar {
+  display: none;
 }
 
 /* Nutrition widgets */
