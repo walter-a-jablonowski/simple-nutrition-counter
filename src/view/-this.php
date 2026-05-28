@@ -186,7 +186,7 @@ else:
 
           <!-- Day entries (sortable list); scrolls internally so header + toolbar stay put -->
 
-          <section class="day-entries-section flex-grow-1 mt-2 px-3 d-flex flex-column">
+          <section class="day-entries-section flex-grow-1 mt-2 d-flex flex-column">
 
             <?php require( __DIR__ . '/main/edit/day_entries.php'); ?>
 
