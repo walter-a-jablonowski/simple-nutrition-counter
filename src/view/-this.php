@@ -110,7 +110,7 @@ else:
 
           <!-- Header -->
 
-          <header class="bg-light border-bottom py-2 px-3 text-break fs-5 d-flex justify-content-between align-items-center">
+          <header class="bg-light border-bottom py-2 px-2 text-break fs-5 d-flex align-items-center">
             <div class="d-flex align-items-center">
 
               <i class="bi bi-app"></i>  <!-- some app logo -->
@@ -122,27 +122,29 @@ else:
                   </option>
                 <?php endforeach; ?>
               </select>
-
-              <button onclick="mainCrl.switchDayBtnClick(event)"
-                data-sel = "<?= $this->mode ?>"
-                class    = "js-switchDayBtn btn ms-1 p-1 py-0 border"
-              >
-                <?php
-                  $weekdays = ['Mon' => 'Mo', 'Tue' => 'Tu', 'Wed' => 'We', 'Thu' => 'Th', 'Fri' => 'Fr', 'Sat' => 'Sa', 'Sun' => 'Su'];
-                  $day = $weekdays[date('D')] . ' ' . date('j') . '.';
-                ?>
-                <?= self::switch( $this->mode, [
-                    'current' => $day,
-                    'last'    => '-1 day',
-                    'next'    => '+1 day'
-                  ]) ?? $day
-                ?>
-              </button>
             </div>
+
+            <!-- Day switch button: ms-auto pushes it to the right of the logo/name group.
+                 On mobile the action buttons follow it (no auto margin -> sit just right of it). -->
+            <?php
+              $weekdays = ['Mon' => 'Mo', 'Tue' => 'Tu', 'Wed' => 'We', 'Thu' => 'Th', 'Fri' => 'Fr', 'Sat' => 'Sa', 'Sun' => 'Su'];
+              $day = $weekdays[date('D')] . ' ' . date('j') . '.';
+            ?>
+            <button onclick="mainCrl.switchDayBtnClick(event)"
+              data-sel = "<?= $this->mode ?>"
+              class    = "js-switchDayBtn btn ms-auto p-1 py-0 border"
+            >
+              <?= self::switch( $this->mode, [
+                  'current' => $day,
+                  'last'    => '-1 day',
+                  'next'    => '+1 day'
+                ]) ?? $day
+              ?>
+            </button>
 
             <!-- Mobile action buttons -->
 
-            <div class="d-flex align-items-center gap-3 d-md-none">
+            <div class="d-flex align-items-center gap-3 ms-3 d-md-none">
 
               <div class="dropdown">
                 <button class="btn p-1 border-0 bg-transparent" type="button" id="unpreciseDropdown" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Unprecise options">
@@ -264,7 +266,7 @@ else:
 
           <!-- Header (duplicate of main; wired live to the same handlers) -->
 
-          <header class="bg-light border-bottom py-2 px-3 text-break fs-5 d-flex justify-content-between align-items-center">
+          <header class="bg-light border-bottom py-2 px-2 text-break fs-5 d-flex align-items-center">
             <div class="d-flex align-items-center">
 
               <i class="bi bi-app"></i>
@@ -276,19 +278,19 @@ else:
                   </option>
                 <?php endforeach; ?>
               </select>
-
-              <button onclick="mainCrl.switchDayBtnClick(event)"
-                data-sel = "<?= $this->mode ?>"
-                class    = "js-switchDayBtn btn ms-1 p-1 py-0 border"
-              >
-                <?= self::switch( $this->mode, [
-                    'current' => $day,
-                    'last'    => '-1 day',
-                    'next'    => '+1 day'
-                  ]) ?? $day
-                ?>
-              </button>
             </div>
+
+            <button onclick="mainCrl.switchDayBtnClick(event)"
+              data-sel = "<?= $this->mode ?>"
+              class    = "js-switchDayBtn btn ms-auto p-1 py-0 border"
+            >
+              <?= self::switch( $this->mode, [
+                  'current' => $day,
+                  'last'    => '-1 day',
+                  'next'    => '+1 day'
+                ]) ?? $day
+              ?>
+            </button>
           </header>
 
           <!-- Scrollable content area -->
