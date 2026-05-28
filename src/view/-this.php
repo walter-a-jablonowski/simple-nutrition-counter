@@ -48,6 +48,11 @@ else:
             <i class="bi bi-calendar-range"></i>
           </a>
         </li>
+      </ul>
+
+      <!-- Bottom: info + settings -->
+
+      <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="#" title="Info"
             data-bs-toggle = "modal"
@@ -56,11 +61,6 @@ else:
             <i class="bi bi-info-circle"></i>
           </a>
         </li>
-      </ul>
-
-      <!-- Bottom: settings -->
-
-      <ul class="navbar-nav">
         <li class="nav-item">
           <a id="settingsBtn" onclick="mainCrl.settingsBtnClick(event)" class="nav-link" href="#" title="Settings">
             <i class="bi bi-person"></i>
