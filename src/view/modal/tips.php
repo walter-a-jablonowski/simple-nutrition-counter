@@ -6,15 +6,8 @@ use Symfony\Component\Yaml\Exception\ParseException;
 ?><div id="tipsModal" class="modal info-modal fade" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
-<!--
-      <div class="modal-header">
-        <h6 class="modal-title">Tips</h6>
-        <button data-bs-dismiss="modal" class="btn-close" type="button"></button>
-      </div>
--->
-      <div class="modal-body">
-
-        <ul class="nav nav-tabs" role="tablist">
+      <div class="modal-header border-0 p-0 px-3 pt-3">
+        <ul class="nav nav-tabs w-100 border-0" role="tablist">
           <li class="nav-item" role="presentation">
             <a href="#tipsMenuPane" class="nav-link active py-1 px-2 small" data-bs-toggle="tab" role="tab">
               Menu
@@ -54,8 +47,10 @@ use Symfony\Component\Yaml\Exception\ParseException;
           </li>
 -->
         </ul>
+      </div>
+      <div class="modal-body pt-2">
 
-        <div class="tab-content mt-3">
+        <div class="tab-content">
           <div id="tipsMenuPane" class="tab-pane fade show active" role="tabpanel">
 
             <?php
