@@ -4,8 +4,8 @@ use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Yaml\Exception\ParseException;
 
 ?><div id="tipsModal" class="modal info-modal fade" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="height: 100vh;">
-    <div class="modal-content" style="height: 90%;">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
 <!--
       <div class="modal-header">
         <h6 class="modal-title">Tips</h6>
