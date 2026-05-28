@@ -85,8 +85,9 @@
           if( isset( $layout['(first_entries)']['list']))
           {
             print $this->renderView( __DIR__ . '/first_group.php', [
-              'groupId'   => $tabId . 'FirstEntries',
-              'def'       => $layout['(first_entries)']
+              'groupId' => $tabId . 'FirstEntries',
+              'def'     => $layout['(first_entries)'],
+              'demoTab' => ($tabIdx === 1)
             ], $return);
 
             $done = array_merge( $done, $return['done']);
@@ -105,7 +106,8 @@
             print $this->renderView( __DIR__ . '/group.php', [
               'groupId'   => $groupId,
               'groupName' => $groupName,
-              'def'       => $def
+              'def'       => $def,
+              'demoTab'   => ($tabIdx === 1)
             ], $return);
 
             $done = array_merge( $done, $return['done']);
@@ -135,6 +137,7 @@
                 print $this->renderView( __DIR__ . '/group.php', [
                   'groupId'   => lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', 'Misc')),
                   'groupName' => 'Misc',
+                  'demoTab'   => true,
                   'def' => [
                     '@attribs' => [
                       'short' => null,
@@ -157,6 +160,7 @@
                   'groupId'     => lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', 'Removed')),
                   'groupName'   => 'Removed',
                   'showRemoved' => true,
+                  'demoTab'     => true,
                   'def' => [
                     '@attribs' => [
                       'short' => null,

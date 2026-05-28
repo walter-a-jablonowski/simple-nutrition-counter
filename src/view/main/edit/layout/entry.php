@@ -7,6 +7,18 @@ $return['done'] = [];
 $entryId    = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $entryName));  // TASK: use id from SimpleData key as soon as upd, maybe we need prefix this so that no Ids get confused?
 $amountData = $this->layoutView->get($entryName);  // foods and recipes are merged in one
 
+// Demo mode: replace displayed food name in first tab with a dummy. data-food and info
+// modal lookups keep the real name so clicks and food data continue to work.
+$displayName = $entryName;
+if( ($demoTab ?? false) && config::get('demoData'))
+{
+  $dummyNames = ['Apple', 'Banana', 'Carrot', 'Bread', 'Cheese', 'Yogurt', 'Rice', 'Pasta',
+                 'Chicken', 'Tomato', 'Potato', 'Egg', 'Milk', 'Oats', 'Salmon', 'Spinach',
+                 'Almond', 'Walnut', 'Lentil', 'Beans', 'Tofu', 'Honey', 'Butter', 'Onion',
+                 'Garlic', 'Lemon', 'Orange', 'Pear', 'Grape', 'Berry'];
+  $displayName = $dummyNames[ crc32($entryName) % count($dummyNames)];
+}
+
 $return['done'][] = $entryName;  // left over will be printed below (done = foods and recipes in a single list)
 
 $accepColor  = $this->combinedModel->get("$entryName.acceptable") ?? 'n/a';  // TASK: colors also below, merge by using a class (also in app tips)
@@ -49,7 +61,7 @@ $showWarning  = ( ! empty($interactions) && trim($interactions) !== '')
        data-source    = "#<?= $entryId ?>Data"
   >
     <div class="text-nowrap ms-1 ps-1 py-1 overflow-hidden" style="background-color: <?= $accepColor ?>;">
-      <?= $entryName ?>
+      <?= $displayName ?>
       <?php if( $showWarning ): ?>
         <i class="bi bi-info-circle-fill" style="color: red;"></i>
       <?php elseif( $showInfo ): ?>
