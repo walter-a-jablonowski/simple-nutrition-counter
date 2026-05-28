@@ -8,7 +8,7 @@ $return['done'] = [];
 
   <div class="row">
     <?php foreach( $def['list'] as $idx => $entryName ): ?>
-      <div class="col-12 col-md-6 col-xxl-4 mt-2">  <!-- group col -->
+      <div class="col-12 col-md-6 col-xxl-4">  <!-- group col (no mt-2: keep tight stacking like regular groups) -->
 
         <div class="p-1">  <!-- match the .collapse.p-1 wrapper used in group.php so layout-item rows
                                 here have the same border-box width + text positions as in regular groups -->
