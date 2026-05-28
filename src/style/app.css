@@ -264,7 +264,8 @@ main.app-d3 {
 }
 
 .left-column header,
-#favoritesLayout {
+#favoritesLayout,
+#settingsView {
   background-color: #ffffff;
 }
 #favoritesLayout header {

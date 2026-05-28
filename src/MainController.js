@@ -275,25 +275,30 @@ class MainController
 
 
   // Settings btn (tab content see below)
-  // <main id="mainView"> uses d-flex (Bootstrap !important) so we toggle visibility via the d-none class
+  // #settingsView lives inside <main> alongside #mainLayout and #favoritesLayout;
+  // toggle which of the three is visible.
 
   settingsBtnClick(event)
   {
     if( event ) event.preventDefault()
 
-    var mainView     = query('#mainView')
-    var settingsView = query('#settingsView')
+    var mainLayout      = query('#mainLayout')
+    var favoritesLayout = query('#favoritesLayout')
+    var settingsView    = query('#settingsView')
 
     const showingSettings = ! settingsView.classList.contains('d-none')
 
     if( showingSettings )
     {
-      mainView.classList.remove('d-none')
+      // hide settings -> restore the day view (default).
       settingsView.classList.add('d-none')
+      mainLayout.classList.remove('d-none')
     }
     else
     {
-      mainView.classList.add('d-none')
+      // remember which layout was shown so we could restore it (currently we just default to mainLayout).
+      mainLayout.classList.add('d-none')
+      favoritesLayout.classList.add('d-none')
       settingsView.classList.remove('d-none')
     }
   }
