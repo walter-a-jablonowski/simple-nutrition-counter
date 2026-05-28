@@ -8,15 +8,39 @@ $entryId    = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $entryName));  // TASK
 $amountData = $this->layoutView->get($entryName);  // foods and recipes are merged in one
 
 // Demo mode: replace displayed food name in first tab with a dummy. data-food and info
-// modal lookups keep the real name so clicks and food data continue to work.
+// modal lookups keep the real name so clicks and food data continue to work. Pools are
+// chosen by group so dummies feel plausible (nuts in the nuts group, etc.).
 $displayName = $entryName;
 if( ($demoTab ?? false) && config::get('demoData'))
 {
-  $dummyNames = ['Apple', 'Banana', 'Carrot', 'Bread', 'Cheese', 'Yogurt', 'Rice', 'Pasta',
-                 'Chicken', 'Tomato', 'Potato', 'Egg', 'Milk', 'Oats', 'Salmon', 'Spinach',
-                 'Almond', 'Walnut', 'Lentil', 'Beans', 'Tofu', 'Honey', 'Butter', 'Onion',
-                 'Garlic', 'Lemon', 'Orange', 'Pear', 'Grape', 'Berry'];
-  $displayName = $dummyNames[ crc32($entryName) % count($dummyNames)];
+  $demoPools = [
+    'Nuts, seeds, berries' => [
+      'Roasted almonds', 'Pumpkin seeds', 'Dried cranberries', 'Sunflower seeds',
+      'Brazil nuts', 'Raw cashews', 'Walnut pieces', 'Goji berries',
+      'Organic chia', 'Roasted hazelnuts', 'Shelled pistachios', 'Pecan halves',
+      'Ground flaxseed', 'Dried blueberries', 'Salted macadamia', 'Sesame seeds',
+    ],
+    'Veggie, high fibre' => [
+      'Fresh broccoli', 'Steamed kale', 'Brussels sprouts',
+      'Sweet potato', 'Raw carrots', 'Baby spinach',
+      'Red cabbage', 'Green peas', 'Cauliflower rice', 'Sliced zucchini',
+      'Fresh asparagus', 'Bell peppers', 'Artichoke hearts', 'Shelled edamame',
+      'Cooked beetroot', 'Swiss chard',
+    ],
+    'Cheese, a taste little taste' => [
+      'Aged cheddar', 'Creamy brie', 'Parmesan shavings',
+      'Smoked gouda', 'Feta crumbles', 'Fresh mozzarella',
+      'Blue cheese', 'Goat cheese', 'Camembert round', 'Ricotta spread',
+      'Grilled halloumi', 'Manchego curado', 'Gruyere slice', 'Emmental cube',
+      'Provolone slice', 'Cream cheese',
+    ],
+  ];
+  $fallback = [
+    'Whole grains', 'Lentil stew', 'Mixed greens', 'Quinoa pilaf',
+    'Roasted roots', 'Brown rice', 'Tomato soup', 'Chickpea curry',
+  ];
+  $pool = $demoPools[ $demoGroup ?? ''] ?? $fallback;
+  $displayName = $pool[ crc32($entryName) % count($pool)];
 }
 
 $return['done'][] = $entryName;  // left over will be printed below (done = foods and recipes in a single list)
