@@ -260,16 +260,39 @@ main.app-d3 {
 
 .left-column {
   border-right: 1px solid #dee2e6;
-  background-color: #ffffff;
+  background-color: #e6e9ee;
 }
 
-.left-column header,
+.left-column header {
+  background-color: #e6e9ee !important;  /* override Bootstrap .bg-light (!important) */
+}
+
+.js-userSelect {
+  background-color: transparent;
+}
+
+.left-column .day-entries .list-group-item,
+.left-column .day-entry {
+  background-color: transparent;
+  border-bottom-color: #d4d9e0;  /* visible against the tinted bg */
+}
+
+@media (max-width: 767.98px) {
+  .day-entries-section {
+    background-color: #ffffff;
+  }
+  .left-column .day-entries .list-group-item,
+  .left-column .day-entry {
+    border-bottom-color: rgba(0,0,0,.125);  /* Bootstrap default on white */
+  }
+}
+
 #favoritesLayout,
 #settingsView {
   background-color: #ffffff;
 }
 #favoritesLayout header {
-  background-color: #ffffff !important;
+  background-color: #e6e9ee !important;
 }
 
 .right-column {
@@ -332,7 +355,7 @@ body.no-scrollbars::-webkit-scrollbar {
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: #ffffff;
+    background-color: #e6e9ee;
   }
 }
 
