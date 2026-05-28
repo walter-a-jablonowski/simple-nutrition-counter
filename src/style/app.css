@@ -278,12 +278,17 @@ main.app-d3 {
 }
 
 @media (max-width: 767.98px) {
+  .left-column,
   .day-entries-section {
     background-color: #ffffff;
   }
   .left-column .day-entries .list-group-item,
   .left-column .day-entry {
     border-bottom-color: rgba(0,0,0,.125);  /* Bootstrap default on white */
+  }
+  .left-column header,
+  #favoritesLayout header {
+    background-color: #f8f9fa !important;  /* Bootstrap .bg-light default */
   }
 }
 
