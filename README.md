@@ -6,12 +6,10 @@ as simple as possible, see [mission](#mission).
 **State:** Usable for single user, but still in development, see [project state](#project-state)
 
 - [Mission](#mission)
+  - [Long term goal](#long-term-goal)
 - [Project state](#project-state)
 - [Upcoming features](#upcoming-features)
-- [Usage](misc/usage.md)
-- [Developer information](dev_info/-this.md)
-  - [Model](dev_info/Design.md#model)
-- [License](#license)
+- [LICENSE](#license)
 
 
 Mission
@@ -33,7 +31,7 @@ make a big difference for general health and brain function.
                                                    |                   |
                                                    v                   v
 Improve [x] Nutrients  --> Improves general --> Improves brain --> Multiples productivity
-        [-] Water          health               function           
+        [-] Water          health               function
         [x] Sports            |                       |
         [ ] Sleep             |                        ----------> Improves life quality,
         [ ] No stress         |                                    perception, feel better
@@ -116,21 +114,6 @@ Beside that improved app layout might be done occasionally (less important).
 Advanced: extend features (finance and similar see Mission)
 
 Full UI design see [UI design](dev_info/UI_Design.md)
-
-<table>
-  <tr>
-    <td>New app layout</td>
-    <td>Improved list design</td>
-  </tr>
-  <tr>
-    <td>
-      <img src="misc/layout.png" width="400">
-    </td>
-    <td>
-      <img src="misc/design_1.png" width="200">
-    </td>
-  </tr>
-</table>
 
 
 LICENSE
