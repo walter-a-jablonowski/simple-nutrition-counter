@@ -26,6 +26,7 @@ class NutritionWidgetsController
     this._onNavClick         = this._onNavClick.bind(this)
     this._onResize           = this._onResize.bind(this)
     this._onScroll           = this._onScroll.bind(this)
+    this._onWheel            = this._onWheel.bind(this)
     this._onArrowClick       = this._onArrowClick.bind(this)
     this._onMobileCaretClick = this._onMobileCaretClick.bind(this)
     this._onTogglePrice      = this._onTogglePrice.bind(this)
@@ -55,6 +56,7 @@ class NutritionWidgetsController
     {
       window.addEventListener('resize', this._onResize)
       this.widgetsContainer.addEventListener('scroll', this._onScroll)
+      this.widgetsContainer.addEventListener('wheel', this._onWheel, { passive: false })
       this.scrollArrow.addEventListener('click', this._onArrowClick)
 
       // Initial visibility check after render
@@ -182,6 +184,22 @@ class NutritionWidgetsController
     this.checkScroll()
   }
 
+  _onWheel( event )
+  {
+    // Map vertical wheel to horizontal scroll; let native horizontal wheel pass through.
+    if( event.deltaY === 0 ) return
+    if( event.shiftKey ) return  // Shift+wheel: browsers already scroll horizontally
+
+    const delta = event.deltaY !== 0 ? event.deltaY : event.deltaX
+    const max   = this.widgetsContainer.scrollWidth - this.widgetsContainer.clientWidth
+    const atStart = this.widgetsContainer.scrollLeft <= 0          && delta < 0
+    const atEnd   = this.widgetsContainer.scrollLeft >= max - 1    && delta > 0
+    if( atStart || atEnd ) return  // allow page to scroll vertically at the ends
+
+    event.preventDefault()
+    this.widgetsContainer.scrollLeft += delta
+  }
+
   _onArrowClick()
   {
     this.widgetsContainer.scrollBy({
@@ -216,8 +234,10 @@ class NutritionWidgetsController
 
     window.removeEventListener('resize', this._onResize)
 
-    if( this.widgetsContainer )
+    if( this.widgetsContainer ) {
       this.widgetsContainer.removeEventListener('scroll', this._onScroll)
+      this.widgetsContainer.removeEventListener('wheel', this._onWheel)
+    }
 
     if( this.scrollArrow )
       this.scrollArrow.removeEventListener('click', this._onArrowClick)
