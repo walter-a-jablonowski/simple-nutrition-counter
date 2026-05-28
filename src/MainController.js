@@ -21,6 +21,7 @@ class MainController
     this.toggleUnpreciseMode     = this.toggleUnpreciseMode.bind(this)
     this.toggleUnpreciseTimeMode = this.toggleUnpreciseTimeMode.bind(this)
     this.deleteLastLineBtnClick  = this.deleteLastLineBtnClick.bind(this)
+    this.deleteEntryBtnClick     = this.deleteEntryBtnClick.bind(this)
     this.saveDayEntriesBtnClick  = this.saveDayEntriesBtnClick.bind(this)
     this.newEntryBtn             = this.newEntryBtn.bind(this)
     this.newEntrySaveBtn         = this.newEntrySaveBtn.bind(this)
@@ -76,6 +77,8 @@ class MainController
       keyboard: true,
       focus: true
     })
+
+    this.confirmModal = new bootstrap.Modal( query('#confirmModal'))
 
     // global click handler to close popovers when clicking outside
     
@@ -156,14 +159,22 @@ class MainController
       this.initModalPopovers(query('#helpModal'))
     })
 
-    // Sortable (advanced)  #code/advancedDayEntries
+    // Sortable day entries  #code/advancedDayEntries
+    // Drag to reorder (mouse) or press-and-hold to reorder (touch). The list is the
+    // source of truth: after a drop we rebuild the dayEntries array from the DOM.
 
-    // $('#dayEntries').sortable({
-    //   handle:      '.handle',
-    //   placeholder: 'ui-state-highlight'
-    // })
-    //    
-    // $('#dayEntries').disableSelection()
+    const dayEntriesList = query('#dayEntriesList')
+
+    if( dayEntriesList )
+      this.dayEntriesSortable = new PointerSortable( dayEntriesList, {
+        itemSelector: '.day-entry',
+        cancel:       '.day-entry-del',   // don't start a drag from the delete button
+        onSort: () => {
+          this.#syncDayEntriesFromDom()
+          this.updSummary()
+          this.#saveDayEntries()
+        }
+      })
   }
 
   initModalPopovers(modalElement)
@@ -363,19 +374,51 @@ class MainController
   deleteLastLineBtnClick(event)
   {
     event.preventDefault()
-    
-    const textarea = query('#dayEntries')
-    const text = textarea.value
-    
-    if( ! text.trim())
+
+    const items = query('#dayEntriesList .day-entry')
+    if( ! items.length )
       return
-    
-    const lines = text.trim().split('\n')
-    lines.pop()  // remove the last line
-    
-    textarea.value = lines.join('\n')
-    
-    // this.#saveDayEntries( true )  // currently save manually
+
+    items[items.length - 1].remove()  // remove the last entry
+
+    this.#afterListChange()
+  }
+
+  // Per-entry delete (x button) - asks for confirmation first
+
+  deleteEntryBtnClick(event)
+  {
+    event.preventDefault()
+
+    const li = event.target.closest('.day-entry')
+    if( ! li )
+      return
+
+    const name = li.dataset.food || 'this entry'
+
+    this.confirm(`Delete "${name}"?`, () => {
+      li.remove()
+      this.#afterListChange()
+    })
+  }
+
+  // Reusable confirm dialog (see modal/confirm.php)
+
+  confirm( message, onConfirm )
+  {
+    query('#confirmModalMessage').textContent = message
+
+    // Replace the OK button to drop any previous click handler
+    const okBtn = query('#confirmModalOkBtn')
+    const fresh = okBtn.cloneNode(true)
+    okBtn.parentNode.replaceChild( fresh, okBtn)
+
+    fresh.addEventListener('click', () => {
+      this.confirmModal.hide()
+      onConfirm()
+    })
+
+    this.confirmModal.show()
   }
 
   saveDayEntriesBtnClick(event)
@@ -587,7 +630,9 @@ class MainController
   // Helper
 
   /*@
-  
+
+  Add a new entry: append a list item, then resync from the DOM and save.
+
   */
   #addDayEntry( entry ) /*@*/
   {
@@ -602,8 +647,83 @@ class MainController
     // if type === MiscBuyable
     // if type === Food
 
-    dayEntries.push( entry )
-    
+    query('#dayEntriesList').appendChild( this.#createEntryEl( entry))
+
+    this.#afterListChange()
+  }
+
+  /*@
+
+  Run after any list mutation (add / delete / reorder): rebuild the dayEntries
+  array from the DOM (the list is the source of truth), refresh the summary and save.
+
+  */
+  #afterListChange() /*@*/
+  {
+    this.#syncDayEntriesFromDom()
+    this.#updateEmptyHint()
+    this.updSummary()
+    this.#saveDayEntries()
+  }
+
+  // Build one list item from an entry object (mirrors view/main/edit/day_entries.php)
+
+  #createEntryEl( entry )
+  {
+    const li = document.createElement('li')
+    li.className = 'day-entry list-group-item d-flex align-items-center px-2 py-1'
+
+    li.dataset.type      = entry.type
+    li.dataset.food      = entry.food
+    li.dataset.time      = entry.time
+    li.dataset.calories  = entry.calories
+    li.dataset.fat       = entry.fat
+    li.dataset.carbs     = entry.carbs
+    li.dataset.amino     = entry.amino
+    li.dataset.salt      = entry.salt
+    li.dataset.price     = entry.price
+    li.dataset.nutrients = JSON.stringify( entry.nutrients || {})
+
+    const timeDisp = String( entry.time || '').slice(0, 5)
+
+    li.innerHTML =
+      `<span class="day-entry-type">${ this.#esc(entry.type) }</span>`
+      + `<div class="day-entry-main flex-grow-1 ms-2 overflow-hidden">`
+      +   `<div class="day-entry-name text-truncate">${ this.#esc(entry.food) }</div>`
+      +   `<div class="day-entry-time small text-secondary">${ this.#esc(timeDisp) }</div>`
+      + `</div>`
+      + `<button type="button" onclick="mainCrl.deleteEntryBtnClick(event)" class="day-entry-del btn p-1 border-0 bg-transparent text-secondary" aria-label="Delete entry">`
+      +   `<i class="bi bi-x-lg"></i>`
+      + `</button>`
+
+    return li
+  }
+
+  // Rebuild the global dayEntries array from the list items (DOM order = data order)
+
+  #syncDayEntriesFromDom()
+  {
+    dayEntries = Array.from( query('#dayEntriesList .day-entry')).map( li => ({
+      time:      li.dataset.time,
+      type:      li.dataset.type,
+      food:      li.dataset.food,
+      calories:  li.dataset.calories,
+      fat:       li.dataset.fat,
+      carbs:     li.dataset.carbs,
+      amino:     li.dataset.amino,
+      salt:      li.dataset.salt,
+      price:     li.dataset.price,
+      nutrients: JSON.parse( li.dataset.nutrients || '{}')
+    }))
+  }
+
+  // Serialize the entries to the aligned TSV the server stores
+
+  #serializeDayEntries()
+  {
+    if( ! dayEntries.length )
+      return ''
+
     // Find the length of the longest strings
 
     let maxFoodLength     = Math.max( ...dayEntries.map( entry => entry.food.length))
@@ -616,7 +736,7 @@ class MainController
 
     // Align cols
 
-    let formattedText = dayEntries.map( entry => {
+    return dayEntries.map( entry => {
 
       let foodPadding     = ' '.repeat( maxFoodLength     - entry.food.length + 2)              // 2 extra spaces
       let caloriesPadding = ' '.repeat( maxCaloriesLength - String(entry.calories).length + 2)  // for some reason we must do it like this here
@@ -630,11 +750,24 @@ class MainController
              + YAMLish.dump( entry.nutrients )
 
     }).join('\n')
+  }
 
-    query('#dayEntries').value = formattedText
+  // Show the "No entries yet" hint only when the list is empty
 
-    this.updSummary()
-    this.#saveDayEntries()
+  #updateEmptyHint()
+  {
+    const hint = query('#dayEntriesEmpty')
+    if( hint )
+      hint.classList.toggle('d-none', query('#dayEntriesList .day-entry').length > 0)
+  }
+
+  // Escape text for innerHTML
+
+  #esc( str )
+  {
+    const d = document.createElement('div')
+    d.textContent = str == null ? '' : String(str)
+    return d.innerHTML
   }
 
   /*@
@@ -646,8 +779,10 @@ class MainController
   {
     const foodEntries = dayEntries.filter( entry => entry.type === 'F' || entry.type === 'FE' || entry.type === 'S' || entry.type === 'M')
 
-    if( foodEntries.length == 0)
+    if( foodEntries.length == 0) {
+      this.#resetSummary()   // e.g. after deleting the last entry (no reload anymore)
       return
+    }
 
     // Quick summary
 
@@ -753,10 +888,35 @@ class MainController
         '</table>';
     }
   }
-    
+
+  // Zero out the summary + nutrient bars (used when no entries remain)
+
+  #resetSummary()
+  {
+    query('#caloriesSum').textContent = '0'
+    query('#timeSum').textContent     = '00:00'
+    query('#fatSum').textContent      = '0'
+    query('#aminoSum').textContent    = '0'
+    query('#carbsSum').textContent    = '0'
+    query('#fibreSum').textContent    = '0'
+    query('#saltSum').textContent     = '0.0'
+    query('#priceSum').textContent    = '0.00'
+
+    query('.nutrients-entry').forEach( entry => {
+      entry.dataset.current = 0
+      entry.find('.percent').textContent = '0'
+      entry.find('.vals').textContent    = `0 / ${entry.dataset.ideal}`
+
+      const bar = entry.find('.progress-bar')
+      bar.style.width = '0%'
+      bar.classList.remove('bg-success', 'bg-danger')
+      bar.classList.add('bg-secondary')
+    })
+  }
+
   #saveDayEntries( uiMsg = false )
   {
-    ajax.send('saveDayEntries', { date: this.date, data: query('#dayEntries').value }, function( result, data ) {
+    ajax.send('saveDayEntries', { date: this.date, data: this.#serializeDayEntries() }, function( result, data ) {
 
       if( result === 'success' && uiMsg)
         query('#uiMsg').innerHTML = 'Saved'

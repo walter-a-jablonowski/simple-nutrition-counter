@@ -184,9 +184,9 @@ else:
             </div>
           </header>
 
-          <!-- Day entries textarea -->
+          <!-- Day entries (sortable list); scrolls internally so header + toolbar stay put -->
 
-          <section class="flex-grow-1 mt-2 px-3 d-flex flex-column">
+          <section class="day-entries-section flex-grow-1 mt-2 px-3 d-flex flex-column">
 
             <?php require( __DIR__ . '/main/edit/day_entries.php'); ?>
 
@@ -315,6 +315,7 @@ else:
   <?php require( __DIR__ . '/modal/about.php'); ?>
   <?php require( __DIR__ . '/modal/new_entry.php'); ?>
   <?php require( __DIR__ . '/modal/info.php'); ?>
+  <?php require( __DIR__ . '/modal/confirm.php'); ?>
 
   <div id="errorPage" style="display: none;">
     <?php require( __DIR__ . '/error_page.php'); ?>
@@ -336,6 +337,7 @@ else:
 <script src="lib/mermaid-11.3.0.js"></script>
 <script src="lib/marked.min.js"></script>
 <script src="lib/overlay_MOV.js"></script>
+<script src="lib/sortable.js"></script>
 <script src="lib/frm/events_240321.js"></script>
 <script src="lib/frm/query_240321.js"></script>
 <script src="lib/frm/query_data_240328.js"></script>
