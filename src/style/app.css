@@ -474,7 +474,6 @@ body.no-scrollbars::-webkit-scrollbar {
 .food-grid .nav-pills {
   gap: 0;
   align-items: stretch;
-  margin-top: 0.25rem;
   /* 1px baseline painted as a background gradient -> no extra height, so the
      wrapping .overflow-auto doesn't get a vertical scrollbar. */
   background-image: linear-gradient(to top, #e9ecef 1px, transparent 1px);

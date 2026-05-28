@@ -1,4 +1,4 @@
-<div id="layout" class="row mt-3">
+<div id="layout" class="row mt-1">
   <div class="col-12">
 
     <span id="uiMsg"></span>  <!-- TASK: mov somewhere outside tab or one msg per tab (or use a toast) -->
@@ -21,7 +21,7 @@
                   </a>
                 </li>
               <?php endif; ?>
-              
+
               <?php $i=0; foreach( $this->layout as $tab => $layout ): ?>
                 <?php
                   $i++;
@@ -31,7 +31,7 @@
                   <a class="nav-link px-2 py-1 text-nowrap overflow-hidden<?= self::iif( $i === 1, ' active') ?>" data-bs-toggle="tab" href="#<?= $tabId ?>LayoutPane" role="tab"><?= $tab ?></a>
                 </li>
               <?php endforeach; ?>
-              
+
               <?php if( $isLeftHanded ): ?>
                 <li class="nav-item ms-auto">
                   <a onclick="mainCrl.newEntryBtn(event)" class="nav-link px-2 py-1 text-black" role="tab">
@@ -54,7 +54,7 @@
 
     <div class="row">
       <div class="col-12 tab-content mt-1">
-        
+
         <?php
 
         $done = [];  $tabIdx=0;
@@ -69,7 +69,7 @@
           {
             $tabId  = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $tab));
             $active = $tabIdx === 1 ? ' show active' : '';
-            
+
             print trim("
               \n<div id=\"{$tabId}LayoutPane\" class=\"tab-pane fade$active\" role=\"tabpanel\">
                 <div class=\"row\">
@@ -99,7 +99,7 @@
           {
             if( $groupName == '(first_entries)' || ! ($def['list'] ?? []))  // no entry
               continue;
-            
+
             $groupId = lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', $groupName));
 
             print $this->renderView( __DIR__ . '/group.php', [
@@ -131,7 +131,7 @@
               if( $tabIdx === 1 && count($miscEntries))
               {
                 ksort($miscEntries);
-                
+
                 print $this->renderView( __DIR__ . '/group.php', [
                   'groupId'   => lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', 'Misc')),
                   'groupName' => 'Misc',
@@ -152,7 +152,7 @@
               if( $tabIdx === 1 && count($removed))
               {
                 ksort($removed);
-                
+
                 print $this->renderView( __DIR__ . '/group.php', [
                   'groupId'     => lcfirst( preg_replace('/[^a-zA-Z0-9]/', '', 'Removed')),
                   'groupName'   => 'Removed',
