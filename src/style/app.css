@@ -507,28 +507,35 @@ body.no-scrollbars::-webkit-scrollbar {
 
 /* Food grid: entry rows
    The acceptable-state tint is now applied per row via .accep-* (replacing the
-   harsh inline #ffcccc / #ffff88). Removes the inline background-color uses on
-   the inner cells, falling back to the row tint. */
+   harsh inline #ffcccc / #ffff88). The tint is painted by a ::before pseudo
+   element inset by ~half the row gutter, so the colored area stops at the
+   column edge (matching .group-header) without touching .layout-item's row
+   margins -> col padding -> text positions stay exactly as Bootstrap puts them.
+   Inset = row gutter/2 (12px) minus parent .collapse p-1 (4px) = 8px. */
 .food-grid .layout-item {
-  border-radius: 4px;
+  position: relative;
   margin-top: 1px;
+  transition: none;
+}
+.food-grid .layout-item::before {
+  content: "";
+  position: absolute;
+  inset: 0 0.5rem;                 /* 8px each side -> aligns with group-header */
+  border-radius: 4px;
+  background-color: transparent;
   transition: background-color 0.15s ease;
+  z-index: 0;
+  pointer-events: none;
 }
-.food-grid .layout-item.accep-less {
-  background-color: #fde2e4;
+.food-grid .layout-item > * {
+  position: relative;
+  z-index: 1;                      /* keep text/buttons above the tint layer */
 }
-.food-grid .layout-item.accep-occ {
-  background-color: #fff3bf;
-}
-.food-grid .layout-item:hover {
-  background-color: rgba(233, 84, 32, 0.06);
-}
-.food-grid .layout-item.accep-less:hover {
-  background-color: #fbd0d3;
-}
-.food-grid .layout-item.accep-occ:hover {
-  background-color: #ffec99;
-}
+.food-grid .layout-item.accep-less::before { background-color: #fde2e4; }
+.food-grid .layout-item.accep-occ::before  { background-color: #fff3bf; }
+.food-grid .layout-item:hover::before      { background-color: rgba(233, 84, 32, 0.06); }
+.food-grid .layout-item.accep-less:hover::before { background-color: #fbd0d3; }
+.food-grid .layout-item.accep-occ:hover::before  { background-color: #ffec99; }
 
 /* Strip the inline background-color from cells inside an accept-tinted row -
    the row already carries the tint; the cell-level bg only adds visible seams. */
