@@ -7,9 +7,8 @@
         <button data-bs-dismiss="modal" class="btn-close" type="button"></button>
       </div>
 -->
-      <div class="modal-body">
-
-        <ul class="nav nav-tabs" role="tablist">
+      <div class="modal-header border-0 p-0 px-3 pt-3">
+        <ul class="nav nav-tabs w-100 border-0" role="tablist">
           <li class="nav-item" role="presentation">
             <a href="#helpNutritionPane" class="nav-link active py-1 px-2 small" data-bs-toggle="tab" role="tab">
               Nutrition
@@ -24,8 +23,10 @@
             <button data-bs-dismiss="modal" class="btn-close" type="button"></button>
           </li>
         </ul>
+      </div>
+      <div class="modal-body pt-2">
 
-        <div class="tab-content mt-3">
+        <div class="tab-content">
           <div id="helpNutritionPane" class="tab-pane fade show active" role="tabpanel">
 
             <?php require('misc/help_nutrition.php'); ?>
