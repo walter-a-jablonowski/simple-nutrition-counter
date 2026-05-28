@@ -119,7 +119,7 @@ else:
           <header class="bg-light border-bottom py-2 px-2 text-break fs-5 d-flex align-items-center">
             <div class="d-flex align-items-center">
 
-              <i class="bi bi-app"></i>  <!-- some app logo -->
+              <?php require( __DIR__ . '/app_logo.php'); ?>
 
               <select onchange="mainCrl.userSelectChange(event)" class="js-userSelect border-0 fs-5">
                 <?php foreach( User::getAll() as $userId ): ?>
@@ -275,7 +275,7 @@ else:
           <header class="bg-light border-bottom py-2 px-2 text-break fs-5 d-flex align-items-center">
             <div class="d-flex align-items-center">
 
-              <i class="bi bi-app"></i>
+              <?php require( __DIR__ . '/app_logo.php'); ?>
 
               <select onchange="mainCrl.userSelectChange(event)" class="js-userSelect border-0 fs-5">
                 <?php foreach( User::getAll() as $userId ): ?>
