@@ -17,7 +17,6 @@ class MainController
     this.showOverlayInfo         = this.showOverlayInfo.bind(this)
     this.userSelectChange        = this.userSelectChange.bind(this)
     this.switchDayBtnClick       = this.switchDayBtnClick.bind(this)
-    this.settingsBtnClick        = this.settingsBtnClick.bind(this)
     this.toggleUnpreciseMode     = this.toggleUnpreciseMode.bind(this)
     this.toggleUnpreciseTimeMode = this.toggleUnpreciseTimeMode.bind(this)
     this.deleteLastLineBtnClick  = this.deleteLastLineBtnClick.bind(this)
@@ -70,8 +69,7 @@ class MainController
     // Modals
 
     this.newEntryModal = new bootstrap.Modal( query('#newEntryModal'))
-    this.helpModal     = new bootstrap.Modal( query('#helpModal'))
-    
+
     this.infoModal = new bootstrap.Modal( query('#infoModal'), {
       backdrop: true,
       keyboard: true,
@@ -147,17 +145,6 @@ class MainController
     // mermaid.initialize({  // maybe unneeded
     //   securityLevel: 'loose',
     // })
-
-    // Help modal with Mermaid diagrams
-    this.helpModal._element.event('shown.bs.modal', event => {
-      // Initialize all Mermaid diagrams in the modal
-      query('#helpModal .mermaid').forEach( diagr => {
-        mermaid.init( undefined, diagr)
-      })
-      
-      // Initialize any popovers inside the help modal
-      this.initModalPopovers(query('#helpModal'))
-    })
 
     // Sortable day entries  #code/advancedDayEntries
     // Drag to reorder (mouse) or press-and-hold to reorder (touch). The list is the
@@ -270,36 +257,6 @@ class MainController
     else if( sel === 'next')
     {
       window.location.href = `index.php`
-    }
-  }
-
-
-  // Settings btn (tab content see below)
-  // #settingsView lives inside <main> alongside #mainLayout and #favoritesLayout;
-  // toggle which of the three is visible.
-
-  settingsBtnClick(event)
-  {
-    if( event ) event.preventDefault()
-
-    var mainLayout      = query('#mainLayout')
-    var favoritesLayout = query('#favoritesLayout')
-    var settingsView    = query('#settingsView')
-
-    const showingSettings = ! settingsView.classList.contains('d-none')
-
-    if( showingSettings )
-    {
-      // hide settings -> restore the day view (default).
-      settingsView.classList.add('d-none')
-      mainLayout.classList.remove('d-none')
-    }
-    else
-    {
-      // remember which layout was shown so we could restore it (currently we just default to mainLayout).
-      mainLayout.classList.add('d-none')
-      favoritesLayout.classList.add('d-none')
-      settingsView.classList.remove('d-none')
     }
   }
 

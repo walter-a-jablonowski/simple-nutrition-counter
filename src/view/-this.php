@@ -62,7 +62,10 @@ else:
           </a>
         </li>
         <li class="nav-item">
-          <a id="settingsBtn" onclick="mainCrl.settingsBtnClick(event)" class="nav-link" href="#" title="Settings">
+          <a id="settingsBtn" class="nav-link" href="#" title="Settings"
+            data-bs-toggle = "modal"
+            data-bs-target = "#settingsModal"
+          >
             <i class="bi bi-person"></i>
           </a>
         </li>
@@ -90,7 +93,10 @@ else:
         >
           <i class="bi bi-info-circle"></i>
         </a>
-        <a onclick="mainCrl.settingsBtnClick(event)" class="nav-link" href="#" title="Settings">
+        <a class="nav-link" href="#" title="Settings"
+          data-bs-toggle = "modal"
+          data-bs-target = "#settingsModal"
+        >
           <i class="bi bi-person"></i>
         </a>
       </div>
@@ -305,24 +311,10 @@ else:
       </div>
     </div>
 
-    <!-- Settings view (hidden by default). Lives inside <main> like #favoritesLayout
-         so it inherits the sidebar gutter (main.app-d3 padding-right:60px) and the
-         flex column layout - no special positioning / sidebar offsets needed. -->
-
-    <div id="settingsView" class="row g-0 flex-grow-1 h-100 d-none">
-      <div class="col-12 h-100">
-        <div class="content-wrapper h-100 overflow-auto p-3">
-
-          <?php require( __DIR__ . '/settings.php'); ?>
-
-        </div>
-      </div>
-    </div>
   </main>
 
   <?php print $this->renderView( __DIR__ . '/modal/tips.php'); ?>  <!-- prefer new scope when much code -->
-  <?php require( __DIR__ . '/modal/help.php'); ?>
-  <?php require( __DIR__ . '/modal/about.php'); ?>
+  <?php print $this->renderView( __DIR__ . '/modal/settings.php'); ?>
   <?php require( __DIR__ . '/modal/new_entry.php'); ?>
   <?php require( __DIR__ . '/modal/info.php'); ?>
   <?php require( __DIR__ . '/modal/confirm.php'); ?>

@@ -23,6 +23,11 @@ use Symfony\Component\Yaml\Exception\ParseException;
               App tips
             </a>
           </li>
+          <li class="nav-item" role="presentation">
+            <a href="#tipsMovPane" class="nav-link py-1 px-2 small" data-bs-toggle="tab" role="tab">
+              MOV
+            </a>
+          </li>
           <!-- TASK -->
 <!-- 
           <li class="nav-item" role="presentation">
@@ -139,6 +144,11 @@ use Symfony\Component\Yaml\Exception\ParseException;
           <div id="tipsAppPane" class="tab-pane fade" role="tabpanel">
 
             <?php require('misc/tips_app.php'); ?>
+
+          </div>
+          <div id="tipsMovPane" class="tab-pane fade" role="tabpanel">
+
+            <?php require('misc/help_nutrition.php'); ?>
 
           </div>
           <div id="tipsMissionPane" class="tab-pane fade" role="tabpanel">
