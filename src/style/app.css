@@ -467,6 +467,80 @@ body.no-scrollbars::-webkit-scrollbar {
   max-width: 100%;
 }
 
+/* Food grid: tabs (food categories)
+   Default Bootstrap nav-pills are blue; align with the app's orange accent
+   and keep them compact + flat to fit the white panel. */
+.food-grid .nav-pills {
+  gap: 0.15rem;
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 0.25rem;
+}
+.food-grid .nav-pills .nav-link {
+  color: #495057;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+.food-grid .nav-pills .nav-link:hover {
+  background-color: rgba(233, 84, 32, 0.08);
+  color: #e95420;
+}
+.food-grid .nav-pills .nav-link.active {
+  background-color: #e95420 !important;
+  color: #fff !important;
+}
+
+/* Food grid: group headers
+   Inline style now sets --group-color; we render it as a soft tint + colored
+   left accent instead of a saturated full-width bar. */
+.food-grid .group-header {
+  background-color: var(--group-color);                              /* fallback: solid color from layout.yml */
+  background-color: color-mix(in srgb, var(--group-color) 18%, #ffffff);
+  border-left: 3px solid var(--group-color);
+  border-radius: 4px;
+  color: #212529;
+  font-size: 0.95rem;
+  padding-left: 0.6rem !important;
+}
+.food-grid .group-header .text-body-secondary {
+  color: #6c757d !important;
+}
+
+/* Food grid: entry rows
+   The acceptable-state tint is now applied per row via .accep-* (replacing the
+   harsh inline #ffcccc / #ffff88). Removes the inline background-color uses on
+   the inner cells, falling back to the row tint. */
+.food-grid .layout-item {
+  border-radius: 4px;
+  margin-top: 1px;
+  transition: background-color 0.15s ease;
+}
+.food-grid .layout-item.accep-less {
+  background-color: #fde2e4;
+}
+.food-grid .layout-item.accep-occ {
+  background-color: #fff3bf;
+}
+.food-grid .layout-item:hover {
+  background-color: rgba(233, 84, 32, 0.06);
+}
+.food-grid .layout-item.accep-less:hover {
+  background-color: #fbd0d3;
+}
+.food-grid .layout-item.accep-occ:hover {
+  background-color: #ffec99;
+}
+
+/* Strip the inline background-color from cells inside an accept-tinted row -
+   the row already carries the tint; the cell-level bg only adds visible seams. */
+.food-grid .layout-item.accep-less > [style*="background-color"],
+.food-grid .layout-item.accep-occ  > [style*="background-color"],
+.food-grid .layout-item.accep-na   > [style*="background-color"] {
+  background-color: transparent !important;
+}
+.food-grid .layout-item .amount-btn > [style*="background-color"] {
+  background-color: transparent !important;
+}
+
 /* ======================================
    DAY ENTRIES (sortable list)
    ====================================== */

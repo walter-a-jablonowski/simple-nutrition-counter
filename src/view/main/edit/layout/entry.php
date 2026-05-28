@@ -10,7 +10,8 @@ $amountData = $this->layoutView->get($entryName);  // foods and recipes are merg
 $return['done'][] = $entryName;  // left over will be printed below (done = foods and recipes in a single list)
 
 $accepColor  = $this->combinedModel->get("$entryName.acceptable") ?? 'n/a';  // TASK: colors also below, merge by using a class (also in app tips)
-$accepColor  = ['less' => '#ffcccc', 'occasionally' => '#ffff88', 'n/a' => 'inherit'][$accepColor];
+$accepClass  = ['less' => 'accep-less', 'occasionally' => 'accep-occ', 'n/a' => 'accep-na'][$accepColor];
+$accepColor  = ['less' => '#fde2e4', 'occasionally' => '#fff3bf', 'n/a' => 'transparent'][$accepColor];
 
 $price       = $this->combinedModel->get("$entryName.price");
 if( ! $price )
@@ -40,7 +41,7 @@ $showWarning  = ( ! empty($interactions) && trim($interactions) !== '')
 // $xTimeLog = true === $this->combinedModel->get("$entryName.xTimeLog");
 
 ?>
-<div class="layout-item row">  <!-- pe-0 is for bg color, TASK: alternative: highlight name only -->
+<div class="layout-item row <?= $accepClass ?>">  <!-- pe-0 is for bg color, TASK: alternative: highlight name only -->
   <div class = "col-5 ps-1 pe-0"
        data-bs-toggle = "modal"
        data-bs-target = "#infoModal"
