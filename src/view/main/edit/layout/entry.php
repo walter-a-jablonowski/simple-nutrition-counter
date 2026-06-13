@@ -37,7 +37,7 @@ if( ($demoTab ?? false) && config::get('demoData'))
   ];
   $fallback = [
     'Whole grains', 'Lentil stew', 'Mixed greens', 'Quinoa pilaf',
-    'Roasted roots', 'Brown rice', 'Tomato soup', 'Chickpea curry',
+    'Roasted', 'Brown rice', 'Tomato soup', 'Chickpea curry',
   ];
   $pool = $demoPools[ $demoGroup ?? ''] ?? $fallback;
   $displayName = $pool[ crc32($entryName) % count($pool)];

@@ -3,24 +3,33 @@
 Improves general health, brain function and life quality by improving daily nutrients
 as simple as possible, see [mission](#mission).
 
-**State:** Usable for single user, but still in development, see [project state](#project-state)
-
+- [Project state](#project-state)
 - [Mission](#mission)
   - [Long term goal](#long-term-goal)
-- [Project state](#project-state)
-- [Upcoming features](#upcoming-features)
 - [LICENSE](#license)
+
+
+Project state
+----------------------------------------------------------
+
+I use it on a daily basis since months, but it is in development...
+
+Usable for single user, but still in development, see [project state](#project-state)
+
+Currently I am saving time for different projects by skipping features that I don't necessarily need.
+
+![alt text](misc/img.png)
 
 
 Mission
 ----------------------------------------------------------
 
-Always improve your primary tool first, which is the brain, then improve your software.
+Always improve your primary tool first, which is the brain, then improve your projects.
 This requires a constant time invest on a daily basis, but it will have a positive effect
 on all following activities (multiplier).
 
 There are at least ~43 vitamins, minerals, fatty acids, amino acids... It is likely that one
-is deficient in more than one substance. Also, if foods change from time to time, deficiencies
+is deficient in more than one substance. If foods change from time to time, deficiencies
 might change. Well known samples of deficiencies: Vitamin D, Omega 3, Zinc...
 
 All nutrients are needed for something, e.g. the activity of neurons. Improving the supply may
@@ -58,60 +67,8 @@ This kind of project might be AI proof because AI solution would be: it watches 
 while cooking and counts the nutrients. Do you want that?
 
 
-Project state
+Misc
 ----------------------------------------------------------
-
-I use it on a daily basis since months, but it is still in development...
-
-**Limitations**
-
-Currently I am saving time for different projects by skipping features that I don't
-necessarily need.
-
-- All multi user function like login, session, settings ...
-  - a simplified version is in development where you add a new user just by adding a file sys folder
-- Forms for editing all the data (can be done im yml)
-- Advanced features like importing food data via smartphone cam and AI (most likely
-  this would cost fees)
-
-**Simplifications**
-
-- No complex frameworks
-- No db will be used
-
-<table>
-  <tr>
-    <td>Currently</td>
-    <td>Nutrients</td>
-  </tr>
-  <tr>
-    <td>
-      <img src="misc/img.png" width="400">
-    </td>
-    <td>
-      <img src="misc/design_2.png" width="200">
-    </td>
-  </tr>
-</table>
-
-
-Upcoming features
-----------------------------------------------------------
-
-High priority first
-
-- [ ] Food concept **(started)**
-- [ ] Track all nutrients **(started)**
-- usability
-  - [ ] Readability on mobile
-- Clean up: extend app structure, write classes, ...
-  - Code extensions
-    - [x] Types per day entry
-  - [ ] Maybe: Basic error handling
-
-Beside that improved app layout might be done occasionally (less important).
-
-Advanced: extend features (finance and similar see Mission)
 
 Full UI design see [UI design](dev_info/UI_Design.md)
 
@@ -119,7 +76,7 @@ Full UI design see [UI design](dev_info/UI_Design.md)
 LICENSE
 ----------------------------------------------------------
 
-Copyright (C) Walter A. Jablonowski 2024-2025, free for **personal use only** under the [license](LICENSE) \
+Copyright (C) Walter A. Jablonowski 2024-2026, free for **personal use only** under the [license](LICENSE) \
 please contact me if you want to use it commercially (you need to support the development)
 
 This app is build upon PHP and free software (see [credits](credits.md)).
