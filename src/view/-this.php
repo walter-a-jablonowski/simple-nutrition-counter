@@ -236,7 +236,7 @@ else:
 
           <!-- Food grid -->
 
-          <section class="food-grid flex-grow-1 py-2 px-3">
+          <section class="food-grid flex-grow-1 pb-2 px-3">
             <div class="row g-3">
               <div class="col-12">
 
