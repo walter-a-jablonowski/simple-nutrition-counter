@@ -162,6 +162,9 @@ class MainController
           this.#saveDayEntries()
         }
       })
+
+    // Keep the newest entry in view (unless the user scrolled up on purpose)
+    this.#initDayEntriesAutoScroll()
   }
 
   initModalPopovers(modalElement)
@@ -612,6 +615,10 @@ class MainController
     query('#dayEntriesList').appendChild( this.#createEntryEl( entry))
 
     this.#afterListChange()
+
+    // Reveal the just-added entry, unless the user scrolled up to review older ones
+    if( this.autoScrollDayEntries )
+      this.#scrollDayEntriesToBottom()
   }
 
   /*@
@@ -626,6 +633,44 @@ class MainController
     this.#updateEmptyHint()
     this.updSummary()
     this.#saveDayEntries()
+  }
+
+  /*@
+
+  Day entries auto-scroll: once the list grows past the visible area we keep the
+  newest entry in view when entries are added. If the user scrolls up we assume
+  it's intentional and stop following; when they scroll back down to the last
+  entry we resume following on the next add.
+
+  */
+  #initDayEntriesAutoScroll() /*@*/
+  {
+    this.dayEntriesScroller = queryOne('.day-entries-section')
+    if( ! this.dayEntriesScroller ) return
+
+    this.autoScrollDayEntries = true   // follow newest until the user scrolls up
+
+    this.dayEntriesScroller.addEventListener('scroll', () => {
+      this.autoScrollDayEntries = this.#dayEntriesAtBottom()
+    }, { passive: true })
+
+    // Start at the newest entry
+    this.#scrollDayEntriesToBottom()
+  }
+
+  // True when the list is scrolled to (or within a couple px of) the bottom
+  #dayEntriesAtBottom() /*@*/
+  {
+    const el = this.dayEntriesScroller
+    if( ! el ) return true
+    return el.scrollHeight - el.scrollTop - el.clientHeight < 4
+  }
+
+  #scrollDayEntriesToBottom() /*@*/
+  {
+    const el = this.dayEntriesScroller
+    if( ! el ) return
+    el.scrollTop = el.scrollHeight
   }
 
   // Build one list item from an entry object (mirrors view/main/edit/day_entries.php)
