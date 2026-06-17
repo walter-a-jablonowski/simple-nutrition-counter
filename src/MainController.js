@@ -901,14 +901,11 @@ class MainController
       return
     }
     
-    // Get all tab links for later use
-    // this.tabLinks = query('#layout .nav-pills .nav-link')
-    // Fix: exclude btn
-    // Get all tab links for later use, excluding the new entry button (which has ms-auto on its parent)
-    this.tabLinks = Array.from( query('#layout .nav-pills .nav-link')).filter( link => {
-      // Exclude the new entry button which is inside a nav-item with ms-auto class
-      return ! link.closest('.nav-item.ms-auto');
-    })
+    // Get all real tab links for later use, excluding the new entry button.
+    // Real tabs carry data-bs-toggle="tab"; the new entry button does not.
+    // (Keying off .ms-auto broke in right-handed mode, where ms-auto sits on
+    //  the first tab rather than the new entry button.)
+    this.tabLinks = Array.from( query('#layout .nav-pills .nav-link[data-bs-toggle="tab"]'))
     
     if( ! this.tabLinks.length ) {
       console.log('No tab links found')
