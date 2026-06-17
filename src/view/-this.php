@@ -323,7 +323,7 @@ else:
     <?php require( __DIR__ . '/error_page.php'); ?>
   </div>
 
-  <?php if( config::get('devMode') ): ?>
+  <?php if( config::get('devMode') && config::get('showDim') ): ?>
     <script>
       // position:fixed -> out of normal flow, doesn't push body past 100% and avoids a page scrollbar
       document.write('<p style="position:fixed; bottom:4px; left:8px; margin:0; font-size:0.75rem; opacity:0.6; pointer-events:none; z-index:1040;">(dev info: ' + window.innerWidth + ' x ' + window.innerHeight + 'px, dpr: ' + window.devicePixelRatio + ')</p>')
