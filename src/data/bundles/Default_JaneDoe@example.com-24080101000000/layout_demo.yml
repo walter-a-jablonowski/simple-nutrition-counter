@@ -1,0 +1,491 @@
+#
+# Layout
+#
+# see readme
+#
+
+Meals:
+
+  "(first_entries)":
+                                  
+    list:
+  
+      - Lindt Sp 85%
+      - Tchibo classic
+      - Sprudel R lg
+      - Tchibo deal
+      - Nektar R Bio
+      # - Fillup
+
+  Nuts, seeds and berries (color:#ffa500):     # Meals  # TASK: on the go diff shade
+
+    (i):   "Demo 2"                            # TASK: we also could add a collapse for larger content
+    short: "Info (always visible)"             # alternative: enclose in attribs key (see function)
+
+    list:
+
+      - Haselnuss R Bio
+      - Haselnuss N
+      - Haselnuss N Salz
+      - Haselnuss E
+      - Haselnuss A ger
+      - Pekannuss R Bio
+      - Energiekick
+      - Macadamia Cr Mix A
+      - Macadamia Cranb E
+      - Snackpause A
+      - Paranuss Salz N big
+      - Paranuss N big
+      - Kerne Pr N
+      - Kernmix N
+      - Kernmix N old
+      - Kernmix A Pin
+      - Kernmix A
+      - Kernmix A ger
+      - Macadamia A
+      - Macadamia E
+      - Macadamia N
+      - Macadamia R Bio
+      - Kürbiskerne
+
+  Veggie bowl, high fibre (color:#32cd32):
+
+    (i):   "Ideal is nuts, veggie high in fibre some chicken, fish"       # TASK: move
+    short: "add {#cheesealittletasteGroup|a little taste} and {#greenslegumesmushrGroup|greens} ..."
+
+    list:
+
+      # - Veggie L                             # TASK
+      # - Veggie C
+      - Bohnen R Bio
+      - Kichererbsen R Bio
+      - Blumenkohl R
+      - Gemüse R Bio 2
+      - Gemüse A fr 
+      - Gemüse A Bio Sommer
+      - Gemüse A Bio Ital
+      - Gemüse R
+      - Salat R Blatt
+      - Salat R Ital
+      - Salat R Misch
+      - Salat A Country
+      - Rapsöl
+      - Öl
+
+  Cheese, a little taste (color:#32cd32):
+
+    (i): "Add only a little per meal makes it far more tasty and keeps it healthy"
+
+    list:
+
+      - Hüttenk R Bio
+      - Hüttenk R Bio 2
+      - Pecorino Bio R
+      - Halloumi R
+      - Feta 150
+      - Feta W
+      - Gouda R Bio
+      - Gouda R Bio St
+      - Emmentaler R Bio
+      - Emmentaler small
+      - Emmentaler big
+      - Camembert
+      - Kräuterk
+      - Kräuterk mini
+      - Doppelrahm
+      - Doppelrahm mini
+      - Käse Gr Sch (all)
+      - Käse Gr W (all)
+
+  Fish, meat, tofu, butter (color:#ffa500):
+
+    list:
+
+      - Kabeljau N
+      - Fischfilet
+      - Lachs N
+      - Lachs pikant N
+      - Makrele
+      - Makrele R
+
+      - Schaschlik A
+      - Schaschlik Spr
+      - Döner Spr
+      - Putenbr Spr
+      - Schinken R
+      - Schinken R Wilt (Innens)
+      - Schinken N
+      - Mortadella R Bio
+      - Bratwurst
+
+      - Tempeh N
+      - Butter
+      - Remoulade R
+
+  Desserts & micro or sugar-less candy (color:#ff69b4):
+
+    (i): "Candy: Reduce amount per day (effectively: don't buy more or you will eat it)"
+
+    list:
+
+      - Lindt Sp 70%
+      - Lindt Sp 60%      # less
+      - Lindt Sp 50%
+
+      - Kitkat
+      - Milkyway
+      - Pickup
+      - Mon Cheri
+      - Mars
+      - Lakritz mini
+      - Cola Lakritz
+      - Malzbier R
+      - Malzbier R Innens
+      - Malzbier Eni
+
+  Cheat day (color:#ff69b4):
+
+    list:
+
+      - Pizza Funghi
+      - Pizza Veg
+      - Pizza Tonno
+      - Milka caramel
+      - Vanille pudding
+      - Skyr R
+      - Grießbr
+      - Sahneschn
+      - Apfelkuchen mini
+      - Berliner
+      - Berliner mini A
+      - Streuselkuchen
+      - Marmorkuchen
+      - Mini Kuchen Va
+      - Birnenmus
+      - Nuss-Nougat
+      - Limo
+
+Ingredients:
+
+  Greens, legumes, mushr (color:#32cd32):
+
+    list:
+
+      - Mestemacher Voll Pur
+      - Bio Korn Pur A
+      - Avocado
+      - Avocado gr
+      - Oliven R Bio
+      - Oliven A
+      - Oliven A Bio
+      - Kiwi 6 St
+      - R Rüben N
+      - R Rüben R Bio
+      - Cornichons R
+      - Sauerkr R
+      - Artisch R viertel
+      - Green beans R
+      - Gr beans fein R
+      - Mais R Bio
+      - Sellerie R Bio
+      - Rosenkohl
+      - Blaukr
+      - Blaukr R Br
+      - Champ mini ganz R
+      - Champ N
+      - Iglo Gem Ital
+      - Iglo Gem Toscana
+      - Iglo Asia Curry
+      - Pfannegem A Ital
+      - Wirsing
+
+  Misc starches, corn (color:#ffa500):
+
+    short: "Careful, even whole grains"
+    (i):   "Avoid all mass produced that humans weren't meant to eat, even whole grains"
+
+    list:
+
+      - Süßk Pommes
+      - Pommes R Bio
+      - Pommes
+      - Kartoffel Wedges Bio
+      - Kartoffel Wedges
+      - Reibekuchen R Bio
+      - Reibekuchen R frisch
+      - Kartoffeltaschen F
+
+      - Pumpernickel R Bio
+      - Vollkorn Rhein R
+      - Eiweißbr
+      - Toasties R Bio
+      - Flatbr Sandwich
+      - Golden Toast Urkorn
+      - Br R
+      - Br N
+      - Br R mild
+      - Br R 1899 Ru
+      - Mehrkornbr
+
+  Normal food limited use:
+
+    list:
+
+      - Lidl Bratk
+      - Iglo Bratk
+
+      - Tortell A
+      - Iglo Gesch
+      - Iglo Paprika
+      - Iglo Süss
+      - Iglo Gorg
+      - Iglo Frikassee
+      - Frikassee A
+      - Iglo Paella
+      - Paella A
+      - Geb Bohnen
+      - Linsen vegan
+      - Chili vegan
+
+Improve:
+
+  Omega 3:
+
+    list:
+
+      - Makrele R
+      - Makrele
+
+  Minerals:
+
+    list:
+
+      - Aprikose
+
+  Almonds:
+
+    (i): |
+
+      <table class="table table-sm table-borderless">
+        <tr>
+          <td><b>Why?</b></td><td>
+            feels much better
+            <ul class="no-indent">
+              <li>maybe contains some amino acids that sometimes are too low (until filled up)</li>
+              <li>maybe it's the form of magnesium</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><b>Sources</b></td><td>
+            - 60 year old guy looking pretty young <a href="https://www.youtube.com/@CHRISGIBSONLIVE" target="_blank">Chris Gibson</a>
+        </td>
+        </tr>
+      </table>
+
+    list:
+
+      - Haselnuss R Bio
+      - Haselnuss N
+      - Haselnuss E
+      - Haselnuss A ger
+
+  Bitter substances:
+
+    (i): |
+
+      <p>Samples (AI 2502)</p>
+
+      <ul class="no-indent">
+        <li>Chicorée, Radicchio, Endivien</li>
+        <li>Brokkoli, Artischocken, Oliven (nich Öl)</li>
+        <li>Grapefruit, Kaffee, Tee, Kakao</li>
+      </ul>
+
+    list:
+
+      - Salat R Blatt
+      - Salat R Misch
+      - Salat A Country
+      - Artisch R viertel
+
+  Meat [only]:
+
+    short: "<b>Why?</b> \"Heals people\""
+
+    list:
+
+      - Schaschlik A
+      - Schaschlik Spr
+      - Döner Spr
+      - Putenbr Spr
+
+  kcal:  # TASK: we may want to add a (i) feature to nutrients and get it here
+         #       for per nutrient information
+
+    short: <b>Why?</b> autumn, winter less freezing
+    (i):   at least looks like less inflamed when plant based and fastning with cold temperature (just the energy or some B9 vit ?)
+
+    list:
+
+      - Golden Toast Urkorn
+      - Br R
+      - Br N
+      - Br R mild
+      - Br R 1899 Ru
+      - Mehrkornbr
+      - Chips light
+      - Chips
+
+  Misc:
+    
+    list:
+
+      - Apfelsaft N
+
+Supplements:
+
+  Morning supplements:
+
+    short: "<span style=\"color: orange;\">see Info</span>"
+    (i): |
+
+      Deficiencies most people (Brecka)
+
+      - D3, B12 (see gd "highest doses")
+      - Magnesium, Kalium
+
+      List of most important
+
+      - Omega 3
+      - ...
+
+    list:
+
+      - Magn N
+      - Algen
+      - NMN
+      - Creatine
+      - Vit D3 K2 Doppelh M
+      - Vit D3 T DM
+      - Vit B Kompl Abtei 
+      - Vit B12 T DM
+      - Vit C Abtei M
+      - Aspirin
+      - Multivit Abtei
+      - Multivit T DM
+      - Multivit T Mu
+
+  Variable Suppl, Brain tuning:
+
+    list:
+
+      # - Salt                                 # Brain tuning TASK: removed for debugging layout
+      - Whey
+      - Amino misc
+      - Amino Deca Muscle Gainer
+      - Amino NaDuRia Pur
+      - Riegel Müsli Sch
+      - Jogh N gr
+      - Milch H
+      - Milch H Fr
+      - Aprikose
+      - Zitronenm
+      - Zitronenm mini
+      - Fruit
+
+  Evening Supplements, fill up (color:#ff69b4):
+
+    list:
+
+On the go:
+
+  Common (color:#ffa500):
+
+    list:
+
+      - Riegel Müsli Sch
+      - Kitkat
+      - Milkyway
+      - Pickup
+      - Mon Cheri
+      - Mars
+      - Lakritz mini
+      - Cola Lakritz
+      - Malzbier R
+      - Malzbier R Innens
+      - Malzbier Eni
+
+  Village (color:#ffa500):
+
+    list:
+
+      - Birne Pl R
+      - Cappuccino R                           
+      - Cappuccino Eni
+      - Zucker Stick
+      - Chips light
+      - Chips
+      - Tortilla R
+      - Laugenbr
+
+  City (color:#ffa500):
+  
+    list:
+
+      - Müslivoll
+      - Müslivoll Cranb
+      - Birne Pl R
+
+      - Bremer
+      - Döner 1
+
+      - Mini Schoko (bigger)
+      - Keks
+      - Tortilla Chips
+      - Kesselchips Bio P
+      - Espress Bio
+      - Cappu Bio
+      - Lassi Bio
+      - Espresso Stick
+      - Hanf Kekse
+      - Gerolsteiner
+
+  Harbour (color:#ffa500):
+  
+    list:
+
+      - Vittel Apfel
+      
+      - Chickbox Original
+      - Chickbox Chili Cheese
+
+      - Sport Cereal Cranb
+      - Recovery bar sch
+      - Recovery bar c
+      - Minze Zitrone
+
+      - Sandwich A
+      - Wrap Falafel A
+      - Wrap Chicken A
+      - Burrito A
+      - Berliner mini A
+      - Pflaumentaschen A
+
+  Misc (color:#ffa500):
+
+    list:
+
+      - Falafel
+
+Misc:
+
+  Housewares (color:#e0e0e0):                    # Finance only
+
+    (i): |
+    
+      Hunt hidden costly non food stuff, like coffee filters, batteries ...
+      Counts as consumed as soon as one pack/piece is taken out of the pantry.
+      The error is only a few cents and can be ignored.
+
+  Misc var expenses (color:#e0e0e0, fold:true):  # Misc monthly variable

@@ -18,8 +18,7 @@ $return['done'] = [];
               continue;  // no removed entries, even if in layout (see group Removed in UI)
 
             print $this->renderView( __DIR__ . '/entry.php', [
-              'entryName' => $entryName,
-              'demoTab'   => ($demoTab ?? false)
+              'entryName' => $entryName
             ], $return);
 
           ?>

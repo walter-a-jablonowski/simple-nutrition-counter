@@ -2,7 +2,7 @@
 devMode:   true             # show new ui elems that are in dev
 showDim:   false            # show dimensions in food list and details
 tryDesign: false            # try new UI (see controller.php)
-demoData:  false            # Replace food grind food names with demo names
+# moved demo data to layout_demo
 
 defaultUser: "JaneDoe@example.com-24080101000000"
 
