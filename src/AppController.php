@@ -32,6 +32,7 @@ class AppController extends ControllerBase
   use UpdateUnpreciseTimeHeaderAjaxController;
   use ChangeUserAjaxController;
   use SavePriceAjaxController;
+  use GetChartsDataAjaxController;
 
   const DAY_HEADERS     = ['time', 'type', 'food', 'calories', 'fat', 'carbs', 'amino', 'salt', 'price', 'nutrients'];
   const NUTRIENT_GROUPS = ['lipids/fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals', 'secondary', 'misc'];

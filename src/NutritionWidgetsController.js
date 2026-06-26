@@ -253,6 +253,7 @@ class NutritionWidgetsController
 
     const mainLayout       = document.getElementById('mainLayout')
     const favoritesLayout  = document.getElementById('favoritesLayout')
+    const chartsLayout     = document.getElementById('chartsLayout')
     const dayContent       = document.getElementById('dayContent')
     const nutrientsContent = document.getElementById('nutrientsContent')
 
@@ -260,6 +261,7 @@ class NutritionWidgetsController
     {
       mainLayout.classList.remove('d-none')
       favoritesLayout.classList.add('d-none')
+      if( chartsLayout ) chartsLayout.classList.add('d-none')
 
       dayContent.classList.remove('d-none')
       nutrientsContent.classList.add('d-none')
@@ -268,6 +270,7 @@ class NutritionWidgetsController
     {
       mainLayout.classList.remove('d-none')
       favoritesLayout.classList.add('d-none')
+      if( chartsLayout ) chartsLayout.classList.add('d-none')
 
       dayContent.classList.add('d-none')
       nutrientsContent.classList.remove('d-none')
@@ -276,6 +279,16 @@ class NutritionWidgetsController
     {
       mainLayout.classList.add('d-none')
       favoritesLayout.classList.remove('d-none')
+      if( chartsLayout ) chartsLayout.classList.add('d-none')
+    }
+    else if( navType === 'charts' )
+    {
+      mainLayout.classList.add('d-none')
+      favoritesLayout.classList.add('d-none')
+      if( chartsLayout ) chartsLayout.classList.remove('d-none')
+
+      // lazy-load + render once the pane is visible (avoids Chart.js sizing to a hidden canvas)
+      if( window.chartsCrl ) window.chartsCrl.init()
     }
 
     this.currentNav = navType

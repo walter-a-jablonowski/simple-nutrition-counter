@@ -15,6 +15,20 @@ highIntake:                 # TASK: maybe move in nutrients
 
   fat: 100
 
+charts:                     # nutrition charts (integrated from reports/diagr)
+
+  avg:       7              # period average, in days
+  movingAvg: 7              # moving average window, in days
+
+  limits:
+    eatingTime: 6           # in hours
+    calories:   2200        # kcal
+    fat:
+    carbs:      130
+    amino:      60
+    salt:       5
+    price:      7           # EUR
+
 defaultSettings:            # see also users > settings.yml
 
   currency:       "EUR"     # currently EUR or USD

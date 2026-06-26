@@ -1,0 +1,99 @@
+/* Nutrition charts (integrated from reports/diagr).
+   Controls use Bootstrap classes; only chart layout + badges are custom. */
+
+#chartsLayout .charts-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1024px) {
+  #chartsLayout .charts-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  #chartsLayout .charts-container {
+    gap: 15px;
+  }
+}
+
+#chartsLayout .chart-wrapper {
+  background: #fff;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 600px) {
+  #chartsLayout .chart-wrapper {
+    padding: 10px;
+  }
+  #chartsLayout .chart-wrapper h2 {
+    font-size: 18px;
+  }
+}
+
+#chartsLayout .chart-wrapper h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 1.25rem;
+}
+
+#chartsLayout canvas {
+  width: 100% !important;
+  height: 300px !important;
+}
+
+@media (max-width: 600px) {
+  #chartsLayout canvas {
+    height: 250px !important;
+  }
+}
+
+#chartsLayout .badge {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 12px;
+  margin-left: 10px;
+  letter-spacing: 0.2px;
+}
+
+@media (max-width: 480px) {
+  #chartsLayout .badge {
+    display: block;
+    margin: 5px auto;
+    width: fit-content;
+  }
+}
+
+#chartsLayout .period-avg {
+  background-color: #ffd700;
+  color: #333;
+}
+
+#chartsLayout .avg-avg {
+  background-color: #98fb98;
+  color: #333;
+}
+
+#chartsLayout .info-text {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+  #chartsLayout .info-text {
+    font-size: 12px;
+    margin-top: -5px;
+    margin-bottom: 8px;
+  }
+}
