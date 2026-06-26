@@ -93,9 +93,11 @@ else:
         <a data-nav="charts" class="nav-link" href="#" title="Charts">
           <i class="bi bi-graph-up"></i>
         </a>
+        <!--
         <a data-nav="favorites" class="nav-link" href="#" title="Last days">
           <i class="bi bi-calendar-range"></i>
         </a>
+        -->
         <a class="nav-link" href="#" title="Info"
           data-bs-toggle = "modal"
           data-bs-target = "#tipsModal"
