@@ -879,8 +879,19 @@ class MainController
     {
       const group = entry.dataset.group
       const short = entry.dataset.short
-      
-      const currentSum = Number( foodEntries.reduce((sum, foodEntry) => sum + Number( foodEntry.nutrients[group]?.[short] ?? 0), 0).toFixed(5))
+
+      // Resolve one food's value for this nutrient row. Carbs > Fibre is special:
+      // its active value lives at the top-level nutrients.fibre (the carbs group is
+      // not carried in the day entry).
+      // TASK: dedupe fibre in the data files, then this special case can go
+      const isFibreRow = group === 'carbs' && short === 'fibre'
+
+      const nutrientValue = food =>
+        isFibreRow
+          ? Number( food.nutrients.fibre ?? 0)
+          : Number( food.nutrients[group]?.[short] ?? 0)
+
+      const currentSum = Number( foodEntries.reduce((sum, food) => sum + nutrientValue(food), 0).toFixed(5))
       entry.dataset.current = currentSum
 
 
@@ -891,9 +902,13 @@ class MainController
       else
         progressBarColor = 'bg-danger'
 
-      entry.find('.progress-bar').style.width = `${ Math.min( (currentSum / entry.dataset.ideal) * 100, 100)}%` // min: ensure it doesn't exceed 100% for progress
+      // Guard a zero ideal (e.g. Alcohol) so percent / bar width stay finite
+      const ideal   = Number( entry.dataset.ideal)
+      const percent = ideal > 0 ? (currentSum / ideal) * 100 : 0
+
+      entry.find('.progress-bar').style.width = `${ Math.min( percent, 100)}%` // min: ensure it doesn't exceed 100% for progress
       // entry.find('.progress-label').textContent = `${currentSum} / ${entry.dataset.ideal}`
-      entry.find('.percent').textContent = `${Math.round( (currentSum / entry.dataset.ideal) * 100 )}`
+      entry.find('.percent').textContent = `${ Math.round( percent)}`
       entry.find('.vals').textContent    = `${currentSum} / ${entry.dataset.ideal}`
 
       entry.find('.progress-bar').classList.remove('bg-secondary', 'bg-success', 'bg-danger')
@@ -905,15 +920,9 @@ class MainController
 
       for( let i = 0; i < foodEntries.length; i++ )
       {
-        const food = foodEntries[i]
-        let value = 0
-        
-        // Handle nested nutrient structure for amino, vit, min, and fat groups
-        if(['amino', 'vit', 'min', 'fat'].includes(group) && food.nutrients[group])
-          value = Number(food.nutrients[group][short] ?? 0)
-        else
-          value = Number(food.nutrients[group]?.[short] ?? 0)
-        
+        const food  = foodEntries[i]
+        const value = nutrientValue( food)   // same resolver as the sum (incl. the fibre special case)
+
         if( value > 0 )
           foodContributions.push({ name: food.food, value: value })
       }
@@ -927,7 +936,7 @@ class MainController
               `<tr>
                 <td>${item.name}</td>
                 <td class="text-end">${item.value.toFixed(1)} ${entry.dataset.unit}</td>
-                <td class="text-end text-muted">(${((item.value / entry.dataset.ideal) * 100).toFixed(1)}%)</td>
+                <td class="text-end text-muted">(${ ideal > 0 ? ((item.value / ideal) * 100).toFixed(1) : '0.0' }%)</td>
               </tr>`
             ).join('')
           : '<tr><td colspan="3" class="text-center text-muted">No contributions</td></tr>'

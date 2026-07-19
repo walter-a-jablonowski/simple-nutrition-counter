@@ -63,7 +63,7 @@ minerals:
 
   # Salt:
   # Potassium:
-  Calcium:             120     # 15%
+  Calcium:             0.12    # 15%
   # Phosphorus:
   Magnesium:           60      # 16%
   Iron:                5       # 35%

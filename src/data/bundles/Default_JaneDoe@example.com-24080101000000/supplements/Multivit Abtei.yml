@@ -46,7 +46,7 @@ vitamins:                      # % der empf. Tageszufuhr pro Tablette **
 
 minerals:          
 
-  Calcium:             120     # 15%
+  Calcium:             0.12    # 15%
   Chromium:            0.04    # 100%
   Iron:                14      # 100%
   Iodine:              0.15    # 100%
@@ -57,7 +57,6 @@ minerals:
   Selenium:            0.055   # 100%
   Zinc:                10      # 100%
  
-
 secondary:         
 
   # Lutein             0.5     # **  TASK: missing
