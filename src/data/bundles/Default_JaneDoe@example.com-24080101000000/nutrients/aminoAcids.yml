@@ -27,6 +27,9 @@ amounts:  # currently we use the first entry hard coded only
 
 substances:
 
+  # Targets below = WHO essential-AA requirement (mg/kg/day) x 75 kg body weight.
+  # TASK: replace with better absolute reference values later (source TBD)
+
   Histidine:
 
     short:     HIS
@@ -36,7 +39,7 @@ substances:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%
-        amount: 10
+        amount: 750  # 10 mg/kg x 75 kg
         upper:  10%
 
   Isoleucine:
@@ -48,7 +51,7 @@ substances:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%
-        amount: 20
+        amount: 1500  # 20 mg/kg x 75 kg
         upper:  10%
 
   Leucine:
@@ -60,7 +63,7 @@ substances:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%
-        amount: 39
+        amount: 2925  # 39 mg/kg x 75 kg
         upper:  10%
 
   Lysine:
@@ -72,7 +75,7 @@ substances:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%
-        amount: 30
+        amount: 2250  # 30 mg/kg x 75 kg
         upper:  10%
 
   Methionine:
@@ -84,7 +87,7 @@ substances:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%
-        amount: 15   # TASK: plus Cystein?
+        amount: 1125  # 15 mg/kg x 75 kg (TASK: plus Cystein?)
         upper:  10%
 
   Phenylalanine:
@@ -96,7 +99,7 @@ substances:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%
-        amount: 25   # TASK: plus Tyrosin?
+        amount: 1875  # 25 mg/kg x 75 kg (TASK: plus Tyrosin?)
         upper:  10%
 
   Threonine:
@@ -108,7 +111,7 @@ substances:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%
-        amount: 15
+        amount: 1125  # 15 mg/kg x 75 kg
         upper:  10%
 
   Tryptophan:
@@ -120,7 +123,7 @@ substances:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%
-        amount: 4
+        amount: 300  # 4 mg/kg x 75 kg
         upper:  10%
 
   Valine:
@@ -132,5 +135,5 @@ substances:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  10%
-        amount: 26
+        amount: 1950  # 26 mg/kg x 75 kg
         upper:  10%
