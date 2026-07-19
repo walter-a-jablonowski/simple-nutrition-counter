@@ -530,7 +530,8 @@ class MainController
         amino: JSON.parse( target.dataset.aminoacids ),
         vit:   JSON.parse( target.dataset.vitamins ),
         min:   JSON.parse( target.dataset.minerals ),
-        sec:   JSON.parse( target.dataset.secondary )
+        sec:   JSON.parse( target.dataset.secondary ),
+        misc:  JSON.parse( target.dataset.misc )
       }
     }
 

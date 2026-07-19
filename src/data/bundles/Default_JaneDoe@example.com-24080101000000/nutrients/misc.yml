@@ -9,9 +9,10 @@ defaultUnit: mg
 
 substances:
 
-  Caffeine:
+  caffeine:  # lowercase key to match the food data (misc: caffeine)
 
-    short:      Caf
+    short:       Caf
+    displayName: Caffeine
 
     amounts:  # currently we use the first entry hard coded only
 
@@ -20,9 +21,10 @@ substances:
         amount: 100  # TASK: dummy entry
         upper:  5%
 
-  Alcohol:
+  alcohol:  # lowercase key to match the food data (misc: alcohol)
 
-    short:      Alc
+    short:       Alc
+    displayName: Alcohol
 
     amounts:  # currently we use the first entry hard coded only
 

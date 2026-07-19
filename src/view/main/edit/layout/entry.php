@@ -96,6 +96,7 @@ $showWarning  = ( ! empty($interactions) && trim($interactions) !== '')
          data-vitamins   = "<?= htmlspecialchars( dump_json( $data['vit'])) ?>"
          data-minerals   = "<?= htmlspecialchars( dump_json( $data['min'])) ?>"
          data-secondary  = "<?= htmlspecialchars( dump_json( $data['sec'])) ?>"
+         data-misc       = "<?= htmlspecialchars( dump_json( $data['misc'])) ?>"
          data-price      = "<?= $data['price'] ?>"
          data-x-time-log = "<?= $data['xTimeLog'] ? 'true' : 'false' ?>"
          style           = "background-color: <?= $accepColor ?>;"
