@@ -87,6 +87,8 @@ $showWarning  = ( ! empty($interactions) && trim($interactions) !== '')
          onclick         = "mainCrl.layoutItemClick(event)"
          data-category   = "<?= $data['category'] ?>"
          data-food       = "<?= $entryName ?>"
+         data-amount-label  = "<?= htmlspecialchars( str_replace('_', '.', $amount), ENT_QUOTES) ?>"
+         data-amount-weight = "<?= $data['weight'] ?>"
          data-calories   = "<?= $data['calories'] ?>"
          data-nutritionalvalues = "<?= htmlspecialchars( json_encode( $data['nutriVal'])) ?>"
          data-fattyacids = "<?= htmlspecialchars( dump_json( $data['fat'])) ?>"

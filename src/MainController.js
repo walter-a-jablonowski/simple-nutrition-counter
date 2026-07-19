@@ -489,6 +489,9 @@ class MainController
       price:    price,
       xTimeLog: target.dataset.xTimeLog === 'true',
       nutrients: {
+        // amount kept first in the json portion: label is shown in the day entries,
+        // weight (grams) is the calculated amount kept for later use
+        amount: { label: target.dataset.amountLabel, weight: parseFloat( target.dataset.amountWeight) || 0 },
         fibre: JSON.parse( nutritionalValues.fibre || 0 ),  // TASK: or only add when set (see updSummary() for sum only if available)
         fat:   JSON.parse( target.dataset.fattyacids ),
         amino: JSON.parse( target.dataset.aminoacids ),
@@ -691,13 +694,17 @@ class MainController
     li.dataset.price     = entry.price
     li.dataset.nutrients = JSON.stringify( entry.nutrients || {})
 
-    const timeDisp = String( entry.time || '').slice(0, 5)
+    const timeDisp   = String( entry.time || '').slice(0, 5)
+    const amountDisp = entry.nutrients?.amount?.label ?? ''
 
     li.innerHTML =
       `<span class="day-entry-type">${ this.#esc(entry.type) }</span>`
       + `<div class="day-entry-main flex-grow-1 ms-2 overflow-hidden">`
       +   `<div class="day-entry-name text-truncate">${ this.#esc(entry.food) }</div>`
-      +   `<div class="day-entry-time small text-secondary">${ this.#esc(timeDisp) }</div>`
+      +   `<div class="day-entry-sub small text-secondary d-flex">`
+      +     `<span class="day-entry-time">${ this.#esc(timeDisp) }</span>`
+      +     `<span class="day-entry-amount">${ this.#esc(amountDisp) }</span>`
+      +   `</div>`
       + `</div>`
       + `<button type="button" onclick="mainCrl.deleteEntryBtnClick(event)" class="day-entry-del btn p-1 border-0 bg-transparent text-secondary" aria-label="Delete entry">`
       +   `<i class="bi bi-x-lg"></i>`

@@ -21,7 +21,10 @@
 
       <div class="day-entry-main flex-grow-1 ms-2 overflow-hidden">
         <div class="day-entry-name text-truncate"><?= htmlspecialchars( $entry['food'], ENT_QUOTES) ?></div>
-        <div class="day-entry-time small text-secondary"><?= htmlspecialchars( substr( $entry['time'], 0, 5), ENT_QUOTES) ?></div>
+        <div class="day-entry-sub small text-secondary d-flex">
+          <span class="day-entry-time"><?= htmlspecialchars( substr( $entry['time'], 0, 5), ENT_QUOTES) ?></span>
+          <span class="day-entry-amount"><?= htmlspecialchars( $entry['nutrients']['amount']['label'] ?? '', ENT_QUOTES) ?></span>
+        </div>
       </div>
 
       <button type="button" onclick="mainCrl.deleteEntryBtnClick(event)" class="day-entry-del btn p-1 border-0 bg-transparent text-secondary" aria-label="Delete entry">

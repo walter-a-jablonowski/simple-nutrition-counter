@@ -653,8 +653,19 @@ body.no-scrollbars::-webkit-scrollbar {
   line-height: 1.2;
 }
 
-.day-entry-time {
+/* Second line: time plus the clicked amount. Fixed time width keeps the
+   amount at the same x-position across every entry. */
+.day-entry-sub {
   line-height: 1.1;
+}
+
+.day-entry-time {
+  flex: 0 0 auto;
+  min-width: 3.2rem;   /* fits "HH:MM" so the amount always starts at the same x */
+}
+
+.day-entry-amount {
+  flex: 0 0 auto;
 }
 
 .day-entry-del {
