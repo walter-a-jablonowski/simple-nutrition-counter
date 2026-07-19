@@ -56,6 +56,7 @@ substances:
 
     short:       EPA
     displayName: EPA
+    unit:        mg   # EPA/DHA targets and food data are in mg (rest of the group is g)
     altNames:    []  # TASK
     groups:      []
     essential:   false
@@ -73,10 +74,10 @@ substances:
 
     short:       DHA
     displayName: DHA
+    unit:        mg   # EPA/DHA targets and food data are in mg (rest of the group is g)
     altNames:    ["PUFA 22:6 n-3"]
     groups:      ["PolyUnsaturated/omega-3"]
     essential:   true
-    # unit:      g
     comment:     "GPT 2408: Fish (salmon, mackerel, sardines), fish oil, krill oil, and algae oil"
     sources:     "GPT and Claude 2408 for now"
 
