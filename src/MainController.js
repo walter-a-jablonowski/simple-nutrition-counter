@@ -160,7 +160,8 @@ class MainController
           this.#syncDayEntriesFromDom()
           this.updSummary()
           this.#saveDayEntries()
-        }
+        },
+        onTap: item => this.showEntryInfo( item )   // click (not drag) opens the food info
       })
 
     // Keep the newest entry in view (unless the user scrolled up on purpose)
@@ -365,6 +366,38 @@ class MainController
       li.remove()
       this.#afterListChange()
     })
+  }
+
+  /*@
+
+  Open the food info modal for a day entry (same content as clicking the food
+  label in the grid). Reuses the shared #<id>Headline / #<id>Data blocks by
+  handing the existing #infoModal show handler a proxy relatedTarget. Does
+  nothing when the entry's food has no info block (e.g. a misc entry, or a food
+  no longer in the grid).
+
+  */
+  showEntryInfo( li ) /*@*/
+  {
+    const food = li?.dataset?.food
+    if( ! food )
+      return
+
+    // Mirror the PHP id: lcfirst( alnum-only of the food name)  (see layout/entry.php)
+    const alnum   = food.replace(/[^a-zA-Z0-9]/g, '')
+    const entryId = alnum.charAt(0).toLowerCase() + alnum.slice(1)
+
+    // Only open when the shared info blocks exist (food present in the grid)
+    if( ! document.getElementById( entryId + 'Headline')
+    ||  ! document.getElementById( entryId + 'Data'))
+      return
+
+    // Proxy element carries the data-* the show.bs.modal handler reads
+    const proxy = document.createElement('div')
+    proxy.setAttribute('data-title',  '#' + entryId + 'Headline')
+    proxy.setAttribute('data-source', '#' + entryId + 'Data')
+
+    this.infoModal.show( proxy )
   }
 
   // Reusable confirm dialog (see modal/confirm.php)

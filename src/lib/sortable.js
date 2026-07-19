@@ -24,6 +24,7 @@ class PointerSortable
     this.itemSelector = options.itemSelector  || '> *'
     this.cancelSel    = options.cancel        || null
     this.onSort       = options.onSort        || function() {}
+    this.onTap        = options.onTap         || function() {}   // genuine click/tap (no drag)
     this.touchDelay   = options.touchDelay    ?? 180   // ms to hold before a touch drag starts
     this.moveThresh   = options.moveThreshold ?? 6     // px before a mouse drag starts / a touch hold is cancelled
     this.edge         = options.edgeScroll    ?? 45    // px edge zone for auto-scroll
@@ -83,7 +84,21 @@ class PointerSortable
     }
   }
 
-  #onPendingUp = () => this.#clearPending()
+  #onPendingUp = ( e ) =>
+  {
+    const p = this.pending
+
+    // A pointerup while still "pending" (no drag started, movement stayed under
+    // the threshold) is a genuine tap. pointercancel is not: the gesture was
+    // taken over (e.g. native scroll), so it must not count as a tap.
+    const isTap = p && e && e.type === 'pointerup' && e.pointerId === p.pointerId
+    const item  = p ? p.item : null
+
+    this.#clearPending()
+
+    if( isTap )
+      this.onTap( item, e )
+  }
 
   #clearPending()
   {
