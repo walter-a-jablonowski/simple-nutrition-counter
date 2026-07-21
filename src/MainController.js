@@ -88,8 +88,11 @@ class MainController
     this.searchModal._element.event('show.bs.modal', () => {
       query('#searchInput').value      = ''
       query('#searchResults').innerHTML = ''
-      setTimeout(() => query('#searchInput').focus(), 300)  // after the panel is visible
     })
+
+    // Focus on shown (not show): Bootstrap sets its own focus when the transition
+    // completes, so focusing earlier gets stolen back
+    this.searchModal._element.event('shown.bs.modal', () => query('#searchInput').focus())
 
     const searchInput = query('#searchInput')
 
