@@ -27,8 +27,9 @@ details:             { usage: "Misc food details",  required: false, type: "stri
 ingredients:         { usage: "Ingredients that you want to be aware of (html)", required: false, type: "string" }
 allergy:             { usage: "Ingredients that may cause allergy",       required: false, type: "string" }
 mayContain:          { usage: "Ingredients that may be contained cause of production", required: false, type: "string" }
+origin:              { usage: "Country or region of origin", required: false, type: "string" }
 packaging:           { usage: "outer contact with food only --> none|cardboard->alu->plastic -> glass & rubber (maybe) <-- inner",
-                         required: false, type: "string(array)" }
+                         required: false, type: "string|array(string)" }
 
 noUseIf:             { usage: "For supplements but also food", required: false, type: "string" }
 interactions:        { usage: "For supplements but also food", required: false, type: "string" }
@@ -45,7 +46,7 @@ variants:            { usage: "Full food name: any key", required: false, type: 
 price:               { usage: "like 1.00 may be null", required: false, type: "currency" }
 dealPrice:           { usage: "typical deal price", required: false, type: "currency" }
 weight:              { usage: "like 100g of whole pack in case of pieces, unit g or ml is optional",
-                         required: true, type: "float" }
+                         required: true, type: "float|string" }
 pieces:              { usage: "Number of pieces in a pack (if any)", required: false, type: "int" }
 usedAmounts:
 
@@ -62,8 +63,8 @@ usedAmounts:
   required: false
   type:     "string"
 
-amountPer:           { usage: "default: 100g/ml, 'piece' used for suppl, while price is for whole pack", required: true, type: "int" }
-calories:            { usage: "per 100g or 100ml in grams or ml (depends on weight)", required: true, type: "int" }
+amountPer:           { usage: "default: 100g/ml, 'piece' used for suppl, while price is for whole pack", required: true, type: "int|string" }
+calories:            { usage: "per 100g or 100ml (depends on weight)", required: true, type: "int" }
 nutritionalValues:
 
   fat:               { required: true,  type: "float" }
@@ -90,11 +91,11 @@ misc:
   caffeine:          { usage: "", required: false, type: "float" }
   alcohol:           { usage: "", required: false, type: "float" }
 
-sources:             { usage: "same as data > shared > sources, like { nutriVal: \"web|pack (information on packaging may differ slightly)\", nutrients: \"...\", price: \"...\" }", sources
-                         required: true }  # TASK
+sources:             { usage: "same as data > shared > sources, like { nutriVal: \"web|pack (information on packaging may differ slightly)\", nutrients: \"...\", price: \"...\" }",
+                         required: true, type: "obj" }
 lastUpd:             { usage: "like 2024-02-18, last upd nutritional data",   required: true, type: "date" }
 lastPriceUpd:        { usage: "like 2024-02-18", required: false, type: "date" }
 lastDealPriceUpd:    { usage: "like 2024-02-18", required: false, type: "date" }
 
-prices:              { usage: "list of previous prices like `YYYY-MM-DD[ VEDOR]: PRICE`", required: false, type: "array" }
-dealPrices:          { usage: "list of previous deal prices like `YYYY-MM-DD[ VEDOR]: PRICE`", required: false, type: "array" }
+prices:              { usage: "list of previous prices like `YYYY-MM-DD[ VENDOR]: PRICE`", required: false, type: "array" }
+dealPrices:          { usage: "list of previous deal prices like `YYYY-MM-DD[ VENDOR]: PRICE`", required: false, type: "array" }
