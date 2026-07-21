@@ -300,4 +300,42 @@ function yml_replace_variant_value( $yamlContent, $variantName, $key, $newValue 
   return implode("\n", $lines);
 }
 
+/**
+ * Adds a new food to the layout so it shows up in the food grid.
+ *
+ * Inserts the name as the first item under Meals > "(first_entries)" > list,
+ * preserving the file's formatting. Does nothing if the name is already listed.
+ *
+ * @param string $foodName The food name (= record name)
+ * @param string $userId The user ID
+ * @return bool Success status
+ */
+function add_food_to_layout( $foodName, $userId )
+{
+  $filePath = "data/bundles/Default_$userId/layout.yml";
+
+  if( ! file_exists($filePath))
+    return false;
+
+  $content = file_get_contents($filePath);
+
+  // Already present anywhere in the layout: nothing to do
+
+  if( preg_match('/^\s*-\s*' . preg_quote($foodName, '/') . '\s*$/m', $content))
+    return true;
+
+  // Insert as first item right after the "(first_entries)" list header.
+  // \R matches the file's line breaks (this file uses CRLF); keep them consistent.
+
+  $pattern = '/("\(first_entries\)":.*?\R[ \t]*list:[ \t]*\R)/s';
+
+  if( ! preg_match($pattern, $content))
+    return false;
+
+  $eol     = str_contains($content, "\r\n") ? "\r\n" : "\n";
+  $content = preg_replace($pattern, "$1      - $foodName$eol", $content, 1);
+
+  return file_put_contents( $filePath, $content) !== false;
+}
+
 ?>

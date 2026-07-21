@@ -41,6 +41,8 @@
           <label for="modalPriceInput">Price</label>
         </div>
 -->
+        <!-- Entry / new-food form -->
+        <div id="newEntryFormPanel">
         <div class="mb-2">
           <input id="modalNameInput" placeholder="Name" value="Misc entry" class="form-control" required>
         </div>
@@ -86,6 +88,12 @@
             <span class="input-group-text">g</span>
           </div>
         </div>
+        <div class="mb-2">
+          <div class="input-group">
+            <input id="modalSugarInput" type="number" inputmode="numeric" step="0.1" placeholder="Sugar" class="form-control">
+            <span class="input-group-text">g</span>
+          </div>
+        </div>
         <!-- TASK: (very advanced) some list where non-required can be added (fibre and all nutrients -->
         <div class="mb-2">
           <div class="input-group">
@@ -111,17 +119,46 @@
             <input id="modalPriceInput"  type="number" inputmode="numeric" step="0.01" placeholder="Price" class="form-control">
           </div>
         </div>
-      </div>
-      <div class="modal-footer">
+        </div><!-- /newEntryFormPanel -->
       <?php if( config::get('devMode') ): ?>
-        <div class="d-flex w-100 justify-content-between">
+        <!-- Import panel: fetch a food from a product page (URL) or pasted HTML -->
+        <div id="newEntryImportPanel" class="d-none">
+          <div class="mb-2 small text-secondary">
+            Paste a product page URL, or paste the page's HTML if the vendor blocks direct access.
+          </div>
+          <div class="mb-2">
+            <input id="importUrlInput" type="url" placeholder="Product page URL" class="form-control">
+          </div>
+          <div class="mb-2">
+            <textarea id="importHtmlInput" rows="5" placeholder="… or paste page HTML here" class="form-control"></textarea>
+          </div>
+          <div id="importMsg" class="small text-danger mb-2"></div>
+          <div class="d-flex justify-content-between">
+            <button onclick="mainCrl.importBackBtn()" class="btn btn-sm btn-secondary" type="button">
+              Back
+            </button>
+            <button id="importRunBtn" onclick="mainCrl.importRunBtn()" class="btn btn-sm btn-primary" type="button">
+              Import
+            </button>
+          </div>
+        </div>
+      <?php endif; ?>
+      </div>
+      <div id="newEntryFooter" class="modal-footer">
+      <?php if( config::get('devMode') ): ?>
+        <div class="d-flex w-100 justify-content-between align-items-center">
           <!-- TASK: add a dev config and hide -->
           <!-- TASK: (very advanced) -->
-          <div class="form-check">
-            <input id="saveNewFood" type="checkbox" value="" class="form-check-input">
-            <label class="form-check-label small" for="saveNewFood">
-              Save as new food
-            </label>
+          <div class="d-flex align-items-center gap-3">
+            <button onclick="mainCrl.importShowBtn()" class="btn btn-sm btn-outline-secondary" type="button">
+              Import
+            </button>
+            <div class="form-check mb-0">
+              <input id="saveNewFood" type="checkbox" value="" class="form-check-input">
+              <label class="form-check-label small" for="saveNewFood">
+                Save as new food
+              </label>
+            </div>
           </div>
           <div>
       <?php endif; ?>

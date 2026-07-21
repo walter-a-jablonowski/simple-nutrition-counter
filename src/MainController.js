@@ -24,6 +24,9 @@ class MainController
     this.saveDayEntriesBtnClick  = this.saveDayEntriesBtnClick.bind(this)
     this.newEntryBtn             = this.newEntryBtn.bind(this)
     this.newEntrySaveBtn         = this.newEntrySaveBtn.bind(this)
+    this.importShowBtn           = this.importShowBtn.bind(this)
+    this.importBackBtn           = this.importBackBtn.bind(this)
+    this.importRunBtn            = this.importRunBtn.bind(this)
     this.openSearch              = this.openSearch.bind(this)
     this.runSearch               = this.runSearch.bind(this)
     this.searchResultClick       = this.searchResultClick.bind(this)
@@ -192,13 +195,20 @@ class MainController
       query('#modalCaloriesInput').value = ''
       query('#modalFatInput').value      = ''
       query('#modalCarbsInput').value    = ''
+      query('#modalSugarInput').value    = ''
       query('#modalFibreInput').value    = ''
       query('#modalAminoInput').value    = ''
       query('#modalSaltInput').value     = ''
       query('#modalPriceInput').value    = ''
       // query('#flexCheckDefault').checked = false  // TASK: devMode only
       // TASK: maybe set tab (remains clicked)
-      
+
+      // Reset import state (dev feature)
+      this.importedFood = null
+      this.#showImportPanel( false )
+      const saveNewFood = query('#saveNewFood')
+      if( saveNewFood )  saveNewFood.checked = false
+
       // Focus the first input for better UX
       setTimeout(() => query('#modalNameInput').focus(), 500)
     })
@@ -651,10 +661,10 @@ class MainController
       nutrients: {}
     }
 
-    let fibreInp = query('#modalFibreInput')
-
-    if( fibreInp && fibreInp.value.trim() !== '')
-      entry.fibre = fibreInp.value.trim()
+    let fibreInp   = query('#modalFibreInput')
+    let fibreValue = fibreInp && fibreInp.value.trim() !== ''
+                   ? parseFloat( fibreInp.value.trim().replace(',', '.'))
+                   : null
 
     entry = {
       type:      'F',
@@ -676,11 +686,158 @@ class MainController
     //   return Math.round(number * factor) / factor
     // }
 
-    if('fibre' in entry)
-      entry.fibre = Math.round(entry.fibre * (usedWeight / 100) * 10) / 10
+    // Fibre lives inside nutrients (that's where the day summary sums it from)
+
+    if( fibreValue !== null && ! isNaN( fibreValue))
+      entry.nutrients.fibre = Math.round( fibreValue * (usedWeight / 100) * 10) / 10
 
     this.#addDayEntry( entry )
-    this.newEntryModal.hide()
+
+    // Dev feature: also persist a new food record, then reload to refresh the grid.
+    // Otherwise just close (the day entry is already saved by #addDayEntry).
+
+    const saveNewFood = query('#saveNewFood')
+
+    if( saveNewFood && saveNewFood.checked )
+      this.#saveNewFood()
+    else
+      this.newEntryModal.hide()
+  }
+
+
+  // Import a food from a product page (dev feature)
+  //
+  // Flow: Import button -> import panel (URL or pasted HTML) -> importFood ajax
+  // fills the form and checks "Save as new food" -> Add entry persists the food
+  // via saveFood and reloads so the new food shows up in the grid.
+
+  importShowBtn(event)
+  {
+    this.#showImportPanel( true )
+  }
+
+  importBackBtn(event)
+  {
+    this.#showImportPanel( false )
+  }
+
+  importRunBtn(event)
+  {
+    const url  = query('#importUrlInput').value.trim()
+    const html = query('#importHtmlInput').value
+    const msg  = query('#importMsg')
+    const btn  = query('#importRunBtn')
+
+    msg.textContent = ''
+
+    if( url === '' && html.trim() === '') {
+      msg.textContent = 'Enter a URL or paste page HTML.'
+      return
+    }
+
+    btn.disabled    = true
+    btn.textContent = 'Importing …'
+
+    ajax.send('importFood', { url: url, html: html }, (result, data) => {
+
+      btn.disabled    = false
+      btn.textContent = 'Import'
+
+      if( result !== 'success') {
+        msg.textContent = (data && data.message) || 'Import failed'
+        return
+      }
+
+      this.#fillFormFromFood( data.food )
+      this.#showImportPanel( false )
+
+      const chk = query('#saveNewFood')
+      if( chk )  chk.checked = true
+    })
+  }
+
+  #showImportPanel( show )
+  {
+    const panel = query('#newEntryImportPanel')
+
+    if( ! panel )  return   // devMode off: import UI is not rendered
+
+    panel.classList.toggle('d-none', ! show)
+    query('#newEntryFormPanel').classList.toggle('d-none', show)
+
+    const footer = query('#newEntryFooter')
+    if( footer )  footer.classList.toggle('d-none', show)
+  }
+
+  #fillFormFromFood( food )
+  {
+    this.importedFood = food
+
+    const nv  = food.nutritionalValues || {}
+    const set = ( sel, val ) => { const el = query(sel); if( el && val != null )  el.value = val }
+
+    set('#modalNameInput', food.name)
+
+    // Weight comes as "800g" / "330ml": fill the number, remember the unit
+
+    const wm = String( food.weight || '').match(/([\d.,]+)\s*([a-zA-Z]*)/)
+    this.importedWeightUnit = wm ? wm[2].toLowerCase() : ''
+    if( wm )  query('#modalWeightInput').value = wm[1].replace(',', '.')
+
+    set('#modalCaloriesInput', food.calories)
+    set('#modalFatInput',      nv.fat)
+    set('#modalCarbsInput',    nv.carbs)
+    set('#modalSugarInput',    nv.sugar)
+    set('#modalFibreInput',    nv.fibre)
+    set('#modalAminoInput',    nv.amino)
+    set('#modalSaltInput',     nv.salt)
+    set('#modalPriceInput',    food.price)
+  }
+
+  // Build a food payload from the form (over the imported base) and persist it
+
+  #saveNewFood()
+  {
+    const num = sel => {
+      const el = query(sel)
+      const v  = el ? el.value.trim().replace(',', '.') : ''
+      return v === '' ? null : parseFloat(v)
+    }
+
+    const base      = this.importedFood || {}
+    const unit      = this.importedWeightUnit || ''
+    const weightVal = query('#modalWeightInput').value.trim()
+
+    // Nutrients shown in the form override the imported ones; hidden ones (e.g.
+    // saturatedFat) are kept from the imported payload
+
+    const nutrients = Object.assign({}, base.nutritionalValues || {})
+
+    for( const [key, sel] of Object.entries({
+      fat: '#modalFatInput', carbs: '#modalCarbsInput', sugar: '#modalSugarInput',
+      fibre: '#modalFibreInput', amino: '#modalAminoInput', salt: '#modalSaltInput'
+    })) {
+      const v = num(sel)
+      if( v != null )  nutrients[key] = v
+    }
+
+    const food = Object.assign({}, base, {
+      name:              query('#modalNameInput').value.trim(),
+      weight:            weightVal === '' ? (base.weight || '') : (unit === 'ml' ? weightVal + 'ml' : weightVal),
+      price:             num('#modalPriceInput') ?? base.price ?? null,
+      calories:          num('#modalCaloriesInput'),
+      nutritionalValues: nutrients
+    })
+
+    ajax.send('saveFood', { food: food }, ( result, data ) => {
+
+      if( result === 'success') {
+        this.newEntryModal.hide()
+        window.location.reload()
+      }
+      else
+        query('#uiMsg').innerHTML = (data && data.message) || 'Could not save food'
+    })
   }
 
 
@@ -1056,7 +1213,7 @@ class MainController
     //   return sum + (entry.nutrients.fibre ? Number(entry.nutrients.fibre) : 0)  // only if set
     // }, 0).toFixed(1))
 
-    query('#fibreSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.nutrients.fibre), 0))
+    query('#fibreSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + (entry.nutrients.fibre ? Number(entry.nutrients.fibre) : 0), 0))  // only if set (else NaN)
     // query('#saltSum').textContent = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.salt), 0)).toFixed(1)
     query('#saltSum').textContent  = foodEntries.reduce((sum, entry) => sum + Number(entry.salt),  0).toFixed(1)  // 1 decimal place
     query('#priceSum').textContent = foodEntries.reduce((sum, entry) => sum + Number(entry.price), 0).toFixed(2)  // 2 decimal places
