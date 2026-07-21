@@ -70,8 +70,10 @@
             <input id="modalPiecesInput" type="number" inputmode="numeric" placeholder="Pieces" class="form-control">
           </div>
         </div>
-        <select id="modalUsedSelect" class="form-select mb-2" required>
-          <option class="default" value="null" disabled selected>Used amount ...</option>
+        <!-- How much is consumed right now (logs a day entry). Optional: leave
+             empty to only create the food without logging it today. -->
+        <select id="modalUsedSelect" class="form-select mb-2">
+          <option class="default" value="null" selected>Consumed now ...</option>
           <!-- TASK: get from defaults -->
           <option data-usage="pack"    value="0.25">1/4</option>
           <option data-usage="pack"    value="0.33">1/3</option>
@@ -82,6 +84,27 @@
           <option data-usage="pieces"  value="3"   >3 pc</option>
           <option data-usage="precise" value="50"  >50g or ml</option>
           <option data-usage="precise" value="100" >100g or ml</option>
+        </select>
+        <!-- Typical amounts shown as clickable columns in the food grid
+             (saved as usedAmounts). Precise options adapt to the weight unit. -->
+        <select id="modalUsedAmountsSelect" class="form-select mb-2">
+          <option value="" selected>Grid amounts (default) ...</option>
+          <optgroup label="Precise" id="modalPreciseAmounts">
+            <option data-type="precise" value="10,25,50">10 / 25 / 50</option>
+            <option data-type="precise" value="25,50,100">25 / 50 / 100</option>
+            <option data-type="precise" value="50,100,200">50 / 100 / 200</option>
+            <option data-type="precise" value="100,150,200">100 / 150 / 200</option>
+          </optgroup>
+          <optgroup label="Fractions">
+            <option data-type="pack" value="1/8,1/4,1">1/8 / 1/4 / 1</option>
+            <option data-type="pack" value="1/4,1/3,1">1/4 / 1/3 / 1</option>
+            <option data-type="pack" value="1/4,1/2,1">1/4 / 1/2 / 1</option>
+            <option data-type="pack" value="1/2,1">1/2 / 1</option>
+          </optgroup>
+          <optgroup label="Pieces">
+            <option data-type="pieces" value="1,2,3">1 / 2 / 3</option>
+            <option data-type="pieces" value="1,2">1 / 2</option>
+          </optgroup>
         </select>
         <div class="mb-2">
           <div class="input-group">

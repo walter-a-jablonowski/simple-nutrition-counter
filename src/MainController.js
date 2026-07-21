@@ -193,6 +193,7 @@ class MainController
       query('#modalWeightUnit').value    = 'g'
       query('#modalPiecesInput').value   = ''
       query('#modalUsedSelect').value    = 'null'
+      query('#modalUsedAmountsSelect').value = ''
       query('#modalCaloriesInput').value = ''
       query('#modalFatInput').value      = ''
       query('#modalSatFatInput').value   = ''
@@ -216,6 +217,9 @@ class MainController
       query('#modalMayContainInput').value  = ''
       query('#modalPackagingInput').value   = ''
 
+      // Precise grid-amount labels reflect the current weight unit
+      this.#updateGridAmountUnits()
+
       // Back to the Entry tab
       bootstrap.Tab.getOrCreateInstance( query('#entryTab')).show()
 
@@ -228,6 +232,10 @@ class MainController
       // Focus the first input for better UX
       setTimeout(() => query('#modalNameInput').focus(), 500)
     })
+
+    // Keep precise grid-amount labels in sync with the weight unit
+
+    query('#modalWeightUnit').event('change', () => this.#updateGridAmountUnits())
     
     // Mermaid  // TASK: problems in modal (works in page)
     //
@@ -651,63 +659,12 @@ class MainController
 
   newEntrySaveBtn(event)
   {
-    // modal see also construct
+    // "Consumed now" picked -> log a day entry. Empty -> create the food only.
 
-    let weight     = query('#modalWeightInput').value
     let usedSelect = query('#modalUsedSelect')
-    let usage      = 'precise'
 
-    // similar PHP controller
-
-    usage = usedSelect.options[usedSelect.selectedIndex].dataset.usage
-
-    let usedWeight = usage === 'pack'   ? weight * usedSelect.value : (
-                     usage === 'pieces' ? (weight / pieces) * query('#modalPiecesSelect').value
-                   : usedSelect.value  // precise
-    )
-
-    let entry = {
-      food:     query('#modalNameInput').value,  // TASK: rename
-      calories: parseFloat( query('#modalCaloriesInput').value.trim().replace(',', '.')) || 0,
-      fat:      parseFloat( query('#modalFatInput').value.trim().replace(',', '.'))      || 0,
-      carbs:    parseFloat( query('#modalCarbsInput').value.trim().replace(',', '.'))    || 0,
-      amino:    parseFloat( query('#modalAminoInput').value.trim().replace(',', '.'))    || 0,
-      salt:     parseFloat( query('#modalSaltInput').value.trim().replace(',', '.'))     || 0,
-      price:    parseFloat( query('#modalPriceInput').value.trim().replace(',', '.'))    || 0,
-      nutrients: {}
-    }
-
-    let fibreInp   = query('#modalFibreInput')
-    let fibreValue = fibreInp && fibreInp.value.trim() !== ''
-                   ? parseFloat( fibreInp.value.trim().replace(',', '.'))
-                   : null
-
-    entry = {
-      type:      'F',
-      food:      entry.food,
-      // multiplying by 10 and then dividing by 10: This is a common technique to round to a specific number of decimal places—in this case, one decimal place
-      calories:  Math.round( entry.calories * (usedWeight / 100) * 10) / 10,  // 10 is one decimal place
-      fat:       Math.round( entry.fat      * (usedWeight / 100) * 10) / 10,
-      carbs:     Math.round( entry.carbs    * (usedWeight / 100) * 10) / 10,
-      amino:     Math.round( entry.amino    * (usedWeight / 100) * 10) / 10,
-      salt:      Math.round( entry.salt     * (usedWeight / 100) * 10) / 10,  // 100 2 decimal places
-      price:     ! entry.price ? 0 : Math.round( entry.price * (usedWeight / weight) * 100) / 100,
-      nutrients: entry.nutrients
-    }
-
-    // TASK: function for upper decimal places
-
-    // function roundToDecimalPlace(number, decimalPlaces) {
-    //   let factor = Math.pow(10, decimalPlaces)
-    //   return Math.round(number * factor) / factor
-    // }
-
-    // Fibre lives inside nutrients (that's where the day summary sums it from)
-
-    if( fibreValue !== null && ! isNaN( fibreValue))
-      entry.nutrients.fibre = Math.round( fibreValue * (usedWeight / 100) * 10) / 10
-
-    this.#addDayEntry( entry )
+    if( usedSelect.value !== 'null' && usedSelect.value !== null )
+      this.#addDayEntry( this.#buildDayEntry( usedSelect ))
 
     // Dev feature: also persist a new food record, then reload to refresh the grid.
     // Otherwise just close (the day entry is already saved by #addDayEntry).
@@ -718,6 +675,72 @@ class MainController
       this.#saveNewFood()
     else
       this.newEntryModal.hide()
+  }
+
+  // Build a scaled day entry from the modal form for the picked "consumed now" amount
+
+  #buildDayEntry( usedSelect )
+  {
+    let weight     = parseFloat( query('#modalWeightInput').value) || 0
+    let weightUnit = query('#modalWeightUnit').value
+    let usage      = usedSelect.options[usedSelect.selectedIndex].dataset.usage
+    let value      = parseFloat( usedSelect.value)
+    let pieces     = parseFloat( query('#modalPiecesInput').value) || 1
+
+    // grams/ml consumed for the picked amount
+
+    let usedWeight = usage === 'pack'   ? weight * value : (
+                     usage === 'pieces' ? (weight / pieces) * value
+                   : value  // precise: value is already grams/ml
+    )
+
+    const num = sel => parseFloat( query(sel).value.trim().replace(',', '.')) || 0
+
+    let entry = {
+      type:      'F',
+      food:      query('#modalNameInput').value,  // TASK: rename
+      // *10 /10 rounds to one decimal place
+      calories:  Math.round( num('#modalCaloriesInput') * (usedWeight / 100) * 10) / 10,
+      fat:       Math.round( num('#modalFatInput')      * (usedWeight / 100) * 10) / 10,
+      carbs:     Math.round( num('#modalCarbsInput')    * (usedWeight / 100) * 10) / 10,
+      amino:     Math.round( num('#modalAminoInput')    * (usedWeight / 100) * 10) / 10,
+      salt:      Math.round( num('#modalSaltInput')     * (usedWeight / 100) * 10) / 10,
+      price:     weight ? Math.round( num('#modalPriceInput') * (usedWeight / weight) * 100) / 100 : 0,
+      // amount.label is shown in the day-entries list; weight (grams) is kept for later use
+      nutrients: {
+        amount: { label: this.#amountLabel( usage, usedSelect, weightUnit), weight: usedWeight }
+      }
+    }
+
+    // Fibre lives inside nutrients (that's where the day summary sums it from)
+
+    let fibreInp = query('#modalFibreInput')
+
+    if( fibreInp && fibreInp.value.trim() !== '')
+      entry.nutrients.fibre = Math.round( num('#modalFibreInput') * (usedWeight / 100) * 10) / 10
+
+    return entry
+  }
+
+  // Human-readable amount label for the day-entries list
+
+  #amountLabel( usage, usedSelect, weightUnit )
+  {
+    if( usage === 'precise' )
+      return usedSelect.value + weightUnit  // e.g. "50g" / "100ml"
+
+    return usedSelect.options[usedSelect.selectedIndex].textContent.trim()  // "1/4", "2 pc"
+  }
+
+  // Show the precise grid-amount options in the current weight unit (g/ml)
+
+  #updateGridAmountUnits()
+  {
+    const unit = query('#modalWeightUnit').value
+
+    query('#modalPreciseAmounts').querySelectorAll('option').forEach( o =>
+      o.textContent = o.value.split(',').map( v => v + unit ).join(' / ')
+    )
   }
 
 
@@ -876,9 +899,20 @@ class MainController
 
     const text = sel => { const v = query(sel).value.trim(); return v === '' ? null : v }
 
+    // Typical grid amounts (usedAmounts); precise combinations take the weight unit
+
+    const amtSel = query('#modalUsedAmountsSelect')
+    const amtOpt = amtSel.options[amtSel.selectedIndex]
+    let   usedAmounts = []
+
+    if( amtSel.value )
+      usedAmounts = amtSel.value.split(',').map( v => amtOpt.dataset.type === 'precise' ? v + unit : v )
+
     const food = Object.assign({}, base, {
       name:              query('#modalNameInput').value.trim(),
       weight:            weightVal === '' ? (base.weight || '') : weightVal + unit,
+      pieces:            num('#modalPiecesInput'),
+      usedAmounts:       usedAmounts,
       price:             num('#modalPriceInput') ?? base.price ?? null,
       dealPrice:         num('#modalDealPriceInput') ?? base.dealPrice ?? null,
       calories:          num('#modalCaloriesInput'),

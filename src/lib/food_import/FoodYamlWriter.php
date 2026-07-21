@@ -46,9 +46,11 @@ class FoodYamlWriter
     // Commercial
 
     $s = [];
-    self::add($s, 'price',     self::num($food['price']     ?? null));
-    self::add($s, 'dealPrice', self::num($food['dealPrice'] ?? null));
-    self::add($s, 'weight',    self::plain($food['weight'] ?? ''));
+    self::add($s, 'price',       self::num($food['price']     ?? null));
+    self::add($s, 'dealPrice',   self::num($food['dealPrice'] ?? null));
+    self::add($s, 'weight',      self::plain($food['weight'] ?? ''));
+    self::add($s, 'pieces',      self::num($food['pieces'] ?? null));
+    self::add($s, 'usedAmounts', self::usedAmounts($food['usedAmounts'] ?? []));
     $sections[] = $s;
 
     // Nutrition
@@ -163,6 +165,17 @@ class FoodYamlWriter
     }
 
     return '{ ' . implode(', ', $parts) . ' }';
+  }
+
+
+  // Inline flow array of quoted amounts, e.g. ["25g", "50g", "100g"]
+
+  private static function usedAmounts( array $amounts ) : ?string
+  {
+    if( ! $amounts )
+      return null;
+
+    return '[' . implode(', ', array_map(fn($a) => '"' . $a . '"', $amounts)) . ']';
   }
 
 
