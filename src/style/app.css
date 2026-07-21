@@ -879,3 +879,8 @@ body.sortable-active .day-entry {
   width: 6.5rem;
   justify-content: flex-start;
 }
+
+#newEntryModal .modalDetailLabel {
+  width: 6.5rem;
+  justify-content: flex-start;
+}

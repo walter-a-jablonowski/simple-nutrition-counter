@@ -73,12 +73,14 @@ class ReweParser implements FoodParser
       'name'         => $name,
       'productName'  => $productName,
       'vendor'       => 'Rewe',
-      'url'          => $url ?: ($this->jsonString($html, 'url') ?? ''),
+      'url'          => $this->parseUrl($html, $url),
       'certificates' => $this->parseCertificates($html),
       'ingredients'  => $ingredients,
+      'allergy'      => $this->parseAllergy($html),
       'mayContain'   => $mayContain,
       'price'        => $this->parsePrice($html),
-      'weight'       => $this->jsonString($html, 'grammage') ?? '',
+      // grammage may carry a base-price note, e.g. "0,75l (1 l = 6,65 €)"
+      'weight'       => trim( preg_replace('/\s*\(.*$/u', '', $this->jsonString($html, 'grammage') ?? '')),
       'nutritionalValues' => [],
     ];
 
@@ -190,6 +192,18 @@ class ReweParser implements FoodParser
   }
 
 
+  // Allergen note, e.g. "Enthält: Schwefeldioxid und Sulfite." Matched by the
+  // "Allergene" label since the field name varies by product type
+  // (allergenStatement, allergenStatementForWine, ...)
+
+  private function parseAllergy( string $html ) : string
+  {
+    $value = $this->detailValueByLabel($html, 'Allergene') ?? '';
+
+    return trim( preg_replace('/\s+/u', ' ', $value), " .\t\n\r");
+  }
+
+
   private function parseCertificates( string $html ) : array
   {
     $certs = [];
@@ -206,6 +220,21 @@ class ReweParser implements FoodParser
       $certs['vegan'] = true;
 
     return $certs;
+  }
+
+
+  // Use the passed-in source URL; when HTML was pasted without one, rebuild the
+  // product URL from the /shop/p/<slug>/<articleId> path embedded in the page
+
+  private function parseUrl( string $html, ?string $url ) : string
+  {
+    if( $url )
+      return $url;
+
+    if( preg_match('#/shop/p/[a-z0-9-]+/\d+#', $html, $m))
+      return 'https://www.rewe.de' . $m[0];
+
+    return '';
   }
 
 
@@ -244,6 +273,20 @@ class ReweParser implements FoodParser
   private function detailValue( string $html, string $name ) : ?string
   {
     $pattern = '/"name":"' . preg_quote($name, '/') . '"[^}]*?"value":"((?:[^"\\\\]|\\\\.)*)"/';
+
+    if( preg_match($pattern, $html, $m))
+      return json_decode('"' . $m[1] . '"');
+
+    return null;
+  }
+
+
+  // Extract a detail entry value by its (localized) label, e.g. "Allergene".
+  // Use when the entry name varies by product type but the label is stable.
+
+  private function detailValueByLabel( string $html, string $label ) : ?string
+  {
+    $pattern = '/"label":"' . preg_quote($label, '/') . '"[^}]*?"value":"((?:[^"\\\\]|\\\\.)*)"/';
 
     if( preg_match($pattern, $html, $m))
       return json_decode('"' . $m[1] . '"');

@@ -43,6 +43,16 @@
 -->
         <!-- Entry / new-food form -->
         <div id="newEntryFormPanel">
+        <ul class="nav nav-tabs nav-fill small mb-2" role="tablist">
+          <li class="nav-item">
+            <button id="entryTab" class="nav-link active" data-bs-toggle="tab" data-bs-target="#entryTabPane" type="button" role="tab">Entry</button>
+          </li>
+          <li class="nav-item">
+            <button id="detailsTab" class="nav-link" data-bs-toggle="tab" data-bs-target="#detailsTabPane" type="button" role="tab">Details</button>
+          </li>
+        </ul>
+        <div class="tab-content">
+        <div id="entryTabPane" class="tab-pane fade show active" role="tabpanel">
         <div class="mb-2">
           <input id="modalNameInput" placeholder="Name" value="Misc entry" class="form-control" required>
         </div>
@@ -50,7 +60,10 @@
           <div class="col">
             <div class="input-group">
               <input id="modalWeightInput" type="number" inputmode="numeric" placeholder="Weight" class="form-control" required>
-              <span class="input-group-text">g</span>
+              <select id="modalWeightUnit" class="form-select flex-grow-0 w-auto">
+                <option value="g">g</option>
+                <option value="ml">ml</option>
+              </select>
             </div>
           </div>
           <div class="col">
@@ -141,6 +154,48 @@
             </div>
           </div>
         </div>
+        </div><!-- /entryTabPane -->
+
+        <!-- Details tab: food-record metadata (mostly filled by import) -->
+        <div id="detailsTabPane" class="tab-pane fade" role="tabpanel">
+          <div class="mb-2">
+            <input id="modalProductNameInput" placeholder="Product name (exact)" class="form-control">
+          </div>
+          <div class="mb-2">
+            <input id="modalUrlInput" type="url" placeholder="URL" class="form-control">
+          </div>
+          <div class="input-group mb-2">
+            <span class="input-group-text modalDetailLabel">Acceptable</span>
+            <select id="modalAcceptableSelect" class="form-select">
+              <option value="">always ok</option>
+              <option value="occasionally">occasionally</option>
+              <option value="less">less (avoid)</option>
+            </select>
+          </div>
+          <div class="input-group mb-2">
+            <span class="input-group-text modalDetailLabel">NutriScore</span>
+            <input id="modalNutriScoreInput" maxlength="1" placeholder="A–E" class="form-control">
+            <span class="input-group-text">
+              <input id="modalVeganCheck" type="checkbox" class="form-check-input mt-0 me-1">vegan
+            </span>
+            <span class="input-group-text">
+              <input id="modalBioCheck" type="checkbox" class="form-check-input mt-0 me-1">bio
+            </span>
+          </div>
+          <div class="mb-2">
+            <textarea id="modalIngredientsInput" rows="3" placeholder="Ingredients" class="form-control"></textarea>
+          </div>
+          <div class="mb-2">
+            <input id="modalAllergyInput" placeholder="Allergy (e.g. Enthält: …)" class="form-control">
+          </div>
+          <div class="mb-2">
+            <input id="modalMayContainInput" placeholder="May contain (e.g. Kann Spuren von …)" class="form-control">
+          </div>
+          <div>
+            <input id="modalPackagingInput" placeholder="Packaging (e.g. cardboard,alu,plastic)" class="form-control">
+          </div>
+        </div><!-- /detailsTabPane -->
+        </div><!-- /tab-content -->
         </div><!-- /newEntryFormPanel -->
         <!-- Import panel: fetch a food from a product page (URL) or pasted HTML -->
         <div id="newEntryImportPanel" class="d-none">

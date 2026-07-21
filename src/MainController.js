@@ -190,6 +190,7 @@ class MainController
       // Reset form fields with consistent formatting
       query('#modalNameInput').value     = 'Misc entry'  // default
       query('#modalWeightInput').value   = ''
+      query('#modalWeightUnit').value    = 'g'
       query('#modalPiecesInput').value   = ''
       query('#modalUsedSelect').value    = 'null'
       query('#modalCaloriesInput').value = ''
@@ -202,8 +203,21 @@ class MainController
       query('#modalSaltInput').value     = ''
       query('#modalPriceInput').value    = ''
       query('#modalDealPriceInput').value = ''
-      // query('#flexCheckDefault').checked = false  // TASK: devMode only
-      // TASK: maybe set tab (remains clicked)
+
+      // Details tab fields
+      query('#modalProductNameInput').value = ''
+      query('#modalUrlInput').value         = ''
+      query('#modalAcceptableSelect').value = ''
+      query('#modalNutriScoreInput').value  = ''
+      query('#modalVeganCheck').checked     = false
+      query('#modalBioCheck').checked       = false
+      query('#modalIngredientsInput').value = ''
+      query('#modalAllergyInput').value     = ''
+      query('#modalMayContainInput').value  = ''
+      query('#modalPackagingInput').value   = ''
+
+      // Back to the Entry tab
+      bootstrap.Tab.getOrCreateInstance( query('#entryTab')).show()
 
       // Reset import state (dev feature)
       this.importedFood = null
@@ -780,11 +794,21 @@ class MainController
 
     set('#modalNameInput', food.name)
 
-    // Weight comes as "800g" / "330ml": fill the number, remember the unit
+    // Weight comes as "800g" / "330ml" / "0,75l": fill the number and unit.
+    // Only g/ml are offered, so litres are converted to ml.
 
     const wm = String( food.weight || '').match(/([\d.,]+)\s*([a-zA-Z]*)/)
-    this.importedWeightUnit = wm ? wm[2].toLowerCase() : ''
-    if( wm )  query('#modalWeightInput').value = wm[1].replace(',', '.')
+
+    if( wm ) {
+      let num  = parseFloat( wm[1].replace(',', '.'))
+      let unit = wm[2].toLowerCase()
+
+      if( unit === 'l' )       { num *= 1000; unit = 'ml' }   // litres -> ml
+      else if( unit !== 'ml')  { unit = 'g' }                 // default to grams
+
+      query('#modalWeightInput').value = num
+      query('#modalWeightUnit').value  = unit
+    }
 
     set('#modalCaloriesInput', food.calories)
     set('#modalFatInput',      nv.fat)
@@ -796,6 +820,19 @@ class MainController
     set('#modalSaltInput',     nv.salt)
     set('#modalPriceInput',    food.price)
     set('#modalDealPriceInput', food.dealPrice)
+
+    // Details tab
+    const certs = food.certificates || {}
+    set('#modalProductNameInput', food.productName)
+    set('#modalUrlInput',         food.url)
+    set('#modalAcceptableSelect', food.acceptable)
+    set('#modalNutriScoreInput',  certs.NutriScore)
+    query('#modalVeganCheck').checked = certs.vegan === true
+    query('#modalBioCheck').checked   = certs.bio === true
+    set('#modalIngredientsInput', food.ingredients)
+    set('#modalAllergyInput',     food.allergy)
+    set('#modalMayContainInput',  food.mayContain)
+    set('#modalPackagingInput',   food.packaging)
   }
 
   // Build a food payload from the form (over the imported base) and persist it
@@ -809,7 +846,7 @@ class MainController
     }
 
     const base      = this.importedFood || {}
-    const unit      = this.importedWeightUnit || ''
+    const unit      = query('#modalWeightUnit').value
     const weightVal = query('#modalWeightInput').value.trim()
 
     // Nutrients shown in the form override the imported ones; hidden ones (e.g.
@@ -825,13 +862,36 @@ class MainController
       if( v != null )  nutrients[key] = v
     }
 
+    // Certificates from the Details tab, merged over imported ones so extra keys
+    // (oekotest, fairtrade, …) from the payload are preserved
+
+    const certs = Object.assign({}, base.certificates || {})
+
+    const nutriScore = query('#modalNutriScoreInput').value.trim().toUpperCase()
+    if( nutriScore )  certs.NutriScore = nutriScore
+    else              delete certs.NutriScore
+
+    query('#modalVeganCheck').checked ? certs.vegan = true : delete certs.vegan
+    query('#modalBioCheck').checked   ? certs.bio   = true : delete certs.bio
+
+    const text = sel => { const v = query(sel).value.trim(); return v === '' ? null : v }
+
     const food = Object.assign({}, base, {
       name:              query('#modalNameInput').value.trim(),
-      weight:            weightVal === '' ? (base.weight || '') : (unit === 'ml' ? weightVal + 'ml' : weightVal),
+      weight:            weightVal === '' ? (base.weight || '') : weightVal + unit,
       price:             num('#modalPriceInput') ?? base.price ?? null,
       dealPrice:         num('#modalDealPriceInput') ?? base.dealPrice ?? null,
       calories:          num('#modalCaloriesInput'),
-      nutritionalValues: nutrients
+      nutritionalValues: nutrients,
+      // Details tab
+      productName:       text('#modalProductNameInput') ?? base.productName ?? '',
+      url:               text('#modalUrlInput') ?? base.url ?? '',
+      acceptable:        query('#modalAcceptableSelect').value,
+      certificates:      certs,
+      ingredients:       text('#modalIngredientsInput') ?? '',
+      allergy:           text('#modalAllergyInput') ?? '',
+      mayContain:        text('#modalMayContainInput') ?? '',
+      packaging:         text('#modalPackagingInput') ?? ''
     })
 
     ajax.send('saveFood', { food: food }, ( result, data ) => {

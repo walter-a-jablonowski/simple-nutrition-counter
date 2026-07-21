@@ -34,10 +34,13 @@ class FoodYamlWriter
     // Quality and info
 
     $s = [];
+    self::add($s, 'acceptable', self::plain($food['acceptable'] ?? ''));
     if( ! empty($food['certificates']))
       self::add($s, 'certificates', self::certificates($food['certificates']));
     self::add($s, 'ingredients', self::str($food['ingredients'] ?? ''));
+    self::add($s, 'allergy',     self::str($food['allergy'] ?? ''));
     self::add($s, 'mayContain',  self::str($food['mayContain'] ?? ''));
+    self::add($s, 'packaging',   self::plain($food['packaging'] ?? ''));
     $sections[] = $s;
 
     // Commercial

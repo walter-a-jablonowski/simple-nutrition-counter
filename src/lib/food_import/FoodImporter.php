@@ -58,6 +58,13 @@ class FoodImporter
     if( ! empty($food['price']))
       $food['lastPriceUpd'] = $today;
 
+    // Preset "acceptable" for high-sugar foods (EU high-sugar threshold 22.5 g/100g)
+
+    $sugar = $food['nutritionalValues']['sugar'] ?? null;
+
+    if( $sugar !== null && $sugar > 22.5 )
+      $food['acceptable'] = 'less';
+
     return $food;
   }
 }
