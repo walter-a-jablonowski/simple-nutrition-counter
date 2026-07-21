@@ -622,6 +622,15 @@ body.no-scrollbars::-webkit-scrollbar {
   margin-bottom: 0;
 }
 
+/* When the list is empty the hint is shown: center it vertically instead of
+   letting the empty list grow and push it to the bottom */
+.day-entries-section:has(#dayEntriesEmpty:not(.d-none)) {
+  justify-content: center;
+}
+.day-entries-section:has(#dayEntriesEmpty:not(.d-none)) #dayEntriesList {
+  flex-grow: 0 !important;  /* beats Bootstrap's .flex-grow-1 { ... !important } */
+}
+
 .day-entry {
   cursor: grab;
   -webkit-user-select: none;
