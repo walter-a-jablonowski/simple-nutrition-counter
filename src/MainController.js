@@ -24,6 +24,9 @@ class MainController
     this.saveDayEntriesBtnClick  = this.saveDayEntriesBtnClick.bind(this)
     this.newEntryBtn             = this.newEntryBtn.bind(this)
     this.newEntrySaveBtn         = this.newEntrySaveBtn.bind(this)
+    this.openSearch              = this.openSearch.bind(this)
+    this.runSearch               = this.runSearch.bind(this)
+    this.searchResultClick       = this.searchResultClick.bind(this)
     this.layoutItemClick         = this.layoutItemClick.bind(this)
     this.priceColClick           = this.priceColClick.bind(this)
     this.updPriceClick           = this.updPriceClick.bind(this)
@@ -77,6 +80,63 @@ class MainController
     })
 
     this.confirmModal = new bootstrap.Modal( query('#confirmModal'))
+
+    // Food search dialog (find a food across all grid tabs and jump to it)
+
+    this.searchModal = new bootstrap.Modal( query('#searchModal'))
+
+    this.searchModal._element.event('show.bs.modal', () => {
+      query('#searchInput').value      = ''
+      query('#searchResults').innerHTML = ''
+      setTimeout(() => query('#searchInput').focus(), 300)  // after the panel is visible
+    })
+
+    const searchInput = query('#searchInput')
+
+    if( searchInput )
+      searchInput.event('keydown', e => {
+        if( e.key === 'Enter') {
+          e.preventDefault()
+          this.runSearch()
+        }
+        else if( e.key === 'ArrowDown') {
+          const first = query('#searchResults .search-result')[0]
+          if( first ) {
+            e.preventDefault()
+            first.focus()
+          }
+        }
+      })
+
+    const searchResults = query('#searchResults')
+
+    if( searchResults )
+      searchResults.event('keydown', e => {
+        if( e.key !== 'ArrowDown' && e.key !== 'ArrowUp')
+          return
+
+        e.preventDefault()
+
+        const results = Array.from( query('#searchResults .search-result'))
+        const at      = results.indexOf( document.activeElement )
+
+        if( e.key === 'ArrowDown') {
+          if( at < results.length - 1 ) results[at + 1].focus()
+        }
+        else {  // ArrowUp: past the first result returns focus to the input
+          if( at <= 0 ) query('#searchInput').focus()
+          else          results[at - 1].focus()
+        }
+      })
+
+    // Ctrl/Cmd+K opens the food search (not with Alt)
+
+    event('keydown', e => {
+      if( (e.ctrlKey || e.metaKey) && ! e.altKey && (e.key === 'k' || e.key === 'K')) {
+        e.preventDefault()
+        this.openSearch()
+      }
+    })
 
     // global click handler to close popovers when clicking outside
     
@@ -428,8 +488,136 @@ class MainController
   }
 
   newEntryBtn(event)
-  { 
+  {
     this.newEntryModal.show()
+  }
+
+  // Food search dialog
+  //
+  // Lets the user find a food by name and jump to the tab where it lives (the same
+  // food may appear on several grid tabs). Pure in-memory lookup over the already
+  // rendered food grid - no server request. Search runs on Enter / the magnifier.
+
+  openSearch(event)
+  {
+    this.searchModal.show()
+  }
+
+  runSearch()
+  {
+    const q         = (query('#searchInput').value || '').trim().toLowerCase()
+    const container = query('#searchResults')
+
+    if( ! q ) {  // empty query clears results and does nothing else
+      container.innerHTML = ''
+      return
+    }
+
+    // One record per (food, tab) occurrence, so each result jumps to a specific tab
+    const matches = this.#buildFoodIndex().filter( rec => rec.food.toLowerCase().includes(q))
+
+    this.searchMatches = matches  // referenced by searchResultClick via data-idx
+
+    if( ! matches.length ) {
+      container.innerHTML = '<div class="text-secondary text-center p-3">No matches found</div>'
+      return
+    }
+
+    container.innerHTML = matches.map( (rec, i) => {
+      const loc = rec.tabLabel
+        ? this.#escapeHtml( rec.tabLabel) + (rec.groupName ? ' <span class="search-sep">›</span> ' + this.#escapeHtml( rec.groupName) : '')
+        : this.#escapeHtml( rec.groupName)
+
+      return `<button type="button" class="search-result" data-idx="${i}" onclick="mainCrl.searchResultClick(event)">
+                <span class="search-result-name">${this.#highlight( rec.food, q)}</span>
+                <span class="search-result-loc">${loc}</span>
+              </button>`
+    }).join('')
+  }
+
+  searchResultClick(event)
+  {
+    const btn = event.currentTarget
+    const rec = (this.searchMatches || [])[parseInt( btn.dataset.idx, 10)]
+    if( ! rec )
+      return
+
+    // Jump only once the dialog is fully closed, so the target pane is visible
+    const jump = () => {
+      if( rec.navLink )  rec.navLink.click()  // activate the food-grid tab
+      if( rec.itemEl ) {
+        rec.itemEl.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        this.#flashItem( rec.itemEl )
+      }
+    }
+
+    query('#searchModal').addEventListener('hidden.bs.modal', () => setTimeout( jump, 50), { once: true })
+    this.searchModal.hide()
+  }
+
+  // Walk the rendered food grid and return one record per (food, tab) occurrence.
+  // The grid is static after load; matching foods and recipes are merged in the DOM.
+  #buildFoodIndex() /*@*/
+  {
+    // Map each grid tab pane id -> its nav label + link (empty when a single-tab layout)
+    const tabs = {}
+
+    Array.from( query('#layout .nav-pills .nav-link[data-bs-toggle="tab"]')).forEach( link => {
+      const href = link.getAttribute('href')  // e.g. "#mealsLayoutPane"
+      if( href )
+        tabs[href.slice(1)] = { label: link.textContent.trim(), link }
+    })
+
+    const index = []
+
+    Array.from( query('#layout .layout-item')).forEach( item => {
+      const btn  = item.querySelector('.amount-btn')
+      const name = btn ? btn.dataset.food : (item.querySelector('.text-nowrap')?.textContent.trim() || '')
+      if( ! name )
+        return
+
+      const pane = item.closest('.tab-pane[id$="LayoutPane"]')
+      const tab  = pane && tabs[pane.id] ? tabs[pane.id] : null
+
+      const header    = item.closest('[class*="col-md-6"]')?.querySelector('.group-header div')
+      const groupName = header ? header.textContent.trim() : ''
+
+      index.push({
+        food:     name,
+        itemEl:   item,
+        navLink:  tab ? tab.link  : null,
+        tabLabel: tab ? tab.label : '',
+        groupName
+      })
+    })
+
+    return index
+  }
+
+  // Briefly outline a grid row so the user can spot it after a jump
+  #flashItem(el) /*@*/
+  {
+    el.classList.remove('search-flash')
+    void el.offsetWidth  // reflow so the animation can retrigger on repeat jumps
+    el.classList.add('search-flash')
+    setTimeout(() => el.classList.remove('search-flash'), 1600)
+  }
+
+  #escapeHtml(s) /*@*/
+  {
+    return String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]))
+  }
+
+  // Escape the whole string, wrapping the first case-insensitive match of q in <mark>
+  #highlight(text, q) /*@*/
+  {
+    const at = text.toLowerCase().indexOf(q)
+    if( at < 0 )
+      return this.#escapeHtml(text)
+
+    return this.#escapeHtml( text.slice(0, at))
+         + '<mark>' + this.#escapeHtml( text.slice(at, at + q.length)) + '</mark>'
+         + this.#escapeHtml( text.slice(at + q.length))
   }
 
   newEntrySaveBtn(event)

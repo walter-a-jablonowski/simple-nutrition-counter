@@ -622,6 +622,65 @@ body.no-scrollbars::-webkit-scrollbar {
   margin-bottom: 0;
 }
 
+/* ======================================
+   Food search dialog
+   ====================================== */
+
+.search-results {
+  max-height: 55vh;
+  overflow-y: auto;
+}
+
+.search-result {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: .5rem;
+  width: 100%;
+  min-height: 40px;
+  padding: .5rem .35rem;
+  text-align: left;
+  border: 0;
+  border-bottom: 1px solid #e0e0e0;
+  background: transparent;
+}
+
+.search-result:hover,
+.search-result:focus {
+  background-color: #fff3bf;
+  outline: none;
+}
+
+.search-result-name {
+  font-weight: 500;
+}
+
+.search-result-name mark {
+  padding: 0;
+  background: #ffe066;
+}
+
+.search-result-loc {
+  color: #6c757d;
+  font-size: .8rem;
+  white-space: nowrap;
+}
+
+.search-sep {
+  opacity: .6;
+}
+
+/* Flash the target row after jumping to it (box-shadow stays visible over the
+   row's own tinted cell backgrounds) */
+@keyframes searchFlash {
+  0%, 100% { box-shadow: inset 0 0 0 0 rgba(255, 193, 7, 0),   0 0 0 0 rgba(255, 193, 7, 0);   }
+  15%      { box-shadow: inset 0 0 0 2px rgba(255, 193, 7, .95), 0 0 6px 2px rgba(255, 193, 7, .8); }
+}
+.search-flash {
+  animation: searchFlash 1.5s ease;
+  border-radius: 2px;
+}
+
 /* When the list is empty the hint is shown: center it vertically instead of
    letting the empty list grow and push it to the bottom */
 .day-entries-section:has(#dayEntriesEmpty:not(.d-none)) {

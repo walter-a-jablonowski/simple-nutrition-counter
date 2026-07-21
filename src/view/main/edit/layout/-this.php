@@ -20,6 +20,11 @@
                     <i class="bi bi-pencil-square"></i>
                   </a>
                 </li>
+                <li class="nav-item">
+                  <a onclick="mainCrl.openSearch(event)" class="nav-link px-2 py-1 text-black" role="button" title="Find food">
+                    <i class="bi bi-search"></i>
+                  </a>
+                </li>
               <?php endif; ?>
 
               <?php $i=0; foreach( $this->layout as $tab => $layout ): ?>
@@ -34,6 +39,11 @@
 
               <?php if( $isLeftHanded ): ?>
                 <li class="nav-item ms-auto">
+                  <a onclick="mainCrl.openSearch(event)" class="nav-link px-2 py-1 text-black" role="button" title="Find food">
+                    <i class="bi bi-search"></i>
+                  </a>
+                </li>
+                <li class="nav-item">
                   <a onclick="mainCrl.newEntryBtn(event)" class="nav-link px-2 py-1 text-black" role="tab">
                     <i class="bi bi-pencil-square"></i>
                   </a>
