@@ -872,3 +872,10 @@ body.sortable-active .day-entry {
     z-index: 100;
   }
 }
+
+/* New entry modal: fixed-width labels so the nutrient inputs line up */
+
+#newEntryModal .modalNutrientLabel {
+  width: 6.5rem;
+  justify-content: flex-start;
+}

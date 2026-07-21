@@ -72,44 +72,51 @@
         </select>
         <div class="mb-2">
           <div class="input-group">
-            <input id="modalCaloriesInput" type="number" inputmode="numeric" placeholder="Calories" class="form-control" required>
+            <span class="input-group-text modalNutrientLabel">Calories</span>
+            <input id="modalCaloriesInput" type="number" inputmode="numeric" class="form-control" required>
             <span class="input-group-text">kcal</span>
           </div>
         </div>
         <div class="mb-2">
           <div class="input-group">
-            <input id="modalFatInput"   type="number" inputmode="numeric" step="0.1" placeholder="Fat" class="form-control" required>
+            <span class="input-group-text modalNutrientLabel">Fat</span>
+            <input id="modalFatInput"   type="number" inputmode="numeric" step="0.1" class="form-control" required>
             <span class="input-group-text">g</span>
           </div>
         </div>
         <div class="mb-2">
           <div class="input-group">
-            <input id="modalCarbsInput" type="number" inputmode="numeric" step="0.1" placeholder="Carbs" class="form-control">
+            <span class="input-group-text modalNutrientLabel">Carbs</span>
+            <input id="modalCarbsInput" type="number" inputmode="numeric" step="0.1" class="form-control">
             <span class="input-group-text">g</span>
           </div>
         </div>
         <div class="mb-2">
           <div class="input-group">
-            <input id="modalSugarInput" type="number" inputmode="numeric" step="0.1" placeholder="Sugar" class="form-control">
+            <span class="input-group-text modalNutrientLabel">Sugar</span>
+            <input id="modalSugarInput" type="number" inputmode="numeric" step="0.1" class="form-control">
             <span class="input-group-text">g</span>
           </div>
         </div>
         <!-- TASK: (very advanced) some list where non-required can be added (fibre and all nutrients -->
         <div class="mb-2">
           <div class="input-group">
-            <input id="modalFibreInput" type="number" inputmode="numeric" step="0.1" placeholder="Fibre" class="form-control">
+            <span class="input-group-text modalNutrientLabel">Fibre</span>
+            <input id="modalFibreInput" type="number" inputmode="numeric" step="0.1" class="form-control">
             <span class="input-group-text">g</span>
           </div>
         </div>
         <div class="mb-2">
           <div class="input-group">
-            <input id="modalAminoInput" type="number" inputmode="numeric" step="0.1" placeholder="Amino acids" class="form-control" required>
+            <span class="input-group-text modalNutrientLabel">Amino acids</span>
+            <input id="modalAminoInput" type="number" inputmode="numeric" step="0.1" class="form-control" required>
             <span class="input-group-text">g</span>
           </div>
         </div>
         <div class="mb-2">
           <div class="input-group">
-            <input id="modalSaltInput"  type="number" inputmode="numeric" step="0.1" placeholder="Salt" class="form-control" required>
+            <span class="input-group-text modalNutrientLabel">Salt</span>
+            <input id="modalSaltInput"  type="number" inputmode="numeric" step="0.1" class="form-control" required>
             <span class="input-group-text">g</span>
           </div>
         </div>
@@ -120,7 +127,6 @@
           </div>
         </div>
         </div><!-- /newEntryFormPanel -->
-      <?php if( config::get('devMode') ): ?>
         <!-- Import panel: fetch a food from a product page (URL) or pasted HTML -->
         <div id="newEntryImportPanel" class="d-none">
           <div class="mb-2 small text-secondary">
@@ -142,10 +148,8 @@
             </button>
           </div>
         </div>
-      <?php endif; ?>
       </div>
       <div id="newEntryFooter" class="modal-footer">
-      <?php if( config::get('devMode') ): ?>
         <div class="d-flex w-100 justify-content-between align-items-center">
           <!-- TASK: add a dev config and hide -->
           <!-- TASK: (very advanced) -->
@@ -161,17 +165,14 @@
             </div>
           </div>
           <div>
-      <?php endif; ?>
             <button data-bs-dismiss="modal" class="btn btn-sm btn-secondary" type="button">
               Cancel
             </button>
             <button onclick="mainCrl.newEntrySaveBtn()" class="btn btn-sm btn-primary" type="button">
               Add entry
             </button>
-      <?php if( config::get('devMode') ): ?>
           </div>
         </div>
-      <?php endif; ?>
       </div>
     </div>
   </div>
