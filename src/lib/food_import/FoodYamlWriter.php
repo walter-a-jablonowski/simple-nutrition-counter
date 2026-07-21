@@ -43,8 +43,9 @@ class FoodYamlWriter
     // Commercial
 
     $s = [];
-    self::add($s, 'price',  self::num($food['price']  ?? null));
-    self::add($s, 'weight', self::plain($food['weight'] ?? ''));
+    self::add($s, 'price',     self::num($food['price']     ?? null));
+    self::add($s, 'dealPrice', self::num($food['dealPrice'] ?? null));
+    self::add($s, 'weight',    self::plain($food['weight'] ?? ''));
     $sections[] = $s;
 
     // Nutrition
@@ -69,9 +70,10 @@ class FoodYamlWriter
     // Source references and dates
 
     $s = [];
-    self::add($s, 'sources',      self::sources($food['sources'] ?? ['nutriVal' => 'web']));
-    self::add($s, 'lastUpd',      self::plain($food['lastUpd'] ?? ''));
-    self::add($s, 'lastPriceUpd', self::plain($food['lastPriceUpd'] ?? ''));
+    self::add($s, 'sources',          self::sources($food['sources'] ?? ['nutriVal' => 'web']));
+    self::add($s, 'lastUpd',          self::plain($food['lastUpd'] ?? ''));
+    self::add($s, 'lastPriceUpd',     self::plain($food['lastPriceUpd'] ?? ''));
+    self::add($s, 'lastDealPriceUpd', self::plain($food['lastDealPriceUpd'] ?? ''));
     $sections[] = $s;
 
     // Join non-empty sections with a blank line between them

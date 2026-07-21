@@ -34,6 +34,9 @@ trait SaveFoodAjaxController
     $food['sources'] = $food['sources'] ?? ['nutriVal' => 'web'];
     $food['lastUpd'] = $food['lastUpd'] ?? date('Y-m-d');
 
+    if( ! empty($food['dealPrice']) && empty($food['lastDealPriceUpd']))
+      $food['lastDealPriceUpd'] = date('Y-m-d');
+
     $filePath = "data/bundles/Default_$userId/foods/$name.yml";
     $yaml     = FoodYamlWriter::toYaml( $food );
 

@@ -194,12 +194,14 @@ class MainController
       query('#modalUsedSelect').value    = 'null'
       query('#modalCaloriesInput').value = ''
       query('#modalFatInput').value      = ''
+      query('#modalSatFatInput').value   = ''
       query('#modalCarbsInput').value    = ''
       query('#modalSugarInput').value    = ''
       query('#modalFibreInput').value    = ''
       query('#modalAminoInput').value    = ''
       query('#modalSaltInput').value     = ''
       query('#modalPriceInput').value    = ''
+      query('#modalDealPriceInput').value = ''
       // query('#flexCheckDefault').checked = false  // TASK: devMode only
       // TASK: maybe set tab (remains clicked)
 
@@ -786,12 +788,14 @@ class MainController
 
     set('#modalCaloriesInput', food.calories)
     set('#modalFatInput',      nv.fat)
+    set('#modalSatFatInput',   nv.saturatedFat)
     set('#modalCarbsInput',    nv.carbs)
     set('#modalSugarInput',    nv.sugar)
     set('#modalFibreInput',    nv.fibre)
     set('#modalAminoInput',    nv.amino)
     set('#modalSaltInput',     nv.salt)
     set('#modalPriceInput',    food.price)
+    set('#modalDealPriceInput', food.dealPrice)
   }
 
   // Build a food payload from the form (over the imported base) and persist it
@@ -814,8 +818,8 @@ class MainController
     const nutrients = Object.assign({}, base.nutritionalValues || {})
 
     for( const [key, sel] of Object.entries({
-      fat: '#modalFatInput', carbs: '#modalCarbsInput', sugar: '#modalSugarInput',
-      fibre: '#modalFibreInput', amino: '#modalAminoInput', salt: '#modalSaltInput'
+      fat: '#modalFatInput', saturatedFat: '#modalSatFatInput', carbs: '#modalCarbsInput',
+      sugar: '#modalSugarInput', fibre: '#modalFibreInput', amino: '#modalAminoInput', salt: '#modalSaltInput'
     })) {
       const v = num(sel)
       if( v != null )  nutrients[key] = v
@@ -825,6 +829,7 @@ class MainController
       name:              query('#modalNameInput').value.trim(),
       weight:            weightVal === '' ? (base.weight || '') : (unit === 'ml' ? weightVal + 'ml' : weightVal),
       price:             num('#modalPriceInput') ?? base.price ?? null,
+      dealPrice:         num('#modalDealPriceInput') ?? base.dealPrice ?? null,
       calories:          num('#modalCaloriesInput'),
       nutritionalValues: nutrients
     })

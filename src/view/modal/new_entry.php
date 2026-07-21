@@ -86,6 +86,13 @@
         </div>
         <div class="mb-2">
           <div class="input-group">
+            <span class="input-group-text modalNutrientLabel">Sat. fat</span>
+            <input id="modalSatFatInput" type="number" inputmode="numeric" step="0.1" class="form-control">
+            <span class="input-group-text">g</span>
+          </div>
+        </div>
+        <div class="mb-2">
+          <div class="input-group">
             <span class="input-group-text modalNutrientLabel">Carbs</span>
             <input id="modalCarbsInput" type="number" inputmode="numeric" step="0.1" class="form-control">
             <span class="input-group-text">g</span>
@@ -120,10 +127,18 @@
             <span class="input-group-text">g</span>
           </div>
         </div>
-        <div>
-          <div class="input-group">
-            <span class="input-group-text">$</span>
-            <input id="modalPriceInput"  type="number" inputmode="numeric" step="0.01" placeholder="Price" class="form-control">
+        <div class="row">
+          <div class="col">
+            <div class="input-group">
+              <span class="input-group-text">$</span>
+              <input id="modalPriceInput"  type="number" inputmode="numeric" step="0.01" placeholder="Price" class="form-control">
+            </div>
+          </div>
+          <div class="col">
+            <div class="input-group">
+              <span class="input-group-text">$</span>
+              <input id="modalDealPriceInput" type="number" inputmode="numeric" step="0.01" placeholder="Deal price" class="form-control">
+            </div>
           </div>
         </div>
         </div><!-- /newEntryFormPanel -->
