@@ -17,7 +17,7 @@ nutritionalValues:
 
 vitamins:
 
-  Vitamin E:	     30  # mg
+  Vitamin E:       30  # mg
 
 sources:           { nutriVal: "web", price: "guess" }
 lastUpd:           2024-04-24

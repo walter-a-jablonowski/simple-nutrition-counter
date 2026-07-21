@@ -41,11 +41,11 @@ keeping:             { usage: "For supplements but also food", required: false, 
 
 cookingInstructions: { usage: "We can use html here or multi line using yml syntax", required: false, type: "string" }
 
-variants:            { usage: "Full food name: any key", required: false, type: "array" }
+variants:            { usage: "Map keyed by full food name. Each variant may set any key to override the global level; a key set globally applies to all variants as a shortcut", required: false, type: "obj" }
 
 price:               { usage: "like 1.00 may be null", required: false, type: "currency" }
 dealPrice:           { usage: "typical deal price", required: false, type: "currency" }
-weight:              { usage: "like 100g of whole pack in case of pieces, unit g or ml is optional",
+weight:              { usage: "like 100g of whole pack in case of pieces, unit g or ml is optional. Required unless set per variant",
                          required: true, type: "float|string" }
 pieces:              { usage: "Number of pieces in a pack (if any)", required: false, type: "int" }
 usedAmounts:
@@ -63,7 +63,7 @@ usedAmounts:
   required: false
   type:     "string"
 
-amountPer:           { usage: "default: 100g/ml, 'piece' used for suppl, while price is for whole pack", required: true, type: "int|string" }
+amountPer:           { usage: "default: 100g/ml, 'piece' used for suppl, while price is for whole pack", required: false, type: "int|string" }
 calories:            { usage: "per 100g or 100ml (depends on weight)", required: true, type: "int" }
 nutritionalValues:
 
