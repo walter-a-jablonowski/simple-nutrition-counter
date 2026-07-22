@@ -90,20 +90,24 @@
         <select id="modalUsedAmountsSelect" class="form-select mb-2 modalHilitePrimary">
           <option value="" selected>Grid amounts (default) ...</option>
           <optgroup label="Precise" id="modalPreciseAmounts">
-            <option data-type="precise" value="10,25,50">10 / 25 / 50</option>
-            <option data-type="precise" value="25,50,100">25 / 50 / 100</option>
-            <option data-type="precise" value="50,100,200">50 / 100 / 200</option>
-            <option data-type="precise" value="100,150,200">100 / 150 / 200</option>
+            <option data-type="precise" value="25,50,100">25g / 50g / 100g</option>
+            <option data-type="precise" value="50,100,200">50g / 100g / 200g</option>
+            <option data-type="precise" value="10,20,30">10g / 20g / 30g</option>
+            <option data-type="precise" value="5,10,15">5g / 10g / 15g</option>
+            <option data-type="precise" value="10,25,50">10g / 25g / 50g</option>
           </optgroup>
           <optgroup label="Fractions">
-            <option data-type="pack" value="1/8,1/4,1">1/8 / 1/4 / 1</option>
-            <option data-type="pack" value="1/4,1/3,1">1/4 / 1/3 / 1</option>
+            <option data-type="pack" value="1/2,1,2">1/2 / 1 / 2</option>
+            <option data-type="pack" value="1/8,1/4,1/3">1/8 / 1/4 / 1/3</option>
             <option data-type="pack" value="1/4,1/2,1">1/4 / 1/2 / 1</option>
-            <option data-type="pack" value="1/2,1">1/2 / 1</option>
+            <option data-type="pack" value="1/4,1/3,1/2">1/4 / 1/3 / 1/2</option>
+            <option data-type="pack" value="1/8,1/4,1/2">1/8 / 1/4 / 1/2</option>
           </optgroup>
           <optgroup label="Pieces">
+            <option data-type="pieces" value="1">1</option>
             <option data-type="pieces" value="1,2,3">1 / 2 / 3</option>
-            <option data-type="pieces" value="1,2">1 / 2</option>
+            <option data-type="pieces" value="1,2,4">1 / 2 / 4</option>
+            <option data-type="pieces" value="1,2,5">1 / 2 / 5</option>
           </optgroup>
         </select>
         <div class="mb-2">
