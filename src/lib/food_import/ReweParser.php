@@ -88,10 +88,31 @@ class ReweParser implements FoodParser
 
     $nutrients = $this->parseNutrients($html);
 
+    // The product name parsed but neither the JSON nutrient block nor the HTML
+    // table fallback yielded any figures. That means REWE's page format changed;
+    // fail loudly instead of importing an empty food record
+
+    $this->assertNutrientsFound($nutrients);
+
     $food['calories']          = $nutrients['calories'] ?? null;
     $food['nutritionalValues'] = $nutrients['values'];
 
     return $food;
+  }
+
+
+  // Guard against silent partial format changes: a valid REWE food must carry
+  // calories and the core macronutrients. Anything less means our extraction no
+  // longer matches the page
+
+  private function assertNutrientsFound( array $nutrients ) : void
+  {
+    $core    = ['fat', 'carbs', 'amino'];
+    $values  = $nutrients['values'];
+    $hasCore = count( array_intersect(array_keys($values), $core)) === count($core);
+
+    if( $nutrients['calories'] === null || ! $hasCore )
+      throw new Exception('REWE page parsed but no nutrition data was found — the page format may have changed. Please paste the full page HTML, or report this if it keeps happening.');
   }
 
 
@@ -215,8 +236,12 @@ class ReweParser implements FoodParser
     if( $this->jsonBool($html, 'bio') )
       $certs['bio'] = true;
 
+    // "Vegan" and "Vegetarisch" both set the vegan flag (the app has no separate
+    // vegetarian field, and vegan implies vegetarian). Read from the reliable,
+    // product-scoped "Eigenschaften" entry
+
     $flags = $this->detailValue($html, 'CustomProductFlags') ?? '';
-    if( stripos($flags, 'Vegan') !== false )
+    if( stripos($flags, 'Vegan') !== false || stripos($flags, 'Vegetari') !== false )
       $certs['vegan'] = true;
 
     return $certs;
