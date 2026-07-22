@@ -53,6 +53,11 @@
         </ul>
         <div class="tab-content">
         <div id="entryTabPane" class="tab-pane fade show active" role="tabpanel">
+        <!-- Grid placement for a new food record (only used with "Save as new food") -->
+        <div class="input-group mb-2">
+          <span class="input-group-text">Add to</span>
+          <?php print $this->renderView( __DIR__ . '/group_select.php', ['selectId' => 'modalTargetGroup', 'options' => layout_target_options($this->layout)]); ?>
+        </div>
         <div class="mb-2">
           <input id="modalNameInput" placeholder="Name" value="Misc entry" class="form-control modalHilitePrimary" required>
         </div>
@@ -110,11 +115,6 @@
             <option data-type="pieces" value="1,2,5">1 / 2 / 5</option>
           </optgroup>
         </select>
-        <!-- Grid placement for a new food record (only used with "Save as new food") -->
-        <div class="input-group mb-2">
-          <span class="input-group-text">Add to</span>
-          <?php print $this->renderView( __DIR__ . '/group_select.php', ['selectId' => 'modalTargetGroup', 'options' => layout_target_options($this->layout)]); ?>
-        </div>
         <div class="mb-2">
           <div class="input-group">
             <span class="input-group-text modalNutrientLabel">Calories</span>
