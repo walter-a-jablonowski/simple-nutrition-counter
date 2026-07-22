@@ -31,6 +31,8 @@ class MainController
     this.runSearch               = this.runSearch.bind(this)
     this.searchResultClick       = this.searchResultClick.bind(this)
     this.layoutItemClick         = this.layoutItemClick.bind(this)
+    this.openMoveFood            = this.openMoveFood.bind(this)
+    this.moveFoodConfirm         = this.moveFoodConfirm.bind(this)
     this.priceColClick           = this.priceColClick.bind(this)
     this.updPriceClick           = this.updPriceClick.bind(this)
     this.offLimitCheckChange     = this.offLimitCheckChange.bind(this)
@@ -83,6 +85,8 @@ class MainController
     })
 
     this.confirmModal = new bootstrap.Modal( query('#confirmModal'))
+
+    this.moveFoodModal = new bootstrap.Modal( query('#moveFoodModal'))
 
     // Food search dialog (find a food across all grid tabs and jump to it)
 
@@ -217,6 +221,10 @@ class MainController
       query('#modalMayContainInput').value  = ''
       // Prefill the packaging template so the user edits it down before saving
       query('#modalPackagingInput').value   = 'none|cardboard,alu,plastic,glass & rubber (maybe)'
+
+      // Grid placement defaults back to the first option (Meals > First entries)
+      const targetGroup = query('#modalTargetGroup')
+      if( targetGroup )  targetGroup.selectedIndex = 0
 
       // Precise grid-amount labels reflect the current weight unit
       this.#updateGridAmountUnits()
@@ -694,6 +702,35 @@ class MainController
   }
 
 
+  // Move an existing grid entry to another group (opened from the entry "..." menu)
+
+  openMoveFood(event)
+  {
+    this.moveFoodName = event.currentTarget.dataset.food
+
+    query('#moveFoodName').textContent = this.moveFoodName
+    this.moveFoodModal.show()
+  }
+
+  moveFoodConfirm()
+  {
+    const sel = query('#moveFoodGroup')
+
+    const tab   = sel.options[sel.selectedIndex].dataset.tab
+    const group = sel.value
+
+    ajax.send('moveFood', { food: this.moveFoodName, tab: tab, group: group }, ( result, data ) => {
+
+      if( result === 'success') {
+        this.moveFoodModal.hide()
+        window.location.reload()
+      }
+      else
+        query('#uiMsg').innerHTML = (data && data.message) || 'Could not move food'
+    })
+  }
+
+
   // Save-validation hint shown as a red "!" (message in its title attribute)
 
   #showSaveError( message )
@@ -963,7 +1000,13 @@ class MainController
       packaging:         text('#modalPackagingInput') ?? ''
     })
 
-    ajax.send('saveFood', { food: food }, ( result, data ) => {
+    // Grid placement (tab + group) for the new food record
+
+    const targetSel = query('#modalTargetGroup')
+    const targetTab   = targetSel ? targetSel.options[targetSel.selectedIndex].dataset.tab : null
+    const targetGroup = targetSel ? targetSel.value : null
+
+    ajax.send('saveFood', { food: food, targetTab: targetTab, targetGroup: targetGroup }, ( result, data ) => {
 
       if( result === 'success') {
         this.newEntryModal.hide()

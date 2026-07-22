@@ -329,6 +329,7 @@ else:
   <?php print $this->renderView( __DIR__ . '/modal/tips.php'); ?>  <!-- prefer new scope when much code -->
   <?php print $this->renderView( __DIR__ . '/modal/settings.php'); ?>
   <?php require( __DIR__ . '/modal/new_entry.php'); ?>
+  <?php require( __DIR__ . '/modal/move_food.php'); ?>
   <?php require( __DIR__ . '/modal/info.php'); ?>
   <?php require( __DIR__ . '/modal/confirm.php'); ?>
   <?php require( __DIR__ . '/modal/search.php'); ?>

@@ -20,6 +20,8 @@ trait SaveFoodAjaxController
     $userId = User::current('id');
     $food   = $request['food'] ?? [];
     $name   = trim( $food['name'] ?? '');
+    $tab    = trim( $request['targetTab']   ?? '') ?: null;
+    $group  = trim( $request['targetGroup'] ?? '') ?: null;
 
     if( $name === '')
       return ['result' => 'error', 'data' => ['message' => 'Food name is required.']];
@@ -51,7 +53,7 @@ trait SaveFoodAjaxController
     if( file_put_contents( $filePath, $yaml) === false)
       return ['result' => 'error', 'data' => ['message' => 'Could not write the food file.']];
 
-    add_food_to_layout( $name, $userId );
+    add_food_to_layout( $name, $userId, $tab, $group );
 
     return ['result' => 'success', 'data' => ['name' => $name]];
   }

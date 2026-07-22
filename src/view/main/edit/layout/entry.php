@@ -112,12 +112,14 @@ $showWarning  = ( ! empty($interactions) && trim($interactions) !== '')
   <?php for( $i = count($amountData) + 1; $i < 4; $i++ ):  // plus one is the menu ?>
     <div class="col-2" style="background-color: <?= $accepColor ?>;">&nbsp;</div>
   <?php endfor; ?>
-  <!-- Entry menu -->
-  <div class   = "layout-item-menu col-1 ps-0 pe-2 text-center"
-       onclick = ""
+  <!-- Entry menu (move to another group; TASK: overflow amounts, expired, ...) -->
+  <div class     = "layout-item-menu col-1 ps-0 pe-2 text-center"
+       onclick   = "mainCrl.openMoveFood(event)"
+       data-food = "<?= htmlspecialchars($entryName, ENT_QUOTES) ?>"
+       style     = "cursor: pointer;"
   >
     <div class="py-1" style="background-color: <?= $accepColor ?>;">
-      ...  <!-- TASK: menu of single entry: overflow amounts ... expired -->
+      <i class="bi bi-three-dots-vertical"></i>
     </div>
   </div>
 </div>

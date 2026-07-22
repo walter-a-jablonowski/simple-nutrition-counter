@@ -62,6 +62,26 @@ function parse_layout_attribs( string $attribsKey, array $largeAttribKeys, array
   return $r;
 }
 
+/**
+ * Target-group options for the move / new-food pickers, keyed by tab:
+ * [ tabName => [ groupDisplayName => label ] ]. Built from the parsed (display)
+ * layout, so group keys are already attrib-stripped.
+ */
+function layout_target_options( array $layout )
+{
+  $options = [];
+
+  foreach( $layout as $tab => $groups )
+  {
+    $options[$tab] = [];
+
+    foreach( $groups as $groupName => $def )
+      $options[$tab][$groupName] = $groupName === '(first_entries)' ? 'First entries' : $groupName;
+  }
+
+  return $options;
+}
+
 // Data files
 
 /**

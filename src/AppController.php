@@ -35,6 +35,7 @@ class AppController extends ControllerBase
   use GetChartsDataAjaxController;
   use ImportFoodAjaxController;
   use SaveFoodAjaxController;
+  use MoveFoodAjaxController;
 
   const DAY_HEADERS     = ['time', 'type', 'food', 'calories', 'fat', 'carbs', 'amino', 'salt', 'price', 'nutrients'];
   const NUTRIENT_GROUPS = ['lipids/fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals', 'secondary', 'misc'];

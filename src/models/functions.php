@@ -301,41 +301,137 @@ function yml_replace_variant_value( $yamlContent, $variantName, $key, $newValue 
 }
 
 /**
- * Adds a new food to the layout so it shows up in the food grid.
- *
- * Inserts the name as the first item under Meals > "(first_entries)" > list,
- * preserving the file's formatting. Does nothing if the name is already listed.
- *
- * @param string $foodName The food name (= record name)
- * @param string $userId The user ID
- * @return bool Success status
+ * Loads the raw layout file as an array, or null if it is missing.
  */
-function add_food_to_layout( $foodName, $userId )
+function load_layout( $userId )
 {
   $filePath = "data/bundles/Default_$userId/layout.yml";
 
-  if( ! file_exists($filePath))
+  return file_exists($filePath) ? Yaml::parse( file_get_contents($filePath)) : null;
+}
+
+/**
+ * Writes the layout back. Inline threshold 10 keeps nested lists in block style;
+ * the file carries no comments, so a full re-dump is safe.
+ */
+function save_layout( $userId, array $layout )
+{
+  $filePath = "data/bundles/Default_$userId/layout.yml";
+
+  return file_put_contents( $filePath, Yaml::dump($layout, 10, 2)) !== false;
+}
+
+/**
+ * Display name of a group key: the key with its "(attrib)" part stripped.
+ * "(first_entries)" is an id, not an attrib, so it is kept verbatim.
+ */
+function layout_group_display_name( $key )
+{
+  return $key === '(first_entries)' ? $key : trim( preg_replace('/\([^)]+\)/', '', $key));
+}
+
+/**
+ * Whether the food already appears in any group list.
+ */
+function layout_contains_food( array $layout, $foodName )
+{
+  foreach( $layout as $groups )
+    foreach( $groups as $def )
+      if( isset($def['list']) && is_array($def['list']) && in_array($foodName, $def['list'], true))
+        return true;
+
+  return false;
+}
+
+/**
+ * Removes a food from every group list (used before a move).
+ */
+function layout_remove_food( array &$layout, $foodName )
+{
+  foreach( $layout as &$groups )
+  {
+    foreach( $groups as &$def )
+      if( isset($def['list']) && is_array($def['list']))
+        $def['list'] = array_values( array_filter( $def['list'], fn($n) => $n !== $foodName));
+
+    unset($def);
+  }
+
+  unset($groups);
+}
+
+/**
+ * Inserts a food into the target group, matched by tab + display name.
+ * Returns false if the tab or group was not found.
+ */
+function layout_insert_food( array &$layout, $tab, $groupName, $foodName, $prepend = false )
+{
+  if( ! isset($layout[$tab]))
     return false;
 
-  $content = file_get_contents($filePath);
+  foreach( $layout[$tab] as $groupKey => &$def )
+  {
+    if( layout_group_display_name($groupKey) !== $groupName )
+      continue;
 
-  // Already present anywhere in the layout: nothing to do
+    if( ! isset($def['list']) || ! is_array($def['list']))
+      $def['list'] = [];
 
-  if( preg_match('/^\s*-\s*' . preg_quote($foodName, '/') . '\s*$/m', $content))
+    if( ! in_array($foodName, $def['list'], true))
+      $prepend ? array_unshift($def['list'], $foodName) : $def['list'][] = $foodName;
+
+    return true;
+  }
+
+  return false;
+}
+
+/**
+ * Adds a new food to the layout so it shows up in the grid. Defaults to
+ * Meals > (first_entries) (top). Does nothing if the name is already present.
+ *
+ * @param string      $foodName  The food name (= record name)
+ * @param string      $userId    The user ID
+ * @param string|null $tab       Target tab (default Meals)
+ * @param string|null $groupName Target group display name (default first_entries)
+ * @return bool Success status
+ */
+function add_food_to_layout( $foodName, $userId, $tab = null, $groupName = null )
+{
+  $layout = load_layout($userId);
+
+  if( $layout === null )
+    return false;
+
+  if( layout_contains_food($layout, $foodName))
     return true;
 
-  // Insert as first item right after the "(first_entries)" list header.
-  // \R matches the file's line breaks (this file uses CRLF); keep them consistent.
+  $tab       = $tab       ?: 'Meals';
+  $groupName = $groupName ?: '(first_entries)';
+  $prepend   = $groupName === '(first_entries)';  // newest on top in first_entries
 
-  $pattern = '/("\(first_entries\)":.*?\R[ \t]*list:[ \t]*\R)/s';
-
-  if( ! preg_match($pattern, $content))
+  if( ! layout_insert_food($layout, $tab, $groupName, $foodName, $prepend))
     return false;
 
-  $eol     = str_contains($content, "\r\n") ? "\r\n" : "\n";
-  $content = preg_replace($pattern, "$1      - $foodName$eol", $content, 1);
+  return save_layout($userId, $layout);
+}
 
-  return file_put_contents( $filePath, $content) !== false;
+/**
+ * Moves an existing food to the target group (tab + display name).
+ */
+function move_food_in_layout( $foodName, $userId, $tab, $groupName )
+{
+  $layout = load_layout($userId);
+
+  if( $layout === null )
+    return false;
+
+  layout_remove_food($layout, $foodName);
+
+  if( ! layout_insert_food($layout, $tab, $groupName, $foodName))
+    return false;
+
+  return save_layout($userId, $layout);
 }
 
 ?>

@@ -1,3 +1,11 @@
+#
+# Layout
+#
+# see readme
+#
+
+# all comments seen, less relevant
+
 Meals:
 
   "(first_entries)":
@@ -9,11 +17,12 @@ Meals:
       - Wasser R lg
       - Dallmayr deal
       - Saft R Bio
+      # - Fillup
 
-  Nuts, seeds and berries (color:#ffa500):
+  Nuts, seeds and berries (color:#ffa500):     # Meals  # TASK: on the go diff shade
 
-    (i):   "Demo 2"
-    short: "Info (always visible)"
+    (i):   "Demo 2"                            # TASK: we also could add a collapse for larger content
+    short: "Info (always visible)"             # alternative: enclose in attribs key (see function)
 
     list:
 
@@ -43,11 +52,13 @@ Meals:
 
   Veggie bowl, high fibre (color:#32cd32):
 
-    (i):   "Ideal is nuts, veggie high in fibre some chicken, fish"
+    (i):   "Ideal is nuts, veggie high in fibre some chicken, fish"       # TASK: move
     short: "add {#cheesealittletasteGroup|a little taste} and {#greenslegumesmushrGroup|greens} ..."
 
     list:
 
+      # - Veggie L                             # TASK
+      # - Veggie C
       - Chick R Bio
       - Linsen R Bio
       - Brokkoli R
@@ -120,7 +131,7 @@ Meals:
     list:
 
       - Ritter Sp 74%
-      - Ritter Sp 61%
+      - Ritter Sp 61%      # less
       - Ritter Sp 50%
 
       - Duplo
@@ -311,7 +322,8 @@ Improve:
       - Kebab Spr
       - Hähnchenbr Spr
 
-  kcal:
+  kcal:  # TASK: we may want to add a (i) feature to nutrients and get it here
+         #       for per nutrient information
 
     short: <b>Why?</b> autumn, winter less freezing
     (i):   at least looks like less inflamed when plant based and fastning with cold temperature (just the energy or some B9 vit ?)
@@ -370,6 +382,7 @@ Supplements:
 
     list:
 
+      # - Salt                                 # Brain tuning TASK: removed for debugging layout
       - Whey
       - Amino misc
       - Amino Deca Muscle Gainer
@@ -469,7 +482,7 @@ On the go:
 
 Misc:
 
-  Housewares (color:#e0e0e0):
+  Housewares (color:#e0e0e0):                    # Finance only
 
     (i): |
     
@@ -477,4 +490,4 @@ Misc:
       Counts as consumed as soon as one pack/piece is taken out of the pantry.
       The error is only a few cents and can be ignored.
 
-  Misc var expenses (color:#e0e0e0, fold:true):
+  Misc var expenses (color:#e0e0e0, fold:true):  # Misc monthly variable
