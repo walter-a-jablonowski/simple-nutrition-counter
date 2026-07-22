@@ -215,7 +215,8 @@ class MainController
       query('#modalIngredientsInput').value = ''
       query('#modalAllergyInput').value     = ''
       query('#modalMayContainInput').value  = ''
-      query('#modalPackagingInput').value   = ''
+      // Prefill the packaging template so the user edits it down before saving
+      query('#modalPackagingInput').value   = 'none|cardboard,alu,plastic,glass & rubber (maybe)'
 
       // Precise grid-amount labels reflect the current weight unit
       this.#updateGridAmountUnits()
