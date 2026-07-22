@@ -884,3 +884,22 @@ body.sortable-active .day-entry {
   width: 6.5rem;
   justify-content: flex-start;
 }
+
+/* Highlight the controls I usually have to review before saving.
+   Primary = orange tint, secondary = yellow tint. id+class beats
+   Bootstrap's .form-control/.form-select background */
+
+#newEntryModal .modalHilitePrimary {
+  background-color: color-mix(in srgb, #e95420 13%, #ffffff);
+}
+
+#newEntryModal .modalHiliteSecondary {
+  background-color: color-mix(in srgb, #ffc107 22%, #ffffff);
+}
+
+/* A checkbox can't carry a background highlight, so tint its label cell
+   instead; the box itself already turns orange when checked */
+
+#newEntryModal .modalHiliteCheck {
+  background-color: color-mix(in srgb, #e95420 13%, #ffffff);
+}

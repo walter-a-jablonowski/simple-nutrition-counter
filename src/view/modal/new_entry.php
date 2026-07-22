@@ -54,7 +54,7 @@
         <div class="tab-content">
         <div id="entryTabPane" class="tab-pane fade show active" role="tabpanel">
         <div class="mb-2">
-          <input id="modalNameInput" placeholder="Name" value="Misc entry" class="form-control" required>
+          <input id="modalNameInput" placeholder="Name" value="Misc entry" class="form-control modalHilitePrimary" required>
         </div>
         <div class="row mb-2">
           <div class="col">
@@ -67,12 +67,12 @@
             </div>
           </div>
           <div class="col">
-            <input id="modalPiecesInput" type="number" inputmode="numeric" placeholder="Pieces" class="form-control">
+            <input id="modalPiecesInput" type="number" inputmode="numeric" placeholder="Pieces" class="form-control modalHiliteSecondary">
           </div>
         </div>
         <!-- How much is consumed right now (logs a day entry). Optional: leave
              empty to only create the food without logging it today. -->
-        <select id="modalUsedSelect" class="form-select mb-2">
+        <select id="modalUsedSelect" class="form-select mb-2 modalHilitePrimary">
           <option class="default" value="null" selected>Consumed now ...</option>
           <!-- TASK: get from defaults -->
           <option data-usage="pack"    value="0.25">1/4</option>
@@ -87,7 +87,7 @@
         </select>
         <!-- Typical amounts shown as clickable columns in the food grid
              (saved as usedAmounts). Precise options adapt to the weight unit. -->
-        <select id="modalUsedAmountsSelect" class="form-select mb-2">
+        <select id="modalUsedAmountsSelect" class="form-select mb-2 modalHilitePrimary">
           <option value="" selected>Grid amounts (default) ...</option>
           <optgroup label="Precise" id="modalPreciseAmounts">
             <option data-type="precise" value="10,25,50">10 / 25 / 50</option>
@@ -167,7 +167,7 @@
           <div class="col">
             <div class="input-group">
               <span class="input-group-text">$</span>
-              <input id="modalPriceInput"  type="number" inputmode="numeric" step="0.01" placeholder="Price" class="form-control">
+              <input id="modalPriceInput"  type="number" inputmode="numeric" step="0.01" placeholder="Price" class="form-control modalHilitePrimary">
             </div>
           </div>
           <div class="col">
@@ -189,7 +189,7 @@
           </div>
           <div class="input-group mb-2">
             <span class="input-group-text modalDetailLabel">Acceptable</span>
-            <select id="modalAcceptableSelect" class="form-select">
+            <select id="modalAcceptableSelect" class="form-select modalHilitePrimary">
               <option value="">always ok</option>
               <option value="occasionally">occasionally</option>
               <option value="less">less (avoid)</option>
@@ -198,7 +198,7 @@
           <div class="input-group mb-2">
             <span class="input-group-text modalDetailLabel">NutriScore</span>
             <input id="modalNutriScoreInput" maxlength="1" placeholder="A–E" class="form-control">
-            <span class="input-group-text">
+            <span class="input-group-text modalHiliteCheck">
               <input id="modalVeganCheck" type="checkbox" class="form-check-input mt-0 me-1">vegan
             </span>
             <span class="input-group-text">
@@ -215,7 +215,7 @@
             <input id="modalMayContainInput" placeholder="May contain (e.g. Kann Spuren von …)" class="form-control">
           </div>
           <div>
-            <input id="modalPackagingInput" placeholder="Packaging (e.g. cardboard,alu,plastic)" class="form-control">
+            <input id="modalPackagingInput" placeholder="Packaging (e.g. cardboard,alu,plastic)" class="form-control modalHilitePrimary">
           </div>
         </div><!-- /detailsTabPane -->
         </div><!-- /tab-content -->
