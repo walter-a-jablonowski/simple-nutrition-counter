@@ -833,6 +833,7 @@ class MainController
       query('#modalWeightUnit').value  = unit
     }
 
+    set('#modalPiecesInput',   food.pieces)
     set('#modalCaloriesInput', food.calories)
     set('#modalFatInput',      nv.fat)
     set('#modalSatFatInput',   nv.saturatedFat)

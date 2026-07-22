@@ -81,6 +81,8 @@ class ReweParser implements FoodParser
       'price'        => $this->parsePrice($html),
       // grammage may carry a base-price note, e.g. "0,75l (1 l = 6,65 €)"
       'weight'       => trim( preg_replace('/\s*\(.*$/u', '', $this->jsonString($html, 'grammage') ?? '')),
+      // piece count for multi-piece packs, e.g. "... 300g, 5 Stück"
+      'pieces'       => $this->parsePieces($productName),
       'nutritionalValues' => [],
     ];
 
@@ -260,6 +262,19 @@ class ReweParser implements FoodParser
       return 'https://www.rewe.de' . $m[0];
 
     return '';
+  }
+
+
+  // Pack piece count from the full product title, e.g. "... 300g, 5 Stück".
+  // REWE has no reliable structured field for this (packaging.weightPerPiece is
+  // the total weight), so the title is the source
+
+  private function parsePieces( string $productName ) : ?int
+  {
+    if( preg_match('/(\d+)\s*Stück/ui', $productName, $m))
+      return (int) $m[1];
+
+    return null;
   }
 
 

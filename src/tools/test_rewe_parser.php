@@ -80,6 +80,18 @@ $vegetarianHtml = '{"name":"CustomProductFlags","label":"Eigenschaften","value":
 $food = $parser->parse($vegetarianHtml, null);
 check('vegetarisch flag sets vegan certificate', ($food['certificates']['vegan'] ?? false) === true, 'certificates=' . json_encode($food['certificates'] ?? []));
 
+// 4) A "N Stück" count in the product title must be imported as `pieces`.
+
+$piecesHtml = str_replace('"productName":"Test Linseneintopf"', '"productName":"Lawa Feine Pfannkuchen 300g, 5 Stück"', $goodHtml);
+
+$food = $parser->parse($piecesHtml, null);
+check('title "5 Stück" -> pieces=5', ($food['pieces'] ?? null) === 5, 'pieces=' . var_export($food['pieces'] ?? null, true));
+
+// 5) A single-item product (no "Stück") leaves pieces unset (null)
+
+$food = $parser->parse($goodHtml, null);
+check('no piece count -> pieces null', ($food['pieces'] ?? null) === null, 'pieces=' . var_export($food['pieces'] ?? null, true));
+
 echo "\n$pass passed, $fail failed\n";
 exit( $fail === 0 ? 0 : 1 );
 
