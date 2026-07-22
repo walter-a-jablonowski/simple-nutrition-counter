@@ -224,6 +224,9 @@ class MainController
       // Back to the Entry tab
       bootstrap.Tab.getOrCreateInstance( query('#entryTab')).show()
 
+      // Clear any lingering save-validation hint
+      this.#clearSaveError()
+
       // Reset import state (dev feature)
       this.importedFood = null
       this.#showImportPanel( false )
@@ -660,22 +663,52 @@ class MainController
 
   newEntrySaveBtn(event)
   {
-    // "Consumed now" picked -> log a day entry. Empty -> create the food only.
+    const usedSelect  = query('#modalUsedSelect')
+    const saveNewFood = query('#saveNewFood')
 
-    let usedSelect = query('#modalUsedSelect')
+    const consuming = usedSelect.value !== 'null' && usedSelect.value !== null
+    const saving    = saveNewFood && saveNewFood.checked
 
-    if( usedSelect.value !== 'null' && usedSelect.value !== null )
+    // The modal must do at least one thing. When not creating a food record, a
+    // "Consumed now" amount is required (otherwise nothing would be saved).
+
+    if( ! saving && ! consuming ) {
+      this.#showSaveError('Pick a "Consumed now" amount, or check "Save as new food".')
+      return
+    }
+
+    this.#clearSaveError()
+
+    // "Consumed now" picked -> log a day entry.
+
+    if( consuming )
       this.#addDayEntry( this.#buildDayEntry( usedSelect ))
 
     // Dev feature: also persist a new food record, then reload to refresh the grid.
     // Otherwise just close (the day entry is already saved by #addDayEntry).
 
-    const saveNewFood = query('#saveNewFood')
-
-    if( saveNewFood && saveNewFood.checked )
+    if( saving )
       this.#saveNewFood()
     else
       this.newEntryModal.hide()
+  }
+
+
+  // Save-validation hint shown as a red "!" (message in its title attribute)
+
+  #showSaveError( message )
+  {
+    const el = query('#modalSaveError')
+    if( ! el )  return
+
+    el.title = message
+    el.classList.remove('d-none')
+  }
+
+  #clearSaveError()
+  {
+    const el = query('#modalSaveError')
+    if( el )  el.classList.add('d-none')
   }
 
   // Build a scaled day entry from the modal form for the picked "consumed now" amount
@@ -937,7 +970,7 @@ class MainController
         window.location.reload()
       }
       else
-        query('#uiMsg').innerHTML = (data && data.message) || 'Could not save food'
+        this.#showSaveError( (data && data.message) || 'Could not save food')
     })
   }
 

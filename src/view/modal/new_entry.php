@@ -257,7 +257,9 @@
               </label>
             </div>
           </div>
-          <div>
+          <div class="d-flex align-items-center gap-2">
+            <!-- Validation hint: hover the "!" for the message (space is tight) -->
+            <span id="modalSaveError" class="modalSaveError d-none" title="">!</span>
             <button data-bs-dismiss="modal" class="btn btn-sm btn-secondary" type="button">
               Cancel
             </button>

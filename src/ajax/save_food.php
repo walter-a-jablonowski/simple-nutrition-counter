@@ -1,6 +1,7 @@
 <?php
 
 require_once 'lib/food_import/FoodYamlWriter.php';
+require_once 'lib/food_import/FoodValidator.php';
 require_once 'models/functions.php';
 
 /*
@@ -25,6 +26,13 @@ trait SaveFoodAjaxController
 
     if( preg_match('#[\\\\/:*?"<>|]#', $name))
       return ['result' => 'error', 'data' => ['message' => 'Food name contains invalid characters.']];
+
+    // Required nutrition fields (weight, calories, macros) must be present
+
+    $missing = FoodValidator::missingRequired( $food );
+
+    if( $missing )
+      return ['result' => 'error', 'data' => ['message' => 'Please fill required fields: ' . implode(', ', $missing) . '.']];
 
     if( find_food_source( $name, $userId))
       return ['result' => 'error', 'data' => ['message' => "A food named \"$name\" already exists."]];
