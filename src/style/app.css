@@ -896,10 +896,17 @@ body.sortable-active .day-entry {
 
 @media (max-width: 767.98px) {
 
-  /* Mobile collapsed state for the left column */
+  /* Mobile collapsed state for the left column
+     Keeps the header (2.875rem) + the list margin (0.5rem) + about 1.5 day
+     entries (~2.72rem each) visible. In rem, not vh: an entry is as tall as its
+     font, so vh would show a different number of entries on every screen. */
+
+  :root {
+    --left-collapsed-h: 7.5rem;
+  }
 
   .left-column.collapsed {
-    height: 10vh !important;
+    height: var(--left-collapsed-h) !important;
     overflow-y: auto;
   }
   .left-column section.flex-grow-1.collapsed {
@@ -913,7 +920,7 @@ body.sortable-active .day-entry {
      shows as a grey band over the entries list and one above the bottom nav. */
 
   .left-column.collapsed ~ .right-column {
-    height: calc(100% - 10vh) !important;
+    height: calc(100% - var(--left-collapsed-h)) !important;
   }
 
   main.app-d3 {
