@@ -32,6 +32,9 @@ $result = $publisher->run( $delete );
 echo implode("\n", $publisher->reportLines( $result['plan'], $delete)), "\n\n";
 echo "Copied $result[copied], deleted $result[deleted].\n";
 
+if( $result['backupDir'] )
+  echo "Replaced files backed up to $result[backupDir]\n";
+
 foreach( $result['errors'] as $error )
   echo "  ERROR  $error\n";
 

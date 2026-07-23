@@ -769,7 +769,12 @@ class MainController
       const lines = data.lines.slice()
 
       if( mode === 'run')
+      {
         lines.push('', `Copied ${data.copied}, deleted ${data.deleted}.`)
+
+        if( data.backupDir )
+          lines.push(`Replaced files backed up to ${data.backupDir}`)
+      }
 
       if( data.errors.length )
         lines.push('', ...data.errors.map( e => `ERROR  ${e}`))

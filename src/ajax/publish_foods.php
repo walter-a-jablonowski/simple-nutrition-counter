@@ -36,11 +36,12 @@ trait PublishFoodsAjaxController
     $result = $publisher->run( $delete );
 
     return ['result' => 'success', 'data' => [
-      'lines'   => $publisher->reportLines( $result['plan'], $delete ),
-      'counts'  => $this->publishCounts( $result['plan'] ),
-      'copied'  => $result['copied'],
-      'deleted' => $result['deleted'],
-      'errors'  => $result['errors']
+      'lines'     => $publisher->reportLines( $result['plan'], $delete ),
+      'counts'    => $this->publishCounts( $result['plan'] ),
+      'copied'    => $result['copied'],
+      'deleted'   => $result['deleted'],
+      'backupDir' => $result['backupDir'],
+      'errors'    => $result['errors']
     ]];
   }
 

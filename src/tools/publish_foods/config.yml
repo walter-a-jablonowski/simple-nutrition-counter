@@ -3,6 +3,11 @@
 
 destination: "G:/Meine Ablage/80-dools/20_activity/simple-nutrition-counter (id-consump)"
 
+# Every destination file a run overwrites or deletes is copied here first, into
+# a per run folder "YYYY-MM-DD_01" (counter per day), keeping its sub path.
+
+backup: "G:/Meine Ablage/80-dools/20_activity/simple-nutrition-counter_backup"
+
 # What gets published, as paths relative to the repo root. Files and folders
 # both work; folders are walked recursively. Extend this list as needed.
 
@@ -11,6 +16,7 @@ sources:
   - "src/data/bundles/Default_JaneDoe@example.com-24080101000000/supplements"
   - "src/data/bundles/Default_JaneDoe@example.com-24080101000000/nutrients"
   - "src/data/bundles/Default_JaneDoe@example.com-24080101000000/layout.yml"
+  - "src/data/food_defaults"
 
 # Never copied, never reported as obsolete: Windows / Google Drive artifacts
 

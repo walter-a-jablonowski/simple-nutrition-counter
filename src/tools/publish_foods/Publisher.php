@@ -19,9 +19,12 @@ class Publisher
 {
   private string $repoRoot;
   private string $destRoot;
+  private string $backupRoot;
   private array  $sources;
   private array  $ignore;
   private string $manifestFile;
+
+  private ?string $backupDir = null;   // created lazily, on the first file we save
 
   public function __construct( string $toolDir )
   {
@@ -29,6 +32,7 @@ class Publisher
 
     $this->repoRoot     = str_replace('\\', '/', dirname( $toolDir, 3));  // tools/publish_foods -> src -> repo
     $this->destRoot     = rtrim( str_replace('\\', '/', $config['destination']), '/');
+    $this->backupRoot   = rtrim( str_replace('\\', '/', $config['backup'] ?? ''), '/');
     $this->sources      = $config['sources'] ?? [];
     $this->ignore       = $config['ignore']  ?? [];
     $this->manifestFile = "$toolDir/published.json";
@@ -84,6 +88,21 @@ class Publisher
     $copied = 0;
     $erased = 0;
 
+    $this->backupDir = null;   // one folder per run
+
+    // New files have no destination version, so only changed ones need saving
+
+    foreach( $plan['changed'] as $path )
+      if( ! $this->backupFile($path, $errors))
+        return ['plan' => $plan, 'copied' => 0, 'deleted' => 0, 'backupDir' => $this->backupDir,
+                'errors' => array_merge($errors, ['Stopped before copying anything.'])];
+
+    if( $delete )
+      foreach( $plan['deleted'] as $path )
+        if( ! $this->backupFile($path, $errors))
+          return ['plan' => $plan, 'copied' => 0, 'deleted' => 0, 'backupDir' => $this->backupDir,
+                  'errors' => array_merge($errors, ['Stopped before deleting anything.'])];
+
     foreach( array_merge($plan['new'], $plan['changed']) as $path )
       $this->copyFile($path, $errors) ? $copied++ : null;
 
@@ -98,7 +117,8 @@ class Publisher
 
     $this->writeManifest( $this->scanSources(), $delete ? [] : $plan['deleted']);
 
-    return ['plan' => $plan, 'copied' => $copied, 'deleted' => $erased, 'errors' => $errors];
+    return ['plan'    => $plan,      'copied' => $copied, 'deleted' => $erased,
+            'backupDir' => $this->backupDir, 'errors' => $errors];
   }
 
   /*@
@@ -155,6 +175,66 @@ class Publisher
       is_dir("$full/$entry") ? $this->scanDir("$full/$entry", "$relative/$entry", $files)
                              : $files["$relative/$entry"] = sha1_file("$full/$entry");
     }
+  }
+
+  /*@
+
+  Saves the destination's current version of a file before we overwrite or
+  delete it, keeping its sub path inside the run's backup folder. A failure here
+  aborts the whole run: publishing without the safety net is worse than not
+  publishing. Returns true when there was nothing to save.
+
+  */
+  private function backupFile( string $path, array &$errors ) : bool /*@*/
+  {
+    if( $this->backupRoot === '' || ! is_file("$this->destRoot/$path"))
+      return true;
+
+    if( $this->backupDir === null && ! $this->makeBackupDir($errors))
+      return false;
+
+    $target = "$this->backupDir/$path";
+
+    if( ! is_dir( dirname($target)) && ! @mkdir( dirname($target), 0777, true))
+    {
+      $errors[] = "Could not create the backup folder for $path";
+      return false;
+    }
+
+    if( @copy("$this->destRoot/$path", $target))
+      return true;
+
+    $errors[] = "Could not back up $path";
+    return false;
+  }
+
+  // Next free "YYYY-MM-DD_NN" for today
+
+  private function makeBackupDir( array &$errors ) : bool
+  {
+    if( ! is_dir($this->backupRoot) && ! @mkdir($this->backupRoot, 0777, true))
+    {
+      $errors[] = "Backup folder $this->backupRoot is not available";
+      return false;
+    }
+
+    $today = date('Y-m-d');
+    $used  = 0;
+
+    foreach( scandir($this->backupRoot) as $entry )
+      if( preg_match('/^' . preg_quote($today, '/') . '_(\d+)$/', $entry, $m))
+        $used = max($used, (int) $m[1]);
+
+    $dir = sprintf('%s/%s_%02d', $this->backupRoot, $today, $used + 1);
+
+    if( ! @mkdir($dir, 0777, true))
+    {
+      $errors[] = "Could not create the backup folder $dir";
+      return false;
+    }
+
+    $this->backupDir = $dir;
+    return true;
   }
 
   private function copyFile( string $path, array &$errors ) : bool

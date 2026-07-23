@@ -32,6 +32,26 @@ tool hash the destination file - which is what keeps a first run from re-copying
 everything.
 
 
+## Backup
+
+Publishing overwrites files at the destination, so the version that is about to
+be replaced is copied to the `backup` folder first:
+
+```
+simple-nutrition-counter_backup/2026-07-23_01/src/data/bundles/.../foods/Apfel.yml
+```
+
+One folder per run, `YYYY-MM-DD_NN` with the counter starting at `01` each day,
+and the file's sub path kept inside it. Only files that really get replaced or
+deleted are saved - a new file has no older version to lose, and an unchanged
+file is not touched at all. The folder is created only when there is something
+to put in it.
+
+If the backup folder cannot be written (Drive offline, for instance) the run
+stops before copying or deleting anything: publishing without the safety net is
+worse than not publishing.
+
+
 ## Report
 
 ```
