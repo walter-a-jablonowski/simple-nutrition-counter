@@ -1,5 +1,5 @@
 
-devMode:   true             # show new ui elems that are in dev
+devMode:   true             # show new ui elems that are in dev (dev menu)
 showDim:   false            # show dimensions in food list and details
 tryDesign: false            # try new UI (see controller.php)
 # moved demo data to layout_demo
