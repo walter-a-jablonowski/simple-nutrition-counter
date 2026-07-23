@@ -30,6 +30,7 @@ class MainController
     this.searchResultClick       = this.searchResultClick.bind(this)
     this.layoutItemClick         = this.layoutItemClick.bind(this)
     this.openMoveFood            = this.openMoveFood.bind(this)
+    this.fillMoveFoodPositions   = this.fillMoveFoodPositions.bind(this)
     this.moveFoodConfirm         = this.moveFoodConfirm.bind(this)
     this.priceColClick           = this.priceColClick.bind(this)
     this.updPriceClick           = this.updPriceClick.bind(this)
@@ -85,6 +86,12 @@ class MainController
     this.confirmModal = new bootstrap.Modal( query('#confirmModal'))
 
     this.moveFoodModal = new bootstrap.Modal( query('#moveFoodModal'))
+
+    // Entries per tab/group for the move dialog's position select (see move_food.php)
+
+    this.moveFoodEntries = JSON.parse( document.getElementById('moveFoodEntries').textContent )
+
+    query('#moveFoodGroup').addEventListener('change', () => this.fillMoveFoodPositions())
 
     // Food search dialog (find a food across all grid tabs and jump to it)
 
@@ -663,7 +670,30 @@ class MainController
     this.moveFoodName = event.currentTarget.dataset.food
 
     query('#moveFoodName').textContent = this.moveFoodName
+
+    this.fillMoveFoodPositions()
     this.moveFoodModal.show()
+  }
+
+  /*@
+
+  Position select: "Top" plus one "Below <entry>" per entry of the selected
+  group. The food itself is left out (it can't be placed below itself). Called
+  when the dialog opens and whenever the target group changes.
+
+  */
+  fillMoveFoodPositions() /*@*/
+  {
+    const groupSel = query('#moveFoodGroup')
+    const posSel   = query('#moveFoodPos')
+    const tab      = groupSel.options[groupSel.selectedIndex].dataset.tab
+
+    const entries = (this.moveFoodEntries[tab]?.[groupSel.value] ?? [])
+                      .filter( name => name !== this.moveFoodName )
+
+    posSel.replaceChildren( new Option('Top', ''))          // new Option() escapes for us
+
+    entries.forEach( name => posSel.append( new Option(`Below  ${name}`, name)))
   }
 
   moveFoodConfirm()
@@ -672,8 +702,9 @@ class MainController
 
     const tab   = sel.options[sel.selectedIndex].dataset.tab
     const group = sel.value
+    const after = query('#moveFoodPos').value
 
-    ajax.send('moveFood', { food: this.moveFoodName, tab: tab, group: group }, ( result, data ) => {
+    ajax.send('moveFood', { food: this.moveFoodName, tab: tab, group: group, after: after }, ( result, data ) => {
 
       if( result === 'success') {
         this.moveFoodModal.hide()

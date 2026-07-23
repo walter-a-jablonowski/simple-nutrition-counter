@@ -364,9 +364,13 @@ function layout_remove_food( array &$layout, $foodName )
 
 /**
  * Inserts a food into the target group, matched by tab + display name.
- * Returns false if the tab or group was not found.
+ *
+ * @param string|null $after  null = append, '' = top of the group,
+ *                            otherwise the entry to insert behind (appends when
+ *                            that entry is gone)
+ * @return bool false if the tab or group was not found
  */
-function layout_insert_food( array &$layout, $tab, $groupName, $foodName, $prepend = false )
+function layout_insert_food( array &$layout, $tab, $groupName, $foodName, $after = null )
 {
   if( ! isset($layout[$tab]))
     return false;
@@ -379,8 +383,17 @@ function layout_insert_food( array &$layout, $tab, $groupName, $foodName, $prepe
     if( ! isset($def['list']) || ! is_array($def['list']))
       $def['list'] = [];
 
-    if( ! in_array($foodName, $def['list'], true))
-      $prepend ? array_unshift($def['list'], $foodName) : $def['list'][] = $foodName;
+    if( in_array($foodName, $def['list'], true))
+      return true;
+
+    $at = is_string($after) && $after !== '' ? array_search( $after, $def['list'], true) : false;
+
+    if( $at !== false )                  // behind the named entry
+      array_splice($def['list'], $at + 1, 0, [$foodName]);
+    elseif( $after === '')               // top of the group
+      array_unshift($def['list'], $foodName);
+    else                                 // null, or an entry that is no longer there
+      $def['list'][] = $foodName;
 
     return true;
   }
@@ -410,18 +423,19 @@ function add_food_to_layout( $foodName, $userId, $tab = null, $groupName = null 
 
   $tab       = $tab       ?: 'Meals';
   $groupName = $groupName ?: '(first_entries)';
-  $prepend   = $groupName === '(first_entries)';  // newest on top in first_entries
+  $after     = $groupName === '(first_entries)' ? '' : null;  // newest on top in first_entries
 
-  if( ! layout_insert_food($layout, $tab, $groupName, $foodName, $prepend))
+  if( ! layout_insert_food($layout, $tab, $groupName, $foodName, $after))
     return false;
 
   return save_layout($userId, $layout);
 }
 
 /**
- * Moves an existing food to the target group (tab + display name).
+ * Moves an existing food to the target group (tab + display name) and position.
+ * $after is passed straight to layout_insert_food().
  */
-function move_food_in_layout( $foodName, $userId, $tab, $groupName )
+function move_food_in_layout( $foodName, $userId, $tab, $groupName, $after = null )
 {
   $layout = load_layout($userId);
 
@@ -430,7 +444,7 @@ function move_food_in_layout( $foodName, $userId, $tab, $groupName )
 
   layout_remove_food($layout, $foodName);
 
-  if( ! layout_insert_food($layout, $tab, $groupName, $foodName))
+  if( ! layout_insert_food($layout, $tab, $groupName, $foodName, $after))
     return false;
 
   return save_layout($userId, $layout);

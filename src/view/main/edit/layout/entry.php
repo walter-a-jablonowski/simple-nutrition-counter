@@ -135,7 +135,7 @@ $showWarning  = ( ! empty($interactions) && trim($interactions) !== '')
             onclick   = "mainCrl.openMoveFood(event)"
             data-food = "<?= htmlspecialchars($entryName, ENT_QUOTES) ?>"
           >
-            <i class="bi bi-folder-symlink me-2"></i>Move to group
+            <i class="bi bi-folder-symlink me-2"></i>Move
           </button>
         </li>
       </ul>

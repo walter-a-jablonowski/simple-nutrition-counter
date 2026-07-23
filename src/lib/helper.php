@@ -82,6 +82,26 @@ function layout_target_options( array $layout )
   return $options;
 }
 
+/**
+ * The entries of every group, keyed the same way as layout_target_options():
+ * [ tabName => [ groupDisplayName => [ foodName, ... ] ] ]. Feeds the position
+ * picker of the move dialog.
+ */
+function layout_target_entries( array $layout )
+{
+  $entries = [];
+
+  foreach( $layout as $tab => $groups )
+  {
+    $entries[$tab] = [];
+
+    foreach( $groups as $groupName => $def )
+      $entries[$tab][$groupName] = array_values( $def['list'] ?? []);
+  }
+
+  return $entries;
+}
+
 // Data files
 
 /**
