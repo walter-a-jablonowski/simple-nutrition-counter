@@ -142,7 +142,8 @@ else:
             </div>
 
             <!-- Day switch button: ms-auto pushes it to the right of the logo/name group.
-                 On mobile the action buttons follow it (no auto margin -> sit just right of it). -->
+                 On mobile it stays next to the name instead and .header-actions
+                 takes the free space (see the mobile block in style/app.css). -->
             <?php
               $weekdays = ['Mon' => 'Mo', 'Tue' => 'Tu', 'Wed' => 'We', 'Thu' => 'Th', 'Fri' => 'Fr', 'Sat' => 'Sa', 'Sun' => 'Su'];
               $day = $weekdays[date('D')] . ' ' . date('j') . '.';
@@ -161,7 +162,7 @@ else:
 
             <!-- Mobile action buttons -->
 
-            <div class="d-flex align-items-center gap-3 ms-3 d-md-none">
+            <div class="header-actions d-flex align-items-center gap-3 ms-3 d-md-none">
 
               <?php $dir = 'down'; require( __DIR__ . '/main/edit/unprecise_menu.php'); ?>
 

@@ -896,6 +896,17 @@ body.sortable-active .day-entry {
 
 @media (max-width: 767.98px) {
 
+  /* Header: the day switch keeps its place right of the logo / name dropdown,
+     the action buttons take the free space instead. Overrides its .ms-auto,
+     which would otherwise push it across the now emptier header. */
+
+  .left-column header .js-switchDayBtn {
+    margin-left: 0.5rem !important;
+  }
+  .left-column header .header-actions {
+    margin-left: auto !important;
+  }
+
   /* Mobile collapsed state for the left column
      Keeps the header (2.875rem) + the list margin (0.5rem) + about 1.5 day
      entries (~2.72rem each) visible. In rem, not vh: an entry is as tall as its
