@@ -112,14 +112,33 @@ $showWarning  = ( ! empty($interactions) && trim($interactions) !== '')
   <?php for( $i = count($amountData) + 1; $i < 4; $i++ ):  // plus one is the menu ?>
     <div class="col-2" style="background-color: <?= $accepColor ?>;">&nbsp;</div>
   <?php endfor; ?>
-  <!-- Entry menu (move to another group; TASK: overflow amounts, expired, ...) -->
-  <div class     = "layout-item-menu col-1 ps-0 pe-2 text-center"
-       onclick   = "mainCrl.openMoveFood(event)"
-       data-food = "<?= htmlspecialchars($entryName, ENT_QUOTES) ?>"
-       style     = "cursor: pointer;"
-  >
-    <div class="py-1" style="background-color: <?= $accepColor ?>;">
-      <i class="bi bi-three-dots-vertical"></i>
+  <!-- Entry menu (TASK: overflow amounts, expired, ...) -->
+  <div class="layout-item-menu col-1 ps-0 pe-2 text-center">
+
+    <!-- Bootstrap resolves the menu as the toggle's next sibling, so both live
+         in the same .dropdown (which also carries the row's accept color) -->
+
+    <div class="py-1 dropdown" style="background-color: <?= $accepColor ?>;">
+
+      <button type="button" class="layout-item-menu-btn btn p-0 border-0 bg-transparent"
+        data-bs-toggle = "dropdown"
+        data-bs-config = '{"popperConfig":{"strategy":"fixed"}}'
+        aria-expanded  = "false"
+        aria-label     = "Entry menu"
+      >
+        <i class="bi bi-three-dots-vertical"></i>
+      </button>
+
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li>
+          <button type="button" class="dropdown-item"
+            onclick   = "mainCrl.openMoveFood(event)"
+            data-food = "<?= htmlspecialchars($entryName, ENT_QUOTES) ?>"
+          >
+            <i class="bi bi-folder-symlink me-2"></i>Move to group
+          </button>
+        </li>
+      </ul>
     </div>
   </div>
 </div>

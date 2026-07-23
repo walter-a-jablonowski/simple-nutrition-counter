@@ -591,6 +591,20 @@ body.no-scrollbars::-webkit-scrollbar {
   position: relative;
   z-index: 1;                      /* keep text/buttons above the tint layer */
 }
+/* Entry menu dropdown
+   Every .layout-item > * carries z-index 1 (see above), which turns the menu
+   cell into a stacking context - the rows below would paint over an open
+   dropdown. Lift the cell for as long as its menu is open. */
+
+.food-grid .layout-item-menu:has(.layout-item-menu-btn.show) {
+  z-index: 1056;                   /* above .dropdown-menu's own 1000 */
+}
+
+.layout-item-menu-btn {
+  cursor: pointer;
+  line-height: 1;
+}
+
 .food-grid .layout-item.accep-less::before { background-color: #fde2e4; }
 .food-grid .layout-item.accep-occ::before  { background-color: #fff3bf; }
 .food-grid .layout-item:hover::before      { background-color: rgba(233, 84, 32, 0.06); }
