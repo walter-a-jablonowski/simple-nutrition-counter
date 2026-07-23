@@ -64,8 +64,8 @@ function backup( $sources, $backupDir, $base )
   if( ! $sources )
     return;                          // nothing to back up: create no empty folder
 
-  $destDir = "$backupDir/" . date('ymd_Hi');
-  fs_mkdir($destDir);
+  $destDir = "$backupDir/" . date('ymd_His');   // with seconds: two runs in the same
+  fs_mkdir($destDir);                           // minute would share a folder and overwrite
 
   foreach( $sources as $source )
   {

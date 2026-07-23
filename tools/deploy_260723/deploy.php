@@ -12,6 +12,24 @@ $backup = DEPLOY_BACKUP;
 $keep   = DEPLOY_KEEP;
 $ignore = defined('DEPLOY_IGNORE') ? DEPLOY_IGNORE : [];
 
+// Check the folders before anything is deleted: the destination is cleared before
+// it is filled, so a wrong path would empty the installation and copy nothing.
+// Paths are relative to this folder, deploy.php is meant to be run from here.
+
+if( ! is_dir($sourceDir) )
+{
+  echo "\nSource folder not found: $sourceDir\n";
+  echo "Run deploy.php from its own folder, or fix DEPLOY_SOURCE_DIR in config.php\n";
+  exit(1);
+}
+
+if( ! is_dir($destDir) )
+{
+  echo "\nDestination folder not found: $destDir\n";
+  echo "Create it first or fix DEPLOY_DEST_DIR in config.php\n";
+  exit(1);
+}
+
 echo "\nIgnore list (DEPLOY_IGNORE):\n";
 foreach( $ignore as $item )
   echo "- $item\n";

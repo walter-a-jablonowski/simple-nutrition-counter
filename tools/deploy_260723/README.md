@@ -22,7 +22,7 @@ all optional except source and dest, dest and backup folders are created if miss
 - `DEPLOY_SOURCE_DIR` (usually `../src`)
 - `DEPLOY_DEST_DIR` (your installation folder)
 - `DEPLOY_BACKUP_DIR` (where backups are stored)
-- `DEPLOY_IGNORE` (ignore drom source folder)
+- `DEPLOY_IGNORE` (ignore from source folder)
 - `DEPLOY_BACKUP` (what to backup before deploying)
 - `DEPLOY_KEEP` (what must survive cleanup/deploy)
 
@@ -34,5 +34,9 @@ php deploy.php
 
 ## Comments
 
-- Backup folders are created as `DEPLOY_BACKUP_DIR/YYMMDD_HHMM`
+- Run `deploy.php` from its own folder: `DEPLOY_SOURCE_DIR` is relative to the
+  working directory, so `../../src` only resolves from here
+- Source and destination are checked before anything is deleted (the destination
+  is cleared before it is filled, so a wrong path would empty the installation)
+- Backup folders are created as `DEPLOY_BACKUP_DIR/YYMMDD_HHMMSS`
 - `make_debug_data.php` creates a `debug/` folder structure for local testing
