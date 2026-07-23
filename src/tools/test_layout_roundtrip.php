@@ -29,9 +29,10 @@ $file = 'data/bundles/Default_JaneDoe@example.com-24080101000000/layout.yml';
 
 $original = Yaml::parseFile($file);
 
-// Dump with a high inline threshold so nested lists stay in block style
+// Same arguments as save_layout(): high inline threshold so nested lists stay in
+// block style, literal blocks so multi-line help texts stay readable
 
-$dumped   = Yaml::dump($original, 10, 2);
+$dumped   = Yaml::dump($original, 10, 2, Yaml::DUMP_MULTI_LINE_LITERAL_BLOCK);
 $reparsed = Yaml::parse($dumped);
 
 // 1) Structure is byte-identical after a round-trip
@@ -61,6 +62,16 @@ check('dump uses block style (no inline "{ ... }")', strpos($dumped, ': {') === 
 // 5) first_entries list content preserved
 
 check('first_entries list intact', ($reparsed['Meals']['(first_entries)']['list'] ?? []) === ($original['Meals']['(first_entries)']['list'] ?? [null]));
+
+// 6) Multi-line help texts stay "|" blocks instead of one line full of "\n"
+
+$multiLine = 0;
+array_walk_recursive( $original, function( $v ) use ( &$multiLine ) {
+  if( is_string($v) && strpos($v, "\n") !== false )  $multiLine++;
+});
+
+check('layout has multi-line values to check', $multiLine > 0, "found $multiLine");
+check('multi-line values dumped as literal blocks', strpos($dumped, '\n') === false, 'escaped \n left in the output');
 
 echo "\n$pass passed, $fail failed\n";
 exit( $fail === 0 ? 0 : 1 );

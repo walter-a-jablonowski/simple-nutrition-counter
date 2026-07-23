@@ -313,12 +313,14 @@ function load_layout( $userId )
 /**
  * Writes the layout back. Inline threshold 10 keeps nested lists in block style;
  * the file carries no comments, so a full re-dump is safe.
+ * DUMP_MULTI_LINE_LITERAL_BLOCK keeps the "(i)" help texts as readable "|"
+ * blocks instead of collapsing them into one line full of "\n".
  */
 function save_layout( $userId, array $layout )
 {
   $filePath = "data/bundles/Default_$userId/layout.yml";
 
-  return file_put_contents( $filePath, Yaml::dump($layout, 10, 2)) !== false;
+  return file_put_contents( $filePath, Yaml::dump($layout, 10, 2, Yaml::DUMP_MULTI_LINE_LITERAL_BLOCK)) !== false;
 }
 
 /**
