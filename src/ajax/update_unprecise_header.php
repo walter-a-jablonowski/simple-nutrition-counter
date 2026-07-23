@@ -12,7 +12,7 @@ trait UpdateUnpreciseHeaderAjaxController
 
     // Whitelist: the flag comes from the client and is written into the day file as is
 
-    if( ! in_array( $flag, ['unprecise', 'unpreciseTime', 'unprecisePrice']))
+    if( ! in_array( $flag, ['unprecise', 'unpreciseTime', 'unprecisePrice', 'cheatday']))
       return ['result' => 'error', 'message' => "Unknown unprecise flag '$flag'"];
 
     // Read existing file

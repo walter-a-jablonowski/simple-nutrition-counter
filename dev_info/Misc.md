@@ -19,6 +19,7 @@ File format
 unprecise: true        # set by the unprecise menu, each header
 unpreciseTime: true    # is only present while the entry is on
 unprecisePrice: true
+cheatday: true
 
 food data...
 ```

@@ -9,10 +9,11 @@
   $items = [
     ['flag' => 'unprecise',      'icon' => 'bi-exclamation-circle-fill', 'caption' => 'Nutrients', 'on' => $this->isUnprecise],
     ['flag' => 'unpreciseTime',  'icon' => 'bi-stopwatch-fill',          'caption' => 'Time',      'on' => $this->isUnpreciseTime],
-    ['flag' => 'unprecisePrice', 'icon' => 'bi-currency-euro',           'caption' => 'Price',     'on' => $this->isUnprecisePrice]
+    ['flag' => 'unprecisePrice', 'icon' => 'bi-currency-euro',           'caption' => 'Price',     'on' => $this->isUnprecisePrice],
+    ['flag' => 'cheatday',       'icon' => 'bi-cake2',                   'caption' => 'Cheatday',  'on' => $this->isCheatday]
   ];
 
-  $anyOn = $this->isUnprecise || $this->isUnpreciseTime || $this->isUnprecisePrice;
+  $anyOn = $this->isUnprecise || $this->isUnpreciseTime || $this->isUnprecisePrice || $this->isCheatday;
 ?>
 
 <div class="unprecise-menu<?= $anyOn ? ' any-on' : '' ?>" data-dir="<?= $dir ?>">

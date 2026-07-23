@@ -57,6 +57,7 @@ class AppController extends ControllerBase
   protected bool       $isUnprecise = false;
   protected bool       $isUnpreciseTime = false;
   protected bool       $isUnprecisePrice = false;
+  protected bool       $isCheatday = false;
 
 
   public function __construct(/* $model = null, $view = null */)
@@ -115,6 +116,7 @@ class AppController extends ControllerBase
     $this->isUnprecise      = isset($parsedFile['headers']['unprecise']) && $parsedFile['headers']['unprecise'];
     $this->isUnpreciseTime  = isset($parsedFile['headers']['unpreciseTime']) && $parsedFile['headers']['unpreciseTime'];
     $this->isUnprecisePrice = isset($parsedFile['headers']['unprecisePrice']) && $parsedFile['headers']['unprecisePrice'];
+    $this->isCheatday       = isset($parsedFile['headers']['cheatday']) && $parsedFile['headers']['cheatday'];
     $this->dayEntriesTxt   = trim($parsedFile['data'], "\n");
     $this->dayEntries      = parse_tsv( $this->dayEntriesTxt, self::DAY_HEADERS );
 
