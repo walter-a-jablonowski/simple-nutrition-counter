@@ -192,15 +192,15 @@ else:
             <!-- Unprecise drop-up menu -->
             <?php $dir = 'up'; require( __DIR__ . '/main/edit/unprecise_menu.php'); ?>
 
-            <!-- Backspace button to delete last line; every list change saves
-                 right away (see #afterListChange), so there is no save button -->
-            <button onclick="mainCrl.deleteLastLineBtnClick(event)" class="btn p-1 border-0 bg-transparent">
-              <i class="bi bi-backspace"></i>
-            </button>
-
             <?php if( config::get('devMode') ): ?>
               <?php require( __DIR__ . '/main/edit/dev_menu.php'); ?>
             <?php endif; ?>
+
+            <!-- Backspace stays on the right; every list change saves right away
+                 (see #afterListChange), so there is no save button -->
+            <button onclick="mainCrl.deleteLastLineBtnClick(event)" class="btn p-1 border-0 bg-transparent">
+              <i class="bi bi-backspace"></i>
+            </button>
           </div>
         </div>
       </div>
