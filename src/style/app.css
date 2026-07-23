@@ -808,8 +808,13 @@ body.sortable-active .day-entry {
   color: #fd7e14;
 }
 
+/* position: fixed, not absolute: the left column is narrower than the panel and
+   scrolls (.content-wrapper), so an in-flow panel would widen it into a
+   horizontal scrollbar - even while closed, as visibility:hidden keeps layout.
+   UnpreciseMenu places it against its trigger instead. */
+
 .unprecise-panel {
-  position: absolute;
+  position: fixed;
   z-index: 1055;               /* above the sticky toolbar / header */
   min-width: 170px;
   padding: 0.3rem;
@@ -823,17 +828,9 @@ body.sortable-active .day-entry {
   transition: opacity 0.12s ease, transform 0.12s ease, visibility 0s linear 0.12s;
 }
 
-/* Left aligned, not centered: the trigger is the first icon of the toolbar and
-   sits close to the window edge, a centered panel would be clipped there */
-
-.unprecise-menu[data-dir="up"] .unprecise-panel {
-  bottom: calc(100% + 0.4rem);
-  left: -0.35rem;
-}
+/* The drop-down grows downwards, so it slides in from the other side */
 
 .unprecise-menu[data-dir="down"] .unprecise-panel {
-  top: calc(100% + 0.4rem);
-  right: 0;
   transform: translateY(-0.25rem);
 }
 
