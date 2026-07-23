@@ -17,8 +17,7 @@ class MainController
     this.showOverlayInfo         = this.showOverlayInfo.bind(this)
     this.userSelectChange        = this.userSelectChange.bind(this)
     this.switchDayBtnClick       = this.switchDayBtnClick.bind(this)
-    this.toggleUnpreciseMode     = this.toggleUnpreciseMode.bind(this)
-    this.toggleUnpreciseTimeMode = this.toggleUnpreciseTimeMode.bind(this)
+    this.toggleUnprecise         = this.toggleUnprecise.bind(this)
     this.deleteLastLineBtnClick  = this.deleteLastLineBtnClick.bind(this)
     this.deleteEntryBtnClick     = this.deleteEntryBtnClick.bind(this)
     this.saveDayEntriesBtnClick  = this.saveDayEntriesBtnClick.bind(this)
@@ -375,75 +374,46 @@ class MainController
 
 
   // List: btns
-  // Unprecise toggles drive two visuals at once: desktop button (text-warning vs text-secondary)
-  // and the mobile dropdown item (.bi-check .invisible flag)
+  // The unprecise menu is rendered twice (desktop drop-up + mobile drop-down), so all
+  // items of a type are updated together; see view/main/edit/unprecise_menu.php
 
-  toggleUnpreciseMode(event)
+  toggleUnprecise( event, type )   // type: 'nutrients' | 'time' | 'price'
   {
     event.preventDefault()
 
-    const desktopIcon = query('#unpreciseToggleBtn').querySelector('i')
-    const isOn        = desktopIcon.classList.contains('text-warning')
-    const newState    = ! isOn
+    const item = document.querySelector(`.unprecise-item[data-unprecise="${type}"]`)
+    const on   = ! item.classList.contains('active')
 
-    this.applyUnpreciseUi('nutrients', newState)
+    this.applyUnpreciseUi( type, on )
 
-    ajax.send('updateUnpreciseHeader', { date: this.date, unprecise: newState }, (result, data) => {
+    if( type === 'price')   // UI only for now, nothing to persist
+      return
+
+    const isTime = type === 'time'
+    const action = isTime ? 'updateUnpreciseTimeHeader'            : 'updateUnpreciseHeader'
+    const args   = isTime ? { date: this.date, unpreciseTime: on } : { date: this.date, unprecise: on }
+
+    ajax.send( action, args, (result, data) => {
       if( result !== 'success')
       {
         console.error('Failed to update unprecise header:', data.message || 'Unknown error')
-        this.applyUnpreciseUi('nutrients', ! newState)   // revert
+        this.applyUnpreciseUi( type, ! on )   // revert
       }
     })
   }
 
-  toggleUnpreciseTimeMode(event)
+  applyUnpreciseUi( type, on )
   {
-    event.preventDefault()
-
-    const desktopIcon = query('#unpreciseTimeToggleBtn').querySelector('i')
-    const isOn        = desktopIcon.classList.contains('text-warning')
-    const newState    = ! isOn
-
-    this.applyUnpreciseUi('time', newState)
-
-    ajax.send('updateUnpreciseTimeHeader', { date: this.date, unpreciseTime: newState }, (result, data) => {
-      if( result !== 'success')
-      {
-        console.error('Failed to update unprecise time header:', data.message || 'Unknown error')
-        this.applyUnpreciseUi('time', ! newState)        // revert
-      }
+    document.querySelectorAll(`.unprecise-item[data-unprecise="${type}"]`).forEach( item => {
+      item.classList.toggle('active', on)
+      item.setAttribute('aria-checked', on ? 'true' : 'false')
     })
-  }
 
-  applyUnpreciseUi( type, on )    // type: 'nutrients' | 'time'
-  {
-    const isTime    = type === 'time'
-    const desktopId = isTime ? 'unpreciseTimeToggleBtn' : 'unpreciseToggleBtn'
-    const mobileId  = isTime ? 'toggleTime'             : 'toggleNutrients'
-    const iconBase  = isTime ? 'bi-stopwatch-fill'      : 'bi-exclamation-circle-fill'
+    // Triggers turn orange as long as any flag is set
 
-    const desktopIcon = document.querySelector('#' + desktopId + ' i')
-    if( desktopIcon )
-      desktopIcon.className = 'bi ' + iconBase + (on ? ' text-warning' : ' text-secondary')
+    const anyOn = document.querySelector('.unprecise-item.active') !== null
 
-    const mobileCheck = document.querySelector('#' + mobileId + ' i.bi-check')
-    if( mobileCheck )
-      mobileCheck.classList.toggle('invisible', ! on)
-
-    this.updateUnpreciseDropdownIcon()
-  }
-
-  updateUnpreciseDropdownIcon()   // mobile trigger turns orange if any unprecise flag is set
-  {
-    const trigger = document.querySelector('#unpreciseDropdown i')
-    if( ! trigger ) return
-
-    const anyOn = ['#toggleNutrients', '#toggleTime', '#togglePrice'].some( sel => {
-      const c = document.querySelector( sel + ' i.bi-check')
-      return c && ! c.classList.contains('invisible')
-    })
-    trigger.style.color = anyOn ? '#fd7e14' : ''   // Bootstrap orange / reset
+    document.querySelectorAll('.unprecise-menu').forEach( menu => menu.classList.toggle('any-on', anyOn))
   }
 
   deleteLastLineBtnClick(event)

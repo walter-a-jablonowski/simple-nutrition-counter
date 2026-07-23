@@ -163,31 +163,7 @@ else:
 
             <div class="d-flex align-items-center gap-3 ms-3 d-md-none">
 
-              <div class="dropdown">
-                <button class="btn p-1 border-0 bg-transparent" type="button" id="unpreciseDropdown" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Unprecise options">
-                  <i class="bi bi-exclamation-circle-fill" aria-hidden="true"></i>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="unpreciseDropdown">
-                  <li>
-                    <a class="dropdown-item d-flex align-items-center" href="#" id="toggleNutrients" onclick="mainCrl.toggleUnpreciseMode(event)">
-                      <i class="bi bi-check me-2 text-primary<?= $this->isUnprecise ? '' : ' invisible' ?>"></i>
-                      <span>Nutrients</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item d-flex align-items-center" href="#" id="toggleTime" onclick="mainCrl.toggleUnpreciseTimeMode(event)">
-                      <i class="bi bi-check me-2 text-primary<?= $this->isUnpreciseTime ? '' : ' invisible' ?>"></i>
-                      <span>Time</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item d-flex align-items-center" href="#" id="togglePrice">
-                      <i class="bi bi-check me-2 text-primary invisible"></i>
-                      <span>Price</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
+              <?php $dir = 'down'; require( __DIR__ . '/main/edit/unprecise_menu.php'); ?>
 
               <button onclick="mainCrl.deleteLastLineBtnClick(event)" class="btn p-1 border-0 bg-transparent" aria-label="Delete">
                 <i class="bi bi-backspace" aria-hidden="true"></i>
@@ -215,15 +191,8 @@ else:
 
           <div class="d-none d-md-flex justify-content-center gap-3 py-2 px-3" role="toolbar">
 
-            <!-- Toggle button for unprecise time mode -->
-            <button id="unpreciseTimeToggleBtn" onclick="mainCrl.toggleUnpreciseTimeMode(event)" class="btn p-1 border-0 bg-transparent" title="Toggle unprecise time data">
-              <i class="bi bi-stopwatch-fill<?= $this->isUnpreciseTime ? ' text-warning' : ' text-secondary' ?>"></i>
-            </button>
-
-            <!-- Toggle button for unprecise mode -->
-            <button id="unpreciseToggleBtn" onclick="mainCrl.toggleUnpreciseMode(event)" class="btn p-1 border-0 bg-transparent" title="Toggle unprecise food data">
-              <i class="bi bi-exclamation-circle-fill<?= $this->isUnprecise ? ' text-warning' : ' text-secondary' ?>"></i>
-            </button>
+            <!-- Unprecise drop-up menu -->
+            <?php $dir = 'up'; require( __DIR__ . '/main/edit/unprecise_menu.php'); ?>
 
             <!-- Backspace button to delete last line -->
             <button onclick="mainCrl.deleteLastLineBtnClick(event)" class="btn p-1 border-0 bg-transparent">
@@ -364,6 +333,7 @@ else:
 <script src="app.js?v=<?= time() ?>"></script>
 <script src="MainController.js?v=<?= time() ?>"></script>
 <script src="NutritionWidgetsController.js?v=<?= time() ?>"></script>
+<script src="UnpreciseMenu.js?v=<?= time() ?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="ChartsController.js?v=<?= time() ?>"></script>
 <!-- <script src="SettingsController.js?v=<?= time() ?>"></script> -->
@@ -371,7 +341,7 @@ else:
 
 // ajax.file = 'ajax.php'
 
-var dayEntries, mainCrl, widgetsCrl, chartsCrl
+var dayEntries, mainCrl, widgetsCrl, chartsCrl, unpreciseMenu
 
 ready( function() {
 
@@ -383,6 +353,8 @@ ready( function() {
 
   widgetsCrl = new NutritionWidgetsController()
   chartsCrl  = new ChartsController()
+
+  unpreciseMenu = new UnpreciseMenu()
 
   setupTabletErrorHandler()
 })

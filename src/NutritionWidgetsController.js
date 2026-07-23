@@ -1,5 +1,5 @@
 // Drives the design_3 layout: sidebar / bottomNav nav switching, widget
-// horizontal scroll arrow, mobile caret collapse and unprecise dropdown.
+// horizontal scroll arrow and mobile caret collapse.
 // Wired up after mainCrl is ready in view/-this.php.
 
 class NutritionWidgetsController
@@ -29,7 +29,6 @@ class NutritionWidgetsController
     this._onWheel            = this._onWheel.bind(this)
     this._onArrowClick       = this._onArrowClick.bind(this)
     this._onMobileCaretClick = this._onMobileCaretClick.bind(this)
-    this._onTogglePrice      = this._onTogglePrice.bind(this)
 
     this.init()
   }
@@ -44,12 +43,6 @@ class NutritionWidgetsController
     this.navLinks.forEach( link => {
       link.addEventListener('click', this._onNavClick)
     })
-
-    // Dropdown toggle items
-    // toggleNutrients / toggleTime are owned by MainController (AJAX-backed); see mainCrl.toggleUnpreciseMode.
-    // togglePrice is UI-only for now.
-    const togglePrice = this.root.querySelector('#togglePrice')
-    if( togglePrice )  togglePrice.addEventListener('click', this._onTogglePrice)
 
     // Core listeners (only if widgets are present)
     if( this.widgetsContainer && this.scrollArrow )
@@ -97,19 +90,6 @@ class NutritionWidgetsController
       mainContentSection.classList.add('collapsed')
       if( caretIcon ) caretIcon.className = 'bi bi-caret-up'
     }
-  }
-
-  _onTogglePrice( event )
-  {
-    event.preventDefault()
-
-    const check = event.currentTarget.querySelector('i.bi-check')
-    if( check )
-      check.classList.toggle('invisible')
-
-    // Trigger dropdown icon recolor via mainCrl (it reads DOM state across all three items)
-    if( typeof mainCrl !== 'undefined' && mainCrl.updateUnpreciseDropdownIcon )
-      mainCrl.updateUnpreciseDropdownIcon()
   }
 
   _initWidgetValueScrolling()

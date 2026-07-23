@@ -784,31 +784,115 @@ body.sortable-active .day-entry {
   font-size: 1.2rem;
 }
 
-/* Unprecise dropdown menu */
+/* Unprecise menu (custom drop-up / drop-down, no Bootstrap)
+   Rendered twice: 'up' in the desktop toolbar, 'down' in the mobile header */
 
-#unpreciseDropdown {
-  color: #6c757d;
+.unprecise-menu {
   position: relative;
-  top: -1px;
+  display: inline-flex;
 }
-#unpreciseDropdown:hover {
+
+/* Trigger reads like the neighbouring toolbar icons (backspace, save) and
+   only picks up the accent while any of the flags is set */
+
+.unprecise-trigger {
+  color: #6c757d;
+  line-height: 1;
+}
+.unprecise-trigger:hover,
+.unprecise-trigger:focus {
   color: #495057;
 }
-
-.app-d3 .dropdown-menu {
-  min-width: 160px;
-  font-size: 0.95rem;
+.unprecise-menu.any-on .unprecise-trigger,
+.unprecise-menu.any-on .unprecise-trigger:hover {
+  color: #fd7e14;
 }
-.app-d3 .dropdown-item {
-  padding: 0.5rem 1rem;
+
+.unprecise-panel {
+  position: absolute;
+  z-index: 1055;               /* above the sticky toolbar / header */
+  min-width: 170px;
+  padding: 0.3rem;
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 0.6rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.16);
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(0.25rem);
+  transition: opacity 0.12s ease, transform 0.12s ease, visibility 0s linear 0.12s;
+}
+
+/* Left aligned, not centered: the trigger is the first icon of the toolbar and
+   sits close to the window edge, a centered panel would be clipped there */
+
+.unprecise-menu[data-dir="up"] .unprecise-panel {
+  bottom: calc(100% + 0.4rem);
+  left: -0.35rem;
+}
+
+.unprecise-menu[data-dir="down"] .unprecise-panel {
+  top: calc(100% + 0.4rem);
+  right: 0;
+  transform: translateY(-0.25rem);
+}
+
+.unprecise-menu.open .unprecise-panel {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+
+.unprecise-title {
+  padding: 0.3rem 0.6rem 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #8a9099;
+}
+
+.unprecise-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  border: 0;
+  border-radius: 0.4rem;
+  background-color: transparent;
+  font-size: 0.92rem;
+  color: #212529;
+  text-align: left;
   cursor: pointer;
 }
-.app-d3 .dropdown-item:active {
-  background-color: #e9ecef;
+
+.unprecise-item:hover,
+.unprecise-item:focus-visible {
+  background-color: #f1f3f5;
+  outline: none;
 }
-.app-d3 .dropdown-item i.bi-check-square {
+
+.unprecise-item i {
+  width: 1.15rem;
   font-size: 1rem;
+  text-align: center;
+  color: #adb5bd;
   flex-shrink: 0;
+}
+
+/* Active = flag set: tinted row + accent icon, same meaning the orange
+   toggle buttons had before */
+
+.unprecise-item.active {
+  background-color: color-mix(in srgb, #fd7e14 11%, #ffffff);
+}
+.unprecise-item.active:hover {
+  background-color: color-mix(in srgb, #fd7e14 18%, #ffffff);
+}
+.unprecise-item.active i {
+  color: #fd7e14;
 }
 
 /* Responsive */
