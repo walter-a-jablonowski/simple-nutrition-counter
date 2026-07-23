@@ -29,7 +29,6 @@ class AppController extends ControllerBase
 
   use SaveDayEntriesAjaxController;
   use UpdateUnpreciseHeaderAjaxController;
-  use UpdateUnpreciseTimeHeaderAjaxController;
   use ChangeUserAjaxController;
   use SavePriceAjaxController;
   use GetChartsDataAjaxController;
@@ -57,6 +56,7 @@ class AppController extends ControllerBase
   protected array      $dayFileHeaders = [];
   protected bool       $isUnprecise = false;
   protected bool       $isUnpreciseTime = false;
+  protected bool       $isUnprecisePrice = false;
 
 
   public function __construct(/* $model = null, $view = null */)
@@ -111,9 +111,10 @@ class AppController extends ControllerBase
     $fileContent = @file_get_contents('data/users/' . $config->get('defaultUser') . "/days/{$this->date}.tsv") ?: '';
     $parsedFile  = parse_data_file($fileContent);
     
-    $this->dayFileHeaders  = $parsedFile['headers'];
-    $this->isUnprecise     = isset($parsedFile['headers']['unprecise']) && $parsedFile['headers']['unprecise'];
-    $this->isUnpreciseTime = isset($parsedFile['headers']['unpreciseTime']) && $parsedFile['headers']['unpreciseTime'];
+    $this->dayFileHeaders   = $parsedFile['headers'];
+    $this->isUnprecise      = isset($parsedFile['headers']['unprecise']) && $parsedFile['headers']['unprecise'];
+    $this->isUnpreciseTime  = isset($parsedFile['headers']['unpreciseTime']) && $parsedFile['headers']['unpreciseTime'];
+    $this->isUnprecisePrice = isset($parsedFile['headers']['unprecisePrice']) && $parsedFile['headers']['unprecisePrice'];
     $this->dayEntriesTxt   = trim($parsedFile['data'], "\n");
     $this->dayEntries      = parse_tsv( $this->dayEntriesTxt, self::DAY_HEADERS );
 

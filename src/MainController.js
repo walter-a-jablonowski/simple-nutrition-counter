@@ -377,34 +377,27 @@ class MainController
   // The unprecise menu is rendered twice (desktop drop-up + mobile drop-down), so all
   // items of a type are updated together; see view/main/edit/unprecise_menu.php
 
-  toggleUnprecise( event, type )   // type: 'nutrients' | 'time' | 'price'
+  toggleUnprecise( event, flag )   // flag: day file header, see UNPRECISE_FLAGS
   {
     event.preventDefault()
 
-    const item = document.querySelector(`.unprecise-item[data-unprecise="${type}"]`)
+    const item = document.querySelector(`.unprecise-item[data-unprecise="${flag}"]`)
     const on   = ! item.classList.contains('active')
 
-    this.applyUnpreciseUi( type, on )
+    this.applyUnpreciseUi( flag, on )
 
-    if( type === 'price')   // UI only for now, nothing to persist
-      return
-
-    const isTime = type === 'time'
-    const action = isTime ? 'updateUnpreciseTimeHeader'            : 'updateUnpreciseHeader'
-    const args   = isTime ? { date: this.date, unpreciseTime: on } : { date: this.date, unprecise: on }
-
-    ajax.send( action, args, (result, data) => {
+    ajax.send('updateUnpreciseHeader', { date: this.date, flag: flag, on: on }, (result, data) => {
       if( result !== 'success')
       {
         console.error('Failed to update unprecise header:', data.message || 'Unknown error')
-        this.applyUnpreciseUi( type, ! on )   // revert
+        this.applyUnpreciseUi( flag, ! on )   // revert
       }
     })
   }
 
-  applyUnpreciseUi( type, on )
+  applyUnpreciseUi( flag, on )
   {
-    document.querySelectorAll(`.unprecise-item[data-unprecise="${type}"]`).forEach( item => {
+    document.querySelectorAll(`.unprecise-item[data-unprecise="${flag}"]`).forEach( item => {
       item.classList.toggle('active', on)
       item.setAttribute('aria-checked', on ? 'true' : 'false')
     })

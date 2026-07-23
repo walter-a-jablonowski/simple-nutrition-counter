@@ -16,8 +16,9 @@ File format
 ----------------------------------------------------------
 
 ```
-unprecise: true
-unpreciseTime: true
+unprecise: true        # set by the unprecise menu, each header
+unpreciseTime: true    # is only present while the entry is on
+unprecisePrice: true
 
 food data...
 ```
