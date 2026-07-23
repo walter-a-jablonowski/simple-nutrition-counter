@@ -14,7 +14,7 @@
     aria-label    = "Dev tools"
     title         = "Dev"
   >
-    <i class="bi bi-tools"></i>
+    <i class="bi bi-gear"></i>
   </button>
 
   <div class="drop-menu-panel" role="menu">
