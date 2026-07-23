@@ -1,7 +1,6 @@
 Meals:
   (first_entries):
     list:
-      - 'Linseneintopf R'
       - 'Ritter Sp 81%'
       - 'Dallmayr classic'
       - 'Wasser R lg'
@@ -52,6 +51,7 @@ Meals:
       - 'Salat A Country'
       - Olivenöl
       - Öl
+      - 'Linseneintopf R'
   'Cheese, a little taste (color:#32cd32)':
     (i): 'Add only a little per meal makes it far more tasty and keeps it healthy'
     list:
@@ -206,14 +206,39 @@ Improve:
     list:
       - Banane
   Almonds:
-    (i): "\n<table class=\"table table-sm table-borderless\">\n  <tr>\n    <td><b>Why?</b></td><td>\n      feels much better\n      <ul class=\"no-indent\">\n        <li>maybe contains some amino acids that sometimes are too low (until filled up)</li>\n        <li>maybe it's the form of magnesium</li>\n      </ul>\n    </td>\n  </tr>\n  <tr>\n    <td><b>Sources</b></td><td>\n      - 60 year old guy looking pretty young <a href=\"https://www.youtube.com/@CHRISGIBSONLIVE\" target=\"_blank\">Chris Gibson</a>\n  </td>\n  </tr>\n</table>\n"
+    (i): |
+
+      <table class="table table-sm table-borderless">
+        <tr>
+          <td><b>Why?</b></td><td>
+            feels much better
+            <ul class="no-indent">
+              <li>maybe contains some amino acids that sometimes are too low (until filled up)</li>
+              <li>maybe it's the form of magnesium</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><b>Sources</b></td><td>
+            - 60 year old guy looking pretty young <a href="https://www.youtube.com/@CHRISGIBSONLIVE" target="_blank">Chris Gibson</a>
+        </td>
+        </tr>
+      </table>
     list:
       - 'Mandel R Bio'
       - 'Mandel N'
       - 'Mandel E'
       - 'Mandel A ger'
   'Bitter substances':
-    (i): "\n<p>Samples (AI 2502)</p>\n\n<ul class=\"no-indent\">\n  <li>Chicorée, Radicchio, Endivien</li>\n  <li>Brokkoli, Artischocken, Oliven (nich Öl)</li>\n  <li>Grapefruit, Kaffee, Tee, Kakao</li>\n</ul>\n"
+    (i): |
+
+      <p>Samples (AI 2502)</p>
+
+      <ul class="no-indent">
+        <li>Chicorée, Radicchio, Endivien</li>
+        <li>Brokkoli, Artischocken, Oliven (nich Öl)</li>
+        <li>Grapefruit, Kaffee, Tee, Kakao</li>
+      </ul>
     list:
       - 'Salat R Blatt'
       - 'Salat R Misch'
@@ -244,7 +269,17 @@ Improve:
 Supplements:
   'Morning supplements':
     short: '<span style="color: orange;">see Info</span>'
-    (i): "\nDeficiencies most people (Brecka)\n\n- D3, B12 (see gd \"highest doses\")\n- Magnesium, Kalium\n\nList of most important\n\n- Omega 3\n- ...\n"
+    (i): |
+
+      Deficiencies most people (Brecka)
+
+      - D3, B12 (see gd "highest doses")
+      - Magnesium, Kalium
+
+      List of most important
+
+      - Omega 3
+      - ...
     list:
       - 'Magn N'
       - Algen
@@ -336,5 +371,9 @@ Supplements:
       - Falafel
 Misc:
   'Housewares (color:#e0e0e0)':
-    (i): "\nHunt hidden costly non food stuff, like coffee filters, batteries ...\nCounts as consumed as soon as one pack/piece is taken out of the pantry.\nThe error is only a few cents and can be ignored.\n"
+    (i): |
+
+      Hunt hidden costly non food stuff, like coffee filters, batteries ...
+      Counts as consumed as soon as one pack/piece is taken out of the pantry.
+      The error is only a few cents and can be ignored.
   'Misc var expenses (color:#e0e0e0, fold:true)': null
