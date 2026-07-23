@@ -1,0 +1,27 @@
+productName:       "ja! Linseneintopf vegan 800g"
+vendor:            Rewe
+url:               "https://www.rewe.de/shop/p/ja-linseneintopf-vegan-800g/9986095"
+
+certificates:      { NutriScore: B, vegan: true }
+ingredients:       "Linsen 40%, Wasser, Karotten 9,3%, Kartoffeln 7,5%, Zwiebeln, Speisesalz, Lauch, modifizierte Stärke, WEIZENMEHL, Tomatenmark doppelt konzentriert, Branntweinessig, Rapsöl, Verdickungsmittel (Guarkernmehl), Zucker, Antioxidationsmittel (Ascorbinsäure), Gewürze, Kräuter"
+mayContain:        "Ei, Milch und Sellerie"
+packaging:         alu
+
+price:             1.89
+weight:            800g
+usedAmounts:       ["1"]
+
+calories:          69
+nutritionalValues:
+
+  fat:             0.7
+  saturatedFat:    0.1
+  carbs:           10.2
+  sugar:           0.9
+  fibre:           3.1
+  amino:           4
+  salt:            0.85
+
+sources:           { nutriVal: "web" }
+lastUpd:           2026-07-23
+lastPriceUpd:      2026-07-23
