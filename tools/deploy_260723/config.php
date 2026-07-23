@@ -18,7 +18,12 @@
 
 define('DEPLOY_SOURCE_DIR', '../src');
 define('DEPLOY_DEST_DIR',   'G:/Meine Ablage/80-dools/primary_dool/20_activity/simple-nutrition-counter (id-consump)');
-define('DEPLOY_BACKUP_DIR', 'G:/Meine Ablage/80-dools/primary_dool/20_activity/simple_running_backup');
+define('DEPLOY_BACKUP_DIR', 'G:/Meine Ablage/80-dools/primary_dool/20_activity/simple-nutrition-counter_deploy-backup');
+
+define('DEPLOY_IGNORE', [
+  '.git',
+  '.vscode'
+]);
 
 define('DEPLOY_BACKUP', [
   'config.yml',
