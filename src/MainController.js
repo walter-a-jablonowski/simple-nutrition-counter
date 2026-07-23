@@ -387,7 +387,7 @@ class MainController
   {
     event.preventDefault()
 
-    const item = document.querySelector(`.unprecise-item[data-unprecise="${flag}"]`)
+    const item = document.querySelector(`.drop-menu-item[data-unprecise="${flag}"]`)
     const on   = ! item.classList.contains('active')
 
     this.applyUnpreciseUi( flag, on )
@@ -403,14 +403,14 @@ class MainController
 
   applyUnpreciseUi( flag, on )
   {
-    document.querySelectorAll(`.unprecise-item[data-unprecise="${flag}"]`).forEach( item => {
+    document.querySelectorAll(`.drop-menu-item[data-unprecise="${flag}"]`).forEach( item => {
       item.classList.toggle('active', on)
       item.setAttribute('aria-checked', on ? 'true' : 'false')
     })
 
     // Triggers turn orange as long as any flag is set
 
-    const anyOn = document.querySelector('.unprecise-item.active') !== null
+    const anyOn = document.querySelector('[data-unprecise].active') !== null
 
     document.querySelectorAll('.unprecise-menu').forEach( menu => menu.classList.toggle('any-on', anyOn))
   }

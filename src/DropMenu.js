@@ -1,8 +1,12 @@
-// Custom drop-up / drop-down menu for the unprecise toggles (no Bootstrap).
-// The panel stays open while items are toggled and closes on outside click or Escape.
-// Item clicks themselves are handled by mainCrl.toggleUnprecise() (inline onclick).
+// Custom drop-up / drop-down menu (no Bootstrap), shared by the unprecise
+// toggles and the devMode menu. One instance handles every .drop-menu on the
+// page; the items' own actions stay with their feature (inline onclick).
+//
+// Markup: .drop-menu[data-dir="up|down"] > .drop-menu-trigger + .drop-menu-panel
+// Add data-close-on-select to close the panel after an item was clicked;
+// without it the panel stays open (toggle menus, where several clicks are normal).
 
-class UnpreciseMenu
+class DropMenu
 {
   constructor( root = document )
   {
@@ -22,8 +26,8 @@ class UnpreciseMenu
 
   _onDocClick( event )
   {
-    const trigger = event.target.closest('.unprecise-trigger')
-    const menu    = trigger ? trigger.closest('.unprecise-menu') : null
+    const trigger = event.target.closest('.drop-menu-trigger')
+    const menu    = trigger ? trigger.closest('.drop-menu') : null
 
     if( menu )
     {
@@ -41,7 +45,11 @@ class UnpreciseMenu
       return
     }
 
-    if( ! event.target.closest('.unprecise-panel'))  // inside the panel: keep open for multiple toggles
+    const panel = event.target.closest('.drop-menu-panel')
+
+    if( ! panel )   // outside click
+      this.closeAll()
+    else if( event.target.closest('.drop-menu-item') && panel.closest('.drop-menu').hasAttribute('data-close-on-select'))
       this.closeAll()
   }
 
@@ -53,7 +61,7 @@ class UnpreciseMenu
 
   _onReflow()
   {
-    document.querySelectorAll('.unprecise-menu.open').forEach( menu => this.place( menu ))
+    document.querySelectorAll('.drop-menu.open').forEach( menu => this.place( menu ))
   }
 
   /*@
@@ -65,8 +73,8 @@ class UnpreciseMenu
   */
   place( menu ) /*@*/
   {
-    const panel   = menu.querySelector('.unprecise-panel')
-    const trigger = menu.querySelector('.unprecise-trigger').getBoundingClientRect()
+    const panel   = menu.querySelector('.drop-menu-panel')
+    const trigger = menu.querySelector('.drop-menu-trigger').getBoundingClientRect()
     const isUp    = menu.dataset.dir === 'up'
 
     // Drop-up opens above the trigger, drop-down below it
@@ -87,13 +95,13 @@ class UnpreciseMenu
 
   closeAll( except = null )
   {
-    document.querySelectorAll('.unprecise-menu.open').forEach( menu => {
+    document.querySelectorAll('.drop-menu.open').forEach( menu => {
 
       if( menu === except )
         return
 
       menu.classList.remove('open')
-      menu.querySelector('.unprecise-trigger').setAttribute('aria-expanded', 'false')
+      menu.querySelector('.drop-menu-trigger').setAttribute('aria-expanded', 'false')
     })
   }
 }

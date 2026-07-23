@@ -197,6 +197,10 @@ else:
             <button onclick="mainCrl.deleteLastLineBtnClick(event)" class="btn p-1 border-0 bg-transparent">
               <i class="bi bi-backspace"></i>
             </button>
+
+            <?php if( config::get('devMode') ): ?>
+              <?php require( __DIR__ . '/main/edit/dev_menu.php'); ?>
+            <?php endif; ?>
           </div>
         </div>
       </div>
@@ -327,7 +331,7 @@ else:
 <script src="app.js?v=<?= time() ?>"></script>
 <script src="MainController.js?v=<?= time() ?>"></script>
 <script src="NutritionWidgetsController.js?v=<?= time() ?>"></script>
-<script src="UnpreciseMenu.js?v=<?= time() ?>"></script>
+<script src="DropMenu.js?v=<?= time() ?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="ChartsController.js?v=<?= time() ?>"></script>
 <!-- <script src="SettingsController.js?v=<?= time() ?>"></script> -->
@@ -335,7 +339,7 @@ else:
 
 // ajax.file = 'ajax.php'
 
-var dayEntries, mainCrl, widgetsCrl, chartsCrl, unpreciseMenu
+var dayEntries, mainCrl, widgetsCrl, chartsCrl, dropMenu
 
 ready( function() {
 
@@ -348,7 +352,7 @@ ready( function() {
   widgetsCrl = new NutritionWidgetsController()
   chartsCrl  = new ChartsController()
 
-  unpreciseMenu = new UnpreciseMenu()
+  dropMenu = new DropMenu()   // handles every .drop-menu on the page
 
   setupTabletErrorHandler()
 })

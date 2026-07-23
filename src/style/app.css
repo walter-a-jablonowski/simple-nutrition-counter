@@ -798,36 +798,31 @@ body.sortable-active .day-entry {
   font-size: 1.2rem;
 }
 
-/* Unprecise menu (custom drop-up / drop-down, no Bootstrap)
-   Rendered twice: 'up' in the desktop toolbar, 'down' in the mobile header */
+/* Drop menu (custom drop-up / drop-down, no Bootstrap; see DropMenu.js)
+   Used by the unprecise toggles and the devMode menu in the day toolbar. */
 
-.unprecise-menu {
+.drop-menu {
   position: relative;
   display: inline-flex;
 }
 
-/* Trigger reads like the neighbouring toolbar icons (backspace, save) and
-   only picks up the accent while any of the flags is set */
+/* Trigger reads like the neighbouring toolbar icons (backspace, save) */
 
-.unprecise-trigger {
+.drop-menu-trigger {
   color: #6c757d;
   line-height: 1;
 }
-.unprecise-trigger:hover,
-.unprecise-trigger:focus {
+.drop-menu-trigger:hover,
+.drop-menu-trigger:focus {
   color: #495057;
-}
-.unprecise-menu.any-on .unprecise-trigger,
-.unprecise-menu.any-on .unprecise-trigger:hover {
-  color: #fd7e14;
 }
 
 /* position: fixed, not absolute: the left column is narrower than the panel and
    scrolls (.content-wrapper), so an in-flow panel would widen it into a
    horizontal scrollbar - even while closed, as visibility:hidden keeps layout.
-   UnpreciseMenu places it against its trigger instead. */
+   DropMenu places it against its trigger instead. */
 
-.unprecise-panel {
+.drop-menu-panel {
   position: fixed;
   z-index: 1055;               /* above the sticky toolbar / header */
   min-width: 170px;
@@ -844,18 +839,18 @@ body.sortable-active .day-entry {
 
 /* The drop-down grows downwards, so it slides in from the other side */
 
-.unprecise-menu[data-dir="down"] .unprecise-panel {
+.drop-menu[data-dir="down"] .drop-menu-panel {
   transform: translateY(-0.25rem);
 }
 
-.unprecise-menu.open .unprecise-panel {
+.drop-menu.open .drop-menu-panel {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
   transition-delay: 0s;
 }
 
-.unprecise-title {
+.drop-menu-title {
   padding: 0.3rem 0.6rem 0.4rem;
   font-size: 0.72rem;
   font-weight: 600;
@@ -864,7 +859,7 @@ body.sortable-active .day-entry {
   color: #8a9099;
 }
 
-.unprecise-item {
+.drop-menu-item {
   display: flex;
   align-items: center;
   gap: 0.6rem;
@@ -879,13 +874,13 @@ body.sortable-active .day-entry {
   cursor: pointer;
 }
 
-.unprecise-item:hover,
-.unprecise-item:focus-visible {
+.drop-menu-item:hover,
+.drop-menu-item:focus-visible {
   background-color: #f1f3f5;
   outline: none;
 }
 
-.unprecise-item i {
+.drop-menu-item i {
   width: 1.15rem;
   font-size: 1rem;
   text-align: center;
@@ -896,13 +891,20 @@ body.sortable-active .day-entry {
 /* Active = flag set: tinted row + accent icon, same meaning the orange
    toggle buttons had before */
 
-.unprecise-item.active {
+.drop-menu-item.active {
   background-color: color-mix(in srgb, #fd7e14 11%, #ffffff);
 }
-.unprecise-item.active:hover {
+.drop-menu-item.active:hover {
   background-color: color-mix(in srgb, #fd7e14 18%, #ffffff);
 }
-.unprecise-item.active i {
+.drop-menu-item.active i {
+  color: #fd7e14;
+}
+
+/* Unprecise menu: the trigger picks up the accent while any flag is set */
+
+.unprecise-menu.any-on .drop-menu-trigger,
+.unprecise-menu.any-on .drop-menu-trigger:hover {
   color: #fd7e14;
 }
 

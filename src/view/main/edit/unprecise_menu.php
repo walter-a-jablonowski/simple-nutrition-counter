@@ -3,6 +3,8 @@
   // Unprecise drop menu: replaces the former separate toggle buttons.
   // Rendered twice per page, so the items carry data-unprecise instead of ids.
   // 'flag' is the day file header the entry writes, see dev_info/Misc.md
+  // The menu stays open on a click (toggles, several clicks in a row are normal),
+  // so it does not opt into the drop menu's close-on-select.
   //
   // $dir  'up' for the desktop toolbar, 'down' for the mobile header
 
@@ -16,9 +18,9 @@
   $anyOn = $this->isUnprecise || $this->isUnpreciseTime || $this->isUnprecisePrice || $this->isCheatday;
 ?>
 
-<div class="unprecise-menu<?= $anyOn ? ' any-on' : '' ?>" data-dir="<?= $dir ?>">
+<div class="drop-menu unprecise-menu<?= $anyOn ? ' any-on' : '' ?>" data-dir="<?= $dir ?>">
 
-  <button type="button" class="unprecise-trigger btn p-1 border-0 bg-transparent"
+  <button type="button" class="drop-menu-trigger btn p-1 border-0 bg-transparent"
     aria-haspopup = "true"
     aria-expanded = "false"
     aria-label    = "Unprecise options"
@@ -27,13 +29,13 @@
     <i class="bi bi-exclamation-circle-fill"></i>
   </button>
 
-  <div class="unprecise-panel" role="menu">
+  <div class="drop-menu-panel" role="menu">
 
-    <div class="unprecise-title">Unprecise</div>
+    <div class="drop-menu-title">Unprecise</div>
 
     <?php foreach( $items as $item ): ?>
       <button type="button" role="menuitemcheckbox"
-        class          = "unprecise-item<?= $item['on'] ? ' active' : '' ?>"
+        class          = "drop-menu-item<?= $item['on'] ? ' active' : '' ?>"
         data-unprecise = "<?= $item['flag'] ?>"
         aria-checked   = "<?= $item['on'] ? 'true' : 'false' ?>"
         onclick        = "mainCrl.toggleUnprecise(event, '<?= $item['flag'] ?>')"
