@@ -6,7 +6,7 @@ destination: "G:/Meine Ablage/80-dools/20_activity/simple-nutrition-counter (id-
 # Every destination file a run overwrites or deletes is copied here first, into
 # a per run folder "YYYY-MM-DD_01" (counter per day), keeping its sub path.
 
-backup: "G:/Meine Ablage/80-dools/20_activity/simple-nutrition-counter_backup"
+backup: "G:/Meine Ablage/80-dools/20_activity/simple-nutrition-counter_publish-backup"
 
 # What gets published, as paths relative to the repo root. Files and folders
 # both work; folders are walked recursively. Extend this list as needed.
