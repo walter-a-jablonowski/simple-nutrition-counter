@@ -1,0 +1,20 @@
+
+# Publish the food data to the installation folder (see README.md)
+
+destination: "G:/Meine Ablage/80-dools/20_activity/simple-nutrition-counter (id-consump)"
+
+# What gets published, as paths relative to the repo root. Files and folders
+# both work; folders are walked recursively. Extend this list as needed.
+
+sources:
+  - "src/data/bundles/Default_JaneDoe@example.com-24080101000000/foods"
+  - "src/data/bundles/Default_JaneDoe@example.com-24080101000000/supplements"
+  - "src/data/bundles/Default_JaneDoe@example.com-24080101000000/nutrients"
+  - "src/data/bundles/Default_JaneDoe@example.com-24080101000000/layout.yml"
+
+# Never copied, never reported as obsolete: Windows / Google Drive artifacts
+
+ignore:
+  - "desktop.ini"
+  - "Thumbs.db"
+  - ".DS_Store"

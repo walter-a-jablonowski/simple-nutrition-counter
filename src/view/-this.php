@@ -300,6 +300,9 @@ else:
   <?php require( __DIR__ . '/modal/info.php'); ?>
   <?php require( __DIR__ . '/modal/confirm.php'); ?>
   <?php require( __DIR__ . '/modal/search.php'); ?>
+  <?php if( config::get('devMode') ): ?>
+    <?php require( __DIR__ . '/modal/publish_foods.php'); ?>
+  <?php endif; ?>
 
   <div id="errorPage" style="display: none;">
     <?php require( __DIR__ . '/error_page.php'); ?>

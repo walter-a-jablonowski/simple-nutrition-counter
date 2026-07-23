@@ -32,6 +32,9 @@ class MainController
     this.openMoveFood            = this.openMoveFood.bind(this)
     this.fillMoveFoodPositions   = this.fillMoveFoodPositions.bind(this)
     this.moveFoodConfirm         = this.moveFoodConfirm.bind(this)
+    this.openPublishFoods        = this.openPublishFoods.bind(this)
+    this.publishFoodsCheck       = this.publishFoodsCheck.bind(this)
+    this.publishFoodsRun         = this.publishFoodsRun.bind(this)
     this.priceColClick           = this.priceColClick.bind(this)
     this.updPriceClick           = this.updPriceClick.bind(this)
     this.offLimitCheckChange     = this.offLimitCheckChange.bind(this)
@@ -86,6 +89,9 @@ class MainController
     this.confirmModal = new bootstrap.Modal( query('#confirmModal'))
 
     this.moveFoodModal = new bootstrap.Modal( query('#moveFoodModal'))
+
+    if( query('#publishFoodsModal'))   // devMode only
+      this.publishFoodsModal = new bootstrap.Modal( query('#publishFoodsModal'))
 
     // Entries per tab/group for the move dialog's position select (see move_food.php)
 
@@ -712,6 +718,67 @@ class MainController
       }
       else
         query('#uiMsg').innerHTML = (data && data.message) || 'Could not move food'
+    })
+  }
+
+
+  // Publish the food data to the installation folder (devMode, see tools/publish_foods).
+  // Two steps: check reports what would change, publish applies it.
+
+  openPublishFoods()
+  {
+    query('#publishFoodsReport').textContent = 'Click "Check" to see what would change.'
+    query('#publishFoodsRunBtn').disabled    = true
+
+    this.publishFoodsModal.show()
+  }
+
+  publishFoodsCheck()
+  {
+    this.#publishFoods('plan')
+  }
+
+  publishFoodsRun()
+  {
+    this.#publishFoods('run')
+  }
+
+  /*@
+
+  Both steps hit the same handler; 'run' rebuilds the plan server side, so the
+  report the user confirmed is never the thing that gets applied blindly.
+  Publish stays disabled until a check has run and found something to do.
+
+  */
+  #publishFoods( mode ) /*@*/
+  {
+    const report = query('#publishFoodsReport')
+    const runBtn = query('#publishFoodsRunBtn')
+
+    report.textContent = mode === 'run' ? 'Publishing ...' : 'Checking ...'
+    runBtn.disabled    = true
+
+    ajax.send('publishFoods', { mode: mode, delete: query('#publishFoodsDelete').checked }, ( result, data ) => {
+
+      if( result !== 'success')
+      {
+        report.textContent = (data && data.message) || 'Could not run the publish tool'
+        return
+      }
+
+      const lines = data.lines.slice()
+
+      if( mode === 'run')
+        lines.push('', `Copied ${data.copied}, deleted ${data.deleted}.`)
+
+      if( data.errors.length )
+        lines.push('', ...data.errors.map( e => `ERROR  ${e}`))
+
+      report.textContent = lines.join('\n')
+
+      // After a run everything is published, so there is nothing left to confirm
+
+      runBtn.disabled = mode === 'run' || ! (data.counts.new || data.counts.changed || data.counts.obsolete)
     })
   }
 

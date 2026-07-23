@@ -21,9 +21,9 @@
 
     <div class="drop-menu-title">Dev</div>
 
-    <button type="button" role="menuitem" class="drop-menu-item">
-      <i class="bi bi-braces"></i>
-      <span>Dummy entry</span>
+    <button type="button" role="menuitem" class="drop-menu-item" onclick="mainCrl.openPublishFoods()">
+      <i class="bi bi-cloud-arrow-up"></i>
+      <span>Publish</span>
     </button>
 
   </div>

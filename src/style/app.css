@@ -901,6 +901,21 @@ body.sortable-active .day-entry {
   color: #fd7e14;
 }
 
+/* Publish dialog: monospace change list, scrolls on its own */
+
+.publish-report {
+  max-height: 45vh;
+  overflow: auto;
+  margin: 0;
+  padding: 0.6rem;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 0.4rem;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  white-space: pre;
+}
+
 /* Unprecise menu: the trigger picks up the accent while any flag is set */
 
 .unprecise-menu.any-on .drop-menu-trigger,
