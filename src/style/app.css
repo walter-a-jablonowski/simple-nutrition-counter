@@ -907,6 +907,15 @@ body.sortable-active .day-entry {
     overflow-y: auto;
   }
 
+  /* The food list takes over what the collapsed day entries give up. Without
+     this the two column heights no longer add up to 100% and #mainLayout (a
+     wrapped Bootstrap .row) spreads the free space over both flex lines, which
+     shows as a grey band over the entries list and one above the bottom nav. */
+
+  .left-column.collapsed ~ .right-column {
+    height: calc(100% - 10vh) !important;
+  }
+
   main.app-d3 {
     padding-right: 0 !important;
     padding-bottom: 56px;        /* room for bottom nav */
