@@ -165,12 +165,9 @@ else:
 
               <?php $dir = 'down'; require( __DIR__ . '/main/edit/unprecise_menu.php'); ?>
 
+              <!-- Deleting saves right away, so there is no save button -->
               <button onclick="mainCrl.deleteLastLineBtnClick(event)" class="btn p-1 border-0 bg-transparent" aria-label="Delete">
                 <i class="bi bi-backspace" aria-hidden="true"></i>
-              </button>
-
-              <button onclick="mainCrl.saveDayEntriesBtnClick(event)" class="btn p-1 border-0 bg-transparent" aria-label="Save">
-                <i class="bi bi-floppy" aria-hidden="true"></i>
               </button>
 
               <button id="expandBtn" class="mobile-caret-btn btn p-1" aria-label="Toggle view">
@@ -194,14 +191,10 @@ else:
             <!-- Unprecise drop-up menu -->
             <?php $dir = 'up'; require( __DIR__ . '/main/edit/unprecise_menu.php'); ?>
 
-            <!-- Backspace button to delete last line -->
+            <!-- Backspace button to delete last line; every list change saves
+                 right away (see #afterListChange), so there is no save button -->
             <button onclick="mainCrl.deleteLastLineBtnClick(event)" class="btn p-1 border-0 bg-transparent">
               <i class="bi bi-backspace"></i>
-            </button>
-
-            <!-- TASK: rm currently used save btn -->
-            <button onclick="mainCrl.saveDayEntriesBtnClick(event)" class="btn p-1 border-0 bg-transparent">
-              <i class="bi bi-floppy"></i>
             </button>
           </div>
         </div>

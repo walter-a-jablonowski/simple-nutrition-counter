@@ -20,7 +20,6 @@ class MainController
     this.toggleUnprecise         = this.toggleUnprecise.bind(this)
     this.deleteLastLineBtnClick  = this.deleteLastLineBtnClick.bind(this)
     this.deleteEntryBtnClick     = this.deleteEntryBtnClick.bind(this)
-    this.saveDayEntriesBtnClick  = this.saveDayEntriesBtnClick.bind(this)
     this.newEntryBtn             = this.newEntryBtn.bind(this)
     this.newEntrySaveBtn         = this.newEntrySaveBtn.bind(this)
     this.importShowBtn           = this.importShowBtn.bind(this)
@@ -489,14 +488,6 @@ class MainController
     })
 
     this.confirmModal.show()
-  }
-
-  saveDayEntriesBtnClick(event)
-  {
-    // Manual entering values: current solution is enter values => save => reload
-
-    this.#saveDayEntries( true )
-    window.location.reload()
   }
 
   newEntryBtn(event)
@@ -1459,14 +1450,14 @@ class MainController
     })
   }
 
-  #saveDayEntries( uiMsg = false )
+  // Saving is implicit (every list change calls this), so we only report failures
+
+  #saveDayEntries()
   {
     ajax.send('saveDayEntries', { date: this.date, data: this.#serializeDayEntries() }, function( result, data ) {
 
-      if( result === 'success' && uiMsg)
-        query('#uiMsg').innerHTML = 'Saved'
-      else if( result !== 'success')
-        query('#uiMsg').innerHTML = result.message
+      if( result !== 'success')
+        query('#uiMsg').innerHTML = (data && data.message) || 'Could not save the day entries'
     })
   }
 
