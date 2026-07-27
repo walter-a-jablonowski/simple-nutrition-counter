@@ -58,10 +58,9 @@ class ReweParser implements FoodParser
     if( $productName === null )
       throw new Exception('Could not find product data in the REWE page. Please paste the full page HTML.');
 
-    // Short display name (used as record name / file name): prefer the regulated
-    // product name (e.g. "Linseneintopf"), fall back to the full title
+    // Short display name (used as record name / file name)
 
-    $name = $this->jsonString($html, 'regulatedProductName') ?: $productName;
+    $name = $this->chooseName($productName, $this->jsonString($html, 'regulatedProductName'));
 
     // Ingredients often bundle a "Kann Spuren von ... enthalten" allergen note,
     // which belongs in mayContain
@@ -193,6 +192,24 @@ class ReweParser implements FoodParser
 
 
   // --- metadata ----------------------------------------------------------
+
+  // Choose the display name. REWE's regulatedProductName is the legal food
+  // designation: sometimes a concise category label ("Linseneintopf"), which
+  // makes a better name than the brand-heavy marketing title, but sometimes a
+  // verbose description ("Roggenvollkornbrot mit 49 % ... Sonnenblumenkernen").
+  // Prefer it only when it is that concise form — no percentages and no longer
+  // than the marketing title; otherwise the marketing title reads better
+
+  private function chooseName( string $productName, ?string $regulatedName ) : string
+  {
+    if( $regulatedName
+      && strpos($regulatedName, '%') === false
+      && mb_strlen($regulatedName) <= mb_strlen($productName) )
+      return $regulatedName;
+
+    return $productName;
+  }
+
 
   // Split an ingredient statement into [ingredients, mayContain]; collapses
   // internal whitespace/newlines so each part is a clean single line
