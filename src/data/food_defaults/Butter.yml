@@ -22,7 +22,7 @@ nutritionalValues:            # g
   sugar:           0.06       # from 173430
   sugarAlcohol:    0
   fibre:           0          # from 173430
-  amino:           0.85       # is protein, from 173430
+  amino:           0.85       # is proein, from 173430
   salt:            0.01       # Sodium 10 mg (789828) -> g
 
 fattyAcids:                   # g
