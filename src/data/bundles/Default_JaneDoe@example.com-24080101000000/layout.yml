@@ -131,6 +131,7 @@ Meals:
 Ingredients:
   'Greens, legumes, mushr (color:#32cd32)':
     list:
+      - 'Lieken Kleines'
       - 'PEMA Voll Pur'
       - 'Bio Das Pure A'
       - Avocado
@@ -181,7 +182,6 @@ Ingredients:
       - 'Br R mild'
       - 'Br R 1904 Ru'
       - Mehrkornbr
-      - 'Lieken Kleines'
   'Normal food limited use':
     list:
       - 'Aldi Bratk'
