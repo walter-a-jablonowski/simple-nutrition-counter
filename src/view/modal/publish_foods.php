@@ -12,7 +12,7 @@
 
       <div class="modal-body small">
         <div class="text-secondary mb-2">
-          Compares by content hash, not by file date, and copies only what really changed.
+          Compares by content hash, ins of file date, and copies only what really changed.
         </div>
 
         <pre id="publishFoodsReport" class="publish-report mb-2">Click "Check" to see what would change.</pre>
