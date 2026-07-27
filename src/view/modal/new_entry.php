@@ -56,7 +56,7 @@
         <!-- Grid placement for a new food record (only used with "Save as new food") -->
         <div class="input-group mb-2">
           <span class="input-group-text">Add to</span>
-          <?php print $this->renderView( __DIR__ . '/group_select.php', ['selectId' => 'modalTargetGroup', 'options' => layout_target_options($this->layout)]); ?>
+          <?php print $this->renderView( __DIR__ . '/group_select.php', ['selectId' => 'modalTargetGroup', 'extraClass' => 'modalHilitePrimary', 'options' => layout_target_options($this->layout)]); ?>
         </div>
         <div class="mb-2">
           <input id="modalNameInput" placeholder="Name" value="Misc entry" class="form-control modalHilitePrimary" required>
