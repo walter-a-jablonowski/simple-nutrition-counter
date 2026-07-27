@@ -1,0 +1,101 @@
+
+# AI-only
+
+# 2607 verified all values from source as far as active in /nutrients
+#      default source (789828, unsalted) is analytical but sparse: it only
+#      carries fat, minerals, water. Calories, fat breakdown, carbs, protein,
+#      vitamins, amino acids and fatty acids are taken from the SR Legacy
+#      "Butter, without salt" (173430); see per-field comments and sources
+
+acceptable:
+comment:
+                              # kcal
+calories:          717        # missing in 789828, from 173430
+
+nutritionalValues:            # g
+
+  fat:             81.5       # 789828; 173430: 81.11
+  saturatedFat:    50.5       # from 173430
+  monoUnsaturated: 23.4       # from 173430
+  polyUnsaturated: 3.01       # from 173430
+  carbs:           0.06       # by difference, from 173430
+  sugar:           0.06       # from 173430
+  sugarAlcohol:    0
+  fibre:           0          # from 173430
+  amino:           0.85       # is protein, from 173430
+  salt:            0.01       # Sodium 10 mg (789828) -> g
+
+fattyAcids:                   # g
+
+  Alpha-linolenic acid: 0.315 # PUFA 18:3 n-3 c,c,c (ALA), from 173430
+  Docosahexaenoic acid: 0     # PUFA 22:6 n-3
+  Linoleic acid:        2.166 # PUFA 18:2 n-6 c,c, from 173430
+
+carbs:                        # g
+
+  Fiber:         0
+
+aminoAcids:                   # mg
+                              # from 173430
+  Histidine:     23
+  Isoleucine:    51
+  Leucine:       83
+  Lysine:        67
+  Methionine:    21
+  Phenylalanine: 41
+  Threonine:     38
+  Tryptophan:    12
+  Valine:        57
+
+vitamins:                     # mg
+                              # from 173430
+  Vitamin A:     0.684        # Vitamin A, RAE 684 µg
+  Vitamin D:     0
+  Vitamin E:     2.32
+  Vitamin K:     0.007        # 7 µg
+  Vitamin C:     0
+  Thiamin B1:    0.005
+  Riboflavin B2: 0.034
+  Niacin B3:     0.042
+  Pantothenic acid B5: 0.11
+  Vitamin B6:    0.003
+  Biotin B7:     0            # not in source
+  Folate B9:     0.003        # 3 µg
+  Vitamin B12:   0.00017      # 0.17 µg
+
+minerals:                     # g
+
+  Salt:          0.01         # Sodium 10 mg (789828) -> g
+  Potassium:     0.019        # 789828
+  Calcium:       0.014        # 789828
+  Phosphorus:    19           # mg, 789828
+  Magnesium:     0.0016       # 789828
+  Iron:          0.00003      # 789828
+  Iodine:        0            # 789828
+  Fluoride:      0            # 173430: 2.8 µg
+  Zinc:          0.00007      # 789828
+  Selenium:      0            # 173430: 1 µg
+  Copper:        0.000001     # 789828
+  Chromium:      0
+  Manganese:     0            # 789828: 0
+  Molybdenum:    0
+
+# secondary:
+
+misc:
+
+  water:         17.4         # 789828, ml or g
+  alcohol:       0
+  caffeine:      0
+
+sources:
+
+  - title:   Default source = Butter, stick, unsalted (Foundation)
+    comment: analytical but sparse; used for fat, minerals, water
+    source:  https://fdc.nal.usda.gov/food-details/789828/nutrients
+
+  - title:   Alternative = Butter, without salt (SR Legacy)
+    comment: used for calories, fat breakdown, carbs, protein, vitamins, amino acids, fatty acids
+    source:  https://fdc.nal.usda.gov/food-details/173430/nutrients
+
+lastUpd: 2026-07-27

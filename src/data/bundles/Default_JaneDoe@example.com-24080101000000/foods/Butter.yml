@@ -1,9 +1,11 @@
 
+type:              Butter
 productName:       "Butter aus frischem Berg- und Alpenrahm"
 url:               "https://bergbauernmilch.de/de/unsere-produkte/privatverbraucher/butter/butter/butter-aus-frischem-berg-und-alpenrahm/250-g-butterpaeckchen.html"
 
 acceptable:        occasionally
 certificates:      { warentest: 1 }
+comment:           "1 tea spoon ~5-8g"
 packaging:         plastic,rubber (maybe)
 
 price:             2.99
