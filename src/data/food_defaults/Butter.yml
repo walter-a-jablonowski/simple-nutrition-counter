@@ -63,19 +63,19 @@ vitamins:                     # mg
   Folate B9:     0.003        # 3 µg
   Vitamin B12:   0.00017      # 0.17 µg
 
-minerals:                     # g
+minerals:                     # g for Salt, Potassium, Calcium - mg for the rest
 
   Salt:          0.01         # Sodium 10 mg (789828) -> g
   Potassium:     0.019        # 789828
   Calcium:       0.014        # 789828
   Phosphorus:    19           # mg, 789828
-  Magnesium:     0.0016       # 789828
-  Iron:          0.00003      # 789828
+  Magnesium:     1.6          # 789828
+  Iron:          0.03         # 789828
   Iodine:        0            # 789828
   Fluoride:      0            # 173430: 2.8 µg
-  Zinc:          0.00007      # 789828
+  Zinc:          0.07         # 789828
   Selenium:      0            # 173430: 1 µg
-  Copper:        0.000001     # 789828
+  Copper:        0.001        # 789828
   Chromium:      0
   Manganese:     0            # 789828: 0
   Molybdenum:    0
