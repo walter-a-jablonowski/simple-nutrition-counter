@@ -54,8 +54,39 @@ Step 2: find the source entry
 
 Primary source is USDA FoodData Central, <https://fdc.nal.usda.gov>.
 
-Search: <https://api.nal.usda.gov/fdc/v1/foods/search?api_key=DEMO_KEY&query=lentils&dataType=Foundation,SR%20Legacy>
-One entry: <https://api.nal.usda.gov/fdc/v1/food/172421?api_key=DEMO_KEY>
+**Take numbers only from the urls below.** Sites that republish USDA data
+(nutritionvalue.org, foodinfo.us, foods.exfatloss.com, myfooddata, fatsecret,
+nutritionix, wikipedia ...) are not sources here: they mix editions, round
+differently and cannot be checked by the verification tool. If you cannot reach
+the urls below, stop and say so - do not substitute another site.
+
+### Fetching
+
+Two ways to read an entry, both give the same numbers:
+
+```
+api     https://api.nal.usda.gov/fdc/v1/food/172421?api_key=DEMO_KEY
+portal  https://fdc.nal.usda.gov/portal-data/external/172421
+```
+
+- the **api** needs a key and DEMO_KEY is rate limited to ~30 requests/hour; on
+  http 429 switch to the portal url
+- the **portal** url needs no key and has no limit, the fdc website itself uses
+  it. Careful: it names the amount `value`, the api names it `amount`
+
+Search for the id (api only, so search sparingly and fetch with the portal url):
+
+```
+https://api.nal.usda.gov/fdc/v1/foods/search?api_key=DEMO_KEY&query=lentils&dataType=Foundation,SR%20Legacy
+```
+
+If search is rate limited too, say which food you need the id for and stop.
+
+**`https://fdc.nal.usda.gov/food-details/<id>/nutrients` is for citing only.**
+It answers 404 when fetched - that is the url form the files and the
+verification tool use, not a url to read data from.
+
+### Choosing
 
 Choose like this:
 
@@ -168,7 +199,12 @@ lastUpd: 2026-07-30
 ```
 
 The `food-details/<id>/nutrients` url form is required - the verification tool
-reads the ids out of it.
+reads the ids out of it and checks your values against exactly these entries.
+
+So the id must be the entry you really read, and the title must be that entry's
+description. If they drift apart the check compares against the wrong food:
+`Olive oil.yml` cites 323294 under the title "Oil, olive, extra light", but
+323294 is "Nuts, almonds, dry roasted".
 
 Careful with yml: a value containing `:` must be quoted, otherwise the file does
 not parse (`Broccoli_Grok_2505.yml` has that error).
@@ -199,14 +235,18 @@ Go through this list and fix what fails:
 4. amino acids in mg (three digits for most foods, not 0.x)
 5. every value traces to the source; converted ones carry the source number in
    the comment
-6. `sources` has at least the used entry with a `food-details/<id>/nutrients` url
-7. `lastUpd` is today
-8. each listed food has its `type` line
-9. the file parses as yml
+6. every number comes from an fdc url of step 2, none from another website
+7. `sources` has at least the used entry with a `food-details/<id>/nutrients`
+   url, and each cited id is the entry you actually read
+8. `lastUpd` is today
+9. each listed food has its `type` line
+10. the file parses as yml
 
 Then say which entry you used, and which values the source did not have.
 
-If a verification is possible in your environment, run it and paste the output:
+If a verification is possible in your environment, run it and paste the output.
+It needs no api key, it falls back to the portal urls when the api is rate
+limited:
 
 ```
 php src/tools/data_verification/verify_food_defaults.php --file=<Type>

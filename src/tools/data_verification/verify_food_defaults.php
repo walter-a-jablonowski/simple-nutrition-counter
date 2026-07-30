@@ -241,45 +241,49 @@ foreach( $defaults as $data )
 
 $ids = array_values( array_unique( $ids ));
 
-// One request for all of them, the api drops ids it does not know
+// fdc id => nutrient number => amount
+//
+// The api takes all ids in one request but needs a key and is rate limited.
+// The portal endpoint the fdc website itself uses needs no key and has no
+// limit, but serves one food per request and names the value differently.
 
-$curl = curl_init('https://api.nal.usda.gov/fdc/v1/foods?api_key=' . urlencode($apiKey) . '&fdcIds=' . implode(',', $ids));
+$sources = [];
 
-curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
-curl_setopt( $curl, CURLOPT_TIMEOUT, 60 );
+$response = http_get('https://api.nal.usda.gov/fdc/v1/foods?api_key=' . urlencode($apiKey) . '&fdcIds=' . implode(',', $ids));
 
-$response = curl_exec( $curl );
-$status   = curl_getinfo( $curl, CURLINFO_HTTP_CODE );
-
-curl_close( $curl );
-
-if( $status !== 200 )
+if( $response['status'] === 200 )
 {
-  echo "usda request failed (http $status) - " . substr( strip_tags((string)$response), 0, 200) . "\n";
-  echo "DEMO_KEY is rate limited, pass your own with --apiKey=\n";
+  foreach( json_decode( $response['body'], true ) ?? [] as $food )
+    $sources[ $food['fdcId'] ] = collect_nutrients( $food, 'amount');
+}
+else
+{
+  echo 'api not usable (http ' . $response['status'] . ', rate limited without an own --apiKey), using the portal endpoint' . "\n\n";
+
+  foreach( $ids as $id )
+  {
+    $single = http_get("https://fdc.nal.usda.gov/portal-data/external/$id");
+
+    if( $single['status'] !== 200 )
+      continue;
+
+    $food = json_decode( $single['body'], true );
+
+    if( $food )
+      $sources[$id] = collect_nutrients( $food, 'value');
+  }
+}
+
+if( ! $sources )
+{
+  echo "no source data could be fetched\n";
 
   if( php_sapi_name() !== 'cli')  echo '</pre>';
   exit(1);
 }
 
-// fdc id => nutrient number => amount
-
-$sources = [];
-
-foreach( json_decode( $response, true ) ?? [] as $food )
-{
-  foreach( $food['foodNutrients'] ?? [] as $entry )
-  {
-    $number = (string)( $entry['nutrient']['number'] ?? '');
-    $amount = $entry['amount'] ?? null;
-
-    if( $amount !== null && ! isset( $sources[ $food['fdcId'] ][ $number ] ))
-      $sources[ $food['fdcId'] ][ $number ] = $amount;
-  }
-}
-
 foreach( array_diff( $ids, array_keys( $sources )) as $unknownId )
-  echo "note: fdc id $unknownId was not returned by the api (retired id?)\n";
+  echo "note: fdc id $unknownId was not returned (retired id?)\n";
 
 foreach( $defaults as $name => $data )
 {
@@ -343,6 +347,54 @@ foreach( $defaults as $name => $data )
 
 if( php_sapi_name() !== 'cli')
   echo '</pre>';
+
+
+/*@
+
+http_get()
+
+*/
+function http_get( $url )  /*@*/
+{
+  $curl = curl_init( $url );
+
+  curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
+  curl_setopt( $curl, CURLOPT_TIMEOUT, 60 );
+  curl_setopt( $curl, CURLOPT_FOLLOWLOCATION, true );
+
+  $body   = curl_exec( $curl );
+  $status = curl_getinfo( $curl, CURLINFO_HTTP_CODE );
+
+  curl_close( $curl );
+
+  return ['status' => $status, 'body' => (string)$body];
+}
+
+
+/*@
+
+collect_nutrients()
+
+nutrient number => amount. The api calls the value "amount", the portal
+endpoint "value", everything else about the two shapes is the same.
+First entry per number wins, that is the one the fdc pages show on top.
+
+*/
+function collect_nutrients( $food, $valueKey )  /*@*/
+{
+  $values = [];
+
+  foreach( $food['foodNutrients'] ?? [] as $entry )
+  {
+    $number = (string)( $entry['nutrient']['number'] ?? '');
+    $amount = $entry[$valueKey] ?? null;
+
+    if( $amount !== null && $number !== '' && ! isset( $values[$number] ))
+      $values[$number] = $amount;
+  }
+
+  return $values;
+}
 
 
 /*@

@@ -23,7 +23,7 @@ nutritionalValues:            # g
 fattyAcids:                   # g
 
   Alpha-linolenic acid: 0.045  # AI says it's: PUFA 18:3 n-3 c,c,c
-  Docosahexaenoic acid: 0.005  # AI says it's: PUFA 22:6 n-3
+  Docosahexaenoic acid: 5      # AI says it's: PUFA 22:6 n-3, 0.005 g -> mg
   Linoleic acid:        1.05   # AI says it's: PUFA 18:2 n-6 c,c
 
 carbs:                        # g

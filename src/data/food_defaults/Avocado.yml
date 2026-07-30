@@ -1,0 +1,103 @@
+
+# AI-only
+
+# 2607 verified all values from source as far as active in /nutrients
+#      Basis is raw, because both bundle foods that use this type have
+#      160 kcal per 100 g, matching raw avocado.
+#
+#      Source has no Atwater variants, no sugar alcohol, no biotin,
+#      no iodine, no chromium, no molybdenum; these stay 0.
+
+acceptable:
+comment:
+                              # kcal
+calories:          160        # Energy, SR Legacy has no Atwater Specific/General
+
+nutritionalValues:            # g
+
+  fat:             14.66      # total lipid (fat)
+  saturatedFat:    2.126
+  monoUnsaturated: 9.799
+  polyUnsaturated: 1.816
+  carbs:           8.53       # by difference
+  sugar:           0.66       # total sugars
+  sugarAlcohol:    0          # not in source
+  fibre:           6.7
+  amino:           2.0        # is protein
+  salt:            0.007      # Sodium 7 mg -> g
+
+fattyAcids:                   # g, but EPA and DHA in mg
+
+  Alpha-linolenic acid: 0.111 # PUFA 18:3 n-3 c,c,c (ALA)
+  Eicosapentaenoic acid: 0    # PUFA 20:5 n-3 (EPA)
+  Docosahexaenoic acid: 0     # PUFA 22:6 n-3 (DHA)
+  Linoleic acid:        1.674 # PUFA 18:2
+
+carbs:                        # g
+
+  Fibre:         6.7
+
+aminoAcids:                   # mg
+                              # source in g
+  Histidine:     49
+  Isoleucine:    84
+  Leucine:       143
+  Lysine:        132
+  Methionine:    38
+  Phenylalanine: 97
+  Threonine:     73
+  Tryptophan:    25
+  Valine:        107
+
+vitamins:                     # mg
+
+  Vitamin A:     0.007        # RAE 7 µg -> mg
+  Vitamin D:     0
+  Vitamin E:     2.07         # alpha-tocopherol
+  Vitamin K:     0.021        # phylloquinone 21 µg -> mg
+  Vitamin C:     10
+  Thiamin B1:    0.067
+  Riboflavin B2: 0.13
+  Niacin B3:     1.738
+  Pantothenic acid B5: 1.389
+  Vitamin B6:    0.257
+  Biotin B7:     0            # not in source
+  Folate B9:     0.081        # folate total 81 µg -> mg
+  Vitamin B12:   0
+
+minerals:                     # default unit: mg except for Salt, Potassium and Calcium where grams need to be used
+
+  Salt:          0.007        # Sodium 7 mg -> g
+  Potassium:     0.485        # 485 mg -> g
+  Calcium:       0.012        # 12 mg -> g
+  Phosphorus:    52           # mg
+  Magnesium:     29
+  Iron:          0.55
+  Iodine:        0            # not in source
+  Fluoride:      0.007        # 7 µg -> mg
+  Zinc:          0.64
+  Selenium:      0.0004       # 0.4 µg -> mg
+  Copper:        0.19
+  Chromium:      0            # not in source
+  Manganese:     0.142
+  Molybdenum:    0            # not in source
+
+# secondary:
+
+misc:                         # ml or g
+
+  water:         73.23
+  alcohol:       0
+  caffeine:      0
+
+sources:
+
+  - title:   Default source = Avocados, raw, all commercial varieties (SR Legacy)
+    comment: most complete panel of the avocado entries (incl. amino acids, vitamins, fatty acids)
+    source:  https://fdc.nal.usda.gov/food-details/171705/nutrients
+
+  - title:   Alternative = Avocados, raw, California (SR Legacy, unused)
+    comment: similar nutrient panel, but specific to California variety
+    source:  https://fdc.nal.usda.gov/food-details/171706/nutrients
+
+lastUpd: 2026-07-30
