@@ -1,0 +1,107 @@
+
+# 2607 verified all values from source as far as active in /nutrients
+#      Basis is cooked (boiled, drained), because both bundle foods that use this
+#      type are canned lentils. The source is drained, the tinned products carry
+#      their liquid (89 kcal on the pack vs 116 here), so their micronutrients
+#      come out a bit high - the food's own values win for kcal and macros anyway.
+#
+#      Source has no Atwater variants and no iodine, fluoride, chromium,
+#      molybdenum, biotin; these stay 0. Sugar alcohol is not in the source.
+
+acceptable:
+comment:
+                              # kcal
+calories:          116        # Energy, SR Legacy has no Atwater Specific/General
+
+nutritionalValues:            # g
+
+  fat:             0.38       # total lipid (fat)
+  saturatedFat:    0.053
+  monoUnsaturated: 0.064
+  polyUnsaturated: 0.175
+  carbs:           20.13      # by difference
+  sugar:           1.8        # total sugars
+  sugarAlcohol:    0
+  fibre:           7.9
+  amino:           9.02       # is protein
+  salt:            0.002      # Sodium 2 mg -> g, as in Butter and Chickpeas
+                              # (NaCl would be x 2.5; food value overrides this anyway)
+fattyAcids:                   # g, but EPA and DHA in mg
+
+  Alpha-linolenic acid: 0.037 # PUFA 18:3
+  Eicosapentaenoic acid: 0    # PUFA 20:5 n-3 (EPA), missing in _blank_ai.yml
+  Docosahexaenoic acid: 0     # PUFA 22:6 n-3
+  Linoleic acid:        0.137 # PUFA 18:2
+
+carbs:                        # g
+
+  Fibre:         7.9          # substance is "Fibre", _blank_ai.yml writes "Fiber"
+
+aminoAcids:                   # mg
+                              # source in g
+  Histidine:     254
+  Isoleucine:    390
+  Leucine:       654
+  Lysine:        630
+  Methionine:    77           # cystine 118 not active in /nutrients
+  Phenylalanine: 445          # tyrosine 241 not active in /nutrients
+  Threonine:     323
+  Tryptophan:    81
+  Valine:        448
+
+vitamins:                     # mg
+
+  Vitamin A:     0            # Vitamin A, RAE 0 µg (beta carotene 5 µg)
+  Vitamin D:     0
+  Vitamin E:     0.11         # alpha-tocopherol
+  Vitamin K:     0.0017       # phylloquinone 1.7 µg
+  Vitamin C:     1.5
+  Thiamin B1:    0.169
+  Riboflavin B2: 0.073
+  Niacin B3:     1.06
+  Pantothenic acid B5: 0.638
+  Vitamin B6:    0.178
+  Biotin B7:     0            # not in source
+  Folate B9:     0.181        # folate total 181 µg (all food folate)
+  Vitamin B12:   0
+
+minerals:                     # g for Salt, Potassium, Calcium - mg for the rest
+
+  Salt:          0.002        # Sodium 2 mg -> g
+  Potassium:     0.369        # 369 mg -> g
+  Calcium:       0.019        # 19 mg -> g
+  Phosphorus:    180          # mg
+  Magnesium:     36
+  Iron:          3.33
+  Iodine:        0            # not in source
+  Fluoride:      0            # not in source
+  Zinc:          1.27
+  Selenium:      0.0028       # 2.8 µg -> mg
+  Copper:        0.251
+  Chromium:      0            # not in source
+  Manganese:     0.494
+  Molybdenum:    0            # not in source
+
+# secondary:
+
+misc:
+
+  water:         69.64        # ml or g
+  alcohol:       0
+  caffeine:      0
+
+sources:
+
+  - title:   Default source = Lentils, mature seeds, cooked, boiled, without salt (SR Legacy)
+    comment: most complete panel of the lentil entries (96 nutrients, incl. amino acids)
+    source:  https://fdc.nal.usda.gov/food-details/172421/nutrients
+
+  - title:   Alternative = Lentils, from canned (FNDDS, unused)
+    comment: closer to the tinned products, but no amino acids (65 nutrients)
+    source:  https://fdc.nal.usda.gov/food-details/2707426/nutrients
+
+  - title:   Alternative = Lentils, dry (Foundation, unused)
+    comment: analytical, but dry basis and only 22 nutrients
+    source:  https://fdc.nal.usda.gov/food-details/2644283/nutrients
+
+lastUpd: 2026-07-30

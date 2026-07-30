@@ -1,5 +1,6 @@
 state:             unavailable
 
+type:              Lentils
 vendor:            Rewe
 certificates:      { bio: true }
 packaging:         glass & rubber

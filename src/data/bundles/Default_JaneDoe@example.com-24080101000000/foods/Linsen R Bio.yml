@@ -1,3 +1,4 @@
+type:              Lentils
 productName:       "Braune Linsen"
 vendor:            Rewe
 certificates:      { bio: true, NutriScore: A }
