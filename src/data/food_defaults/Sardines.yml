@@ -29,7 +29,7 @@ fattyAcids:                   # unit: g
 
 carbs:                        # unit: g
  
-  Fiber: 0.00                 # "Ballaststoffe gesamt" from https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
+  Fibre: 0.00                 # "Ballaststoffe gesamt" from https://www.ernaehrung.de/lebensmittel/de/T105702/Sardine-Konserve-in-Oel,-abgetropft.php
 
 aminoAcids:                   # unit: mg
  

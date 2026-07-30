@@ -28,7 +28,7 @@ fattyAcids:                   # g
 
 carbs:                        # g
   
-  Fiber:         13.8       
+  Fibre:         13.8       
 
 aminoAcids:                   # mg
   
@@ -58,10 +58,10 @@ vitamins:                     # mg
   Folate B9:     0
   Vitamin B12:   0
 
-minerals:                     # g
-  
+minerals:                     # default unit: mg except for Salt, Potassium and Calcium where grams need to be used
+
   Salt:          0.002        # Sodium, Na in source
-  Potassium:     0.0446
+  Potassium:     0.4458       # 445.8 mg -> g
   Calcium:       0.006
   Phosphorus:    57           # mg
   Magnesium:     22.3
