@@ -916,6 +916,30 @@ body.sortable-active .day-entry {
   white-space: pre;
 }
 
+/* Day menu: the trigger keeps the box of the former day button, the panel puts
+   the date right of the relative caption ("-1 day    We 29.") */
+
+/* Text button, not a toolbar icon: keeps the body color the day button had */
+
+.day-menu .drop-menu-trigger,
+.day-menu .drop-menu-trigger:hover,
+.day-menu .drop-menu-trigger:focus {
+  color: #212529;
+}
+
+.day-menu .drop-menu-panel {
+  min-width: 10.5rem;
+}
+
+.day-menu .drop-menu-item {
+  justify-content: space-between;
+}
+
+.day-menu-date {
+  color: #8a9099;
+  font-size: 0.9em;
+}
+
 /* Unprecise menu: the trigger picks up the accent while any flag is set */
 
 .unprecise-menu.any-on .drop-menu-trigger,
@@ -927,11 +951,11 @@ body.sortable-active .day-entry {
 
 @media (max-width: 767.98px) {
 
-  /* Header: the day switch keeps its place right of the logo / name dropdown,
+  /* Header: the day menu keeps its place right of the logo / name dropdown,
      the action buttons take the free space instead. Overrides its .ms-auto,
      which would otherwise push it across the now emptier header. */
 
-  .left-column header .js-switchDayBtn {
+  .left-column header .day-menu {
     margin-left: 0.5rem !important;
   }
   .left-column header .header-actions {

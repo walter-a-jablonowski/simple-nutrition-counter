@@ -5,7 +5,7 @@ class MainController
     const urlParams = new URLSearchParams( window.location.search )
     const dateParam = urlParams.get('date')
 
-    if( dateParam )  // date updated in switchDayBtnClick()
+    if( dateParam )  // date set by selectDay()
       this.date = dateParam
     else {
       const now = new Date()
@@ -16,7 +16,7 @@ class MainController
 
     this.showOverlayInfo         = this.showOverlayInfo.bind(this)
     this.userSelectChange        = this.userSelectChange.bind(this)
-    this.switchDayBtnClick       = this.switchDayBtnClick.bind(this)
+    this.selectDay               = this.selectDay.bind(this)
     this.toggleUnprecise         = this.toggleUnprecise.bind(this)
     this.deleteLastLineBtnClick  = this.deleteLastLineBtnClick.bind(this)
     this.deleteEntryBtnClick     = this.deleteEntryBtnClick.bind(this)
@@ -355,33 +355,17 @@ class MainController
 
 
   // Switch day
+  // The days come from the day menu (view/day_menu.php), which renders them
+  // relative to the day the page was built on.
 
-  switchDayBtnClick(event)  // see also construct
+  selectDay( event, date )  // date: YYYY-MM-DD; see also construct
   {
-    // Refresh today's date safely using local time
-    this.date = this.#formatDateLocal( new Date() )  // update (YYYY-MM-DD) in case behind midnight
+    event.preventDefault()
 
-    // Make dataset selection robust against clicks on child elements
-    const sel = event.currentTarget?.dataset?.sel || event.target.closest('button')?.dataset?.sel
+    // The current day keeps the plain url, so a reload stays on today even
+    // when the page was left open behind midnight
 
-    if( sel === 'current')
-    {
-      const [y, m, d] = this.date.split('-').map(Number)
-      let currentDate = new Date( y, m - 1, d )
-      currentDate.setDate( currentDate.getDate() - 1 )
-      window.location.href = `?date=${ this.#formatDateLocal(currentDate) }`
-    }
-    else if( sel === 'last')
-    {
-      const [y, m, d] = this.date.split('-').map(Number)
-      let currentDate = new Date( y, m - 1, d )
-      currentDate.setDate( currentDate.getDate() + 1 )
-      window.location.href = `?date=${ this.#formatDateLocal(currentDate) }`
-    }
-    else if( sel === 'next')
-    {
-      window.location.href = `index.php`
-    }
+    window.location.href = date === this.#formatDateLocal( new Date()) ? 'index.php' : `?date=${date}`
   }
 
 

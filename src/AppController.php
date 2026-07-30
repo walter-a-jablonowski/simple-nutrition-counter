@@ -40,7 +40,6 @@ class AppController extends ControllerBase
   const DAY_HEADERS     = ['time', 'type', 'food', 'calories', 'fat', 'carbs', 'amino', 'salt', 'price', 'nutrients'];
   const NUTRIENT_GROUPS = ['lipids/fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals', 'secondary', 'misc'];
 
-  protected string     $mode;
   protected string     $date;
 
   protected SimpleData $nutrientsModel;
@@ -79,19 +78,6 @@ class AppController extends ControllerBase
     $user   = User::current();
 
     $this->date = $_GET['date'] ?? date('Y-m-d');  // TASK: (advanced) is request
-    $this->mode = 'current';
-    
-    if( isset($_GET['date'])) {
-      $currentDate = date('Y-m-d');
-      $paramDate   = $_GET['date'];
-      
-      if( $paramDate < $currentDate )
-        $this->mode = 'last';
-      elseif( $paramDate > $currentDate )
-        $this->mode = 'next';
-      else
-        $this->mode = 'current';
-    }
 
     // Nutrients model
 

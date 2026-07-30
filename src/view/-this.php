@@ -141,24 +141,11 @@ else:
               </select>
             </div>
 
-            <!-- Day switch button: ms-auto pushes it to the right of the logo/name group.
+            <!-- Day menu: ms-auto pushes it to the right of the logo/name group.
                  On mobile it stays next to the name instead and .header-actions
                  takes the free space (see the mobile block in style/app.css). -->
-            <?php
-              $weekdays = ['Mon' => 'Mo', 'Tue' => 'Tu', 'Wed' => 'We', 'Thu' => 'Th', 'Fri' => 'Fr', 'Sat' => 'Sa', 'Sun' => 'Su'];
-              $day = $weekdays[date('D')] . ' ' . date('j') . '.';
-            ?>
-            <button onclick="mainCrl.switchDayBtnClick(event)"
-              data-sel = "<?= $this->mode ?>"
-              class    = "js-switchDayBtn btn ms-auto p-1 py-0 border"
-            >
-              <?= self::switch( $this->mode, [
-                  'current' => $day,
-                  'last'    => '-1 day',
-                  'next'    => '+1 day'
-                ]) ?? $day
-              ?>
-            </button>
+
+            <?php require( __DIR__ . '/day_menu.php'); ?>
 
             <!-- Mobile action buttons -->
 
@@ -264,17 +251,7 @@ else:
               </select>
             </div>
 
-            <button onclick="mainCrl.switchDayBtnClick(event)"
-              data-sel = "<?= $this->mode ?>"
-              class    = "js-switchDayBtn btn ms-auto p-1 py-0 border"
-            >
-              <?= self::switch( $this->mode, [
-                  'current' => $day,
-                  'last'    => '-1 day',
-                  'next'    => '+1 day'
-                ]) ?? $day
-              ?>
-            </button>
+            <?php require( __DIR__ . '/day_menu.php'); ?>
           </header>
 
           <!-- Scrollable content area -->
