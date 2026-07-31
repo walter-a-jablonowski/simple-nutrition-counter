@@ -48,6 +48,24 @@ Example: the lentil foods have 89 and 92 kcal per 100 g, so the source had to be
 If the foods disagree with each other, pick the state most of them share and say
 so in the header comment.
 
+**Never write a state the food file does not contain.** Most of these files have
+no `productName` and no `comment`, they only carry vendor, weight and the pack
+values - that is not enough to call a product "raw" or "roasted". When the file
+does not say it:
+
+- write in the header comment that the food does not state its state, which
+  entries you weighed and why you took the one you took
+- say the same in your answer, so it can be decided by someone who knows the
+  product
+
+Two hints for that case:
+
+- `salt` tells salted from unsalted: around 0 is unsalted, 0.5 g and more is salted
+- for European nuts, seeds and vegetables, `dry roasted, without salt added` is
+  often the better match than `raw` - it usually sits closer to the pack kcal and
+  the roasted entries tend to carry more nutrients. Pistachios: raw 560 kcal with
+  111 values, dry roasted without salt 572 kcal with 129 values, the pack says 605
+
 
 Step 2: find the source entry
 ----------------------------------------------------------
@@ -91,14 +109,20 @@ verification tool use, not a url to read data from.
 Choose like this:
 
 - the entry must match the state from step 1 (raw / cooked / canned / dry)
+- look at **all** entries of the food, not the first that fits. The states sit
+  next to each other in the id range, so fetch the neighbours of your id too
+  (pistachios: 170184 raw, 170185 dry roasted without salt)
 - prefer the entry with the **most nutrients**; `Foundation` is analytical but
   often sparse, `SR Legacy` usually carries vitamins, amino acids and fatty acids
 - `Branded` entries are label data - do not use them
 - if two entries fit, use the fuller one and cite the other as an unused
   alternative in `sources`. The comparison that matters is usually the
   `Foundation` and the `SR Legacy` entry of the same food, so cite that one -
-  it shows why the fuller entry won (walnuts: 113 nutrients in SR Legacy
-  170187 against 48 in Foundation 2346394)
+  it shows why the fuller entry won (walnuts: 113 values in SR Legacy 170187
+  against 48 in Foundation 2346394)
+
+Count nutrients as **entries that carry a value**, not as records: the payload
+also holds empty ones. Pistachio 170184 has 118 records but only 111 values.
 
 Only if USDA has nothing usable, use one of these instead, in this order:
 Ciqual (France), CoFID (UK), Frida (Denmark). **One database per food** - never
@@ -241,11 +265,14 @@ Go through this list and fix what fails:
 6. every number comes from an fdc url of step 2, none from another website
 7. `sources` has at least the used entry with a `food-details/<id>/nutrients`
    url, and each cited id is the entry you actually read
-8. `lastUpd` is today
-9. each listed food has its `type` line
-10. the file parses as yml
+8. every statement in the header comment is backed by a file you read - the state
+   of the product only when the food file really says it
+9. `lastUpd` is today
+10. each listed food has its `type` line
+11. the file parses as yml
 
-Then say which entry you used, and which values the source did not have.
+Then say which entry you used, which entries you weighed against it, and which
+values the source did not have.
 
 If a verification is possible in your environment, run it and paste the output.
 It needs no api key, it falls back to the portal urls when the api is rate

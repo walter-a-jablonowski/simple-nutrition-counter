@@ -21,6 +21,12 @@ and don't estimate - a value the source doesn't have is 0 with the comment
 "# missing in source". Match the state of the source entry (raw, cooked, canned,
 dry) to the kcal of the foods.
 
+Most food files don't state their state, they only have vendor, weight and the
+pack values. Then don't claim one: compare all entries of the food - the states
+sit next to each other in the id range, so look at the neighbours of your id too -
+take the fuller one, and write in the header comment and in your answer that the
+food doesn't say it and which entries you weighed.
+
 Read the entry from one of these two urls only:
 
   https://api.nal.usda.gov/fdc/v1/food/<id>?api_key=DEMO_KEY   (rate limited)
