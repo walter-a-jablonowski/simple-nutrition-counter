@@ -1,0 +1,118 @@
+
+# GLM only
+
+# 2607 verified all values from source as far as active in /nutrients
+#      The food (Tofu N, Norma, 400 g) does not state its state - no productName,
+#      no comment, only vendor, weight and the pack values (137 kcal, 8 g fat,
+#      16.5 g protein, 0.7 g carbs). So no state is claimed here.
+#      All USDA tofu entries are SR Legacy (no Foundation entry exists). The four
+#      generic ones were weighed against the pack kcal:
+#        172475  Tofu, raw, firm, prepared with calcium sulfate   144 kcal, 17.3 prot, 8.72 fat
+#        172476  Tofu, raw, regular, prepared with calcium sulfate 76 kcal,  8.08 prot, 4.78 fat
+#        172448  Tofu, firm, prepared with calcium sulfate and magnesium chloride (nigari)  78 kcal
+#        172449  Tofu, soft, prepared with calcium sulfate and magnesium chloride (nigari)  61 kcal
+#      172475 is the only one whose kcal and macros sit next to the pack, so it is
+#      the default source. It is a full SR Legacy entry (amino acids, vitamins,
+#      fatty acids all present), so no second entry is needed for those.
+#      172475 carries no total sugars (269), no Vitamin E (323) and no Vitamin K
+#      (430); these three are taken from 172476, the same "raw, prepared with
+#      calcium sulfate" family (regular vs firm), and marked "# from 172476".
+#      172475 has Vitamin A only as IU (318 = 166), not as RAE (320); the sibling
+#      nigari entries 172448/172449 carry RAE = 0, so Vitamin A is 0.
+#      No tofu entry has biotin, iodine, fluoride, chromium, molybdenum, sugar
+#      alcohol, EPA, DHA, alcohol or caffeine; these stay 0 with "# not in source".
+#      Source has no Atwater Specific/General energy, only plain Energy (208).
+
+acceptable:
+comment:
+                              # kcal
+calories:          144        # Energy (208), no Atwater Specific/General in source
+
+nutritionalValues:            # g
+
+  fat:             8.72       # total lipid (fat)
+  saturatedFat:    1.26       # fatty acids, total saturated
+  monoUnsaturated: 1.92       # fatty acids, total monounsaturated
+  polyUnsaturated: 4.92       # fatty acids, total polyunsaturated
+  carbs:           2.78       # by difference
+  sugar:           0.62       # total sugars, from 172476
+  sugarAlcohol:    0          # not in source
+  fibre:           2.3        # Fiber, total dietary
+  amino:           17.3       # is protein
+  salt:            0.014      # Sodium 14 mg -> g
+
+fattyAcids:                   # g, but EPA and DHA in mg
+
+  Alpha-linolenic acid: 0.582 # PUFA 18:3
+  Eicosapentaenoic acid: 0    # PUFA 20:5 n-3 (EPA), not in source
+  Docosahexaenoic acid: 0     # PUFA 22:6 n-3 (DHA), not in source
+  Linoleic acid:        4.34  # PUFA 18:2
+
+carbs:                        # g
+
+  Fibre:         2.3
+
+aminoAcids:                   # mg
+                              # source in g
+  Histidine:     431          # 0.431 g -> mg
+  Isoleucine:    849          # 0.849 g -> mg
+  Leucine:       1390         # 1.39 g -> mg
+  Lysine:        883          # 0.883 g -> mg
+  Methionine:    211          # 0.211 g -> mg, cystine 0.057 not active in /nutrients
+  Phenylalanine: 835          # 0.835 g -> mg, tyrosine 0.701 not active in /nutrients
+  Threonine:     785          # 0.785 g -> mg
+  Tryptophan:    235          # 0.235 g -> mg
+  Valine:        870          # 0.87 g -> mg
+
+vitamins:                     # mg
+
+  Vitamin A:     0            # RAE absent in 172475 (IU 166 only); RAE 0 in 172448/172449
+  Vitamin D:     0            # Vitamin D (D2 + D3) 0 µg
+  Vitamin E:     0.01         # alpha-tocopherol, from 172476
+  Vitamin K:     0.0024       # phylloquinone 2.4 µg -> mg, from 172476
+  Vitamin C:     0.2
+  Thiamin B1:    0.158
+  Riboflavin B2: 0.102
+  Niacin B3:     0.381
+  Pantothenic acid B5: 0.133
+  Vitamin B6:    0.092
+  Biotin B7:     0            # not in source
+  Folate B9:     0.029        # folate total 29 µg -> mg
+  Vitamin B12:   0            # 0 µg
+
+minerals:                     # default unit: mg except for Salt, Potassium and Calcium where grams need to be used
+
+  Salt:          0.014        # Sodium 14 mg -> g
+  Potassium:     0.237        # 237 mg -> g
+  Calcium:       0.683        # 683 mg -> g
+  Phosphorus:    190          # mg
+  Magnesium:     58
+  Iron:          2.66
+  Iodine:        0            # not in source
+  Fluoride:      0            # not in source
+  Zinc:          1.57
+  Selenium:      0.0174       # 17.4 µg -> mg
+  Copper:        0.378
+  Chromium:      0            # not in source
+  Manganese:     1.18
+  Molybdenum:    0            # not in source
+
+# secondary:
+
+misc:                         # ml or g
+
+  water:         69.8
+  alcohol:       0            # not in source
+  caffeine:      0            # not in source
+
+sources:
+
+  - title:   Default source = Tofu, raw, firm, prepared with calcium sulfate (SR Legacy)
+    comment: fullest generic tofu entry whose kcal/macros match the pack (144 kcal, 17.3 prot, 8.72 fat); amino acids, vitamins, fatty acids all present
+    source:  https://fdc.nal.usda.gov/food-details/172475/nutrients
+
+  - title:   Alternative = Tofu, raw, regular, prepared with calcium sulfate (SR Legacy)
+    comment: same "raw, prepared with calcium sulfate" family; used for total sugars, Vitamin E and Vitamin K (absent in 172475)
+    source:  https://fdc.nal.usda.gov/food-details/172476/nutrients
+
+lastUpd: 2026-07-31
