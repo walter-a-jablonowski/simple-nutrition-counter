@@ -95,7 +95,10 @@ Choose like this:
   often sparse, `SR Legacy` usually carries vitamins, amino acids and fatty acids
 - `Branded` entries are label data - do not use them
 - if two entries fit, use the fuller one and cite the other as an unused
-  alternative in `sources`
+  alternative in `sources`. The comparison that matters is usually the
+  `Foundation` and the `SR Legacy` entry of the same food, so cite that one -
+  it shows why the fuller entry won (walnuts: 113 nutrients in SR Legacy
+  170187 against 48 in Foundation 2346394)
 
 Only if USDA has nothing usable, use one of these instead, in this order:
 Ciqual (France), CoFID (UK), Frida (Denmark). **One database per food** - never

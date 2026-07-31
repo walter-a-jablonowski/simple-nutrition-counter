@@ -37,7 +37,7 @@ fattyAcids:                   # g, but EPA and DHA in mg
 
 carbs:                        # g
 
-  Fibre:         7.9          # substance is "Fibre", _blank_ai.yml writes "Fiber"
+  Fibre:         7.9
 
 aminoAcids:                   # mg
                               # source in g
