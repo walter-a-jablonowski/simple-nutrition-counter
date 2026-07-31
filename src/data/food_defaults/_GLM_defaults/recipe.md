@@ -3,8 +3,9 @@
 Instructions for an assistant that creates a new file in `data/food_defaults`.
 Everything needed is in here - follow it step by step and do not skip the checks
 at the end. The format is in `_blank_ai.yml`, finished examples are `Lentils.yml`
-and `Butter.yml`, the foods still without defaults are in the gaps file next to
-this one.
+(one entry) and `Peanuts.yml` / `Butter.yml` (a sparse entry filled from its
+SR Legacy sibling), the foods still without defaults are in the gaps file next
+to this one.
 
 
 The task you are given
@@ -92,13 +93,26 @@ portal  https://fdc.nal.usda.gov/portal-data/external/172421
 - the **portal** url needs no key and has no limit, the fdc website itself uses
   it. Careful: it names the amount `value`, the api names it `amount`
 
-Search for the id (api only, so search sparingly and fetch with the portal url):
+Search for the id. The api form is rate limited like the fetch:
 
 ```
 https://api.nal.usda.gov/fdc/v1/foods/search?api_key=DEMO_KEY&query=lentils&dataType=Foundation,SR%20Legacy
 ```
 
-If search is rate limited too, say which food you need the id for and stop.
+The portal has a search too, no key and no limit. It is a **POST** with a json
+body, so it needs curl and not a plain url:
+
+```
+POST https://fdc.nal.usda.gov/portal-data/external/search
+{"generalSearchInput": "lentils", "includeDataTypes": {"SR Legacy": true},
+ "pageNumber": 1, "requireAllWords": true}
+```
+
+`includeDataTypes` also takes `"Foundation"`, `"Survey (FNDDS)"` and `"Branded"`,
+several at once. The answer holds `foods[]` with `fdcId`, `description` and
+`dataType`. Use this one by default and keep the api for when it is free.
+
+If neither search works, say which food you need the id for and stop.
 
 **`https://fdc.nal.usda.gov/food-details/<id>/nutrients` is for citing only.**
 It answers 404 when fetched - that is the url form the files and the
@@ -124,11 +138,86 @@ Choose like this:
 Count nutrients as **entries that carry a value**, not as records: the payload
 also holds empty ones. Pistachio 170184 has 118 records but only 111 values.
 
-Only if USDA has nothing usable, use one of these instead, in this order:
-Ciqual (France), CoFID (UK), Frida (Denmark). **One database per food** - never
-mix single values from different databases. Taking single fields from a second
-*USDA* entry is allowed when the main entry lacks them, then say per field where
-it came from (see `Butter.yml`).
+
+Step 2b: when the entry you picked has gaps
+----------------------------------------------------------
+
+This is the normal case, not the exception. `Foundation` entries are analytical
+but often carry proximates and minerals only - "Peanuts, raw" (2515376) has 19
+values and not a single amino acid, although that same entry states 23.2 g
+protein. Its SR Legacy sibling 172430 has 91. Six files in this folder sat with
+whole sections at 0 for that reason.
+
+**A zero is a claim that the food does not contain the substance.** Peanuts with
+zero leucine, or 43 g fat with zero saturated fat, is not a missing value, it is
+a wrong one. So before writing 0, work down this ladder and stop at the first
+step that fills the gap.
+
+### 1. Check you are not reading past the value
+
+Two traps make a present value look missing:
+
+- **the single fatty acids have two number pairs.** SR Legacy names them `618`
+  (PUFA 18:2) and `619` (PUFA 18:3), Foundation names the same two `675`
+  (PUFA 18:2 n-6 c,c) and `851` (PUFA 18:3 n-3 c,c,c (ALA)). Look for both pairs
+  before concluding there is no linoleic acid.
+- **fibre** is `291` (Fiber, total dietary) in SR Legacy but often `293` (Total
+  dietary fiber (AOAC 2011.25)) in Foundation.
+
+### 2. The SR Legacy sibling of the same food
+
+This fills nearly every gap and stays inside USDA, so the "one database" rule is
+untouched. Search the same food with `"SR Legacy": true` and take the entry whose
+description matches the state you settled on in step 1. It is normally the fullest
+entry that exists for that food.
+
+Then, per field: the sparse analytical entry keeps calories, macros, fibre,
+minerals and water; the SR Legacy entry supplies fat breakdown, fatty acids,
+amino acids and vitamins. Write `# from <id>` on every field you take from it and
+list both under `sources`. `Butter.yml` and `Peanuts.yml` are the worked examples.
+
+**Say in the header comment how the two entries differ on protein.** The amino
+acids are absolute mg per 100 g and nothing in the app rescales them, so if the
+SR Legacy entry has 25.8 g protein and the analytical one 23.2 g, its amino acids
+run about 10 % high on the file's own basis. That is acceptable and much better
+than zeros, but it has to be written down.
+
+### 3. Another USDA entry of the same food
+
+Same rule as step 2, and the same per-field comments. Do not reach for a
+different *food* - a roasted entry may stand in for a raw one, almonds may not
+stand in for olive oil.
+
+`Survey (FNDDS)` counts as USDA too and covers prepared and canned foods, but its
+values are derived from SR Legacy and Foundation, so it rarely holds anything the
+other two do not. Try it last, and only for prepared foods.
+
+### 4. A non-USDA table, whole food only
+
+Only when USDA has nothing usable for the food at all. Then **one database per
+food**: take the entire file from that one table, never single values mixed into
+a USDA file. Say in the header comment which table and which entry.
+
+Free, reachable, and in this order:
+
+| # | Table | Why | Watch out |
+|---|---|---|---|
+| 1 | Ciqual (ANSES, FR) | best free EU table, full panel, English UI, downloadable | |
+| 2 | CoFID (McCance & Widdowson, UK) | free, open, good quality, English | |
+| 3 | Frida (DK) | high quality, English, clean per-100g data | |
+| 4 | Swiss nutrition database (CH) | free, German, downloadable | smaller panel |
+| 5 | EuroFIR / EFSA (EU) | aggregator over the national tables | access and format vary per country |
+| 6 | Quadram Food Labelling 2021 (UK) | free | label-derived, narrow panel |
+
+For completeness, and **not usable in this workflow**: Souci-Fachmann-Kraut (SFK)
+and the Bundeslebensmittelschlüssel (BLS) are the German reference works and the
+most precise for German products, but both are licensed and have no api - they
+cannot be read in a run. DONALD/LEBTAB is a research database, not a general
+reference. If a food really needs one of these, stop and say so.
+
+### 5. Only now write 0
+
+With the comment `# not in source`, naming which entries you checked.
 
 
 Step 3: fill the template
@@ -143,7 +232,8 @@ source id is used for what, and what the source does not carry.
 Rules for values:
 
 - per 100 g, no units in the value, unit belongs in the comment
-- a value the source does not have is `0` with a comment `# not in source`
+- a value the source does not have is `0` with a comment `# not in source` -
+  but only after step 2b, a zero that should be a number is a wrong value
 - never invent, estimate or copy from memory - every number comes from the source
 - if the source has several values for one thing, take one and note the others:
   - **calories**: prefer `Energy (Atwater Specific Factors)`, then
@@ -229,9 +319,10 @@ The `food-details/<id>/nutrients` url form is required - the verification tool
 reads the ids out of it and checks your values against exactly these entries.
 
 So the id must be the entry you really read, and the title must be that entry's
-description. If they drift apart the check compares against the wrong food:
-`Olive oil.yml` cites 323294 under the title "Oil, olive, extra light", but
-323294 is "Nuts, almonds, dry roasted".
+description. If they drift apart the check compares against the wrong food, and
+the wrong values get copied in: `Olive oil.yml` cited 323294 under the title
+"Oil, olive, extra light", but 323294 is "Nuts, almonds, dry roasted" - and the
+two vitamins taken from it were both wrong. Fixed 2607, the file now cites 171413.
 
 Careful with yml: a value containing `:` must be quoted, otherwise the file does
 not parse (`Broccoli_Grok_2505.yml` has that error).
@@ -263,16 +354,19 @@ Go through this list and fix what fails:
 5. every value traces to the source; converted ones carry the source number in
    the comment
 6. every number comes from an fdc url of step 2, none from another website
-7. `sources` has at least the used entry with a `food-details/<id>/nutrients`
+7. no section is left all zero without step 2b behind it - amino acids at 0 for a
+   food with protein, or a fat breakdown at 0 for a food with fat, is a wrong
+   value, and the fields you did fill from a second entry carry `# from <id>`
+8. `sources` has at least the used entry with a `food-details/<id>/nutrients`
    url, and each cited id is the entry you actually read
-8. every statement in the header comment is backed by a file you read - the state
+9. every statement in the header comment is backed by a file you read - the state
    of the product only when the food file really says it
-9. `lastUpd` is today
-10. each listed food has its `type` line
-11. the file parses as yml
+10. `lastUpd` is today
+11. each listed food has its `type` line
+12. the file parses as yml
 
-Then say which entry you used, which entries you weighed against it, and which
-values the source did not have.
+Then say which entry you used, which entries you weighed against it, which values
+you had to take from a second entry, and which values no entry had.
 
 If a verification is possible in your environment, run it and paste the output.
 It needs no api key, it falls back to the portal urls when the api is rate

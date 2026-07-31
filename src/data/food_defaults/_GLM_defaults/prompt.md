@@ -17,9 +17,15 @@ Deliver:
 2. the line "type:              [ FOOD ]" added to each food listed above
 
 Get every number from USDA FoodData Central, per 100 g. Take no value from memory,
-and don't estimate - a value the source doesn't have is 0 with the comment
-"# missing in source". Match the state of the source entry (raw, cooked, canned,
+and don't estimate. Match the state of the source entry (raw, cooked, canned,
 dry) to the kcal of the foods.
+
+Foundation entries are often sparse - many carry no amino acids, no vitamins and
+no fat breakdown at all. Don't leave those sections at 0: follow step 2b of the
+recipe, take the missing fields from the SR Legacy entry of the same food and
+mark each with "# from <id>". Only a value that no entry has becomes 0 with the
+comment "# not in source". Amino acids at 0 for a food that has protein is a
+wrong value, not a missing one.
 
 Most food files don't state their state, they only have vendor, weight and the
 pack values. Then don't claim one: compare all entries of the food - the states
