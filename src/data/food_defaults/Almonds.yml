@@ -2,6 +2,11 @@
 # 2502 verified all values from source as far as active in /nutrients (source has some more)
 #      tasks see below
 
+# 2607 the default source (2346393) carries only the fatty acid totals and part
+#      of the vitamins. The single fatty acids and the missing vitamins come from
+#      the SR Legacy "Nuts, almonds" (170567), raw as well and with 21.2 g protein
+#      against the 21.4 g here; see per-field comments and sources.
+
 acceptable:
 comment:         
                               # kcal
@@ -20,11 +25,12 @@ nutritionalValues:            # g
   amino:           21.4
   salt:            0.0025     # Sodium, Na in source, < 2.5mg converted to g
 
-fattyAcids:                   # g
+fattyAcids:                   # g, but EPA and DHA in mg
 
-  Alpha-linolenic acid: 0     # TASK: AI says it's: PUFA 18:3 n-3 c,c,c
-  Docosahexaenoic acid: 0     # TASK: AI says it's: PUFA 22:6 n-3
-  Linoleic acid:        0     # TASK: AI says it's: PUFA 18:2 n-6 c,c
+  Alpha-linolenic acid: 0.003 # PUFA 18:3, from 170567
+  Eicosapentaenoic acid: 0    # PUFA 20:5 n-3 (EPA), 0 in 170567
+  Docosahexaenoic acid: 0     # PUFA 22:6 n-3 (DHA), 0 in 170567
+  Linoleic acid:        12.3  # PUFA 18:2, from 170567
 
 carbs:                        # g
   
@@ -44,19 +50,19 @@ aminoAcids:                   # mg
 
 vitamins:                     # mg
   
-  Vitamin A:     0
-  Vitamin D:     0
-  Vitamin E:     0
+  Vitamin A:     0            # Vitamin A, RAE 0 µg, from 170567
+  Vitamin D:     0            # Vitamin D (D2 + D3) 0 µg, from 170567
+  Vitamin E:     25.6         # alpha-tocopherol, from 170567
   Vitamin K:     0            # 3 * < 0.1 µg
-  Vitamin C:     0
+  Vitamin C:     0            # 0 mg in 170567
   Thiamin B1:    0.16
-  Riboflavin B2: 0
+  Riboflavin B2: 1.14         # from 170567
   Niacin B3:     3.77
-  Pantothenic acid B5: 0
+  Pantothenic acid B5: 0.471  # from 170567
   Vitamin B6:    0.101
   Biotin B7:     0.057
-  Folate B9:     0
-  Vitamin B12:   0
+  Folate B9:     0.044        # folate total 44 µg, from 170567
+  Vitamin B12:   0            # 0 µg in 170567
 
 minerals:                     # default unit: mg except for Salt, Potassium and Calcium where grams need to be used
   
@@ -88,8 +94,12 @@ sources:
   - title:   Default source (different sources, see above) = Nuts, almonds, whole
     source:  https://fdc.nal.usda.gov/food-details/2346393/nutrients
 
+  - title:   Alternative = Nuts, almonds (SR Legacy)
+    comment: raw as well, used for the single fatty acids and vitamins A, D, E, C, B2, B5, B9, B12
+    source:  https://fdc.nal.usda.gov/food-details/170567/nutrients
+
   - title:   Alternative = Nuts, almonds, dry roasted, with salt added
     comment: currently unused, differences might be normal  # TASK: but has some more nutruents
     source:  https://fdc.nal.usda.gov/food-details/323294/nutrients
 
-lastUpd: 2025-02-03
+lastUpd: 2026-07-31

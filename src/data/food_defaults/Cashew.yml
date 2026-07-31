@@ -2,6 +2,13 @@
 # 2503 verified all values from source as far as active in /nutrients
 #      tasks see below
 
+# 2607 default source (2515374, Foundation) is analytical but sparse: it only
+#      carries proximates, fibre and minerals. Fat breakdown, fatty acids, amino
+#      acids and vitamins are taken from the SR Legacy entry of the same name,
+#      "Nuts, cashew nuts, raw" (170162); see per-field comments and sources.
+#      Note: 170162 has 18.2 g protein against the 17.4 g here, so its amino
+#      acids run about 5 % high on this file's protein basis.
+
 acceptable:
 comment:         
                               # kcal
@@ -10,9 +17,9 @@ calories:          533        # Atwater Specific: 533, Atwater General: 565
 nutritionalValues:            # g
 
   fat:             38.9       # prefer lipid (fat) over fat (NLEA)
-  saturatedFat:    0          # TASK: has some?
-  monoUnsaturated: 0
-  polyUnsaturated: 0
+  saturatedFat:    7.78       # from 170162
+  monoUnsaturated: 23.8       # from 170162
+  polyUnsaturated: 7.84       # from 170162
   carbs:           36.3       # by difference
   sugar:           0          # TASK: has some?
   sugarAlcohol:    0
@@ -20,43 +27,44 @@ nutritionalValues:            # g
   amino:           17.4       # is protein
   salt:            0.005      # Sodium, Na in source
 
-fattyAcids:                   # g
+fattyAcids:                   # g, but EPA and DHA in mg
 
-  Alpha-linolenic acid: 0     # AI says it's: PUFA 18:3 n-3 c,c,c
-  Docosahexaenoic acid: 0     # AI says it's: PUFA 22:6 n-3
-  Linoleic acid:        0     # AI says it's: PUFA 18:2 n-6 c,c
+  Alpha-linolenic acid: 0.062 # PUFA 18:3, from 170162
+  Eicosapentaenoic acid: 0    # PUFA 20:5 n-3 (EPA), 0 in 170162
+  Docosahexaenoic acid: 0     # PUFA 22:6 n-3 (DHA), 0 in 170162
+  Linoleic acid:        7.78  # PUFA 18:2, from 170162
 
 carbs:                        # g
   
   Fibre:           4.1
 
 aminoAcids:                   # mg
-  
-  Histidine:       0          # TASK: missing?
-  Isoleucine:      0
-  Leucine:         0
-  Lysine:          0
-  Methionine:      0
-  Phenylalanine:   0
-  Threonine:       0
-  Tryptophan:      0
-  Valine:          0
+                              # from 170162, source in g
+  Histidine:       456        # 0.456 g -> mg
+  Isoleucine:      789        # 0.789 g -> mg
+  Leucine:         1470       # 1.47 g -> mg
+  Lysine:          928        # 0.928 g -> mg
+  Methionine:      362        # 0.362 g -> mg, cystine 0.393 not active in /nutrients
+  Phenylalanine:   951        # 0.951 g -> mg, tyrosine 0.508 not active in /nutrients
+  Threonine:       688        # 0.688 g -> mg
+  Tryptophan:      287        # 0.287 g -> mg
+  Valine:          1090       # 1.09 g -> mg
 
 vitamins:                     # mg
-  
-  Vitamin A:       0
-  Vitamin D:       0
-  Vitamin E:       0
-  Vitamin K:       0
-  Vitamin C:       0
-  Thiamin B1:      0
-  Riboflavin B2:   0
-  Niacin B3:       0
-  Pantothenic acid B5: 0
-  Vitamin B6:      0
-  Biotin B7:       0
-  Folate B9:       0
-  Vitamin B12:     0
+                              # from 170162
+  Vitamin A:       0          # Vitamin A, RAE 0 µg
+  Vitamin D:       0          # Vitamin D (D2 + D3) 0 µg
+  Vitamin E:       0.9        # alpha-tocopherol
+  Vitamin K:       0.0341     # phylloquinone 34.1 µg
+  Vitamin C:       0.5
+  Thiamin B1:      0.423
+  Riboflavin B2:   0.058
+  Niacin B3:       1.06
+  Pantothenic acid B5: 0.864
+  Vitamin B6:      0.417
+  Biotin B7:       0          # not in source
+  Folate B9:       0.025      # folate total 25 µg
+  Vitamin B12:     0          # 0 µg
 
 minerals:                     # default unit: mg except for Salt, Potassium and Calcium where grams need to be used
   
@@ -85,7 +93,12 @@ misc:
 
 sources:
 
-  - title:  Default source (different sources, see above) = Nuts, cashew nuts
-    source: https://fdc.nal.usda.gov/food-details/2515374/nutrients
+  - title:   Default source (different sources, see above) = Nuts, cashew nuts, raw (Foundation)
+    comment: analytical but sparse; used for calories, macros, fibre, minerals, water
+    source:  https://fdc.nal.usda.gov/food-details/2515374/nutrients
 
-lastUpd: 2025-03-08
+  - title:   Alternative = Nuts, cashew nuts, raw (SR Legacy)
+    comment: used for fat breakdown, fatty acids, amino acids, vitamins
+    source:  https://fdc.nal.usda.gov/food-details/170162/nutrients
+
+lastUpd: 2026-07-31

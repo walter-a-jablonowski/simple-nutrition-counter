@@ -2,6 +2,13 @@
 # 2502 verified all values from source as far as active in /nutrients
 #      tasks see below
 
+# 2607 default source (2515376, Foundation) is analytical but sparse: it only
+#      carries proximates, fibre and minerals. Fat breakdown, fatty acids, amino
+#      acids and vitamins are taken from the SR Legacy "Peanuts, all types, raw"
+#      (172430); see per-field comments and sources.
+#      Note: 172430 has 25.8 g protein against the 23.2 g here, so its amino
+#      acids run about 10 % high on this file's protein basis.
+
 acceptable:
 comment:         
                               # kcal
@@ -10,9 +17,9 @@ calories:          551        # Atwater General 588, Atwater Specific 551
 nutritionalValues:            # g
 
   fat:             43.3       # lipid (fat)
-  saturatedFat:    0          
-  monoUnsaturated: 0          
-  polyUnsaturated: 0          
+  saturatedFat:    6.28       # from 172430
+  monoUnsaturated: 24.4       # from 172430
+  polyUnsaturated: 15.6       # from 172430
   carbs:           26.5       # carbs by difference
   sugar:           0          
   sugarAlcohol:    0          
@@ -20,43 +27,44 @@ nutritionalValues:            # g
   amino:           23.2       # is proein
   salt:            0.001      # Sodium, Na in source
 
-fattyAcids:                   # g
+fattyAcids:                   # g, but EPA and DHA in mg
 
-  Alpha-linolenic acid: 0     # PUFA 18:3 n-3 c,c,c (ALA) - no value in source
-  Docosahexaenoic acid: 0     # PUFA 22:6 n-3 (DHA) - no value in source
-  Linoleic acid:        0     # PUFA 18:2 n-6 c,c - no value in source
+  Alpha-linolenic acid: 0.003 # PUFA 18:3, from 172430
+  Eicosapentaenoic acid: 0    # PUFA 20:5 n-3 (EPA), 0 in 172430
+  Docosahexaenoic acid: 0     # PUFA 22:6 n-3 (DHA), 0 in 172430
+  Linoleic acid:        15.6  # PUFA 18:2, from 172430
 
 carbs:                        # g
   
   Fibre:         8           
 
 aminoAcids:                   # mg
-  
-  Histidine:     0            # TASK: missing data in source
-  Isoleucine:    0
-  Leucine:       0
-  Lysine:        0
-  Methionine:    0
-  Phenylalanine: 0
-  Threonine:     0
-  Tryptophan:    0
-  Valine:        0
+                              # from 172430, source in g
+  Histidine:     652          # 0.652 g -> mg
+  Isoleucine:    907          # 0.907 g -> mg
+  Leucine:       1670         # 1.67 g -> mg
+  Lysine:        926          # 0.926 g -> mg
+  Methionine:    317          # 0.317 g -> mg, cystine 0.331 not active in /nutrients
+  Phenylalanine: 1380         # 1.38 g -> mg, tyrosine 1.05 not active in /nutrients
+  Threonine:     883          # 0.883 g -> mg
+  Tryptophan:    250          # 0.25 g -> mg
+  Valine:        1080         # 1.08 g -> mg
 
 vitamins:                     # mg
-  
-  Vitamin A:     0            # TASK: missing data in source
-  Vitamin D:     0
-  Vitamin E:     0
-  Vitamin K:     0
+                              # from 172430
+  Vitamin A:     0            # Vitamin A, RAE 0 µg
+  Vitamin D:     0            # Vitamin D (D2 + D3) 0 µg
+  Vitamin E:     8.33         # alpha-tocopherol
+  Vitamin K:     0            # phylloquinone 0 µg
   Vitamin C:     0
-  Thiamin B1:    0
-  Riboflavin B2: 0
-  Niacin B3:     0
-  Pantothenic acid B5: 0
-  Vitamin B6:    0
-  Biotin B7:     0
-  Folate B9:     0
-  Vitamin B12:   0
+  Thiamin B1:    0.64
+  Riboflavin B2: 0.135
+  Niacin B3:     12.1
+  Pantothenic acid B5: 1.77
+  Vitamin B6:    0.348
+  Biotin B7:     0            # not in source
+  Folate B9:     0.24         # folate total 240 µg
+  Vitamin B12:   0            # 0 µg
 
 minerals:                     # default unit: mg except for Salt, Potassium and Calcium where grams need to be used
   
@@ -85,7 +93,12 @@ misc:
 
 sources:
 
-  - title:  Default source (different sources, see above) = Peanuts
-    source: https://fdc.nal.usda.gov/food-details/2515376/nutrients
+  - title:   Default source (different sources, see above) = Peanuts, raw (Foundation)
+    comment: analytical but sparse; used for calories, macros, fibre, minerals, water
+    source:  https://fdc.nal.usda.gov/food-details/2515376/nutrients
 
-lastUpd: 2025-02-27
+  - title:   Alternative = Peanuts, all types, raw (SR Legacy)
+    comment: used for fat breakdown, fatty acids, amino acids, vitamins
+    source:  https://fdc.nal.usda.gov/food-details/172430/nutrients
+
+lastUpd: 2026-07-31

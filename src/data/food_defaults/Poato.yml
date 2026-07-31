@@ -2,6 +2,18 @@
 # 2503 verified all values from source as far as active in /nutrients
 #      tasks see below
 
+# 2607 default source (2346403, Foundation) is analytical but sparse: it only
+#      carries proximates, sugars, minerals and part of the vitamins. Fat
+#      breakdown, fatty acids, amino acids and the missing vitamins are taken
+#      from the SR Legacy "Potatoes, flesh and skin, raw" (170026); see
+#      per-field comments and sources.
+#      Note: 170026 is not gold-specific and includes the skin, so it is the
+#      closest full-panel entry, not an exact match. Its 2.05 g protein against
+#      the 1.81 g here puts the amino acids about 13 % high on this file's basis.
+#
+# TASK: fibre 13.8 g is what 2346403 reports (AOAC 2011.25) but is far off every
+#       other table for potato (~2 g) - check before trusting it
+
 acceptable:
 comment:         
                               # kcal
@@ -10,9 +22,9 @@ calories:          72         # 72 Atwater Specific, 73 Atwater General
 nutritionalValues:            # g
 
   fat:             0.26       # prefer lipid (fat) over fat (NLEA)
-  saturatedFat:    0
-  monoUnsaturated: 0
-  polyUnsaturated: 0
+  saturatedFat:    0.025      # from 170026
+  monoUnsaturated: 0.002      # from 170026
+  polyUnsaturated: 0.042      # from 170026
   carbs:           16
   sugar:           0.65
   sugarAlcohol:    0
@@ -20,43 +32,44 @@ nutritionalValues:            # g
   amino:           1.81       # is proein
   salt:            0.002      # Sodium, Na in source
 
-fattyAcids:                   # g
+fattyAcids:                   # g, but EPA and DHA in mg
 
-  Alpha-linolenic acid: 0     # AI says it's: PUFA 18:3 n-3 c,c,c
-  Docosahexaenoic acid: 0     # AI says it's: PUFA 22:6 n-3
-  Linoleic acid:        0     # AI says it's: PUFA 18:2 n-6 c,c
+  Alpha-linolenic acid: 0.01  # PUFA 18:3, from 170026
+  Eicosapentaenoic acid: 0    # PUFA 20:5 n-3 (EPA), 0 in 170026
+  Docosahexaenoic acid: 0     # PUFA 22:6 n-3 (DHA), 0 in 170026
+  Linoleic acid:        0.032 # PUFA 18:2, from 170026
 
 carbs:                        # g
   
   Fibre:         13.8       
 
 aminoAcids:                   # mg
-  
-  Histidine:     0            # TASK: ?
-  Isoleucine:    0
-  Leucine:       0
-  Lysine:        0
-  Methionine:    0
-  Phenylalanine: 0
-  Threonine:     0
-  Tryptophan:    0
-  Valine:        0
+                              # from 170026, source in g
+  Histidine:     35           # 0.035 g -> mg
+  Isoleucine:    66           # 0.066 g -> mg
+  Leucine:       98           # 0.098 g -> mg
+  Lysine:        107          # 0.107 g -> mg
+  Methionine:    32           # 0.032 g -> mg, cystine 0.024 not active in /nutrients
+  Phenylalanine: 81           # 0.081 g -> mg, tyrosine 0.048 not active in /nutrients
+  Threonine:     67           # 0.067 g -> mg
+  Tryptophan:    21           # 0.021 g -> mg
+  Valine:        103          # 0.103 g -> mg
 
 vitamins:                     # mg
-  
-  Vitamin A:     0
-  Vitamin D:     0
-  Vitamin E:     0
+
+  Vitamin A:     0            # Vitamin A, RAE 0 µg, from 170026
+  Vitamin D:     0            # Vitamin D (D2 + D3) 0 µg, from 170026
+  Vitamin E:     0.01         # alpha-tocopherol, from 170026
   Vitamin K:     0.0008       # phylloquinone 0.8	µg, Dihydrophylloquinone < 0.1 µg, Menaquinone4 < 0.1 µg
   Vitamin C:     23.3
   Thiamin B1:    0.051
-  Riboflavin B2: 0
+  Riboflavin B2: 0.032        # from 170026
   Niacin B3:     1.58
-  Pantothenic acid B5: 0
+  Pantothenic acid B5: 0.295  # from 170026
   Vitamin B6:    0.145
-  Biotin B7:     0
-  Folate B9:     0
-  Vitamin B12:   0
+  Biotin B7:     0            # not in either source
+  Folate B9:     0.015        # folate total 15 µg, from 170026
+  Vitamin B12:   0            # 0 µg in 170026
 
 minerals:                     # default unit: mg except for Salt, Potassium and Calcium where grams need to be used
 
@@ -85,7 +98,12 @@ misc:
 
 sources:
 
-  - title:   Default source (different sources, see above) = Nuts, almonds, whole
+  - title:   Default source (different sources, see above) = Potatoes, gold, without skin, raw (Foundation)
+    comment: analytical but sparse; used for calories, macros, sugar, fibre, minerals, water, vitamins C/K/B1/B3/B6
     source:  https://fdc.nal.usda.gov/food-details/2346403/nutrients
 
-lastUpd: 2025-03-02
+  - title:   Alternative = Potatoes, flesh and skin, raw (SR Legacy)
+    comment: closest full-panel entry, used for fat breakdown, fatty acids, amino acids, remaining vitamins
+    source:  https://fdc.nal.usda.gov/food-details/170026/nutrients
+
+lastUpd: 2026-07-31

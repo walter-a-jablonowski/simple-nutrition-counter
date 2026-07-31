@@ -25,9 +25,10 @@ nutritionalValues:            # g
   amino:           0.85       # is proein, from 173430
   salt:            0.01       # Sodium 10 mg (789828) -> g
 
-fattyAcids:                   # g
+fattyAcids:                   # g, but EPA and DHA in mg
 
   Alpha-linolenic acid: 0.315 # PUFA 18:3 n-3 c,c,c (ALA), from 173430
+  Eicosapentaenoic acid: 0    # PUFA 20:5 n-3 (EPA), 0 in 173430
   Docosahexaenoic acid: 0     # PUFA 22:6 n-3
   Linoleic acid:        2.166 # PUFA 18:2 n-6 c,c, from 173430
 

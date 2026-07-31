@@ -2,6 +2,13 @@
 # 2501 verified all values from source as far as active in /nutrients (source has some more)
 #      tasks see below
 
+# 2607 default source (2644288, Foundation) is analytical but sparse: it only
+#      carries proximates, fibre and minerals. Fat breakdown, fatty acids, amino
+#      acids and vitamins are taken from the SR Legacy "Chickpeas (garbanzo beans,
+#      bengal gram), mature seeds, canned, drained, rinsed in tap water" (173801) -
+#      the same preparation as the default source; see per-field comments and sources.
+#      Protein matches closely (7.04 g there against 7.02 g here).
+
 acceptable:
 comment:         
                               # kcal
@@ -10,9 +17,9 @@ calories:          133        # Atwater General: 137, Atwater Specific: 133
 nutritionalValues:            # g
 
   fat:             3.1        # prefer lipids (fat) over fat (NLEA) if different
-  saturatedFat:    0          # much data missing in default source
-  monoUnsaturated: 0
-  polyUnsaturated: 0
+  saturatedFat:    0.213      # from 173801
+  monoUnsaturated: 0.485      # from 173801
+  polyUnsaturated: 0.962      # from 173801
   carbs:           20.3       
   sugar:           0
   sugarAlcohol:    0
@@ -20,43 +27,44 @@ nutritionalValues:            # g
   amino:           7.02
   salt:            0.202      # Sodium, Na in source
 
-fattyAcids:                   # g
+fattyAcids:                   # g, but EPA and DHA in mg
 
-  Alpha-linolenic acid: 0     # TASK: AI says it's: PUFA 18:3 n-3 c,c,c
-  Docosahexaenoic acid: 0     # TASK: AI says it's: PUFA 22:6 n-3
-  Linoleic acid:        0     # TASK: AI says it's: PUFA 18:2 n-6 c,c
+  Alpha-linolenic acid: 0.036 # PUFA 18:3, from 173801
+  Eicosapentaenoic acid: 0    # PUFA 20:5 n-3 (EPA), 0 in 173801
+  Docosahexaenoic acid: 0     # PUFA 22:6 n-3 (DHA), 0 in 173801
+  Linoleic acid:        0.927 # PUFA 18:2, from 173801
 
 carbs:                        # g
   
   Fibre:         5.92
 
 aminoAcids:                   # mg
-  
-  Histidine:     0            # TASK: is there data missing? (nix in sources)
-  Isoleucine:    0
-  Leucine:       0
-  Lysine:        0
-  Methionine:    0
-  Phenylalanine: 0
-  Threonine:     0
-  Tryptophan:    0
-  Valine:        0
+                              # from 173801, source in g
+  Histidine:     195          # 0.195 g -> mg
+  Isoleucine:    303          # 0.303 g -> mg
+  Leucine:       503          # 0.503 g -> mg
+  Lysine:        473          # 0.473 g -> mg
+  Methionine:    93           # 0.093 g -> mg, cystine 0.096 not active in /nutrients
+  Phenylalanine: 379          # 0.379 g -> mg, tyrosine 0.176 not active in /nutrients
+  Threonine:     263          # 0.263 g -> mg
+  Tryptophan:    69           # 0.069 g -> mg
+  Valine:        298          # 0.298 g -> mg
 
 vitamins:                     # mg
-  
-  Vitamin A:     0            # TASK: is there data missing? (nix in sources)
-  Vitamin D:     0
-  Vitamin E:     0
-  Vitamin K:     0
-  Vitamin C:     0
-  Thiamin B1:    0
-  Riboflavin B2: 0
-  Niacin B3:     0
-  Pantothenic acid B5: 0
-  Vitamin B6:    0
-  Biotin B7:     0
-  Folate B9:     0
-  Vitamin B12:   0
+                              # from 173801
+  Vitamin A:     0.001        # Vitamin A, RAE 1 µg
+  Vitamin D:     0            # Vitamin D (D2 + D3) 0 µg
+  Vitamin E:     0.29         # alpha-tocopherol
+  Vitamin K:     0.0034       # phylloquinone 3.4 µg
+  Vitamin C:     0.1
+  Thiamin B1:    0.025
+  Riboflavin B2: 0.015
+  Niacin B3:     0.125
+  Pantothenic acid B5: 0      # not in source
+  Vitamin B6:    0.116
+  Biotin B7:     0            # not in source
+  Folate B9:     0.041        # folate total 41 µg
+  Vitamin B12:   0            # 0 µg
 
 minerals:                     # default unit: mg except for Salt, Potassium and Calcium where grams need to be used
   
@@ -83,11 +91,15 @@ misc:
 
 sources:
 
-  - title:   Default source (different sources, see above) = Chickpeas, canned, sodium added, drained and rinsed
-    comment: chosen because more similar to rewe
+  - title:   Default source (different sources, see above) = Chickpeas, canned, sodium added, drained and rinsed (Foundation)
+    comment: chosen because more similar to rewe; analytical but sparse, used for calories, macros, fibre, minerals, water
     source:  https://fdc.nal.usda.gov/food-details/2644288/nutrients
+
+  - title:   Alternative = Chickpeas, mature seeds, canned, drained, rinsed in tap water (SR Legacy)
+    comment: same preparation, used for fat breakdown, fatty acids, amino acids, vitamins
+    source:  https://fdc.nal.usda.gov/food-details/173801/nutrients
 
   - title:   Alternative = Chickpeas dry (unused)
     source:  https://fdc.nal.usda.gov/food-details/2644282/nutrients
 
-lastUpd: 2025-01-29
+lastUpd: 2026-07-31

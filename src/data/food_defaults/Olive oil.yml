@@ -20,9 +20,10 @@ nutritionalValues:            # g
   amino:           0          # is proein
   salt:            0          # Sodium, Na in source
 
-fattyAcids:                   # g
+fattyAcids:                   # g, but EPA and DHA in mg
 
   Alpha-linolenic acid: 0.651 # AI says it's: PUFA 18:3 n-3 c,c,c
+  Eicosapentaenoic acid: 0    # PUFA 20:5 n-3 (EPA), not in source
   Docosahexaenoic acid: 0     # AI says it's: PUFA 22:6 n-3
   Linoleic acid:        8.4   # AI says it's: PUFA 18:2 n-6 c,c
 

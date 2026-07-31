@@ -2,6 +2,12 @@
 # 2502 verified all values from source as far as active in /nutrients (source has some more)
 #      tasks see below
 
+# 2607 the default source (331897) carries no amino acids and no folate or
+#      vitamin K. Those come from the SR Legacy "Chicken, broilers or fryers,
+#      dark meat, drumstick, meat only, cooked, braised" (172852) - the same cut
+#      and preparation, and the same 23.9 g protein, so the amino acids sit on
+#      this file's protein basis; see per-field comments and sources.
+
 acceptable:
 comment:         
                               # kcal
@@ -20,9 +26,10 @@ nutritionalValues:            # g
   amino:           23.9       # is proein
   salt:            0.117      # Sodium, Na in source
 
-fattyAcids:                   # g
+fattyAcids:                   # g, but EPA and DHA in mg
 
   Alpha-linolenic acid: 0.045  # AI says it's: PUFA 18:3 n-3 c,c,c
+  Eicosapentaenoic acid: 4     # PUFA 20:5 n-3 (EPA), 0.004 g -> mg
   Docosahexaenoic acid: 5      # AI says it's: PUFA 22:6 n-3, 0.005 g -> mg
   Linoleic acid:        1.05   # AI says it's: PUFA 18:2 n-6 c,c
 
@@ -31,31 +38,31 @@ carbs:                        # g
   Fibre:         0            
 
 aminoAcids:                   # mg
-  
-  Histidine:     0            # TASK: is there data missing? (nix in sources)
-  Isoleucine:    0    
-  Leucine:       0       
-  Lysine:        0        
-  Methionine:    0    
-  Phenylalanine: 0 
-  Threonine:     0     
-  Tryptophan:    0    
-  Valine:        0        
+                              # from 172852, source in g
+  Histidine:     714          # 0.714 g -> mg
+  Isoleucine:    1140         # 1.14 g -> mg
+  Leucine:       2040         # 2.04 g -> mg
+  Lysine:        2260         # 2.26 g -> mg
+  Methionine:    685          # 0.685 g -> mg, cystine 0.28 not active in /nutrients
+  Phenylalanine: 956          # 0.956 g -> mg, tyrosine 0.9 not active in /nutrients
+  Threonine:     1130         # 1.13 g -> mg
+  Tryptophan:    270          # 0.27 g -> mg
+  Valine:        1160         # 1.16 g -> mg
 
 vitamins:                     # mg
   
   Vitamin A:     0.007
   Vitamin D:     0.0001       # D2 + D3
   Vitamin E:     0.17    
-  Vitamin K:     0     
-  Vitamin C:     0     
+  Vitamin K:     0.0002       # phylloquinone 0.2 µg, from 172852
+  Vitamin C:     0            # 0 mg in 172852
   Thiamin B1:    0.088    
   Riboflavin B2: 0.18 
   Niacin B3:     5.05     
   Pantothenic acid B5: 1.1 
   Vitamin B6:    0.372    
-  Biotin B7:     0     
-  Folate B9:     0     
+  Biotin B7:     0            # not in source
+  Folate B9:     0.005        # folate total 5 µg, from 172852
   Vitamin B12:   0.00041
 
 minerals:                     # default unit: mg except for Salt, Potassium and Calcium where grams need to be used
@@ -91,7 +98,11 @@ sources:
     comment: use this cause more similar to norma and has more nutrients  # TASK: unsure if this source is the best choice, the alternative has less data (we need better sources)
     source:  https://fdc.nal.usda.gov/food-details/331897/nutrients
 
-  - title:   Alternative = (less ingredients or processing) Chicken, thigh, boneless, skinless
-    source:  https://fdc.nal.usda.gov/food-details/2646171/nutrientss
+  - title:   Alternative = Chicken, dark meat, drumstick, meat only, cooked, braised (SR Legacy)
+    comment: same cut and preparation, used for amino acids, folate, vitamin K
+    source:  https://fdc.nal.usda.gov/food-details/172852/nutrients
 
-lastUpd: 2025-02-15
+  - title:   Alternative = (less ingredients or processing) Chicken, thigh, boneless, skinless
+    source:  https://fdc.nal.usda.gov/food-details/2646171/nutrients
+
+lastUpd: 2026-07-31

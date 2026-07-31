@@ -19,11 +19,12 @@ nutritionalValues:
   amino:           2.57
   salt:            0.036      # Sodium, Na in source
 
-fattyAcids:
+fattyAcids:                   # g, but EPA and DHA in mg
 
-  Alpha-linolenic acid: 0     # TASK: AI says it's: PUFA 18:3 n-3 c,c,c
-  Docosahexaenoic acid: 0     # TASK: AI says it's: PUFA 22:6 n-3
-  Linoleic acid:        0     # TASK: AI says it's: PUFA 18:2 n-6 c,c
+  Alpha-linolenic acid: 0.021 # PUFA 18:3
+  Eicosapentaenoic acid: 0    # PUFA 20:5 n-3 (EPA), not in source
+  Docosahexaenoic acid: 0     # PUFA 22:6 n-3 (DHA), not in source
+  Linoleic acid:        0.017 # PUFA 18:2
 
 carbs:
   
@@ -85,4 +86,4 @@ sources:
   - title:  Default source (different sources, see above) = Broccoli
     source: https://fdc.nal.usda.gov/food-details/747447/nutrients
 
-lastUpd: 2025-01-30
+lastUpd: 2026-07-31
