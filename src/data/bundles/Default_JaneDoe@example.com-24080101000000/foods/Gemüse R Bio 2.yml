@@ -1,5 +1,7 @@
 vendor:            Rewe
 certificates:      { bio: true, vegan: true, NutriScore: A }
+ingredients:       "Zucchini* 25%, Broccoli* 20%, Karotten* 15%, gelbe Karotten* 13%, Cherry-Tomaten* 13%, Zwiebeln*, Wasser, Sonnenblumenöl*, natives Olivenöl extra*, Kräuter (Basilikum*, Oregano*), Meersalz, Roh-Rohrzucker*, Reismehl*, Knoblauchpulver*, Gewürze*, Pastinakenpulver*"
+mayContain:        "Weizen, Gerste, Soja, Milch und Sellerie"
 packaging:         plastic
 
 price:             2.49
