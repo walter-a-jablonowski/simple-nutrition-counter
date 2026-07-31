@@ -1,0 +1,123 @@
+
+# GLM only
+
+# 2607 verified all values from source as far as active in /nutrients
+#      The food (Rewe Bio "Gemüse R Bio 2") does not state its state - the file
+#      carries only vendor, weight and pack values, no productName/comment. It is
+#      a frozen Mediterranean mix (zucchini 25%, broccoli 20%, carrots, cherry
+#      tomatoes, onions + sunflower/olive oil), pack 43 kcal, fat 2.3, carbs 3.3,
+#      fibre 1.9, protein 1.4, salt 0.71.
+#
+#      USDA has no Mediterranean mix; the "Vegetables, mixed" entries are the
+#      corn/lima beans/peas/green beans/carrots mix, with no oil. The three frozen
+#      neighbours were weighed:
+#        170471 frozen, unprepared              77 values, 72 kcal, fat 0.52
+#        170472 frozen, cooked, boiled, drained, without salt  90 values, 65 kcal, fat 0.15  <- used
+#        170142 frozen, cooked, boiled, drained, with salt     80 values, 65 kcal, fat 0.15
+#      170472 was taken: it is the fullest entry (carries amino acids, vitamins
+#      and fatty acids in full, so no step 2b needed) and its kcal (65) is the
+#      closest to the pack. The pack still runs lower in carbs/kcal and higher in
+#      fat than the source, because the Mediterranean watery veg is lower carb
+#      than corn/lima and the bag adds oil - the food's own values win for kcal
+#      and macros anyway.
+#
+#      Source has no Atwater Specific/General (plain Energy only), no iodine,
+#      fluoride, chromium, molybdenum, biotin; these stay 0. Sugar alcohol is not
+#      in the source.
+
+acceptable:
+comment:
+                              # kcal
+calories:          65         # Energy (no Atwater Specific/General in source)
+
+nutritionalValues:            # g
+
+  fat:             0.15       # Total lipid (fat)
+  saturatedFat:    0.031
+  monoUnsaturated: 0.010
+  polyUnsaturated: 0.072
+  carbs:           13.1       # Carbohydrate, by difference
+  sugar:           3.12       # Total Sugars
+  sugarAlcohol:    0          # not in source
+  fibre:           4.4
+  amino:           2.86       # is protein
+  salt:            0.035      # Sodium 35 mg -> g
+fattyAcids:                   # g, but EPA and DHA in mg
+
+  Alpha-linolenic acid: 0.019 # PUFA 18:3
+  Eicosapentaenoic acid: 0    # PUFA 20:5 n-3 (EPA), 0 g in source
+  Docosahexaenoic acid: 0     # PUFA 22:6 n-3 (DHA), 0 g in source
+  Linoleic acid:        0.053 # PUFA 18:2
+
+carbs:                        # g
+
+  Fibre:         4.4
+
+aminoAcids:                   # mg
+                              # source in g
+  Histidine:     73           # 0.073 g
+  Isoleucine:    139          # 0.139 g
+  Leucine:       190          # 0.190 g
+  Lysine:        170          # 0.170 g
+  Methionine:    34           # 0.034 g
+  Phenylalanine: 120          # 0.120 g
+  Threonine:     115          # 0.115 g
+  Tryptophan:    29           # 0.029 g
+  Valine:        149          # 0.149 g
+
+vitamins:                     # mg
+
+  Vitamin A:     0.214        # Vitamin A, RAE 214 µg -> mg
+  Vitamin D:     0            # Vitamin D (D2 + D3) 0 µg
+  Vitamin E:     0.38         # alpha-tocopherol
+  Vitamin K:     0.0235       # phylloquinone 23.5 µg -> mg
+  Vitamin C:     3.2
+  Thiamin B1:    0.071
+  Riboflavin B2: 0.120
+  Niacin B3:     0.851
+  Pantothenic acid B5: 0.151
+  Vitamin B6:    0.074
+  Biotin B7:     0            # not in source
+  Folate B9:     0.019        # folate total 19 µg -> mg
+  Vitamin B12:   0            # Vitamin B-12 0 µg
+
+minerals:                     # default unit: mg except for Salt, Potassium and Calcium where grams need to be used
+
+  Salt:          0.035        # Sodium 35 mg -> g
+  Potassium:     0.169        # 169 mg -> g
+  Calcium:       0.025        # 25 mg -> g
+  Phosphorus:    51           # mg
+  Magnesium:     22
+  Iron:          0.82
+  Iodine:        0            # not in source
+  Fluoride:      0            # not in source
+  Zinc:          0.49
+  Selenium:      0.0003       # 0.3 µg -> mg
+  Copper:        0.083
+  Chromium:      0            # not in source
+  Manganese:     0.379
+  Molybdenum:    0            # not in source
+
+# secondary:
+
+misc:                         # ml or g
+
+  water:         83.2
+  alcohol:       0
+  caffeine:      0
+
+sources:
+
+  - title:   Default source = Vegetables, mixed, frozen, cooked, boiled, drained, without salt (SR Legacy)
+    comment: fullest of the frozen mixed-vegetable entries (90 nutrients, incl. amino acids, vitamins and fatty acids); kcal 65 closest to the pack
+    source:  https://fdc.nal.usda.gov/food-details/170472/nutrients
+
+  - title:   Alternative = Vegetables, mixed, frozen, unprepared (SR Legacy, unused)
+    comment: state match for "as sold", but only 77 nutrients and 72 kcal
+    source:  https://fdc.nal.usda.gov/food-details/170471/nutrients
+
+  - title:   Alternative = Vegetables, mixed, frozen, cooked, boiled, drained, with salt (SR Legacy, unused)
+    comment: 80 nutrients, same kcal/fat as 170472 but higher sodium and fewer values
+    source:  https://fdc.nal.usda.gov/food-details/170142/nutrients
+
+lastUpd: 2026-07-31
