@@ -11,8 +11,11 @@
 #      closest full-panel entry, not an exact match. Its 2.05 g protein against
 #      the 1.81 g here puts the amino acids about 13 % high on this file's basis.
 #
-# TASK: fibre 13.8 g is what 2346403 reports (AOAC 2011.25) but is far off every
-#       other table for potato (~2 g) - check before trusting it
+#      Fibre is the one proximate not taken from the default source: 2346403
+#      reports 13.8 g (AOAC 2011.25, split into 13.2 HMWDF + 0.59 LMWDF), which
+#      cannot be right - with 16 g carbs by difference that would leave ~2 g
+#      starch for a potato, and every other table gives ~2 g fibre. Taken from
+#      170026 (2.1 g) instead.
 
 acceptable:
 comment:         
@@ -28,7 +31,7 @@ nutritionalValues:            # g
   carbs:           16
   sugar:           0.65
   sugarAlcohol:    0
-  fibre:           13.8
+  fibre:           2.1        # from 170026, 2346403 reports an impossible 13.8 (see above)
   amino:           1.81       # is proein
   salt:            0.002      # Sodium, Na in source
 
@@ -41,7 +44,7 @@ fattyAcids:                   # g, but EPA and DHA in mg
 
 carbs:                        # g
   
-  Fibre:         13.8       
+  Fibre:         2.1          # from 170026, see above
 
 aminoAcids:                   # mg
                               # from 170026, source in g
@@ -82,7 +85,7 @@ minerals:                     # default unit: mg except for Salt, Potassium and 
   Iodine:        0
   Fluoride:      0
   Zinc:          0.37
-  Selenium:      0.002        # < 2.5 µg
+  Selenium:      0            # 0 in 2346403 (below detection), 170026: 0.4 µg
   Copper:        0.13
   Chromium:      0
   Manganese:     0.16

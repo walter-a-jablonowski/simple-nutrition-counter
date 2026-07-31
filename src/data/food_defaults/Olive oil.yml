@@ -2,6 +2,14 @@
 # 2503 verified all values from source as far as active in /nutrients
 #      tasks see below
 
+# 2607 the second cited source was 323294 "Nuts, almonds, dry roasted, with salt
+#      added" - a wrong id, the file meant an olive oil entry. Replaced by the
+#      SR Legacy "Oil, olive, salad or cooking" (171413), and the two vitamins
+#      that were taken from the wrong entry were corrected with it:
+#      vitamin E 20.9 -> 14.4 mg, vitamin K 0.026 -> 0.0602 mg.
+#      The default source (748608) carries only fat and fatty acids, so the
+#      minerals also come from 171413 now.
+
 acceptable:                   # TASK: has Phytosterols, Squalene acc 2 ChatGPT
 comment:         
                               # kcal
@@ -18,7 +26,7 @@ nutritionalValues:            # g
   sugarAlcohol:    0    
   fibre:           0                      
   amino:           0          # is proein
-  salt:            0          # Sodium, Na in source
+  salt:            0.002      # Sodium 2 mg -> g, from 171413
 
 fattyAcids:                   # g, but EPA and DHA in mg
 
@@ -47,8 +55,8 @@ vitamins:                     # mg
   
   Vitamin A:       0
   Vitamin D:       0
-  Vitamin E:       20.9       # from alternative source cause missing
-  Vitamin K:       0.026
+  Vitamin E:       14.4       # alpha-tocopherol, from 171413 (missing in 748608)
+  Vitamin K:       0.0602     # phylloquinone 60.2 µg, from 171413
   Vitamin C:       0
   Thiamin B1:      0
   Riboflavin B2:   0
@@ -61,12 +69,12 @@ vitamins:                     # mg
 
 minerals:                     # default unit: mg except for Salt, Potassium and Calcium where grams need to be used
   
-  Salt:            0          # Sodium, Na in source
-  Potassium:       0
-  Calcium:         0
-  Phosphorus:      0          # mg
-  Magnesium:       0
-  Iron:            0
+  Salt:            0.002      # Sodium 2 mg -> g, from 171413
+  Potassium:       0.001      # 1 mg -> g, from 171413
+  Calcium:         0.001      # 1 mg -> g, from 171413
+  Phosphorus:      0          # mg, 0 in 171413
+  Magnesium:       0          # 0 in 171413
+  Iron:            0.56       # from 171413
   Iodine:          0
   Fluoride:        0
   Zinc:            0
@@ -89,8 +97,8 @@ sources:
   - title:   Default source (different sources, see above) = Oil, olive, extra virgin
     source:  https://fdc.nal.usda.gov/food-details/748608/nutrients
 
-  - title:   Oil, olive, extra light
-    comment: currently used for vitamins (macro nutriens are from food)
-    source:  https://fdc.nal.usda.gov/food-details/323294/nutrients
+  - title:   Alternative = Oil, olive, salad or cooking (SR Legacy)
+    comment: used for vitamins and minerals (macro nutrients are from food)
+    source:  https://fdc.nal.usda.gov/food-details/171413/nutrients
 
-lastUpd: 2025-03-03
+lastUpd: 2026-07-31
