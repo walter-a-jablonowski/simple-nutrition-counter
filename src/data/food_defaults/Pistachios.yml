@@ -1,0 +1,107 @@
+
+# AI-only
+
+# 2607 verified all values from source as far as active in /nutrients
+#      Basis is raw (unroasted), because the bundle food that uses this type is
+#      raw pistachios (Aldi, 605 kcal on the pack vs 560 here - the food's own
+#      values win for kcal and macros anyway).
+#
+#      Source is SR Legacy 170184 "Nuts, pistachio nuts, raw", the fullest
+#      pistachio entry (114 nutrients, incl. amino acids, fatty acids and
+#      vitamins). Source has no Atwater Specific/General energy variants, no
+#      sugar alcohol, no Vitamin K (phylloquinone), biotin (B7), iodine,
+#      chromium or molybdenum; these stay 0.
+
+acceptable:
+comment:
+                              # kcal
+calories:          560        # Energy, SR Legacy has no Atwater Specific/General
+
+nutritionalValues:            # g
+
+  fat:             45.3       # total lipid (fat)
+  saturatedFat:    5.91
+  monoUnsaturated: 23.3
+  polyUnsaturated: 14.4
+  carbs:           27.2       # by difference
+  sugar:           7.66       # total sugars
+  sugarAlcohol:    0          # not in source
+  fibre:           10.6
+  amino:           20.2       # is protein
+  salt:            0.001      # Sodium 1 mg -> g
+
+fattyAcids:                   # g, but EPA and DHA in mg
+
+  Alpha-linolenic acid: 0.289 # PUFA 18:3
+  Eicosapentaenoic acid: 0    # PUFA 20:5 n-3 (EPA), 0.0 g -> mg
+  Docosahexaenoic acid: 0     # PUFA 22:6 n-3 (DHA), 0.0 g -> mg
+  Linoleic acid:        14.1  # PUFA 18:2 n-6 c,c
+
+carbs:                        # g
+
+  Fibre:         10.6
+
+aminoAcids:                   # mg
+                              # source in g
+  Histidine:     512          # 0.512 g -> mg
+  Isoleucine:    917          # 0.917 g -> mg
+  Leucine:       1600         # 1.6 g -> mg
+  Lysine:        1140         # 1.14 g -> mg
+  Methionine:    360          # 0.36 g -> mg, cystine 0.292 not active in /nutrients
+  Phenylalanine: 1090         # 1.09 g -> mg, tyrosine 0.509 not active in /nutrients
+  Threonine:     684          # 0.684 g -> mg
+  Tryptophan:    251          # 0.251 g -> mg
+  Valine:        1250         # 1.25 g -> mg
+
+vitamins:                     # mg
+
+  Vitamin A:     0.026        # Vitamin A, RAE 26 µg
+  Vitamin D:     0            # Vitamin D (D2 + D3) 0 µg
+  Vitamin E:     2.86         # alpha-tocopherol
+  Vitamin K:     0            # not in source
+  Vitamin C:     5.6
+  Thiamin B1:    0.87
+  Riboflavin B2: 0.16
+  Niacin B3:     1.3
+  Pantothenic acid B5: 0.52
+  Vitamin B6:    1.7
+  Biotin B7:     0            # not in source
+  Folate B9:     0.051        # folate total 51 µg
+  Vitamin B12:   0            # 0 µg
+
+minerals:                     # default unit: mg except for Salt, Potassium and Calcium where grams need to be used
+
+  Salt:          0.001        # Sodium 1 mg -> g
+  Potassium:     1.02         # 1020 mg -> g
+  Calcium:       0.105        # 105 mg -> g
+  Phosphorus:    490          # mg
+  Magnesium:     121
+  Iron:          3.92
+  Iodine:        0            # not in source
+  Fluoride:      0.0034       # 3.4 µg -> mg
+  Zinc:          2.2
+  Selenium:      0.007        # 7.0 µg -> mg
+  Copper:        1.3
+  Chromium:      0            # not in source
+  Manganese:     1.2
+  Molybdenum:    0            # not in source
+
+# secondary:
+
+misc:                         # ml or g
+
+  water:         4.37
+  alcohol:       0
+  caffeine:      0
+
+sources:
+
+  - title:   Default source = Nuts, pistachio nuts, raw (SR Legacy)
+    comment: most complete panel of the pistachio entries (114 nutrients, incl. amino acids)
+    source:  https://fdc.nal.usda.gov/food-details/170184/nutrients
+
+  - title:   Alternative = Nuts, pistachio nuts, raw (Foundation, unused)
+    comment: analytical, same state but only 19 nutrients
+    source:  https://fdc.nal.usda.gov/food-details/2515379/nutrients
+
+lastUpd: 2026-07-31
