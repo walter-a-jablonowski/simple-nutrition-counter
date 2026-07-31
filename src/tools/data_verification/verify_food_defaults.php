@@ -13,8 +13,20 @@
 //    Ratios near 10, 100 or 1000 are named, that is how the unit bugs looked
 //    (minerals are mg except Salt, Potassium, Calcium - see _blank_ai.yml)
 //
+// Pass 2 also answers what matching values alone cannot: whether the cited entry
+// is the right one. Values match their source just as well when the wrong entry
+// was taken, so it additionally
+//
+// - names the cited entry and warns when its description does not read like the
+//   type (Olive oil cited an almond entry for a while)
+// - holds the file's kcal against the kcal of the foods that use the type, a
+//   wide gap means the entry has the wrong state (raw / cooked / roasted)
+// - lists the neighbouring fdc ids with --file, the other states of a food sit
+//   right next to it in the id range (170184 raw, 170185 dry roasted)
+//
 // The value pass needs a key for https://fdc.nal.usda.gov, DEMO_KEY works but is
 // rate limited to ~30 requests/hour; a free key: fdc.nal.usda.gov/api-key-signup
+// Without a usable key it falls back to the portal urls, which have no limit.
 //
 // CLI usage examples:
 //   php verify_food_defaults.php
@@ -29,10 +41,15 @@
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Yaml\Exception\ParseException;
 
-require_once __DIR__ . '/../../vendor/autoload.php';
+chdir(__DIR__ . '/../..');   // src, the helpers below use paths relative to it
 
-$defaultsDir = realpath(__DIR__ . '/../../data/food_defaults');
-$nutrientsDir = realpath(__DIR__ . '/../../data/bundles/Default_JaneDoe@example.com-24080101000000/nutrients');
+require_once 'vendor/autoload.php';
+require_once 'lib/frm/SimpleData_240317/SimpleData.php';
+require_once 'models/functions.php';       // expand_food_variants()
+
+$defaultsDir  = 'data/food_defaults';
+$nutrientsDir = 'data/bundles/Default_JaneDoe@example.com-24080101000000/nutrients';
+$foodsDir     = 'data/bundles/Default_JaneDoe@example.com-24080101000000/foods';
 
 $apiKey     = 'DEMO_KEY';
 $tolerance  = 0.02;   // 2%, covers rounding in the files
@@ -188,6 +205,31 @@ foreach( scandir( $defaultsDir ) as $file )
   $defaults[$name]['xCitedIds'] = array_values( array_unique( $matches[1] ));
 }
 
+// The foods that use a type, for the kcal comparison in pass 2
+
+$foodsByType = [];
+
+foreach( scandir( $foodsDir ) as $file )
+{
+  if( in_array( $file, ['.', '..']) || $file[0] === '_' || ( pathinfo( $file, PATHINFO_EXTENSION) !== 'yml' && ! is_dir("$foodsDir/$file")))
+    continue;
+
+  $foodName = is_dir("$foodsDir/$file")  ?  $file  :  pathinfo( $file, PATHINFO_FILENAME);
+  $path     = is_file("$foodsDir/$file") ? "$foodsDir/$file" : "$foodsDir/$file/-this.yml";
+  $food     = Yaml::parse( file_get_contents( $path ));
+
+  if( ! is_array( $food ))
+    continue;
+
+  foreach( expand_food_variants( $foodName, $food ) as $name => $data )
+  {
+    $type = trim((string)( $data['type'] ?? ''));
+
+    if( $type !== '' && ! empty( $data['calories'] ))
+      $foodsByType[$type][ $name ] = $data['calories'];
+  }
+}
+
 // Pass 1: structure
 
 echo "== structure\n\n";
@@ -247,14 +289,17 @@ $ids = array_values( array_unique( $ids ));
 // The portal endpoint the fdc website itself uses needs no key and has no
 // limit, but serves one food per request and names the value differently.
 
-$sources = [];
+$sources = $descriptions = [];
 
 $response = http_get('https://api.nal.usda.gov/fdc/v1/foods?api_key=' . urlencode($apiKey) . '&fdcIds=' . implode(',', $ids));
 
 if( $response['status'] === 200 )
 {
   foreach( json_decode( $response['body'], true ) ?? [] as $food )
-    $sources[ $food['fdcId'] ] = collect_nutrients( $food, 'amount');
+  {
+    $sources[ $food['fdcId'] ]      = collect_nutrients( $food, 'amount');
+    $descriptions[ $food['fdcId'] ] = $food['description'] ?? '';
+  }
 }
 else
 {
@@ -262,15 +307,13 @@ else
 
   foreach( $ids as $id )
   {
-    $single = http_get("https://fdc.nal.usda.gov/portal-data/external/$id");
-
-    if( $single['status'] !== 200 )
-      continue;
-
-    $food = json_decode( $single['body'], true );
+    $food = portal_food( $id );
 
     if( $food )
-      $sources[$id] = collect_nutrients( $food, 'value');
+    {
+      $sources[$id]      = collect_nutrients( $food, 'value');
+      $descriptions[$id] = $food['description'] ?? '';
+    }
   }
 }
 
@@ -333,16 +376,64 @@ foreach( $defaults as $name => $data )
       $issues = array_merge( $issues, compare_value('calories', (float)$data['calories'], $expected, $tolerance ));
   }
 
-  if( ! $issues )
-  {
-    echo str_pad( $name, 20 ) . 'ok (' . implode(', ', $have) . ")\n";
-    continue;
-  }
-
-  echo str_pad( $name, 20 ) . count($issues) . ' to check (' . implode(', ', $have) . ")\n";
+  echo str_pad( $name, 20 ) . ( $issues ? count($issues) . ' to check' : 'ok') . ' (' . implode(', ', $have) . ")\n";
 
   foreach( $issues as $issue )
     echo "  $issue\n";
+
+  // Is it the right entry? Matching values say nothing about that, the checks
+  // below do: the description, the kcal of the foods, and the other states of
+  // the food, which sit next to the entry in the id range
+
+  foreach( $have as $id )
+  {
+    $description = $descriptions[$id] ?? '';
+
+    if( $description !== '' && ! description_matches( $name, $description ))
+      echo "  cited $id is \"$description\" - does not read like $name\n";
+  }
+
+  if( isset( $data['calories'] ) && is_numeric( $data['calories'] ) && ! empty( $foodsByType[$name] ))
+  {
+    $kcal = (float)$data['calories'];
+    $wide = false;
+    $shown = [];
+
+    foreach( $foodsByType[$name] as $foodName => $foodKcal )
+    {
+      $off     = ( $foodKcal - $kcal ) / $kcal;
+      $shown[] = "$foodName $foodKcal (" . sprintf('%+d', round( $off * 100 )) . '%)';
+
+      if( abs( $off ) > 0.15 )
+        $wide = true;
+    }
+
+    echo "  kcal $data[calories] vs foods: " . implode(', ', $shown) . ( $wide ? '  <- wide gap, check the state of the entry' : '') . "\n";
+  }
+
+  if( $only === '')
+    continue;
+
+  // Single file: the neighbouring ids, that is where the other states are
+
+  foreach( $have as $id )
+  {
+    for( $offset = -2; $offset <= 2; $offset++ )
+    {
+      if( $offset === 0 || ! ( $food = portal_food( $id + $offset )))
+        continue;
+
+      $values = collect_nutrients( $food, 'value');
+      $kcal   = '?';
+
+      foreach( ENERGY as $number )        // Foundation entries carry only the Atwater variants
+        if( isset( $values[$number] ))
+          { $kcal = round( $values[$number] );  break; }
+
+      echo '  near ' . ( $id + $offset ) . ': ' . str_pad( "$kcal kcal", 10 )
+         . str_pad( count($values) . ' values', 12 ) . ( $food['description'] ?? '') . "\n";
+    }
+  }
 }
 
 if( php_sapi_name() !== 'cli')
@@ -368,6 +459,61 @@ function http_get( $url )  /*@*/
   curl_close( $curl );
 
   return ['status' => $status, 'body' => (string)$body];
+}
+
+
+/*@
+
+portal_food()
+
+One entry from the endpoint the fdc website uses, no key and no rate limit.
+Returns null for ids that do not exist, which is normal when walking neighbours.
+
+*/
+function portal_food( $id )  /*@*/
+{
+  $response = http_get("https://fdc.nal.usda.gov/portal-data/external/$id");
+
+  if( $response['status'] !== 200 )
+    return null;
+
+  $food = json_decode( $response['body'], true );
+
+  return ! empty( $food['description'] )  ?  $food  :  null;
+}
+
+
+/*@
+
+description_matches()
+
+Does the cited entry read like the food the file is for? The descriptions are
+worded the other way round ("Nuts, walnuts, english" for Walnuts), so one word
+in common is enough. Plurals and small typos still count - the file name Poato
+must not be flagged against "Potatoes, gold, without skin, raw".
+
+*/
+function description_matches( $type, $description )  /*@*/
+{
+  $words = fn( $text ) => array_filter( preg_split('/[^a-z]+/', mb_strtolower($text)), fn($w) => strlen($w) > 2 );
+
+  foreach( $words( $type ) as $word )
+  {
+    $word = rtrim( $word, 's');
+
+    foreach( $words( $description ) as $other )
+    {
+      $other = rtrim( $other, 's');
+
+      if( strpos( $other, $word ) === 0 || strpos( $word, $other ) === 0 )
+        return true;
+
+      if( strlen( $word ) > 4 && levenshtein( $word, $other ) <= 2 )
+        return true;
+    }
+  }
+
+  return false;
 }
 
 
