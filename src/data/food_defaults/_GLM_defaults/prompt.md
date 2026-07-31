@@ -6,9 +6,9 @@ Foods: [ FOOD_FILE_1 ], [ FOOD_FILE_2 ]
 
 Read these first:
 
-- src/data/food_defaults/_recipe_DUPL.md  the instructions, follow them step by step
-- src/data/food_defaults/_blank_ai.yml    the template to copy
-- src/data/food_defaults/Lentils.yml      a finished example
+- src/data/food_defaults/_GLM_defaults/recipe.md  the instructions, follow them step by step
+- src/data/food_defaults/_blank_ai.yml            the template to copy
+- src/data/food_defaults/Lentils.yml              a finished example
 - the food files under src/data/bundles/Default_*/foods, one per name in "Foods"
 
 Deliver:
