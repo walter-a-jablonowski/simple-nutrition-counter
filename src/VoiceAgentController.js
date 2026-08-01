@@ -157,12 +157,12 @@ class VoiceAgentController
   {
     return new Promise(( resolve, reject) => {
 
-      // An ephemeral token goes in as access_token, not as key. It only works on the
-      // v1alpha endpoint and only on BidiGenerateContentConstrained - v1beta or the
-      // plain BidiGenerateContent ignore it and close the socket with 1008
+      // An ephemeral token goes in as access_token, not as key, and only the Constrained
+      // method accepts it. The plain BidiGenerateContent ignores the token and closes the
+      // socket with 1008 "Method doesn't allow unregistered callers"
 
       const url = 'wss://generativelanguage.googleapis.com/ws/'
-                + 'google.ai.generativelanguage.v1alpha.GenerativeService.BidiGenerateContentConstrained'
+                + 'google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContentConstrained'
                 + '?access_token=' + encodeURIComponent( this.session.token )
 
       this.ws = new WebSocket( url )

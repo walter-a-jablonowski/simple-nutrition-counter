@@ -46,7 +46,7 @@ Browser --(1) ajax 'getAgentToken' --> PHP --> POST /v1beta/auth_tokens
                                                  (x-goog-api-key: GEMINI_API_KEY from .env)
         <-- { token, model, systemInstruction }
         --(2) wss://generativelanguage.googleapis.com/ws/
-              google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContent
+              google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContentConstrained
               ?access_token=TOKEN                --> Gemini Live   (direct, no proxy)
 ```
 
@@ -69,7 +69,21 @@ Content-Type: application/json
 ```
 
 Response contains `name` — that string is used in place of the API key.
-Note: it goes in `?access_token=`, not `?key=`.
+
+**Two gotchas, both verified against the live api (2026-08-01):**
+
+- The token goes in `?access_token=`, not `?key=`.
+- The method must be **`BidiGenerateContentConstrained`**, not the plain `BidiGenerateContent`.
+  The plain one does not accept an ephemeral token at all; it opens the socket and then
+  closes it with `1008 Method doesn't allow unregistered callers`. That close code is the
+  signature of this mistake — it does *not* mean the api key or the model name is wrong.
+
+`v1beta` and `v1alpha` both work for the token and the socket (they can even be mixed).
+We use `v1beta` on both sides, since alpha is the older surface.
+
+Also confirmed on the constrained endpoint: the client's `setup` message is honoured, i.e.
+`systemInstruction` and `tools` sent from the browser do take effect, and tool calls come
+back. `liveConnectConstraints` is therefore not required (see section 11).
 
 
 ## 3. Files
@@ -78,9 +92,9 @@ Note: it goes in `?access_token=`, not `?key=`.
 
 | File | Purpose |
 |---|---|
-| `.env` | `GEMINI_API_KEY=...` — gitignored |
-| `.env.example` | Same key, empty value, committed |
-| `.htaccess` (project root) | Denies dotfiles, so `/.env` is not readable when the project root is the doc root |
+| `src/.env` | `GEMINI_API_KEY=...` — gitignored |
+| `src/.env.example` | Same key, empty value, committed |
+| `src/.htaccess` | Denies dotfiles, so `/.env` is not readable — `src/` *is* the doc root |
 | `src/lib/env.php` | Standalone `env_get( $key, $default = null)`; reads + caches `.env` |
 | `src/ajax/get_agent_token.php` | `trait GetAgentTokenAjaxController` → `getAgentToken( $request )` |
 | `src/data/agent/prompt.md` | System instruction, server-side and editable |
@@ -114,11 +128,10 @@ function env_get( $key, $default = null )
 Parses `KEY=value` lines from the repo-root `.env`, skips blanks and `#` comments, strips
 surrounding quotes, caches in a static. Never echoes values.
 
-The `.env` lives one level above `src/`, so it is outside the doc root when `src/` is served
-directly. Because the project has no server config at all and the doc root may well be the
-project root, a root `.htaccess` denies dotfiles as a second line of defence (Apache 2.4
-`Require all denied`; harmless on other servers, but then it protects nothing — check your
-setup).
+The `.env` sits in `src/`, next to the app, because `src/` is what gets deployed — a file
+one level above it would not travel with the app. That puts it inside the doc root, so
+`src/.htaccess` denies dotfiles (Apache 2.4 `Require all denied`). On a non-Apache server
+that file does nothing, and then the key *is* readable at `/.env` — check your setup.
 
 **Gotcha:** an empty `GEMINI_API_KEY=` yields `''`, not `null`, so the `$default` argument
 does not kick in. The ajax endpoint must test with `empty()`.
@@ -432,11 +445,16 @@ the LAN the mic is blocked by the browser.
 3. `src/MainController.js` refactor — **done**, existing search confirmed working
 4. `src/VoiceAgentController.js` + tools + buttons + `src/style/agent.css` — **done**
 
+5. Fix the `1008` on connect (wrong websocket method, see section 2) — **done**, the whole
+   chain verified against the live api: token → socket → `setupComplete` → greeting audio →
+   a `realtimeInput.audio` frame accepted → a `toolCall` for `findFood` coming back.
+
 Steps 4-6 of the original order were merged: the controller cannot be exercised at all
 without the buttons, so a voice-only intermediate would have cost a verification round
 without being testable.
 
-Remaining: manual testing on desktop and phone (section 9).
+Remaining: manual testing on desktop and phone (section 9) — everything that needs a real
+microphone and a real pair of ears.
 
 
 ## 11. Open points

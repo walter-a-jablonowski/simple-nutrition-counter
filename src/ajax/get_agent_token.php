@@ -33,10 +33,9 @@ trait GetAgentTokenAjaxController
       'newSessionExpireTime' => gmdate('Y-m-d\TH:i:s\Z', time() + 60)
     ];
 
-    // v1alpha, not v1beta: ephemeral tokens only work on the alpha endpoint, and the
-    // socket they are used on (BidiGenerateContentConstrained) is alpha only too
+    // Same api version as the websocket in VoiceAgentController.connect()
 
-    $curl = curl_init('https://generativelanguage.googleapis.com/v1alpha/auth_tokens');
+    $curl = curl_init('https://generativelanguage.googleapis.com/v1beta/auth_tokens');
 
     curl_setopt_array( $curl, [
       CURLOPT_POST           => true,
