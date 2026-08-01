@@ -1,5 +1,6 @@
 desktop.ini
 *.ini
+.env
 .favorites.json
 composer.lock
 vendor/
@@ -29,3 +30,4 @@ src/tools/bulk_price_upd/data/import_5.yml
 src/tools/bulk_price_upd/data/import_5_done.yml
 nutri.code-workspace
 src/tools/publish_foods/published.json
+_agent_sample/

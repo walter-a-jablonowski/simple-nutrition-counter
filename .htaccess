@@ -1,0 +1,7 @@
+# Never serve dotfiles. Matters for the .env, which holds the api key for the
+# voice agent: without this it would be readable at /.env whenever the project
+# root (rather than src/) is the doc root.
+
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>

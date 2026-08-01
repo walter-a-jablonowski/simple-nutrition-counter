@@ -80,6 +80,7 @@ Note: it goes in `?access_token=`, not `?key=`.
 |---|---|
 | `.env` | `GEMINI_API_KEY=...` — gitignored |
 | `.env.example` | Same key, empty value, committed |
+| `.htaccess` (project root) | Denies dotfiles, so `/.env` is not readable when the project root is the doc root |
 | `src/lib/env.php` | Standalone `env_get( $key, $default = null)`; reads + caches `.env` |
 | `src/ajax/get_agent_token.php` | `trait GetAgentTokenAjaxController` → `getAgentToken( $request )` |
 | `src/data/agent/prompt.md` | System instruction, server-side and editable |
@@ -112,6 +113,15 @@ function env_get( $key, $default = null )
 
 Parses `KEY=value` lines from the repo-root `.env`, skips blanks and `#` comments, strips
 surrounding quotes, caches in a static. Never echoes values.
+
+The `.env` lives one level above `src/`, so it is outside the doc root when `src/` is served
+directly. Because the project has no server config at all and the doc root may well be the
+project root, a root `.htaccess` denies dotfiles as a second line of defence (Apache 2.4
+`Require all denied`; harmless on other servers, but then it protects nothing — check your
+setup).
+
+**Gotcha:** an empty `GEMINI_API_KEY=` yields `''`, not `null`, so the `$default` argument
+does not kick in. The ajax endpoint must test with `empty()`.
 
 ### `src/config.yml` — new block
 

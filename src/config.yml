@@ -29,6 +29,13 @@ charts:                     # nutrition charts (integrated from reports/diagr)
     salt:       5
     price:      7           # EUR
 
+agent:                      # AI voice agent (Gemini Live), see dev_info/Voice_Agent_Plan.md
+
+  enabled: true             # false hides the mic button in sidebar and bottom nav
+  model:   "gemini-3.1-flash-live-preview"
+  voice:   "Aoede"          # Gemini Live prebuilt voice
+  debug:   false            # verbose console logging, keeps errors on screen
+
 defaultSettings:            # see also users > settings.yml
 
   currency:       "EUR"     # currently EUR or USD
