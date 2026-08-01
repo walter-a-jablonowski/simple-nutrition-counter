@@ -1,0 +1,24 @@
+# GLM only
+
+type:              Garlic
+vendor:            Rewe
+
+price:             1.25
+weight:            80g   # TASK: is a guess
+pieces:            8     # TASK: is a guess
+usedAmounts:       [1]
+
+calories:          130
+nutritionalValues:
+
+  fat:             0.38
+  saturatedFat:    0.089
+  carbs:           28.2
+  sugar:           1
+  fibre:           2.7
+  amino:           6.62
+  salt:            0.017
+
+sources:           { nutriVal: "GLM", price: "web" }
+lastUpd:           2026-08-01
+lastPriceUpd:      2026-08-01

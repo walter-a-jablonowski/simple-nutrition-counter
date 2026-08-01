@@ -1,0 +1,108 @@
+
+# AI-only
+
+# 2608 verified all values from source as far as active in /nutrients
+#      No food files exist yet, so the state cannot be determined from them.
+#      Both source entries are "Garlic, raw" - the state is raw per the source.
+#
+#      Default source (1104647, Foundation) is analytical but very sparse: it
+#      only carries proximates, fibre, selenium, vitamin C and water (10 values).
+#      Fat breakdown, fatty acids, amino acids, vitamins (except C), minerals
+#      (except Se), sugar and sodium are taken from the SR Legacy "Garlic, raw"
+#      (169230); see per-field comments and sources.
+#      Note: 169230 has 6.36 g protein against the 6.62 g here, so its amino
+#      acids run about 4 % low on this file's protein basis.
+
+acceptable:
+comment:
+                              # kcal
+calories:          130        # Atwater Specific 130, Atwater General 143
+
+nutritionalValues:            # g
+
+  fat:             0.38       # total lipid (fat)
+  saturatedFat:    0.089      # from 169230
+  monoUnsaturated: 0.011      # from 169230
+  polyUnsaturated: 0.249      # from 169230
+  carbs:           28.2       # by difference
+  sugar:           1          # from 169230
+  sugarAlcohol:    0          # not in source
+  fibre:           2.7
+  amino:           6.62       # is protein
+  salt:            0.017      # Sodium 17 mg (169230) -> g
+
+fattyAcids:                   # g, but EPA and DHA in mg
+
+  Alpha-linolenic acid: 0.02  # PUFA 18:3, from 169230
+  Eicosapentaenoic acid: 0    # PUFA 20:5 n-3 (EPA), 0 in 169230
+  Docosahexaenoic acid: 0     # PUFA 22:6 n-3 (DHA), 0 in 169230
+  Linoleic acid:        0.229 # PUFA 18:2, from 169230
+
+carbs:                        # g
+
+  Fibre:         2.7
+
+aminoAcids:                   # mg
+                              # from 169230, source in g
+  Histidine:     113          # 0.113 g -> mg
+  Isoleucine:    217          # 0.217 g -> mg
+  Leucine:       308          # 0.308 g -> mg
+  Lysine:        273          # 0.273 g -> mg
+  Methionine:    76           # 0.076 g -> mg, cystine 0.065 not active in /nutrients
+  Phenylalanine: 183          # 0.183 g -> mg, tyrosine 0.081 not active in /nutrients
+  Threonine:     157          # 0.157 g -> mg
+  Tryptophan:    66           # 0.066 g -> mg
+  Valine:        291          # 0.291 g -> mg
+
+vitamins:                     # mg
+
+  Vitamin A:     0            # Vitamin A, RAE 0 µg, from 169230
+  Vitamin D:     0            # Vitamin D (D2 + D3) 0 µg, from 169230
+  Vitamin E:     0.08         # alpha-tocopherol, from 169230
+  Vitamin K:     0.0017       # phylloquinone 1.7 µg, from 169230
+  Vitamin C:     10
+  Thiamin B1:    0.2          # from 169230
+  Riboflavin B2: 0.11         # from 169230
+  Niacin B3:     0.7          # from 169230
+  Pantothenic acid B5: 0.596  # from 169230
+  Vitamin B6:    1.24         # from 169230
+  Biotin B7:     0            # not in source
+  Folate B9:     0.003        # folate total 3 µg, from 169230
+  Vitamin B12:   0            # from 169230
+
+minerals:                     # default unit: mg except for Salt, Potassium and Calcium where grams need to be used
+
+  Salt:          0.017        # Sodium 17 mg (169230) -> g
+  Potassium:     0.401        # 401 mg (169230) -> g
+  Calcium:       0.181        # 181 mg (169230) -> g
+  Phosphorus:    153          # mg, from 169230
+  Magnesium:     25           # from 169230
+  Iron:          1.7          # from 169230
+  Iodine:        0            # not in source
+  Fluoride:      0            # not in source
+  Zinc:          1.16         # from 169230
+  Selenium:      0.0098       # 9.8 µg -> mg
+  Copper:        0.299        # from 169230
+  Chromium:      0            # not in source
+  Manganese:     1.67         # from 169230
+  Molybdenum:    0            # not in source
+
+# secondary:
+
+misc:                         # ml or g
+
+  water:         63.1
+  alcohol:       0            # from 169230
+  caffeine:      0            # from 169230
+
+sources:
+
+  - title:   Default source (different sources, see above) = Garlic, raw (Foundation)
+    comment: analytical but very sparse; used for calories, macros, fibre, water, Se, Vit C
+    source:  https://fdc.nal.usda.gov/food-details/1104647/nutrients
+
+  - title:   Alternative = Garlic, raw (SR Legacy)
+    comment: used for fat breakdown, fatty acids, amino acids, vitamins (except C), minerals (except Se), sugar, sodium
+    source:  https://fdc.nal.usda.gov/food-details/169230/nutrients
+
+lastUpd: 2026-08-01
