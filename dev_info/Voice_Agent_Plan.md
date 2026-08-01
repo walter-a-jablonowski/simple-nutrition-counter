@@ -426,13 +426,17 @@ the LAN the mic is blocked by the browser.
 
 ## 10. Order of work
 
-1. `.env`, `.env.example`, `.gitignore`, `src/lib/env.php`, `config.yml` agent block
+1. `.env`, `.env.example`, `.gitignore`, `src/lib/env.php`, `config.yml` agent block — **done**
 2. `src/ajax/get_agent_token.php` + `AppController.php` use line + `data/agent/prompt.md`
-   → verify the token round-trip before touching any client code
-3. `src/MainController.js` refactor → verify the existing search still works
-4. `src/VoiceAgentController.js` (port, no tools yet) → verify voice conversation works
-5. Tools: declarations + `handleToolCall` → verify "Show me where Tofu is"
-6. `src/style/agent.css` + button states + error tooltip
+   — **done**, token round-trip verified against the live api before any client code
+3. `src/MainController.js` refactor — **done**, existing search confirmed working
+4. `src/VoiceAgentController.js` + tools + buttons + `src/style/agent.css` — **done**
+
+Steps 4-6 of the original order were merged: the controller cannot be exercised at all
+without the buttons, so a voice-only intermediate would have cost a verification round
+without being testable.
+
+Remaining: manual testing on desktop and phone (section 9).
 
 
 ## 11. Open points

@@ -1,0 +1,50 @@
+/* ======================================
+   AI voice agent (mic button)
+
+   The nav button is the whole ui, so the session state is shown on it: colour plus
+   a pulse while a session is live. See VoiceAgentController.setState()
+   ====================================== */
+
+.js-agentBtn
+{
+  transition: color .2s ease;
+}
+
+.js-agentBtn.state-connecting
+{
+  color: #ffc107 !important;   /* gold */
+  animation: agent-pulse 1.2s ease-in-out infinite;
+}
+
+.js-agentBtn.state-listening
+{
+  color: #ff3e00 !important;   /* orange red */
+  animation: agent-pulse 1.6s ease-in-out infinite;
+}
+
+.js-agentBtn.state-speaking
+{
+  color: #ffc107 !important;   /* gold, steady - the agent has the floor */
+}
+
+.js-agentBtn.state-error
+{
+  color: #ff0000 !important;
+}
+
+@keyframes agent-pulse
+{
+  0%, 100% { opacity: 1;   }
+  50%      { opacity: .45; }
+}
+
+/* Respect a reduced motion preference, the colour alone still carries the state */
+
+@media (prefers-reduced-motion: reduce)
+{
+  .js-agentBtn.state-connecting,
+  .js-agentBtn.state-listening
+  {
+    animation: none;
+  }
+}

@@ -13,6 +13,7 @@
   <link href="style/theme.css?v=<?= time() ?>" rel="stylesheet">  <!-- TASK: was first to include, why? -->
   <link href="style/app.css?v=<?= time() ?>"   rel="stylesheet">
   <link href="style/charts.css?v=<?= time() ?>" rel="stylesheet">
+  <link href="style/agent.css?v=<?= time() ?>"  rel="stylesheet">
 
 </head>
 <body class="<?= User::current('settings.hideScrollbars') ? 'no-scrollbars' : '' ?>">
@@ -59,6 +60,13 @@ else:
       <!-- Bottom: info + settings -->
 
       <ul class="navbar-nav">
+        <?php if( config::get('agent.enabled') ): ?>
+          <li class="nav-item">
+            <a onclick="voiceCrl.toggle(event)" class="nav-link js-agentBtn" href="#" title="Voice assistant">
+              <i class="bi bi-mic"></i>
+            </a>
+          </li>
+        <?php endif; ?>
         <li class="nav-item">
           <a class="nav-link" href="#" title="Info"
             data-bs-toggle = "modal"
@@ -98,6 +106,11 @@ else:
           <i class="bi bi-calendar-range"></i>
         </a>
         -->
+        <?php if( config::get('agent.enabled') ): ?>
+          <a onclick="voiceCrl.toggle(event)" class="nav-link js-agentBtn" href="#" title="Voice assistant">
+            <i class="bi bi-mic"></i>
+          </a>
+        <?php endif; ?>
         <a class="nav-link" href="#" title="Info"
           data-bs-toggle = "modal"
           data-bs-target = "#tipsModal"
@@ -314,12 +327,13 @@ else:
 <script src="DropMenu.js?v=<?= time() ?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="ChartsController.js?v=<?= time() ?>"></script>
+<script src="VoiceAgentController.js?v=<?= time() ?>"></script>
 <!-- <script src="SettingsController.js?v=<?= time() ?>"></script> -->
 <script>
 
 // ajax.file = 'ajax.php'
 
-var dayEntries, mainCrl, widgetsCrl, chartsCrl, dropMenu
+var dayEntries, mainCrl, widgetsCrl, chartsCrl, dropMenu, voiceCrl
 
 ready( function() {
 
@@ -333,6 +347,8 @@ ready( function() {
   chartsCrl  = new ChartsController()
 
   dropMenu = new DropMenu()   // handles every .drop-menu on the page
+
+  voiceCrl = new VoiceAgentController()   // no-op while the mic button is disabled
 
   setupTabletErrorHandler()
 })
