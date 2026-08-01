@@ -269,7 +269,10 @@ Send it as the first frame in `ws.onopen`. Then the greeting prompt (port
     + 'where a food is or asks to be taken to it.',
   parameters: {
     type: 'OBJECT',
-    properties: { name: { type: 'STRING', description: 'The food name as the user said it' } },
+    properties: {
+      name: { type: 'STRING', description: 'The food name as the user said it' },
+      tab:  { type: 'STRING', description: 'Optional: pick one occurrence when the food sits on several tabs' }
+    },
     required: ['name']
   }
 }
@@ -291,6 +294,7 @@ Send it as the first frame in `ws.onopen`. Then the greeting prompt (port
 ```
 findFood:
   matches = mainCrl.findFoods( args.name )
+  if args.tab -> keep only records whose tabLabel matches it (case insensitive)
   0   -> { result: 'none' }
   1   -> mainCrl.jumpToFood( matches[0] )
          { result: 'jumped', food, tab, group }

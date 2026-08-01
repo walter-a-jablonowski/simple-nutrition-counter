@@ -36,6 +36,7 @@ class AppController extends ControllerBase
   use SaveFoodAjaxController;
   use MoveFoodAjaxController;
   use PublishFoodsAjaxController;
+  use GetAgentTokenAjaxController;
 
   const DAY_HEADERS     = ['time', 'type', 'food', 'calories', 'fat', 'carbs', 'amino', 'salt', 'price', 'nutrients'];
   const NUTRIENT_GROUPS = ['lipids/fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals', 'secondary', 'misc'];
