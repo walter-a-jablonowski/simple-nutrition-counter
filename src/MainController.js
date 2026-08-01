@@ -498,9 +498,45 @@ class MainController
   // food may appear on several grid tabs). Pure in-memory lookup over the already
   // rendered food grid - no server request. Search runs on Enter / the magnifier.
 
-  openSearch(event)
+  // term prefills the input and runs the search right away (used by the voice agent).
+  // Not named "query" - that would shadow the global query() helper in here
+  openSearch(event, term = '')
   {
+    // Prefill on shown, not before: the show handler clears input and results
+    if( term )
+      query('#searchModal').addEventListener('shown.bs.modal', () => {
+        query('#searchInput').value = term
+        this.runSearch()
+      }, { once: true })
+
     this.searchModal.show()
+  }
+
+  // Matching (food, tab) records from the rendered grid, one per occurrence, so each
+  // one jumps to a specific tab. Shared by the search dialog and the voice agent
+  findFoods(term)
+  {
+    const q = (term || '').trim().toLowerCase()
+
+    if( ! q )
+      return []
+
+    return this.#buildFoodIndex().filter( rec => rec.food.toLowerCase().includes(q))
+  }
+
+  // Activate the food's grid tab, scroll the row into view and flash it. The pane must
+  // be visible already, so callers that close a modal first have to wait for that
+  jumpToFood(rec)
+  {
+    if( ! rec )
+      return
+
+    if( rec.navLink )  rec.navLink.click()  // activate the food-grid tab
+
+    if( rec.itemEl ) {
+      rec.itemEl.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      this.#flashItem( rec.itemEl )
+    }
   }
 
   runSearch()
@@ -513,8 +549,7 @@ class MainController
       return
     }
 
-    // One record per (food, tab) occurrence, so each result jumps to a specific tab
-    const matches = this.#buildFoodIndex().filter( rec => rec.food.toLowerCase().includes(q))
+    const matches = this.findFoods(q)
 
     this.searchMatches = matches  // referenced by searchResultClick via data-idx
 
@@ -543,15 +578,9 @@ class MainController
       return
 
     // Jump only once the dialog is fully closed, so the target pane is visible
-    const jump = () => {
-      if( rec.navLink )  rec.navLink.click()  // activate the food-grid tab
-      if( rec.itemEl ) {
-        rec.itemEl.scrollIntoView({ behavior: 'smooth', block: 'center' })
-        this.#flashItem( rec.itemEl )
-      }
-    }
+    query('#searchModal').addEventListener('hidden.bs.modal',
+      () => setTimeout(() => this.jumpToFood(rec), 50), { once: true })
 
-    query('#searchModal').addEventListener('hidden.bs.modal', () => setTimeout( jump, 50), { once: true })
     this.searchModal.hide()
   }
 
