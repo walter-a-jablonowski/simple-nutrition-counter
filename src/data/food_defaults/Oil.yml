@@ -1,0 +1,109 @@
+
+# GLM only (some values might be missing here)
+
+# 2608 verified all values from source as far as active in /nutrients
+#      The food (Öl) does not state its state - only vendor, weight and
+#      pack values. Both entries are "Oil, canola" with no state distinction.
+#      SR Legacy 172336 chosen as primary: 31 non-zero values, incl. calories
+#      (884 kcal), vitamins E and K, and full fatty acid panel.
+#      Foundation 748278 is analytical but very sparse: only fat (NLEA),
+#      fatty acid breakdown, vitamin E and phytosterols - no calories,
+#      no proximates except fat, no minerals, no amino acids.
+#
+#      Oil has 0 protein in both entries, so amino acids at 0 is correct.
+#      Biotin, iodine, fluoride, chromium, molybdenum and sugar alcohol
+#      are not in either source; these stay 0.
+
+acceptable:
+comment:
+                              # kcal
+calories:          884        # Energy, no Atwater Specific/General in source
+
+nutritionalValues:            # g
+
+  fat:             100        # total lipid (fat)
+  saturatedFat:    7.365
+  monoUnsaturated: 63.276
+  polyUnsaturated: 28.142
+  carbs:           0          # by difference
+  sugar:           0          # total sugars
+  sugarAlcohol:    0          # not in source
+  fibre:           0
+  amino:           0          # is protein
+  salt:            0          # Sodium 0 mg -> g
+
+fattyAcids:                   # g, but EPA and DHA in mg
+
+  Alpha-linolenic acid: 9.137 # PUFA 18:3 n-3 c,c,c (ALA)
+  Eicosapentaenoic acid: 0    # PUFA 20:5 n-3 (EPA)
+  Docosahexaenoic acid: 0     # PUFA 22:6 n-3 (DHA)
+  Linoleic acid:        18.64 # PUFA 18:2 n-6 c,c
+
+carbs:                        # g
+
+  Fibre:           0
+
+aminoAcids:                   # mg
+                              # oil has 0 protein, all amino acids 0
+  Histidine:      0
+  Isoleucine:     0
+  Leucine:        0
+  Lysine:         0
+  Methionine:     0
+  Phenylalanine:  0
+  Threonine:      0
+  Tryptophan:     0
+  Valine:         0
+
+vitamins:                     # mg
+
+  Vitamin A:      0
+  Vitamin D:      0
+  Vitamin E:      17.46       # alpha-tocopherol
+  Vitamin K:      0.0713      # phylloquinone 71.3 µg -> mg
+  Vitamin C:      0
+  Thiamin B1:     0
+  Riboflavin B2:  0
+  Niacin B3:      0
+  Pantothenic acid B5: 0
+  Vitamin B6:     0
+  Biotin B7:      0           # not in source
+  Folate B9:      0
+  Vitamin B12:    0
+
+minerals:                     # default unit: mg except for Salt, Potassium and Calcium where grams need to be used
+
+  Salt:           0           # Sodium 0 mg -> g
+  Potassium:      0           # 0 mg -> g
+  Calcium:        0           # 0 mg -> g
+  Phosphorus:     0           # mg
+  Magnesium:      0
+  Iron:           0
+  Iodine:         0           # not in source
+  Fluoride:       0           # not in source
+  Zinc:           0
+  Selenium:       0
+  Copper:         0
+  Chromium:       0           # not in source
+  Manganese:      0
+  Molybdenum:     0           # not in source
+
+# secondary:
+
+misc:                         # ml or g
+
+  water:          0
+  alcohol:        0
+  caffeine:       0
+
+sources:
+
+  - title:   Default source = Oil, canola (SR Legacy)
+    comment: 31 non-zero values, incl. calories, vitamins E and K, full fatty acid panel
+    source:  https://fdc.nal.usda.gov/food-details/172336/nutrients
+
+  - title:   Alternative = Oil, canola (Foundation, unused)
+    comment: analytical but sparse, 28 non-zero values, no calories or minerals
+    source:  https://fdc.nal.usda.gov/food-details/748278/nutrients
+
+lastUpd: 2026-08-02
