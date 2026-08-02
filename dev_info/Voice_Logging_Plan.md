@@ -340,9 +340,12 @@ Public surface: `choose( spec, onPick )`, `info( spec )`, `hide()`. Internally a
 `#renderers` map keyed by type (`choice`, `info`, …); `show( type, spec )` picks one. Adding
 a type never touches the host markup or `VoiceAgentController`.
 
-Markup lives in `src/view/modal/agent_overlay.php` as a generic shell filled by js —
-exactly how `modal/info.php` and `modal/confirm.php` already work, so it is the pattern
-the project already uses rather than a new mechanism.
+It is a **separate component**, not a reuse of `modal/confirm.php` or `modal/info.php`:
+its own markup in `src/view/modal/agent_overlay.php`, its own controller, its own styles.
+Those two only serve as the house style to follow (a generic shell filled by js), because
+they are driven by fixed dialogs — a confirm has one message and two buttons — while this
+one has to swap its whole body per content type and stay open across a conversation.
+Bending either of them into that would make both worse.
 
 Mapping foods onto `items` is the *tool handler's* job (`VoiceAgentController`), which is
 what keeps the overlay reusable: the food vocabulary never leaks into it.
@@ -418,12 +421,6 @@ already works, so an unfinished session still leaves something usable.
 
 ## 11. Open points
 
-- **Recipes.** `recipes.yml` is merged into the grid by `CombinedModel`; a recipe logs like
-  any other item, so it needs no special handling — but it is untested and the vocabulary
-  line has no vendor for it.
-- **Nussmisch N / Nussmisch N old** are both on the grid, so "Nussmisch Norma" is genuinely
-  ambiguous and the agent will ask every time. A `voice:` field or dropping the old record
-  from the layout would settle it — the only such pair found (see section 2).
 - Later: read back today's totals, and "what's left of my protein target" — the natural
   next tools once writing works.
 
@@ -433,3 +430,12 @@ already works, so an unfinished session still leaves something usable.
   out of scope — the agent says so rather than logging it to today.
 - **Supplements**: logged by voice like foods (section 6).
 - **Undo**: its own tool, not a `logFoods` mode (section 6).
+- **Overlay**: a new component of its own, not a reuse of the existing dialogs (section 7).
+- **Recipes: deferred.** Nothing reads `recipes.yml` — `makeCombinedModel()`
+  (`CombinedModel.php:35, 103`) scans `foods/` and `supplements/` only. The
+  "foods and recipes are merged in one" comments in `LayoutView.php:9`,
+  `view/main/edit/layout/-this.php:129` and `entry.php:8` are stale and describe an
+  intention, not the code. The grid holds ingredients and supplements, both of which this
+  plan covers, so recipes are out of scope until the feature itself exists.
+- **`Nussmisch N old`**: the user removes it from `layout.yml`, which clears the only
+  genuinely ambiguous pair found in section 2. No food then needs a `voice:` field.
