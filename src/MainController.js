@@ -1167,41 +1167,177 @@ class MainController
     // if type === MiscBuyable
     // if type === Food
 
-    let target   = event.target.closest('.amount-btn')
-    let food     = target.dataset.food
-    let calories = target.dataset.calories
-    let price    = target.dataset.price
-
-    let nutritionalValues = JSON.parse(target.dataset.nutritionalvalues)
-
     // new version
     // console.log( queryData('.food-item ...', ['food']))
 
-    let entry = {
-      type:     target.dataset.category || 'F',  // use category from data attribute (F=Food, S=Supplement)
-      food:     food,  // TASK: rename
-      calories: calories,
-      fat:      nutritionalValues.fat,
-      carbs:    nutritionalValues.carbs,
-      amino:    nutritionalValues.amino,
-      salt:     nutritionalValues.salt,
-      price:    price,
-      xTimeLog: target.dataset.xTimeLog === 'true',
+    let target = event.target.closest('.amount-btn')
+
+    this.#addDayEntry( this.#entryFromButton( target, 1, {
+      label:  target.dataset.amountLabel,
+      weight: parseFloat( target.dataset.amountWeight) || 0
+    }))
+  }
+
+  /*@
+
+  #entryFromButton()
+
+  The day entry for one amount button, optionally scaled to a different amount. Shared by
+  the grid click (factor 1) and by the voice agent, which logs amounts no button has.
+
+  Scaling is a plain multiplication because the server side is linear: every button is
+  nutrient * weight/100 (models/LayoutView.php), so any other amount sits on the same
+  straight line. The rounding mirrors the server's - 1 decimal for the macros, 2 for the
+  price, 5 for the mg-scale groups - so factor 1 reproduces the button exactly.
+
+  ARGS:
+
+    btn:    the .amount-btn element to take the values from
+    factor: 1 for the button's own amount
+    amount: { label, weight } as shown in the day entries list
+
+  RETURN: object, the day entry
+
+  */
+  #entryFromButton( btn, factor, amount ) /*@*/
+  {
+    let nutritionalValues = JSON.parse(btn.dataset.nutritionalvalues)
+
+    const macro = value => Math.round( (parseFloat( value) || 0) * factor * 10) / 10
+
+    const micro = json => Object.fromEntries(
+      Object.entries( JSON.parse( json)).map(([ name, value]) =>
+        [name, Math.round( (parseFloat( value) || 0) * factor * 1e5) / 1e5])
+    )
+
+    return {
+      type:     btn.dataset.category || 'F',  // use category from data attribute (F=Food, S=Supplement)
+      food:     btn.dataset.food,  // TASK: rename
+      calories: macro( btn.dataset.calories),
+      fat:      macro( nutritionalValues.fat),
+      carbs:    macro( nutritionalValues.carbs),
+      amino:    macro( nutritionalValues.amino),
+      salt:     macro( nutritionalValues.salt),
+      price:    Math.round( (parseFloat( btn.dataset.price) || 0) * factor * 100) / 100,
+      xTimeLog: btn.dataset.xTimeLog === 'true',
       nutrients: {
         // amount kept first in the json portion: label is shown in the day entries,
         // weight (grams) is the calculated amount kept for later use
-        amount: { label: target.dataset.amountLabel, weight: parseFloat( target.dataset.amountWeight) || 0 },
-        fibre: JSON.parse( nutritionalValues.fibre || 0 ),  // TASK: or only add when set (see updSummary() for sum only if available)
-        fat:   JSON.parse( target.dataset.fattyacids ),
-        amino: JSON.parse( target.dataset.aminoacids ),
-        vit:   JSON.parse( target.dataset.vitamins ),
-        min:   JSON.parse( target.dataset.minerals ),
-        sec:   JSON.parse( target.dataset.secondary ),
-        misc:  JSON.parse( target.dataset.misc )
+        amount: amount,
+        fibre: macro( nutritionalValues.fibre || 0 ),  // TASK: or only add when set (see updSummary() for sum only if available)
+        fat:   micro( btn.dataset.fattyacids ),
+        amino: micro( btn.dataset.aminoacids ),
+        vit:   micro( btn.dataset.vitamins ),
+        min:   micro( btn.dataset.minerals ),
+        sec:   micro( btn.dataset.secondary ),
+        misc:  micro( btn.dataset.misc )
       }
     }
+  }
+
+  /*@
+
+  logFoodAmount()
+
+  Log a spoken amount of a grid food - the voice equivalent of tapping an amount button.
+  The amount does not have to be one the grid offers: "200g" is logged as a single precise
+  entry, not as two taps of the 100g button. See dev_info/Voice_Logging_Plan.md.
+
+  ARGS:
+
+    foodName: the exact grid name
+    value:    the number that was said, may be missing
+    unit:     'g' | 'ml' | 'piece' | 'pack' | 'x', may be missing
+
+  RETURN: object, the result for the agent to read back
+
+  */
+  logFoodAmount( foodName, value = null, unit = null ) /*@*/
+  {
+    const matches = this.findFoods( foodName )
+
+    if( ! matches.length )
+      return { result: 'none' }
+
+    // findFoods is a substring search, so "Gemüse R" also finds "Gemüse R Bio". An exact
+    // name wins; without one the name is ambiguous and must not be logged on a guess
+
+    const wanted = (foodName || '').trim().toLowerCase()
+    const exact  = matches.filter( rec => rec.food.toLowerCase() === wanted )
+
+    if( ! exact.length && matches.length > 1 )
+      return { result: 'multiple', matches: matches.map( rec => ({ food: rec.food, tab: rec.tabLabel })) }
+
+    const rec = (exact.length ? exact : matches)[0]  // the same food on two tabs is one food
+
+    const buttons = Array.from( rec.itemEl.querySelectorAll('.amount-btn'))
+                         .map( btn => ({ btn, weight: parseFloat( btn.dataset.amountWeight) || 0 }))
+                         .filter( button => button.weight > 0 )
+
+    if( ! buttons.length )
+      return { result: 'error', message: `${rec.food} has no amount that could be logged` }
+
+    // What was said, in grams (ml counts as the same number, see data-food-unit)
+
+    const said        = parseFloat( value )
+    const pieceWeight = rec.pieces ? rec.packWeight / rec.pieces : buttons[0].weight
+
+    let weight
+
+    if( ! (said > 0) )
+      weight = buttons[0].weight       // no amount said, take the food's typical one
+    else if( unit === 'piece' )
+      weight = said * pieceWeight
+    else if( unit === 'pack' )
+      weight = said * rec.packWeight
+    else if( unit === 'x' )
+      weight = said * buttons[0].weight
+    else
+      weight = said                    // g, ml, or nothing given - grams is the common case
+
+    if( ! (weight > 0) )
+      return { result: 'error', message: `Could not work out that amount of ${rec.food}` }
+
+    // Scale from the button closest to the target so the factor stays near 1: the button
+    // values are already rounded, and a big factor would multiply that rounding up. The
+    // log makes "closest" symmetric, so half a button is as near as twice one
+
+    const ref    = buttons.reduce(( best, button) =>
+      Math.abs( Math.log( weight / button.weight)) < Math.abs( Math.log( weight / best.weight)) ? button : best )
+    const factor = weight / ref.weight
+
+    if( factor > 20 )
+      return { result: 'error', message: `${weight}${rec.unit} of ${rec.food} seems far too much, please check` }
+
+    // Label for the day entries list, in the terms the amount was given in
+
+    const fractions = { '0.13': '1/8', '0.25': '1/4', '0.33': '1/3', '0.5': '1/2', '0.67': '2/3', '0.75': '3/4' }
+
+    let label
+
+    if( unit === 'piece' )
+      label = `${said} pc`
+    else if( unit === 'pack' )
+      label = fractions[ String( Math.round( said * 100) / 100)] ?? `${said} pack`
+    else if( unit === 'x' )
+      label = `${said}x ${ref.btn.dataset.amountLabel}`
+    else
+      label = `${Math.round( weight * 10) / 10}${rec.unit}`
+
+    const entry = this.#entryFromButton( ref.btn, factor,
+                                         { label: label, weight: Math.round( weight * 10) / 10 })
 
     this.#addDayEntry( entry )
+    this.#flashItem( rec.itemEl )
+
+    return {
+      result:   'logged',
+      food:     rec.food,
+      label:    label,
+      weight:   entry.nutrients.amount.weight,
+      unit:     rec.unit,
+      calories: entry.calories
+    }
   }
 
 

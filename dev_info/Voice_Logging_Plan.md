@@ -413,7 +413,10 @@ Manual (needs the user):
 1. `entry.php` attributes + `#buildFoodIndex()` fields + `foodVocabulary()` — **done**,
    231 foods, verified against the rendered grid.
 2. Live model check on identification — **done**, results below.
-3. `#entryFromButton()` extraction + regression check, then `logFoodAmount()`.
+3. `#entryFromButton()` extraction + regression check, then `logFoodAmount()` — **done**.
+   The extraction is byte-equal on all 646 grid buttons at factor 1, and the closest-button
+   rule is measurable: 200g of `Gemüse R Bio` scaled from the 100g button gives 86 kcal,
+   from the 25g button it would give 86.4 - the rounding drift the rule exists to avoid.
 4. `logFoods` tool + prompt rules — usable end to end at this point, ambiguity by voice only.
 5. `AgentOverlayController` + `agent_overlay.php` + the tap-as-user-turn feedback.
 6. `undoLastLog`.
