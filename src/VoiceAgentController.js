@@ -197,7 +197,9 @@ class VoiceAgentController
             voiceConfig: { prebuiltVoiceConfig: { voiceName: this.session.voice }}
           }
         },
-        systemInstruction: { parts: [{ text: this.session.systemInstruction }]},
+        systemInstruction: { parts: [{ text: this.session.systemInstruction
+                                           + '\n\n## The food list\n\n'
+                                           + mainCrl.foodVocabulary() + '\n' }]},
         tools: [{ functionDeclarations: this.toolDeclarations() }]
       }
     }
@@ -332,6 +334,30 @@ class VoiceAgentController
           },
           required: ['query']
         }
+      },
+      {
+        name: 'logFoods',
+        description: 'Log one or more foods the user ate or is cooking with into today\'s entries. '
+                   + 'Use the exact food name from the food list in your instructions.',
+        parameters: {
+          type: 'OBJECT',
+          properties: {
+            items: {
+              type: 'ARRAY',
+              description: 'One entry per ingredient the user named',
+              items: {
+                type: 'OBJECT',
+                properties: {
+                  food:  { type: 'STRING', description: 'Exact food name from the food list' },
+                  value: { type: 'NUMBER', description: 'Amount, e.g. 200 for "200g", 0.5 for "half a can"' },
+                  unit:  { type: 'STRING', description: 'g | ml | piece | pack | x' }
+                },
+                required: ['food']
+              }
+            }
+          },
+          required: ['items']
+        }
       }
     ]
   }
@@ -353,6 +379,8 @@ class VoiceAgentController
         response = this.findFood( args )
       else if( call.name === 'openFoodSearch' )
         response = this.openFoodSearch( args )
+      else if( call.name === 'logFoods' )
+        response = this.logFoods( args )
       else
         response = { result: 'error', message: `Unknown tool ${call.name}` }
 
@@ -395,6 +423,30 @@ class VoiceAgentController
     mainCrl.openSearch( null, args.query || '')
 
     return { result: 'opened' }
+  }
+
+  // The whole spoken list arrives in one call, so one bad item can be reported back
+  // without holding up the ones that were understood. Each result echoes the name that
+  // was asked for, so the model can tell which ingredient it belongs to
+
+  logFoods( args )
+  {
+    const items = Array.isArray( args.items) ? args.items : []
+
+    if( ! items.length )
+      return { result: 'error', message: 'No food was named' }
+
+    const results = items.map( item => ({
+      said: item.food,
+      ...mainCrl.logFoodAmount( item.food, item.value, item.unit)
+    }))
+
+    const logged = results.filter( item => item.result === 'logged')
+
+    return {
+      result: logged.length === results.length ? 'ok' : 'partial',
+      items:  results
+    }
   }
 
   // Microphone

@@ -417,7 +417,7 @@ Manual (needs the user):
    The extraction is byte-equal on all 646 grid buttons at factor 1, and the closest-button
    rule is measurable: 200g of `Gemüse R Bio` scaled from the 100g button gives 86 kcal,
    from the 25g button it would give 86.4 - the rounding drift the rule exists to avoid.
-4. `logFoods` tool + prompt rules — usable end to end at this point, ambiguity by voice only.
+4. `logFoods` tool + prompt rules — **done**, usable end to end, ambiguity by voice only.
 5. `AgentOverlayController` + `agent_overlay.php` + the tap-as-user-turn feedback.
 6. `undoLastLog`.
 
@@ -479,10 +479,37 @@ one ingredient that actually needed a question.
   genuinely ambiguous pair found in section 2. No food then needs a `voice:` field.
 
 
-## Appendix — the logging rules, as verified in step 2
+## Appendix — what the logging rules have to keep
 
-Kept here because the wording is what makes the difference (section 10), and a rewrite from
-memory would lose it. Goes into `src/data/agent/prompt.md` in step 4, ahead of the food list.
+The rules now live in `src/data/agent/prompt.md` (step 4), so that file is the source of
+truth and the draft that used to sit here has been removed rather than left to drift.
+
+Three properties are load-bearing. Each was measured, and each one broke something when it
+was missing — do not "tidy" them away:
+
+1. **The worked Knoblauch example.** The same rule stated plainly was ignored in 3 of 3
+   runs; with the example it held in 6 of 6.
+2. **Ambiguity framed as a filter, not a name lookup** ("keep every food matching all the
+   words the user said, then count"). Written instead as a caution ("an exact name does not
+   end the check") the model swung the other way and withheld foods that *were*
+   unambiguous — `Gemüse R Bio` was dropped in 1 of 3 runs. The filter version needs both
+   a positive and a negative example next to each other to stay stable.
+3. **The amount as a tie-breaker** ("1/2 Dose Linsen can only be `Linsen R Bio`"). Without
+   it, `Linsen` was withheld on some runs and logged on others — the same input giving a
+   different result, which is worse for the user than either answer.
+
+Final measured behaviour with the shipped file:
+
+| Input | Result |
+|---|---|
+| the four-ingredient sentence | logs Gemüse, Linsen, Olivenöl; withholds Knoblauch — 3 of 3 |
+| "50g Gemüse Rewe" | asks "Gemüse bio oder normal?" |
+| "ein Stück Knoblauch" | asks "Knoblauch bio oder normal?" |
+| "100g Brokkoli Rewe" | logs `Brokkoli R` |
+| "eine Creatine" | logs the supplement |
+
+The prompt is the only guard for this class of error (section 10), so any edit to it should
+be re-run against that table.
 
 ```markdown
 ## Logging foods
