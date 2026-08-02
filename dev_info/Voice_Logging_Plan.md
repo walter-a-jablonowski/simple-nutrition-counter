@@ -353,6 +353,11 @@ what keeps the overlay reusable: the food vocabulary never leaks into it.
 
 ## 8. `src/data/agent/prompt.md` additions
 
+**These rules are load-bearing, not documentation.** Step 2 measured it (see section 10):
+with a plainly worded ambiguity rule the model ignored it and silently guessed in 3 of 3
+runs; with the same rule spelled out as a step with a worked example it behaved correctly
+in 6 of 6. The verified wording is in the appendix — start from it rather than rewriting.
+
 - The food list (appended at session start, see section 5).
 - The name rule: only ever pass a name **from that list**, never invent or translate one.
   If unsure between two, ask before logging — logging writes to the user's day.
@@ -405,11 +410,9 @@ Manual (needs the user):
 
 ## 10. Order of work
 
-1. `entry.php` attributes + `#buildFoodIndex()` fields + `foodVocabulary()` — inspectable in
-   the console, nothing else depends on it yet.
-2. Live model check on identification (section 9) using the vocabulary from step 1. **Do this
-   before step 3** — if the vendor expansion does not carry, the `voice:` field moves from
-   escape hatch to requirement, and that changes step 3's data work.
+1. `entry.php` attributes + `#buildFoodIndex()` fields + `foodVocabulary()` — **done**,
+   231 foods, verified against the rendered grid.
+2. Live model check on identification — **done**, results below.
 3. `#entryFromButton()` extraction + regression check, then `logFoodAmount()`.
 4. `logFoods` tool + prompt rules — usable end to end at this point, ambiguity by voice only.
 5. `AgentOverlayController` + `agent_overlay.php` + the tap-as-user-turn feedback.
@@ -417,6 +420,38 @@ Manual (needs the user):
 
 Steps 5 and 6 are deliberately last: both are repair/extra channels on top of a flow that
 already works, so an unfinished session still leaves something usable.
+
+### Step 2 results (measured against the live model, 2026-08-02)
+
+Real vocabulary (231 foods, 14.9 KB) + the `logFoods` declaration, sentences sent as text.
+
+**Identification carries.** "200g Gemüse Rewe Bio" → `Gemüse R Bio`, "60ml Olivenöl" →
+`Olivenöl`, "1/2 Dose Linsen" → `Linsen R Bio` with `0.5 pack`. The vendor expansion does
+what section 2 predicted, so **no `voice:` field is needed** and no food needs renaming.
+
+Nice surprise: the *amount* disambiguates too. "1/2 Dose Linsen" could be `Linsen R Bio` or
+`Linsen vegan`, but only the former has a `1/2` amount — the model used that and picked
+right.
+
+**The ambiguity rule is where it breaks, and it is a prompt problem.**
+
+| Rule wording | "ein Stück Knoblauch" (two garlics exist) |
+|---|---|
+| plain ("if two could be meant, ask") | logged `Knoblauch R Bio` silently, 3 of 3 runs |
+| spelled out as a step + worked example | asked "Knoblauch bio oder normal?", 6 of 6 runs |
+
+This matters more than it looks: `Knoblauch R` is 10 g a piece and `Knoblauch R Bio` is
+16 g, so a silent guess is wrong by 60%.
+
+**The tool cannot catch this class of error.** By the time `logFoods` receives a name, the
+guess has already happened — the name is exact and matches exactly one grid food, so
+`logFoodAmount()` has nothing to detect. The guard has to be the prompt, backed by the
+read-back and `undoLastLog` as the repair. Worth remembering if the behaviour ever
+regresses: the fix is in `prompt.md`, not in the tool.
+
+With the hardened rules the four-ingredient sentence logged the three unambiguous items and
+withheld the garlic — which is exactly the wanted behaviour, and keeps the friction to the
+one ingredient that actually needed a question.
 
 
 ## 11. Open points
@@ -439,3 +474,57 @@ already works, so an unfinished session still leaves something usable.
   plan covers, so recipes are out of scope until the feature itself exists.
 - **`Nussmisch N old`**: the user removes it from `layout.yml`, which clears the only
   genuinely ambiguous pair found in section 2. No food then needs a `voice:` field.
+
+
+## Appendix — the logging rules, as verified in step 2
+
+Kept here because the wording is what makes the difference (section 10), and a rewrite from
+memory would lose it. Goes into `src/data/agent/prompt.md` in step 4, ahead of the food list.
+
+```markdown
+## Logging foods
+
+The user logs what they eat or cook with by speaking, often as a bare list of amounts and
+foods with no other words. Use the logFoods tool, one item per ingredient named.
+
+Names: pass the food name EXACTLY as it appears in the food list below, never a name you
+made up or translated. The list is the only thing that exists.
+The name is the key. The bracket after it holds the vendor and the vendor's own product
+name; use those to recognise which food is meant, but never match on the bracket alone.
+
+### The check you must not skip
+
+Before you put an ingredient into logFoods, scan the food list for OTHER foods whose name
+starts with the same word.
+
+Worked example. The user says "ein Stück Knoblauch". The list holds
+  Knoblauch R      (Rewe)  amounts: 1  pack: 80g, 8 pieces
+  Knoblauch R Bio  (Rewe)  amounts: 1  pack: 80g, 5 pieces
+Both fit "Knoblauch", the user said nothing that separates them, and their pieces differ
+(10g against 16g), so logging the wrong one is wrong by half. The ONLY correct move is to
+ask "Knoblauch bio oder normal?" and log nothing for it.
+
+- Exactly one food fits everything the user said -> log it.
+- More than one fits -> you MUST NOT call logFoods for that ingredient, and you MUST NOT
+  pick the likelier one. Ask a short question naming only what separates them.
+- Log the unambiguous ingredients of the sentence in the same call, then ask about the rest.
+
+Never assume "bio". Never assume a vendor the user did not say.
+
+### Amounts
+
+Normalise what was said into value + unit.
+  "200 Gramm" / "200g"      -> value 200, unit g
+  "60ml"                    -> value 60,  unit ml
+  "eine halbe Dose"/"1/2"   -> value 0.5, unit pack
+  "ein Stück", "eine Zehe"  -> value 1,   unit piece
+  "zwei Portionen"          -> value 2,   unit x
+Always fill value and unit when any amount was spoken, including a bare "ein"/"eine"
+("ein Stück Knoblauch" is value 1, unit piece). Leave them out only when the user named
+no amount at all.
+
+After logging, confirm briefly using what the tool returned, not what you heard.
+```
+
+The worked example is the load-bearing part: the plain version of the same rule was ignored
+every time.
