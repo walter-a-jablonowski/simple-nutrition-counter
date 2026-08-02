@@ -40,8 +40,28 @@ $showWarning  = ( ! empty($interactions) && trim($interactions) !== '')
 
 // $xTimeLog = true === $this->combinedModel->get("$entryName.xTimeLog");
 
+// Food facts for the voice agent (see dev_info/Voice_Logging_Plan.md). The amount buttons
+// below carry only their own scaled values, so the pack data needed to turn "half a can"
+// into grams, and the names needed to recognise the food when spoken, live on the row.
+// Empty ones are left out, they would only bloat the grid.
+
+$voiceData = [
+  'vendor'       => $this->combinedModel->get("$entryName.vendor"),
+  'product-name' => $this->combinedModel->get("$entryName.productName"),
+  'voice'        => $this->combinedModel->get("$entryName.voice"),  // optional spoken alias
+  'food-weight'  => $weight ?: null,                                // pack weight, unit stripped
+  'food-pieces'  => $this->combinedModel->get("$entryName.pieces"),
+  'food-unit'    => stripos( (string) $this->combinedModel->get("$entryName.weight"), 'ml') !== false ? 'ml' : 'g'
+];
+
+$voiceAttribs = '';
+
+foreach( $voiceData as $key => $value )
+  if( $value !== null && trim( (string) $value) !== '')
+    $voiceAttribs .= " data-$key=\"" . htmlspecialchars( (string) $value, ENT_QUOTES) . '"';
+
 ?>
-<div class="layout-item row <?= $accepClass ?>">  <!-- pe-0 is for bg color, TASK: alternative: highlight name only -->
+<div class="layout-item row <?= $accepClass ?>"<?= $voiceAttribs ?>>  <!-- pe-0 is for bg color, TASK: alternative: highlight name only -->
   <div class = "col-5 ps-1 pe-0"
        data-bs-toggle = "modal"
        data-bs-target = "#infoModal"

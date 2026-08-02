@@ -611,16 +611,87 @@ class MainController
       const header    = item.closest('[class*="col-md-6"]')?.querySelector('.group-header div')
       const groupName = header ? header.textContent.trim() : ''
 
+      // Food facts for the voice agent, put on the row by layout/entry.php
+
+      const d = item.dataset
+
       index.push({
         food:     name,
         itemEl:   item,
         navLink:  tab ? tab.link  : null,
         tabLabel: tab ? tab.label : '',
-        groupName
+        groupName,
+        category:    btn ? btn.dataset.category : '',   // F food, S supplement, M misc
+        vendor:      d.vendor      || '',
+        productName: d.productName || '',
+        voice:       d.voice       || '',               // optional spoken alias
+        packWeight:  parseFloat( d.foodWeight) || 0,
+        pieces:      parseFloat( d.foodPieces) || 0,
+        unit:        d.foodUnit    || 'g',
+        amounts:     Array.from( item.querySelectorAll('.amount-btn')).map( b => b.dataset.amountLabel)
       })
     })
 
     return index
+  }
+
+  /*@
+
+  foodVocabulary()
+
+  The spoken vocabulary of the food grid, one line per food, for the voice agent's system
+  instruction. The grid is the source on purpose: retired records that are no longer in
+  layout.yml can then never be logged.
+
+  The name is what the user says most of the time, the vendor expands the single letter in
+  it ("Gemüse R Bio" is Rewe), productName is the vendor's own wording and only corroborates.
+  See dev_info/Voice_Logging_Plan.md.
+
+  RETURN: string, one food per line
+
+  */
+  foodVocabulary() /*@*/
+  {
+    const seen  = new Set()
+    const lines = []
+
+    this.#buildFoodIndex().forEach( rec => {
+
+      if( seen.has( rec.food))   // the same food on two tabs is one vocabulary entry
+        return
+
+      seen.add( rec.food)
+
+      // Everything that helps recognise the food, in brackets after the name.
+      // Some food files carry a placeholder instead of a vendor ("none", "multiple") -
+      // passing those on would offer the model a shop that doesn't exist
+
+      const vendor = ['none', 'multiple'].includes( rec.vendor.toLowerCase()) ? '' : rec.vendor
+      const about  = [vendor, rec.productName, rec.voice].filter( Boolean).join(', ')
+
+      let line = rec.food
+
+      if( about )
+        line += `  (${about})`
+
+      if( rec.category === 'S' )
+        line += '  [supplement]'
+
+      if( rec.amounts.length )
+        line += `  amounts: ${rec.amounts.join(' | ')}`
+
+      // Only needed for foods sold by pack or piece, where "half a can" needs a base
+
+      if( rec.packWeight )
+        line += `  pack: ${rec.packWeight}${rec.unit}`
+
+      if( rec.pieces )
+        line += `, ${rec.pieces} pieces`
+
+      lines.push( line)
+    })
+
+    return lines.join('\n')
   }
 
   // Briefly outline a grid row so the user can spot it after a jump
