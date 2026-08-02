@@ -1,32 +1,30 @@
-
-state:             unavailable
 type:              Mixed_vegetables
-comment:           "maybe was replaced by 600g"
-
 vendor:            Rewe
-url:               "https://shop.rewe.de/p/rewe-bio-gemuesepfanne-mediterrane-art-450g/7321580"
 certificates:      { bio: true, vegan: true, NutriScore: A }
-ingredients:       "Gemüsemischung 91% (Zucchini* 25%, Broccoli* 20%, Karotten* 15%, gelbe Karotten* 13%, Cherrytomaten* 12%, Zwiebeln*), Kräuter (Basilikum*, Oregano*), BUTTER*, Meersalz, Sonnenblumenöl*, Stärke*, Honig*, Gewürze*, Olivenöl*"
+ingredients:       "Zucchini* 25%, Broccoli* 20%, Karotten* 15%, gelbe Karotten* 13%, Cherry-Tomaten* 13%, Zwiebeln*, Wasser, Sonnenblumenöl*, natives Olivenöl extra*, Kräuter (Basilikum*, Oregano*), Meersalz, Roh-Rohrzucker*, Reismehl*, Knoblauchpulver*, Gewürze*, Pastinakenpulver*"
+mayContain:        "Weizen, Gerste, Soja, Milch und Sellerie"
 packaging:         plastic
 
 price:             2.49
-weight:            450
+weight:            600
 usedAmounts:       ["25g", "50g", "100g"]
 
-calories:          42
+calories:          43
 nutritionalValues:
 
-  fat:             2.1
-  saturatedFat:    0.8
-  carbs:           3.5
+  fat:             2.3
+  saturatedFat:    0.4
+  carbs:           3.3
   sugar:           2.9
+  fibre:           1.9
   amino:           1.4
-  salt:            0.98
+  salt:            0.71
 
-sources:           { nutriVal: "web (information on packaging may differ slightly)", price: "web" }
-lastUpd:           2024-05-17
-lastPriceUpd:      2025-10-09
+sources:           { nutriVal: "pack" }
+lastUpd:           2024-11-11
+lastPriceUpd:      2025-09-19
 
 prices:
 
-  2024-05-17: 1.99
+  2025-03-11: 2.49
+  2024-11-11: 2.49
