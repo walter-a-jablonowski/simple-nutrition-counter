@@ -48,3 +48,51 @@
     animation: none;
   }
 }
+
+
+/* ======================================
+   Agent overlay
+
+   Rows the agent puts on screen while it asks about them out loud. Big touch targets:
+   this is used mid-cooking, one-handed. See AgentOverlayController
+   ====================================== */
+
+.agent-choice
+{
+  display:       flex;
+  flex-direction: column;
+  align-items:   flex-start;
+  width:         100%;
+  padding:       .6rem .75rem;
+  margin-bottom: .4rem;
+  text-align:    left;
+  background:    #fff;
+  border:        1px solid #dee2e6;
+  border-radius: .375rem;
+  transition:    border-color .15s ease, background-color .15s ease;
+}
+
+.agent-choice:last-child
+{
+  margin-bottom: 0;
+}
+
+.agent-choice:hover,
+.agent-choice:focus
+{
+  background:   #fffdf5;
+  border-color: #ffc107;   /* gold, same accent as the mic button */
+  outline:      none;
+}
+
+.agent-choice-title
+{
+  font-weight: 500;
+}
+
+.agent-choice-sub
+{
+  margin-top: .1rem;
+  font-size:  .8rem;
+  color:      #6c757d;
+}

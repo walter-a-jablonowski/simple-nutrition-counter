@@ -286,9 +286,13 @@ So the overlay is an *aid*, never the only channel:
 
 | Candidates | Behaviour |
 |---|---|
-| 2 | **Speak only.** "Bio oder normal?" is faster than any screen and needs no hands |
-| 3-5 | Speak a short question **and** show the overlay in parallel |
-| 6+ | Do not read them all out: one sentence ("neun Frosta-Gerichte, ich zeig sie dir") + overlay |
+| up to 3 | **Speak only.** "Bio oder normal?" is faster than any screen and needs no hands |
+| 4 or more | Do not read them all out: one sentence ("neun Frosta-Gerichte, ich zeig sie dir") + overlay |
+
+(The plan first had three bands, 2 / 3-5 / 6+. Measured in step 6, the model ignored the
+middle one and simply asked - and its spoken question for three options was good enough that
+the overlay would only have added noise. Two bands are also followed more reliably than
+three, so the middle band was dropped rather than forced.)
 
 Both channels stay live whenever the overlay is up: the user can answer by voice *or* tap.
 Whichever comes first resolves it and the overlay closes.
@@ -419,7 +423,30 @@ Manual (needs the user):
    from the 25g button it would give 86.4 - the rounding drift the rule exists to avoid.
 4. `logFoods` tool + prompt rules — **done**, usable end to end, ambiguity by voice only.
 5. `undoLastLog` — **done**.
-6. `AgentOverlayController` + `agent_overlay.php` + the tap-as-user-turn feedback.
+6. `AgentOverlayController` + `agent_overlay.php` + the tap-as-user-turn feedback — **done**.
+
+### Step 6 result
+
+The overlay needed a **tool of its own**, `showChoices`, which the plan had not foreseen.
+Section 7 assumed the overlay would open off a `multiple` tool result, but after step 4 the
+model asks *before* it calls anything, so a `multiple` result almost never happens and the
+app would never learn there was a question to show. An explicit tool is also what makes the
+overlay generally usable, which is what it was asked for.
+
+Measured with the shipped prompt:
+
+| Input | Result |
+|---|---|
+| "ein Stück Knoblauch" (2 candidates) | asks by voice, no overlay |
+| "50g Gemüse Aldi" (3 candidates) | asks by voice, no overlay |
+| "100g Frosta" (9-10 candidates) | `showChoices` with all of them + "neun Frosta-Gerichte, ich zeig sie dir" — 2 of 2 |
+| tap, fed back as a user turn | logs the tapped food |
+
+One thing had to be fixed: `openFoodSearch` and `showChoices` compete, and the model reached
+for the search overlay to resolve its own question. The prompt now separates them by
+purpose - `showChoices` when *the agent* needs an answer to carry on, `openFoodSearch` when
+*the user* wants to browse. The search overlay leaves the user on their own, so it is the
+wrong tool for a pending question.
 
 **Undo was moved ahead of the overlay** (the plan originally had it the other way). Step 2
 showed the prompt is the only guard against a wrong log, so wrong entries will happen; until
@@ -480,6 +507,12 @@ one ingredient that actually needed a question.
 
 ## 11. Open points
 
+- **Spoken questions can drop a candidate.** Asked about three Aldi vegetables the agent
+  named two of them ("das frische Pfannengemüse oder die Gemüsepfanne Sommergenuss?") and
+  left the third unsaid. Harmless when the user means one of the two, but it could push
+  them towards an answer that was never the whole question. Lowering the overlay threshold
+  to three would cover it - at the cost of a screen for a question that is otherwise easy
+  to answer hands-free. Left as it is until it actually annoys someone.
 - Later: read back today's totals, and "what's left of my protein target" — the natural
   next tools once writing works.
 

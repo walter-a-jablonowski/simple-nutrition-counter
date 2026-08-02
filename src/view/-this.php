@@ -290,6 +290,9 @@ else:
   <?php require( __DIR__ . '/modal/info.php'); ?>
   <?php require( __DIR__ . '/modal/confirm.php'); ?>
   <?php require( __DIR__ . '/modal/search.php'); ?>
+  <?php if( config::get('agent.enabled') ): ?>
+    <?php require( __DIR__ . '/modal/agent_overlay.php'); ?>
+  <?php endif; ?>
   <?php if( config::get('devMode') ): ?>
     <?php require( __DIR__ . '/modal/publish_foods.php'); ?>
   <?php endif; ?>
@@ -327,13 +330,14 @@ else:
 <script src="DropMenu.js?v=<?= time() ?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="ChartsController.js?v=<?= time() ?>"></script>
+<script src="AgentOverlayController.js?v=<?= time() ?>"></script>
 <script src="VoiceAgentController.js?v=<?= time() ?>"></script>
 <!-- <script src="SettingsController.js?v=<?= time() ?>"></script> -->
 <script>
 
 // ajax.file = 'ajax.php'
 
-var dayEntries, mainCrl, widgetsCrl, chartsCrl, dropMenu, voiceCrl
+var dayEntries, mainCrl, widgetsCrl, chartsCrl, dropMenu, voiceCrl, agentOverlay
 
 ready( function() {
 
@@ -347,6 +351,10 @@ ready( function() {
   chartsCrl  = new ChartsController()
 
   dropMenu = new DropMenu()   // handles every .drop-menu on the page
+
+  <?php if( config::get('agent.enabled') ): ?>
+    agentOverlay = new AgentOverlayController()   // needs its markup, so it is gated too
+  <?php endif; ?>
 
   voiceCrl = new VoiceAgentController()   // no-op while the mic button is disabled
 

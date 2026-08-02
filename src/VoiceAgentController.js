@@ -88,7 +88,7 @@ class VoiceAgentController
 
       await this.connect()
 
-      this.sendGreeting()
+      this.sendUserTurn('Greet me in one short sentence and ask how you can help.')
       this.startCapture()
 
       this.setState('listening')
@@ -118,6 +118,9 @@ class VoiceAgentController
       this.mediaStream.getTracks().forEach( track => track.stop())
       this.mediaStream = null
     }
+
+    if( agentOverlay )   // a question on screen has nobody left to answer it
+      agentOverlay.hide()
 
     this.activeSources.forEach( source => { try { source.stop() } catch(e) {} })
     this.activeSources.clear()
@@ -205,11 +208,18 @@ class VoiceAgentController
     }
   }
 
-  sendGreeting()
+  // Text put into the conversation as if the user had said it. Used to open the session,
+  // and for a tap on the overlay - a tap has to reach the model the same way an answer
+  // does, so the model stays the only thing that acts and the transcript still adds up
+
+  sendUserTurn( text )
   {
+    if( ! this.ws || this.ws.readyState !== WebSocket.OPEN )
+      return
+
     this.ws.send( JSON.stringify({
       clientContent: {
-        turns: [{ role: 'user', parts: [{ text: 'Greet me in one short sentence and ask how you can help.' }]}],
+        turns: [{ role: 'user', parts: [{ text: text }]}],
         turnComplete: true
       }
     }))
@@ -360,6 +370,23 @@ class VoiceAgentController
         }
       },
       {
+        name: 'showChoices',
+        description: 'Put a list of foods on the screen while you ask which one is meant, so the '
+                   + 'user can tap instead of listening to a long list. Ask out loud as well.',
+        parameters: {
+          type: 'OBJECT',
+          properties: {
+            title: { type: 'STRING', description: 'The question, e.g. "Welches Gemüse?"' },
+            foods: {
+              type: 'ARRAY',
+              description: 'The exact food names to offer',
+              items: { type: 'STRING' }
+            }
+          },
+          required: ['foods']
+        }
+      },
+      {
         name: 'undoLastLog',
         description: 'Take back the entries the last logFoods call added. Use it when the user '
                    + 'says the last logging was wrong, for example a misheard amount.',
@@ -379,6 +406,11 @@ class VoiceAgentController
 
       const args = call.args || {}
 
+      // Any other call means the question was answered, by voice or by tapping
+
+      if( call.name !== 'showChoices' && agentOverlay )
+        agentOverlay.hide()
+
       let response
 
       if( call.name === 'findFood' )
@@ -387,6 +419,8 @@ class VoiceAgentController
         response = this.openFoodSearch( args )
       else if( call.name === 'logFoods' )
         response = this.logFoods( args )
+      else if( call.name === 'showChoices' )
+        response = this.showChoices( args )
       else if( call.name === 'undoLastLog' )
         response = mainCrl.undoLastLog()
       else
@@ -451,6 +485,39 @@ class VoiceAgentController
       result: logged.length === results.length ? 'ok' : 'partial',
       items:  results
     }
+  }
+
+  // The agent puts the options on screen while it asks about them out loud. This answers
+  // at once: a toolCall keeps the model silent until it is answered, so waiting here for a
+  // tap would freeze the conversation, and a user who never taps would hang it. The tap
+  // arrives later as an ordinary user turn instead
+
+  showChoices( args )
+  {
+    const names = Array.isArray( args.foods) ? args.foods : []
+
+    if( ! names.length )
+      return { result: 'error', message: 'No options were given' }
+
+    // Only names come from the model; vendor and amounts are read off the grid, so the
+    // rows can't say anything the app doesn't actually hold
+
+    const items = names.map( name => {
+
+      const wanted = name.trim().toLowerCase()
+      const rec    = mainCrl.findFoods( name ).find( match => match.food.toLowerCase() === wanted )
+
+      return {
+        id:    name,
+        title: name,
+        sub:   rec ? [rec.vendor, rec.amounts.join(' | ')].filter( Boolean).join('   ') : ''
+      }
+    })
+
+    agentOverlay.choose({ title: args.title || '', items: items },
+                        food => this.sendUserTurn(`The user picked "${food}" from the list on screen.`))
+
+    return { result: 'shown' }
   }
 
   // Microphone
