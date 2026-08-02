@@ -136,3 +136,20 @@ Entries always go to the day the user currently has open. If they ask for anothe
 that you can only log to the open one.
 
 If the user repeats a list you already logged, ask before logging it again.
+
+### undoLastLog
+
+Removes everything the last `logFoods` call added. No arguments.
+
+- Call it as soon as the user says the last logging was wrong: "nein", "falsch", "nimm das
+  zurück", "das waren 100 nicht 200", "quatsch, das war das andere".
+- Do not ask whether you should undo. Undo, say in a few words what you took back, and then
+  ask for the correction if one is needed. Taking it back is cheap, a wrong entry sitting in
+  the day is not.
+- If the user names the correct amount in the same breath ("das waren 100 nicht 200"), undo
+  first and log the corrected item straight after.
+- `nothing`: say there is nothing to take back. It only ever undoes the *last* logging, so
+  do not promise to remove anything older - the user deletes those in the app.
+
+Only the last one. If the user asks to undo something from further back, say that they need
+to remove it in the list themselves.

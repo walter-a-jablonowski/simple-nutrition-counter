@@ -358,6 +358,12 @@ class VoiceAgentController
           },
           required: ['items']
         }
+      },
+      {
+        name: 'undoLastLog',
+        description: 'Take back the entries the last logFoods call added. Use it when the user '
+                   + 'says the last logging was wrong, for example a misheard amount.',
+        parameters: { type: 'OBJECT', properties: {} }
       }
     ]
   }
@@ -381,6 +387,8 @@ class VoiceAgentController
         response = this.openFoodSearch( args )
       else if( call.name === 'logFoods' )
         response = this.logFoods( args )
+      else if( call.name === 'undoLastLog' )
+        response = mainCrl.undoLastLog()
       else
         response = { result: 'error', message: `Unknown tool ${call.name}` }
 
@@ -436,12 +444,8 @@ class VoiceAgentController
     if( ! items.length )
       return { result: 'error', message: 'No food was named' }
 
-    const results = items.map( item => ({
-      said: item.food,
-      ...mainCrl.logFoodAmount( item.food, item.value, item.unit)
-    }))
-
-    const logged = results.filter( item => item.result === 'logged')
+    const results = mainCrl.logFoods( items ).map(( result, i) => ({ said: items[i].food, ...result }))
+    const logged  = results.filter( item => item.result === 'logged')
 
     return {
       result: logged.length === results.length ? 'ok' : 'partial',

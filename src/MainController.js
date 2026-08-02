@@ -1327,7 +1327,7 @@ class MainController
     const entry = this.#entryFromButton( ref.btn, factor,
                                          { label: label, weight: Math.round( weight * 10) / 10 })
 
-    this.#addDayEntry( entry )
+    this.#lastLogBatch.push( this.#addDayEntry( entry ))
     this.#flashItem( rec.itemEl )
 
     return {
@@ -1338,6 +1338,61 @@ class MainController
       unit:     rec.unit,
       calories: entry.calories
     }
+  }
+
+  // The rows the last logFoods() added, so undoLastLog() can take back exactly those
+
+  #lastLogBatch = []
+
+  /*@
+
+  logFoods()
+
+  Log a whole spoken list at once. Each call starts a new batch, so undoLastLog() always
+  takes back the last thing the user said, not everything ever logged by voice.
+
+  ARGS: items: array of { food, value, unit }
+
+  RETURN: array, one result per item, in the order they came in
+
+  */
+  logFoods( items ) /*@*/
+  {
+    this.#lastLogBatch = []
+
+    return items.map( item => this.logFoodAmount( item.food, item.value, item.unit))
+  }
+
+  /*@
+
+  undoLastLog()
+
+  Take back what the last logFoods() added - the repair for a misheard amount or a wrong
+  food. Rows the user deleted by hand in the meantime are skipped, so undo never removes
+  something twice or deletes an entry that has already gone.
+
+  RETURN: object, what was removed, for the agent to say back
+
+  */
+  undoLastLog() /*@*/
+  {
+    const rows = this.#lastLogBatch.filter( li => li && li.isConnected )
+
+    if( ! rows.length )
+      return { result: 'nothing' }
+
+    const removed = rows.map( li => ({
+      food:   li.dataset.food,
+      amount: (JSON.parse( li.dataset.nutrients || '{}').amount || {}).label || ''
+    }))
+
+    rows.forEach( li => li.remove())
+
+    this.#lastLogBatch = []
+
+    this.#afterListChange()
+
+    return { result: 'undone', removed: removed }
   }
 
 
@@ -1451,13 +1506,17 @@ class MainController
     // if type === MiscBuyable
     // if type === Food
 
-    query('#dayEntriesList').appendChild( this.#createEntryEl( entry))
+    const li = this.#createEntryEl( entry)
+
+    query('#dayEntriesList').appendChild( li )
 
     this.#afterListChange()
 
     // Reveal the just-added entry, unless the user scrolled up to review older ones
     if( this.autoScrollDayEntries )
       this.#scrollDayEntriesToBottom()
+
+    return li   // the voice agent keeps it, so undoLastLog() can take it back
   }
 
   /*@

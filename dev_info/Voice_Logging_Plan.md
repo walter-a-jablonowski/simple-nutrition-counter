@@ -418,11 +418,32 @@ Manual (needs the user):
    rule is measurable: 200g of `Gemüse R Bio` scaled from the 100g button gives 86 kcal,
    from the 25g button it would give 86.4 - the rounding drift the rule exists to avoid.
 4. `logFoods` tool + prompt rules — **done**, usable end to end, ambiguity by voice only.
-5. `AgentOverlayController` + `agent_overlay.php` + the tap-as-user-turn feedback.
-6. `undoLastLog`.
+5. `undoLastLog` — **done**.
+6. `AgentOverlayController` + `agent_overlay.php` + the tap-as-user-turn feedback.
 
-Steps 5 and 6 are deliberately last: both are repair/extra channels on top of a flow that
-already works, so an unfinished session still leaves something usable.
+**Undo was moved ahead of the overlay** (the plan originally had it the other way). Step 2
+showed the prompt is the only guard against a wrong log, so wrong entries will happen; until
+undo existed the only repair was tapping the X on the day row, which needs hands and eyes -
+exactly what voice is there to avoid. The overlay only helps the rarer long candidate list,
+and ambiguity already resolves by voice, so it is the smaller win of the two.
+
+### Step 5 result
+
+Two-turn conversation against the live model, with the tool calls actually answered:
+
+```
+user: "200 Gramm Gemüse Rewe Bio"
+      logFoods({ items: [{ food: "Gemüse R Bio", value: 200, unit: "g" }] })
+      "Ich habe 200 Gramm Gemüse R Bio hinzugefügt."
+
+user: "nein, das waren 100 Gramm"
+      undoLastLog({})
+      logFoods({ items: [{ food: "Gemüse R Bio", value: 100, unit: "g" }] })
+      "Alles klar, ich habe die 200 Gramm zurückgenommen. Jetzt sind 100 Gramm geloggt."
+```
+
+Undo and re-log happen in the same turn without being asked for separately, which is what
+the prompt rule aims at: a correction costs one sentence.
 
 ### Step 2 results (measured against the live model, 2026-08-02)
 
