@@ -1,0 +1,21 @@
+group:             "candy (chocolate)"
+acceptable:        less
+packaging:         cardboard & foil
+
+price:
+weight:            45
+usedAmounts:       [1]
+
+calories:          539
+nutritionalValues:
+
+  fat:             31
+  saturatedFat:    19
+  carbs:           57
+  sugar:           55
+  fibre:           2.3
+  amino:           6.5
+  salt:            0.28
+
+sources:           { nutriVal: "web" }
+lastUpd:           2026-08-02
