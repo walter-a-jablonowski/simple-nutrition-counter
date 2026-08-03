@@ -1,4 +1,5 @@
-# GLM only
+
+state:             unprecise  # GLM only
 
 type:              Garlic
 vendor:            Rewe

@@ -1,5 +1,5 @@
 
-state:             removed|unavailable
+state:             removed|unavailable|unprecise  # unprecise food data
 
 type:              
 group:              
