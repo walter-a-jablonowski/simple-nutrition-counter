@@ -2,9 +2,20 @@
      Each li carries all entry fields in data-* attributes; the list is the
      single source of truth (MainController rebuilds the dayEntries array from it). -->
 
-<ul id="dayEntriesList" class="day-entries list-group list-group-flush flex-grow-1">
+<ul id="dayEntriesList" class="day-entries list-group list-group-flush flex-grow-1"
+    data-currency-icon="<?= settings::get('currencyIcon') ?>">
 
   <?php foreach( $this->dayEntries as $entry ): ?>
+    <?php
+
+      // Flags shown on the right of the second line. Read off the food, not off the
+      // entry: they say something about the food data, so they must follow it when it
+      // is fixed later. A misc entry has no food record and gets none of them
+
+      $foodData    = $this->combinedModel->get( $entry['food'] );
+      $isUnprecise = $foodData && 'unprecise' === ( $foodData['state'] ?? null);
+      $hasNoPrice  = $foodData && empty( $foodData['price']) && empty( $foodData['dealPrice']);
+    ?>
     <li class="day-entry list-group-item d-flex align-items-center px-2 py-1"
         data-type     = "<?= htmlspecialchars( $entry['type'],     ENT_QUOTES) ?>"
         data-food     = "<?= htmlspecialchars( $entry['food'],     ENT_QUOTES) ?>"
@@ -24,6 +35,12 @@
         <div class="day-entry-sub small text-secondary d-flex">
           <span class="day-entry-time"><?= htmlspecialchars( substr( $entry['time'], 0, 5), ENT_QUOTES) ?></span>
           <span class="day-entry-amount"><?= htmlspecialchars( $entry['nutrients']['amount']['label'] ?? '', ENT_QUOTES) ?></span>
+          <?php if( $isUnprecise || $hasNoPrice ): ?>
+            <span class="day-entry-flags ms-auto">
+              <?= self::iif( $isUnprecise, '<i class="bi bi-exclamation-triangle-fill" title="Unprecise food data"></i>') ?>
+              <?= self::iif( $hasNoPrice, '<i class="bi ' . settings::get('currencyIcon') . '" title="No price"></i>') ?>
+            </span>
+          <?php endif; ?>
         </div>
       </div>
 

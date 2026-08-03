@@ -750,6 +750,18 @@ body.no-scrollbars::-webkit-scrollbar {
   flex: 0 0 auto;
 }
 
+/* Food flags, pushed to the right end of the second line: unprecise food data,
+   no price on the food. Orange, same meaning the grid gives the color */
+
+.day-entry-flags {
+  flex: 0 0 auto;
+  color: #fd7e14;
+}
+
+.day-entry-flags i + i {
+  margin-left: 0.3rem;
+}
+
 .day-entry-del {
   flex: 0 0 auto;
   line-height: 1;

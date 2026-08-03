@@ -38,6 +38,12 @@ $showWarning  = ( ! empty($interactions) && trim($interactions) !== '')
              || ( true === $careful )
              || ( ! empty($limit) && trim($limit) !== '');
 
+// Flags a logged entry marks in the day list (see day_entries.php). They travel on the
+// amount buttons, so a click can put them on the new entry right away
+
+$isUnprecise = 'unprecise' === $this->combinedModel->get("$entryName.state");
+$hasNoPrice  = ! $price;   // price and dealPrice, see above
+
 // $xTimeLog = true === $this->combinedModel->get("$entryName.xTimeLog");
 
 // Food facts for the voice agent (see dev_info/Voice_Logging_Plan.md). The amount buttons
@@ -119,6 +125,8 @@ foreach( $voiceData as $key => $value )
          data-misc       = "<?= htmlspecialchars( dump_json( $data['misc'])) ?>"
          data-price      = "<?= $data['price'] ?>"
          data-x-time-log = "<?= $data['xTimeLog'] ? 'true' : 'false' ?>"
+         data-unprecise  = "<?= $isUnprecise ? 'true' : 'false' ?>"
+         data-no-price   = "<?= $hasNoPrice  ? 'true' : 'false' ?>"
          style           = "background-color: <?= $accepColor ?>;"
     >
       <div style="background-color: <?= $accepColor ?>;">

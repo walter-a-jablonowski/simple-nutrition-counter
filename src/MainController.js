@@ -1242,6 +1242,13 @@ class MainController
       salt:     macro( nutritionalValues.salt),
       price:    Math.round( (parseFloat( btn.dataset.price) || 0) * factor * 100) / 100,
       xTimeLog: btn.dataset.xTimeLog === 'true',
+
+      // Only for the list item, see #createEntryEl. Not saved: a reload reads them
+      // off the food again (day_entries.php), so fixing the food clears them
+
+      unprecise: btn.dataset.unprecise === 'true',
+      noPrice:   btn.dataset.noPrice   === 'true',
+
       nutrients: {
         // amount kept first in the json portion: label is shown in the day entries,
         // weight (grams) is the calculated amount kept for later use
@@ -1614,6 +1621,16 @@ class MainController
     const timeDisp   = String( entry.time || '').slice(0, 5)
     const amountDisp = entry.nutrients?.amount?.label ?? ''
 
+    // Same flags the php side renders, in the same order (see day_entries.php)
+
+    let flags = ''
+
+    if( entry.unprecise )
+      flags += '<i class="bi bi-exclamation-triangle-fill" title="Unprecise food data"></i>'
+
+    if( entry.noPrice )
+      flags += `<i class="bi ${ query('#dayEntriesList').dataset.currencyIcon }" title="No price"></i>`
+
     li.innerHTML =
       `<span class="day-entry-type">${ this.#esc(entry.type) }</span>`
       + `<div class="day-entry-main flex-grow-1 ms-2 overflow-hidden">`
@@ -1621,6 +1638,7 @@ class MainController
       +   `<div class="day-entry-sub small text-secondary d-flex">`
       +     `<span class="day-entry-time">${ this.#esc(timeDisp) }</span>`
       +     `<span class="day-entry-amount">${ this.#esc(amountDisp) }</span>`
+      +     ( flags ? `<span class="day-entry-flags ms-auto">${flags}</span>` : '')
       +   `</div>`
       + `</div>`
       + `<button type="button" onclick="mainCrl.deleteEntryBtnClick(event)" class="day-entry-del btn p-1 border-0 bg-transparent text-secondary" aria-label="Delete entry">`
