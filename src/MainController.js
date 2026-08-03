@@ -482,7 +482,7 @@ class MainController
 
     if( time || amount )
       proxy.setAttribute('data-entry-info',
-          '<div class="info-entry-sub d-flex gap-3 mb-3 pb-2 border-bottom text-secondary">'
+          '<div class="info-entry-sub d-flex gap-3 mb-3 fs-6 text-secondary">'
         + ( time   ? `<span><i class="bi bi-clock me-1"></i>${ this.#esc(time) }</span>` : '')
         + ( amount ? `<span>${ this.#esc(amount) }</span>` : '')
         + '</div>')
