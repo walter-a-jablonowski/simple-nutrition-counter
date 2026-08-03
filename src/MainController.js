@@ -1626,7 +1626,7 @@ class MainController
     let flags = ''
 
     if( entry.unprecise )
-      flags += '<i class="bi bi-exclamation-triangle-fill" title="Unprecise food data"></i>'
+      flags += '<i class="bi bi-question-circle" title="Unprecise food data"></i>'
 
     if( entry.noPrice )
       flags += `<i class="bi ${ query('#dayEntriesList').dataset.currencyIcon }" title="No price"></i>`

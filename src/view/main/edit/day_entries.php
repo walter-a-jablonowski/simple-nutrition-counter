@@ -37,7 +37,7 @@
           <span class="day-entry-amount"><?= htmlspecialchars( $entry['nutrients']['amount']['label'] ?? '', ENT_QUOTES) ?></span>
           <?php if( $isUnprecise || $hasNoPrice ): ?>
             <span class="day-entry-flags ms-auto">
-              <?= self::iif( $isUnprecise, '<i class="bi bi-exclamation-triangle-fill" title="Unprecise food data"></i>') ?>
+              <?= self::iif( $isUnprecise, '<i class="bi bi-question-circle" title="Unprecise food data"></i>') ?>
               <?= self::iif( $hasNoPrice, '<i class="bi ' . settings::get('currencyIcon') . '" title="No price"></i>') ?>
             </span>
           <?php endif; ?>
