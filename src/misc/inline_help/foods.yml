@@ -7,7 +7,7 @@
 
 (main_key):          "= file name (required) Display name like \"My food S Bio\" (also used as id with no blanks)"
 
-state:               { usage: "unavailable (vendor removed it), removed (unused food hide in UI)",
+state:               { usage: "unavailable (vendor removed it), removed (unused food hide in UI), unprecise (food data)",
                          required: false, type: "enum" }
 
 category:            { usage: "Added by code only (key taken), used in JS and day files 'F' food, 'M' food with no time logging, or 'S' supplement (set in CombinedModel)", required: false, type: "string" }

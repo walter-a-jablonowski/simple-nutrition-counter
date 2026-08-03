@@ -26,5 +26,13 @@
       <span>Publish</span>
     </button>
 
+    <!-- Own page, so it opens in a new tab: the day would be lost otherwise.
+         Lives outside the app folder, next to the other dev tools (see /tools) -->
+
+    <a role="menuitem" class="drop-menu-item" href="../tools/data/foods_overview.php" target="_blank">
+      <i class="bi bi-table"></i>
+      <span>Data fields</span>
+    </a>
+
   </div>
 </div>

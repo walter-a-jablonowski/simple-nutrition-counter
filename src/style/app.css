@@ -871,6 +871,7 @@ body.sortable-active .day-entry {
   font-size: 0.92rem;
   color: #212529;
   text-align: left;
+  text-decoration: none;   /* items may be links (dev menu), which must look like the buttons */
   cursor: pointer;
 }
 
