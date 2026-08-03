@@ -2,6 +2,7 @@
 
 require_once 'lib/food_import/FoodParser.php';
 require_once 'lib/food_import/ReweParser.php';
+require_once 'lib/food_import/EdekaParser.php';
 require_once 'lib/food_import/PageFetcher.php';
 
 /*
@@ -19,7 +20,7 @@ class FoodImporter
 
   private static function parsers() : array
   {
-    return [ new ReweParser() ];
+    return [ new ReweParser(), new EdekaParser() ];
   }
 
 
@@ -42,7 +43,7 @@ class FoodImporter
       if( $parser->matches($html, $url))
         return self::finalize( $parser->parse($html, $url));
 
-    throw new Exception('No importer matched this page. Supported vendors: REWE.');
+    throw new Exception('No importer matched this page. Supported vendors: REWE, EDEKA.');
   }
 
 

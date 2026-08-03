@@ -4,9 +4,11 @@
 
 Vendor parser interface for food import.
 
-Each vendor (Rewe, and others added later) implements this. FoodImporter asks
-every registered parser whether it `matches` a given page, then calls `parse` on
-the first match to get a normalized food-data array (see ReweParser for the shape).
+Each vendor (Rewe, Edeka, and others added later) implements this. FoodImporter
+asks every registered parser whether it `matches` a given page, then calls `parse`
+on the first match to get a normalized food-data array (see ReweParser for the shape).
+
+Implement via FoodParserBase, which carries the vendor-neutral parsing helpers.
 
 */
 interface FoodParser

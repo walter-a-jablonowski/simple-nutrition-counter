@@ -1,6 +1,6 @@
 <?php
 
-require_once 'lib/food_import/FoodParser.php';
+require_once 'lib/food_import/FoodParserBase.php';
 
 /*
 
@@ -12,7 +12,7 @@ basis) and the remaining metadata from individual JSON fields. A German nutrient
 table in the HTML serves as a fallback if the JSON block is missing.
 
 */
-class ReweParser implements FoodParser
+class ReweParser extends FoodParserBase
 {
 
   // GS1 nutrient code -> our nutritionalValues key
@@ -211,36 +211,13 @@ class ReweParser implements FoodParser
   }
 
 
-  // Split an ingredient statement into [ingredients, mayContain]; collapses
-  // internal whitespace/newlines so each part is a clean single line
-
-  private function splitIngredients( string $text ) : array
-  {
-    $mayContain = '';
-
-    // Pull out the trailing "Kann Spuren von ... enthalten" note
-
-    if( preg_match('/(Kann Spuren.*)/su', $text, $m))
-    {
-      $mayContain = $m[1];
-      $text       = str_replace($m[1], '', $text);
-    }
-
-    $clean = fn($s) => trim(preg_replace('/\s+/u', ' ', $s), " .\t\n\r");
-
-    return [$clean($text), $clean($mayContain)];
-  }
-
-
   // Allergen note, e.g. "Enthält: Schwefeldioxid und Sulfite." Matched by the
   // "Allergene" label since the field name varies by product type
   // (allergenStatement, allergenStatementForWine, ...)
 
   private function parseAllergy( string $html ) : string
   {
-    $value = $this->detailValueByLabel($html, 'Allergene') ?? '';
-
-    return trim( preg_replace('/\s+/u', ' ', $value), " .\t\n\r");
+    return $this->cleanText( $this->detailValueByLabel($html, 'Allergene') ?? '');
   }
 
 
@@ -279,19 +256,6 @@ class ReweParser implements FoodParser
       return 'https://www.rewe.de' . $m[0];
 
     return '';
-  }
-
-
-  // Pack piece count from the full product title, e.g. "... 300g, 5 Stück".
-  // REWE has no reliable structured field for this (packaging.weightPerPiece is
-  // the total weight), so the title is the source
-
-  private function parsePieces( string $productName ) : ?int
-  {
-    if( preg_match('/(\d+)\s*Stück/ui', $productName, $m))
-      return (int) $m[1];
-
-    return null;
   }
 
 
