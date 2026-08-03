@@ -83,6 +83,7 @@ Meals:
       - Sardine
       - 'Sardine R'
       - 'Gyros A'
+      - 'Kebab E'
       - 'Gyros Spr'
       - 'Kebab Spr'
       - 'Hähnchenbr Spr'
@@ -94,7 +95,6 @@ Meals:
       - 'Tofu N'
       - Butter
       - 'Majo Thomy'
-      - 'Kebab E'
   'Desserts & micro or sugar-less candy (color:#ff69b4)':
     (i): 'Candy: Reduce amount per day (effectively: don''t buy more or you will eat it)'
     list:
