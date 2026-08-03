@@ -1,0 +1,23 @@
+productName:       "GUT&GÜNSTIG Hähnchen-Kebab-Pfanne 300g"
+vendor:            Edeka
+url:               "https://www.edeka.de/unsere-marken/produkte/gut-guenstig-haehnchen-kebab-pfanne-4311501741306/"
+
+certificates:      { NutriScore: D }
+ingredients:       "94% Hähnchenkeulenfleisch*, Stärke, Dextrose, Speisesalz, Gewürze, Antioxidationsmittel: Extrakt aus Rosmarin; Gewürzextrakt. *QS-Ware"
+packaging:         plastic
+
+weight:            300g
+usedAmounts:       ["50g", "100g", "200g"]
+
+calories:          183
+nutritionalValues:
+
+  fat:             10.9
+  saturatedFat:    4.1
+  carbs:           4.6
+  sugar:           1.6
+  amino:           16.5
+  salt:            1.3
+
+sources:           { nutriVal: "web" }
+lastUpd:           2026-08-03
