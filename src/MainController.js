@@ -193,7 +193,14 @@ class MainController
         content = this.renderMarkdown(content)
       
       infoModal.find('.modal-body').innerHTML = content
-      
+
+      // Opened from a day entry: its time and amount come first (see showEntryInfo)
+
+      const entryInfo = btn.getAttribute('data-entry-info')
+
+      if( entryInfo )
+        infoModal.find('.modal-body').insertAdjacentHTML('afterbegin', entryInfo)
+
       // Reinitialize popovers inside the modal
       this.initModalPopovers(infoModal)
     })
@@ -464,6 +471,21 @@ class MainController
     const proxy = document.createElement('div')
     proxy.setAttribute('data-title',  '#' + entryId + 'Headline')
     proxy.setAttribute('data-source', '#' + entryId + 'Data')
+
+    // The food info is the same for every logging of that food, so the entry's own
+    // second line goes on top of it - time and amount are what tell the loggings
+    // apart. Read off the rendered line, so both stay in sync by construction.
+    // Opening from the grid has no entry and leaves the attribute away
+
+    const time   = li.querySelector('.day-entry-time')?.textContent.trim()
+    const amount = li.querySelector('.day-entry-amount')?.textContent.trim()
+
+    if( time || amount )
+      proxy.setAttribute('data-entry-info',
+          '<div class="info-entry-sub d-flex gap-3 mb-3 pb-2 border-bottom text-secondary">'
+        + ( time   ? `<span><i class="bi bi-clock me-1"></i>${ this.#esc(time) }</span>` : '')
+        + ( amount ? `<span>${ this.#esc(amount) }</span>` : '')
+        + '</div>')
 
     this.infoModal.show( proxy )
   }
