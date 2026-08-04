@@ -1,7 +1,8 @@
 
-state:             unprecise  # GLM only
-
+state:             unprecise
 type:              Garlic
+
+comment:           "unprecise: GLM only"
 vendor:            Rewe
 
 price:             

@@ -1,7 +1,10 @@
+state:             "unprecise"
+type:              "Lentils"
 productName:       "ja! Linseneintopf vegan 800g"
 vendor:            Rewe
 url:               "https://www.rewe.de/shop/p/ja-linseneintopf-vegan-800g/9986095"
 
+comment:           "unprecise: just used Lentils as type"
 certificates:      { NutriScore: B, vegan: true }
 ingredients:       "Linsen 40%, Wasser, Karotten 9,3%, Kartoffeln 7,5%, Zwiebeln, Speisesalz, Lauch, modifizierte Stärke, WEIZENMEHL, Tomatenmark doppelt konzentriert, Branntweinessig, Rapsöl, Verdickungsmittel (Guarkernmehl), Zucker, Antioxidationsmittel (Ascorbinsäure), Gewürze, Kräuter"
 mayContain:        "Ei, Milch und Sellerie"
