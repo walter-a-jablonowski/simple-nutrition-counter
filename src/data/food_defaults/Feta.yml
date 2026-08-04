@@ -1,0 +1,133 @@
+
+# GLM only
+
+# 2608 verified all values from source as far as active in /nutrients
+#      Default source is Foundation 2259796 "Cheese, feta, whole milk, crumbled"
+#      (analytical). It carries calories, macros, the full SFA/MUFA breakdown,
+#      linoleic acid, minerals, water and most B vitamins + biotin + vitamin K,
+#      but no amino acids, no total PUFA, no ALA/EPA/DHA, no fibre, no Vitamin A
+#      RAE, no Vitamin E, no Vitamin C, no pantothenic acid, no folate, no
+#      Vitamin B12, no selenium. Those fields are taken from the SR Legacy
+#      sibling "Cheese, feta" (173420); see per-field comments and sources.
+#
+#      The two bundle foods do not state a state (only vendor, weight and pack
+#      values): Patros W (278 kcal, fat 22, protein 19, salt 3) and Patros 150
+#      (278 kcal, fat 24, protein 15, salt 3). Both are Rewe "Patros" feta,
+#      salt 3 g marks them salted. The two USDA entries were weighed:
+#        - Foundation 2259796 "whole milk, crumbled": 273 kcal, fat 19.1,
+#          protein 19.7 - closer to the pack kcal (278) and analytical, taken.
+#        - SR Legacy 173420 "Cheese, feta": 265 kcal, fat 21.5, protein 14.2 -
+#          fuller panel (amino acids, vitamins, PUFA), used to fill the gaps.
+#      Patros 150's protein (15) sits closer to the SR Legacy entry, Patros W's
+#      protein (19) to the Foundation entry; flagged here so it can be decided
+#      by someone who knows the products. The food's own values win for kcal
+#      and macros anyway.
+#
+#      Protein basis: Foundation 2259796 has 19.7 g protein, SR Legacy 173420
+#      has 14.2 g, so the amino acids taken from 173420 run about 28 % low on
+#      the file's own 19.7 g basis (the two entries are noticeably different
+#      cheeses - 173420 is the only SR Legacy feta, so it is the best fill
+#      available; much better than zeros for a 19.7 g protein food).
+#
+#      Sugar is nutrient 269.3 ("Sugars, Total") in this Foundation entry, not
+#      269, so the verifier has no number to match it against - the value 1.63
+#      is straight from the source (lactose 0.61 + glucose 0.59 + galactose
+#      0.43). SR Legacy reports total sugars as 0, which is wrong for a cheese
+#      with 5.58 g carbs, so the Foundation value is kept.
+#
+#      No entry carries fluoride, chromium, molybdenum or sugar alcohol; these
+#      stay 0 (# not in source). EPA and DHA are 0 in 173420.
+
+acceptable:
+comment:
+                              # kcal
+calories:          273        # Energy (Atwater Specific Factors); General 273
+
+nutritionalValues:            # g
+
+  fat:             19.1       # total lipid (fat)
+  saturatedFat:    11.2
+  monoUnsaturated: 4.18
+  polyUnsaturated: 0.591      # from 173420 (no total PUFA in 2259796)
+  carbs:           5.58       # by difference
+  sugar:           1.63       # Sugars, Total (nutrient 269.3 in source)
+  sugarAlcohol:    0          # not in source
+  fibre:           0          # from 173420 (Fiber, total dietary 0)
+  amino:           19.7       # is protein
+  salt:            1.03       # Sodium 1030 mg -> g
+
+fattyAcids:                   # g, but EPA and DHA in mg
+
+  Alpha-linolenic acid: 0.265 # from 173420 (PUFA 18:3)
+  Eicosapentaenoic acid: 0    # from 173420 (PUFA 20:5 n-3 (EPA) 0)
+  Docosahexaenoic acid: 0     # from 173420 (PUFA 22:6 n-3 (DHA) 0)
+  Linoleic acid:        0.424 # PUFA 18:2 n-6 c,c
+
+carbs:                        # g
+
+  Fibre:         0            # from 173420
+
+aminoAcids:                   # mg
+                              # from 173420, source in g
+  Histidine:     397          # 0.397 g -> mg
+  Isoleucine:    803          # 0.803
+  Leucine:       1400         # 1.4
+  Lysine:        1220         # 1.22
+  Methionine:    368          # 0.368
+  Phenylalanine: 675          # 0.675
+  Threonine:     637          # 0.637
+  Tryptophan:    200          # 0.2
+  Valine:        1060         # 1.06
+
+vitamins:                     # mg
+
+  Vitamin A:     0.125        # from 173420 (Vitamin A, RAE 125 µg)
+  Vitamin D:     0            # 0 µg
+  Vitamin E:     0.18         # from 173420 (alpha-tocopherol)
+  Vitamin K:     0.0012       # phylloquinone 1.2 µg
+  Vitamin C:     0            # from 173420 (0 mg)
+  Thiamin B1:    0.056
+  Riboflavin B2: 0.444
+  Niacin B3:     0.264
+  Pantothenic acid B5: 0.967  # from 173420
+  Vitamin B6:    0.038
+  Biotin B7:     0.000464     # 0.464 µg -> mg
+  Folate B9:     0.032        # from 173420 (folate total 32 µg)
+  Vitamin B12:   0.00169      # from 173420 (1.69 µg -> mg)
+
+minerals:                     # default unit: mg except for Salt, Potassium and Calcium where grams need to be used
+
+  Salt:          1.03         # Sodium 1030 mg -> g
+  Potassium:     0.105        # 105 mg -> g
+  Calcium:       0.371        # 371 mg -> g
+  Phosphorus:    328          # mg
+  Magnesium:     17.7
+  Iron:          0.0675
+  Iodine:        0.0484       # 48.4 µg -> mg
+  Fluoride:      0            # not in source
+  Zinc:          2.35
+  Selenium:      0.015        # from 173420 (15 µg -> mg)
+  Copper:        0.032
+  Chromium:      0            # not in source
+  Manganese:     0.02
+  Molybdenum:    0            # not in source
+
+# secondary:
+
+misc:                         # ml or g
+
+  water:         51.9
+  alcohol:       0
+  caffeine:      0
+
+sources:
+
+  - title:   Default source = Cheese, feta, whole milk, crumbled (Foundation)
+    comment: analytical; used for calories, macros, fat breakdown, linoleic, minerals, water, thiamin, riboflavin, niacin, B6, biotin, vitamin K, vitamin D
+    source:  https://fdc.nal.usda.gov/food-details/2259796/nutrients
+
+  - title:   Alternative = Cheese, feta (SR Legacy)
+    comment: used for total PUFA, ALA, EPA, DHA, fibre, all amino acids, vitamins A/E/C/pantothenic/folate/B12, selenium
+    source:  https://fdc.nal.usda.gov/food-details/173420/nutrients
+
+lastUpd: 2026-08-04
