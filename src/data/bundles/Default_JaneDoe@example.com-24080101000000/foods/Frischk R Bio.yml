@@ -1,8 +1,11 @@
+state:             unprecise
+type:              Cream_cheese
 group:             cheese
 productName:       "REWE Bio Körniger Frischkäse"
 vendor:            Rewe
 url:               "https://shop.rewe.de/p/rewe-bio-koerniger-frischkaese-200g/1906432"
 acceptable:        occasionally
+comment:           "unprecise: GLM only (type Cream_cheese unprecise as well)"
 certificates:      { bio: true, NutriScore: B }
 packaging:         plastic & alu
 

@@ -1,0 +1,130 @@
+
+# AI-only
+
+# 2608 verified all values from source as far as active in /nutrients
+#      Default source is Foundation 2346385 "Cream cheese, full fat, block"
+#      (analytical). It is sparse: it carries calories, macros, minerals, water
+#      and a few vitamins, but no amino acids, no sugar, no fibre, no total PUFA,
+#      no ALA/EPA/DHA, no Vitamin A RAE, no Vitamin E, no riboflavin, no
+#      pantothenic acid, no folate, no selenium, and it reports iron, copper and
+#      manganese as 0. Those fields are taken from the SR Legacy sibling
+#      "Cheese, cream" (173418); see per-field comments and sources.
+#
+#      The two bundle foods disagree and neither states a state (only vendor,
+#      weight and pack values):
+#        - Frischk R Bio  = "REWE Bio Körniger Frischkäse" (granular fresh
+#          cheese), 91 kcal, fat 4, protein 12.7 - this matches the neighbour
+#          2346384 "Cottage cheese, full fat" (103 kcal, fat 4.22, protein
+#          11.6), not the cream cheese block.
+#        - Frischk R Bio 2 = "REWE Bio Frischkäse Doppelrahmstufe" (double
+#          cream cheese spread), 268 kcal, fat 26, protein 5.4 - this matches
+#          2346385 (337 kcal, fat 33.5, protein 5.79).
+#      The type is anchored to 2346385, so the file follows the full-fat block
+#      entry. Food 1 is a granular low-fat product that sits closer to cottage
+#      cheese; flagged here so it can be decided by someone who knows the
+#      products. The food's own values always win for kcal and macros anyway.
+#
+#      Protein basis: Foundation 2346385 has 5.79 g protein, SR Legacy 173418
+#      has 6.15 g, so the amino acids taken from 173418 run about 6 % high on
+#      the file's own basis.
+#
+#      No entry carries fluoride, chromium, molybdenum or sugar alcohol; these
+#      stay 0 (# not in source). Vitamin D and Vitamin C are 0 in 173418.
+
+acceptable:
+comment:
+                              # kcal
+calories:          337        # Energy (Atwater Specific Factors); General 343
+
+nutritionalValues:            # g
+
+  fat:             33.5       # total lipid (fat)
+  saturatedFat:    19.7
+  monoUnsaturated: 6.92
+  polyUnsaturated: 1.48       # from 173418 (no total PUFA in 2346385)
+  carbs:           4.56       # by difference
+  sugar:           3.76       # from 173418 (total sugars; lactose 3.76)
+  sugarAlcohol:    0          # not in source
+  fibre:           0          # from 173418 (Fiber, total dietary 0)
+  amino:           5.79       # is protein
+  salt:            0.368      # Sodium 368 mg -> g
+
+fattyAcids:                   # g, but EPA and DHA in mg
+
+  Alpha-linolenic acid: 0.125 # from 173418 (PUFA 18:3 n-3 c,c,c (ALA))
+  Eicosapentaenoic acid: 10   # from 173418 (PUFA 20:5 n-3 (EPA) 0.01 g -> mg)
+  Docosahexaenoic acid: 0     # from 173418 (PUFA 22:6 n-3 (DHA) 0)
+  Linoleic acid:        0.708 # PUFA 18:2 n-6 c,c
+
+carbs:                        # g
+
+  Fibre:         0            # from 173418
+
+aminoAcids:                   # mg
+                              # from 173418, source in g
+  Histidine:     175          # 0.175 g -> mg
+  Isoleucine:    324          # 0.324
+  Leucine:       657          # 0.657
+  Lysine:        567          # 0.567
+  Methionine:    191          # 0.191
+  Phenylalanine: 291          # 0.291
+  Threonine:     233          # 0.233
+  Tryptophan:    69           # 0.069
+  Valine:        395          # 0.395
+
+vitamins:                     # mg
+
+  Vitamin A:     0.308        # from 173418 (Vitamin A, RAE 308 µg)
+  Vitamin D:     0            # from 173418 (0 µg)
+  Vitamin E:     0.86         # from 173418 (alpha-tocopherol)
+  Vitamin K:     0.0024       # phylloquinone 2.4 µg
+  Vitamin C:     0            # from 173418 (0 mg)
+  Thiamin B1:    0.038
+  Riboflavin B2: 0.23         # from 173418
+  Niacin B3:     0.092
+  Pantothenic acid B5: 0.517  # from 173418
+  Vitamin B6:    0.039
+  Biotin B7:     0.00174      # 1.74 µg -> mg
+  Folate B9:     0.009        # from 173418 (folate total 9 µg)
+  Vitamin B12:   0.00022      # from 173418 (0.22 µg; 2346385 reports 0)
+
+minerals:                     # default unit: mg except for Salt, Potassium and Calcium where grams need to be used
+
+  Salt:          0.368        # Sodium 368 mg -> g
+  Potassium:     0.125        # 125 mg -> g
+  Calcium:       0.097        # 97 mg -> g
+  Phosphorus:    108          # mg
+  Magnesium:     8.9
+  Iron:          0.11         # from 173418 (2346385 reports 0)
+  Iodine:        0.0349       # 34.9 µg -> mg
+  Fluoride:      0            # not in source
+  Zinc:          0.59
+  Selenium:      0.0086       # from 173418 (8.6 µg -> mg)
+  Copper:        0.018        # from 173418 (2346385 reports 0)
+  Chromium:      0            # not in source
+  Manganese:     0.011        # from 173418 (2346385 reports 0)
+  Molybdenum:    0            # not in source
+
+# secondary:
+
+misc:                         # ml or g
+
+  water:         54.7
+  alcohol:       0
+  caffeine:      0
+
+sources:
+
+  - title:   Default source = Cream cheese, full fat, block (Foundation)
+    comment: analytical; used for calories, macros, fat breakdown, linoleic, most minerals, water, thiamin, niacin, B6, biotin, vitamin K
+    source:  https://fdc.nal.usda.gov/food-details/2346385/nutrients
+
+  - title:   Alternative = Cheese, cream (SR Legacy)
+    comment: used for sugar, fibre, total PUFA, ALA, EPA, DHA, all amino acids, vitamins A/E/C/riboflavin/pantothenic/folate/B12, selenium, iron, copper, manganese
+    source:  https://fdc.nal.usda.gov/food-details/173418/nutrients
+
+  - title:   Alternative = Cottage cheese, full fat, large or small curd (Foundation, unused)
+    comment: neighbour 2346384; matches Frischk R Bio (granular, 91 kcal) better than the cream cheese block does
+    source:  https://fdc.nal.usda.gov/food-details/2346384/nutrients
+
+lastUpd: 2026-08-04

@@ -1,7 +1,10 @@
+state:             unprecise
+type:              Cream_cheese
 productName:       "REWE Bio Frischkäse Doppelrahmstufe"
 vendor:            Rewe
 url:               "https://shop.rewe.de/p/rewe-bio-frischkaese-doppelrahmstufe-175g/200397"
 acceptable:        less
+comment:           "unprecise: GLM only (type Cream_cheese unprecise as well)"
 certificates:      { bio: true, NutriScore: D }
 ingredients:       "MILCH*, Speisesalz, MILCHsäurekulturen, mikrobielles"
 allergy:           "Milch und Milcherzeugnisse (einschließlich Lactose)"              
