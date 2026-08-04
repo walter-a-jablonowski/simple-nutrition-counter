@@ -1,3 +1,5 @@
+type:              Cheese
+group:             cheese
 vendor:            Norma
 
 acceptable:        occasionally

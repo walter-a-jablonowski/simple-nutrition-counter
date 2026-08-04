@@ -1,0 +1,110 @@
+
+# AI-only
+
+# 2608 verified all values from source as far as active in /nutrients
+#      The foods do not state a state (raw/cooked/canned/dry) - they only carry
+#      vendor, weight and pack values. Cheese is not described that way, so no
+#      state is claimed. Weighed the two "Cheese, swiss" entries against each
+#      other: Foundation 746767 (the designated basic data, 19 values, analytical
+#      proximates + minerals) and its SR Legacy sibling 171251 (136 values, adds
+#      energy, fibre, fat breakdown, fatty acids, amino acids, vitamins and
+#      selenium). 746767 is used for proximates and minerals, 171251 fills every
+#      gap. Both entries agree on protein (27.0 g), so the amino acids run on the
+#      file's own basis.
+#
+#      Source has no iodine, fluoride, chromium, molybdenum, biotin; these stay 0.
+#      Sugar alcohol is not in the source. Vitamin D and Vitamin C are 0 in 171251.
+
+acceptable:
+comment:
+                              # kcal
+calories:          393        # missing in 746767, from 171251
+
+nutritionalValues:            # g
+
+  fat:             31.0       # total lipid (fat), 746767; 171251: 31.0
+  saturatedFat:    18.2       # from 171251
+  monoUnsaturated: 8.05       # from 171251
+  polyUnsaturated: 1.34       # from 171251
+  carbs:           1.44       # by difference, 746767
+  sugar:           0          # Total Sugars 0.00, 746767
+  sugarAlcohol:    0          # not in source
+  fibre:           0          # from 171251 (Fiber, total dietary 0.0)
+  amino:           27.0       # is protein, 746767
+  salt:            0.185      # Sodium 185 mg (746767) -> g
+
+fattyAcids:                   # g, but EPA and DHA in mg
+
+  Alpha-linolenic acid: 0.125 # PUFA 18:3 n-3 c,c,c (ALA), from 171251
+  Eicosapentaenoic acid: 9    # PUFA 20:5 n-3 (EPA) 0.009 g -> mg, from 171251
+  Docosahexaenoic acid: 0     # PUFA 22:6 n-3 0.000, from 171251
+  Linoleic acid:        0.734 # PUFA 18:2 n-6 c,c, from 171251
+
+carbs:                        # g
+
+  Fibre:         0            # from 171251
+
+aminoAcids:                   # mg
+                              # from 171251, source in g
+  Histidine:     1060         # 1.06 g
+  Isoleucine:    1540         # 1.54 g
+  Leucine:       2960         # 2.96 g
+  Lysine:        2580         # 2.58 g
+  Methionine:    784          # 0.784 g
+  Phenylalanine: 1660         # 1.66 g
+  Threonine:     1040         # 1.04 g
+  Tryptophan:    401          # 0.401 g
+  Valine:        2140         # 2.14 g
+
+vitamins:                     # mg
+                              # from 171251
+  Vitamin A:     0.288        # Vitamin A, RAE 288 µg
+  Vitamin D:     0            # Vitamin D (D2 + D3) 0.00 µg
+  Vitamin E:     0.60         # alpha-tocopherol
+  Vitamin K:     0.0014       # phylloquinone 1.4 µg
+  Vitamin C:     0            # 0.0 mg
+  Thiamin B1:    0.011
+  Riboflavin B2: 0.302
+  Niacin B3:     0.064
+  Pantothenic acid B5: 0.353
+  Vitamin B6:    0.071
+  Biotin B7:     0            # not in source
+  Folate B9:     0.010        # folate total 10 µg
+  Vitamin B12:   0.00306      # 3.06 µg
+
+minerals:                     # default unit: mg except for Salt, Potassium and Calcium where grams need to be used
+
+  Salt:          0.185        # Sodium 185 mg (746767) -> g
+  Potassium:     0.071        # 71 mg (746767) -> g
+  Calcium:       0.890        # 890 mg (746767) -> g
+  Phosphorus:    574          # mg, 746767
+  Magnesium:     33.4         # 746767; 171251: 33.0
+  Iron:          0.13         # 746767
+  Iodine:        0            # not in source
+  Fluoride:      0            # not in source
+  Zinc:          4.37         # 746767
+  Selenium:      0.030        # 30.0 µg (171251) -> mg
+  Copper:        0.047        # 746767
+  Chromium:      0            # not in source
+  Manganese:     0.027        # 746767; 171251: 0.026
+  Molybdenum:    0            # not in source
+
+# secondary:
+
+misc:                         # ml or g
+
+  water:         37.6         # 746767
+  alcohol:       0            # 171251: 0.0
+  caffeine:      0            # 171251: 0
+
+sources:
+
+  - title:   Default source = Cheese, swiss (Foundation)
+    comment: analytical but sparse (19 values); used for proximates and minerals
+    source:  https://fdc.nal.usda.gov/food-details/746767/nutrients
+
+  - title:   Alternative = Cheese, swiss (SR Legacy)
+    comment: used for energy, fibre, fat breakdown, fatty acids, amino acids, vitamins, selenium
+    source:  https://fdc.nal.usda.gov/food-details/171251/nutrients
+
+lastUpd: 2026-08-04
