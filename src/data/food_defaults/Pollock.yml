@@ -1,0 +1,119 @@
+
+# GLM only
+
+# 2608 verified all values from source as far as active in /nutrients
+#      The bundle food (Seelachs N, Norma "Alaska-Seelachs", 75 kcal, 0.8 g fat,
+#      17 g protein) does not state its state - no productName, no comment, only
+#      vendor, weight, pack values and cookingInstructions ">= 12 min" (i.e. it
+#      is sold uncooked). So no state is claimed for the product here.
+#      Entries weighed:
+#        2768188 Foundation "Alaska Pollock, raw"     78 kcal, 100 values (used)
+#        173725  SR Legacy  "Fish, pollock, Alaska, raw"  76 kcal, 45 values
+#        173726  SR Legacy  "Fish, pollock, Alaska, cooked" 86.6 kcal
+#      The pack's 75 kcal sit next to the raw entries (76/78), well below cooked
+#      (86.6), and 2768188 is the fullest panel by far (amino acids, vitamins,
+#      fatty acids, iodine, selenium - none of which 173725 carries), so it is
+#      used as the single source. 173725 is cited as the unused alternative.
+#
+#      Source has no Atwater Specific (only Atwater General = 78), no Vitamin K,
+#      no Vitamin C, no Biotin, no Fluoride, no Chromium, no Molybdenum, no
+#      sugar alcohol and no "Sugars, total" (the five single sugars are all
+#      0.00); these stay 0. 173725 has none of them either.
+
+acceptable:
+comment:
+                              # kcal
+calories:          78         # Energy (Atwater General Factors); no Atwater Specific
+
+nutritionalValues:            # g
+
+  fat:             0.99       # total lipid (fat)
+  saturatedFat:    0.237      # fatty acids, total saturated
+  monoUnsaturated: 0.148      # fatty acids, total monounsaturated
+  polyUnsaturated: 0.458      # fatty acids, total polyunsaturated
+  carbs:           0.06       # by difference
+  sugar:           0          # no total sugars in source; sucrose/glucose/fructose/lactose/maltose all 0.00
+  sugarAlcohol:    0          # not in source
+  fibre:           0          # Fiber, total dietary 0.0
+  amino:           17.3       # is protein
+  salt:            0.115      # Sodium 115 mg -> g
+
+fattyAcids:                   # g, but EPA and DHA in mg
+
+  Alpha-linolenic acid: 0.004 # PUFA 18:3 (619); 851 (PUFA 18:3 n-3 c,c,c ALA) not in source
+  Eicosapentaenoic acid: 168  # PUFA 20:5 n-3 (EPA), 0.168 g -> mg
+  Docosahexaenoic acid: 237   # PUFA 22:6 n-3 (DHA), 0.237 g -> mg
+  Linoleic acid:        0.006 # PUFA 18:2 (618); 675 (PUFA 18:2 n-6 c,c) not in source
+
+carbs:                        # g
+
+  Fibre:         0            # Fiber, total dietary 0.0
+
+aminoAcids:                   # mg
+                              # source in g
+  Histidine:     246          # 0.246 g -> mg
+  Isoleucine:    564          # 0.564 g -> mg
+  Leucine:       1040         # 1.04 g -> mg
+  Lysine:        1270         # 1.27 g -> mg
+  Methionine:    421          # 0.421 g -> mg, cystine 0.156 not active in /nutrients
+  Phenylalanine: 496          # 0.496 g -> mg, tyrosine 0.461 not active in /nutrients
+  Threonine:     513          # 0.513 g -> mg
+  Tryptophan:    138          # 0.138 g -> mg
+  Valine:        606          # 0.606 g -> mg
+
+vitamins:                     # mg
+
+  Vitamin A:     0.003        # Vitamin A, RAE 3 µg -> mg
+  Vitamin D:     0            # Vitamin D (D2 + D3) 0.00 µg
+  Vitamin E:     0.23         # Vitamin E (id 2068)
+  Vitamin K:     0            # not in source
+  Vitamin C:     0            # not in source
+  Thiamin B1:    0.086
+  Riboflavin B2: 0.104
+  Niacin B3:     1.48
+  Pantothenic acid B5: 0.250
+  Vitamin B6:    0.121
+  Biotin B7:     0            # not in source
+  Folate B9:     0.01         # folate total 10 µg -> mg
+  Vitamin B12:   0.00176      # 1.76 µg -> mg
+
+minerals:                     # default unit: mg except for Salt, Potassium and Calcium where grams need to be used
+
+  Salt:          0.115        # Sodium 115 mg -> g
+  Potassium:     0.353        # 353 mg -> g
+  Calcium:       0.040        # 40 mg -> g
+  Phosphorus:    223          # mg
+  Magnesium:     22.8
+  Iron:          0.24
+  Iodine:        0.186        # 186 µg -> mg
+  Fluoride:      0            # not in source
+  Zinc:          0.43
+  Selenium:      0.027        # 27.0 µg -> mg
+  Copper:        0.097
+  Chromium:      0            # not in source
+  Manganese:     0.003
+  Molybdenum:    0            # not in source
+
+# secondary:
+
+misc:
+
+  water:         80.4         # ml or g
+  alcohol:       0            # not in source
+  caffeine:      0            # not in source
+
+sources:
+
+  - title:   Default source = Alaska Pollock, raw (Foundation)
+    comment: fullest panel (100 values); amino acids, vitamins, fatty acids, iodine, selenium all present
+    source:  https://fdc.nal.usda.gov/food-details/2768188/nutrients
+
+  - title:   Alternative = Fish, pollock, Alaska, raw (SR Legacy, unused)
+    comment: only 45 values, no amino acids and no vitamins
+    source:  https://fdc.nal.usda.gov/food-details/173725/nutrients
+
+  - title:   Alternative = Fish, pollock, Alaska, cooked (SR Legacy, unused)
+    comment: cooked state, 86.6 kcal - too high for the pack's 75 kcal
+    source:  https://fdc.nal.usda.gov/food-details/173726/nutrients
+
+lastUpd: 2026-08-05
