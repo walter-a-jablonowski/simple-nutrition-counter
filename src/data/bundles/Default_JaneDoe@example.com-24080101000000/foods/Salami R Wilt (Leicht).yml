@@ -1,0 +1,25 @@
+type:              Chicken
+group:             meat
+productName:       "Wiltmann Geflügel-Salami mit Pflanzenfett (Light)"
+vendor:            Rewe
+acceptable:        occasionally
+ingredients:       "Putenfleisch, Palmfett, Jodiertes Speisesalz (Speisesalz, Kaliumiodat), Traubenzucker, Gewürze, Konserv: Natriumnitrit, Reifekulturen, Buchenholzrauch"
+packaging:         plastic & cardboard
+
+price:             
+weight:            50g
+usedAmounts:       ["1/4", "1/2", "1"]
+
+calories:          247
+nutritionalValues:
+
+  fat:             17
+  saturatedFat:    8.5
+  carbs:           1
+  sugar:           1
+  amino:           22
+  salt:            3.8
+
+sources:           { nutriVal: "pack" }
+lastUpd:           2026-08-05
+lastPriceUpd:      
