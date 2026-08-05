@@ -1,7 +1,9 @@
+state:             unprecise
 productName:       "Lieken Urkorn Kleines Kerni 250g"
 vendor:            Rewe
 url:               "https://www.rewe.de/shop/p/lieken-urkorn-kleines-kerni-250g/9544585"
 
+comment:           "unprecise: pieces"
 certificates:      { vegan: true }
 ingredients:       "Wasser, Natursauer-Teig (Wasser, ROGGENVOLLKORNMEHL, ROGGENVOLLKORNSCHROT), ROGGENVOLLKORNSCHROT, ROGGENFLOCKEN, Sonnenblumenkerne, ROGGENKÖRNER, Salz, Apfelessig, GERSTENMALZMEHL, Hefe"
 mayContain:        "SOJA, SENF, SESAM und LUPINEN"
@@ -9,6 +11,7 @@ packaging:         plastic
 
 price:             1.39
 weight:            250g
+pieces:            8
 usedAmounts:       ["1", "2", "3"]
 
 calories:          227
