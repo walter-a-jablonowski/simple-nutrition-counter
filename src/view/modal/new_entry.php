@@ -44,7 +44,7 @@
 -->
         <!-- Entry / new-food form -->
         <div id="newEntryFormPanel">
-        <ul class="nav nav-tabs nav-fill small mb-2" role="tablist">
+        <ul class="nav modalTabs" role="tablist">
           <li class="nav-item">
             <button id="entryTab" class="nav-link active" data-bs-toggle="tab" data-bs-target="#entryTabPane" type="button" role="tab">Entry</button>
           </li>

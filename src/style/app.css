@@ -1049,6 +1049,39 @@ body.sortable-active .day-entry {
   }
 }
 
+/* New entry modal: Entry/Details tabs.
+   Same underline treatment as the food-grid tabs: no button box, so the label
+   itself can carry normal text size instead of shrinking inside a wide pill. */
+
+#newEntryModal .modalTabs {
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+  /* 1px baseline painted as a background gradient -> adds no height */
+  background-image: linear-gradient(to top, #e9ecef 1px, transparent 1px);
+}
+
+#newEntryModal .modalTabs .nav-link {
+  padding: 0.3rem 0.9rem;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  color: #6c757d;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.15s ease, box-shadow 0.15s ease;
+}
+
+#newEntryModal .modalTabs .nav-link:hover {
+  color: #e95420;
+  box-shadow: inset 0 -2px 0 rgba(233, 84, 32, 0.35);
+}
+
+#newEntryModal .modalTabs .nav-link.active {
+  box-shadow: inset 0 -2px 0 #e95420;
+  color: #e95420;
+  font-weight: 600;
+}
+
 /* New entry modal: fixed-width labels so the nutrient inputs line up */
 
 #newEntryModal .modalNutrientLabel {
