@@ -66,10 +66,26 @@ if( ! $isAjax )
 }
 else
 {
-  $args = json_decode( file_get_contents('php://input'), true);
+  $body = file_get_contents('php://input');
+  $args = json_decode( $body, true);
 
-  $controller = new AppController();
-  echo json_encode( $controller->dispatch($args));
+  if( ! is_array($args))
+  {
+    // An empty body that announced a length means php dropped the request because
+    // it was bigger than post_max_size (photo import posts the pictures in it)
+
+    $tooBig = $body === '' && ! empty( $_SERVER['CONTENT_LENGTH']);
+    $limit  = ini_get('post_max_size');
+
+    echo json_encode(['result' => 'error', 'data' => ['message' =>
+      $tooBig ? "The request was too large for the server (post_max_size $limit)."
+              : 'The request could not be read.']]);
+  }
+  else
+  {
+    $controller = new AppController();
+    echo json_encode( $controller->dispatch($args));
+  }
 }
 
 ?>

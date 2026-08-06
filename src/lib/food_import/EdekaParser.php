@@ -69,7 +69,7 @@ class EdekaParser extends FoodParserBase
     if( ! is_array($data) || ! isset($data['pageHeading']))
       throw new Exception('Could not find product data in the EDEKA page. Please paste the full page HTML.');
 
-    $name   = $this->cleanText($data['pageHeading']);
+    $name   = self::cleanText($data['pageHeading']);
     $weight = preg_replace('/\s+/u', '', $data['volume']['sellingContent'] ?? '');  // "300 g" -> "300g"
 
     // Brand + heading + pack size reads like the vendor's own product title
@@ -81,7 +81,7 @@ class EdekaParser extends FoodParserBase
 
     $ingredientText = preg_replace('/^\s*Zutaten:\s*/ui', '', $data['ingredients']['ingredients'] ?? '');
 
-    [$ingredients, $mayContain] = $this->splitIngredients($ingredientText);
+    [$ingredients, $mayContain] = self::splitIngredients($ingredientText);
 
     $food =
     [
@@ -91,12 +91,12 @@ class EdekaParser extends FoodParserBase
       'url'          => $this->parseUrl($page, $url),
       'certificates' => $this->parseCertificates($data),
       'ingredients'  => $ingredients,
-      'allergy'      => $this->cleanText($data['ingredients']['allergensDescription'] ?? ''),
+      'allergy'      => self::cleanText($data['ingredients']['allergensDescription'] ?? ''),
       'mayContain'   => $this->parseTraces($data) ?? $mayContain,
       // no price on these pages: they are product information, not a shop listing
       'price'        => null,
       'weight'       => $weight,
-      'pieces'       => $this->parsePieces($productName),
+      'pieces'       => self::parsePieces($productName),
       'nutritionalValues' => [],
     ];
 
@@ -205,7 +205,7 @@ class EdekaParser extends FoodParserBase
 
   private function brand( array $data ) : string
   {
-    return $this->cleanText($data['brand']['name'] ?? '');
+    return self::cleanText($data['brand']['name'] ?? '');
   }
 
 

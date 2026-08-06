@@ -65,7 +65,7 @@ class ReweParser extends FoodParserBase
     // Ingredients often bundle a "Kann Spuren von ... enthalten" allergen note,
     // which belongs in mayContain
 
-    [$ingredients, $mayContain] = $this->splitIngredients( $this->detailValue($html, 'ingredientStatement') ?? '');
+    [$ingredients, $mayContain] = self::splitIngredients( $this->detailValue($html, 'ingredientStatement') ?? '');
 
     $food =
     [
@@ -81,7 +81,7 @@ class ReweParser extends FoodParserBase
       // grammage may carry a base-price note, e.g. "0,75l (1 l = 6,65 €)"
       'weight'       => trim( preg_replace('/\s*\(.*$/u', '', $this->jsonString($html, 'grammage') ?? '')),
       // piece count for multi-piece packs, e.g. "... 300g, 5 Stück"
-      'pieces'       => $this->parsePieces($productName),
+      'pieces'       => self::parsePieces($productName),
       'nutritionalValues' => [],
     ];
 
@@ -217,7 +217,7 @@ class ReweParser extends FoodParserBase
 
   private function parseAllergy( string $html ) : string
   {
-    return $this->cleanText( $this->detailValueByLabel($html, 'Allergene') ?? '');
+    return self::cleanText( $this->detailValueByLabel($html, 'Allergene') ?? '');
   }
 
 

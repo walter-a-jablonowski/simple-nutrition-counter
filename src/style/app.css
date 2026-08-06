@@ -1086,6 +1086,45 @@ body.sortable-active .day-entry {
   font-weight: 600;
 }
 
+/* New entry modal: photo import.
+   Square thumbnails of the shots, each with a remove button. The button sits on
+   the picture, so it carries its own background to stay visible on a dark photo */
+
+#newEntryModal .photoThumb {
+  position: relative;
+  width: 72px;
+  height: 72px;
+}
+
+#newEntryModal .photoThumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.25rem;
+}
+
+#newEntryModal .photoThumb .btn-close {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  padding: 0.15rem;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+  --bs-btn-close-opacity: 0.9;
+}
+
+/* What the reader was unsure about, shown above the form it filled */
+
+#newEntryModal .importWarnMsg {
+  margin-bottom: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  border-left: 3px solid #ffc107;
+  border-radius: 0.25rem;
+  background-color: color-mix(in srgb, #ffc107 12%, #ffffff);
+  color: #664d03;
+}
+
 /* New entry modal: keep the modal height constant when switching tabs.
    Both panes share one grid cell, so the content box always measures the
    tallest pane instead of collapsing onto the shorter "Details" one. */

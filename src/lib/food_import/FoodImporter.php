@@ -4,11 +4,12 @@ require_once 'lib/food_import/FoodParser.php';
 require_once 'lib/food_import/ReweParser.php';
 require_once 'lib/food_import/EdekaParser.php';
 require_once 'lib/food_import/PageFetcher.php';
+require_once 'lib/food_import/PhotoImporter.php';
 
 /*
 
-Orchestrates food import: takes a URL or pasted HTML, picks the matching vendor
-parser, and returns a normalized food-data array ready for the import form.
+Orchestrates food import: takes a URL, pasted HTML or pictures of the packaging,
+and returns a normalized food-data array ready for the import form.
 
 Add a new vendor by implementing FoodParser and registering it in `parsers()`.
 
@@ -47,13 +48,25 @@ class FoodImporter
   }
 
 
+  /* Import from pictures of the packaging (option C). Returns { food, warnings }
+     instead of a bare food record: only at runtime can the model tell what it
+     could not read, and the user has to see that while reviewing the form. */
+
+  public static function fromImages( array $images ) : array
+  {
+    $result = PhotoImporter::fromImages( $images );
+
+    return ['food' => self::finalize( $result['food'], 'pack'), 'warnings' => $result['warnings']];
+  }
+
+
   // Add source metadata and the current date, drop empty values
 
-  private static function finalize( array $food ) : array
+  private static function finalize( array $food, string $nutriValSource = 'web') : array
   {
     $today = date('Y-m-d');
 
-    $food['sources']      = ['nutriVal' => 'web'];
+    $food['sources']      = ['nutriVal' => $nutriValSource];
     $food['lastUpd']      = $today;
 
     if( ! empty($food['price']))

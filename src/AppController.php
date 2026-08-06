@@ -33,6 +33,7 @@ class AppController extends ControllerBase
   use SavePriceAjaxController;
   use GetChartsDataAjaxController;
   use ImportFoodAjaxController;
+  use ImportFoodPhotosAjaxController;
   use SaveFoodAjaxController;
   use MoveFoodAjaxController;
   use PublishFoodsAjaxController;

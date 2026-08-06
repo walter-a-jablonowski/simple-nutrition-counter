@@ -1,0 +1,30 @@
+{
+  "productName": "ja! Haferflocken Kernig 500g",
+  "name": "Haferflocken ja!",
+  "vendor": "ja!",
+  "weight": "500 g ℮",
+  "pieces": null,
+  "packaging": "cardboard",
+  "basis": "per100g",
+  "energyKj": 1560,
+  "calories": 373,
+  "nutritionalValues": {
+    "fat": 7.1,
+    "saturatedFat": 1.3,
+    "carbs": 58.7,
+    "sugar": 1.1,
+    "fibre": 9.7,
+    "amino": 13.5,
+    "salt": 0.02
+  },
+  "certificates": {
+    "NutriScore": "B",
+    "bio": false,
+    "vegan": true
+  },
+  "ingredients": "Vollkorn-HAFERflocken 100%",
+  "allergy": "Enthält: Hafer (Gluten)",
+  "mayContain": "Kann Spuren von Weizen, Gerste, Roggen und Soja enthalten",
+  "price": null,
+  "notes": null
+}

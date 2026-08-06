@@ -1,12 +1,21 @@
 <div id="newEntryModal" class="modal fade" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
+  <!-- scrollable: long content scrolls inside the modal body, so the modal
+       itself never overflows the viewport and adds a scrollbar to the page -->
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
         <h6 class="modal-title">New entry</h6>
         <!-- TASK: add a dev config and hide -->
-        <button id="importShowBtn" onclick="mainCrl.importShowBtn()" class="btn btn-sm btn-outline-secondary ms-auto" type="button">
-          Import
-        </button>
+        <div class="ms-auto d-flex gap-2">
+          <?php if( config::get('photoImport.enabled') ): ?>
+            <button id="photoShowBtn" onclick="mainCrl.showPanel('photo')" class="btn btn-sm btn-outline-secondary" type="button" title="Read a packaging photo">
+              <i class="bi bi-camera"></i>
+            </button>
+          <?php endif; ?>
+          <button id="importShowBtn" onclick="mainCrl.showPanel('import')" class="btn btn-sm btn-outline-secondary" type="button">
+            Import
+          </button>
+        </div>
       </div>
       <div class="modal-body small">
         
@@ -44,6 +53,8 @@
 -->
         <!-- Entry / new-food form -->
         <div id="newEntryFormPanel">
+        <!-- What an import could not read or got suspicious about (photo import) -->
+        <div id="importWarnMsg" class="importWarnMsg small d-none"></div>
         <ul class="nav modalTabs" role="tablist">
           <li class="nav-item">
             <button id="entryTab" class="nav-link active" data-bs-toggle="tab" data-bs-target="#entryTabPane" type="button" role="tab">Entry</button>
@@ -243,7 +254,7 @@
           </div>
           <div id="importMsg" class="small text-danger mb-2"></div>
           <div class="d-flex justify-content-between">
-            <button onclick="mainCrl.importBackBtn()" class="btn btn-sm btn-secondary" type="button">
+            <button onclick="mainCrl.showPanel('form')" class="btn btn-sm btn-secondary" type="button">
               Back
             </button>
             <button id="importRunBtn" onclick="mainCrl.importRunBtn()" class="btn btn-sm btn-primary" type="button">
@@ -251,6 +262,42 @@
             </button>
           </div>
         </div>
+
+        <!-- Photo panel: read a food off pictures of the packaging (Gemini vision).
+             The browser downscales the shots, the limits come from config.yml -->
+        <?php if( config::get('photoImport.enabled') ): ?>
+        <div id="newEntryPhotoPanel" class="d-none"
+             data-max-images="<?= (int)   (config::get('photoImport.maxImages') ?: 3) ?>"
+             data-max-edge="<?=   (int)   (config::get('photoImport.maxEdge')   ?: 1568) ?>"
+             data-quality="<?=    (float) (config::get('photoImport.quality')   ?: 0.82) ?>">
+          <div class="mb-2 small text-secondary">
+            Photograph the pack: front, nutrition table, ingredients. Hold the camera straight
+            and let the table fill the frame.
+          </div>
+          <div class="d-flex gap-2 mb-2">
+            <label for="photoCameraInput" class="btn btn-sm btn-outline-secondary mb-0">
+              <i class="bi bi-camera"></i> Take picture
+            </label>
+            <label for="photoFileInput" class="btn btn-sm btn-outline-secondary mb-0">
+              <i class="bi bi-images"></i> Choose
+            </label>
+          </div>
+          <!-- capture opens the camera but hides the gallery on android, so the
+               second input is the one that works on a desktop -->
+          <input id="photoCameraInput" type="file" accept="image/*" capture="environment" multiple class="d-none">
+          <input id="photoFileInput"   type="file" accept="image/*" multiple class="d-none">
+          <div id="photoList" class="d-flex flex-wrap gap-2 mb-2"></div>
+          <div id="photoMsg" class="small text-danger mb-2"></div>
+          <div class="d-flex justify-content-between">
+            <button onclick="mainCrl.showPanel('form')" class="btn btn-sm btn-secondary" type="button">
+              Back
+            </button>
+            <button id="photoRunBtn" onclick="foodPhotoCrl.run()" class="btn btn-sm btn-primary" type="button">
+              Read pictures
+            </button>
+          </div>
+        </div>
+        <?php endif; ?>
       </div>
       <div id="newEntryFooter" class="modal-footer">
         <div class="d-flex w-100 justify-content-between align-items-center">

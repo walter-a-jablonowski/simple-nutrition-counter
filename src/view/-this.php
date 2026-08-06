@@ -332,12 +332,13 @@ else:
 <script src="ChartsController.js?v=<?= time() ?>"></script>
 <script src="AgentOverlayController.js?v=<?= time() ?>"></script>
 <script src="VoiceAgentController.js?v=<?= time() ?>"></script>
+<script src="FoodPhotoController.js?v=<?= time() ?>"></script>
 <!-- <script src="SettingsController.js?v=<?= time() ?>"></script> -->
 <script>
 
 // ajax.file = 'ajax.php'
 
-var dayEntries, mainCrl, widgetsCrl, chartsCrl, dropMenu, voiceCrl, agentOverlay
+var dayEntries, mainCrl, widgetsCrl, chartsCrl, dropMenu, voiceCrl, agentOverlay, foodPhotoCrl
 
 ready( function() {
 
@@ -357,6 +358,10 @@ ready( function() {
   <?php endif; ?>
 
   voiceCrl = new VoiceAgentController()   // no-op while the mic button is disabled
+
+  <?php if( config::get('photoImport.enabled') ): ?>
+    foodPhotoCrl = new FoodPhotoController()   // needs its markup, so it is gated too
+  <?php endif; ?>
 
   setupTabletErrorHandler()
 })

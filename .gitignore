@@ -30,4 +30,6 @@ src/tools/bulk_price_upd/data/import_5.yml
 src/tools/bulk_price_upd/data/import_5_done.yml
 nutri.code-workspace
 src/tools/publish_foods/published.json
+src/tools/photo_import/*.jpg
+src/tools/photo_import/*.png
 _agent_sample/

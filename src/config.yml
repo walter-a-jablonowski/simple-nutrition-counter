@@ -36,6 +36,15 @@ agent:                      # AI voice agent (Gemini Live), see dev_info/Voice_A
   voice:   "Aoede"          # Gemini Live prebuilt voice
   debug:   false            # verbose console logging, keeps errors on screen
 
+photoImport:                # create a food from pictures of the packaging (Gemini vision)
+
+  enabled:   true           # false hides the camera button in the new entry modal
+  model:     "gemini-3.6-flash"   # must support generateContent - the Live model above does't
+  maxImages: 3              # front, nutrition table, ingredients
+  maxEdge:   1568           # px, the browser downscales to this before uploading
+  quality:   0.82           # jpeg quality of the downscaled upload
+  debug:     false          # log the received image sizes and the raw model answer
+
 defaultSettings:            # see also users > settings.yml
 
   currency:       "EUR"     # currently EUR or USD

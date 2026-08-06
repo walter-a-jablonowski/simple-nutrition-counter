@@ -22,9 +22,9 @@ class MainController
     this.deleteEntryBtnClick     = this.deleteEntryBtnClick.bind(this)
     this.newEntryBtn             = this.newEntryBtn.bind(this)
     this.newEntrySaveBtn         = this.newEntrySaveBtn.bind(this)
-    this.importShowBtn           = this.importShowBtn.bind(this)
-    this.importBackBtn           = this.importBackBtn.bind(this)
+    this.showPanel               = this.showPanel.bind(this)
     this.importRunBtn            = this.importRunBtn.bind(this)
+    this.applyImportedFood       = this.applyImportedFood.bind(this)
     this.openSearch              = this.openSearch.bind(this)
     this.runSearch               = this.runSearch.bind(this)
     this.searchResultClick       = this.searchResultClick.bind(this)
@@ -255,7 +255,10 @@ class MainController
 
       // Reset import state (dev feature)
       this.importedFood = null
-      this.#showImportPanel( false )
+      this.showPanel('form')
+      if( window.foodPhotoCrl )  foodPhotoCrl.reset()
+      const warn = query('#importWarnMsg')
+      if( warn )  warn.classList.add('d-none')
       const saveNewFood = query('#saveNewFood')
       if( saveNewFood )  saveNewFood.checked = false
 
@@ -978,21 +981,11 @@ class MainController
   }
 
 
-  // Import a food from a product page (dev feature)
+  // Import a food, from a product page or from pictures of the packaging (dev feature)
   //
-  // Flow: Import button -> import panel (URL or pasted HTML) -> importFood ajax
-  // fills the form and checks "Save as new food" -> Add entry persists the food
-  // via saveFood and reloads so the new food shows up in the grid.
-
-  importShowBtn(event)
-  {
-    this.#showImportPanel( true )
-  }
-
-  importBackBtn(event)
-  {
-    this.#showImportPanel( false )
-  }
+  // Flow: header button -> import or photo panel -> importFood / importFoodPhotos
+  // ajax fills the form and checks "Save as new food" -> Add entry persists the
+  // food via saveFood and reloads so the new food shows up in the grid.
 
   importRunBtn(event)
   {
@@ -1021,28 +1014,64 @@ class MainController
         return
       }
 
-      this.#fillFormFromFood( data.food )
-      this.#showImportPanel( false )
-
-      const chk = query('#saveNewFood')
-      if( chk )  chk.checked = true
+      this.applyImportedFood( data.food )
     })
   }
 
-  #showImportPanel( show )
+  // What both imports do with their result: fill the form, come back to it and
+  // arm the save, plus whatever the reader could not be sure about
+
+  applyImportedFood( food, warnings )
   {
-    const panel = query('#newEntryImportPanel')
+    this.#fillFormFromFood( food )
+    this.showPanel('form')
 
-    if( ! panel )  return   // devMode off: import UI is not rendered
+    const chk = query('#saveNewFood')
+    if( chk )  chk.checked = true
 
-    panel.classList.toggle('d-none', ! show)
-    query('#newEntryFormPanel').classList.toggle('d-none', show)
+    const warn  = query('#importWarnMsg')
+    const lines = warnings || []
 
-    const footer = query('#newEntryFooter')
-    if( footer )  footer.classList.toggle('d-none', show)
+    // textContent, not innerHTML: a warning can quote what the model read off a picture
 
-    const importBtn = query('#importShowBtn')   // header button: not needed while importing
-    if( importBtn )  importBtn.classList.toggle('d-none', show)
+    if( warn ) {
+      warn.textContent = ''
+
+      lines.forEach( line => {
+        const row = document.createElement('div')
+        row.textContent = line
+        warn.appendChild( row )
+      })
+
+      warn.classList.toggle('d-none', ! lines.length)
+    }
+  }
+
+  /* Which of the modal's panels is visible: 'form', 'import' or 'photo'.
+     The footer and the header buttons belong to the form, so they go with it.
+     Panels that are switched off in the config are simply not there */
+
+  showPanel( name )
+  {
+    const panels = {
+      form:   '#newEntryFormPanel',
+      import: '#newEntryImportPanel',
+      photo:  '#newEntryPhotoPanel'
+    }
+
+    for( const [panelName, selector] of Object.entries( panels ))
+    {
+      const panel = query( selector )
+      if( panel )  panel.classList.toggle('d-none', panelName !== name)
+    }
+
+    const onForm = name === 'form'
+
+    for( const selector of ['#newEntryFooter', '#importShowBtn', '#photoShowBtn'])
+    {
+      const element = query( selector )
+      if( element )  element.classList.toggle('d-none', ! onForm)
+    }
   }
 
   #fillFormFromFood( food )
