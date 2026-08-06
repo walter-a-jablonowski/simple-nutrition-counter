@@ -1053,6 +1053,10 @@ body.sortable-active .day-entry {
    Same underline treatment as the food-grid tabs: no button box, so the label
    itself can carry normal text size instead of shrinking inside a wide pill. */
 
+#newEntryModal .modal-body {
+  padding-top: 0.5rem;   /* tabs sit close under the header */
+}
+
 #newEntryModal .modalTabs {
   gap: 0.25rem;
   margin-bottom: 0.75rem;
@@ -1080,6 +1084,24 @@ body.sortable-active .day-entry {
   box-shadow: inset 0 -2px 0 #e95420;
   color: #e95420;
   font-weight: 600;
+}
+
+/* New entry modal: keep the modal height constant when switching tabs.
+   Both panes share one grid cell, so the content box always measures the
+   tallest pane instead of collapsing onto the shorter "Details" one. */
+
+#newEntryModal .tab-content {
+  display: grid;
+}
+
+#newEntryModal .tab-content > .tab-pane {
+  grid-area: 1 / 1;
+  display: block;        /* beats .tab-content>.tab-pane{display:none}: the hidden pane keeps its size */
+  visibility: hidden;    /* ... but stays unclickable and out of the tab order */
+}
+
+#newEntryModal .tab-content > .tab-pane.active {
+  visibility: visible;
 }
 
 /* New entry modal: fixed-width labels so the nutrient inputs line up */
