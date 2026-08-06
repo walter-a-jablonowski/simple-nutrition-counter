@@ -1040,6 +1040,9 @@ class MainController
 
     const footer = query('#newEntryFooter')
     if( footer )  footer.classList.toggle('d-none', show)
+
+    const importBtn = query('#importShowBtn')   // header button: not needed while importing
+    if( importBtn )  importBtn.classList.toggle('d-none', show)
   }
 
   #fillFormFromFood( food )

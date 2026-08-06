@@ -1,12 +1,13 @@
 <div id="newEntryModal" class="modal fade" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-<!--
       <div class="modal-header">
         <h6 class="modal-title">New entry</h6>
-        <button data-bs-dismiss="modal" class="btn-close" type="button"></button>
+        <!-- TASK: add a dev config and hide -->
+        <button id="importShowBtn" onclick="mainCrl.importShowBtn()" class="btn btn-sm btn-outline-secondary ms-auto" type="button">
+          Import
+        </button>
       </div>
--->
       <div class="modal-body small">
         
         <!-- Floating form (placeholder is more compact) -->
@@ -253,18 +254,12 @@
       </div>
       <div id="newEntryFooter" class="modal-footer">
         <div class="d-flex w-100 justify-content-between align-items-center">
-          <!-- TASK: add a dev config and hide -->
           <!-- TASK: (very advanced) -->
-          <div class="d-flex align-items-center gap-3">
-            <button onclick="mainCrl.importShowBtn()" class="btn btn-sm btn-outline-secondary" type="button">
-              Import
-            </button>
-            <div class="form-check mb-0">
-              <input id="saveNewFood" type="checkbox" value="" class="form-check-input">
-              <label class="form-check-label small" for="saveNewFood">
-                Save as new food
-              </label>
-            </div>
+          <div class="form-check mb-0">
+            <input id="saveNewFood" type="checkbox" value="" class="form-check-input">
+            <label class="form-check-label small" for="saveNewFood">
+              Save as new food
+            </label>
           </div>
           <div class="d-flex align-items-center gap-2">
             <!-- Validation hint: hover the "!" for the message (space is tight) -->
