@@ -3,7 +3,7 @@ type:              "Pollock"
 group:             meat
 vendor:            Norma
 acceptable:        occasionally
-comment:           "unprecise: used type fish only"
+comment:           "unprecise: Food_defaults fish only"
 packaging:         cardboard
 
 price:             2.79

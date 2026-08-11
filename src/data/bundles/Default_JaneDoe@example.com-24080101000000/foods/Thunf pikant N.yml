@@ -1,7 +1,9 @@
+state:             unprecise
+type:              Tuna
 vendor:            Norma
 acceptable:        occasionally
 certificates:      { NutriScore: B }
-comment:           "may contain mercury"
+comment:           "may contain mercury, unprecise: Food_defaults fish only"
 packaging:         alu
 
 price:             1.29
