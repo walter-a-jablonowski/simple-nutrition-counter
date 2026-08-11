@@ -1,5 +1,9 @@
+state:             unprecise
+type:              "Pollock"
+group:             meat
 vendor:            Norma
 acceptable:        occasionally
+comment:           "unprecise: used type fish only"
 packaging:         cardboard
 
 price:             2.79
