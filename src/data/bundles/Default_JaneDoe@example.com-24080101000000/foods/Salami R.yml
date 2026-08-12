@@ -1,6 +1,7 @@
 type:              Chicken
 vendor:            Rewe
 acceptable:        occasionally
+comment:           "unprecise: food_defaults"
 packaging:         plastic
 
 price:             1.75

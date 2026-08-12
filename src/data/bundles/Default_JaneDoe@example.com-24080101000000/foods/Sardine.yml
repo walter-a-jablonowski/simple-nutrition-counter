@@ -2,7 +2,7 @@ state:             unprecise
 type:              "Sardines"
 vendor:            Norma
 acceptable:        occasionally
-comment:           "careful cause of mercury, unprecise: Food_defaults fish only"
+comment:           "careful cause of mercury, unprecise: food_defaults fish only"
 certificates:      { NutriScore: B }
 ingredients:       "Sonnenblumenöl, Salz"
 packaging:         alu

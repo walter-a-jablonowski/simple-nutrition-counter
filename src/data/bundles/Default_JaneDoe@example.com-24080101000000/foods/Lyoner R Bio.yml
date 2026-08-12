@@ -2,6 +2,7 @@ type:              Chicken
 group:             meat
 vendor:            Rewe
 acceptable:        less
+comment:           "unprecise: food_defaults"
 certificates:      { bio: true }
 packaging:         plastic
 

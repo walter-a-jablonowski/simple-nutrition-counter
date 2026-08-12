@@ -2,6 +2,7 @@ type:              Chicken
 productName:       "Geflügel Salami"
 vendor:            Norma
 acceptable:        occasionally
+comment:           "unprecise: food_defaults"
 packaging:         plastic
 
 price:             1.79

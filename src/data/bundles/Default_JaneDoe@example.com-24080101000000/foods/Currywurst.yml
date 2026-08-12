@@ -1,8 +1,9 @@
-
+type:              Chicken
 productName:       "Curry King Geflügel"
 url:               https://www.meica.de/produkte/curry-king/curry-king-gefluegel#productdetail
 
 acceptable:        occasionally  # TASK: ingredients
+comment:           "unprecise: food_defaults"
 allergy:           "Milch / Milcherzeugn. (ohne Lactose), Sellerie / Sellerieerzeugnisse, Senf / Senferzeugnisse"
 packaging:         plastic
 

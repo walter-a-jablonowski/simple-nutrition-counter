@@ -3,6 +3,7 @@ group:             meat
 productName:       "Wiltmann Geflügel-Salami mit Pflanzenfett (Light)"
 vendor:            Rewe
 acceptable:        occasionally
+comment:           "unprecise: food_defaults"
 ingredients:       "Putenfleisch, Palmfett, Jodiertes Speisesalz (Speisesalz, Kaliumiodat), Traubenzucker, Gewürze, Konserv: Natriumnitrit, Reifekulturen, Buchenholzrauch"
 packaging:         plastic & cardboard
 

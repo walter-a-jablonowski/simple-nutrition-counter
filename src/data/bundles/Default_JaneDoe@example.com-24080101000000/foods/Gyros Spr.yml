@@ -2,14 +2,15 @@ type:              Chicken
 group:             meat
 productName:       "Sprehe Hähnchen Pfannengyros"
 vendor:            "Norma"
+comment:           "unprecise: food_defaults"
 ingredients:       "Hähnchenoberkeulenfleisch 98%, Speisesalz, Gewürze, Kräuter, Dextrose, Gewürzextrakt"
 packaging:         plastic
+
+cookingInstructions: "> 6 min"
 
 price:             2.89
 weight:            300
 usedAmounts:       ["50g", "100g", "200g"]
-
-cookingInstructions: "> 6 min"
 
 calories:          168
 nutritionalValues:

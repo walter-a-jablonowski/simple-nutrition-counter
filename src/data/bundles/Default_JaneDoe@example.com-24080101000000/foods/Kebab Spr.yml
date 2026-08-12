@@ -2,6 +2,7 @@ type:              Chicken
 group:             meat
 productName:       "Sprehe Hähnchen Kebab"
 vendor:            "Norma"
+comment:           "unprecise: food_defaults"
 ingredients:       "Hähnchen, Wasser, Stärke, Salz, Gewürze, Kräuter, Dextrose, Karamelzuckersirup, Gewürzextrakt"
 mayContain:        "Gluten, Milch, Sellerie, Senf"
 packaging:         plastic

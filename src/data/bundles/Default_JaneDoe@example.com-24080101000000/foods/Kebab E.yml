@@ -1,7 +1,9 @@
+type:              Chicken
 productName:       "GUT&GÜNSTIG Hähnchen-Kebab-Pfanne 300g"
 vendor:            Edeka
 url:               "https://www.edeka.de/unsere-marken/produkte/gut-guenstig-haehnchen-kebab-pfanne-4311501741306/"
 
+comment:           "unprecise: food_defaults"
 certificates:      { NutriScore: D }
 ingredients:       "94% Hähnchenkeulenfleisch*, Stärke, Dextrose, Speisesalz, Gewürze, Antioxidationsmittel: Extrakt aus Rosmarin; Gewürzextrakt. *QS-Ware"
 packaging:         plastic

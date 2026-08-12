@@ -3,6 +3,7 @@ type:              Chicken
 group:             meat
 vendor:            Aldi
 
+comment:           "unprecise: food_defaults"
 certificates:      { NutriScore: A }
 packaging:         plastic
 

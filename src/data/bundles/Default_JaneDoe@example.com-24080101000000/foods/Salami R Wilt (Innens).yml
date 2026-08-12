@@ -3,6 +3,7 @@ group:             meat
 productName:       "Bio Geflügel-Salami mit Pflanzenfett"
 vendor:            Rewe
 acceptable:        occasionally
+comment:           "unprecise: food_defaults"
 certificates:      { bio: true }
 ingredients:       "Hähnchen, Pute, Palmfett, Meersalz, Traubenzucker, Gewürze, Antiox: Natriumascorbat, Konserv: Natriumnitrit, Reifekulturen, Buchenholzrauch"
 packaging:         plastic & cardboard
