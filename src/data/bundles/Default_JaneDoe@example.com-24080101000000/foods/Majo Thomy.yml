@@ -1,9 +1,10 @@
 
+type:              Mayonnaise
 productName:       "Delikatess Mayonnaise, 500ml Squeeze-Flasche"
 url:               "https://www.thomy.de/produkte/thomy-delikatess-mayonnaise-500ml-squeeze-flasche"
 
 acceptable:        occasionally
-comment:           "Teelöffel 5ml, Esslöffel 15ml"
+comment:           "Teelöffel 5ml, Esslöffel 15ml, unprecise: US Majo"
 certificates:      { NutriScore: D }
 ingredients:       "80% Sonnenblumenöl*, 8% EIGELB*, Branntweinessig*, SENFKÖRNER*, Gewürze* (Kurkuma, Koriander, Paprika, Piment), Jodsalz (Salz, Kaliumjodat), Zucker"
 allergy:           "Senf und Senferzeugnisse, Ei und Eierzeugnisse"
