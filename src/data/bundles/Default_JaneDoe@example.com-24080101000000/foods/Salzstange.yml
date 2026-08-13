@@ -7,7 +7,7 @@ ingredients:       "Weizenmehl Wasser Hefe Natronlauge Salz"
 allergy:           "Weizen (Gluten)"
 packaging:         none
 
-price:             0.6
+price:             0.75
 weight:            50g
 usedAmounts:       ["1"]
 
