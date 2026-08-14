@@ -1,0 +1,28 @@
+productName:       "ja! Linsen mit Suppengrün 530g"
+vendor:            Rewe
+url:               "https://www.rewe.de/shop/p/ja-linsen-mit-suppengruen-530g/7818635"
+
+comment:           "Added fibre from R Bio (missing)"
+certificates:      { NutriScore: A, vegan: true }
+ingredients:       "Linsen 62%, Wasser, Suppengrün 4% (Karotten gewürfelt, Lauch und Zwiebeln in Stücken), Speisesalz, Antioxidationsmittel (E 385)"
+mayContain:        "Spuren Gluten"
+packaging:         plastic & alu
+
+price:             1.19
+weight:            530g
+usedAmounts:       ["1/4", "1/2", "1"]
+
+calories:          94
+nutritionalValues:
+
+  fat:             0.7
+  saturatedFat:    0.1
+  carbs:           12.9
+  sugar:           0.1
+  fibre:           6.2
+  amino:           6.9
+  salt:            0.5
+
+sources:           { nutriVal: "web", price: "web" }
+lastUpd:           2026-08-14
+lastPriceUpd:      2026-08-14

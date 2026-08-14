@@ -38,6 +38,8 @@ Meals:
     list:
       - 'Chick R Bio'
       - 'Linsen R Bio'
+      - 'Linseneintopf R'
+      - 'Br Linsen R'
       - 'Brokkoli R'
       - 'Gemüse R Bio'
       - 'Gemüse A fr'
@@ -52,7 +54,7 @@ Meals:
       - 'Knoblauch R'
       - 'Knoblauch R Bio'
       - Öl
-      - 'Linseneintopf R'
+      - 'Br Linsen R'
   'Cheese, a little taste (color:#32cd32)':
     (i): 'Add only a little per meal makes it far more tasty and keeps it healthy'
     list:
@@ -328,7 +330,7 @@ Supplements:
       - 'Karamalz R'
       - 'Karamalz R Innens'
       - 'Karamalz Eni'
-      - 'Salzstange'
+      - Salzstange
   'Village (color:#ffa500)':
     list:
       - 'Apfel Pl R'
