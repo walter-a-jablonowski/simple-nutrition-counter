@@ -1279,6 +1279,7 @@ class MainController
       // off the food again (day_entries.php), so fixing the food clears them
 
       unprecise: btn.dataset.unprecise === 'true',
+      noType:    btn.dataset.noType    === 'true',
       noPrice:   btn.dataset.noPrice   === 'true',
 
       nutrients: {
@@ -1659,6 +1660,9 @@ class MainController
 
     if( entry.unprecise )
       flags += '<i class="bi bi-question-circle" title="Unprecise food data"></i>'
+
+    if( entry.noType )
+      flags += '<i class="bi bi-question-circle day-entry-flag-missing" title="No food type"></i>'
 
     if( entry.noPrice )
       flags += `<i class="bi ${ query('#dayEntriesList').dataset.currencyIcon }" title="No price"></i>`

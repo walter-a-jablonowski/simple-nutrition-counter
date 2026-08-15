@@ -42,6 +42,7 @@ $showWarning  = ( ! empty($interactions) && trim($interactions) !== '')
 // amount buttons, so a click can put them on the new entry right away
 
 $isUnprecise = 'unprecise' === $this->combinedModel->get("$entryName.state");
+$hasNoType   = ! trim( (string) $this->combinedModel->get("$entryName.type"));
 $hasNoPrice  = ! $price;   // price and dealPrice, see above
 
 // $xTimeLog = true === $this->combinedModel->get("$entryName.xTimeLog");
@@ -126,6 +127,7 @@ foreach( $voiceData as $key => $value )
          data-price      = "<?= $data['price'] ?>"
          data-x-time-log = "<?= $data['xTimeLog'] ? 'true' : 'false' ?>"
          data-unprecise  = "<?= $isUnprecise ? 'true' : 'false' ?>"
+         data-no-type    = "<?= $hasNoType   ? 'true' : 'false' ?>"
          data-no-price   = "<?= $hasNoPrice  ? 'true' : 'false' ?>"
          style           = "background-color: <?= $accepColor ?>;"
     >

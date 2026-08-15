@@ -762,6 +762,12 @@ body.no-scrollbars::-webkit-scrollbar {
   margin-left: 0.3rem;
 }
 
+/* Red instead: a field is missing on the food, not just imprecise */
+
+.day-entry-flags .day-entry-flag-missing {
+  color: #dc3545;
+}
+
 .day-entry-del {
   flex: 0 0 auto;
   line-height: 1;
