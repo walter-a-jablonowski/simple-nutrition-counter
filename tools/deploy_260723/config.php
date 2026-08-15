@@ -41,7 +41,7 @@ define('DEPLOY_KEEP', [
   'lib/bootstrap-icons-1.11.3',
   'lib/bootstrap-5.3.3-dist',
   'lib/jquery-ui-1.13.3',
-  'vendor',                                              // composer deps
+  'vendor',                                             // composer deps
   'data/users/JaneDoe@example.com-24080101000000/days'
 ]);
 

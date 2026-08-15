@@ -1067,7 +1067,7 @@ class MainController
 
     const onForm = name === 'form'
 
-    for( const selector of ['#newEntryFooter', '#importShowBtn', '#photoShowBtn'])
+    for( const selector of ['#newEntryFooter', '#importShowBtn', '#imgShowBtn'])
     {
       const element = query( selector )
       if( element )  element.classList.toggle('d-none', ! onForm)

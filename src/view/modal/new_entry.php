@@ -8,7 +8,7 @@
         <!-- TASK: add a dev config and hide -->
         <div class="ms-auto d-flex gap-2">
           <?php if( config::get('photoImport.enabled') ): ?>
-            <button id="photoShowBtn" onclick="mainCrl.showPanel('photo')" class="btn btn-sm btn-outline-secondary" type="button" title="Read a packaging photo">
+            <button id="imgShowBtn" onclick="mainCrl.showPanel('photo')" class="btn btn-sm btn-outline-secondary" type="button" title="Read a packaging photo">
               <i class="bi bi-camera"></i>
             </button>
           <?php endif; ?>
