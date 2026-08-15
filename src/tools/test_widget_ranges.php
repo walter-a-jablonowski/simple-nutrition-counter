@@ -106,7 +106,7 @@ check('absolute fraction upper', $t->bound( 0.065, 0.1, true) === 0.1);
 
 $expected = [
   'calories'   => [2090.0, 2310.0],  // -this.yml, regular day (not the reduced / fillUp variants)
-  'fat'        => [95.0,   105.0],   // lipids/fattyAcids.yml, group level (dummy amount so far)
+  'fat'        => [61.0,   86.0],    // lipids/fattyAcids.yml, group level, 25 - 35% of the calories
   'amino'      => [57.0,   63.0],    // aminoAcids.yml, group level, not the workout variant
   'carbs'      => [0.0,    130.0],   // carbs.yml, group level
   'fibre'      => [25.0,   50.0],    // carbs.yml > substances > Fibre
@@ -134,7 +134,11 @@ $rows = [
   'carbs.fibre' => [25.0, 50.0],   // 25 / 40 / 50 g
   'min.NaCl'    => [4.0,  6.0],    // 4 / 5 / 6 g
   'min.Cr'      => [0.03, 0.1],    // 0.03 / 0.065 / 0.1 mg
-  'fat.EPA'     => [250.0, 300.0]  // 250 / 275 / 300 mg
+  'fat.EPA'     => [250.0, 300.0], // 250 / 275 / 300 mg
+  'min.Cu'      => [1.0,  1.5],    // DGE range
+  'min.Mn'      => [2.0,  5.0],    // DGE range
+  'misc.H2O'    => [2000.0, 4000.0],
+  'misc.Caf'    => [0.0,  400.0]
 ];
 
 foreach( $rows as $key => [$lower, $upper] )

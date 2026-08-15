@@ -15,9 +15,9 @@ sources:
 amounts:  # currently we use the first entry hard coded only
 
   - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-    lower:  5%
-    amount: 100 # TASK: dummy entry
-    upper:  5%
+    lower:  61   # 25% of the calories
+    amount: 73   # 30% of 2200 kcal / 9 kcal per g, see calories in nutrients/-this.yml
+    upper:  86   # 35%
 
 substances:
 

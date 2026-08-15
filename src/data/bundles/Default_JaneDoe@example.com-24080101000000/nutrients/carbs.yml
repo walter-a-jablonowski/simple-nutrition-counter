@@ -2,9 +2,10 @@
 # Carbs
 #
 
-# TASK:         
+# TASK: add these substances, the sugar sum needs a field in the day entries first
+#       (like fibre, see MainController.updSummary)
 
-# Glucose:         
+# Glucose:
 # Fructose:        
 # Sucrose:         
 # Starch:          

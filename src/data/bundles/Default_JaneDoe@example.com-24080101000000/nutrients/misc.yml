@@ -9,6 +9,19 @@ defaultUnit: mg
 
 substances:
 
+  water:  # lowercase key to match the food data (misc: water)
+
+    short:       H2O
+    displayName: Water
+    unit:        g   # food data is g per 100 g, so the sum is g (= ml)
+
+    amounts:  # currently we use the first entry hard coded only
+
+      - criteria: { gender: male, age: 40, weight: 75, height: "*" }
+        lower:  2000
+        amount: 3000  # ~3 l daily, see the goals in the bundle
+        upper:  4000
+
   caffeine:  # lowercase key to match the food data (misc: caffeine)
 
     short:       Caf
@@ -17,9 +30,9 @@ substances:
     amounts:  # currently we use the first entry hard coded only
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-        lower:  5%
-        amount: 100  # TASK: dummy entry
-        upper:  5%
+        lower:  0
+        amount: 200  # EFSA: single dose, 400 mg is the safe habitual intake per day
+        upper:  400
 
   alcohol:  # lowercase key to match the food data (misc: alcohol)
 
@@ -30,5 +43,5 @@ substances:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
         lower:  0%
-        amount: 0   # TASK: dummy entry
+        amount: 0   # target, see the goals in the bundle (avoid alcohol)
         upper:  0%

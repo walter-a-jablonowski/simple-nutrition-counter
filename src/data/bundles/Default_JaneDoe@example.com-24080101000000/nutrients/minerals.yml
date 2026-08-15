@@ -165,9 +165,9 @@ substances:
     sources:    "DGE for now"
     amounts:
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-        lower:  10%
-        amount: 1.25  # TASK: refine
-        upper:  10%
+        lower:  1.0
+        amount: 1.25
+        upper:  1.5
 
   Chromium:
 
@@ -189,9 +189,9 @@ substances:
     amounts:
 
       - criteria: { gender: male, age: 40, weight: 75, height: "*" }
-        lower:  10%
-        amount: 3.5  # TASK: refine
-        upper:  10%
+        lower:  2.0
+        amount: 3.5
+        upper:  5.0
 
   Molybdenum:
 
