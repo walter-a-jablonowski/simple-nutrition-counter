@@ -74,7 +74,8 @@ trait NutrientsView  /*@*/
       'carbs'    => 'carbs',
       'sugar'    => 'carbs.substances.Sugar',
       'fibre'    => 'carbs.substances.Fibre',
-      'salt'     => 'minerals.substances.Salt'
+      'salt'     => 'minerals.substances.Salt',
+      'water'    => 'misc.substances.water'
     ];
 
     foreach( $paths as $metric => $path )

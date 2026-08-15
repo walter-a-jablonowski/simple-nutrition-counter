@@ -144,6 +144,7 @@ sampleMenu: |
 
 primaryGoals:
 
+  water:       { label: "~3l"              }
   calories:    { label: "18-25k",          }
   "fat:amino": { label: "(2:1)",  calc: "" }
   carbs:       { label: "&le; 80g"         }

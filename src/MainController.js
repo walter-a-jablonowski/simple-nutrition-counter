@@ -1821,11 +1821,13 @@ class MainController
     const fibreSum = Math.round( foodEntries.reduce((sum, entry) => sum + (entry.nutrients.fibre ? Number(entry.nutrients.fibre) : 0), 0))  // only if set (else NaN)
     const saltSum  = foodEntries.reduce((sum, entry) => sum + Number(entry.salt),  0)
     const priceSum = foodEntries.reduce((sum, entry) => sum + Number(entry.price), 0)
+    const waterSum = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.nutrients.misc?.H2O ?? 0), 0))  // g = ml, see nutrients/misc.yml
 
     query('#fibreSum').textContent = fibreSum
     // query('#saltSum').textContent = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.salt), 0)).toFixed(1)
     query('#saltSum').textContent  = saltSum.toFixed(1)   // 1 decimal place
     query('#priceSum').textContent = priceSum.toFixed(2)  // 2 decimal places
+    query('#waterSum').textContent = waterSum
 
     // Signal color of the widgets
 
@@ -1838,7 +1840,8 @@ class MainController
       sugarSum:    sugarSum,
       fibreSum:    fibreSum,
       saltSum:     saltSum,
-      priceSum:    priceSum
+      priceSum:    priceSum,
+      waterSum:    waterSum
     })
 
 
@@ -1977,6 +1980,7 @@ class MainController
     query('#fibreSum').textContent    = '0'
     query('#saltSum').textContent     = '0.0'
     query('#priceSum').textContent    = '0.00'
+    query('#waterSum').textContent    = '0'
 
     query('.nutrients-entry').forEach( entry => {
       entry.dataset.current = 0

@@ -40,6 +40,16 @@
         <?php endif; ?>
       <?php endif; ?>
 
+      <!-- Water (from the foods, misc > water) -->
+
+      <div class="nutrition-widget border rounded bg-white text-center"
+           data-bs-toggle = "modal"
+           data-bs-target = "#tipsModal"
+      >
+        <div class="widget-label fw-bold">Water <?= $a['primaryGoals']['water']['label'] ?></div>
+        <div class="widget-value"><span id="waterSum"<?= $this->rangeAttribs('water') ?>>0</span> ml</div>
+      </div>
+
       <!-- Calories (green / red, see MainController.updSummary) -->
 
       <div class="nutrition-widget border rounded bg-white text-center"

@@ -112,6 +112,7 @@ $expected = [
   'sugar'      => [0.0,    25.0],    // carbs.yml > substances > Sugar, 0 with a tolerance
   'fibre'      => [25.0,   50.0],    // carbs.yml > substances > Fibre
   'salt'       => [4.0,    6.0],     // minerals.yml > substances > Salt
+  'water'      => [2000.0, 4000.0],  // misc.yml > substances > water
   'price'      => [0,      7],       // user settings
   'eatingTime' => [0,      6]        // user settings
 ];
