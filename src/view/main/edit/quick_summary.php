@@ -84,7 +84,7 @@
       >
         <div class="widget-label fw-bold">Carbs <?= $a['primaryGoals']['carbs']['label'] ?> (sugar)</div>
         <div class="widget-value">
-          <span id="carbsSum"<?= $this->rangeAttribs('carbs') ?>>0</span> g (<span id="sugarSum">0</span>)  <!-- sugar has no range yet -->
+          <span id="carbsSum"<?= $this->rangeAttribs('carbs') ?>>0</span> g (<span id="sugarSum"<?= $this->rangeAttribs('sugar') ?>>0</span>)
 
         </div>
       </div>

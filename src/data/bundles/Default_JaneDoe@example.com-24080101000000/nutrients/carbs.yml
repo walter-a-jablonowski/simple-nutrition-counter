@@ -27,6 +27,19 @@ amounts:
 
 substances:
 
+  Sugar:  # the food data holds the total sugars from the packaging
+
+    short:  sugar
+    # unit: g
+
+    amounts:
+
+      - criteria: { gender: male, age: 40, height: "*", weight: 75 }
+        lower:  0
+        amount: 0   # free sugars, see the goals in the bundle (avoid sugar)
+        upper:  25  # tolerance: the food data is total sugars, WHO says 5% of the
+                    # energy for free sugars (~27g of 2200 kcal)
+
   Fibre:  # technically fibre is complex carb, but can't be used by the body (harvard)
 
     short:  fibre

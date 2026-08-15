@@ -72,6 +72,7 @@ trait NutrientsView  /*@*/
       'fat'      => 'lipids/fattyAcids',
       'amino'    => 'aminoAcids',
       'carbs'    => 'carbs',
+      'sugar'    => 'carbs.substances.Sugar',
       'fibre'    => 'carbs.substances.Fibre',
       'salt'     => 'minerals.substances.Salt'
     ];

@@ -109,6 +109,7 @@ $expected = [
   'fat'        => [61.0,   86.0],    // lipids/fattyAcids.yml, group level, 25 - 35% of the calories
   'amino'      => [57.0,   63.0],    // aminoAcids.yml, group level, not the workout variant
   'carbs'      => [0.0,    130.0],   // carbs.yml, group level
+  'sugar'      => [0.0,    25.0],    // carbs.yml > substances > Sugar, 0 with a tolerance
   'fibre'      => [25.0,   50.0],    // carbs.yml > substances > Fibre
   'salt'       => [4.0,    6.0],     // minerals.yml > substances > Salt
   'price'      => [0,      7],       // user settings
@@ -123,15 +124,17 @@ foreach( $expected as $metric => [$lower, $upper] )
         $range ? "got $range[lower] - $range[upper], want $lower - $upper" : 'missing');
 }
 
-// 4) Values without a range print no attributes, the others print both
+// 4) A value without a range prints no attributes, the others print both
 
-check('sugar has no range',  $t->attribs('sugar') === '');
+check('no range prints nothing', $t->attribs('nope') === '');
 check('carbs attribs', $t->attribs('carbs') === ' data-lower="0" data-upper="130"', $t->attribs('carbs'));
+check('sugar attribs', $t->attribs('sugar') === ' data-lower="0" data-upper="25"', $t->attribs('sugar'));
 
 // 5) The nutrients tab uses the same bounds (rows with an absolute lower / upper)
 
 $rows = [
   'carbs.fibre' => [25.0, 50.0],   // 25 / 40 / 50 g
+  'carbs.sugar' => [0.0,  25.0],   // read from the top level of the day entry, like fibre
   'min.NaCl'    => [4.0,  6.0],    // 4 / 5 / 6 g
   'min.Cr'      => [0.03, 0.1],    // 0.03 / 0.065 / 0.1 mg
   'fat.EPA'     => [250.0, 300.0], // 250 / 275 / 300 mg

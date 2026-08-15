@@ -949,12 +949,15 @@ class MainController
       }
     }
 
-    // Fibre lives inside nutrients (that's where the day summary sums it from)
+    // Fibre and sugar live inside nutrients (that's where the day summary sums them from)
 
-    let fibreInp = query('#modalFibreInput')
+    for( const [key, sel] of Object.entries({ fibre: '#modalFibreInput', sugar: '#modalSugarInput' }))
+    {
+      const inp = query(sel)
 
-    if( fibreInp && fibreInp.value.trim() !== '')
-      entry.nutrients.fibre = Math.round( num('#modalFibreInput') * (usedWeight / 100) * 10) / 10
+      if( inp && inp.value.trim() !== '')
+        entry.nutrients[key] = Math.round( num(sel) * (usedWeight / 100) * 10) / 10
+    }
 
     return entry
   }
@@ -1287,6 +1290,7 @@ class MainController
         // weight (grams) is the calculated amount kept for later use
         amount: amount,
         fibre: macro( nutritionalValues.fibre || 0 ),  // TASK: or only add when set (see updSummary() for sum only if available)
+        sugar: macro( nutritionalValues.sugar || 0 ),  // no tsv column, the day summary sums it from here
         fat:   micro( btn.dataset.fattyacids ),
         amino: micro( btn.dataset.aminoacids ),
         vit:   micro( btn.dataset.vitamins ),
@@ -1803,10 +1807,12 @@ class MainController
     const aminoSum = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.amino), 0))
     const carbsSum = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.carbs), 0))
 
+    const sugarSum = Math.round( foodEntries.reduce((sum, entry) => sum + (entry.nutrients.sugar ? Number(entry.nutrients.sugar) : 0), 0))  // only if set (else NaN)
+
     query('#fatSum').textContent   = fatSum
     query('#aminoSum').textContent = aminoSum
     query('#carbsSum').textContent = carbsSum
-    // query('#sugarSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.sugar), 0))  // TASK
+    query('#sugarSum').textContent = sugarSum
 
     // let fibreSum = Number( foodEntries.reduce((sum, entry) => {
     //   return sum + (entry.nutrients.fibre ? Number(entry.nutrients.fibre) : 0)  // only if set
@@ -1829,6 +1835,7 @@ class MainController
       fatSum:      fatSum,
       aminoSum:    aminoSum,
       carbsSum:    carbsSum,
+      sugarSum:    sugarSum,
       fibreSum:    fibreSum,
       saltSum:     saltSum,
       priceSum:    priceSum
@@ -1845,15 +1852,15 @@ class MainController
       const group = entry.dataset.group
       const short = entry.dataset.short
 
-      // Resolve one food's value for this nutrient row. Carbs > Fibre is special:
-      // its active value lives at the top-level nutrients.fibre (the carbs group is
-      // not carried in the day entry).
+      // Resolve one food's value for this nutrient row. Carbs > Fibre and Sugar are
+      // special: their active values live at the top level of nutrients (the carbs
+      // group itself is not carried in the day entry).
       // TASK: dedupe fibre in the data files, then this special case can go
-      const isFibreRow = group === 'carbs' && short === 'fibre'
+      const topLevel = group === 'carbs' && ['fibre', 'sugar'].includes(short) ? short : null
 
       const nutrientValue = food =>
-        isFibreRow
-          ? Number( food.nutrients.fibre ?? 0)
+        topLevel
+          ? Number( food.nutrients[topLevel] ?? 0)
           : Number( food.nutrients[group]?.[short] ?? 0)
 
       const currentSum = Number( foodEntries.reduce((sum, food) => sum + nutrientValue(food), 0).toFixed(5))
@@ -1966,6 +1973,7 @@ class MainController
     query('#fatSum').textContent      = '0'
     query('#aminoSum').textContent    = '0'
     query('#carbsSum').textContent    = '0'
+    query('#sugarSum').textContent    = '0'
     query('#fibreSum').textContent    = '0'
     query('#saltSum').textContent     = '0.0'
     query('#priceSum').textContent    = '0.00'
