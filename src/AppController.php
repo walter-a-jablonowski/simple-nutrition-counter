@@ -92,6 +92,11 @@ class AppController extends ControllerBase
       );
     }
 
+    // Nutrients that belong to no group (calories)
+
+    foreach( Yaml::parse( file_get_contents("data/bundles/Default_$user->id/nutrients/-this.yml")) as $name => $nutrient )
+      $this->nutrientsModel->set( $name, $nutrient );
+
     // Combined foods and supplements model
 
     $this->makeCombinedModel();
@@ -138,6 +143,10 @@ class AppController extends ControllerBase
     // Nutrients tab
 
     $this->makeNutrientsView();
+
+    // Signal colors of the summary widgets
+
+    $this->makeWidgetRanges();
 
     // Last days tab
 

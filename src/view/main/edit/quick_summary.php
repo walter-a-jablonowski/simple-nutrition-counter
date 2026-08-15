@@ -40,15 +40,17 @@
         <?php endif; ?>
       <?php endif; ?>
 
-      <!-- Calories (red) -->
+      <!-- Calories (green / red, see MainController.updSummary) -->
 
-      <div class="nutrition-widget widget-red border rounded text-center"
+      <div class="nutrition-widget border rounded bg-white text-center"
            data-bs-toggle = "modal"
            data-bs-target = "#tipsModal"
       >
         <div class="widget-label fw-bold">kcal <?= $a['primaryGoals']['calories']['label'] ?></div>
         <div class="widget-value">
-          <span id="caloriesSum">0</span> in <span id="timeSum">00:00</span>
+          <span id="caloriesSum"<?= $this->rangeAttribs('calories') ?>>0</span>
+          in
+          <span id="timeSum"<?= $this->rangeAttribs('eatingTime') ?>>00:00</span>
         </div>
       </div>
 
@@ -60,7 +62,9 @@
       >
         <div class="widget-label fw-bold">Fat / Amino <?= $a['primaryGoals']['fat:amino']['label'] ?></div>
         <div class="widget-value">
-          <span id="fatSum">0</span> / <span id="aminoSum">0</span> g
+          <span id="fatSum"<?= $this->rangeAttribs('fat') ?>>0</span>
+          /
+          <span id="aminoSum"<?= $this->rangeAttribs('amino') ?>>0</span> g
         </div>
       </div>
 
@@ -80,7 +84,8 @@
       >
         <div class="widget-label fw-bold">Carbs <?= $a['primaryGoals']['carbs']['label'] ?> (sugar)</div>
         <div class="widget-value">
-          <span id="carbsSum">0</span> g (<span id="sugarSum">0</span>)
+          <span id="carbsSum"<?= $this->rangeAttribs('carbs') ?>>0</span> g (<span id="sugarSum">0</span>)  <!-- sugar has no range yet -->
+
         </div>
       </div>
 
@@ -91,7 +96,7 @@
            data-bs-target = "#tipsModal"
       >
         <div class="widget-label fw-bold">Fibre <?= $a['primaryGoals']['fibre']['label'] ?></div>
-        <div class="widget-value"><span id="fibreSum">0</span> g</div>
+        <div class="widget-value"><span id="fibreSum"<?= $this->rangeAttribs('fibre') ?>>0</span> g</div>
       </div>
 
       <!-- Salt -->
@@ -101,15 +106,15 @@
            data-bs-target = "#tipsModal"
       >
         <div class="widget-label fw-bold">Salt <?= $a['primaryGoals']['salt']['label'] ?></div>
-        <div class="widget-value"><span id="saltSum">0</span> g</div>
+        <div class="widget-value"><span id="saltSum"<?= $this->rangeAttribs('salt') ?>>0</span> g</div>
       </div>
 
-      <!-- Price (green) -->
+      <!-- Price (green / red, range from the user settings) -->
 
-      <div class="nutrition-widget widget-green border rounded text-center">
+      <div class="nutrition-widget border rounded bg-white text-center">
         <div class="widget-label fw-bold">Price</div>
         <div class="widget-value">
-          <?= settings::get('currencySymbol') ?> <span id="priceSum">0</span>
+          <?= settings::get('currencySymbol') ?> <span id="priceSum"<?= $this->rangeAttribs('price') ?>>0</span>
         </div>
       </div>
 

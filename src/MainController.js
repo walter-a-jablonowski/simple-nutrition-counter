@@ -1772,11 +1772,15 @@ class MainController
     // Quick summary
 
     // let caloriesSum = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.calories), 0).toFixed(1))  // one decimal place
-    query('#caloriesSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.calories), 0))
+    const caloriesSum = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.calories), 0))
+
+    query('#caloriesSum').textContent = caloriesSum
 
     // eating time - filter out supplements, time-logged foods, and old "--:--:--" format for compatibility
     const timeLogEntries = foodEntries.filter( entry => entry.type !== "S" && entry.type !== 'M' && entry.time !== "--:--:--")
-  
+
+    let eatingHours = 0   // decimal, for the signal color (the widget shows HH:MM)
+
     if( timeLogEntries.length >= 2 ) {
 
       const [hours1, minutes1, seconds1] = timeLogEntries[0].time.split(':').map(Number)
@@ -1787,25 +1791,48 @@ class MainController
 
       const hours = Math.floor(diffSeconds / 3600)
       const mins  = Math.floor((diffSeconds % 3600) / 60)  // TASK: use classes and single id for the view
-      
+
+      eatingHours = diffSeconds / 3600
+
       query('#timeSum').textContent = `${hours.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}`
     }
     else  // if there are fewer than 2 entries with time logging, display 00:00
       query('#timeSum').textContent = "00:00"
 
-    query('#fatSum').textContent   = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.fat),   0))  // just the int
-    query('#aminoSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.amino), 0))
-    query('#carbsSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.carbs), 0))
+    const fatSum   = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.fat),   0))  // just the int
+    const aminoSum = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.amino), 0))
+    const carbsSum = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.carbs), 0))
+
+    query('#fatSum').textContent   = fatSum
+    query('#aminoSum').textContent = aminoSum
+    query('#carbsSum').textContent = carbsSum
     // query('#sugarSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + Number(entry.sugar), 0))  // TASK
 
     // let fibreSum = Number( foodEntries.reduce((sum, entry) => {
     //   return sum + (entry.nutrients.fibre ? Number(entry.nutrients.fibre) : 0)  // only if set
     // }, 0).toFixed(1))
 
-    query('#fibreSum').textContent = Math.round( foodEntries.reduce((sum, entry) => sum + (entry.nutrients.fibre ? Number(entry.nutrients.fibre) : 0), 0))  // only if set (else NaN)
+    const fibreSum = Math.round( foodEntries.reduce((sum, entry) => sum + (entry.nutrients.fibre ? Number(entry.nutrients.fibre) : 0), 0))  // only if set (else NaN)
+    const saltSum  = foodEntries.reduce((sum, entry) => sum + Number(entry.salt),  0)
+    const priceSum = foodEntries.reduce((sum, entry) => sum + Number(entry.price), 0)
+
+    query('#fibreSum').textContent = fibreSum
     // query('#saltSum').textContent = Number( foodEntries.reduce((sum, entry) => sum + Number(entry.salt), 0)).toFixed(1)
-    query('#saltSum').textContent  = foodEntries.reduce((sum, entry) => sum + Number(entry.salt),  0).toFixed(1)  // 1 decimal place
-    query('#priceSum').textContent = foodEntries.reduce((sum, entry) => sum + Number(entry.price), 0).toFixed(2)  // 2 decimal places
+    query('#saltSum').textContent  = saltSum.toFixed(1)   // 1 decimal place
+    query('#priceSum').textContent = priceSum.toFixed(2)  // 2 decimal places
+
+    // Signal color of the widgets
+
+    this.#updWidgetSignals({
+      caloriesSum: caloriesSum,
+      timeSum:     eatingHours,
+      fatSum:      fatSum,
+      aminoSum:    aminoSum,
+      carbsSum:    carbsSum,
+      fibreSum:    fibreSum,
+      saltSum:     saltSum,
+      priceSum:    priceSum
+    })
 
 
     // Nutrients tab
@@ -1883,10 +1910,57 @@ class MainController
     }
   }
 
+  /*@
+
+  Signal color of the summary widgets: green inside the range, red above it, neutral
+  below - a day in progress is below nearly every range. The bounds are printed on the
+  value spans (see view/main/edit/quick_summary.php), a widget that shows two values
+  takes the worse of them
+
+  ARGS:
+    values: value span id => current sum
+
+  */
+  #updWidgetSignals( values ) /*@*/
+  {
+    const rank    = { '': 0, 'widget-green': 1, 'widget-red': 2 }
+    const signals = new Map()   // widget element => class name ('' = neutral)
+
+    for( const [id, value] of Object.entries( values))
+    {
+      const span   = query('#' + id)
+      const widget = span ? span.closest('.nutrition-widget') : null
+
+      if( ! widget || span.dataset.upper === undefined )
+        continue   // no range for this value (sugar)
+
+      let signal = ''
+
+      if( value > Number( span.dataset.upper))
+        signal = 'widget-red'
+      else if( value && value >= Number( span.dataset.lower))   // 0: nothing logged yet, stays neutral
+        signal = 'widget-green'
+
+      if( ! signals.has(widget) || rank[signal] > rank[ signals.get(widget)])
+        signals.set( widget, signal)
+    }
+
+    for( const [widget, signal] of signals )
+    {
+      widget.classList.remove('widget-green', 'widget-red')
+
+      if( signal )
+        widget.classList.add( signal)
+    }
+  }
+
   // Zero out the summary + nutrient bars (used when no entries remain)
 
   #resetSummary()
   {
+    for( const widget of query('.nutrition-widget'))
+      widget.classList.remove('widget-green', 'widget-red')   // the strategy widget keeps its static color
+
     query('#caloriesSum').textContent = '0'
     query('#timeSum').textContent     = '00:00'
     query('#fatSum').textContent      = '0'

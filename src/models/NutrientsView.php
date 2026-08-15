@@ -13,6 +13,7 @@ view for the nutrients tab
 trait NutrientsView  /*@*/
 {
   protected SimpleData $nutrientsView;
+  protected array      $widgetRanges = [];   // quick summary widgets, see makeWidgetRanges()
 
 
   /*@
@@ -55,11 +56,82 @@ trait NutrientsView  /*@*/
 
   /*@
 
+  makeWidgetRanges()
+
+  Bounds for the signal color of the quick summary widgets (green inside, red above).
+  Most of them use the same amounts as the nutrients tab, but on group level. Price
+  and eating time are no nutrients, they live in the user settings
+
+  */
+  private function makeWidgetRanges()  /*@*/
+  {
+    // Widget value => path in the nutrients model
+
+    $paths = [
+      'calories' => 'calories',              // nutrients/-this.yml, belongs to no group
+      'fat'      => 'lipids/fattyAcids',
+      'amino'    => 'aminoAcids',
+      'carbs'    => 'carbs',
+      'fibre'    => 'carbs.substances.Fibre',
+      'salt'     => 'minerals.substances.Salt'
+    ];
+
+    foreach( $paths as $metric => $path )
+    {
+      $amounts = $this->nutrientsModel->get("$path.amounts");
+
+      if( empty($amounts))
+        continue;
+
+      // The regular day: entries with a dayType are variants of it (reduced, fillUp, workout).
+      // Person type is hard coded to the first match, same as makeNutrientsView()
+
+      $a = null;
+
+      foreach( $amounts as $entry )
+        if( ! isset( $entry['criteria']['dayType']))
+        {
+          $a = $entry;
+          break;
+        }
+
+      if( ! $a )
+        continue;
+
+      $this->widgetRanges[$metric] = [
+        'lower' => $this->calculateBound( $a['amount'], $a['lower']),
+        'upper' => $this->calculateBound( $a['amount'], $a['upper'], true)
+      ];
+    }
+
+    $this->widgetRanges = array_merge( $this->widgetRanges, User::current('settings.widgetRanges') ?? []);
+  }
+
+
+  /*@
+
+  Bounds of one widget value as data attributes, printed on its span in the view.
+  Empty if the value has no range (sugar)
+
+  */
+  public function rangeAttribs( string $metric ) : string  /*@*/
+  {
+    if( ! isset( $this->widgetRanges[$metric]))
+      return '';
+
+    $range = $this->widgetRanges[$metric];
+
+    return " data-lower=\"$range[lower]\" data-upper=\"$range[upper]\"";
+  }
+
+
+  /*@
+
   Helper for makeNutrientsView(): calc acceptable nutrient intake based on ideal amount with tolerance
   
   ARGS:
     amount:  Ideal amount
-    bound:   Tolerance value (absolute or percentage)
+    bound:   Percentage tolerance like "5%" or the bound itself like 4 (salt: 4 - 5 - 6 g)
     isUpper: Whether this is an upper or lower bound calculation
 
   RETURN: float calculated bound value
@@ -67,19 +139,14 @@ trait NutrientsView  /*@*/
   */
   private function calculateBound( $amount, $bound, $isUpper = false ) : float
   {
-    $isPercentage = strpos($bound, '%') !== false;
-    
-    if( $isPercentage ) {
-      $percentage = floatval($bound) / 100;  // remove percent sign and convert to decimal
-      return $isUpper 
-        ? $amount + ($amount * $percentage)
-        : $amount - ($amount * $percentage);
-    }
-    else {
-      return $isUpper 
-        ? $amount + $bound
-        : $amount - $bound;
-    }
+    if( false === strpos( (string) $bound, '%'))
+      return (float) $bound;  // absolute: all data files use lower < amount < upper
+
+    $percentage = floatval($bound) / 100;  // remove percent sign and convert to decimal
+
+    return $isUpper
+      ? $amount + ($amount * $percentage)
+      : $amount - ($amount * $percentage);
   }
 }
 
