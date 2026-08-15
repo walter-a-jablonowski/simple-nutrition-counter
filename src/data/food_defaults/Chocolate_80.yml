@@ -1,0 +1,122 @@
+
+# GLM only
+
+# 2608 verified all values from source as far as active in /nutrients
+#      The food (Ritter Sp 81%) does not state its state - it only carries vendor,
+#      weight and the pack values. Weighed 170273 (Chocolate, dark, 70-85% cacao
+#      solids, SR Legacy, 598 kcal, 105 values), 170271 (45-59% cacao, no amino
+#      acids), 170272 (60-69% cacao, no amino acids) and 167976 (Candies,
+#      semisweet chocolate, SR Legacy, 480 kcal, has amino acids). Took 170273:
+#      it covers the 70-85% cacao range that includes 81%, and its 598 kcal sit
+#      closest to the pack's 609.
+#
+#      170273 has no amino acids despite 7.79 g protein, and no folate, biotin,
+#      Vitamin C, Vitamin D, iodine, fluoride, chromium, molybdenum. Amino acids
+#      and folate are taken from 167976 (Candies, semisweet chocolate, SR Legacy);
+#      see per-field comments and sources. 167976 has 4.20 g protein against the
+#      7.79 g here, so its amino acids run about 46 % low on this file's protein
+#      basis. Vitamin C and D are 0 in 167976.
+#      Sugar alcohol, biotin, iodine, fluoride, chromium and molybdenum are in
+#      neither entry; these stay 0.
+
+acceptable:
+comment:
+                              # kcal
+calories:          598        # Energy, SR Legacy has no Atwater Specific/General
+
+nutritionalValues:            # g
+
+  fat:             42.6       # total lipid (fat)
+  saturatedFat:    24.5
+  monoUnsaturated: 12.8
+  polyUnsaturated: 1.26
+  carbs:           45.9       # by difference
+  sugar:           24         # total sugars
+  sugarAlcohol:    0          # not in source
+  fibre:           10.9
+  amino:           7.79       # is protein
+  salt:            0.02       # Sodium 20 mg -> g
+
+fattyAcids:                   # g, but EPA and DHA in mg
+
+  Alpha-linolenic acid: 0.034 # PUFA 18:3
+  Eicosapentaenoic acid: 0    # PUFA 20:5 n-3 (EPA), 0.000 g in source
+  Docosahexaenoic acid: 0     # PUFA 22:6 n-3 (DHA), 0.000 g in source
+  Linoleic acid:        1.22  # PUFA 18:2
+
+carbs:                        # g
+
+  Fibre:         10.9
+
+aminoAcids:                   # mg
+                              # from 167976, source in g
+  Histidine:     73           # 0.073 g -> mg
+  Isoleucine:    164          # 0.164 g -> mg
+  Leucine:       257          # 0.257 g -> mg
+  Lysine:        212          # 0.212 g -> mg
+  Methionine:    44           # 0.044 g -> mg, cystine 0.052 not active in /nutrients
+  Phenylalanine: 204          # 0.204 g -> mg, tyrosine 0.159 not active in /nutrients
+  Threonine:     168          # 0.168 g -> mg
+  Tryptophan:    63           # 0.063 g -> mg
+  Valine:        254          # 0.254 g -> mg
+
+vitamins:                     # mg
+
+  Vitamin A:     0.002        # Vitamin A, RAE 2 µg -> mg
+  Vitamin D:     0            # from 167976, 0.00 µg
+  Vitamin E:     0.59         # alpha-tocopherol
+  Vitamin K:     0.0073       # phylloquinone 7.3 µg -> mg
+  Vitamin C:     0            # from 167976, 0.0 mg
+  Thiamin B1:    0.034
+  Riboflavin B2: 0.078
+  Niacin B3:     1.05
+  Pantothenic acid B5: 0.418
+  Vitamin B6:    0.038
+  Biotin B7:     0            # not in source
+  Folate B9:     0.013        # from 167976, folate total 13 µg -> mg
+  Vitamin B12:   0.00028      # 0.28 µg -> mg
+
+minerals:                     # default unit: mg except for Salt, Potassium and Calcium where grams need to be used
+
+  Salt:          0.02         # Sodium 20 mg -> g
+  Potassium:     0.715        # 715 mg -> g
+  Calcium:       0.073        # 73 mg -> g
+  Phosphorus:    308          # mg
+  Magnesium:     228
+  Iron:          11.9
+  Iodine:        0            # not in source
+  Fluoride:      0            # not in source
+  Zinc:          3.31
+  Selenium:      0.0068       # 6.8 µg -> mg
+  Copper:        1.77
+  Chromium:      0            # not in source
+  Manganese:     1.95
+  Molybdenum:    0            # not in source
+
+# secondary:
+
+misc:
+
+  water:         1.37         # ml or g
+  alcohol:       0
+  caffeine:      80           # 80 mg in source
+
+sources:
+
+  - title:   Default source = Chocolate, dark, 70-85% cacao solids (SR Legacy)
+    comment: covers the 70-85% cacao range that includes 81%; 105 values, but no amino acids
+    source:  https://fdc.nal.usda.gov/food-details/170273/nutrients
+
+  - title:   Alternative = Candies, semisweet chocolate (SR Legacy, used for amino acids and folate)
+    comment: 4.20 g protein vs 7.79 g here, so its amino acids run about 46 % low on this file's basis
+    source:  https://fdc.nal.usda.gov/food-details/167976/nutrients
+
+  - title:   Alternative = Chocolate, dark, 60-69% cacao solids (SR Legacy, unused)
+    comment: lower cacao range, no amino acids
+    source:  https://fdc.nal.usda.gov/food-details/170272/nutrients
+
+  - title:   Alternative = Chocolate, dark, 45-59% cacao solids (SR Legacy, unused)
+    comment: lower cacao range, no amino acids
+    source:  https://fdc.nal.usda.gov/food-details/170271/nutrients
+
+lastUpd: 2026-08-15
