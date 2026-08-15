@@ -10,6 +10,8 @@ Overview
 - Table
 
   - productName
+  - state
+  - type
 
   - noUseIf
   - interactions
@@ -81,6 +83,26 @@ $comment = true === $this->combinedModel->get("$entryName.xTimeLog")
         <td><?= htmlspecialchars($data['productName']) ?></td>
       </tr>
     <?php endif; ?>
+    <?php if( ! empty($data['state'])): ?>
+      <tr>
+        <th>State</th>
+        <td>
+          <span class="badge bg-<?= self::iif( 'unprecise' === $data['state'], 'warning text-dark', 'secondary') ?>">
+            <?= htmlspecialchars($data['state']) ?>
+          </span>
+        </td>
+      </tr>
+    <?php endif; ?>
+    <tr>
+      <th>Type</th>
+      <td>
+        <?php if( ! empty($data['type'])): ?>
+          <?= htmlspecialchars($data['type']) ?>
+        <?php else: ?>
+          <span class="text-danger">missing</span>   <!-- same meaning as the red flag in the day entries -->
+        <?php endif; ?>
+      </td>
+    </tr>
     <?php if( ! empty($data['careful']) && true === $data['careful']): ?>
       <tr>
         <th>Careful</th>
