@@ -1663,7 +1663,7 @@ class MainController
     let flags = ''
 
     if( entry.unprecise )
-      flags += '<i class="bi bi-question-circle" title="Unprecise food data"></i>'
+      flags += '<i class="bi bi-exclamation-lg" title="Unprecise food data"></i>'
 
     if( entry.noType )
       flags += '<i class="bi bi-question-circle day-entry-flag-missing" title="No food type"></i>'
