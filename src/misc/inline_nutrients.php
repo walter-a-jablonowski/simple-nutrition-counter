@@ -1,3 +1,7 @@
+<p>> 1 day current day doesn't count</p>
+
+<h6>Usage</h6>
+
 <p>Foods don't always contain the same amount of nutrients. It depends on e.g.</p>
 
 <ul class="no-indent">
