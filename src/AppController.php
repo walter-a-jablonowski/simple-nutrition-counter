@@ -32,6 +32,7 @@ class AppController extends ControllerBase
   use ChangeUserAjaxController;
   use SavePriceAjaxController;
   use GetChartsDataAjaxController;
+  use GetRangeNutrientsAjaxController;
   use ImportFoodAjaxController;
   use ImportFoodPhotosAjaxController;
   use SaveFoodAjaxController;
@@ -41,6 +42,8 @@ class AppController extends ControllerBase
 
   const DAY_HEADERS     = ['time', 'type', 'food', 'calories', 'fat', 'carbs', 'amino', 'salt', 'price', 'nutrients'];
   const NUTRIENT_GROUPS = ['lipids/fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals', 'secondary', 'misc'];
+
+  const FOOD_TYPES      = ['F', 'FE', 'S', 'M'];   // entry types that count as eaten, same filter as MainController.updSummary()
 
   protected string     $date;
 

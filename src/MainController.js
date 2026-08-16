@@ -39,11 +39,14 @@ class MainController
     this.updPriceClick           = this.updPriceClick.bind(this)
     this.offLimitCheckChange     = this.offLimitCheckChange.bind(this)
     this.sportsToggleBtnClick    = this.sportsToggleBtnClick.bind(this)
+    this.nutrientsRangeClick     = this.nutrientsRangeClick.bind(this)
     // this.#addDayEntry         = this.#addDayEntry.bind(this)     // TASK: can't be done
     this.updSummary              = this.updSummary.bind(this)
     // this.#saveDayEntries      = this.#saveDayEntries.bind(this)
     this.initTabSwipeGestures    = this.initTabSwipeGestures.bind(this)
     this.handleTabSwipe          = this.handleTabSwipe.bind(this)
+
+    this.nutrientsRange = 'day'   // time range of the nutrients tab, see nutrientsRangeClick()
 
     let crl = this
 
@@ -1525,8 +1528,61 @@ class MainController
   sportsToggleBtnClick(event)
   {
     event.target.classList.toggle('active')
-    
+
     // TASK: additional functionality can be implemented here later
+  }
+
+
+  /*@
+
+  Time range of the nutrients tab (see view/main/nutrients.php)
+
+  "This day" reads the entries in the browser, every other range is aggregated over
+  the day files on the server. Those ranges show daily averages, so the targets and
+  the signal colors of the rows stay the ones of a single day
+
+  */
+  nutrientsRangeClick(event) /*@*/
+  {
+    if( ! event.target.classList.contains('dropdown-item'))
+      return
+
+    event.preventDefault()
+
+    const range = event.target.dataset.value
+    const info  = query('#nutrientsRangeInfo')
+
+    this.nutrientsRange = range
+    query('#nutrientsRangeBtn').find('span').textContent = event.target.textContent
+
+    if( range === 'day' ) {
+      info.textContent = ''
+      this.updSummary()
+      return
+    }
+
+    info.textContent = 'loading ...'
+
+    ajax.send('getRangeNutrients', { range: range, date: this.date }, ( result, data ) => {
+
+      if( result !== 'success' ) {
+        info.textContent = ''
+        query('#uiMsg').innerHTML = (data && data.message) || 'Could not load the time range'
+        return
+      }
+
+      if( this.nutrientsRange !== range )
+        return   // the user picked another range while this one was loading
+
+      if( ! data.daysInRange ) {
+        info.textContent = 'no completed day yet'   // e.g. "This week" on a monday
+        this.#resetNutrientRows()
+        return
+      }
+
+      info.textContent = `avg/day, ${data.daysWithData} of ${data.daysInRange} days logged`
+      this.#renderNutrientRows( data.foods )
+    })
   }
 
 
@@ -1845,7 +1901,27 @@ class MainController
     })
 
 
-    // Nutrients tab
+    // Nutrients tab: only when it shows this day, a selected range keeps its own values
+
+    if( this.nutrientsRange === 'day' )
+      this.#renderNutrientRows( foodEntries )
+  }
+
+  /*@
+
+  Fill the rows of the nutrients tab: sum, percent of the ideal amount, bar and the
+  food table of the info modal.
+
+  Works for a single day as well as for a range: the range comes in as one averaged
+  entry per food (see ajax/get_range_nutrients.php), so the sums are daily averages
+  and the targets printed on the rows stay the ones of a day
+
+  ARGS:
+    foodEntries: entries that count as eaten, each { food, nutrients }
+
+  */
+  #renderNutrientRows( foodEntries ) /*@*/
+  {
     // TASK: maybe add a simple sum first (no percent) #code/progress
 
     let nutrientEntries = query('.nutrients-entry')
@@ -1982,6 +2058,14 @@ class MainController
     query('#priceSum').textContent    = '0.00'
     query('#waterSum').textContent    = '0'
 
+    if( this.nutrientsRange === 'day' )
+      this.#resetNutrientRows()
+  }
+
+  // Zero out the nutrient rows: nothing logged this day, or a range without a single day in it
+
+  #resetNutrientRows()
+  {
     query('.nutrients-entry').forEach( entry => {
       entry.dataset.current = 0
       entry.find('.percent').textContent = '0'

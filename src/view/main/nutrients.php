@@ -2,22 +2,30 @@
 <?php if( config::get('devMode') ): ?>
   <ul class="list-group mt-3">
     <li class="list-group-item px-2 py-1 small d-flex justify-content-between align-items-center">
-      <div class="d-flex align-items-center py-1">
+      <div class="d-flex align-items-center flex-wrap py-1">
+
+        <!-- Time range of the nutrients below: the day itself, a rolling window or a
+             calendar period. Every range but "This day" shows daily averages against
+             the same targets, see MainController.nutrientsRangeClick() -->
 
         <div class="dropdown me-2">
-          <button id="" class="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+          <button id="nutrientsRangeBtn" class="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
             <span class="fw-bold">This day</span>
           </button>
-          <ul class="dropdown-menu" onclick="">  <!-- Last days tab has only: Last week, 15 days, 30 days -->
-            <li><a class="dropdown-item small" data-value="" href="#">This day</a></li>
-            <li><a class="dropdown-item small" data-value="" href="#">This week</a></li>
-            <li><a class="dropdown-item small" data-value="" href="#">Last week</a></li>
-            <li><a class="dropdown-item small" data-value="" href="#">Last 2 weeks</a></li>
-            <li><a class="dropdown-item small" data-value="" href="#">7 days</a></li>
-            <li><a class="dropdown-item small" data-value="" href="#">15 days</a></li>
-            <li><a class="dropdown-item small" data-value="" href="#">30 days</a></li>
+          <ul class="dropdown-menu" onclick="mainCrl.nutrientsRangeClick(event)">
+            <li><a class="dropdown-item small" data-value="day" href="#">This day</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item small" data-value="7days"  href="#">7 days</a></li>
+            <li><a class="dropdown-item small" data-value="30days" href="#">30 days</a></li>
+            <li><a class="dropdown-item small" data-value="90days" href="#">90 days</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item small" data-value="thisWeek"  href="#">This week</a></li>
+            <li><a class="dropdown-item small" data-value="lastWeek"  href="#">Last week</a></li>
+            <li><a class="dropdown-item small" data-value="thisMonth" href="#">This month</a></li>
           </ul>
         </div>
+
+        <span id="nutrientsRangeInfo" class="small text-secondary me-2"></span>
 
         <div class="form-check form-switch me-2 mb-0">
           <input id="offLimitCheck" onchange="mainCrl.offLimitCheckChange(event)" type="checkbox" role="switch" class="form-check-input" style="margin-top: 5px;">
