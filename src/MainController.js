@@ -1306,11 +1306,14 @@ class MainController
 
   /*@
 
-  logFoodAmount()
+  buildEntry()
 
-  Log a spoken amount of a grid food - the voice equivalent of tapping an amount button.
-  The amount does not have to be one the grid offers: "200g" is logged as a single precise
-  entry, not as two taps of the 100g button. See dev_info/Voice_Logging_Plan.md.
+  Turn a spoken amount of a grid food into a day entry, without touching the list. The
+  amount does not have to be one the grid offers: "200g" becomes a single precise entry,
+  not two taps of the 100g button.
+
+  Shared by logFoodAmount() and updateEntry(), so a correction rescales exactly the way
+  the first logging did.
 
   ARGS:
 
@@ -1318,15 +1321,15 @@ class MainController
     value:    the number that was said, may be missing
     unit:     'g' | 'ml' | 'piece' | 'pack' | 'x', may be missing
 
-  RETURN: object, the result for the agent to read back
+  RETURN: object, either { error } for the agent to read back, or { entry, rec, label }
 
   */
-  logFoodAmount( foodName, value = null, unit = null ) /*@*/
+  buildEntry( foodName, value = null, unit = null ) /*@*/
   {
     const matches = this.findFoods( foodName )
 
     if( ! matches.length )
-      return { result: 'none' }
+      return { error: { result: 'none' }}
 
     // findFoods is a substring search, so "Gemüse R" also finds "Gemüse R Bio". An exact
     // name wins; without one the name is ambiguous and must not be logged on a guess
@@ -1335,7 +1338,7 @@ class MainController
     const exact  = matches.filter( rec => rec.food.toLowerCase() === wanted )
 
     if( ! exact.length && matches.length > 1 )
-      return { result: 'multiple', matches: matches.map( rec => ({ food: rec.food, tab: rec.tabLabel })) }
+      return { error: { result: 'multiple', matches: matches.map( rec => ({ food: rec.food, tab: rec.tabLabel })) }}
 
     const rec = (exact.length ? exact : matches)[0]  // the same food on two tabs is one food
 
@@ -1344,7 +1347,7 @@ class MainController
                          .filter( button => button.weight > 0 )
 
     if( ! buttons.length )
-      return { result: 'error', message: `${rec.food} has no amount that could be logged` }
+      return { error: { result: 'error', message: `${rec.food} has no amount that could be logged` }}
 
     // What was said, in grams (ml counts as the same number, see data-food-unit)
 
@@ -1365,7 +1368,7 @@ class MainController
       weight = said                    // g, ml, or nothing given - grams is the common case
 
     if( ! (weight > 0) )
-      return { result: 'error', message: `Could not work out that amount of ${rec.food}` }
+      return { error: { result: 'error', message: `Could not work out that amount of ${rec.food}` }}
 
     // Scale from the button closest to the target so the factor stays near 1: the button
     // values are already rounded, and a big factor would multiply that rounding up. The
@@ -1376,7 +1379,7 @@ class MainController
     const factor = weight / ref.weight
 
     if( factor > 20 )
-      return { result: 'error', message: `${weight}${rec.unit} of ${rec.food} seems far too much, please check` }
+      return { error: { result: 'error', message: `${weight}${rec.unit} of ${rec.food} seems far too much, please check` }}
 
     // Label for the day entries list, in the terms the amount was given in
 
@@ -1395,6 +1398,29 @@ class MainController
 
     const entry = this.#entryFromButton( ref.btn, factor,
                                          { label: label, weight: Math.round( weight * 10) / 10 })
+
+    return { entry: entry, rec: rec, label: label }
+  }
+
+  /*@
+
+  logFoodAmount()
+
+  Log a spoken amount of a grid food - the voice equivalent of tapping an amount button.
+
+  ARGS: see buildEntry()
+
+  RETURN: object, the result for the agent to read back
+
+  */
+  logFoodAmount( foodName, value = null, unit = null ) /*@*/
+  {
+    const built = this.buildEntry( foodName, value, unit )
+
+    if( built.error )
+      return built.error
+
+    const { entry, rec, label } = built
 
     this.#lastLogBatch.push( this.#addDayEntry( entry ))
     this.#flashItem( rec.itemEl )
@@ -1436,8 +1462,11 @@ class MainController
 
   undoLastLog()
 
-  Take back what the last logFoods() added - the repair for a misheard amount or a wrong
-  food. Rows the user deleted by hand in the meantime are skipped, so undo never removes
+  Take back what the last logFoods() added - for "scrap that", said right after a logging.
+  A named entry is corrected with updateEntry() / removeEntry() instead, which is what a
+  misheard amount needs: this one cannot reach past the last call.
+
+  Rows the user deleted by hand in the meantime are skipped, so undo never removes
   something twice or deletes an entry that has already gone.
 
   RETURN: object, what was removed, for the agent to say back
@@ -1462,6 +1491,163 @@ class MainController
     this.#afterListChange()
 
     return { result: 'undone', removed: removed }
+  }
+
+  // Entry ids for the voice agent
+  //
+  // The list rows carry no identity of their own - both #createEntryEl() and
+  // day_entries.php render a plain li. A row gets a uid the first time the agent could
+  // name it, and keeps it for as long as the page lives.
+  //
+  // An id, not a position: deleting a row shifts every index behind it, and an agent
+  // acting on a stale index would edit some other food. The uid is never synced into
+  // dayEntries (see #syncDayEntriesFromDom), so nothing of it reaches the stored day
+
+  #entryUid = 0
+
+  #nextEntryUid() /*@*/
+  {
+    return `e${ ++this.#entryUid }`
+  }
+
+  // The row an agent id points at, or null when it has since gone
+
+  #entryRow( id ) /*@*/
+  {
+    if( ! id )
+      return null
+
+    return Array.from( query('#dayEntriesList .day-entry')).find( li => li.dataset.uid === id ) || null
+  }
+
+  /*@
+
+  listDayEntries()
+
+  What is logged on the open day, as plain values. The agent has no other way to see the
+  list: it holds entries from earlier sessions and ones the user tapped in by hand, and
+  the agent's own memory of what it logged says nothing about what is still there.
+
+  Reading it is also what hands out the ids the other entry tools take.
+
+  RETURN: object, the entries in list order
+
+  */
+  listDayEntries() /*@*/
+  {
+    const rows = Array.from( query('#dayEntriesList .day-entry'))
+
+    const entries = rows.map( li => {
+
+      if( ! li.dataset.uid )   // rendered by php at page load, so never given one yet
+        li.dataset.uid = this.#nextEntryUid()
+
+      return {
+        id:       li.dataset.uid,
+        food:     li.dataset.food,
+        amount:   (JSON.parse( li.dataset.nutrients || '{}').amount || {}).label || '',
+        calories: parseFloat( li.dataset.calories) || 0,
+        time:     String( li.dataset.time || '').slice(0, 5)
+      }
+    })
+
+    return { result: 'ok', count: entries.length, entries: entries }
+  }
+
+  /*@
+
+  updateEntry()
+
+  Change the amount of one entry - the repair for a misheard amount. Rescales the food to
+  the new amount and puts the row back where it stood, so a correction can never add a
+  second entry or move one to the end of the day.
+
+  Replacing in place on purpose, not #addDayEntry(): that appends and stamps a new time,
+  which would move a lunch entry to now.
+
+  ARGS:
+
+    id:    from listDayEntries()
+    value: the corrected number
+    unit:  'g' | 'ml' | 'piece' | 'pack' | 'x'
+
+  RETURN: object, the result for the agent to read back
+
+  */
+  updateEntry( id, value = null, unit = null ) /*@*/
+  {
+    const li = this.#entryRow( id )
+
+    if( ! li )
+      return { result: 'gone' }
+
+    const built = this.buildEntry( li.dataset.food, value, unit )
+
+    if( built.error )
+      return built.error
+
+    const { entry, rec, label } = built
+    const from = (JSON.parse( li.dataset.nutrients || '{}').amount || {}).label || ''
+
+    entry.time = li.dataset.time   // the entry keeps the time it was logged at
+
+    const updated = this.#createEntryEl( entry )
+
+    li.replaceWith( updated )
+
+    // Keep an undo of this entry working: #lastLogBatch holds nodes, and the old one is
+    // no longer in the list
+
+    const batchIndex = this.#lastLogBatch.indexOf( li )
+
+    if( batchIndex !== -1 )
+      this.#lastLogBatch[ batchIndex ] = updated
+
+    this.#afterListChange()
+    this.#flashItem( rec.itemEl )
+
+    return {
+      result:   'updated',
+      id:       updated.dataset.uid,
+      food:     rec.food,
+      from:     from,
+      label:    label,
+      weight:   entry.nutrients.amount.weight,
+      unit:     rec.unit,
+      calories: entry.calories
+    }
+  }
+
+  /*@
+
+  removeEntry()
+
+  Take out one entry the agent named, wherever it sits in the day - the repair for a food
+  that should not be there at all. Unlike undoLastLog() this is not tied to the last
+  logging, and unlike the x button it asks nothing: the agent has already asked out loud.
+
+  ARGS: id, from listDayEntries()
+
+  RETURN: object, what was removed, for the agent to say back
+
+  */
+  removeEntry( id ) /*@*/
+  {
+    const li = this.#entryRow( id )
+
+    if( ! li )
+      return { result: 'gone' }
+
+    const removed = {
+      food:   li.dataset.food,
+      amount: (JSON.parse( li.dataset.nutrients || '{}').amount || {}).label || ''
+    }
+
+    li.remove()
+
+    this.#afterListChange()
+
+    return { result: 'removed', ...removed }
   }
 
 
@@ -1700,6 +1886,7 @@ class MainController
     const li = document.createElement('li')
     li.className = 'day-entry list-group-item d-flex align-items-center px-2 py-1'
 
+    li.dataset.uid       = this.#nextEntryUid()   // for the voice agent, see listDayEntries()
     li.dataset.type      = entry.type
     li.dataset.food      = entry.food
     li.dataset.time      = entry.time

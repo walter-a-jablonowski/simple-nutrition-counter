@@ -387,9 +387,42 @@ class VoiceAgentController
         }
       },
       {
+        name: 'listDayEntries',
+        description: 'Read what is logged on the day the user has open, with an id per entry. '
+                   + 'The only way to see the list - it also holds entries from earlier and ones '
+                   + 'the user tapped in by hand. Call it before changing or removing an entry.',
+        parameters: { type: 'OBJECT', properties: {} }
+      },
+      {
+        name: 'updateEntry',
+        description: 'Change the amount of one logged entry, in place. Use it when the user '
+                   + 'corrects an amount, for example "the vegetables were 200g not 100g".',
+        parameters: {
+          type: 'OBJECT',
+          properties: {
+            id:    { type: 'STRING', description: 'The entry id from listDayEntries' },
+            value: { type: 'NUMBER', description: 'The corrected amount' },
+            unit:  { type: 'STRING', description: 'g | ml | piece | pack | x' }
+          },
+          required: ['id', 'value']
+        }
+      },
+      {
+        name: 'removeEntry',
+        description: 'Delete one logged entry, wherever it sits in the day. Use it when a food '
+                   + 'should not be there at all.',
+        parameters: {
+          type: 'OBJECT',
+          properties: {
+            id: { type: 'STRING', description: 'The entry id from listDayEntries' }
+          },
+          required: ['id']
+        }
+      },
+      {
         name: 'undoLastLog',
-        description: 'Take back the entries the last logFoods call added. Use it when the user '
-                   + 'says the last logging was wrong, for example a misheard amount.',
+        description: 'Take back everything the last logFoods call added. Only for "scrap that" '
+                   + 'right after logging. To fix a named entry use updateEntry or removeEntry.',
         parameters: { type: 'OBJECT', properties: {} }
       }
     ]
@@ -406,9 +439,10 @@ class VoiceAgentController
 
       const args = call.args || {}
 
-      // Any other call means the question was answered, by voice or by tapping
+      // Any other call means the question was answered, by voice or by tapping.
+      // listDayEntries is exempt: reading the day answers nothing the user was asked
 
-      if( call.name !== 'showChoices' && agentOverlay )
+      if( ! ['showChoices', 'listDayEntries'].includes( call.name ) && agentOverlay )
         agentOverlay.hide()
 
       let response
@@ -421,6 +455,12 @@ class VoiceAgentController
         response = this.logFoods( args )
       else if( call.name === 'showChoices' )
         response = this.showChoices( args )
+      else if( call.name === 'listDayEntries' )
+        response = mainCrl.listDayEntries()
+      else if( call.name === 'updateEntry' )
+        response = mainCrl.updateEntry( args.id, args.value, args.unit )
+      else if( call.name === 'removeEntry' )
+        response = mainCrl.removeEntry( args.id )
       else if( call.name === 'undoLastLog' )
         response = mainCrl.undoLastLog()
       else
