@@ -461,9 +461,9 @@ body.no-scrollbars::-webkit-scrollbar {
 }
 
 .nutrition-widgets .nutrition-widget.widget-red {
-  background-color: #f2a3ab;
-  color: #842029;
-  border-color: #f2a3ab;
+  background-color: #f9a09a;
+  color: #7f2320;
+  border-color: #f9a09a;
 }
 .nutrition-widgets .nutrition-widget.widget-green {
   background-color: #9ede8b;
