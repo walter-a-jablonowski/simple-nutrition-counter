@@ -461,14 +461,14 @@ body.no-scrollbars::-webkit-scrollbar {
 }
 
 .nutrition-widgets .nutrition-widget.widget-red {
-  background-color: #e87080;
+  background-color: #f2a3ab;
   color: #842029;
-  border-color: #e87080;
+  border-color: #f2a3ab;
 }
 .nutrition-widgets .nutrition-widget.widget-green {
-  background-color: #5cad88;
+  background-color: #93cdb2;
   color: #0f5132;
-  border-color: #5cad88;
+  border-color: #93cdb2;
 }
 .nutrition-widgets .nutrition-widget.widget-yellow {
   background-color: #ffd86b;
