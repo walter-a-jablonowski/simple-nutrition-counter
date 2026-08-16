@@ -42,7 +42,7 @@
 
       <!-- Water (from the foods, misc > water) -->
 
-      <div class="nutrition-widget border rounded bg-white text-center"
+      <div class="nutrition-widget border rounded text-center"
            data-bs-toggle = "modal"
            data-bs-target = "#tipsModal"
       >
@@ -52,7 +52,7 @@
 
       <!-- Calories (green / red, see MainController.updSummary) -->
 
-      <div class="nutrition-widget border rounded bg-white text-center"
+      <div class="nutrition-widget border rounded text-center"
            data-bs-toggle = "modal"
            data-bs-target = "#tipsModal"
       >
@@ -66,7 +66,7 @@
 
       <!-- Fat / amino -->
 
-      <div class="nutrition-widget border rounded bg-white text-center"
+      <div class="nutrition-widget border rounded text-center"
            data-bs-toggle = "modal"
            data-bs-target = "#tipsModal"
       >
@@ -80,7 +80,7 @@
 
       <!-- (TASK) space saving quick summary design -->
 <!--
-      <div class="nutrition-widget border rounded bg-white text-center">
+      <div class="nutrition-widget border rounded text-center">
         <div class="widget-label fw-bold">Carbs</div>
         <div class="widget-value"><span id="carbsSum">0</span> g</div>
       </div>
@@ -88,7 +88,7 @@
 
       <!-- Carbs (sugar) -->
 
-      <div class="nutrition-widget border rounded bg-white text-center"
+      <div class="nutrition-widget border rounded text-center"
            data-bs-toggle = "modal"
            data-bs-target = "#tipsModal"
       >
@@ -101,7 +101,7 @@
 
       <!-- Fibre -->
 
-      <div class="nutrition-widget border rounded bg-white text-center"
+      <div class="nutrition-widget border rounded text-center"
            data-bs-toggle = "modal"
            data-bs-target = "#tipsModal"
       >
@@ -111,7 +111,7 @@
 
       <!-- Salt -->
 
-      <div class="nutrition-widget border rounded bg-white text-center"
+      <div class="nutrition-widget border rounded text-center"
            data-bs-toggle = "modal"
            data-bs-target = "#tipsModal"
       >
@@ -121,7 +121,7 @@
 
       <!-- Price (green / red, range from the user settings) -->
 
-      <div class="nutrition-widget border rounded bg-white text-center">
+      <div class="nutrition-widget border rounded text-center">
         <div class="widget-label fw-bold">Price</div>
         <div class="widget-value">
           <?= settings::get('currencySymbol') ?> <span id="priceSum"<?= $this->rangeAttribs('price') ?>>0</span>

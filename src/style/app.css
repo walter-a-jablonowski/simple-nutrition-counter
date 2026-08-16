@@ -414,6 +414,14 @@ body.no-scrollbars::-webkit-scrollbar {
   padding: 0.25rem 0;
 }
 
+/* The neutral background belongs here, not as a bg-white in the markup: bootstrap
+   declares its background utilities with !important, they would win against the
+   signal colors below no matter how specific those are */
+
+.nutrition-widget {
+  background-color: #fff;
+}
+
 .nutrition-widgets .nutrition-widget {
   min-width: 140px;
   max-width: 180px;
