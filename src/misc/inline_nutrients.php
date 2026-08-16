@@ -1,4 +1,9 @@
-<p>> 1 day current day doesn't count</p>
+<h6>Function</h6>
+
+<ul class="no-indent">
+  <li>&gt; 1 day current day doesn't count</li>
+  <li>exclude unprecise ? no, because we need sums of last days => adjust</li>
+</ul>
 
 <h6>Usage</h6>
 
