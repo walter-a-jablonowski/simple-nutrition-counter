@@ -1,6 +1,9 @@
+state:             unprecise
+type:              Beet
 
 vendor:            Rewe
 
+comment:           "unprecise: GLM only"
 certificates:      { bio: true, vegan: true, NutriScore: A }
 ingredients:       "Wasser, Rübenzucker*, Branntweinessig*, Meersalz, Kümmel*, Nelke*"
 origin:            "Deutschland"

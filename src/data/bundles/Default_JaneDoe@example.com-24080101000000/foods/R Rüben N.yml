@@ -1,6 +1,8 @@
+state:             unprecise
+type:              Beet
 group:             vegetables
 vendor:            Norma
-# acceptable:      occasionally  # currently no alternative
+comment:           "unprecise: GLM only"
 packaging:         glass & rubber
 
 price:             1.09

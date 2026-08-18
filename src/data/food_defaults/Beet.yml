@@ -1,0 +1,115 @@
+
+# AI-only
+
+# 2608 verified all values from source as far as active in /nutrients
+#      The foods do not label a state. R Rüben R Bio lists its ingredients
+#      (water, beet sugar, brandy vinegar, sea salt, caraway, cloves), i.e.
+#      pickled in vinegar with added sugar; R Rüben N carries no ingredients,
+#      only vendor, weight and the pack values. Both come in a glass jar at
+#      55 and 59 kcal with 0.6-1.2 g salt.
+#      Weighed every beet entry: pickled 170480 (65 kcal, 96 values) is the
+#      fullest and the closest to the packs; harvard 170479 (73 kcal, 62
+#      values) is higher and sparser; plain canned 169147 / 169966 / 168507
+#      (28-31 kcal) and raw / cooked 169145 / 169146 / 168506 (43-44 kcal)
+#      sit well below the packs. Took 170480.
+#      The packs are saltier than the source (1.2 / 0.6 g vs 0.149 g here) -
+#      the food's own salt value overrides this anyway.
+#
+#      Source has no Atwater variants, no sugar alcohol, no iodine, fluoride,
+#      chromium, molybdenum and no biotin; these stay 0. EPA and DHA are 0 in
+#      the source. 170480 is a complete SR Legacy entry (all amino acids,
+#      vitamins except biotin, fat breakdown and fatty acids), so no second
+#      entry is needed.
+
+acceptable:
+comment:
+                              # kcal
+calories:          65         # Energy, SR Legacy has no Atwater Specific/General
+
+nutritionalValues:            # g
+
+  fat:             0.08       # total lipid (fat)
+  saturatedFat:    0.013
+  monoUnsaturated: 0.016
+  polyUnsaturated: 0.029
+  carbs:           16.3       # by difference
+  sugar:           11         # total sugars
+  sugarAlcohol:    0          # not in source
+  fibre:           0.8
+  amino:           0.8        # is protein
+  salt:            0.149      # Sodium 149 mg -> g
+fattyAcids:                   # g, but EPA and DHA in mg
+
+  Alpha-linolenic acid: 0.002 # PUFA 18:3
+  Eicosapentaenoic acid: 0    # PUFA 20:5 n-3 (EPA), 0 in source
+  Docosahexaenoic acid: 0     # PUFA 22:6 n-3 (DHA), 0 in source
+  Linoleic acid:        0.027 # PUFA 18:2
+
+carbs:                        # g
+
+  Fibre:         0.8
+
+aminoAcids:                   # mg
+                              # source in g
+  Histidine:     11           # 0.011 g -> mg
+  Isoleucine:    24           # 0.024 g -> mg
+  Leucine:       34           # 0.034 g -> mg
+  Lysine:        29           # 0.029 g -> mg
+  Methionine:    9            # 0.009 g -> mg, cystine 0.010 not active in /nutrients
+  Phenylalanine: 23           # 0.023 g -> mg, tyrosine 0.019 not active in /nutrients
+  Threonine:     24           # 0.024 g -> mg
+  Tryptophan:    9            # 0.009 g -> mg
+  Valine:        28           # 0.028 g -> mg
+
+vitamins:                     # mg
+
+  Vitamin A:     0.002        # Vitamin A, RAE 2 µg
+  Vitamin D:     0            # Vitamin D (D2 + D3) 0 µg
+  Vitamin E:     0.06         # alpha-tocopherol
+  Vitamin K:     0.0003       # phylloquinone 0.3 µg
+  Vitamin C:     2.3
+  Thiamin B1:    0.010
+  Riboflavin B2: 0.048
+  Niacin B3:     0.251
+  Pantothenic acid B5: 0.137
+  Vitamin B6:    0.050
+  Biotin B7:     0            # not in source
+  Folate B9:     0.027        # folate total 27 µg
+  Vitamin B12:   0            # 0 µg
+
+minerals:                     # default unit: mg except for Salt, Potassium and Calcium where grams need to be used
+
+  Salt:          0.149        # Sodium 149 mg -> g
+  Potassium:     0.115        # 115 mg -> g
+  Calcium:       0.011        # 11 mg -> g
+  Phosphorus:    17           # mg
+  Magnesium:     15
+  Iron:          0.41
+  Iodine:        0            # not in source
+  Fluoride:      0            # not in source
+  Zinc:          0.26
+  Selenium:      0.001        # 1.0 µg -> mg
+  Copper:        0.116
+  Chromium:      0            # not in source
+  Manganese:     0.220
+  Molybdenum:    0            # not in source
+
+# secondary:
+
+misc:
+
+  water:         81.9         # ml or g
+  alcohol:       0
+  caffeine:      0
+
+sources:
+
+  - title:   Default source = Beets, pickled, canned, solids and liquids (SR Legacy)
+    comment: fullest beet entry (96 values, incl. amino acids, vitamins, fatty acids) and closest to the packs' 55-59 kcal
+    source:  https://fdc.nal.usda.gov/food-details/170480/nutrients
+
+  - title:   Alternative = Beets, harvard, canned, solids and liquids (SR Legacy, unused)
+    comment: also canned and sweet-sour, but 73 kcal and only 62 values
+    source:  https://fdc.nal.usda.gov/food-details/170479/nutrients
+
+lastUpd: 2026-08-18
