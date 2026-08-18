@@ -1,8 +1,10 @@
+state:             unprecise
+type:              Whole_grain_bread
 
 productName:       "PEMA Voll & Pur"
 
 acceptable:        occasionally
-comment:           "Use a small amout to simulate natural amount of corn"
+comment:           "unprecise: GLM only"
 certificates:      { vegan: true, NutriScore: A }
 ingredients:       "Natursauerteig (Roggen-Vollkornschrot 52%, Wasser), Wasser, Sonnenblumenkerne 13%, Leinsamen 11%, Roggen-Vollkornschrot 8%, Haferflocken 3%, Dinkel-Vollkornschrot (eine alte Weizen-Art) 2%, Chiasamen (Salvia hispanica) 1%, Salz, Hefe"
 allergy:           "Weizen und Süßlupine"

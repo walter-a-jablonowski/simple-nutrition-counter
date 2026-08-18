@@ -1,8 +1,11 @@
+state:             unprecise
+type:              Whole_grain_bread
 
 productName:       "Nur Nur Natur Bio Das Pure Ölsaaten"
 vendor:            Aldi
 
 acceptable:        occasionally
+comment:           "unprecise: GLM only"
 certificates:      { bio: true, vegan: true, NutriScore: B }
 ingredients:       "Wasser, 27 % Haferkerne, 13 % Sonnenblumenkerne, Apfelessig, 9% Leinsaat, 7 % Kürbiskerne, Flohsamenschalen, 2% Haferflocken, Steinsalz"
 allergy:           "Haferkerne"

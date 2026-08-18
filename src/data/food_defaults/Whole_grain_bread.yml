@@ -1,0 +1,107 @@
+
+# AI-only
+
+# 2608 verified all values from source
+#      The foods do not state their state - only vendor, weight and pack values.
+#      Weighed 168013 "Bread, multi-grain (includes whole-grain)" (SR Legacy,
+#      265 kcal, 73 values, incl. amino acids) against 172688 "Bread, whole-wheat,
+#      commercially prepared" (SR Legacy, 252 kcal, 83 values but no amino acids
+#      at all). Took 168013: it matches the mixed-grain character of the foods
+#      (rye, wheat, oats, seeds) and carries amino acids; 172688 has none.
+#
+#      Source has no Atwater variants, no iodine, fluoride, chromium,
+#      molybdenum, biotin, no sugar alcohol; these stay 0.
+
+acceptable:
+comment:
+                              # kcal
+calories:          265        # Energy, SR Legacy has no Atwater Specific/General
+
+nutritionalValues:            # g
+
+  fat:             4.23       # total lipid (fat)
+  saturatedFat:    0.872
+  monoUnsaturated: 0.760
+  polyUnsaturated: 1.87
+  carbs:           43.3       # by difference
+  sugar:           6.39       # total sugars
+  sugarAlcohol:    0          # not in source
+  fibre:           7.4
+  amino:           13.4       # is protein
+  salt:            0.381      # Sodium 381 mg -> g
+
+fattyAcids:                   # g, but EPA and DHA in mg
+
+  Alpha-linolenic acid: 0.205 # PUFA 18:3
+  Eicosapentaenoic acid: 0    # PUFA 20:5 n-3 (EPA), 0.000 g -> mg
+  Docosahexaenoic acid: 0     # PUFA 22:6 n-3 (DHA), 0.000 g -> mg
+  Linoleic acid:        1.67  # PUFA 18:2
+
+carbs:                        # g
+
+  Fibre:           7.4
+
+aminoAcids:                   # mg
+                              # source in g
+  Histidine:     198          # 0.198 g -> mg
+  Isoleucine:    323          # 0.323 g -> mg
+  Leucine:       556          # 0.556 g -> mg
+  Lysine:        289          # 0.289 g -> mg
+  Methionine:    138          # 0.138 g -> mg
+  Phenylalanine: 387          # 0.387 g -> mg
+  Threonine:     271          # 0.271 g -> mg
+  Tryptophan:    124          # 0.124 g -> mg
+  Valine:        397          # 0.397 g -> mg
+
+vitamins:                     # mg
+
+  Vitamin A:     0            # Vitamin A, RAE 0 µg
+  Vitamin D:     0            # Vitamin D (D2 + D3) 0.00 µg
+  Vitamin E:     0.37         # alpha-tocopherol
+  Vitamin K:     0.0014       # phylloquinone 1.4 µg -> mg
+  Vitamin C:     0.1
+  Thiamin B1:    0.279
+  Riboflavin B2: 0.131
+  Niacin B3:     4.04
+  Pantothenic acid B5: 0.336
+  Vitamin B6:    0.263
+  Biotin B7:     0            # not in source
+  Folate B9:     0.075        # folate total 75 µg -> mg
+  Vitamin B12:   0            # 0.00 µg
+
+minerals:                     # default unit: mg except for Salt, Potassium and Calcium where grams need to be used
+
+  Salt:          0.381        # Sodium 381 mg -> g
+  Potassium:     0.230        # 230 mg -> g
+  Calcium:       0.103        # 103 mg -> g
+  Phosphorus:    228          # mg
+  Magnesium:     78
+  Iron:          2.50
+  Iodine:        0            # not in source
+  Fluoride:      0            # not in source
+  Zinc:          1.70
+  Selenium:      0.0329       # 32.9 µg -> mg
+  Copper:        0.282
+  Chromium:      0            # not in source
+  Manganese:     2.02
+  Molybdenum:    0            # not in source
+
+# secondary:
+
+misc:                         # ml or g
+
+  water:         36.9
+  alcohol:       0
+  caffeine:      0
+
+sources:
+
+  - title:   Default source = Bread, multi-grain (includes whole-grain) (SR Legacy)
+    comment: has amino acids, vitamins, minerals and fatty acids (73 values)
+    source:  https://fdc.nal.usda.gov/food-details/168013/nutrients
+
+  - title:   Alternative = Bread, whole-wheat, commercially prepared (SR Legacy, unused)
+    comment: 83 values but no amino acids at all; whole-wheat only, not multi-grain
+    source:  https://fdc.nal.usda.gov/food-details/172688/nutrients
+
+lastUpd: 2026-08-18
