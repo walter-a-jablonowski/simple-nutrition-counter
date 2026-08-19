@@ -66,23 +66,6 @@
         </div>
         <div class="tab-content">
         <div id="entryTabPane" class="tab-pane fade show active" role="tabpanel">
-        <div class="mb-2">
-          <input id="modalNameInput" placeholder="Name" value="Misc entry" class="form-control modalHilitePrimary" required>
-        </div>
-        <div class="row mb-2">
-          <div class="col">
-            <div class="input-group">
-              <input id="modalWeightInput" type="number" inputmode="numeric" placeholder="Weight" class="form-control" required>
-              <select id="modalWeightUnit" class="form-select flex-grow-0 w-auto">
-                <option value="g">g</option>
-                <option value="ml">ml</option>
-              </select>
-            </div>
-          </div>
-          <div class="col">
-            <input id="modalPiecesInput" type="number" inputmode="numeric" placeholder="Pieces" class="form-control modalHiliteSecondary">
-          </div>
-        </div>
         <!-- The two selects below decide what saving does: an amount logs a day
              entry, a group creates a food record. Either one, or both; the
              footer button says which. -->
@@ -102,7 +85,24 @@
         </select>
         <!-- Where a new food record goes in the grid. Picking a group is what
              creates the record; the placeholder means "no food record". -->
-        <?php print $this->renderView( __DIR__ . '/group_select.php', ['selectId' => 'modalTargetGroup', 'extraClass' => 'mb-2 modalHilitePrimary', 'placeholder' => 'Save as food ...', 'options' => layout_target_options($this->layout)]); ?>
+        <?php print $this->renderView( __DIR__ . '/group_select.php', ['selectId' => 'modalTargetGroup', 'extraClass' => 'mb-4 modalHilitePrimary', 'placeholder' => 'Save as food ...', 'options' => layout_target_options($this->layout)]); ?>
+        <div class="mb-2">
+          <input id="modalNameInput" placeholder="Name" value="Misc entry" class="form-control modalHilitePrimary" required>
+        </div>
+        <div class="row mb-2">
+          <div class="col">
+            <div class="input-group">
+              <input id="modalWeightInput" type="number" inputmode="numeric" placeholder="Weight" class="form-control" required>
+              <select id="modalWeightUnit" class="form-select flex-grow-0 w-auto">
+                <option value="g">g</option>
+                <option value="ml">ml</option>
+              </select>
+            </div>
+          </div>
+          <div class="col">
+            <input id="modalPiecesInput" type="number" inputmode="numeric" placeholder="Pieces" class="form-control modalHiliteSecondary">
+          </div>
+        </div>
         <!-- Typical amounts shown as clickable columns in the food grid
              (saved as usedAmounts, food record only). Precise options adapt to
              the weight unit. -->
