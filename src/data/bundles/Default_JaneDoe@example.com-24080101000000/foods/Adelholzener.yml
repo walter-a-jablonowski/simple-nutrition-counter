@@ -15,13 +15,24 @@ nutritionalValues:
   amino:           0
   salt:            0
 
+minerals:          # label is per 1 l, values here are per 100 ml (unit: g for Salt, Potassium and Calcium, mg for the rest)
+
+  Salt:            0.00132     # Sodium 13.2 mg/l -> 1.32 mg/100 ml -> g
+  Potassium:       0.0001      # 1.0 mg/l -> 0.1 mg/100 ml -> g
+  Calcium:         0.00676     # 67.6 mg/l -> 6.76 mg/100 ml -> g
+  Magnesium:       3.29        # 32.9 mg/l, mg
+  Fluoride:        0.016       # 0.16 mg/l, mg
+
+  # anions of the label that have no substance in nutrients/minerals.yml (per 100 ml):
+  # Chloride 1.7 mg, Nitrate < 0.03 mg, Sulfate 2.9 mg, Hydrogencarbonate 33.6 mg
+
 misc:
 
-  water:           100
+  water:           100         # g (= ml) per 100 ml
 
-sources:           { nutriVal: "pack" }
+sources:           { nutriVal: "pack", nutrients: "pack (Nährwertangaben per 1 l)" }
 
-lastUpd:           2025-06-02
+lastUpd:           2026-08-19
 lastPriceUpd:      2025-10-09
 
 prices:
