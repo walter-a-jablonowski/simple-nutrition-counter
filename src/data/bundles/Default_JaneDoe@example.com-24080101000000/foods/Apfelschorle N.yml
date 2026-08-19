@@ -1,10 +1,12 @@
 vendor:            Norma
-acceptable:        occasionally
+acceptable:        less
+certificates:      { vegan: true }
+ingredients:       "Apfelsaft (60 %) aus Apfelsaftkonzentrat, Wasser, Kohlensäure, natürliches Apfelaroma"
 packaging:         plastic
 
 price:             0.43
 weight:            500ml
-usedAmounts:       ["1/8", "1/4", "1/3"]
+usedAmounts:       ["1/4", "1/2", "1"]
 
 calories:          25
 nutritionalValues:

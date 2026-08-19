@@ -270,7 +270,7 @@ Improve:
       - Chips
   Misc:
     list:
-      - 'Apfelsaft N'
+      - 'Apfelschorle N'
 Supplements:
   'Morning supplements':
     short: '<span style="color: orange;">see Info</span>'
@@ -333,7 +333,7 @@ Supplements:
   'Village (color:#ffa500)':
     list:
       - 'Apfel Pl R'
-      - 'Apfelsaft N'
+      - 'Apfelschorle N'
       - 'Cappuccino R'
       - 'Cappuccino Eni'
       - Milka
