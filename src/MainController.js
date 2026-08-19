@@ -1096,7 +1096,8 @@ class MainController
   }
 
   /* Which of the modal's panels is visible: 'form', 'import' or 'photo'.
-     The footer and the header buttons belong to the form, so they go with it.
+     The footer belongs to the form, so it goes with it (the import buttons sit
+     in the form panel's tabs row and are hidden with it).
      Panels that are switched off in the config are simply not there */
 
   showPanel( name )
@@ -1113,13 +1114,7 @@ class MainController
       if( panel )  panel.classList.toggle('d-none', panelName !== name)
     }
 
-    const onForm = name === 'form'
-
-    for( const selector of ['#newEntryFooter', '#importShowBtn', '#imgShowBtn'])
-    {
-      const element = query( selector )
-      if( element )  element.classList.toggle('d-none', ! onForm)
-    }
+    query('#newEntryFooter').classList.toggle('d-none', name !== 'form')
   }
 
   #fillFormFromFood( food )

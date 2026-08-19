@@ -1,22 +1,9 @@
 <div id="newEntryModal" class="modal fade" tabindex="-1">
-  <!-- scrollable: long content scrolls inside the modal body, so the modal
-       itself never overflows the viewport and adds a scrollbar to the page -->
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+  <!-- No header: the tabs name the dialog. Long content scrolls inside the tab
+       content (see app.css), so tabs and footer stay put and the page itself
+       never gets a scrollbar -->
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header">
-        <h6 class="modal-title">New entry</h6>
-        <!-- TASK: add a dev config and hide -->
-        <div class="ms-auto d-flex gap-2">
-          <?php if( config::get('photoImport.enabled') ): ?>
-            <button id="imgShowBtn" onclick="mainCrl.showPanel('photo')" class="btn btn-sm btn-outline-secondary" type="button" title="Read a packaging photo">
-              <i class="bi bi-camera"></i>
-            </button>
-          <?php endif; ?>
-          <button id="importShowBtn" onclick="mainCrl.showPanel('import')" class="btn btn-sm btn-outline-secondary" type="button">
-            Import
-          </button>
-        </div>
-      </div>
       <div class="modal-body small">
         
         <!-- Floating form (placeholder is more compact) -->
@@ -55,14 +42,28 @@
         <div id="newEntryFormPanel">
         <!-- What an import could not read or got suspicious about (photo import) -->
         <div id="importWarnMsg" class="importWarnMsg small d-none"></div>
-        <ul class="nav modalTabs" role="tablist">
-          <li class="nav-item">
-            <button id="entryTab" class="nav-link active" data-bs-toggle="tab" data-bs-target="#entryTabPane" type="button" role="tab">Entry</button>
-          </li>
-          <li class="nav-item">
-            <button id="detailsTab" class="nav-link" data-bs-toggle="tab" data-bs-target="#detailsTabPane" type="button" role="tab">Details</button>
-          </li>
-        </ul>
+        <!-- Tabs left, the two import buttons on the right of the same row -->
+        <div class="modalTabsRow d-flex align-items-end">
+          <ul class="nav modalTabs flex-grow-1" role="tablist">
+            <li class="nav-item">
+              <button id="entryTab" class="nav-link active" data-bs-toggle="tab" data-bs-target="#entryTabPane" type="button" role="tab">New entry</button>
+            </li>
+            <li class="nav-item">
+              <button id="detailsTab" class="nav-link" data-bs-toggle="tab" data-bs-target="#detailsTabPane" type="button" role="tab">Details</button>
+            </li>
+          </ul>
+          <!-- TASK: add a dev config and hide -->
+          <div class="modalTabsBtns d-flex gap-2">
+            <?php if( config::get('photoImport.enabled') ): ?>
+              <button id="imgShowBtn" onclick="mainCrl.showPanel('photo')" class="btn btn-sm btn-outline-secondary" type="button" title="Read a packaging photo">
+                <i class="bi bi-camera"></i>
+              </button>
+            <?php endif; ?>
+            <button id="importShowBtn" onclick="mainCrl.showPanel('import')" class="btn btn-sm btn-outline-secondary" type="button">
+              Import
+            </button>
+          </div>
+        </div>
         <div class="tab-content">
         <div id="entryTabPane" class="tab-pane fade show active" role="tabpanel">
         <div class="mb-2">

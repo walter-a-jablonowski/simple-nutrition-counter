@@ -1068,14 +1068,25 @@ body.sortable-active .day-entry {
    itself can carry normal text size instead of shrinking inside a wide pill. */
 
 #newEntryModal .modal-body {
-  padding-top: 0.5rem;   /* tabs sit close under the header */
+  padding-top: 0.5rem;   /* no header, so the tabs sit near the top edge */
+}
+
+/* Tabs row: tabs left, import buttons hard right, the 1px baseline under both.
+   align-items: end puts the buttons on the same baseline as the tab labels */
+
+#newEntryModal .modalTabsRow {
+  flex: 0 0 auto;   /* never squeezed by the scrolling panes below */
+  margin-bottom: 0.75rem;
+  /* 1px baseline painted as a background gradient -> adds no height */
+  background-image: linear-gradient(to top, #e9ecef 1px, transparent 1px);
+}
+
+#newEntryModal .modalTabsBtns {
+  margin-bottom: 0.25rem;   /* lift the buttons off the baseline */
 }
 
 #newEntryModal .modalTabs {
   gap: 0.25rem;
-  margin-bottom: 0.75rem;
-  /* 1px baseline painted as a background gradient -> adds no height */
-  background-image: linear-gradient(to top, #e9ecef 1px, transparent 1px);
 }
 
 #newEntryModal .modalTabs .nav-link {
@@ -1131,6 +1142,7 @@ body.sortable-active .day-entry {
 /* What the reader was unsure about, shown above the form it filled */
 
 #newEntryModal .importWarnMsg {
+  flex: 0 0 auto;
   margin-bottom: 0.5rem;
   padding: 0.4rem 0.6rem;
   border-left: 3px solid #ffc107;
@@ -1155,6 +1167,42 @@ body.sortable-active .day-entry {
 
 #newEntryModal .tab-content > .tab-pane.active {
   visibility: visible;
+}
+
+/* Scrolling: only the panes scroll, so the tabs row and the footer stay in
+   place on a long form (modal-dialog-scrollable would scroll the tabs away
+   with the rest of the body). Same height chain Bootstrap uses for the
+   scrollable dialog, one level deeper */
+
+#newEntryModal .modal-dialog {
+  height: calc(100% - var(--bs-modal-margin) * 2);
+}
+
+#newEntryModal .modal-content {
+  max-height: 100%;
+  overflow: hidden;
+}
+
+#newEntryModal .modal-body,
+#newEntryModal #newEntryFormPanel {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+#newEntryModal #newEntryFormPanel {
+  flex: 1 1 auto;
+}
+
+/* The scroll containers: the panes, and the two panels that replace them */
+
+#newEntryModal .tab-content,
+#newEntryModal #newEntryImportPanel,
+#newEntryModal #newEntryPhotoPanel {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
 }
 
 /* New entry modal: fixed-width labels so the nutrient inputs line up */
