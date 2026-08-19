@@ -1082,6 +1082,8 @@ body.sortable-active .day-entry {
 }
 
 #newEntryModal .modalTabsBtns {
+  margin-top: 0.5rem;       /* the buttons are the tallest thing in the row:
+                               this is the gap to the modal's top edge */
   margin-bottom: 0.25rem;   /* lift the buttons off the baseline */
 }
 
