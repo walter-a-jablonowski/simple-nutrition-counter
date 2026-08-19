@@ -1195,7 +1195,11 @@ body.sortable-active .day-entry {
   flex: 1 1 auto;
 }
 
-/* The scroll containers: the panes, and the two panels that replace them */
+/* The scroll containers: the panes, and the two panels that replace them.
+   overflow-x: hidden because a scroll box only clips at its own edge: the
+   negative gutter margins of a .row used to reach into the modal body's
+   padding, here they would overflow and add a horizontal scrollbar. The strip
+   that gets clipped is empty (the columns pad the content back in) */
 
 #newEntryModal .tab-content,
 #newEntryModal #newEntryImportPanel,
@@ -1203,6 +1207,7 @@ body.sortable-active .day-entry {
   flex: 1 1 auto;
   min-height: 0;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 /* New entry modal: fixed-width labels so the nutrient inputs line up */
