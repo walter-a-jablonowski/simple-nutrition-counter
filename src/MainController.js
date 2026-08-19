@@ -243,9 +243,10 @@ class MainController
       // Prefill the packaging template so the user edits it down before saving
       query('#modalPackagingInput').value   = 'none|cardboard,alu,plastic,glass & rubber (maybe)'
 
-      // Grid placement defaults back to the first option (Meals > First entries)
+      // Grid placement back to the placeholder: no food record unless a group is picked
       const targetGroup = query('#modalTargetGroup')
       if( targetGroup )  targetGroup.selectedIndex = 0
+      this.#updSaveBtnLabel()
 
       // Precise grid-amount labels reflect the current weight unit
       this.#updateGridAmountUnits()
@@ -262,8 +263,6 @@ class MainController
       if( window.foodPhotoCrl )  foodPhotoCrl.reset()
       const warn = query('#importWarnMsg')
       if( warn )  warn.classList.add('d-none')
-      const saveNewFood = query('#saveNewFood')
-      if( saveNewFood )  saveNewFood.checked = false
 
       // Focus the first input for better UX
       setTimeout(() => query('#modalNameInput').focus(), 500)
@@ -272,6 +271,11 @@ class MainController
     // Keep precise grid-amount labels in sync with the weight unit
 
     query('#modalWeightUnit').event('change', () => this.#updateGridAmountUnits())
+
+    // The save button follows whatever the two intent selects say
+
+    query('#modalUsedSelect').event('change',   () => this.#updSaveBtnLabel())
+    query('#modalTargetGroup').event('change',  () => this.#updSaveBtnLabel())
     
     // Mermaid  // TASK: problems in modal (works in page)
     //
@@ -750,17 +754,16 @@ class MainController
 
   newEntrySaveBtn(event)
   {
-    const usedSelect  = query('#modalUsedSelect')
-    const saveNewFood = query('#saveNewFood')
+    const usedSelect = query('#modalUsedSelect')
 
-    const consuming = usedSelect.value !== 'null' && usedSelect.value !== null
-    const saving    = saveNewFood && saveNewFood.checked
+    const consuming = this.#isConsuming()
+    const saving    = this.#isSavingFood()
 
-    // The modal must do at least one thing. When not creating a food record, a
-    // "Consumed now" amount is required (otherwise nothing would be saved).
+    // The modal must do at least one thing: log what was consumed, create a
+    // food record, or both (otherwise nothing would be saved).
 
     if( ! saving && ! consuming ) {
-      this.#showSaveError('Pick a "Consumed now" amount, or check "Save as new food".')
+      this.#showSaveError('Pick a "Consumed now" amount, or a group to save the food in.')
       return
     }
 
@@ -771,13 +774,47 @@ class MainController
     if( consuming )
       this.#addDayEntry( this.#buildDayEntry( usedSelect ))
 
-    // Dev feature: also persist a new food record, then reload to refresh the grid.
-    // Otherwise just close (the day entry is already saved by #addDayEntry).
+    // A target group picked -> persist a new food record, then reload to refresh
+    // the grid. Otherwise just close (the day entry is already saved by #addDayEntry).
 
     if( saving )
       this.#saveNewFood()
     else
       this.newEntryModal.hide()
+  }
+
+  // What the two intent selects of the new-entry modal are asking for
+
+  #isConsuming() /*@*/
+  {
+    const value = query('#modalUsedSelect').value
+    return value !== 'null' && value !== null && value !== ''
+  }
+
+  #isSavingFood() /*@*/
+  {
+    const select = query('#modalTargetGroup')
+    return !! (select && select.value)
+  }
+
+  /*@
+
+  The footer button names the action the two selects add up to, so the modal
+  never claims to add an entry when it only writes a food record. The grid
+  amounts belong to the record, so they follow the food-record switch.
+
+  */
+  #updSaveBtnLabel() /*@*/
+  {
+    const consuming = this.#isConsuming()
+    const saving    = this.#isSavingFood()
+
+    query('#newEntrySaveBtn').textContent =
+      consuming && saving ? 'Add + save food'
+      : saving            ? 'Save food'
+      :                     'Add entry'
+
+    query('#modalUsedAmountsSelect').disabled = ! saving
   }
 
 
@@ -1032,8 +1069,13 @@ class MainController
     this.#fillFormFromFood( food )
     this.showPanel('form')
 
-    const chk = query('#saveNewFood')
-    if( chk )  chk.checked = true
+    // An import is meant to become a food record: arm the save with the first
+    // group (index 0 is the "no food record" placeholder)
+
+    const targetSel = query('#modalTargetGroup')
+    if( targetSel && targetSel.options.length > 1 )  targetSel.selectedIndex = 1
+
+    this.#updSaveBtnLabel()
 
     const warn  = query('#importWarnMsg')
     const lines = warnings || []

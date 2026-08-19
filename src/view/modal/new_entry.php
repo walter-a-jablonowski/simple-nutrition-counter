@@ -65,11 +65,6 @@
         </ul>
         <div class="tab-content">
         <div id="entryTabPane" class="tab-pane fade show active" role="tabpanel">
-        <!-- Grid placement for a new food record (only used with "Save as new food") -->
-        <div class="input-group mb-2">
-          <span class="input-group-text">Add to</span>
-          <?php print $this->renderView( __DIR__ . '/group_select.php', ['selectId' => 'modalTargetGroup', 'extraClass' => 'modalHilitePrimary', 'options' => layout_target_options($this->layout)]); ?>
-        </div>
         <div class="mb-2">
           <input id="modalNameInput" placeholder="Name" value="Misc entry" class="form-control modalHilitePrimary" required>
         </div>
@@ -87,8 +82,10 @@
             <input id="modalPiecesInput" type="number" inputmode="numeric" placeholder="Pieces" class="form-control modalHiliteSecondary">
           </div>
         </div>
-        <!-- How much is consumed right now (logs a day entry). Optional: leave
-             empty to only create the food without logging it today. -->
+        <!-- The two selects below decide what saving does: an amount logs a day
+             entry, a group creates a food record. Either one, or both; the
+             footer button says which. -->
+        <!-- How much is consumed right now (logs a day entry) -->
         <select id="modalUsedSelect" class="form-select mb-2 modalHilitePrimary">
           <option class="default" value="null" selected>Consumed now ...</option>
           <!-- TASK: get from defaults -->
@@ -102,8 +99,12 @@
           <option data-usage="precise" value="50"  >50g or ml</option>
           <option data-usage="precise" value="100" >100g or ml</option>
         </select>
+        <!-- Where a new food record goes in the grid. Picking a group is what
+             creates the record; the placeholder means "no food record". -->
+        <?php print $this->renderView( __DIR__ . '/group_select.php', ['selectId' => 'modalTargetGroup', 'extraClass' => 'mb-2 modalHilitePrimary', 'placeholder' => 'Save as food ...', 'options' => layout_target_options($this->layout)]); ?>
         <!-- Typical amounts shown as clickable columns in the food grid
-             (saved as usedAmounts). Precise options adapt to the weight unit. -->
+             (saved as usedAmounts, food record only). Precise options adapt to
+             the weight unit. -->
         <select id="modalUsedAmountsSelect" class="form-select mb-2 modalHilitePrimary">
           <option value="" selected>Grid amounts (default) ...</option>
           <optgroup label="Precise" id="modalPreciseAmounts">
@@ -300,24 +301,16 @@
         <?php endif; ?>
       </div>
       <div id="newEntryFooter" class="modal-footer">
-        <div class="d-flex w-100 justify-content-between align-items-center">
-          <!-- TASK: (very advanced) -->
-          <div class="form-check mb-0">
-            <input id="saveNewFood" type="checkbox" value="" class="form-check-input">
-            <label class="form-check-label small" for="saveNewFood">
-              Save as new food
-            </label>
-          </div>
-          <div class="d-flex align-items-center gap-2">
-            <!-- Validation hint: hover the "!" for the message (space is tight) -->
-            <span id="modalSaveError" class="modalSaveError d-none" title="">!</span>
-            <button data-bs-dismiss="modal" class="btn btn-sm btn-secondary" type="button">
-              Cancel
-            </button>
-            <button onclick="mainCrl.newEntrySaveBtn()" class="btn btn-sm btn-primary" type="button">
-              Add entry
-            </button>
-          </div>
+        <div class="d-flex w-100 justify-content-end align-items-center gap-2">
+          <!-- Validation hint: hover the "!" for the message (space is tight) -->
+          <span id="modalSaveError" class="modalSaveError d-none" title="">!</span>
+          <button data-bs-dismiss="modal" class="btn btn-sm btn-secondary" type="button">
+            Cancel
+          </button>
+          <!-- Label follows the two selects above (see #updSaveBtnLabel) -->
+          <button id="newEntrySaveBtn" onclick="mainCrl.newEntrySaveBtn()" class="btn btn-sm btn-primary" type="button">
+            Add entry
+          </button>
         </div>
       </div>
     </div>
