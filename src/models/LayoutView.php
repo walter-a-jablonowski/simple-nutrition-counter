@@ -75,11 +75,12 @@ trait LayoutView  /*@*/
               $short = $groupName === 'nutritionalValues' ? $nutrient  // short name for single nutrient
                      : $this->nutrientsModel->get("$groupName.substances.$nutrient.short");
 
-              $unit  = $this->nutrientsModel->get("$groupName.substances.$nutrient.unit") 
-                    ?? $this->nutrientsModel->get("$groupName.defaultUnit") 
-                    ?? 'g';
+              // The nutritional values are printed in the day list, so 1 decimal like the
+              // calories. The nutrient groups keep 5 decimals no matter their unit: a gram
+              // substance can be small as well (calcium of a mineral water, 0.0068 g per
+              // 100 ml) and rounding it to 1 decimal dropped it to zero
 
-              $precision = $unit === 'g' ? 1 : 5;
+              $precision = $groupName === 'nutritionalValues' ? 1 : 5;
 
               $perWeight[$shortName][$short] = $nutrientsPerPiece
                                              ? round( $value * $multipl, $precision)          // for per-piece: use the value directly multiplied by pieces count
