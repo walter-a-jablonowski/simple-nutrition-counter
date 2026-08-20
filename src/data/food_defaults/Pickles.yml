@@ -1,0 +1,113 @@
+
+# GLM only
+
+# 2608 default source (324653, Foundation) is "Pickles, cucumber, dill or kosher
+#      dill", analytical but sparse: it carries proximates, minerals and some
+#      vitamins but no amino acids, no fat breakdown, no fatty acids, no selenium,
+#      no vitamin B12 and no vitamin D. These are taken from the SR Legacy
+#      "Pickles, cucumber, sour" (169379); see per-field comments and sources.
+#      Note: 169379 has 0.33 g protein against the 0.48 g here, so its amino
+#      acids run about 31 % low on this file's protein basis.
+#
+#      The food "Gurke R Corni" (ja! Cornichons mit Kräutern) does not state its
+#      state. It contains dill and sugar. Weighed 324653 (Foundation, dill, 12
+#      kcal) against 169379 (SR Legacy, sour, 11 kcal); took 324653 as the
+#      analytical Foundation entry. The food's 48 kcal is higher due to more
+#      sugar (6.9 g vs 1.28 g), but the food's own values override defaults.
+#
+#      Source has no iodine, fluoride, chromium, molybdenum, biotin; these stay
+#      0. Sugar alcohol is not in the source.
+
+acceptable:
+comment:
+                              # kcal
+calories:          12         # Atwater Specific: 12, Atwater General: 14
+
+nutritionalValues:            # g
+
+  fat:             0.43       # total lipid (fat)
+  saturatedFat:    0.052      # from 169379
+  monoUnsaturated: 0.003      # from 169379
+  polyUnsaturated: 0.081      # from 169379
+  carbs:           1.99       # by difference
+  sugar:           1.28       # total sugars
+  sugarAlcohol:    0          # not in source
+  fibre:           1.0
+  amino:           0.48       # is protein
+  salt:            0.808      # Sodium 808 mg -> g
+
+fattyAcids:                   # g, but EPA and DHA in mg
+
+  Alpha-linolenic acid: 0.046 # PUFA 18:3, from 169379
+  Eicosapentaenoic acid: 0    # PUFA 20:5 n-3 (EPA), 0.000 g -> 0 mg, from 169379
+  Docosahexaenoic acid: 0     # PUFA 22:6 n-3 (DHA), 0.000 g -> 0 mg, from 169379
+  Linoleic acid:        0.034 # PUFA 18:2, from 169379
+
+carbs:                        # g
+
+  Fibre:         1.0
+
+aminoAcids:                   # mg
+                              # from 169379, source in g
+  Histidine:     5            # 0.005 g -> mg
+  Isoleucine:    10           # 0.010 g -> mg
+  Leucine:       14           # 0.014 g -> mg
+  Lysine:        14           # 0.014 g -> mg
+  Methionine:    3            # 0.003 g -> mg, cystine 0.002 not active in /nutrients
+  Phenylalanine: 9            # 0.009 g -> mg, tyrosine 0.006 not active in /nutrients
+  Threonine:     9            # 0.009 g -> mg
+  Tryptophan:    3            # 0.003 g -> mg
+  Valine:        11           # 0.011 g -> mg
+
+vitamins:                     # mg
+
+  Vitamin A:     0.004        # Vitamin A, RAE 4 µg -> mg
+  Vitamin D:     0            # Vitamin D (D2 + D3) 0 µg, from 169379
+  Vitamin E:     0.12         # alpha-tocopherol
+  Vitamin K:     0.0168       # phylloquinone 16.8 µg -> mg
+  Vitamin C:     2.1
+  Thiamin B1:    0.047
+  Riboflavin B2: 0.057
+  Niacin B3:     0.109
+  Pantothenic acid B5: 0.200
+  Vitamin B6:    0.034
+  Biotin B7:     0            # not in source
+  Folate B9:     0.008        # folate total 8 µg -> mg
+  Vitamin B12:   0            # 0 µg, from 169379
+
+minerals:                     # default unit: mg except for Salt, Potassium and Calcium where grams need to be used
+
+  Salt:          0.808        # Sodium 808 mg -> g
+  Potassium:     0.112        # 112 mg -> g
+  Calcium:       0.054        # 54 mg -> g
+  Phosphorus:    16           # mg
+  Magnesium:     7.1
+  Iron:          0.23
+  Iodine:        0            # not in source
+  Fluoride:      0            # not in source
+  Zinc:          0.11
+  Selenium:      0            # 0.0 µg, from 169379
+  Copper:        0.026
+  Chromium:      0            # not in source
+  Manganese:     0.056
+  Molybdenum:    0            # not in source
+
+# secondary:
+
+misc:                         # ml or g
+
+  water:         94.7         # ml or g
+  alcohol:       0            # from 169379, 0.0 g
+  caffeine:      0            # from 169379, 0 mg
+
+sources:
+
+  - title:   Default source = Pickles, cucumber, dill or kosher dill (Foundation)
+    comment: analytical but sparse; used for calories, macros, fibre, minerals, vitamins, water
+    source:  https://fdc.nal.usda.gov/food-details/324653/nutrients
+
+  - title:   Alternative = Pickles, cucumber, sour (SR Legacy)
+    comment: used for fat breakdown, fatty acids, amino acids, selenium, vitamin B12, vitamin D, alcohol, caffeine
+    source:  https://fdc.nal.usda.gov/food-details/169379/nutrients
+
+lastUpd: 2026-08-20

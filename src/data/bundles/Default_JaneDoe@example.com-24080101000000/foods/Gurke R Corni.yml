@@ -1,8 +1,10 @@
-
+state:             unprecise
+type:              Pickles
 productName:       "ja! Cornichons mit Kräutern 190g"
 vendor:            Rewe
 url:               "https://www.rewe.de/shop/p/ja-cornichons-mit-kraeutern-190g/8693856"
 
+comment:           "unprecise: GLM only"
 certificates:      { vegan: true, NutriScore: B }
 ingredients:       "Gurken, Wasser, Branntweinessig, Zucker, Speisesalz, Zwiebeln 1,1%, Paprika, Dill 0,6%, SENFSAAT 0,3%, schwarzer Pfeffer 0,1%"
 packaging:         plastic & rubber
