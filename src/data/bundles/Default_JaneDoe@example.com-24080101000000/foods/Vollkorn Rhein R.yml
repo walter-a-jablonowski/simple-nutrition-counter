@@ -1,5 +1,7 @@
+state:             unprecise
 vendor:            Rewe
 acceptable:        less
+comment:           "unprecise: pieces, GLM only"
 packaging:         plastic
 
 price:             1.49
