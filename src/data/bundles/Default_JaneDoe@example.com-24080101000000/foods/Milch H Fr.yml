@@ -26,7 +26,7 @@ misc:
 
   water:           99    # ca
 
-sources:           { nutriVal: "web", nutrients: "nutrients: calcium also from vendors page online", price: "price: web" }
+sources:           { nutriVal: "web", nutrients: "nutrients: calcium also from vendors page online", price: "web" }
 lastUpd:           2024-04-11
 lastPriceUpd:      2025-09-22
 
