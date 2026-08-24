@@ -1,0 +1,120 @@
+
+# AI-only
+
+# 2608 verified all values from source as far as active in /nutrients
+#      The foods do not state their state - they only carry vendor, weight and
+#      the pack values (productName "Mildes Weinsauerkraut", ingredients
+#      Weißkohl + Wein + Salz). They are jarred/canned mild wine sauerkraut at
+#      22-27 kcal per 100 g.
+#
+#      Entries weighed:
+#        169279  SR Legacy  Sauerkraut, canned, solids and liquids  19 kcal, full panel
+#        2709982 Survey     Sauerkraut                               40 kcal, 2.53 g fat,
+#                          cholesterol 4 mg - clearly cooked with fat, not a match
+#        169278  SR Legacy  Salsify, cooked (id neighbour, different food)
+#        169280  SR Legacy  Seaweed, agar, raw (id neighbour, different food)
+#      169279 is the only SR Legacy sauerkraut entry; "canned, solids and
+#      liquids" matches a jarred product and it carries the full panel (amino
+#      acids, vitamins, fatty acids), so no second entry is needed (no step 2b).
+#      Pack kcal 22-27 sits above the 19 of the source - the food's own values
+#      win for kcal and macros anyway. Pack salt 1.0-1.1 g is above the source's
+#      0.661 g (sodium 661 mg): the Weinsauerkraut is saltier than the USDA
+#      canned average, the food's own salt wins.
+#
+#      Source has no Atwater Specific/General (plain Energy only) and no biotin,
+#      iodine, chromium, molybdenum; these stay 0. Sugar alcohol is not in the
+#      source. Vitamin D, B12, EPA and DHA are present in the source as 0.
+
+acceptable:
+comment:
+                              # kcal
+calories:          19         # Energy, SR Legacy has no Atwater Specific/General
+
+nutritionalValues:            # g
+
+  fat:             0.14       # total lipid (fat)
+  saturatedFat:    0.034
+  monoUnsaturated: 0.013
+  polyUnsaturated: 0.067
+  carbs:           4.28       # by difference
+  sugar:           1.78       # total sugars
+  sugarAlcohol:    0          # not in source
+  fibre:           2.9
+  amino:           0.91       # is protein
+  salt:            0.661      # Sodium 661 mg -> g, as in Lentils and Chickpeas
+                              # (NaCl would be x 2.5; food value overrides this anyway)
+fattyAcids:                   # g, but EPA and DHA in mg
+
+  Alpha-linolenic acid: 0.033 # PUFA 18:3
+  Eicosapentaenoic acid: 0    # PUFA 20:5 n-3 (EPA), 0 in source
+  Docosahexaenoic acid: 0     # PUFA 22:6 n-3 (DHA), 0 in source
+  Linoleic acid:        0.034 # PUFA 18:2
+
+carbs:                        # g
+
+  Fibre:         2.9
+
+aminoAcids:                   # mg
+                              # source in g
+  Histidine:     16           # 0.016 g -> mg
+  Isoleucine:    21           # 0.021 g -> mg
+  Leucine:       29           # 0.029 g -> mg
+  Lysine:        31           # 0.031 g -> mg
+  Methionine:    9            # 0.009 g -> mg
+  Phenylalanine: 23           # 0.023 g -> mg
+  Threonine:     25           # 0.025 g -> mg
+  Tryptophan:    8            # 0.008 g -> mg
+  Valine:        30           # 0.030 g -> mg
+
+vitamins:                     # mg
+
+  Vitamin A:     0.001        # Vitamin A, RAE 1 µg
+  Vitamin D:     0            # Vitamin D (D2 + D3) 0 µg in source
+  Vitamin E:     0.14         # alpha-tocopherol
+  Vitamin K:     0.013        # phylloquinone 13 µg
+  Vitamin C:     14.7
+  Thiamin B1:    0.021
+  Riboflavin B2: 0.022
+  Niacin B3:     0.143
+  Pantothenic acid B5: 0.093
+  Vitamin B6:    0.13
+  Biotin B7:     0            # not in source
+  Folate B9:     0.024        # folate total 24 µg
+  Vitamin B12:   0            # 0 µg in source
+
+minerals:                     # default unit: mg except for Salt, Potassium and Calcium where grams need to be used
+
+  Salt:          0.661        # Sodium 661 mg -> g
+  Potassium:     0.17         # 170 mg -> g
+  Calcium:       0.03         # 30 mg -> g
+  Phosphorus:    20           # mg
+  Magnesium:     13
+  Iron:          1.47
+  Iodine:        0            # not in source
+  Fluoride:      0.007        # 7 µg -> mg
+  Zinc:          0.19
+  Selenium:      0.0006       # 0.6 µg -> mg
+  Copper:        0.096
+  Chromium:      0            # not in source
+  Manganese:     0.151
+  Molybdenum:    0            # not in source
+
+# secondary:
+
+misc:
+
+  water:         92.5         # ml or g
+  alcohol:       0
+  caffeine:      0
+
+sources:
+
+  - title:   Default source = Sauerkraut, canned, solids and liquids (SR Legacy)
+    comment: only SR Legacy sauerkraut entry; full panel incl. amino acids, vitamins and fatty acids
+    source:  https://fdc.nal.usda.gov/food-details/169279/nutrients
+
+  - title:   Alternative = Sauerkraut (Survey (FNDDS), unused)
+    comment: 40 kcal, 2.53 g fat, cholesterol 4 mg - cooked with fat, not a match for mild Weinsauerkraut
+    source:  https://fdc.nal.usda.gov/food-details/2709982/nutrients
+
+lastUpd: 2026-08-24
