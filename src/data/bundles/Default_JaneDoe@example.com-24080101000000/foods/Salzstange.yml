@@ -1,5 +1,5 @@
 
-state:              unprecise
+state:             unprecise
 acceptable:        less
 comment:           "unprecise: GLM only"
 certificates:      { vegan: true }
