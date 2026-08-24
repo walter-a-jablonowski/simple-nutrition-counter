@@ -81,13 +81,13 @@ it; stored history keeps `fat: {}`, so coverage is 0–1 % until new days accumu
 gain    = Σ nutrients below:  min( value, gap ) / gap      # capped at the gap
 penalty = Σ nutrients above:  (value/upper) * (over/upper) # weighted by how far over
 net     = gain - penalty
-score   = net / max(kcal,100) * 100 / (1 + 0.15*eaten)     # halved if state: unprecise
+score   = net / max(kcal,100) * 100 / (1 + 0.15*eaten)
 ```
 
 - **Per 100 kcal, not per portion** — otherwise the heaviest dish always wins
 - **Gain capped at the gap** — a food huge in one nutrient loses to one covering three
 - **Penalty weighted by overshoot** — 1 % over is not 500 % over
-- **`state: unprecise` × 0.5** — a kebab typed as `Chicken` borrowed chicken's whole panel
+- **`state: unprecise` is not scored down** — its numbers are rough but they are the numbers the app has, and the data gets better as it is filled in. A permanent handicap would keep foods out long after their panel was fixed. The flag travels with the candidate so the model can say so
 - Candidates: typed foods only, must close at least one gap, top `maxFoods`
 - Contributors (which foods caused an excess): **all** foods, no type needed
 - Excesses need no `measurable` check — missing data can only under-report, never over-report
@@ -147,7 +147,6 @@ advisor:
 
 ## Open
 
-- **12 foods say "unprecise" only in their `comment`, not in `state`** — so the grid badge and the ×0.5 down-rank miss them. Kebab, Gyros, Salami, Currywurst, Lyoner. Data fix, one line each
 - Recompute history from the current food model? Would fix the lost calcium and pick up food-data improvements retroactively. Left out: a logged day is a record
 - `gain` weights every deficit nutrient equally
 - Every candidate "raises" the amino acids that sit 1 % over — the numbers are right and the penalty is tiny, but the list reads noisy

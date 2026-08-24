@@ -51,14 +51,6 @@ class FoodRanking  /*@*/
 
   const RAISE_FLOOR = 0.05;
 
-  /* A food marked `state: unprecise` borrowed its panel from a food default that only
-     roughly fits - a kebab typed as Chicken gets chicken's whole vitamin table. It is
-     still a real food and still counts, but it must not out-rank one whose numbers were
-     read off its own packaging, so it is worth half. The grid badges these too, see
-     view/main/edit/layout/entry.php */
-
-  const UNPRECISE_FACTOR = 0.5;
-
   // Nutrients no food recommendation can fix, as "group.short".
   //
   // Water is short in the data because the user does not log what they drink, not
@@ -222,8 +214,7 @@ class FoodRanking  /*@*/
         'price'    => $portion['price'],
         'amounts'  => $this->combinedModel->get("$name.usedAmounts") ?: [],
         'eaten'    => $count,
-        'score'    => $this->score( $gain - $penalty, $portion['calories'], $count,
-                                    'unprecise' === $this->combinedModel->get("$name.state")),
+        'score'    => $this->score( $gain - $penalty, $portion['calories'], $count ),
         'closes'   => $closes,
         'raises'   => $raises,
         'flags'    => $this->flagsOf( $name )
@@ -272,23 +263,27 @@ class FoodRanking  /*@*/
 
   /*@
 
-  What one portion is worth: gaps closed per 100 kcal, less what it was already eaten,
-  halved when the food's panel is only borrowed.
+  What one portion is worth: gaps closed per 100 kcal, less what it was already eaten.
+
+  A food whose panel is only borrowed from a food default (`state: unprecise`) is not
+  scored down here. Its numbers are rough, but they are the numbers the app has, and
+  the data gets better as it is filled in - a permanent handicap would keep foods out
+  of the list long after their panel was fixed. The flag travels with the candidate,
+  so the model can say so.
 
   A food that is worth nothing or worse keeps its raw net, so it still sorts to the
   bottom - dividing a negative would turn "brings more harm than good" into a number
   that grows as the portion grows
 
   */
-  private function score( float $net, float $calories, int $eaten, bool $unprecise ) : float  /*@*/
+  private function score( float $net, float $calories, int $eaten ) : float  /*@*/
   {
     if( $net <= 0 )
       return round( $net, 3);
 
     $density = $net / max( $calories, self::KCAL_FLOOR) * self::KCAL_BASE;
-    $density = $density / (1 + self::REPEAT_PENALTY * $eaten);
 
-    return round( $unprecise ? $density * self::UNPRECISE_FACTOR : $density, 3);
+    return round( $density / (1 + self::REPEAT_PENALTY * $eaten), 3);
   }
 
 

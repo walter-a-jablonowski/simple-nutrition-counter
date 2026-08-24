@@ -264,7 +264,7 @@ For each food at its middle `usedAmounts` entry:
 gain    = Σ nutrients below:  min( value, gap ) / gap        # capped at the gap
 penalty = Σ nutrients above:  (value/upper) * (over/upper)   # weighted by the overshoot
 net     = gain - penalty
-score   = net / max(kcal, 100) * 100 / (1 + 0.15 * eaten)    # halved if state: unprecise
+score   = net / max(kcal, 100) * 100 / (1 + 0.15 * eaten)
 ```
 
 Four things the first real run forced, all of them visible in the output before the fix:
@@ -275,8 +275,12 @@ Four things the first real run forced, all of them visible in the output before 
   `Hähnchenbr Spr` at 105 kcal and `Pfannegem A Ital` at 38.
 - **Penalty weighted by the overshoot.** The amino acids sit 6 % over, so every protein
   food was penalised as hard as one feeding a nutrient at five times its bound.
-- **`state: unprecise` counts half.** A kebab typed as `Chicken` inherits chicken's whole
-  vitamin table, which ranks it high on numbers it never earned.
+- **`state: unprecise` is deliberately *not* scored down.** A kebab typed as `Chicken`
+  inherits chicken's whole vitamin table, so the first version halved it. Reverted on the
+  user's decision: rough numbers are the numbers the app has, data quality only rises over
+  time, and some error in the results for a while is acceptable. A permanent handicap would
+  keep a food out of the list long after its panel was fixed. The flag still travels with
+  the candidate, so the model can mention it.
 - **Repeat is a divisor, not a subtraction.** Once the score is a density, subtracting a
   fixed amount per logging is on the wrong scale.
 
