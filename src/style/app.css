@@ -1283,11 +1283,16 @@ body.sortable-active .day-entry {
 }
 
 /* Öko-Test / Warentest: a grade, so the field only has to hold a few
-   characters. flex-grow: 0 keeps it from taking the NutriScore field's room */
+   characters. flex-grow: 0 keeps it from taking the NutriScore field's room.
+   Both are one width, so the pair stays even: it is the longer placeholder
+   ("Waren") that sets it. The tighter padding buys that placeholder its room
+   back instead of widening the row - full padding would need ~4.75rem */
 
 #newEntryModal .modalCertGrade {
   flex: 0 0 auto;
-  width: 3rem;
+  width: 4.25rem;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
 }
 
 /* Headline of a block inside a tab (e.g. "More nutrients") */
