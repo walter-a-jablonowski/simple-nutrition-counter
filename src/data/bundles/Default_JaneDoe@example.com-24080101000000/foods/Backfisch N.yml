@@ -1,0 +1,23 @@
+productName:       "15 Backfisch-Stäbchen"
+vendor:            Fjord Krone
+
+certificates:      { NutriScore: B }
+ingredients:       "Alaska-Seelachsfilet (60%), Weizenmehl, Rapsöl, Kartoffelstärke, Weizenstärke, Trinkwasser, Speisesalz, Hefe, Backtriebmittel (Diphosphate, Natriumcarbonate), Dextrose, Gewürze (Paprika, Knoblauch, Kurkuma)"
+packaging:         cardboard
+
+weight:            405g
+pieces:            15
+usedAmounts:       ["1", "2", "3"]
+
+calories:          174
+nutritionalValues:
+
+  fat:             6.9
+  saturatedFat:    0.53
+  carbs:           17
+  sugar:           0.6
+  amino:           10.5
+  salt:            0.96
+
+sources:           { nutriVal: "pack" }
+lastUpd:           2026-08-24

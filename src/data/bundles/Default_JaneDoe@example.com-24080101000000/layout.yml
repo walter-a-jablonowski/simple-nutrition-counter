@@ -79,6 +79,7 @@ Meals:
     list:
       - 'Seelachs N'
       - Fischst
+      - 'Backfisch N'
       - 'Thunfisch N'
       - 'Thunf pikant N'
       - Sardine
@@ -90,6 +91,8 @@ Meals:
       - 'Hähnchenbr Spr'
       - 'Salami R'
       - 'Salami R Wilt (Leicht)'
+      - 'Salami R Wilt Hähn'
+      - 'Salami R Wilt Gef'
       - 'Salami R Wilt (Innens)'
       - 'Salami N'
       - 'Lyoner R Bio'

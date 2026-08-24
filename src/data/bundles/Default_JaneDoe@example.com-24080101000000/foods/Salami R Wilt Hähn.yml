@@ -1,0 +1,21 @@
+productName:       "HÄHNCHEN-SALAMI MIT PFLANZENFETT"
+vendor:            WILTMANN
+
+ingredients:       "Hähnchenfleisch, Palmfett, jodiertes Speisesalz (Speisesalz, Kaliumiodat), Traubenzucker, Gewürze, Gewürzextrakte, Antioxidationsmittel: Natriumascorbat; Konservierungsstoff: Natriumnitrit; Reifekulturen, Buchenholzrauch. 100 g Salami, hergestellt aus 136 g Fleisch und 5 g Palmfett. Unter Schutzatmosphäre verpackt"
+packaging:         plastic
+
+weight:            80g
+usedAmounts:       ["1/4", "1/2", "1"]
+
+calories:          241
+nutritionalValues:
+
+  fat:             15
+  saturatedFat:    6
+  carbs:           1
+  sugar:           1
+  amino:           25
+  salt:            3.8
+
+sources:           { nutriVal: "pack" }
+lastUpd:           2026-08-24

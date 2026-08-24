@@ -1,0 +1,21 @@
+productName:       "GEFLÜGEL-SALAMI MIT PFLANZENFETT"
+vendor:            WILTMANN
+
+ingredients:       "Zutaten: Hähnchenfleisch, Putenfleisch, Palmfett, jodiertes Speisesalz, Traubenzucker, Gewürze, Gewürzextrakte, Antioxidationsmittel: Natriumascorbat; Konservierungsstoff: Natriumnitrit; Reifekulturen, Buchenholzrauch. 100 g Salami, hergestellt aus 133 g Geflügelfleisch und 11 g Palmfett"
+packaging:         plastic
+
+weight:            80g
+usedAmounts:       ["1/4", "1/2", "1"]
+
+calories:          309
+nutritionalValues:
+
+  fat:             23
+  saturatedFat:    9
+  carbs:           1
+  sugar:           1
+  amino:           24
+  salt:            4
+
+sources:           { nutriVal: "pack" }
+lastUpd:           2026-08-24
