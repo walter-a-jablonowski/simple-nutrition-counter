@@ -1,7 +1,7 @@
 <?php
 
 require_once 'lib/food_import/FoodParserBase.php';
-require_once 'lib/food_import/GeminiVisionClient.php';
+require_once 'lib/ai/GeminiClient.php';
 require_once 'lib/food_import/NutritionSanity.php';
 
 /*
@@ -44,7 +44,7 @@ class PhotoImporter
     $images = self::decodeImages( $base64Images );
     $count  = count( $images );
 
-    $data = GeminiVisionClient::extract(
+    $data = GeminiClient::ask(
       config::get('photoImport.model') ?: self::DEFAULT_MODEL,
       file_get_contents( self::PROMPT_FILE ),
       "Extract the product data from these $count pictures of one product.",

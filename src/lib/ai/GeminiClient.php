@@ -4,32 +4,48 @@ require_once 'lib/env.php';
 
 /*
 
-Sends images to a Gemini model and returns the structured answer (generateContent).
+Sends a prompt, with or without images, to a Gemini model and returns the structured
+answer (generateContent).
 
-Transport only: it knows nothing about food. The caller provides the model, the
-prompts and a response schema; a schema plus responseMimeType json constrains the
-decoding, so the model can not emit an unknown key or a string where a number is
-required and the caller never has to parse prose.
+Transport only: it knows nothing about food, and nothing about pictures either - the
+image list may be empty. The caller provides the model, the prompts and a response
+schema; a schema plus responseMimeType json constrains the decoding, so the model can
+not emit an unknown key or a string where a number is required and the caller never
+has to parse prose.
+
+Two callers so far: the photo import reads a packaging (temperature 0, it is
+transcribing), the advisor reasons about a nutrient report and invents menus (warmer,
+and its answers are longer). So both belong to the caller, see $options.
 
 The api key stays here on the server, unlike the voice agent which needs an
 ephemeral token because php can not proxy a websocket (see ajax/get_agent_token.php).
 
 */
-class GeminiVisionClient
+class GeminiClient
 {
 
   const ENDPOINT = 'https://generativelanguage.googleapis.com/v1beta/models/%s:generateContent';
 
 
+  const DEFAULTS = [
+    'temperature'     => 0,      // transcription, not generation
+    'maxOutputTokens' => 4096    // long ingredient lists plus thinking tokens
+  ];
+
+
   /* Returns the model's answer, decoded from json.
 
-     $images: [ ['mime' => 'image/jpeg', 'data' => <raw bytes>], ... ]
-     $schema: response schema in gemini's OpenAPI subset
+     $images:  [ ['mime' => 'image/jpeg', 'data' => <raw bytes>], ... ], may be empty
+     $schema:  response schema in gemini's OpenAPI subset
+     $options: temperature and maxOutputTokens, see DEFAULTS
 
      Throws with a user-facing message on any failure. */
 
-  public static function extract( string $model, string $systemPrompt, string $userText, array $images, array $schema ) : array
+  public static function ask( string $model, string $systemPrompt, string $userText, array $images,
+                              array $schema, array $options = [] ) : array
   {
+    $options = array_merge( self::DEFAULTS, $options );
+
     $key = env_get('GEMINI_API_KEY');
 
     if( empty($key) )   // empty, not null: a key without a value parses as ''
@@ -44,8 +60,8 @@ class GeminiVisionClient
       'contents'          => [ ['role' => 'user', 'parts' => $parts] ],
       'systemInstruction' => ['parts' => [ ['text' => $systemPrompt] ]],
       'generationConfig'  => [
-        'temperature'      => 0,          // transcription, not generation
-        'maxOutputTokens'  => 4096,       // long ingredient lists plus thinking tokens
+        'temperature'      => $options['temperature'],
+        'maxOutputTokens'  => $options['maxOutputTokens'],
         'responseMimeType' => 'application/json',
         'responseSchema'   => $schema
       ]
@@ -76,7 +92,7 @@ class GeminiVisionClient
 
     if( $status >= 400 )
     {
-      error_log('GeminiVisionClient: http ' . $status . ' - ' . substr($response, 0, 500));
+      error_log('GeminiClient: http ' . $status . ' - ' . substr($response, 0, 500));
       throw new Exception("Google refused the request (http $status), details in the php error log");
     }
 
@@ -96,7 +112,7 @@ class GeminiVisionClient
     $candidate = $body['candidates'][0] ?? [];
 
     if(( $candidate['finishReason'] ?? '') === 'MAX_TOKENS')
-      throw new Exception('The answer was cut off. Try fewer pictures or a closer shot of the table.');
+      throw new Exception('The answer was cut off, it needs more than the maxOutputTokens it was given.');
 
     // Thinking models put their reasoning in a part of its own, before the answer
 
@@ -110,7 +126,7 @@ class GeminiVisionClient
 
     if( ! is_array($data))
     {
-      error_log('GeminiVisionClient: unparsable answer - ' . substr($text ?: $response, 0, 500));
+      error_log('GeminiClient: unparsable answer - ' . substr($text ?: $response, 0, 500));
       throw new Exception('The model did not return usable data, details in the php error log');
     }
 
