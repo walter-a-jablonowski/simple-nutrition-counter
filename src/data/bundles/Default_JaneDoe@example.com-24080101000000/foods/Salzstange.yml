@@ -1,8 +1,8 @@
 
-state:             unprecise
+state:              unprecise
 acceptable:        less
-certificates:      { vegan: true }
 comment:           "unprecise: GLM only"
+certificates:      { vegan: true }
 ingredients:       "Weizenmehl Wasser Hefe Natronlauge Salz"
 allergy:           "Weizen (Gluten)"
 packaging:         none

@@ -1,9 +1,7 @@
-state:             unprecise
 type:              Chocolate_80
 group:             "candy (chocolate)"
 xTimeLog:          true
 acceptable:        occasionally
-comment:           "unprecise: GLM only"
 packaging:         plastic
 
 price:             2.29

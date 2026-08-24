@@ -2,7 +2,6 @@ state:             unavailable
 type:              Sauerkraut
 vendor:            Rewe
 
-comment:           "GLM only"
 certificates:      { bio: true, NutriScore: A }
 ingredients:       "Weißkohl, Meersalz"
 packaging:         alu & rubber (maybe)
