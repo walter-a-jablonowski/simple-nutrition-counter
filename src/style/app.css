@@ -248,6 +248,14 @@ html, body {
   font-size: 1.25rem;
 }
 
+/* "..." more menu: the trigger is a plain nav item (classes nav-link +
+   drop-menu-trigger), so it inherits the nav link colors above; only the
+   panel needs a nudge - it drops up from the right edge of the screen */
+
+#bottomNav .more-menu .drop-menu-panel {
+  min-width: 9rem;
+}
+
 /* Main layout */
 
 main.app-d3 {

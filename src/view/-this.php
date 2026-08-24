@@ -111,18 +111,42 @@ else:
             <i class="bi bi-mic"></i>
           </a>
         <?php endif; ?>
-        <a class="nav-link" href="#" title="Info"
-          data-bs-toggle = "modal"
-          data-bs-target = "#tipsModal"
-        >
-          <i class="bi bi-info-circle"></i>
-        </a>
-        <a class="nav-link" href="#" title="Settings"
-          data-bs-toggle = "modal"
-          data-bs-target = "#settingsModal"
-        >
-          <i class="bi bi-person"></i>
-        </a>
+        <!-- Info + settings collapsed into one "..." menu to free nav space;
+             reuses the shared DropMenu, items open their modals directly -->
+
+        <div class="drop-menu more-menu" data-dir="up" data-close-on-select>
+
+          <a class="drop-menu-trigger nav-link" href="#"
+            aria-haspopup  = "true"
+            aria-expanded  = "false"
+            aria-label     = "More options"
+            title          = "More"
+          >
+            <i class="bi bi-three-dots"></i>
+          </a>
+
+          <div class="drop-menu-panel" role="menu">
+
+            <div class="drop-menu-title">More</div>
+
+            <button type="button" role="menuitem" class="drop-menu-item"
+              data-bs-toggle = "modal"
+              data-bs-target = "#tipsModal"
+            >
+              <i class="bi bi-info-circle"></i>
+              <span>Info</span>
+            </button>
+
+            <button type="button" role="menuitem" id="settingsBtnMobile" class="drop-menu-item"
+              data-bs-toggle = "modal"
+              data-bs-target = "#settingsModal"
+            >
+              <i class="bi bi-person"></i>
+              <span>Settings</span>
+            </button>
+
+          </div>
+        </div>
       </div>
     </div>
   </nav>
