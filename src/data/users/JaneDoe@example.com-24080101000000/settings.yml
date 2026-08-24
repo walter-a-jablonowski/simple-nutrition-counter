@@ -4,7 +4,7 @@ hideScrollbars: false      # true: hide scrollbars everywhere (touchpad / touch 
                            # explicit switch for PC, gernerally done via styles
 
 widgetRanges:              # signal color of the summary widgets: green inside, red above
-                           # all other widgets take their range from the bundle's /nutrients
+                           # all remaining widgets take their range from the bundle's /nutrients
 
   price:      { lower: 0, upper: 7 }   # per day, currency see config
   eatingTime: { lower: 0, upper: 6 }   # hours

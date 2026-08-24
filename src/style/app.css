@@ -1061,6 +1061,16 @@ body.sortable-active .day-entry {
     transform: translateY(-50%);
     z-index: 100;
   }
+
+  /* Food grid: every group starts folded, so the headers alone fit on the screen
+     and the user unfolds what he needs. The class is only there until the script
+     has run (see MainController #foldGroupsOnMobile), which is what keeps this
+     rule from fighting Bootstrap's collapse afterwards - it exists to hide the
+     bodies in the first painted frame already, before the script strips .show. */
+
+  #layout .collapse.mobile-fold.show {
+    display: none;
+  }
 }
 
 /* New entry modal: Entry/Details tabs.

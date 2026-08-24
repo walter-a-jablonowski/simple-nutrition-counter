@@ -52,7 +52,8 @@ class MainController
 
 
     this.initTabSwipeGestures()
-    
+    this.#foldGroupsOnMobile()
+
     // BS init
     
     // Popover
@@ -565,10 +566,26 @@ class MainController
 
     if( rec.navLink )  rec.navLink.click()  // activate the food-grid tab
 
-    if( rec.itemEl ) {
+    if( ! rec.itemEl )
+      return
+
+    const reveal = () => {
       rec.itemEl.scrollIntoView({ behavior: 'smooth', block: 'center' })
       this.#flashItem( rec.itemEl )
     }
+
+    // A folded group hides the row (every group on mobile, see #foldGroupsOnMobile,
+    // or fold:true in layout.yml), so unfold it and wait for the animation: there
+    // would be nothing to scroll to otherwise
+
+    const group = rec.itemEl.closest('.collapse')
+
+    if( group && ! group.classList.contains('show')) {
+      group.addEventListener('shown.bs.collapse', reveal, { once: true })
+      bootstrap.Collapse.getOrCreateInstance( group, { toggle: false }).show()
+    }
+    else
+      reveal()
   }
 
   runSearch()
@@ -2310,6 +2327,34 @@ class MainController
 
       if( result !== 'success')
         query('#uiMsg').innerHTML = (data && data.message) || 'Could not save the day entries'
+    })
+  }
+
+  /*@
+
+  #foldGroupsOnMobile()
+
+  Small screens start with every food grid group folded: the headers alone fit on
+  the screen then, and the user unfolds the one he needs. Not persisted on
+  purpose - each load folds again.
+
+  The bodies are already hidden in the first painted frame by the .mobile-fold
+  rule in style/app.css (a server side decision is not possible: the layout is
+  rendered before the viewport is known). Here we only bring the DOM into the
+  state Bootstrap's collapse expects, and drop the marker class so that rule
+  stops matching once the user unfolds a group.
+
+  */
+  #foldGroupsOnMobile() /*@*/
+  {
+    const isMobile = window.matchMedia('(max-width: 767.98px)').matches   // same breakpoint as style/app.css
+
+    Array.from( query('#layout .collapse.mobile-fold')).forEach( body => {
+
+      if( isMobile )
+        body.classList.remove('show')
+
+      body.classList.remove('mobile-fold')
     })
   }
 

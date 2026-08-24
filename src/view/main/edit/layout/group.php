@@ -37,7 +37,10 @@ $return['done'] = [];
     </div>
   </div>
 
-  <div id="<?= $groupId ?>Collapse" class="p-1 collapse<?= self::iif( ! ($def['@attribs']['fold'] ?? false), ' show') ?>">
+  <!-- mobile-fold marks a group body that small screens start folded, no matter what
+       the layout says (see MainController #foldGroupsOnMobile and style/app.css) -->
+
+  <div id="<?= $groupId ?>Collapse" class="p-1 collapse mobile-fold<?= self::iif( ! ($def['@attribs']['fold'] ?? false), ' show') ?>">
 
     <?php if( isset($def['@attribs']['short'])): ?>
       <div class="row mt-1 mb-1">
