@@ -393,7 +393,8 @@ menus: [{ title,
 ## 8. Prompt content
 
 Both prompts get the diet rules from `bundles/…/-this.yml` (`framework`, `conceptMisc`,
-`goals`, `primaryGoals`), stripped of their html. This is the highest-value context and the
+`goals`, `sampleMenu`, `primaryGoals`). They are **markdown** since the conversion, so they
+go into the prompt as they are — no stripping, and nothing lost. This is the highest-value context and the
 easiest to forget: without it the model answers low calcium with milk, which this user does
 not eat.
 

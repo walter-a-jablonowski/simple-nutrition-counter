@@ -1317,3 +1317,27 @@ body.sortable-active .day-entry {
   font-weight: 700;
   cursor: help;
 }
+
+
+/* Bundle texts (diet rules), rendered from markdown - see lib/marked_ext.js */
+
+.md-note {
+  color: orange;
+  font-size: 0.875em;
+}
+
+.md-fold-head {
+  background-color: #e0e0e0;
+}
+
+/* The label/value tables in the bundle texts have no header row, but gfm needs the
+   separator line, so they carry an empty one and it is hidden here */
+
+.md-body table thead {
+  display: none;
+}
+
+.md-body table td {
+  vertical-align: top;
+  padding-right: 0.5rem;
+}

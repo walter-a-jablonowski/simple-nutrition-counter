@@ -71,7 +71,7 @@ it; stored history keeps `fat: {}`, so coverage is 0–1 % until new days accumu
 - **Deterministic first.** Report and ranking in PHP, only the wording and the combining go to the model
 - Candidates: top 40 by score, carrying only the nutrients in play
 - Menu additions for taste must come from the grid and must not raise a nutrient already above `upper`; tagged `core` / `taste`
-- Diet rules from `bundles/…/-this.yml` go into both prompts — without them the model answers low calcium with milk
+- Diet rules from `bundles/…/-this.yml` go into both prompts — without them the model answers low calcium with milk. They are **markdown** now, so they go in as they are
 - Never diagnose. "This food would raise X", never "you are deficient in X"
 
 

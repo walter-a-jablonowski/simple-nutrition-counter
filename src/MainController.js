@@ -2593,6 +2593,32 @@ class MainController
     return `${y}-${m}-${d}`
   }
 
+  /*@
+
+  renderBundleTexts()
+
+  The bundle's diet rules are markdown (see lib/marked_ext.js). Php prints them as text
+  and they are rendered here, once at load: the texts never change, and rendering them
+  again on every modal open would hand out new collapse ids for nothing.
+
+  Called from the page rather than from the constructor, so that loading this class
+  needs no marked - the standalone tests build a MainController without any of the
+  page's scripts
+
+  */
+  renderBundleTexts() /*@*/
+  {
+    query('#tipsModal .js-md').forEach( el => {
+
+      const box = document.createElement('div')
+
+      box.className = 'md-body'
+      box.innerHTML = this.renderMarkdown( el.textContent )   // our own text, never the model's
+
+      el.replaceWith( box )
+    })
+  }
+
   renderMarkdown(markdownText)
   {
     marked.setOptions({
@@ -2614,6 +2640,13 @@ class MainController
     html = html.replace(/(<\/[^>]+>)\s*<p><\/p>/gs, '$1');
     html = html.replace(/<ul>/gi, '<ul class="no-indent">');
     html = html.replace(/<ul class="([^"]*)"/gi, '<ul class="$1 no-indent"');
+
+    // [text](tab:pane/target) switches a bootstrap tab. Done here and not as a marked
+    // renderer: the link renderer's arguments changed between marked versions, a plain
+    // href never does. One segment means pane and target are the same
+
+    html = html.replace(/<a href="tab:([^"\/]+)(?:\/([^"]+))?"/g,
+                        (all, pane, target) => `<a href="#${pane}" data-bs-toggle="tab" data-bs-target="#${target || pane}"`);
 
     return html
   }

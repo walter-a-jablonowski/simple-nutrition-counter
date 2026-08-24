@@ -343,6 +343,7 @@ else:
 <script src="lib/jquery-ui-1.13.3/jquery-ui.min.js"></script>
 <script src="lib/mermaid-11.3.0.js"></script>
 <script src="lib/marked.min.js"></script>
+<script src="lib/marked_ext.js?v=<?= time() ?>"></script>
 <script src="lib/overlay_MOV.js"></script>
 <script src="lib/sortable.js"></script>
 <script src="lib/frm/events_240321.js"></script>
@@ -374,6 +375,7 @@ ready( function() {
   mainCrl = new MainController()
   mainCrl.date = '<?= $this->date ?>'
   mainCrl.updSummary()
+  mainCrl.renderBundleTexts()   // the bundle's diet rules, markdown -> html
 
   widgetsCrl = new NutritionWidgetsController()
   chartsCrl  = new ChartsController()

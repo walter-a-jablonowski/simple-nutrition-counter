@@ -14,133 +14,61 @@ vendors: Rewe, Norma, Edeka, Aldi, Denn's, online
 
 framework: |
 
-  Avoid all mass produced food that humans weren't meant to eat (<a href="#ref2">2</a>),
+  Avoid all mass produced food that humans weren't meant to eat ([2](#ref2)),
   prefer what evolution made use for before invention of agriculture
   (6-15k years is no long time).
 
 conceptMisc: |
 
-  <ul class="list-group">
+  ::: fold Foods to use
 
-    <li class = "list-group-item d-flex justify-content-between align-items-center"
-        style = "background-color: #e0e0e0;"
-    >
+  ::: note
+  Food list is made in a way so that these foods can easily be chosen
+  :::
 
-      Foods to use  <!-- maybe prefix all id with "bundle" -->
-      <a data-bs-toggle="collapse" href="#bundleCollapse1" class="text-body-secondary" role="button">
-        <i class="bi bi-arrow-down-circle"></i>
-      </a>
-    </li>
-    <li id="bundleCollapse1" class="list-group-item collapse">
+  |   |   |
+  | --- | --- |
+  | **Avoid** | Alcohol, sugar, bread, all corn and cereals (high sugar spikes), all processed foods (eat clean) ([2](#ref2)), all milk products |
+  | **Limit** | Only a few fruits (good substances but too much fructose), starches (no fries ;-), eggs, joghurt, TASK: fermented like sauerkraut ? |
+  | **Plants** | Legumes (complex carbs: chickpeas, lentils, beans), vegetables, leafy greens, some nuts and seeds daily, few herbs ([3](#ref3)) |
+  | **Meat** | Seems to be necessary, currently (fatty) fish and chicken (maybe daily) ([2](#ref2)) TASK: blue zones how much amino get older from fish, pork? |
+  | **Misc** | Garlic, olive oil daily, 1-2 coffee, cocoa or low sugar chocolate ([3](#ref3)) |
+  | **Fun** | Menu includes one cheat day per week as well as "micro candy" daily (tiny piece only or sugar-free) |
 
-      <p class="small" style="color: orange;">
-        Food list is made in a way so that these foods can easily be chosen
-      </p>
-
-      <table>
-        <tr>
-          <td valign="top" class="pe-1"><b>Avoid</b></td>
-          <td valign="top">
-            Alcohol, sugar, bread, all corn and cereals (high sugar spikes), all processed
-            foods (eat clean) (<a href="#ref2">2</a>), all milk products
-          </td>
-        </tr>
-        <tr>
-          <td valign="top"><b>Limit</b></td>
-          <td valign="top">
-            Only a few fruits (good substances but too much fructose), starches (no fries ;-),
-            eggs, joghurt, TASK: fermented like sauerkraut ?
-          </td>
-        </tr>
-        <tr>
-          <td valign="top"><b>Plants</b></td>
-          <td valign="top">
-            Legumes (complex carbs: chickpeas, lentils, beans), vegetables, leafy greens,
-            some nuts and seeds daily, few herbs (<a href="#ref3">3</a>)
-          </td>
-        </tr>
-        <tr>
-          <td valign="top"><b>Meat</b></td>
-          <td valign="top">
-            Seems to be necessary, currently (fatty) fish and chicken (maybe daily) (<a href="#ref2">2</a>)
-            TASK: blue zones how much amino get older from fish, pork?
-          </td>
-        </tr>
-        <tr>
-          <td valign="top"><b>Misc</b></td>
-          <td valign="top">
-            Garlic, olive oil daily, 1-2 coffee, cocoa or low sugar chocolate (<a href="#ref3">3</a>)
-          </td>
-        </tr>
-        <tr>
-          <td valign="top"><b>Fun</b></td>
-          <td valign="top">
-            Menu includes one cheat day per week as well as "micro candy" daily (tiny piece
-            only or sugar-free)
-          </td>
-        </tr>
-      </table>
-
-    </li>
-  </ul>
+  :::
 
 # Primary goals
 
 # TASK: Fibre, salt
 goals: |
 
-  <ul class="no-indent">
-    <li>
-      Change some food daily, don't use too much of one on a daily basis
-      "it's about balance" (<a href="#ref1">1</a>)
-    </li><li>
-      ~3l water daily <a href="#tipsNutritionPane" data-bs-toggle="tab" data-bs-target="#tipsTrackWater">(use a jug)</a>
-    </li><li>
-      <b>Fastening days:</b> Use limited fastening as a tool to simulate food shortage and activate
-      survival mechanisms (<a href="#ref1">1</a>), e.g. try to eat no longer
-      than 4-6 hours ("eat less often"), means: eat all meals at once.
-      <b>Or:</b> calories reduced ~1800 kcal for a couple of days.
-    </li><li>
-      <b>Fill up energy:</b> Also have days with more food to fill up (just in case) ~2500 kcal,
-      <b>Winter:</b> Limited carbs may help, so the body can heat up (corn)
-    </li><li>
-      <b>Amino acids:</b> maintain muscle may need: 1.6 (most say: 0.8), gain muscle: 1.8 or 2.0 - 2.2g per kg weight,
-      <b>Magnesium:</b> more if sports
-    </li><li>
-      <b>Fibre (sources):</b> Almonds (12g), Lentils (8g), Chickpeas (~12g), Broccoli, Kidney (15-25g)
-    </li><li>
-      <b>On the go</b> the best food that is available is used
-    </li>
-  </ul>
+  - Change some food daily, don't use too much of one on a daily basis
+    "it's about balance" ([1](#ref1))
+  - ~3l water daily [(use a jug)](tab:tipsNutritionPane/tipsTrackWater)
+  - **Fastening days:** Use limited fastening as a tool to simulate food shortage and
+    activate survival mechanisms ([1](#ref1)), e.g. try to eat no longer than 4-6 hours
+    ("eat less often"), means: eat all meals at once.
+    **Or:** calories reduced ~1800 kcal for a couple of days.
+  - **Fill up energy:** Also have days with more food to fill up (just in case) ~2500 kcal,
+    **Winter:** Limited carbs may help, so the body can heat up (corn)
+  - **Amino acids:** maintain muscle may need: 1.6 (most say: 0.8), gain muscle: 1.8 or
+    2.0 - 2.2g per kg weight, **Magnesium:** more if sports
+  - **Fibre (sources):** Almonds (12g), Lentils (8g), Chickpeas (~12g), Broccoli, Kidney (15-25g)
+  - **On the go** the best food that is available is used
 
 # Sample for how primary goals can be done
 
 sampleMenu: |
 
-  <p style="color: orange;">
-    Food list is made in a way so that these foods can easily be chosen
-  </p>
+  ::: note
+  Food list is made in a way so that these foods can easily be chosen
+  :::
 
-  <table>
-    <tr>
-      <td valign="top"><b>Nuts</b></td>
-      <td valign="top">100g mixed nuts and seeds</td>
-    </tr>
-    <tr>
-      <td valign="top"><b>Veggie</b></td>
-      <td valign="top">
-        Variants of Bryan Johnson's Super Veggie bowl (<a href="#ref3">3</a>):
-        Lentils, broccoli, ...
-      </td>
-    </tr>
-    <tr>
-      <td valign="top"><b>Third meal</b></td>
-      <td valign="top">
-        Either some fish or chicken or veggie again (make a double size bowl to
-        save some time)
-      </td>
-    </tr>
-  </table>
+  |   |   |
+  | --- | --- |
+  | **Nuts** | 100g mixed nuts and seeds |
+  | **Veggie** | Variants of Bryan Johnson's Super Veggie bowl ([3](#ref3)): Lentils, broccoli, ... |
+  | **Third meal** | Either some fish or chicken or veggie again (make a double size bowl to save some time) |
 
 primaryGoals:
 

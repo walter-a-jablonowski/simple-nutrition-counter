@@ -86,8 +86,8 @@ use Symfony\Component\Yaml\Exception\ParseException;
 
             <h6 class="fw-bold">Concept</h6>
 
-            <p><?= $a['framework'] ?></p>
-            <?= $a['conceptMisc'] ?>
+            <div class="js-md"><?= htmlspecialchars( $a['framework']) ?></div>
+            <div class="js-md"><?= htmlspecialchars( $a['conceptMisc']) ?></div>
 
             <h6 class="mt-3 fw-bold">Primary daily goals</h6>
 
@@ -96,11 +96,11 @@ use Symfony\Component\Yaml\Exception\ParseException;
               see nutrients tab in the evening.
             </p>
 
-            <?= $a['goals'] ?>
+            <div class="js-md"><?= htmlspecialchars( $a['goals']) ?></div>
 
             <h6 class="fw-bold">Sample menu</h6>
 
-            <?= $a['sampleMenu'] ?>
+            <div class="js-md"><?= htmlspecialchars( $a['sampleMenu']) ?></div>
 
             <h6 class="mt-3 fw-bold">Reference (inspired by)</h6>
               
