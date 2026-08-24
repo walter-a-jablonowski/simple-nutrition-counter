@@ -483,11 +483,15 @@ body.no-scrollbars::-webkit-scrollbar {
   min-width: 0;               /* allow flex parent to shrink this column */
   min-height: 0;              /* allow this flex item to shrink below content height (required for overflow scrolling in a flex column) */
   overflow-y: auto;           /* scroll container for the food list (PC shows native scrollbar; touch hides it via the rule above) */
+  padding-bottom: 0.5rem;     /* what the pb-2 utility used to do on the section. It is set here
+                                 because the utility carries !important, which made the mobile
+                                 value below unreachable */
 }
 
 @media (max-width: 767.98px) {
   .food-grid {
-    padding-bottom: 70px;     /* room for bottom nav */
+    padding-bottom: 1.5rem;   /* scrolled to the end, the last group keeps a bit of air above the
+                                 bottom nav (room for the nav itself is main.app-d3's padding) */
   }
 }
 

@@ -214,7 +214,10 @@ else:
 
           <!-- Food grid -->
 
-          <section class="food-grid flex-grow-1 pb-2 px-3">
+          <!-- No pb-2: the bottom padding of this scroll container is the spacing below the
+               last group and differs per screen size, see .food-grid in style/app.css -->
+
+          <section class="food-grid flex-grow-1 px-3">
             <div class="row g-3">
               <div class="col-12">
 
