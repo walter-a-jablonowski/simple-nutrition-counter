@@ -25,6 +25,7 @@
                     <i class="bi bi-search"></i>
                   </a>
                 </li>
+                <?php require( __DIR__ . '/fold_menu.php'); ?>
               <?php endif; ?>
 
               <?php $i=0; foreach( $this->layout as $tab => $layout ): ?>
@@ -43,6 +44,7 @@
                     <i class="bi bi-search"></i>
                   </a>
                 </li>
+                <?php require( __DIR__ . '/fold_menu.php'); ?>
                 <li class="nav-item">
                   <a onclick="mainCrl.newEntryBtn(event)" class="nav-link px-2 py-1 text-black" role="tab">
                     <i class="bi bi-pencil-square"></i>
@@ -54,9 +56,6 @@
         </div>
       </div>
     <?php endif; ?>
-
-    <!-- TASK: add a collapse expand all (single btn) -->
-
 
     <!-- TASK: (advanced) MOV also buyings here (maybe use some select that changes sub forms in the new form) -->
 

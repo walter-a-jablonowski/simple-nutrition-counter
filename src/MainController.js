@@ -588,6 +588,48 @@ class MainController
       reveal()
   }
 
+  // Fold all / unfold all groups in the food grid (the "..." menu beside the tabs,
+  // see layout/fold_menu.php). A single entry flips its meaning, so the menu knows
+  // what the next click will do: anything unfolded -> offer "Fold all", everything
+  // folded -> "Unfold all"
+
+  updFoldMenu()
+  {
+    const bodies = Array.from( query('#layout .tab-content .collapse'))
+
+    const unfold = bodies.length > 0 && bodies.every( body => ! body.classList.contains('show'))
+
+    query('#foldAllLabel').textContent = unfold ? 'Unfold all' : 'Fold all'
+
+    query('#foldAllIcon').classList.toggle('bi-arrows-expand', unfold)
+    query('#foldAllIcon').classList.toggle('bi-arrows-collapse', ! unfold)
+  }
+
+  toggleFoldAll(event)
+  {
+    const bodies = Array.from( query('#layout .tab-content .collapse'))
+
+    if( ! bodies.length )
+      return
+
+    const unfold = bodies.every( body => ! body.classList.contains('show'))
+
+    // Final state directly, no per-group Bootstrap collapse animation: animating
+    // every group at once reflows the whole grid once per frame, which made the
+    // first fold / unfold after a page load (everything still unpainted) take
+    // seconds. One clean relayout instead - the classes are exactly what a
+    // finished animation leaves behind, so later single-group toggles via the
+    // group headers keep working.
+
+    bodies.forEach( body => {
+
+      body.classList.remove('collapsing')   // in case a single group is mid-animation
+      body.style.height = ''
+
+      unfold ? body.classList.add('show') : body.classList.remove('show')
+    })
+  }
+
   runSearch()
   {
     const q         = (query('#searchInput').value || '').trim().toLowerCase()

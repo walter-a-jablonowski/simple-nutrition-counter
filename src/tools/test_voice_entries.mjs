@@ -211,7 +211,8 @@ function loadController( foods )
   globalThis.PointerSortable = PointerSortableStub
 
   globalThis.document  = document
-  globalThis.window    = { location: { search: '' }, addEventListener(){} }
+  globalThis.window    = { location: { search: '' }, addEventListener(){},
+                           matchMedia: () => ({ matches: false }) }   // #foldGroupsOnMobile asks for the mobile breakpoint
   globalThis.bootstrap = { Modal: ModalStub, Popover: PopoverStub }
   globalThis.ajax      = { send: () => {} }            // #saveDayEntries must not reach the server
   globalThis.event     = () => {}                      // global event() helper from the frm lib
