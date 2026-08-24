@@ -283,7 +283,7 @@
             <textarea id="modalCommentInput" rows="2" placeholder="Comment (shown above the food info)" class="form-control"></textarea>
           </div>
           <div class="mb-2">
-            <textarea id="modalDetailsInput" rows="2" placeholder="Misc food details" class="form-control"></textarea>
+            <textarea id="modalDetailsInput" rows="2" placeholder="Misc food details (food itself)" class="form-control"></textarea>
           </div>
           <div class="mb-3">
             <textarea id="modalCookingInput" rows="2" placeholder="Cooking instructions" class="form-control"></textarea>
