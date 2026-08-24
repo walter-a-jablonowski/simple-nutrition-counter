@@ -209,20 +209,25 @@
              Field order follows _blank_food.yml, so the record, this form and
              the food info panel all read in the same order -->
         <div id="detailsTabPane" class="tab-pane fade" role="tabpanel">
-          <!-- Picks a data/food_defaults file. Without it the food has no fatty
-               acids, amino acids, vitamins or minerals (see CombinedModel), and
-               the grid flags it as "no type" -->
-          <select id="modalTypeSelect" class="form-select mb-2 modalHiliteAttention">
-            <option class="default" value="" selected>Food type (no defaults) ...</option>
-            <?php foreach( food_default_types() as $type ): ?>
-              <option value="<?= htmlspecialchars($type, ENT_QUOTES) ?>"><?= htmlspecialchars($type) ?></option>
-            <?php endforeach; ?>
-          </select>
-          <div class="mb-2">
-            <input id="modalProductNameInput" placeholder="Product name (exact)" class="form-control">
+          <!-- Both values are short, so they share a row. The type picks a
+               data/food_defaults file: without it the food has no fatty acids,
+               amino acids, vitamins or minerals (see CombinedModel), and the
+               grid flags it as "no type" -->
+          <div class="row mb-2">
+            <div class="col">
+              <select id="modalTypeSelect" class="form-select modalHiliteAttention" title="Food type: picks the nutrient defaults">
+                <option class="default" value="" selected>Food type ...</option>
+                <?php foreach( food_default_types() as $type ): ?>
+                  <option value="<?= htmlspecialchars($type, ENT_QUOTES) ?>"><?= htmlspecialchars($type) ?></option>
+                <?php endforeach; ?>
+              </select>
+            </div>
+            <div class="col">
+              <input id="modalVendorInput" placeholder="Vendor" class="form-control modalHiliteAttention">
+            </div>
           </div>
           <div class="mb-2">
-            <input id="modalVendorInput" placeholder="Vendor" class="form-control modalHiliteAttention">
+            <input id="modalProductNameInput" placeholder="Product name (exact)" class="form-control">
           </div>
           <div class="mb-2">
             <input id="modalUrlInput" type="url" placeholder="URL" class="form-control">
