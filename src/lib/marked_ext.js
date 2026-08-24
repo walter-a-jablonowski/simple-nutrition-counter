@@ -89,15 +89,19 @@ opens and closes instead of stopping at the first ":::".
       {
         const id = 'mdFold' + (++foldId);
 
-        return '<ul class="list-group md-fold">'
-             +   '<li class="list-group-item md-fold-head d-flex justify-content-between align-items-center">'
+        // div, not ul: MainController.renderMarkdown() appends no-indent to every ul it
+        // finds, and that class is a 20px padding, not a reset - it would shift the whole
+        // block right. Bootstrap's list-group takes divs just as well
+
+        return '<div class="list-group md-fold">'
+             +   '<div class="list-group-item md-fold-head d-flex justify-content-between align-items-center">'
              +     escape( token.title )
              +     `<a data-bs-toggle="collapse" href="#${id}" class="text-body-secondary" role="button">`
              +       '<i class="bi bi-arrow-down-circle"></i>'
              +     '</a>'
-             +   '</li>'
-             +   `<li id="${id}" class="list-group-item collapse">${body}</li>`
-             + '</ul>';
+             +   '</div>'
+             +   `<div id="${id}" class="list-group-item collapse">${body}</div>`
+             + '</div>';
       }
 
       if( token.kind === 'note' )

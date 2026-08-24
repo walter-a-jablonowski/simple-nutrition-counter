@@ -43,7 +43,12 @@ html = marked.parse('::: fold Foods to use\nsome text\n:::\n\n::: fold Second\nm
 
 const ids = [ ...html.matchAll(/id="(mdFold\d+)"/g)].map( m => m[1])
 
-check('fold wrapper',      html.includes('<ul class="list-group md-fold">'), html)
+check('fold wrapper',      html.includes('<div class="list-group md-fold">'), html)
+
+// A ul here would collect the no-indent class renderMarkdown adds, and that is a
+// 20px padding rather than a reset - it shifted the whole block right
+
+check('fold is no list',   ! /<ul[^>]*md-fold/.test( html), html)
 check('fold title',        html.includes('Foods to use'))
 check('fold toggle',       html.includes('data-bs-toggle="collapse"'))
 check('two folds',         ids.length === 2, ids.join(', '))
