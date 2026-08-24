@@ -3,6 +3,7 @@
 use Symfony\Component\Yaml\Yaml;
 
 require_once 'lib/helper.php';
+require_once 'models/functions.php';   // range_dates()
 
 /*@
 
@@ -24,7 +25,7 @@ trait GetRangeNutrientsAjaxController  /*@*/
   getRangeNutrients()
 
   ARGS (request):
-    range: range key, see rangeDates()
+    range: range key, see range_dates() in models/functions.php
     date:  the date the app shows, the range is anchored to it
 
   RETURN: foods, one averaged entry per food name in the same shape the browser
@@ -34,7 +35,7 @@ trait GetRangeNutrientsAjaxController  /*@*/
   public function getRangeNutrients( $request )  /*@*/
   {
     $range = $request['range'] ?? '';
-    $dates = $this->rangeDates( $range, $request['date'] ?? date('Y-m-d'));
+    $dates = range_dates( $range, $request['date'] ?? date('Y-m-d'));
 
     if( $dates === null )
       return ['result' => 'error', 'data' => ['message' => "Unknown time range '$range'"] ];
@@ -45,16 +46,10 @@ trait GetRangeNutrientsAjaxController  /*@*/
 
     foreach( $dates as $date )
     {
-      $file = "$dir/$date.tsv";
-
-      if( ! is_file($file))
-        continue;   // no entries logged that day, it still counts as a day (see below)
-
-      $parsedFile = parse_data_file( file_get_contents($file));
-      $entries    = parse_tsv( $parsedFile['data'], self::DAY_HEADERS);
+      $entries = read_day_file("$dir/$date.tsv")['entries'];
 
       if( ! $entries )
-        continue;
+        continue;   // nothing logged that day, it still counts as a day (see below)
 
       $daysWithData++;
 
@@ -88,53 +83,6 @@ trait GetRangeNutrientsAjaxController  /*@*/
       'daysInRange'  => $days,
       'daysWithData' => $daysWithData
     ]];
-  }
-
-
-  /*@
-
-  The dates a range covers, oldest first
-
-  The running day is never part of a range: it is logged up to the current time
-  only and would pull every average down. Ranges are anchored to the date the app
-  shows, so looking at an older day gives the ranges around that day
-
-  ARGS:
-    range:  '7days', '30days', '90days', 'thisWeek', 'lastWeek', 'thisMonth'
-    anchor: date the app shows (Y-m-d)
-
-  RETURN: dates as Y-m-d, empty if the range has no completed day yet (e.g. "This
-          week" on a monday), null if the range key is unknown
-
-  */
-  private function rangeDates( string $range, string $anchor ) : ?array
-  {
-    $anchorDay = new DateTimeImmutable($anchor);
-    $end       = $anchor === date('Y-m-d') ? $anchorDay->modify('-1 day') : $anchorDay;
-
-    if( preg_match('/^(\d+)days$/', $range, $match))
-      $start = $end->modify('-' . ((int) $match[1] - 1) . ' days');
-
-    elseif( $range === 'thisWeek' )
-      $start = $anchorDay->modify('monday this week');
-
-    elseif( $range === 'lastWeek' )
-    {
-      $start = $anchorDay->modify('monday last week');
-      $end   = $start->modify('+6 days');   // a past week, always complete
-    }
-    elseif( $range === 'thisMonth' )
-      $start = $anchorDay->modify('first day of this month');
-
-    else
-      return null;
-
-    $dates = [];
-
-    for( $day = $start; $day <= $end; $day = $day->modify('+1 day'))
-      $dates[] = $day->format('Y-m-d');
-
-    return $dates;
   }
 
 

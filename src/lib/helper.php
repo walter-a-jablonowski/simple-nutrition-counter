@@ -105,6 +105,32 @@ function layout_target_entries( array $layout )
 // Data files
 
 /**
+ * Columns of a day file, in the order they stand in. AppController::DAY_HEADERS
+ * is this constant, so the layout is defined once.
+ */
+const DAY_FILE_HEADERS = ['time', 'type', 'food', 'calories', 'fat', 'carbs', 'amino', 'salt', 'price', 'nutrients'];
+
+/**
+ * Read one day file: its header block and its entries.
+ *
+ * A missing file is a day without entries, not an error - a range covers days the
+ * user logged nothing on, and those still count as days.
+ *
+ * @return array ['headers' => [...], 'text' => string, 'entries' => [...]]
+ */
+function read_day_file( string $path ) : array
+{
+  $parsed = parse_data_file( is_file($path) ? file_get_contents($path) : '');
+  $text   = trim( $parsed['data'], "\n");
+
+  return [
+    'headers' => $parsed['headers'],
+    'text'    => $text,
+    'entries' => parse_tsv( $text, DAY_FILE_HEADERS)
+  ];
+}
+
+/**
  * Parse file headers from TSV content
  * Headers are name-value pairs separated from data by an empty line
  */

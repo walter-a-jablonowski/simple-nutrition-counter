@@ -18,6 +18,8 @@ chdir( dirname(__DIR__));
 require_once 'vendor/autoload.php';
 require_once 'lib/frm/SimpleData_240317/SimpleData.php';
 require_once 'lib/frm/ConfigStatic_240323/config.php';
+require_once 'lib/helper.php';
+require_once 'models/functions.php';
 require_once 'ajax/get_range_nutrients.php';
 
 $pass = 0;
@@ -36,58 +38,60 @@ class RangeNutrientsTest
 {
   use GetRangeNutrientsAjaxController;
 
-  const DAY_HEADERS = ['time', 'type', 'food', 'calories', 'fat', 'carbs', 'amino', 'salt', 'price', 'nutrients'];
+  const DAY_HEADERS = DAY_FILE_HEADERS;
   const FOOD_TYPES  = ['F', 'FE', 'S', 'M'];
+}
 
-  public function dates( string $range, string $anchor ) : ?array
-  {
-    return $this->rangeDates( $range, $anchor );
-  }
+// range_dates() is a standalone function now, shared with the advisor
+
+function dates( string $range, string $anchor ) : ?array
+{
+  return range_dates( $range, $anchor );
 }
 
 $t = new RangeNutrientsTest();
 
 // 1) Rolling windows: N days ending at the day the app shows
 
-$dates = $t->dates('7days', '2026-01-20');
+$dates = dates('7days', '2026-01-20');
 
 check('7days count',  count($dates) === 7, count($dates) . ' dates');
 check('7days first',  $dates[0] === '2026-01-14', $dates[0]);
 check('7days last',   end($dates) === '2026-01-20', end($dates));
-check('30days count', count( $t->dates('30days', '2026-01-20')) === 30);
-check('90days count', count( $t->dates('90days', '2026-01-20')) === 90);
+check('30days count', count( dates('30days', '2026-01-20')) === 30);
+check('90days count', count( dates('90days', '2026-01-20')) === 90);
 
 // 2) The running day is left out, it is only logged up to the current time
 
 $today     = new DateTimeImmutable('today');
 $yesterday = $today->modify('-1 day');
-$dates     = $t->dates('7days', $today->format('Y-m-d'));
+$dates     = dates('7days', $today->format('Y-m-d'));
 
 check('today: 7 days stay 7', count($dates) === 7, count($dates) . ' dates');
 check('today: ends yesterday', end($dates) === $yesterday->format('Y-m-d'), end($dates));
 
 // 3) Calendar periods, weeks start on monday
 
-$dates = $t->dates('thisWeek', '2026-01-21');   // a wednesday in the past
+$dates = dates('thisWeek', '2026-01-21');   // a wednesday in the past
 
 check('thisWeek count', count($dates) === 3, count($dates) . ' dates');
 check('thisWeek first', $dates[0] === '2026-01-19', $dates[0]);
 check('thisWeek last',  end($dates) === '2026-01-21', end($dates));
 
-$dates = $t->dates('lastWeek', '2026-01-21');
+$dates = dates('lastWeek', '2026-01-21');
 
 check('lastWeek count', count($dates) === 7, count($dates) . ' dates');
 check('lastWeek first', $dates[0] === '2026-01-12', $dates[0]);
 check('lastWeek last',  end($dates) === '2026-01-18', end($dates));
 
-$dates = $t->dates('thisMonth', '2026-01-21');
+$dates = dates('thisMonth', '2026-01-21');
 
 check('thisMonth count', count($dates) === 21, count($dates) . ' dates');
 check('thisMonth first', $dates[0] === '2026-01-01', $dates[0]);
 
 // A full week stays complete even when it is the week of the running day
 
-$dates = $t->dates('lastWeek', $today->format('Y-m-d'));
+$dates = dates('lastWeek', $today->format('Y-m-d'));
 check('lastWeek is always complete', count($dates) === 7, count($dates) . ' dates');
 
 // 4) Periods that have no completed day yet
@@ -95,13 +99,13 @@ check('lastWeek is always complete', count($dates) === 7, count($dates) . ' date
 $monday = $today->modify('monday this week')->format('Y-m-d') === $today->format('Y-m-d');
 
 if( $monday )
-  check('thisWeek on a monday is empty', $t->dates('thisWeek', $today->format('Y-m-d')) === []);
+  check('thisWeek on a monday is empty', dates('thisWeek', $today->format('Y-m-d')) === []);
 else
   echo "  SKIP  thisWeek on a monday is empty (only runs on a monday)\n";
 
 // 5) An unknown range key is reported, not silently treated as a day
 
-check('unknown range', $t->dates('lastYear', '2026-01-21') === null);
+check('unknown range', dates('lastYear', '2026-01-21') === null);
 
 // 6) Aggregation over fixture day files
 
