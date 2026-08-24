@@ -475,4 +475,64 @@ function food_default_types() : array
   return $types;
 }
 
+/**
+ * The key a nutrient group has inside a food record.
+ *
+ * AppController::NUTRIENT_GROUPS names the file under /nutrients, and fatty acids
+ * live in a subfolder there ("lipids/fattyAcids"). The food files, the food
+ * defaults and _blank_food.yml all hold a group under its plain name, so the
+ * folder must not travel into the food record - see also the GROUPS map in
+ * tools/data_verification/verify_food_defaults.php.
+ */
+function group_food_key( string $groupName ) : string
+{
+  return basename( $groupName );
+}
+
+/**
+ * The dates a nutrient time range covers, oldest first.
+ *
+ * The running day is never part of a range: it is logged up to the current time only
+ * and would pull every average down. Ranges are anchored to the date the app shows, so
+ * looking at an older day gives the ranges around that day.
+ *
+ * Shared by the nutrients tab (ajax/get_range_nutrients.php) and the advisor, so both
+ * mean the same thing by "7 days".
+ *
+ * @param string $range  '7days', '30days', '90days', 'thisWeek', 'lastWeek', 'thisMonth'
+ * @param string $anchor date the app shows (Y-m-d)
+ *
+ * @return array|null dates as Y-m-d, empty if the range has no completed day yet (e.g.
+ *                    "This week" on a monday), null if the range key is unknown
+ */
+function range_dates( string $range, string $anchor ) : ?array
+{
+  $anchorDay = new DateTimeImmutable($anchor);
+  $end       = $anchor === date('Y-m-d') ? $anchorDay->modify('-1 day') : $anchorDay;
+
+  if( preg_match('/^(\d+)days$/', $range, $match))
+    $start = $end->modify('-' . ((int) $match[1] - 1) . ' days');
+
+  elseif( $range === 'thisWeek' )
+    $start = $anchorDay->modify('monday this week');
+
+  elseif( $range === 'lastWeek' )
+  {
+    $start = $anchorDay->modify('monday last week');
+    $end   = $start->modify('+6 days');   // a past week, always complete
+  }
+  elseif( $range === 'thisMonth' )
+    $start = $anchorDay->modify('first day of this month');
+
+  else
+    return null;
+
+  $dates = [];
+
+  for( $day = $start; $day <= $end; $day = $day->modify('+1 day'))
+    $dates[] = $day->format('Y-m-d');
+
+  return $dates;
+}
+
 ?>

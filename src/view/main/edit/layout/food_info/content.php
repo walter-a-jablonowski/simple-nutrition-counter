@@ -43,7 +43,7 @@ Overview
 - Nutrition
   - calories
   - nutritionalValues
-  - lipids/fattyAcids
+  - fattyAcids
   - carbs
   - aminoAcids
   - vitamins
@@ -405,9 +405,11 @@ $comment = true === $this->combinedModel->get("$entryName.xTimeLog")
         $collapseId = $entryId . 'NutritionalValuesCollapse';
       else
         $collapseId = $entryId . ucwords( $this->nutrientsModel->get("$groupName.short")) . 'Collapse';
+
+      $foodKey = group_food_key( $groupName );   // the food files never carry the /nutrients folder
   ?>
 
-    <?php if( ! empty($data[$groupName])): ?>
+    <?php if( ! empty($data[$foodKey])): ?>
 
       <li class = "list-group-item d-flex justify-content-between align-items-center"
           style = "background-color: #e0e0e0;"
@@ -423,7 +425,7 @@ $comment = true === $this->combinedModel->get("$entryName.xTimeLog")
         <table class="table table-bordered">
           <tbody>
 
-            <?php foreach( $data[$groupName] as $key => $value): ?>
+            <?php foreach( $data[$foodKey] as $key => $value): ?>
               <tr>
                 <td><?= ucwords( str_replace('_', ' ', $key)) ?></td>
                 <td><?= $value ?></td>

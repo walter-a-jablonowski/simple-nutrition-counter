@@ -1,5 +1,7 @@
 <?php
 
+require_once 'models/functions.php';
+
 /*@
 
 LayoutView
@@ -62,10 +64,12 @@ trait LayoutView  /*@*/
           $shortName = $groupName === 'nutritionalValues' ? 'nutriVal'
                      : $this->nutrientsModel->get("$groupName.short");
 
+          $foodKey = group_food_key( $groupName );   // the food files never carry the /nutrients folder
+
           $perWeight[$shortName] = [];
 
-          if( isset($data[$groupName]) && count($data[$groupName]) > 0)
-            foreach( $data[$groupName] as $nutrient => $value )
+          if( isset($data[$foodKey]) && count($data[$foodKey]) > 0)
+            foreach( $data[$foodKey] as $nutrient => $value )
             {
               // Skip if nutrient doesn't exist in the model (except for nutritionalValues)
               if( $groupName != 'nutritionalValues' 

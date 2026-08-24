@@ -61,8 +61,10 @@ trait CombinedModel  /*@*/
 
           foreach( self::NUTRIENT_GROUPS as $groupName )
           {
-            if( isset( $nutrients[$groupName] ))
-              $foodData[$groupName] = array_merge( $nutrients[$groupName], $foodData[$groupName] ?? []);
+            $key = group_food_key( $groupName );   // the food files never carry the /nutrients folder
+
+            if( isset( $nutrients[$key] ))
+              $foodData[$key] = array_merge( $nutrients[$key], $foodData[$key] ?? []);
             // else
             //   // $foodData[$groupName] = $nutrients[$groupName];
             //   $foodData[$groupName] = $foodData[$groupName] ?? [];
