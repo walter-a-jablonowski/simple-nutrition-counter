@@ -18,6 +18,10 @@ class FoodYamlWriter
     ['fat', 'saturatedFat', 'monoUnsaturated', 'polyUnsaturated',
      'carbs', 'sugar', 'sugarAlcohol', 'fibre', 'amino', 'salt'];
 
+  // misc nutrient group keys in canonical order
+
+  const MISC_ORDER = ['water', 'caffeine', 'alcohol'];
+
 
   public static function toYaml( array $food ) : string
   {
@@ -26,6 +30,8 @@ class FoodYamlWriter
     // Identity and source
 
     $s = [];
+    self::add($s, 'type',        self::plain($food['type'] ?? ''));
+    self::add($s, 'xTimeLog',    self::bool($food['xTimeLog'] ?? null));
     self::add($s, 'productName', self::str($food['productName'] ?? ''));
     self::add($s, 'vendor',      self::plain($food['vendor'] ?? ''));
     self::add($s, 'url',         self::str($food['url'] ?? ''));
@@ -35,12 +41,27 @@ class FoodYamlWriter
 
     $s = [];
     self::add($s, 'acceptable', self::plain($food['acceptable'] ?? ''));
+    self::add($s, 'comment',    self::str($food['comment'] ?? ''));
     if( ! empty($food['certificates']))
       self::add($s, 'certificates', self::certificates($food['certificates']));
+    self::add($s, 'details',     self::str($food['details'] ?? ''));
     self::add($s, 'ingredients', self::str($food['ingredients'] ?? ''));
     self::add($s, 'allergy',     self::str($food['allergy'] ?? ''));
     self::add($s, 'mayContain',  self::str($food['mayContain'] ?? ''));
+    self::add($s, 'origin',      self::str($food['origin'] ?? ''));
     self::add($s, 'packaging',   self::plain($food['packaging'] ?? ''));
+    $sections[] = $s;
+
+    // Care (the rest of this block - noUseIf, interactions, … - is not in the form)
+
+    $s = [];
+    self::add($s, 'careful', self::bool($food['careful'] ?? null));
+    $sections[] = $s;
+
+    // Preparation
+
+    $s = [];
+    self::add($s, 'cookingInstructions', self::str($food['cookingInstructions'] ?? ''));
     $sections[] = $s;
 
     // Commercial
@@ -69,6 +90,19 @@ class FoodYamlWriter
         if( isset($values[$key]) && $values[$key] !== '')
           self::add($s, $key, self::num($values[$key]), '  ');
     }
+
+    $sections[] = $s;
+
+    // Misc nutrient group, its own block like in the hand-made records
+
+    $s = [];
+
+    foreach( self::MISC_ORDER as $key )
+      if( isset($food['misc'][$key]) && $food['misc'][$key] !== '')
+        self::add($s, $key, self::num($food['misc'][$key]), '  ');
+
+    if( $s )
+      array_splice($s, 0, 0, ['misc:', '']);
 
     $sections[] = $s;
 
@@ -138,6 +172,15 @@ class FoodYamlWriter
     $value = trim((string) $value);
 
     return $value === '' ? null : $value;
+  }
+
+
+  // Flags are only worth a line when they are set: "true", or null for a flag
+  // that is off, so the record does not carry a field that says nothing
+
+  private static function bool( $value ) : ?string
+  {
+    return $value === true || $value === 'true' ? 'true' : null;
   }
 
 

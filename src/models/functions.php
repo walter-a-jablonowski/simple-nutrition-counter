@@ -450,4 +450,29 @@ function move_food_in_layout( $foodName, $userId, $tab, $groupName, $after = nul
   return save_layout($userId, $layout);
 }
 
+/**
+ * The food types offered by data/food_defaults: the file names without the
+ * extension, sorted. A record's `type` picks one of them and CombinedModel
+ * merges that file's nutrient groups under the food's own values.
+ * Files starting with "_" are templates and notes, not types.
+ */
+function food_default_types() : array
+{
+  $dir   = 'data/food_defaults';
+  $types = [];
+
+  if( ! is_dir($dir))
+    return $types;
+
+  foreach( scandir($dir) as $file )
+  {
+    if( $file[0] === '_' || pathinfo($file, PATHINFO_EXTENSION) !== 'yml')
+      continue;
+
+    $types[] = pathinfo($file, PATHINFO_FILENAME);
+  }
+
+  return $types;
+}
+
 ?>

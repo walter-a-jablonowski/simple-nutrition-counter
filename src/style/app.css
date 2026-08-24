@@ -1258,11 +1258,44 @@ body.sortable-active .day-entry {
   background-color: color-mix(in srgb, #ffc107 22%, #ffffff);
 }
 
+/* Attention = red tint, for the two fields the grid complains about when they
+   stay empty: no type means no nutrient defaults (see CombinedModel), and a
+   food without a vendor cannot be priced */
+
+#newEntryModal .modalHiliteAttention {
+  background-color: color-mix(in srgb, #dc3545 11%, #ffffff);
+}
+
 /* A checkbox can't carry a background highlight, so tint its label cell
    instead; the box itself already turns orange when checked */
 
 #newEntryModal .modalHiliteCheck {
   background-color: color-mix(in srgb, #e95420 13%, #ffffff);
+}
+
+/* Certificates row: label, NutriScore, the two test grades and two checkboxes
+   are more than fits one line on a phone, so the group is allowed to wrap.
+   Bootstrap rounds only the first and last child, which is still right after a
+   wrap; the inner corners stay square, as in any input group */
+
+#newEntryModal .modalCertRow {
+  flex-wrap: wrap;
+}
+
+/* Öko-Test / Warentest: a grade, so the field only has to hold a few
+   characters. flex-grow: 0 keeps it from taking the NutriScore field's room */
+
+#newEntryModal .modalCertGrade {
+  flex: 0 0 auto;
+  width: 3rem;
+}
+
+/* Headline of a block inside a tab (e.g. "More nutrients") */
+
+#newEntryModal .modalSectionLabel {
+  margin-bottom: 0.35rem;
+  color: #6c757d;
+  font-weight: 600;
 }
 
 /* Save-validation hint: a red "!" badge; the message lives in its title */

@@ -60,17 +60,28 @@ class FoodImporter
   }
 
 
-  // Add source metadata and the current date, drop empty values
+  /* Add source metadata and the current date, drop empty values.
 
-  private static function finalize( array $food, string $nutriValSource = 'web') : array
+     $source says where everything on the record came from: a vendor page ("web")
+     or the packaging itself ("pack"). The nutritional values get the warning
+     because a web page is not necessarily in sync with the pack in hand.
+     The price is only sourced when one was actually read - a photo import finds
+     one only if a price label happens to be legible */
+
+  private static function finalize( array $food, string $source = 'web') : array
   {
     $today = date('Y-m-d');
 
-    $food['sources']      = ['nutriVal' => $nutriValSource];
-    $food['lastUpd']      = $today;
+    $food['sources'] = ['nutriVal' => $source === 'web'
+                                    ? 'web (information on packaging may differ slightly)'
+                                    : $source];
+    $food['lastUpd'] = $today;
 
     if( ! empty($food['price']))
-      $food['lastPriceUpd'] = $today;
+    {
+      $food['sources']['price'] = $source;
+      $food['lastPriceUpd']     = $today;
+    }
 
     // Preset "acceptable" for high-sugar foods (EU high-sugar threshold 22.5 g/100g)
 

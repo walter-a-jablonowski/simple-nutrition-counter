@@ -51,6 +51,9 @@
             <li class="nav-item">
               <button id="detailsTab" class="nav-link" data-bs-toggle="tab" data-bs-target="#detailsTabPane" type="button" role="tab">Details</button>
             </li>
+            <li class="nav-item">
+              <button id="moreTab" class="nav-link" data-bs-toggle="tab" data-bs-target="#moreTabPane" type="button" role="tab">More</button>
+            </li>
           </ul>
           <!-- TASK: add a dev config and hide -->
           <div class="modalTabsBtns d-flex gap-2">
@@ -202,10 +205,24 @@
         </div>
         </div><!-- /entryTabPane -->
 
-        <!-- Details tab: food-record metadata (mostly filled by import) -->
+        <!-- Details tab: food-record metadata (mostly filled by import).
+             Field order follows _blank_food.yml, so the record, this form and
+             the food info panel all read in the same order -->
         <div id="detailsTabPane" class="tab-pane fade" role="tabpanel">
+          <!-- Picks a data/food_defaults file. Without it the food has no fatty
+               acids, amino acids, vitamins or minerals (see CombinedModel), and
+               the grid flags it as "no type" -->
+          <select id="modalTypeSelect" class="form-select mb-2 modalHiliteAttention">
+            <option class="default" value="" selected>Food type (no defaults) ...</option>
+            <?php foreach( food_default_types() as $type ): ?>
+              <option value="<?= htmlspecialchars($type, ENT_QUOTES) ?>"><?= htmlspecialchars($type) ?></option>
+            <?php endforeach; ?>
+          </select>
           <div class="mb-2">
             <input id="modalProductNameInput" placeholder="Product name (exact)" class="form-control">
+          </div>
+          <div class="mb-2">
+            <input id="modalVendorInput" placeholder="Vendor" class="form-control modalHiliteAttention">
           </div>
           <div class="mb-2">
             <input id="modalUrlInput" type="url" placeholder="URL" class="form-control">
@@ -217,10 +234,17 @@
               <option value="occasionally">occasionally</option>
               <option value="less">less (avoid)</option>
             </select>
+            <span class="input-group-text" title="Needs care (shown as a red badge in the food info)">
+              <input id="modalCarefulCheck" type="checkbox" class="form-check-input mt-0 me-1">careful
+            </span>
           </div>
-          <div class="input-group mb-2">
-            <span class="input-group-text modalDetailLabel">NutriScore</span>
-            <input id="modalNutriScoreInput" maxlength="1" placeholder="A–E" class="form-control">
+          <!-- Everything in this row is a certificate. The two grades are the
+               ones the info panel shows as badges (food_info/headline.php) -->
+          <div class="input-group modalCertRow mb-2">
+            <span class="input-group-text modalDetailLabel">Certificates</span>
+            <input id="modalNutriScoreInput" maxlength="1" placeholder="A–E" class="form-control" title="NutriScore">
+            <input id="modalOekotestInput"  maxlength="3" placeholder="Öko" class="form-control modalCertGrade" title="Öko-Test">
+            <input id="modalWarentestInput" maxlength="3" placeholder="Waren" class="form-control modalCertGrade" title="Stiftung Warentest">
             <span class="input-group-text modalHiliteCheck">
               <input id="modalVeganCheck" type="checkbox" class="form-check-input mt-0 me-1">vegan
             </span>
@@ -241,6 +265,38 @@
             <input id="modalPackagingInput" placeholder="Packaging (e.g. cardboard,alu,plastic)" class="form-control modalHilitePrimary">
           </div>
         </div><!-- /detailsTabPane -->
+
+        <!-- More tab: the free-text fields and the nutrients that are not on the
+             entry tab. An import rarely fills these, they are typed by hand -->
+        <div id="moreTabPane" class="tab-pane fade" role="tabpanel">
+          <!-- xTimeLog excludes the food from the eating-time calculation, which
+               is what makes it category "M" instead of "F" (CombinedModel) -->
+          <div class="input-group mb-2">
+            <span class="input-group-text" title="Excluded from the eating time calculation (e.g. drinks)">
+              <input id="modalXTimeLogCheck" type="checkbox" class="form-check-input mt-0 me-1">no eating time
+            </span>
+          </div>
+          <div class="mb-2">
+            <input id="modalOriginInput" placeholder="Origin (country or region)" class="form-control">
+          </div>
+          <div class="mb-2">
+            <textarea id="modalCommentInput" rows="2" placeholder="Comment (shown above the food info)" class="form-control"></textarea>
+          </div>
+          <div class="mb-2">
+            <textarea id="modalDetailsInput" rows="2" placeholder="Misc food details" class="form-control"></textarea>
+          </div>
+          <div class="mb-3">
+            <textarea id="modalCookingInput" rows="2" placeholder="Cooking instructions" class="form-control"></textarea>
+          </div>
+          <!-- Nutrients outside the entry tab's required set, same look as there.
+               More of the misc group (caffeine, alcohol) can be added here -->
+          <div class="modalSectionLabel">More nutrients</div>
+          <div class="input-group">
+            <span class="input-group-text modalNutrientLabel">Water</span>
+            <input id="modalWaterInput" type="number" inputmode="numeric" step="0.1" class="form-control">
+            <span class="input-group-text">ml</span>
+          </div>
+        </div><!-- /moreTabPane -->
         </div><!-- /tab-content -->
         </div><!-- /newEntryFormPanel -->
         <!-- Import panel: fetch a food from a product page (URL) or pasted HTML -->

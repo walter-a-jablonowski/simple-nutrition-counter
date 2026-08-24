@@ -39,9 +39,11 @@ trait SaveFoodAjaxController
     if( find_food_source( $name, $userId))
       return ['result' => 'error', 'data' => ['message' => "A food named \"$name\" already exists."]];
 
-    // Ensure required meta is present even for manual (non-imported) saves
+    // Ensure required meta is present even for manual (non-imported) saves.
+    // Typed by hand means read off the packaging, so "pack" - an import brings
+    // its own sources along (see FoodImporter::finalize)
 
-    $food['sources'] = $food['sources'] ?? ['nutriVal' => 'web'];
+    $food['sources'] = $food['sources'] ?? ['nutriVal' => 'pack'];
     $food['lastUpd'] = $food['lastUpd'] ?? date('Y-m-d');
 
     if( ! empty($food['dealPrice']) && empty($food['lastDealPriceUpd']))

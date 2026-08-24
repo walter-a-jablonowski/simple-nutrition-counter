@@ -232,17 +232,30 @@ class MainController
       query('#modalDealPriceInput').value = ''
 
       // Details tab fields
-      query('#modalProductNameInput').value = ''
-      query('#modalUrlInput').value         = ''
-      query('#modalAcceptableSelect').value = ''
-      query('#modalNutriScoreInput').value  = ''
-      query('#modalVeganCheck').checked     = false
-      query('#modalBioCheck').checked       = false
-      query('#modalIngredientsInput').value = ''
-      query('#modalAllergyInput').value     = ''
-      query('#modalMayContainInput').value  = ''
+      query('#modalTypeSelect').value        = ''
+      query('#modalProductNameInput').value  = ''
+      query('#modalVendorInput').value       = ''
+      query('#modalUrlInput').value          = ''
+      query('#modalAcceptableSelect').value  = ''
+      query('#modalCarefulCheck').checked    = false
+      query('#modalNutriScoreInput').value   = ''
+      query('#modalOekotestInput').value     = ''
+      query('#modalWarentestInput').value    = ''
+      query('#modalVeganCheck').checked      = false
+      query('#modalBioCheck').checked        = false
+      query('#modalIngredientsInput').value  = ''
+      query('#modalAllergyInput').value      = ''
+      query('#modalMayContainInput').value   = ''
       // Prefill the packaging template so the user edits it down before saving
-      query('#modalPackagingInput').value   = 'none|cardboard,alu,plastic,glass & rubber (maybe)'
+      query('#modalPackagingInput').value    = 'none|cardboard,alu,plastic,glass & rubber (maybe)'
+
+      // More tab fields
+      query('#modalXTimeLogCheck').checked = false
+      query('#modalOriginInput').value     = ''
+      query('#modalCommentInput').value    = ''
+      query('#modalDetailsInput').value    = ''
+      query('#modalCookingInput').value    = ''
+      query('#modalWaterInput').value      = ''
 
       // Grid placement back to the placeholder: no food record unless a group is picked
       const targetGroup = query('#modalTargetGroup')
@@ -1215,16 +1228,29 @@ class MainController
 
     // Details tab
     const certs = food.certificates || {}
+    set('#modalTypeSelect',       food.type)
     set('#modalProductNameInput', food.productName)
+    set('#modalVendorInput',      food.vendor)
     set('#modalUrlInput',         food.url)
     set('#modalAcceptableSelect', food.acceptable)
+    query('#modalCarefulCheck').checked = food.careful === true
     set('#modalNutriScoreInput',  certs.NutriScore)
+    set('#modalOekotestInput',    certs.oekotest)
+    set('#modalWarentestInput',   certs.warentest)
     query('#modalVeganCheck').checked = certs.vegan === true
     query('#modalBioCheck').checked   = certs.bio === true
     set('#modalIngredientsInput', food.ingredients)
     set('#modalAllergyInput',     food.allergy)
     set('#modalMayContainInput',  food.mayContain)
     set('#modalPackagingInput',   food.packaging)
+
+    // More tab
+    query('#modalXTimeLogCheck').checked = food.xTimeLog === true
+    set('#modalOriginInput',  food.origin)
+    set('#modalCommentInput', food.comment)
+    set('#modalDetailsInput', food.details)
+    set('#modalCookingInput', food.cookingInstructions)
+    set('#modalWaterInput',   (food.misc || {}).water)
   }
 
   // Build a food payload from the form (over the imported base) and persist it
@@ -1263,8 +1289,22 @@ class MainController
     if( nutriScore )  certs.NutriScore = nutriScore
     else              delete certs.NutriScore
 
+    for( const [key, sel] of Object.entries({ oekotest: '#modalOekotestInput', warentest: '#modalWarentestInput' })) {
+      const v = query(sel).value.trim()
+      if( v )  certs[key] = v
+      else     delete certs[key]
+    }
+
     query('#modalVeganCheck').checked ? certs.vegan = true : delete certs.vegan
     query('#modalBioCheck').checked   ? certs.bio   = true : delete certs.bio
+
+    // Nutrients of the misc group (More tab), merged over the imported ones the
+    // same way as nutritionalValues above
+
+    const misc  = Object.assign({}, base.misc || {})
+    const water = num('#modalWaterInput')
+
+    if( water != null )  misc.water = water
 
     const text = sel => { const v = query(sel).value.trim(); return v === '' ? null : v }
 
@@ -1278,23 +1318,33 @@ class MainController
       usedAmounts = amtSel.value.split(',').map( v => amtOpt.dataset.type === 'precise' ? v + unit : v )
 
     const food = Object.assign({}, base, {
-      name:              query('#modalNameInput').value.trim(),
-      weight:            weightVal === '' ? (base.weight || '') : weightVal + unit,
-      pieces:            num('#modalPiecesInput'),
-      usedAmounts:       usedAmounts,
-      price:             num('#modalPriceInput') ?? base.price ?? null,
-      dealPrice:         num('#modalDealPriceInput') ?? base.dealPrice ?? null,
-      calories:          num('#modalCaloriesInput'),
-      nutritionalValues: nutrients,
+      name:                query('#modalNameInput').value.trim(),
+      weight:              weightVal === '' ? (base.weight || '') : weightVal + unit,
+      pieces:              num('#modalPiecesInput'),
+      usedAmounts:         usedAmounts,
+      price:               num('#modalPriceInput') ?? base.price ?? null,
+      dealPrice:           num('#modalDealPriceInput') ?? base.dealPrice ?? null,
+      calories:            num('#modalCaloriesInput'),
+      nutritionalValues:   nutrients,
+      misc:                misc,
       // Details tab
-      productName:       text('#modalProductNameInput') ?? base.productName ?? '',
-      url:               text('#modalUrlInput') ?? base.url ?? '',
-      acceptable:        query('#modalAcceptableSelect').value,
-      certificates:      certs,
-      ingredients:       text('#modalIngredientsInput') ?? '',
-      allergy:           text('#modalAllergyInput') ?? '',
-      mayContain:        text('#modalMayContainInput') ?? '',
-      packaging:         text('#modalPackagingInput') ?? ''
+      type:                query('#modalTypeSelect').value,
+      productName:         text('#modalProductNameInput') ?? base.productName ?? '',
+      vendor:              text('#modalVendorInput') ?? base.vendor ?? '',
+      url:                 text('#modalUrlInput') ?? base.url ?? '',
+      acceptable:          query('#modalAcceptableSelect').value,
+      careful:             query('#modalCarefulCheck').checked,
+      certificates:        certs,
+      ingredients:         text('#modalIngredientsInput') ?? '',
+      allergy:             text('#modalAllergyInput') ?? '',
+      mayContain:          text('#modalMayContainInput') ?? '',
+      packaging:           text('#modalPackagingInput') ?? '',
+      // More tab
+      xTimeLog:            query('#modalXTimeLogCheck').checked,
+      origin:              text('#modalOriginInput') ?? '',
+      comment:             text('#modalCommentInput') ?? '',
+      details:             text('#modalDetailsInput') ?? '',
+      cookingInstructions: text('#modalCookingInput') ?? ''
     })
 
     // Grid placement (tab + group) for the new food record
