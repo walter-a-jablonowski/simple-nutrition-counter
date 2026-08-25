@@ -43,7 +43,7 @@ trait GetAdviceAjaxController  /*@*/
 
     $step = $request['step'] ?? 'analyse';
 
-    if( $step !== 'analyse' )
+    if( ! in_array( $step, ['analyse', 'menus']))
       return ['result' => 'error', 'data' => ['message' => "Unknown advisor step '$step'"]];
 
     $date = $request['date'] ?? date('Y-m-d');
@@ -56,6 +56,9 @@ trait GetAdviceAjaxController  /*@*/
     catch( Exception $e ) {
       return ['result' => 'error', 'data' => ['message' => $e->getMessage()]];
     }
+
+    if( $step === 'menus' )
+      return $this->adviceMenus( $date, $reports, $selection, ! empty( $request['refresh']));
 
     // Nothing to say, and no reason to pay for being told so
 
@@ -87,6 +90,90 @@ trait GetAdviceAjaxController  /*@*/
     $this->writeAdvice( $date, $key, $data );
 
     return ['result' => 'success', 'data' => $data + ['cached' => false]];
+  }
+
+
+  /*@
+
+  The menus, built on the analysis that is already cached for this day.
+
+  It reads that analysis rather than running one: the two calls are separate so the
+  creative half can be asked again without paying for the arithmetic half. Nothing to
+  read means the panel asked out of order, which is worth saying rather than quietly
+  starting a second analysis
+
+  */
+  private function adviceMenus( string $date, array $reports, array $selection, bool $refresh )  /*@*/
+  {
+    $key   = $this->adviceKey( $reports, $selection );
+    $saved = $this->readAdvice( $date, $key );
+
+    if( ! $saved )
+      return ['result' => 'error', 'data' => ['message' => 'Ask for the advice first, the menus are built on it.']];
+
+    if( ! $refresh && ! empty( $saved['menus']))
+      return ['result' => 'success', 'data' => ['menus' => $saved['menus'], 'warnings' => [], 'cached' => true]];
+
+    $recommended = $saved['advice']['recommended'] ?? [];
+
+    if( ! $recommended )
+      return ['result' => 'error', 'data' => ['message' => 'There are no recommended foods to build a menu from.']];
+
+    set_time_limit( 180 );
+
+    try {
+      $answer = NutritionAdvisor::menus( $recommended, $this->foodVocabulary(),
+                                         $selection['excesses'], $this->dietRules());
+    }
+    catch( Exception $e ) {
+      return ['result' => 'error', 'data' => ['message' => $e->getMessage()]];
+    }
+
+    $saved['menus'] = $answer['menus'];
+
+    $this->writeAdvice( $date, $key, $saved );
+
+    return ['result' => 'success', 'data' => [
+      'menus' => $answer['menus'], 'warnings' => $answer['warnings'], 'cached' => false]];
+  }
+
+
+  /*@
+
+  Every food of the grid, one line each, as the menu step's vocabulary.
+
+  The grid is the source, not the food folder: a record that is no longer laid out is
+  one the user has retired, and a menu must not send them shopping for it. Same reason
+  MainController.foodVocabulary() builds its list from the rendered grid
+
+  */
+  private function foodVocabulary() : string  /*@*/
+  {
+    $lines = [];
+
+    foreach( $this->layoutView->all() as $name => $amounts )
+    {
+      $vendor = (string) ($this->combinedModel->get("$name.vendor") ?: '');
+      $vendor = in_array( strtolower($vendor), ['none', 'multiple']) ? '' : $vendor;
+
+      $line = $name;
+
+      if( $vendor )
+        $line .= "  ($vendor)";
+
+      $offered = array_map( fn( $key ) => str_replace('_', '.', $key), array_keys( is_array($amounts) ? $amounts : []));
+
+      if( $offered )
+        $line .= '  amounts: ' . implode(' | ', $offered);
+
+      if( $this->combinedModel->get("$name.category") === 'S' )
+        $line .= '  [supplement]';
+
+      $lines[] = $line;
+    }
+
+    return implode("
+", $lines);
   }
 
 

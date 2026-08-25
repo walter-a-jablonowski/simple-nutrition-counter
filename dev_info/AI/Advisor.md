@@ -113,8 +113,8 @@ score   = net / max(kcal,100) * 100 / (1 + 0.15*eaten)
 | 3 `GeminiClient` move | done — `lib/ai/GeminiClient.php` |
 | 4 analyse call + ajax + cache | done — `tools/test_advisor.php` |
 | 5 modal + controller + nav | done — `tools/test_advisor_panel.mjs` |
-| 6 menus | next |
-| 7 voice tool | |
+| 6 menus | done — second call, `tools/advisor/menus_good.json` |
+| 7 voice tool | next |
 
 Step 1 also moved two shared things out of the way: `read_day_file()` +
 `DAY_FILE_HEADERS` into `lib/helper.php`, and `range_dates()` out of the
@@ -158,6 +158,16 @@ mean the same thing by "7 days".
 - Everything the model wrote goes on the page as `textContent`, never `innerHTML`
 - A nutrient the model names that the report does not carry shows its comment without figures, rather than breaking the row
 - `tools/test_advisor_panel.mjs` renders the **real payload** (written by `test_advisor.php`) through the real controller against a small fake dom — the payload shape is a contract in two languages and nothing else runs both
+
+## Step 6 notes
+
+- Second call, own prompt (`data/advisor/menu_prompt.md`), temperature 0.8 — this is the half the user re-rolls
+- Input: the recommended foods, the **whole grid** as vocabulary (253 foods, ~2.7k tokens), the over-limit nutrients, the diet rules
+- **`role` is checked, not believed** — a recommended food is `core` however the model labelled it, so the panel always shows what the menu is actually for
+- Ingredient names validated like the recommendations: unknown ones dropped and reported
+- A menu with no title or no ingredients is dropped
+- Menus are cached in the same day file under the same key; the button then re-rolls (`refresh`)
+- The taste rule is in the prompt, not enforced in code — dropping an ingredient would mangle the dish. The check runs will show whether it holds
 
 ## Config
 

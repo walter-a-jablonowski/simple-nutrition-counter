@@ -92,3 +92,53 @@ The nutrition advisor's panel, see AdvisorController.js
 .advisor-status {
   color: #6c757d;
 }
+
+/* Menus */
+
+.advisor-menu {
+  background-color: #f8f9fa;
+  border-left: 3px solid #e95420;
+  border-radius: 0.25rem;
+  margin-top: 0.6rem;
+  padding: 0.5rem 0.6rem;
+}
+
+.advisor-menu-head {
+  align-items: center;
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 0.35rem;
+}
+
+.advisor-menu-title {
+  font-weight: bold;
+}
+
+.advisor-menu-head .advisor-btn {
+  margin-left: auto;
+}
+
+.advisor-ingredient {
+  font-size: 0.9rem;
+  padding: 0.05rem 0;
+}
+
+.advisor-ingredient-name {
+  margin-right: 0.35rem;
+}
+
+/* What the menu is for reads first, what was added for taste steps back */
+
+.advisor-taste .advisor-ingredient-name {
+  color: #6c757d;
+}
+
+.advisor-role {
+  color: #adb5bd;
+  font-size: 0.75rem;
+  margin-left: 0.35rem;
+}
+
+.advisor-menu .advisor-because {
+  margin-top: 0.35rem;
+}

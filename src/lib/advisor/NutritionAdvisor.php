@@ -21,12 +21,15 @@ decides what to log. See dev_info/Nutrition_Advisor_Plan.md
 class NutritionAdvisor  /*@*/
 {
   const PROMPT_FILE   = 'data/advisor/analysis_prompt.md';
+  const MENU_PROMPT   = 'data/advisor/menu_prompt.md';
   const DEFAULT_MODEL = 'gemini-3.6-flash';   // must support generateContent, see config.yml
 
   // Warmer than the photo import, which transcribes. This one writes prose and picks
   // between foods that score nearly the same, and 0 makes that read mechanical
 
-  const TEMPERATURE = 0.4;
+  const TEMPERATURE      = 0.4;
+  const MENU_TEMPERATURE = 0.8;   // the menus are the half the user re-rolls for variety
+
   const MAX_TOKENS  = 8192;   // six sections of prose plus the model's thinking
 
 
@@ -59,6 +62,111 @@ class NutritionAdvisor  /*@*/
       error_log('NutritionAdvisor: ' . json_encode( $answer ));
 
     return self::fromAnswer( $answer, self::knownFoods( $selection ));
+  }
+
+
+  /*@
+
+  menus()
+
+  The second call. Takes what the first one recommended and puts it into meals worth
+  cooking, adding a few things from the grid so a bowl of lentils becomes dinner.
+
+  Its own call because it is the creative half: the user re-rolls it for variety, and
+  the analysis it stands on does not have to be paid for again.
+
+  ARGS:
+    recommended: the advice's recommended foods
+    vocabulary:  every food of the grid, one line each, for the taste additions
+    excesses:    nutrients already over their bound, so nothing is added that feeds them
+    rules:       the bundle's diet rules, markdown
+
+  RETURN: ['menus' => [...], 'warnings' => [...]]
+
+  */
+  public static function menus( array $recommended, string $vocabulary, array $excesses, string $rules ) : array  /*@*/
+  {
+    $answer = GeminiClient::ask(
+      config::get('advisor.model') ?: self::DEFAULT_MODEL,
+      file_get_contents( self::MENU_PROMPT ),
+      self::menuText( $recommended, $vocabulary, $excesses, $rules ),
+      [],
+      self::menuSchema(),
+      ['temperature' => self::MENU_TEMPERATURE, 'maxOutputTokens' => self::MAX_TOKENS]);
+
+    if( config::get('advisor.debug'))
+      error_log('NutritionAdvisor menus: ' . json_encode( $answer ));
+
+    return self::menusFromAnswer( $answer, self::menuFoods( $vocabulary ), array_column( $recommended, 'food'));
+  }
+
+
+  /*@
+
+  Menu answer -> what the panel shows. The tests' seam, like fromAnswer().
+
+  ARGS:
+    data:        the decoded answer
+    known:       every food name a menu may use
+    recommended: the foods the menu was built for, so `core` can be checked rather
+                 than believed
+
+  */
+  public static function menusFromAnswer( array $data, array $known, array $recommended ) : array  /*@*/
+  {
+    $warnings = [];
+    $menus    = [];
+    $index    = array_combine( array_map('mb_strtolower', $known), $known) ?: [];
+    $core     = array_map('mb_strtolower', $recommended );
+
+    foreach( is_array( $data['menus'] ?? null) ? $data['menus'] : [] as $menu )
+    {
+      $ingredients = [];
+
+      foreach( is_array( $menu['ingredients'] ?? null) ? $menu['ingredients'] : [] as $item )
+      {
+        $name  = trim( (string) ($item['food'] ?? ''));
+        $match = $index[ mb_strtolower($name)] ?? null;
+
+        if( $name === '')
+          continue;
+
+        if( $match === null )
+        {
+          $warnings[] = "A menu named a food that does not exist: \"$name\".";
+          continue;
+        }
+
+        // The role is checked, not taken: what the analysis recommended is core, the
+        // rest is an addition however the model labelled it
+
+        $ingredients[] = [
+          'food'   => $match,
+          'amount' => trim( (string) ($item['amount'] ?? '')),
+          'role'   => in_array( mb_strtolower($match), $core ) ? 'core' : 'taste'
+        ];
+      }
+
+      $title = trim( (string) ($menu['title'] ?? ''));
+
+      if( $title === '' || ! $ingredients )
+      {
+        $warnings[] = 'A menu came back without a name or without ingredients.';
+        continue;
+      }
+
+      $menus[] = [
+        'title'        => $title,
+        'ingredients'  => $ingredients,
+        'why'          => trim( (string) ($menu['why'] ?? '')),
+        'instructions' => trim( (string) ($menu['instructions'] ?? ''))
+      ];
+    }
+
+    if( ! $menus )
+      $warnings[] = 'The model returned no usable menu.';
+
+    return ['menus' => $menus, 'warnings' => $warnings];
   }
 
 
@@ -193,6 +301,124 @@ class NutritionAdvisor  /*@*/
     $text[] = trim( $rules );
 
     return implode("\n", $text);
+  }
+
+
+  /*@
+
+  The menu prompt body: what to build with, what may be added, and what must not be fed.
+
+  The recommended foods carry the nutrients they were picked for, so the model can say
+  in `why` what a menu is actually doing
+
+  */
+  private static function menuText( array $recommended, string $vocabulary, array $excesses, string $rules ) : string  /*@*/
+  {
+    $text = [];
+
+    $text[] = '# Foods to build the menus from';
+    $text[] = '';
+    $text[] = 'These close gaps in what the user ate over the last weeks. Each menu exists';
+    $text[] = 'for these - mark them `core`.';
+    $text[] = '';
+
+    foreach( $recommended as $food )
+    {
+      $line = "- **{$food['food']}**";
+
+      if( ! empty( $food['amount']))
+        $line .= "  amount: {$food['amount']}";
+
+      if( ! empty( $food['because']))
+        $line .= '  for: ' . implode(', ', $food['because']);
+
+      $text[] = $line;
+    }
+
+    if( $excesses )
+    {
+      $text[] = '';
+      $text[] = '# Already over the limit';
+      $text[] = '';
+      $text[] = 'Do not add anything high in these. The menus are meant to help, not to feed';
+      $text[] = 'what is already too much.';
+      $text[] = '';
+
+      foreach( $excesses as $row )
+        $text[] = "- {$row['nutrient']}: {$row['perDay']} {$row['unit']} a day, the range ends at {$row['upper']}";
+    }
+
+    $text[] = '';
+    $text[] = '# Everything else the user owns';
+    $text[] = '';
+    $text[] = 'Anything you add for taste must come from here, and nothing outside it exists.';
+    $text[] = 'Mark those `taste`.';
+    $text[] = '';
+    $text[] = trim( $vocabulary );
+
+    $text[] = '';
+    $text[] = "# The user's own rules";
+    $text[] = '';
+    $text[] = 'A food these rule out does not belong in a menu, however well it would taste.';
+    $text[] = '';
+    $text[] = trim( $rules );
+
+    return implode("
+", $text);
+  }
+
+
+  /* The food names of the vocabulary. Each line starts with the name, up to two spaces -
+     the same shape the grid list is written in, see foodVocabulary() in the ajax trait */
+
+  private static function menuFoods( string $vocabulary ) : array
+  {
+    $names = [];
+
+    foreach( explode("
+", $vocabulary ) as $line )
+    {
+      $name = trim( explode('  ', trim( $line ))[0]);
+
+      if( $name !== '')
+        $names[] = $name;
+    }
+
+    return $names;
+  }
+
+
+  private static function menuSchema() : array
+  {
+    $ingredient = [
+      'type'             => 'object',
+      'propertyOrdering' => ['food', 'amount', 'role'],
+      'properties'       => [
+        'food'   => ['type' => 'string', 'description' => 'Exactly as spelled in the lists given'],
+        'amount' => ['type' => 'string', 'description' => 'One of the amounts that food offers'],
+        'role'   => ['type' => 'string', 'enum' => ['core', 'taste'],
+                     'description' => 'core = one of the recommended foods, taste = added by you']
+      ],
+      'required' => ['food', 'amount', 'role']
+    ];
+
+    $menu = [
+      'type'             => 'object',
+      'propertyOrdering' => ['title', 'ingredients', 'why', 'instructions'],
+      'properties'       => [
+        'title'        => ['type' => 'string', 'description' => 'Two to four words, appetising'],
+        'ingredients'  => ['type' => 'array', 'items' => $ingredient],
+        'why'          => ['type' => 'string', 'description' => 'One sentence naming the nutrients it is for'],
+        'instructions' => ['type' => 'string', 'description' => 'Two to four short sentences, no markdown']
+      ],
+      'required' => ['title', 'ingredients', 'why', 'instructions']
+    ];
+
+    return [
+      'type'       => 'object',
+      'properties' => ['menus' => ['type' => 'array', 'items' => $menu]],
+      'required'   => ['menus']
+    ];
   }
 
 

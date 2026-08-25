@@ -354,7 +354,7 @@ analysis, so it never re-runs the first call.
 | `src/lib/advisor/NutritionAdvisor.php` | step 4 — prompt, schema, answer mapping ✔ |
 | `src/ajax/get_advice.php` | step 4 — the analyse step and the cache ✔ |
 | `src/data/advisor/analysis_prompt.md` | step 4 — system instruction, call 1 ✔ |
-| `src/data/advisor/menu_prompt.md` | system instruction, call 2 |
+| `src/data/advisor/menu_prompt.md` | step 6 — system instruction, call 2 ✔ |
 | `src/AdvisorController.js` | step 5 — panel, the analyse step, the row actions ✔ |
 | `src/view/modal/advisor.php` | step 5 — the panel markup ✔ |
 | `src/style/advisor.css` | step 5 — its styles, next to `agent.css` ✔ |
@@ -495,11 +495,24 @@ Note: `tools/test_layout_functions.php` has one unrelated pre-existing failure
 | 3 | **done** — moved to `lib/ai/GeminiClient.php`, `extract()` → `ask()` with an `$options` array, require paths fixed |
 | 4 | **done** — `NutritionAdvisor` call 1 + `ajax/get_advice.php` + cache + `tools/test_advisor.php` |
 | 5 | **done** — `#advisorModal`, `AdvisorController`, nav entries |
-| 6 | Call 2, the menus, and the menu cards |
+| 6 | **done** — call 2, the menus, and the menu cards |
 | 7 | Voice tool + prompt + `dev/AI/tools.md` |
 
 Steps 1 and 2 produce no model call and no cost, and they are where the feature is either
 honest or not. Nothing after step 4 changes what the numbers say.
+
+
+### What step 6 settled
+
+The hard rule that a taste addition must not raise an over-limit nutrient stayed in the
+prompt rather than becoming a check in code. Dropping an ingredient after the fact would
+mangle the dish, and a menu missing its oil is worse advice than one that mentions salt.
+What *is* enforced: every ingredient must be a real grid food, and `role` is recomputed
+from the analysis rather than taken from the answer — a menu that labels a recommended
+food as a mere addition would hide what it is for.
+
+First live run: both menus used only real foods, kept to two or three additions (oil,
+garlic, olives), gave real instructions, and stayed inside the diet rules.
 
 
 ### What step 4 turned up

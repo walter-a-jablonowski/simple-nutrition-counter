@@ -75,17 +75,28 @@ globalThis.ajax = { send: ( id, data, cb ) => { sent = { id, data }; globalThis.
 let jumped  = null
 let clicked = null
 
-const brokkoliBtn = makeEl()
-brokkoliBtn.dataset = { amountLabel: '100g' }
-brokkoliBtn.click   = () => clicked = '100g'
+// A few more grid foods so a whole menu can be logged
 
-const brokkoliItem = makeEl()
-brokkoliItem.querySelectorAll = () => [ brokkoliBtn ]
+const logged = []
+
+function gridFood( name, label )
+{
+  const btn = makeEl()
+  btn.dataset = { amountLabel: label }
+  btn.click   = () => { logged.push( name ); if( name === 'Brokkoli R') clicked = label }
+
+  const item = makeEl()
+  item.querySelectorAll = () => [ btn ]
+
+  return { food: name, itemEl: item }
+}
+
+const grid = [ gridFood('Brokkoli R', '100g'), gridFood('Linsen R Bio', '1/3'),
+               gridFood('Olivenöl', '15ml'),   gridFood('Knoblauch R', '1') ]
 
 globalThis.mainCrl = {
   date: '2026-08-25',
-  findFoods: name => name.toLowerCase().includes('brokkoli')
-                   ? [{ food: 'Brokkoli R', itemEl: brokkoliItem }] : [],
+  findFoods: name => grid.filter( rec => rec.food.toLowerCase().includes( name.toLowerCase())),
   jumpToFood: rec => jumped = rec.food
 }
 
@@ -178,6 +189,58 @@ check('the button says so',           logBtn._text === 'logged', logBtn._text)
 showBtn.onclick( null, showBtn )
 
 check('showing jumps to the food', jumped === 'Brokkoli R', String( jumped ))
+
+// 4c) The menus: asked for, rendered, and logged as a whole
+
+const menuBtn = walk().filter( n => n.tagName === 'button').find( n => n._text === 'Make menus')
+
+check('a make menus button', !! menuBtn, walk().filter( n => n.tagName === 'button').map( n => n._text).join(', '))
+
+menuBtn.onclick( null, menuBtn )
+
+check('asks for menus', sent.data.step === 'menus' && sent.data.refresh === 0, JSON.stringify( sent.data ))
+
+globalThis._cb('success', JSON.parse( readFileSync('tools/advisor/menus_payload.json', 'utf8')))
+
+const withMenus = text()
+
+check('menu title shown',   withMenus.includes('Linsenbowl mit Brokkoli'), withMenus.slice(-400))
+check('ingredients shown',  withMenus.includes('Linsen R Bio') && withMenus.includes('Olivenöl'))
+check('why shown',          withMenus.includes('Deckt Ballaststoffe'))
+check('instructions shown', withMenus.includes('Brokkoli dämpfen'))
+check('added ones marked',  withMenus.includes('for taste'), withMenus.slice(-300))
+
+// The core ingredients carry no "for taste", so the two are told apart on screen
+
+const tasteRows = walk().filter( n => n.className.includes('advisor-taste'))
+const coreRows  = walk().filter( n => n.className.includes('advisor-core'))
+
+// Three menus: 2 + 2 in the first, one core each in the other two
+
+check('core and taste rows differ', coreRows.length === 4 && tasteRows.length === 2,
+      `${coreRows.length} core, ${tasteRows.length} taste`)
+
+// Asking again re-rolls rather than returning the same ones
+
+const againBtn = walk().filter( n => n.tagName === 'button').find( n => n._text === 'Other menus')
+
+check('the button now re-rolls', !! againBtn)
+
+againBtn.onclick( null, againBtn )
+check('re-roll asks for fresh menus', sent.data.refresh === 1, JSON.stringify( sent.data ))
+
+globalThis._cb('success', JSON.parse( readFileSync('tools/advisor/menus_payload.json', 'utf8')))
+
+// Logging a whole menu taps every ingredient's own grid button
+
+logged.length = 0
+
+const logAll = walk().filter( n => n.tagName === 'button').find( n => n._text === 'Log all')
+
+logAll.onclick( null, logAll )
+
+check('every ingredient logged', logged.length === 4, logged.join(', '))
+check('the button says so',      logAll._text === 'logged', logAll._text)
 
 // 4b) When the report does carry the nutrient, its figures are printed
 

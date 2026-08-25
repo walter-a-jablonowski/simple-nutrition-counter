@@ -246,6 +246,74 @@ file_put_contents('tools/advisor/payload_good.json', json_encode( $payload, JSON
 
 check('payload written for the panel test', is_file('tools/advisor/payload_good.json'));
 
+// 4b) The menus, through their own mapping
+
+$vocabulary = "Brokkoli R  (Rewe)  amounts: 25g | 50g | 100g
+"
+            . "Linsen R Bio  (Rewe)  amounts: 1/4 | 1/3 | 1/2
+"
+            . "Mandel R Bio  (Rewe)  amounts: 25g | 50g
+"
+            . "Olivenöl  amounts: 15ml | 30ml
+"
+            . "Knoblauch R  (Rewe)  amounts: 1
+";
+
+$recommended = [['food' => 'Brokkoli R'], ['food' => 'Linsen R Bio'], ['food' => 'Mandel R Bio']];
+
+$menuNames = new ReflectionMethod('NutritionAdvisor', 'menuFoods');
+$menuNames->setAccessible( true );
+
+$names = $menuNames->invoke( null, $vocabulary );
+
+check('vocabulary parses to names',
+      $names === ['Brokkoli R', 'Linsen R Bio', 'Mandel R Bio', 'Olivenöl', 'Knoblauch R'],
+      implode(', ', $names));
+
+$out = NutritionAdvisor::menusFromAnswer(
+  json_decode( file_get_contents('tools/advisor/menus_good.json'), true), $names, array_column( $recommended, 'food'));
+
+$menus = $out['menus'];
+
+check('usable menus kept',       count( $menus ) === 3, count( $menus ) . ' menus');
+check('a menu without a title is dropped', ! in_array('', array_column( $menus, 'title')));
+check('the drop is reported',    count( array_filter( $out['warnings'], fn($w) => str_contains($w, 'without a name'))) === 1,
+      implode(' | ', $out['warnings']));
+
+check('menu title',  $menus[0]['title'] === 'Linsenbowl mit Brokkoli', $menus[0]['title']);
+check('ingredients', count( $menus[0]['ingredients']) === 4);
+check('why and how', $menus[0]['why'] !== '' && $menus[0]['instructions'] !== '');
+
+$roles = array_column( $menus[0]['ingredients'], 'role');
+
+check('recommended foods are core', array_slice( $roles, 0, 2) === ['core', 'core'], implode(', ', $roles));
+check('added foods are taste',      array_slice( $roles, 2)    === ['taste', 'taste'], implode(', ', $roles));
+
+/* The role is checked against the analysis, not believed: a menu that labels a
+   recommended food as an addition would hide what the menu is actually for */
+
+$mislabelled = end( $menus );
+
+check('a wrong role is corrected', $mislabelled['ingredients'][0]['role'] === 'core',
+      $mislabelled['ingredients'][0]['role']);
+
+// Same guarantee as the recommendations: a food the user does not own cannot be cooked
+
+$second = $menus[1];
+
+check('invented ingredient is dropped', count( $second['ingredients']) === 1,
+      json_encode( array_column( $second['ingredients'], 'food')));
+check('and reported', count( array_filter( $out['warnings'], fn($w) => str_contains($w, 'Gibt es nicht'))) === 1,
+      implode(' | ', $out['warnings']));
+
+$menuPayload = ['menus' => $menus];
+file_put_contents('tools/advisor/menus_payload.json', json_encode( $menuPayload, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+
+check('menu payload written for the panel test', is_file('tools/advisor/menus_payload.json'));
+
+check('no usable menu is reported',
+      NutritionAdvisor::menusFromAnswer(['menus' => []], $names, [])['warnings'] !== []);
+
 // 5) A truncated or empty answer must not look like a good one
 
 $result = NutritionAdvisor::fromAnswer([], []);

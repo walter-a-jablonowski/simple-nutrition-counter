@@ -184,7 +184,10 @@ class AdvisorController
                        row => `${this.#num(row.perDay)} ${row.unit} a day, the range ends at ${this.#num(row.upper)}`))
 
     if( advice.recommended && advice.recommended.length )
+    {
       out.appendChild( this.#foodSection('Foods to use today', advice.recommended, true))
+      out.appendChild( this.#menuSection( data ))
+    }
 
     if( advice.avoid && advice.avoid.length )
       out.appendChild( this.#foodSection('Where the excess comes from', advice.avoid, false))
@@ -206,6 +209,126 @@ class AdvisorController
     }
 
     this.body.replaceChildren( out )
+  }
+
+
+  /*@
+
+  The menus. Empty until asked for: they are a second model call, and the user may only
+  want the ingredients. Once asked, they come back from the same day file, and the
+  button then re-rolls them - which is the point of keeping them a separate call
+
+  */
+  #menuSection( data ) /*@*/
+  {
+    const box   = this.#section('Menus')
+    const menus = data.menus || []
+
+    box.appendChild( this.#button( menus.length ? 'Other menus' : 'Make menus',
+                                   'btn-outline-secondary',
+                                   (event, btn) => this.makeMenus( !! menus.length, btn )))
+
+    menus.forEach( menu => box.appendChild( this.#menuCard( menu )))
+
+    return box
+  }
+
+
+  #menuCard( menu )
+  {
+    const card = document.createElement('div')
+    card.className = 'advisor-menu'
+
+    const head = document.createElement('div')
+    head.className = 'advisor-menu-head'
+
+    head.appendChild( this.#el('span', 'advisor-menu-title', menu.title ))
+    head.appendChild( this.#button('Log all', 'btn-outline-secondary',
+                      (event, btn) => this.logMenu( menu, btn )))
+
+    card.appendChild( head )
+
+    ;(menu.ingredients || []).forEach( item => {
+
+      const row = document.createElement('div')
+      row.className = `advisor-ingredient advisor-${item.role || 'taste'}`
+
+      row.appendChild( this.#el('span', 'advisor-ingredient-name', item.food ))
+
+      if( item.amount )
+        row.appendChild( this.#el('span', 'advisor-amount', item.amount ))
+
+      if( item.role === 'taste' )
+        row.appendChild( this.#el('span', 'advisor-role', 'for taste'))
+
+      card.appendChild( row )
+    })
+
+    if( menu.why )
+      card.appendChild( this.#el('div', 'advisor-because', menu.why ))
+
+    if( menu.instructions )
+      card.appendChild( this.#el('div', 'advisor-comment', menu.instructions ))
+
+    return card
+  }
+
+
+  // Log every ingredient the grid can log, and say how many made it
+
+  logMenu( menu, button )
+  {
+    let done = 0
+
+    ;(menu.ingredients || []).forEach( item => {
+
+      const rec = this.#recordFor( item.food )
+      const btn = rec && Array.from( rec.itemEl.querySelectorAll('.amount-btn'))
+                              .find( b => b.dataset.amountLabel === item.amount )
+
+      if( btn )
+      {
+        btn.click()
+        done++
+      }
+    })
+
+    const total = (menu.ingredients || []).length
+
+    this.#say( button, done === total ? 'logged' : `${done} of ${total}`, done === total )
+  }
+
+
+  /*@
+
+  Ask for the menus, or for different ones. The analysis they stand on is already
+  cached on the server, so this call is the cheaper half
+
+  */
+  makeMenus( refresh, button ) /*@*/
+  {
+    if( this.running )
+      return
+
+    this.running = true
+
+    this.#say( button, 'thinking …', false)
+
+    ajax.send('getAdvice', { step: 'menus', date: mainCrl.date, refresh: refresh ? 1 : 0 }, (result, data) => {
+
+      this.running = false
+
+      if( result !== 'success')
+      {
+        this.#say( button, (data && data.message) || 'failed', false)
+        return
+      }
+
+      this.data.menus    = data.menus
+      this.data.warnings = (this.data.warnings || []).concat( data.warnings || [])
+
+      this.#render( this.data )
+    })
   }
 
 
