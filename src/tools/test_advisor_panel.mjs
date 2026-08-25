@@ -4,8 +4,11 @@ Standalone tests for the advisor's panel (see AdvisorController.js).
 
 Run from the `src` directory:
 
-  php tools/test_advisor.php        first - it writes the payload this reads
+  php tools/test_advisor.php        first - it writes the payloads this reads
   node tools/test_advisor_panel.mjs
+
+The payload files are generated, not committed: they are what the php side produces, so
+regenerating them is the point - a committed copy would just go stale.
 
 The payload is a contract written in two languages: php builds it in ajax/get_advice.php,
 javascript reads it here. Nothing else runs both, so this renders the real payload through

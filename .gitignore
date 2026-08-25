@@ -11,6 +11,9 @@ debug.php
 src/data/users/JaneDoe@example.com-24080101000000/days/**.tsv
 src/data/users/JaneDoe@example.com-24080101000000/days_SAV.zip
 src/data/users/*/advice/**
+
+# Written by tools/test_advisor.php, read by tools/test_advisor_panel.mjs
+src/tools/advisor/*payload*.json
 src/data/users/Walter/**
 tools/deploy/debug/**
 tools/migration/days/**
