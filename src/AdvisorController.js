@@ -224,7 +224,7 @@ class AdvisorController
     const box   = this.#section('Menus')
     const menus = data.menus || []
 
-    box.appendChild( this.#button( menus.length ? 'Other menus' : 'Make menus',
+    box.appendChild( this.#button( menus.length ? 'New menus' : 'Make menus',
                                    'btn-outline-secondary',
                                    (event, btn) => this.makeMenus( !! menus.length, btn )))
 
@@ -312,11 +312,16 @@ class AdvisorController
 
     this.running = true
 
-    this.#say( button, 'thinking …', false)
+    // Not #say(): that puts a word on the button for a moment, and this call runs for
+    // half a minute. The button has to stay busy for as long as it actually is, or the
+    // panel looks like it gave up
+
+    const done = this.#busy( button, 'thinking …')
 
     ajax.send('getAdvice', { step: 'menus', date: mainCrl.date, refresh: refresh ? 1 : 0 }, (result, data) => {
 
       this.running = false
+      done()
 
       if( result !== 'success')
       {
@@ -417,6 +422,48 @@ class AdvisorController
     })
 
     return box
+  }
+
+
+  /*@
+
+  Hold a button in a working state until the call comes back, spinner and all.
+
+  RETURN: the function that gives the button back
+
+  */
+  #busy( button, text ) /*@*/
+  {
+    if( ! button )
+      return () => {}
+
+    const was = button.textContent
+
+    button.disabled  = true
+    button.textContent = ''
+
+    const spinner = document.createElement('span')
+
+    spinner.className = 'spinner-border spinner-border-sm me-1'
+    button.appendChild( spinner )
+    button.appendChild( document.createTextNode( text ))
+
+    // The wait is long enough that silence starts to look like a failure
+
+    const watchdog = setTimeout(() => {
+      if( button.disabled )
+      {
+        button.textContent = ''
+        button.appendChild( spinner )
+        button.appendChild( document.createTextNode('still thinking …'))
+      }
+    }, 15000)
+
+    return () => {
+      clearTimeout( watchdog )
+      button.textContent = was
+      button.disabled    = false
+    }
   }
 
 

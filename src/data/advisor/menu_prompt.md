@@ -45,6 +45,11 @@ Short and appetising, two to four words. Not "Menu 1", not a list of its ingredi
 
 Every food with its `amount` and its `role`. Order them the way someone would cook them.
 
+**This list is the whole dish.** The user shops from it and logs from it, so anything the
+cooking reaches for belongs here: the oil it is fried in, the garlic, the herb, the squeeze
+of lemon. A step that uses something this list does not name leaves the user standing in
+the kitchen without it.
+
 ### why
 
 One sentence: what this menu is doing for them. Name the nutrients it is there for.
@@ -53,6 +58,11 @@ One sentence: what this menu is doing for them. Name the nutrients it is there f
 
 Two to four short sentences. Enough to cook it without a recipe, no more. No headings,
 no numbered steps, no markdown.
+
+Write them the way a person would say them, in ordinary words: *"die Hähnchenbrust in
+Streifen schneiden"*, not *"Hähnchenbr Spr in Streifen schneiden"*. The exact grid names
+belong in `ingredients`, which is where the app reads them — these sentences are for a
+human standing at a hob.
 
 ## How many
 

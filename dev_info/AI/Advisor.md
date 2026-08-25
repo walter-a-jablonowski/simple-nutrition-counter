@@ -167,6 +167,7 @@ mean the same thing by "7 days".
 - Ingredient names validated like the recommendations: unknown ones dropped and reported
 - A menu with no title or no ingredients is dropped
 - Menus are cached in the same day file under the same key; the button then re-rolls (`refresh`)
+- Instructions and ingredients must agree: the ingredient list is the whole dish (oil, garlic included), the prose stays in ordinary words. Both rules together took three live runs to get right — stating either one alone broke the other
 - The taste rule is in the prompt, not enforced in code — dropping an ingredient would mangle the dish. The check runs will show whether it holds
 
 ## Config

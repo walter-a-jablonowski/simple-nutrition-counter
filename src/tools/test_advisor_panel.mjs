@@ -200,6 +200,12 @@ menuBtn.onclick( null, menuBtn )
 
 check('asks for menus', sent.data.step === 'menus' && sent.data.refresh === 0, JSON.stringify( sent.data ))
 
+/* The call runs for half a minute. The button has to stay busy for all of it - a state
+   that clears itself after a moment reads as "it gave up" */
+
+check('the button stays busy', menuBtn.disabled === true)
+check('and says what it is doing', text( menuBtn ).includes('thinking'), text( menuBtn ))
+
 globalThis._cb('success', JSON.parse( readFileSync('tools/advisor/menus_payload.json', 'utf8')))
 
 const withMenus = text()
@@ -222,7 +228,7 @@ check('core and taste rows differ', coreRows.length === 4 && tasteRows.length ==
 
 // Asking again re-rolls rather than returning the same ones
 
-const againBtn = walk().filter( n => n.tagName === 'button').find( n => n._text === 'Other menus')
+const againBtn = walk().filter( n => n.tagName === 'button').find( n => n._text === 'New menus')
 
 check('the button now re-rolls', !! againBtn)
 
