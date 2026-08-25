@@ -45,6 +45,17 @@ photoImport:                # create a food from pictures of the packaging (Gemi
   quality:   0.82           # jpeg quality of the downscaled upload
   debug:     false          # log the received image sizes and the raw model answer
 
+advisor:                    # AI nutrition advisor, see dev_info/Nutrition_Advisor_Plan.md
+
+  enabled:     true         # false hides the nav entry and the voice tool
+  model:       "gemini-3.6-pro"   # reasoning over ~50 nutrient rows, runs rarely - flash
+                                  # is the wrong trade here. Must support generateContent
+  ranges:      [7, 30]      # days, both are analysed; the longest picks the foods
+  maxFoods:    40           # candidates sent to the model
+  minCoverage: 40           # % of a range's calories a nutrient group must be measured
+                            # from before a low value counts as a deficit at all
+  debug:       false        # log the raw model answer
+
 defaultSettings:            # see also users > settings.yml
 
   currency:       "EUR"     # currently EUR or USD

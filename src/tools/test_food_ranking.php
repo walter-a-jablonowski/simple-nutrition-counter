@@ -211,13 +211,21 @@ check('untyped food is a contributor', in_array('Untyped', array_column( $salt, 
 check('contributor value',  $salt[0]['perDay'] === 6.0, (string) $salt[0]['perDay']);
 check('food with none of it is out', ! in_array('Allrounder', array_column( $salt, 'food')));
 
-// 7) maxFoods cuts the list
+// 7) The foods that have no panel, biggest first - what a data note is made of
+
+$untyped = array_column( $result['untyped'], 'food');
+
+check('untyped foods listed', $untyped === ['Untyped'], implode(', ', $untyped));
+check('typed foods are not in it', ! in_array('Daily', $untyped));
+check('untyped carries its calories', $result['untyped'][0]['caloriesPerDay'] === 500);
+
+// 8) maxFoods cuts the list
 
 $short = (new FoodRanking( $layout, $foods, 2))->select( $report );
 check('maxFoods cuts', count( $short['candidates']) === 2, count( $short['candidates']) . ' candidates');
 check('maxFoods keeps the best', $short['candidates'][0]['food'] === 'Allrounder');
 
-// 8) Nothing open: no candidates, and no crash
+// 9) Nothing open: no candidates, and no crash
 
 $fine = ['nutrients' => [ row('vit', 'A', 'Vitamin A', 1, 0.8, 1, 1.5)], 'byFood' => []];
 $none = (new FoodRanking( $layout, $foods, 40))->select( $fine );

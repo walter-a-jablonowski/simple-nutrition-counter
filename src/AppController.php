@@ -39,6 +39,7 @@ class AppController extends ControllerBase
   use MoveFoodAjaxController;
   use PublishFoodsAjaxController;
   use GetAgentTokenAjaxController;
+  use GetAdviceAjaxController;
 
   const DAY_HEADERS     = DAY_FILE_HEADERS;   // see lib/helper.php, the day file layout
   const NUTRIENT_GROUPS = ['lipids/fattyAcids', 'carbs', 'aminoAcids', 'vitamins', 'minerals', 'secondary', 'misc'];
@@ -77,14 +78,21 @@ class AppController extends ControllerBase
   }
 
 
-  public function render(/* $request */)
+  /*@
+
+  loadNutritionModels()
+
+  The nutrition models: which foods exist, what they contain, and what the daily
+  targets are.
+
+  Its own method because the page is not the only caller. An ajax call gets a bare
+  controller - index.php runs dispatch(), never render() - and the advisor needs the
+  same four models the nutrients tab is built from.
+
+  */
+  private function loadNutritionModels() : void  /*@*/
   {
-    $config = config::instance();
-    $user   = User::current();
-
-    $this->date = $_GET['date'] ?? date('Y-m-d');  // TASK: (advanced) is request
-
-    // Nutrients model
+    $user = User::current();
 
     $this->nutrientsModel = new SimpleData();
 
@@ -100,9 +108,22 @@ class AppController extends ControllerBase
     foreach( Yaml::parse( file_get_contents("data/bundles/Default_$user->id/nutrients/-this.yml")) as $name => $nutrient )
       $this->nutrientsModel->set( $name, $nutrient );
 
-    // Combined foods and supplements model
+    $this->makeCombinedModel();    // foods and supplements, defaults merged
+    $this->makeLayoutView();       // every amount of every food, pre calculated
+    $this->makeNutrientsView();    // the bounds per nutrient, and $this->captions
+  }
 
-    $this->makeCombinedModel();
+
+  public function render(/* $request */)
+  {
+    $config = config::instance();
+    $user   = User::current();
+
+    $this->date = $_GET['date'] ?? date('Y-m-d');  // TASK: (advanced) is request
+
+    // Nutrients, foods and the food grid
+
+    $this->loadNutritionModels();
 
     // Edit tab: Day entries
 
@@ -125,7 +146,6 @@ class AppController extends ControllerBase
 
     // Edit tab: Food list
 
-    $this->makeLayoutView();
     $this->layout = Yaml::parse( file_get_contents("data/bundles/Default_$user->id/layout.yml"));
 
     foreach( $this->layout as $tab => $layout )
@@ -142,10 +162,6 @@ class AppController extends ControllerBase
         }
       }
     }
-
-    // Nutrients tab
-
-    $this->makeNutrientsView();
 
     // Signal colors of the summary widgets
 

@@ -1,0 +1,25 @@
+{
+  "summary": "Über 30 Tage liegen Ballaststoffe, Kalzium und Kalium deutlich unter dem Ziel, und die Vitamine B1, B2 und B6 sind knapp. Vitamin B12 und Biotin liegen durch die Supplemente weit über der Obergrenze. Die letzten sieben Tage sehen bei den Aminosäuren besser aus als der Monat.",
+  "dataNotes": [
+    "Fettsäuren lassen sich noch gar nicht messen - kein einziger Eintrag trägt Werte dafür.",
+    "Quark R und Toasties R Bio liefern Kalorien ohne Nährstofftabelle; ein Typ dafür würde die Abdeckung merklich heben."
+  ],
+  "deficits": [
+    { "nutrient": "Fibre",   "comment": "18 g statt 40 g - das ist weniger als die Hälfte." },
+    { "nutrient": "Calcium", "comment": "0.25 g gegen 1 g, der grösste Abstand im ganzen Monat." },
+    { "nutrient": "Potassium", "comment": "1 g statt 4 g, hier hilft Gemüse am schnellsten." }
+  ],
+  "excesses": [
+    { "nutrient": "Vitamin B12", "comment": "Kommt fast vollständig aus den B-Präparaten." },
+    { "nutrient": "Vitamin C",   "comment": "Vit C Abtei M allein bringt 150 mg pro Tag." }
+  ],
+  "recommended": [
+    { "food": "Brokkoli R",   "amount": "100g", "because": ["Fibre", "Calcium", "Vitamin K"], "comment": "Deckt drei Lücken auf einmal." },
+    { "food": "Linsen R Bio", "amount": "1/3",  "because": ["Fibre", "Potassium"],            "comment": "Passt zum Veggie-Bowl-Muster." },
+    { "food": "Mandel R Bio", "amount": "25g",  "because": ["Calcium", "Fibre"],              "comment": "Kleine Menge, viel Kalzium." },
+    { "food": "Gibt es nicht", "amount": "1",   "because": ["Fibre"],                          "comment": "Erfunden, muss verworfen werden." }
+  ],
+  "avoid": [
+    { "food": "Vit C Abtei M", "amount": "", "because": ["Vitamin C"], "comment": "Hauptquelle des Vitamin-C-Überschusses." }
+  ]
+}

@@ -111,8 +111,8 @@ score   = net / max(kcal,100) * 100 / (1 + 0.15*eaten)
 | 1 `NutrientReport` | done — `tools/test_nutrient_report.php` |
 | 2 `FoodRanking` | done — `tools/test_food_ranking.php` |
 | 3 `GeminiClient` move | done — `lib/ai/GeminiClient.php` |
-| 4 analyse call + ajax + cache | next — first step that costs money |
-| 5 modal + controller + nav | |
+| 4 analyse call + ajax + cache | done — `tools/test_advisor.php` |
+| 5 modal + controller + nav | next |
 | 6 menus | |
 | 7 voice tool | |
 
@@ -131,6 +131,20 @@ mean the same thing by "7 days".
 - Effect: `fat` on the amount buttons 1 → 80 foods, every other group unchanged
 - Guarded by `tools/test_food_defaults_merge.php`
 
+
+## Step 4 notes
+
+- Prompt is ~26 000 chars (~6.5k tokens) + 4k system; tables, not json
+- Ranked on the **longest** range; the short one is a column so the model can note a change
+- Unmeasurable rows are out of the table and listed under "Not measurable" — a group where
+  only some nutrients are out names them (`Carbs (Sugar)`), or a fine value gets written off
+- `fromAnswer()` **drops any food name it was not given** and reports it as a warning —
+  the shortlist's whole point; a name the app does not know could not be logged
+- Cache: `data/users/<id>/advice/<date>.yml`, keyed by a hash of report + selection, so
+  logging another food invalidates it. No expiry to get wrong
+- `AppController::loadNutritionModels()` — an ajax call gets a bare controller,
+  `index.php` runs `dispatch()` and never `render()`. No other handler needed the models
+- `php tools/test_advisor.php --prompt` prints the real prompt for free, `--live` calls
 
 ## Config
 

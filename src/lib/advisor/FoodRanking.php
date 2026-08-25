@@ -63,6 +63,10 @@ class FoodRanking  /*@*/
 
   const MAX_CONTRIBUTORS = 5;
 
+  // Panel-less foods named as the reason a group could not be measured
+
+  const MAX_UNTYPED = 10;
+
   // Food fields that say something about whether a food should be recommended at all
 
   const FLAGS = ['state', 'acceptable', 'careful', 'noUseIf', 'limit', 'comment'];
@@ -94,6 +98,7 @@ class FoodRanking  /*@*/
     excesses:     nutrient rows over their upper bound
     candidates:   scored foods, best first, at most maxFoods
     contributors: excess nutrient short => the foods it came from
+    untyped:      logged foods that carry no panel, biggest first
 
   */
   public function select( array $report ) : array  /*@*/
@@ -105,8 +110,33 @@ class FoodRanking  /*@*/
       'deficits'     => $deficits,
       'excesses'     => $excesses,
       'candidates'   => $this->candidates( $report, $deficits, $excesses ),
-      'contributors' => $this->contributors( $report, $excesses )
+      'contributors' => $this->contributors( $report, $excesses ),
+      'untyped'      => $this->untyped( $report )
     ];
+  }
+
+
+  /*@
+
+  The logged foods that carry no reference panel, most calories first.
+
+  This is what turns the coverage number into something the user can act on: a group
+  reads low because these foods contribute calories but no vitamins, and giving the
+  biggest of them a `type` is what raises it. Names only - there is nothing to report
+  about a food whose values are unknown
+
+  */
+  private function untyped( array $report ) : array  /*@*/
+  {
+    $foods = [];
+
+    foreach( $report['byFood'] ?? [] as $name => $food )
+      if( empty( $this->combinedModel->get("$name.type")))
+        $foods[] = ['food' => $name, 'caloriesPerDay' => $food['calories'], 'eaten' => $food['count']];
+
+    usort( $foods, fn( $a, $b) => $b['caloriesPerDay'] <=> $a['caloriesPerDay']);
+
+    return array_slice( $foods, 0, self::MAX_UNTYPED);
   }
 
 
