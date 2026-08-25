@@ -334,10 +334,10 @@ analysis, so it never re-runs the first call.
 | `src/models/functions.php` | step 1 — `range_dates()`, moved out of the ajax trait ✔ |
 | `src/ajax/get_range_nutrients.php` | step 1 — uses both, its private `rangeDates()` is gone ✔ |
 | `src/tools/test_range_nutrients.php` | step 1 — follows the move ✔ |
-| `src/AppController.php` | step 1 — `DAY_HEADERS = DAY_FILE_HEADERS` ✔ ; later `use GetAdviceAjaxController` |
+| `src/AppController.php` | step 1 — `DAY_HEADERS = DAY_FILE_HEADERS` ✔ ; step 4 — `use GetAdviceAjaxController` + `loadNutritionModels()` ✔ |
 | `src/lib/food_import/PhotoImporter.php` | require path of the moved client |
 | `src/tools/test_photo_import.php` | same |
-| `src/config.yml` | `advisor:` block |
+| `src/config.yml` | step 4 — `advisor:` block ✔ |
 | `src/view/-this.php` | nav entry (sidebar + mobile, right of the mic), modal include, script, instantiation |
 | `src/VoiceAgentController.js` | `analyseNutrition` declaration + handler |
 | `src/data/agent/prompt.md` | the tool's wording |
@@ -351,15 +351,15 @@ analysis, so it never re-runs the first call.
 | `src/lib/ai/GeminiClient.php` | step 3 — moved from `lib/food_import/GeminiVisionClient.php`, `temperature` and `maxOutputTokens` are `$options` now ✔ |
 | `src/lib/advisor/NutrientReport.php` | step 1 — intake vs targets per range, coverage per group ✔ |
 | `src/lib/advisor/FoodRanking.php` | step 2 — deficit vector -> scored candidates ✔ |
-| `src/lib/advisor/NutritionAdvisor.php` | prompts, schemas, answer mapping |
-| `src/ajax/get_advice.php` | both steps, plus the cache |
-| `src/data/advisor/analysis_prompt.md` | system instruction, call 1 |
+| `src/lib/advisor/NutritionAdvisor.php` | step 4 — prompt, schema, answer mapping ✔ |
+| `src/ajax/get_advice.php` | step 4 — the analyse step and the cache ✔ |
+| `src/data/advisor/analysis_prompt.md` | step 4 — system instruction, call 1 ✔ |
 | `src/data/advisor/menu_prompt.md` | system instruction, call 2 |
 | `src/AdvisorController.js` | panel, both steps, the row actions |
 | `src/view/modal/advisor.php` | the panel markup |
 | `src/style/advisor.css` | its styles, next to `agent.css` |
 | `src/tools/test_nutrient_report.php` | step 1 — offline, the report maths against fixture day files ✔ |
-| `src/tools/test_advisor.php` | offline, replays a recorded answer through the mapping |
+| `src/tools/test_advisor.php` | step 4 — offline, replays a recorded answer; `--prompt` and `--live` ✔ |
 
 `GeminiVisionClient` moves because a second feature now uses it and it was never about
 food or about images. Its name is the only thing that said otherwise.
@@ -465,7 +465,9 @@ php tools/test_food_defaults_merge.php   # step 0, offline
 php tools/test_nutrient_report.php       # step 1, offline, no network, no cost
 php tools/test_range_nutrients.php       # must still pass, range_dates() moved
 php tools/test_food_ranking.php          # step 2, offline
-php tools/test_advisor.php               # offline, replays a recorded answer
+php tools/test_advisor.php               # step 4, offline, replays a recorded answer
+php tools/test_advisor.php --prompt      # the real prompt, free
+php tools/test_advisor.php --live        # one real call, costs money
 php tools/test_layout_view.php           # must still pass
 php tools/test_widget_ranges.php         # same
 ```
@@ -490,13 +492,26 @@ Note: `tools/test_layout_functions.php` has one unrelated pre-existing failure
 | 1 | **done** — `NutrientReport` + `tools/test_nutrient_report.php`. Useful on its own — it says whether the analysis can be trusted at all |
 | 2 | **done** — `FoodRanking`, tested against a hand made deficit vector |
 | 3 | **done** — moved to `lib/ai/GeminiClient.php`, `extract()` → `ask()` with an `$options` array, require paths fixed |
-| 4 | `NutritionAdvisor` call 1 + `ajax/get_advice.php` + cache + `tools/test_advisor.php` |
+| 4 | **done** — `NutritionAdvisor` call 1 + `ajax/get_advice.php` + cache + `tools/test_advisor.php` |
 | 5 | `#advisorModal`, `AdvisorController`, nav entries |
 | 6 | Call 2, the menus, and the menu cards |
 | 7 | Voice tool + prompt + `dev/AI/tools.md` |
 
 Steps 1 and 2 produce no model call and no cost, and they are where the feature is either
 honest or not. Nothing after step 4 changes what the numbers say.
+
+
+### What step 4 turned up
+
+- **An ajax call gets a bare controller.** `index.php` runs `dispatch()` and never
+  `render()`, so `nutrientsView`, `layoutView`, `combinedModel` and `captions` were
+  uninitialised typed properties — no handler had ever needed them. `render()`'s setup is
+  now `loadNutritionModels()`, called by both.
+- **"Not measurable" had to be per nutrient, not per group.** Grouping by group name wrote
+  off Fibre (100 % coverage) because Sugar in the same group sits at 31 %. A group is named
+  whole only when all of it is out, otherwise the nutrients are named: `Carbs (Sugar)`.
+- Prompt size on the real data: ~26 000 chars, roughly 6.5k tokens, plus 4k of system
+  instruction. Tables, not json.
 
 
 ## 14. Open points
