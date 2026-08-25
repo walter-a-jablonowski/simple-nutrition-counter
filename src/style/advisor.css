@@ -1,0 +1,94 @@
+/*
+
+The nutrition advisor's panel, see AdvisorController.js
+
+*/
+
+.advisor-range {
+  color: #6c757d;
+  font-size: 0.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.advisor-summary {
+  margin-bottom: 1rem;
+}
+
+.advisor-section {
+  margin-bottom: 1rem;
+}
+
+.advisor-section-title {
+  border-bottom: 1px solid #dee2e6;
+  color: #e95420;
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+  padding-bottom: 0.15rem;
+}
+
+.advisor-row {
+  margin-bottom: 0.6rem;
+}
+
+.advisor-nutrient {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.advisor-figure {
+  color: #6c757d;
+  font-size: 0.85rem;
+}
+
+.advisor-comment {
+  font-size: 0.9rem;
+}
+
+/* The food rows carry two buttons, so the name has to give way on a narrow screen */
+
+.advisor-food-head {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.advisor-food-name {
+  font-weight: bold;
+}
+
+.advisor-amount {
+  background-color: #f1f1f1;
+  border-radius: 0.25rem;
+  color: #495057;
+  font-size: 0.85rem;
+  padding: 0.05rem 0.4rem;
+}
+
+.advisor-btn {
+  line-height: 1.1;
+  padding: 0.1rem 0.45rem;
+}
+
+.advisor-food-head .advisor-btn:first-of-type {
+  margin-left: auto;   /* the actions sit at the right edge, the name keeps the left */
+}
+
+.advisor-because {
+  color: #6c757d;
+  font-size: 0.8rem;
+}
+
+.advisor-note,
+.advisor-warning {
+  font-size: 0.9rem;
+  margin-bottom: 0.35rem;
+}
+
+.advisor-warning {
+  color: #b02a37;
+}
+
+.advisor-status {
+  color: #6c757d;
+}

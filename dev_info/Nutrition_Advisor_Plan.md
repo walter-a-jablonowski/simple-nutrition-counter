@@ -355,9 +355,9 @@ analysis, so it never re-runs the first call.
 | `src/ajax/get_advice.php` | step 4 — the analyse step and the cache ✔ |
 | `src/data/advisor/analysis_prompt.md` | step 4 — system instruction, call 1 ✔ |
 | `src/data/advisor/menu_prompt.md` | system instruction, call 2 |
-| `src/AdvisorController.js` | panel, both steps, the row actions |
-| `src/view/modal/advisor.php` | the panel markup |
-| `src/style/advisor.css` | its styles, next to `agent.css` |
+| `src/AdvisorController.js` | step 5 — panel, the analyse step, the row actions ✔ |
+| `src/view/modal/advisor.php` | step 5 — the panel markup ✔ |
+| `src/style/advisor.css` | step 5 — its styles, next to `agent.css` ✔ |
 | `src/tools/test_nutrient_report.php` | step 1 — offline, the report maths against fixture day files ✔ |
 | `src/tools/test_advisor.php` | step 4 — offline, replays a recorded answer; `--prompt` and `--live` ✔ |
 
@@ -420,7 +420,7 @@ use today, foods behind the excess, then the menus once asked for.
 | Element | Action |
 |---|---|
 | recommended food row | "Show" → `mainCrl.jumpToFood()` |
-| recommended food row | amount button → `mainCrl.logFoods()` |
+| recommended food row | Log → taps the grid's own amount button (`btn.click()`) |
 | "Make menus" | call 2, appends the menu cards |
 | menu card | "Log this" → `mainCrl.logFoods()` with every ingredient |
 | menu card | `taste` ingredients marked, so the added ones are visible |
@@ -468,6 +468,7 @@ php tools/test_food_ranking.php          # step 2, offline
 php tools/test_advisor.php               # step 4, offline, replays a recorded answer
 php tools/test_advisor.php --prompt      # the real prompt, free
 php tools/test_advisor.php --live        # one real call, costs money
+node tools/test_advisor_panel.mjs        # step 5, renders the real payload
 php tools/test_layout_view.php           # must still pass
 php tools/test_widget_ranges.php         # same
 ```
@@ -493,7 +494,7 @@ Note: `tools/test_layout_functions.php` has one unrelated pre-existing failure
 | 2 | **done** — `FoodRanking`, tested against a hand made deficit vector |
 | 3 | **done** — moved to `lib/ai/GeminiClient.php`, `extract()` → `ask()` with an `$options` array, require paths fixed |
 | 4 | **done** — `NutritionAdvisor` call 1 + `ajax/get_advice.php` + cache + `tools/test_advisor.php` |
-| 5 | `#advisorModal`, `AdvisorController`, nav entries |
+| 5 | **done** — `#advisorModal`, `AdvisorController`, nav entries |
 | 6 | Call 2, the menus, and the menu cards |
 | 7 | Voice tool + prompt + `dev/AI/tools.md` |
 

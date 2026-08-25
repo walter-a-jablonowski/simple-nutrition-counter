@@ -14,6 +14,7 @@
   <link href="style/app.css?v=<?= time() ?>"   rel="stylesheet">
   <link href="style/charts.css?v=<?= time() ?>" rel="stylesheet">
   <link href="style/agent.css?v=<?= time() ?>"  rel="stylesheet">
+  <link href="style/advisor.css?v=<?= time() ?>" rel="stylesheet">
 
 </head>
 <body class="<?= User::current('settings.hideScrollbars') ? 'no-scrollbars' : '' ?>">
@@ -60,6 +61,13 @@ else:
       <!-- Bottom: info + settings -->
 
       <ul class="navbar-nav">
+        <?php if( config::get('advisor.enabled') ): ?>
+          <li class="nav-item">
+            <a onclick="advisorCrl.open(event)" class="nav-link" href="#" title="Nutrition advice">
+              <i class="bi bi-lightbulb"></i>
+            </a>
+          </li>
+        <?php endif; ?>
         <?php if( config::get('agent.enabled') ): ?>
           <li class="nav-item">
             <a onclick="voiceCrl.toggle(event)" class="nav-link js-agentBtn" href="#" title="Voice assistant">
@@ -109,6 +117,11 @@ else:
         <?php if( config::get('agent.enabled') ): ?>
           <a onclick="voiceCrl.toggle(event)" class="nav-link js-agentBtn" href="#" title="Voice assistant">
             <i class="bi bi-mic"></i>
+          </a>
+        <?php endif; ?>
+        <?php if( config::get('advisor.enabled') ): ?>
+          <a onclick="advisorCrl.open(event)" class="nav-link" href="#" title="Nutrition advice">
+            <i class="bi bi-lightbulb"></i>
           </a>
         <?php endif; ?>
         <!-- Info + settings collapsed into one "..." menu to free nav space;
@@ -320,6 +333,9 @@ else:
   <?php if( config::get('agent.enabled') ): ?>
     <?php require( __DIR__ . '/modal/agent_overlay.php'); ?>
   <?php endif; ?>
+  <?php if( config::get('advisor.enabled') ): ?>
+    <?php require( __DIR__ . '/modal/advisor.php'); ?>
+  <?php endif; ?>
   <?php if( config::get('devMode') ): ?>
     <?php require( __DIR__ . '/modal/publish_foods.php'); ?>
   <?php endif; ?>
@@ -361,12 +377,13 @@ else:
 <script src="AgentOverlayController.js?v=<?= time() ?>"></script>
 <script src="VoiceAgentController.js?v=<?= time() ?>"></script>
 <script src="FoodPhotoController.js?v=<?= time() ?>"></script>
+<script src="AdvisorController.js?v=<?= time() ?>"></script>
 <!-- <script src="SettingsController.js?v=<?= time() ?>"></script> -->
 <script>
 
 // ajax.file = 'ajax.php'
 
-var dayEntries, mainCrl, widgetsCrl, chartsCrl, dropMenu, voiceCrl, agentOverlay, foodPhotoCrl
+var dayEntries, mainCrl, widgetsCrl, chartsCrl, dropMenu, voiceCrl, agentOverlay, foodPhotoCrl, advisorCrl
 
 ready( function() {
 
@@ -390,6 +407,10 @@ ready( function() {
 
   <?php if( config::get('photoImport.enabled') ): ?>
     foodPhotoCrl = new FoodPhotoController()   // needs its markup, so it is gated too
+  <?php endif; ?>
+
+  <?php if( config::get('advisor.enabled') ): ?>
+    advisorCrl = new AdvisorController()       // needs its markup, so it is gated too
   <?php endif; ?>
 
   setupTabletErrorHandler()

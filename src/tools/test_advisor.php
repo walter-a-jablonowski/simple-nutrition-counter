@@ -207,7 +207,46 @@ $result = NutritionAdvisor::fromAnswer(
 check('case insensitive match', ($result['advice']['recommended'][0]['food'] ?? '') === 'Brokkoli R',
       json_encode( $result['advice']['recommended']));
 
-// 4) A truncated or empty answer must not look like a good one
+/* 4) The payload the panel gets. Its shape is a contract between the ajax handler and
+      AdvisorController, written in two languages, so the fields the panel reads are
+      listed here and the file is handed to tools/test_advisor_panel.mjs to render */
+
+require_once 'lib/frm/Controller_240323/ControllerBase.php';
+require_once 'AppController.php';
+
+$app   = new AppController();
+$panel = new ReflectionMethod('AppController', 'reportForPanel');
+$panel->setAccessible( true );
+
+$report30 = $report;
+$payload  = [
+  'advice'   => NutritionAdvisor::fromAnswer(
+                  json_decode( file_get_contents('tools/advisor/response_good.json'), true), $known )['advice'],
+  'warnings' => ['The model named a food that does not exist: "Gibt es nicht".'],
+  'report'   => $panel->invoke( $app, [$short, $report30], $selection ),
+  'cached'   => false
+];
+
+foreach( ['range', 'days', 'daysWithData', 'coverage', 'macros', 'deficits', 'excesses', 'candidates'] as $field )
+  check("payload report.$field", array_key_exists( $field, $payload['report']), implode(', ', array_keys( $payload['report'])));
+
+foreach( ['nutrient', 'unit', 'perDay', 'ideal', 'coverage'] as $field )
+  check("payload deficit.$field", array_key_exists( $field, $payload['report']['deficits'][0] ?? []),
+        json_encode( $payload['report']['deficits'][0] ?? null));
+
+foreach( ['nutrient', 'unit', 'perDay', 'upper'] as $field )
+  check("payload excess.$field", array_key_exists( $field, $payload['report']['excesses'][0] ?? []),
+        json_encode( $payload['report']['excesses'][0] ?? null));
+
+check('payload names the deficit the advice names',
+      ($payload['report']['deficits'][0]['nutrient'] ?? '') === 'Fibre'
+      && in_array('Fibre', array_column( $payload['advice']['deficits'], 'nutrient')));
+
+file_put_contents('tools/advisor/payload_good.json', json_encode( $payload, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+
+check('payload written for the panel test', is_file('tools/advisor/payload_good.json'));
+
+// 5) A truncated or empty answer must not look like a good one
 
 $result = NutritionAdvisor::fromAnswer([], []);
 

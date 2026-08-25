@@ -112,8 +112,8 @@ score   = net / max(kcal,100) * 100 / (1 + 0.15*eaten)
 | 2 `FoodRanking` | done — `tools/test_food_ranking.php` |
 | 3 `GeminiClient` move | done — `lib/ai/GeminiClient.php` |
 | 4 analyse call + ajax + cache | done — `tools/test_advisor.php` |
-| 5 modal + controller + nav | next |
-| 6 menus | |
+| 5 modal + controller + nav | done — `tools/test_advisor_panel.mjs` |
+| 6 menus | next |
 | 7 voice tool | |
 
 Step 1 also moved two shared things out of the way: `read_day_file()` +
@@ -149,6 +149,15 @@ mean the same thing by "7 days".
 - `AppController::loadNutritionModels()` — an ajax call gets a bare controller,
   `index.php` runs `dispatch()` and never `render()`. No other handler needed the models
 - `php tools/test_advisor.php --prompt` prints the real prompt for free, `--live` calls
+
+## Step 5 notes
+
+- `#advisorModal` + `AdvisorController.js` + `style/advisor.css`; nav gated on `advisor.enabled` alone
+- **Logging taps the grid's own amount button** (`btn.click()`) rather than `logFoodAmount()` — the advisor names an amount the food offers ("1/3"), so this reproduces the entry a finger would make, label and all, with no label→value+unit parsing
+- "Show" closes the modal first, then `widgetsCrl.switchToNav('day')` + `mainCrl.jumpToFood()` — the grid must be visible to scroll
+- Everything the model wrote goes on the page as `textContent`, never `innerHTML`
+- A nutrient the model names that the report does not carry shows its comment without figures, rather than breaking the row
+- `tools/test_advisor_panel.mjs` renders the **real payload** (written by `test_advisor.php`) through the real controller against a small fake dom — the payload shape is a contract in two languages and nothing else runs both
 
 ## Config
 
