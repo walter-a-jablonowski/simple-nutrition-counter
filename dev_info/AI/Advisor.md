@@ -135,6 +135,10 @@ mean the same thing by "7 days".
 ## Step 4 notes
 
 - Prompt is ~26 000 chars (~6.5k tokens) + 4k system; tables, not json
+- **Model: `gemini-3.6-flash`.** There is no `gemini-3.6-pro` — a guessed id cost a 404 on
+  the first live run. `php tools/test_photo_import.php --models` lists what exists
+- First live run was good: every food name exact (no warnings), diet rules obeyed — it
+  skipped the salami and kebab that top the shortlist — no diagnosis, German throughout
 - Ranked on the **longest** range; the short one is a column so the model can note a change
 - Unmeasurable rows are out of the table and listed under "Not measurable" — a group where
   only some nutrients are out names them (`Carbs (Sugar)`), or a fine value gets written off
@@ -151,7 +155,7 @@ mean the same thing by "7 days".
 ```yaml
 advisor:
   enabled:     true
-  model:       "gemini-3.6-pro"   # reasoning task, runs rarely
+  model:       "gemini-3.6-flash" # same as the photo import; list ids, never recall them
   ranges:      [7, 30]
   maxFoods:    40
   minCoverage: 40                 # % of calories a group needs to count

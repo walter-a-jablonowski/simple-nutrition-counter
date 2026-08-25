@@ -48,8 +48,10 @@ photoImport:                # create a food from pictures of the packaging (Gemi
 advisor:                    # AI nutrition advisor, see dev_info/Nutrition_Advisor_Plan.md
 
   enabled:     true         # false hides the nav entry and the voice tool
-  model:       "gemini-3.6-pro"   # reasoning over ~50 nutrient rows, runs rarely - flash
-                                  # is the wrong trade here. Must support generateContent
+  model:       "gemini-3.6-flash"  # same as the photo import, must support generateContent
+                                   # (the Live model of the voice agent does not).
+                                   # List the ids, never recall them - they change often:
+                                   #   php tools/test_photo_import.php --models
   ranges:      [7, 30]      # days, both are analysed; the longest picks the foods
   maxFoods:    40           # candidates sent to the model
   minCoverage: 40           # % of a range's calories a nutrient group must be measured

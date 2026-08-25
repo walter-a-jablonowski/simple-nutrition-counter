@@ -21,7 +21,7 @@ decides what to log. See dev_info/Nutrition_Advisor_Plan.md
 class NutritionAdvisor  /*@*/
 {
   const PROMPT_FILE   = 'data/advisor/analysis_prompt.md';
-  const DEFAULT_MODEL = 'gemini-3.6-pro';   // reasoning, not transcription - see config.yml
+  const DEFAULT_MODEL = 'gemini-3.6-flash';   // must support generateContent, see config.yml
 
   // Warmer than the photo import, which transcribes. This one writes prose and picks
   // between foods that score nearly the same, and 0 makes that read mechanical

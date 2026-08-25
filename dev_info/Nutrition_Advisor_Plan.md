@@ -449,7 +449,7 @@ list out. If no session is running the panel simply opens.
 advisor:                    # AI nutrition advisor, see dev_info/Nutrition_Advisor_Plan.md
 
   enabled:     true         # false hides the nav entry and the voice tool
-  model:       "gemini-3.6-pro"   # reasoning task, runs rarely - flash is the wrong trade here
+  model:       "gemini-3.6-flash" # must support generateContent; list the ids, never recall
   ranges:      [7, 30]      # days, both are analysed
   maxFoods:    40           # candidates sent to the model
   minCoverage: 40           # % of calories a group must be measured from to count
@@ -502,6 +502,17 @@ honest or not. Nothing after step 4 changes what the numbers say.
 
 
 ### What step 4 turned up
+
+- **`gemini-3.6-pro` does not exist.** Written into the config default from memory, it cost a
+  404 on the very first live call. There is no `-pro` in the 3.x line at all. The model is
+  `gemini-3.6-flash`, the same one the photo import uses, and the claim that flash was "the
+  wrong trade here" was asserted without evidence — it handles the whole report, the
+  shortlist and the prose diet rules. `php tools/test_photo_import.php --models` lists what
+  actually exists.
+- **The first live answer was good.** Every food name exact, so nothing was dropped; the
+  diet rules were obeyed — it skipped the salami, kebab and gyros that top the shortlist by
+  score alone and picked legumes, vegetables, nuts and chicken breast; no diagnosis; German
+  throughout; supplements correctly named as the source of the B12 and magnesium excess.
 
 - **An ajax call gets a bare controller.** `index.php` runs `dispatch()` and never
   `render()`, so `nutrientsView`, `layoutView`, `combinedModel` and `captions` were
