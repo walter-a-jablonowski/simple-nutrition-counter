@@ -114,7 +114,7 @@ score   = net / max(kcal,100) * 100 / (1 + 0.15*eaten)
 | 4 analyse call + ajax + cache | done — `tools/test_advisor.php` |
 | 5 modal + controller + nav | done — `tools/test_advisor_panel.mjs` |
 | 6 menus | done — second call, `tools/advisor/menus_good.json` |
-| 7 voice tool | next |
+| 7 voice tool | done — `analyseNutrition` |
 
 Step 1 also moved two shared things out of the way: `read_day_file()` +
 `DAY_FILE_HEADERS` into `lib/helper.php`, and `range_dates()` out of the
@@ -169,6 +169,13 @@ mean the same thing by "7 days".
 - Menus are cached in the same day file under the same key; the button then re-rolls (`refresh`)
 - Instructions and ingredients must agree: the ingredient list is the whole dish (oil, garlic included), the prose stays in ordinary words. Both rules together took three live runs to get right — stating either one alone broke the other
 - The taste rule is in the prompt, not enforced in code — dropping an ingredient would mangle the dish. The check runs will show whether it holds
+
+## Step 7 notes
+
+- `analyseNutrition`, no arguments. Opens the same panel the nav button opens, so no voice session is needed for the panel to work
+- **Answers `running` at once.** A pending toolCall keeps the model silent, and the call behind it runs half a minute — the same reason `showChoices` does not wait, but it matters more here
+- The summary comes back through `voiceCrl.sendUserTurn()` from `AdvisorController.#run()`, the way a tap on the agent overlay does. Only the summary: the lists are on screen and the prompt tells the agent not to read them out
+- The overlay is hidden by `handleToolCall` and hiding is animated, so the panel waits for `hidden.bs.modal` before opening — two stacked backdrops leave the page dead
 
 ## Config
 

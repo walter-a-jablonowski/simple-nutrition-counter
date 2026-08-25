@@ -339,9 +339,9 @@ analysis, so it never re-runs the first call.
 | `src/tools/test_photo_import.php` | same |
 | `src/config.yml` | step 4 — `advisor:` block ✔ |
 | `src/view/-this.php` | nav entry (sidebar + mobile, right of the mic), modal include, script, instantiation |
-| `src/VoiceAgentController.js` | `analyseNutrition` declaration + handler |
-| `src/data/agent/prompt.md` | the tool's wording |
-| `dev/AI/tools.md` | new tool row |
+| `src/VoiceAgentController.js` | step 7 — `analyseNutrition` declaration + handler ✔ |
+| `src/data/agent/prompt.md` | step 7 — the tool's wording ✔ |
+| `dev/AI/tools.md` | step 7 — new tool row ✔ |
 
 ### New
 
@@ -496,7 +496,7 @@ Note: `tools/test_layout_functions.php` has one unrelated pre-existing failure
 | 4 | **done** — `NutritionAdvisor` call 1 + `ajax/get_advice.php` + cache + `tools/test_advisor.php` |
 | 5 | **done** — `#advisorModal`, `AdvisorController`, nav entries |
 | 6 | **done** — call 2, the menus, and the menu cards |
-| 7 | Voice tool + prompt + `dev/AI/tools.md` |
+| 7 | **done** — voice tool + prompt + `dev/AI/tools.md` |
 
 Steps 1 and 2 produce no model call and no cost, and they are where the feature is either
 honest or not. Nothing after step 4 changes what the numbers say.

@@ -424,6 +424,14 @@ class VoiceAgentController
         description: 'Take back everything the last logFoods call added. Only for "scrap that" '
                    + 'right after logging. To fix a named entry use updateEntry or removeEntry.',
         parameters: { type: 'OBJECT', properties: {} }
+      },
+      {
+        name: 'analyseNutrition',
+        description: 'Work out what the food of the last weeks has been short of and '
+                   + 'which of their foods would help, and put it on screen. Use it when they ask '
+                   + 'what they are missing, what to eat today, or what to cook. Takes half a '
+                   + 'minute and answers "running" at once - the result reaches you later.',
+        parameters: { type: 'OBJECT', properties: {} }
       }
     ]
   }
@@ -463,6 +471,8 @@ class VoiceAgentController
         response = mainCrl.removeEntry( args.id )
       else if( call.name === 'undoLastLog' )
         response = mainCrl.undoLastLog()
+      else if( call.name === 'analyseNutrition' )
+        response = this.analyseNutrition()
       else
         response = { result: 'error', message: `Unknown tool ${call.name}` }
 
@@ -559,6 +569,41 @@ class VoiceAgentController
 
     return { result: 'shown' }
   }
+
+  /*@
+
+  analyseNutrition()
+
+  Opens the advice panel and answers at once.
+
+  The same reason showChoices does not wait: a pending toolCall keeps the model silent,
+  and this one runs for half a minute. Half a minute of silence sounds broken, and a
+  user who never looks at the screen would hang the conversation for good.
+
+  So the panel does the work and hands the summary back as an ordinary user turn when it
+  has one - see AdvisorController.#run(). If the advisor is switched off there is nothing
+  to open and the model is told so.
+
+  */
+  analyseNutrition() /*@*/
+  {
+    if( typeof advisorCrl === 'undefined' || ! advisorCrl )
+      return { result: 'error', message: 'The nutrition advisor is switched off' }
+
+    // handleToolCall() has just hidden the overlay, and hiding is animated. Opening the
+    // panel into that leaves two backdrops stacked, and the page under them stays dead,
+    // so the panel waits for the overlay to be gone
+
+    const overlay = query('#agentOverlay')
+
+    if( overlay && overlay.classList.contains('show'))
+      overlay.event('hidden.bs.modal', () => advisorCrl.open(), { once: true })
+    else
+      advisorCrl.open()
+
+    return { result: 'running' }
+  }
+
 
   // Microphone
 

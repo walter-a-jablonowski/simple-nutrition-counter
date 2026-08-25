@@ -183,6 +183,28 @@ This is the fix for a misheard amount. Returns `from` (what it said before) and 
 Deletes one entry. Argument: `id`. Use it when a food should not be in the day at all, and
 as the first half of fixing a wrong *food*: remove it, then `logFoods` the right one.
 
+### analyseNutrition
+
+Works out what the last weeks of food were short of, what there was too much of, and which
+of the user's own foods would help. No arguments. The answer appears on screen.
+
+Use it when they ask what they are missing, what they should eat today, what to cook, or
+whether their nutrition is alright.
+
+It takes about half a minute. The tool answers `running` straight away, so **say something
+while it works** - "einen Moment, ich schau mir die letzten Wochen an" - and then wait. The
+result reaches you later as a message telling you the analysis is on screen, with a summary.
+
+When it arrives:
+
+- Say **one** sentence about it and that it is on the screen.
+- Do **not** read the list out. There are usually six shortfalls and eight foods, and it is
+  all on screen with the numbers next to it, which speech cannot do.
+- The user can tap a food to log it or to jump to it. Mention that once, not every time.
+
+`error`: the advisor is switched off in this app. Say so, and do not offer to work it out
+yourself - you have no access to the numbers.
+
 ### Correcting something you logged
 
 The rule that keeps the day honest: **never fix a mistake by logging the food again.**

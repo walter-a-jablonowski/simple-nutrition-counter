@@ -137,7 +137,33 @@ class AdvisorController
 
       this.data = data
       this.#render( data )
+      this.#tellAgent( data )
     })
+  }
+
+
+  /*@
+
+  Hand the summary to the voice agent, if one is listening.
+
+  The agent's analyseNutrition tool answers "running" and cannot wait - a pending
+  toolCall keeps the model silent, and this takes half a minute. So the result arrives
+  the way a tap on the agent overlay does: as an ordinary user turn, which leaves the
+  model the only thing that speaks and keeps the transcript adding up.
+
+  Only the summary goes over. The lists are on screen, and reading them out is what the
+  prompt tells the agent not to do
+
+  */
+  #tellAgent( data ) /*@*/
+  {
+    const summary = data && data.advice && data.advice.summary
+
+    if( ! summary || typeof voiceCrl === 'undefined' || ! voiceCrl )
+      return
+
+    voiceCrl.sendUserTurn('The nutrition analysis is on screen now. Its summary is: '
+                        + summary + ' Say one short sentence about it and point at the screen.')
   }
 
 

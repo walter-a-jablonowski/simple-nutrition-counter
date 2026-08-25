@@ -32,6 +32,12 @@ Correcting the day
 | `removeEntry` | `id` | Deletes one entry, wherever it sits | `removed` + food and amount, or `gone` |
 | `undoLastLog` | - | Takes back everything the last `logFoods` call added | what was removed, or `nothing` |
 
+Advice
+
+| Tool | Arguments | Does | Returns |
+|---|---|---|---|
+| `analyseNutrition` | - | Opens the advice panel, which asks the server what the last weeks were short of | `running` (the summary arrives later as a user turn) |
+
 
 Implementation
 ----------------------------------------------------------
@@ -48,6 +54,7 @@ listDayEntries  -> mainCrl.listDayEntries()
 updateEntry     -> mainCrl.updateEntry()
 removeEntry     -> mainCrl.removeEntry()
 undoLastLog     -> mainCrl.undoLastLog()
+analyseNutrition -> advisorCrl.open()             # AdvisorController.js
 ```
 
 Notes
@@ -55,6 +62,11 @@ Notes
 - Only plain values go back to the model, never the dom nodes the food index carries.
 - `showChoices` answers at once and does not wait for the tap - a pending toolCall keeps
   the model silent, so waiting would freeze the conversation.
+- `analyseNutrition` answers at once for the same reason, and it matters more there: the
+  call behind it runs for half a minute. `AdvisorController` sends the summary back with
+  `voiceCrl.sendUserTurn()` when it has one, so the result reaches the model the way a tap
+  on the overlay does. The panel is the same one the nav button opens, so a session is not
+  needed for it to work.
 - `logFoods` and `updateEntry` share `buildEntry()`, so a correction rescales exactly the
   way the first logging did.
 - Entry ids (`e1`, `e2`, …) live on `li.dataset.uid` for as long as the page does. Rows

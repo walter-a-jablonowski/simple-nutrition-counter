@@ -102,6 +102,9 @@ globalThis.mainCrl = {
 
 globalThis.widgetsCrl = { switchToNav: () => {} }
 
+let spoken = null
+globalThis.voiceCrl = { sendUserTurn: text => spoken = text }
+
 // The controller, loaded the way the browser gets it
 
 new Function( readFileSync('AdvisorController.js', 'utf8') + '\n; globalThis.AdvisorController = AdvisorController')()
@@ -167,13 +170,21 @@ const recRows = walk().filter( n => n.className.includes('advisor-food-name'))
 check('only real foods are rows', recRows.every( n => n._text !== 'Gibt es nicht'),
       recRows.map( n => n._text).join(', '))
 
-// 3) Nothing the model wrote may become markup
+/* 3) The voice agent gets the summary as a user turn. Its tool answered "running" and
+      could not wait - a pending toolCall keeps the model silent for the whole call */
+
+check('the agent is told',       !! spoken, String( spoken ))
+check('it gets the summary',     spoken.includes('Über 30 Tage'), String( spoken ))
+check('and is told to be brief', spoken.includes('one short sentence'), String( spoken ))
+check('the lists stay on screen', ! spoken.includes('Brokkoli R'), String( spoken ))
+
+// 4) Nothing the model wrote may become markup
 
 const markup = walk().filter( n => n._text && /<[a-z/]/i.test( n._text))
 
 check('no node holds markup', markup.length === 0, markup.map( n => n._text).join(' | '))
 
-// 4) The row actions go through MainController
+// 5) The row actions go through MainController
 
 const buttons = walk().filter( n => n.tagName === 'button')
 const logBtn  = buttons.find( n => n._text === 'Log')
@@ -190,7 +201,7 @@ showBtn.onclick( null, showBtn )
 
 check('showing jumps to the food', jumped === 'Brokkoli R', String( jumped ))
 
-// 4c) The menus: asked for, rendered, and logged as a whole
+// 6) The menus: asked for, rendered, and logged as a whole
 
 const menuBtn = walk().filter( n => n.tagName === 'button').find( n => n._text === 'Make menus')
 
@@ -248,7 +259,7 @@ logAll.onclick( null, logAll )
 check('every ingredient logged', logged.length === 4, logged.join(', '))
 check('the button says so',      logAll._text === 'logged', logAll._text)
 
-// 4b) When the report does carry the nutrient, its figures are printed
+// 7) When the report does carry the nutrient, its figures are printed
 
 crl.data = null
 crl.running = false
@@ -267,7 +278,7 @@ const withFigure = text()
 check('excess figures',      withFigure.includes('9 g a day, the range ends at 6'), withFigure)
 check('a cached run says so', withFigure.includes('from the last run'), withFigure)
 
-// 5) An error reaches the screen instead of an empty panel
+// 8) An error reaches the screen instead of an empty panel
 
 crl.running = false
 crl.data    = null
@@ -275,6 +286,16 @@ crl.open()
 globalThis._cb('error', { message: 'Not enough logged yet.' })
 
 check('error is shown', text().includes('Not enough logged yet.'), text())
+
+// An answer without a summary leaves the agent alone rather than saying nothing at it
+
+spoken = null
+crl.running = false
+crl.data    = null
+crl.open()
+globalThis._cb('success', { advice: { summary: '' }, report: {}, warnings: [] })
+
+check('no summary, no turn', spoken === null, String( spoken ))
 
 console.log(`\n  ${pass} passed, ${fail} failed`)
 
