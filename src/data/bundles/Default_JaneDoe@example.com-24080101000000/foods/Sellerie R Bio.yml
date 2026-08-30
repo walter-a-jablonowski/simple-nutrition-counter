@@ -1,4 +1,5 @@
 
+type:              Celery
 vendor:            Rewe
 
 acceptable:        occasionally

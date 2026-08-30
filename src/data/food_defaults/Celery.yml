@@ -1,0 +1,126 @@
+
+# GLM only
+
+# 2608 verified all values from source as far as active in /nutrients
+
+#      The food "Sellerie R Bio" does not state its state (raw / cooked). It is
+#      pickled celery (ingredients: SELLERIE, Wasser, Branntweinessig, Rübenzucker,
+#      Meersalz), so the celery itself is raw - the 44 kcal on the pack come from
+#      the added beet sugar, not from cooking. Weighed the raw entries against the
+#      cooked ones:
+#        2346405 Foundation "Celery, raw"          15-17 kcal,  19 values
+#        169988  SR Legacy  "Celery, raw"          14 kcal,    ~90 values
+#        169989  SR Legacy  "Celery, cooked, boiled, drained, without salt"  18 kcal, 100 values
+#        169342  SR Legacy  "Celery, cooked, boiled, drained, with salt"     (not fetched, same state as 169989)
+#      Took the raw entries: pickled celery is made from raw celery, and the pack
+#      kcal (44) matches neither raw (14-17) nor cooked (18) because of the added
+#      sugar. The cooked entries are cited as unused alternatives.
+#
+#      Default source (2346405, Foundation) is analytical but sparse: proximates
+#      and minerals only, no fibre, no sugar, no fat breakdown, no amino acids, no
+#      vitamins (except B-6), and Iron / Copper / Selenium / Molybdenum at 0.
+#      Fat breakdown, fatty acids, amino acids, vitamins, fibre, sugar and the
+#      minerals that are 0 in the Foundation are taken from the SR Legacy
+#      "Celery, raw" (169988); see per-field comments and sources.
+#      Note: 169988 has 0.69 g protein against the 0.49 g here, so its amino
+#      acids run about 40 % high on this file's protein basis.
+#      Source has no iodine, chromium, biotin, sugar alcohol; these stay 0.
+#      Molybdenum: Foundation 2346405 carries 0.0 µg, SR Legacy 169988 has none.
+
+acceptable:
+comment:
+                              # kcal
+calories:          15         # Atwater Specific 15, Atwater General 17
+
+nutritionalValues:            # g
+
+  fat:             0.16       # total lipid (fat)
+  saturatedFat:    0.042      # from 169988
+  monoUnsaturated: 0.032      # from 169988
+  polyUnsaturated: 0.079      # from 169988
+  carbs:           3.32       # by difference
+  sugar:           1.34       # from 169988, total sugars
+  sugarAlcohol:    0          # not in source
+  fibre:           1.6        # from 169988
+  amino:           0.49       # is protein
+  salt:            0.097      # Sodium 97 mg -> g
+
+fattyAcids:                   # g, but EPA and DHA in mg
+
+  Alpha-linolenic acid: 0     # PUFA 18:3, 0.000 g in 169988
+  Eicosapentaenoic acid: 0    # PUFA 20:5 n-3 (EPA), 0 in 169988
+  Docosahexaenoic acid: 0     # PUFA 22:6 n-3 (DHA), 0 in 169988
+  Linoleic acid:        0.079 # PUFA 18:2, from 169988
+
+carbs:                        # g
+
+  Fibre:         1.6          # from 169988
+
+aminoAcids:                   # mg
+                              # from 169988, source in g
+  Histidine:     12           # 0.012 g -> mg
+  Isoleucine:    21           # 0.021 g -> mg
+  Leucine:       32           # 0.032 g -> mg
+  Lysine:        27           # 0.027 g -> mg
+  Methionine:    5            # 0.005 g -> mg, cystine 0.004 not active in /nutrients
+  Phenylalanine: 20           # 0.020 g -> mg, tyrosine 0.009 not active in /nutrients
+  Threonine:     20           # 0.020 g -> mg
+  Tryptophan:    9            # 0.009 g -> mg
+  Valine:        27           # 0.027 g -> mg
+
+vitamins:                     # mg
+                              # from 169988
+  Vitamin A:     0.022        # Vitamin A, RAE 22 µg -> mg
+  Vitamin D:     0            # Vitamin D (D2 + D3) 0 µg
+  Vitamin E:     0.27         # alpha-tocopherol
+  Vitamin K:     0.0293       # phylloquinone 29.3 µg -> mg
+  Vitamin C:     3.1          # total ascorbic acid
+  Thiamin B1:    0.021
+  Riboflavin B2: 0.057
+  Niacin B3:     0.320
+  Pantothenic acid B5: 0.246
+  Vitamin B6:    0.074
+  Biotin B7:     0            # not in source
+  Folate B9:     0.036        # folate total 36 µg -> mg
+  Vitamin B12:   0            # 0 µg
+
+minerals:                     # default unit: mg except for Salt, Potassium and Calcium where grams need to be used
+
+  Salt:          0.097        # Sodium 97 mg -> g
+  Potassium:     0.265        # 265 mg -> g
+  Calcium:       0.046        # 46 mg -> g
+  Phosphorus:    22           # mg
+  Magnesium:     10.9
+  Iron:          0.20         # from 169988, Foundation has 0.00
+  Iodine:        0            # not in source
+  Fluoride:      0.004        # from 169988, 4.0 µg -> mg
+  Zinc:          0.0929
+  Selenium:      0.0004       # from 169988, 0.4 µg -> mg, Foundation has 0.0
+  Copper:        0.035        # from 169988, Foundation has 0.000
+  Chromium:      0            # not in source
+  Manganese:     0.076
+  Molybdenum:    0            # Foundation 2346405: 0.0 µg, SR Legacy has none
+
+# secondary:
+
+misc:
+
+  water:         95.2         # ml or g
+  alcohol:       0
+  caffeine:      0
+
+sources:
+
+  - title:   Default source (different sources, see above) = Celery, raw (Foundation)
+    comment: analytical but sparse; used for calories, macros, minerals, water
+    source:  https://fdc.nal.usda.gov/food-details/2346405/nutrients
+
+  - title:   Alternative = Celery, raw (SR Legacy)
+    comment: used for fat breakdown, fatty acids, amino acids, vitamins, fibre, sugar, and minerals zero in Foundation
+    source:  https://fdc.nal.usda.gov/food-details/169988/nutrients
+
+  - title:   Alternative = Celery, cooked, boiled, drained, without salt (SR Legacy, unused)
+    comment: fuller panel (100 values) but cooked state, not matching pickled raw celery
+    source:  https://fdc.nal.usda.gov/food-details/169989/nutrients
+
+lastUpd: 2026-08-30
