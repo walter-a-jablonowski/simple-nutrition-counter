@@ -1,9 +1,7 @@
-state:             unprecise
 type:              Chicken
 group:             meat
 vendor:            Rewe
-acceptable:        less
-comment:           "unprecise: food_defaults"
+acceptable:        occasionally
 certificates:      { bio: true }
 packaging:         plastic
 

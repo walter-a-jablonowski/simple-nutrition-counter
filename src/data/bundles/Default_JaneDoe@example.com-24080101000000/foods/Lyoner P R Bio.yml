@@ -1,0 +1,29 @@
+type:              Chicken
+group:             meat
+productName:       "REWE Bio Hähnchenlyoner Paprika 100g"
+vendor:            Rewe
+url:               "https://www.rewe.de/shop/p/rewe-bio-haehnchenlyoner-paprika-100g/7331470"
+
+acceptable:        occasionally
+certificates:      { NutriScore: D, bio: true }
+ingredients:       "Hähnchenfleisch* 65%, Hähnchenfett mit Haut*, eingelegter Paprika* 12% (roter Paprika* 11%**, Branntweinessig*, Rübenzucker*, Meersalz, Festigungsmittel (Calciumcitrat)), Wasser, Meersalz, Traubenzucker*, Gewürzextrakte*, Stabilisator (Natriumcitrate), Antioxidationsmittel (Natriumascorbat), Konservierungsstoff (Natriumnitrit). *aus kontrolliert biologischer Landwirtschaft. **bezogen auf das Endprodukt"
+packaging:         plastic
+
+price:             2.19
+weight:            100g
+usedAmounts:       ["1/4", "1/2", "1"]
+
+calories:          207
+nutritionalValues:
+
+  fat:             17
+  saturatedFat:    4
+  carbs:           1.5
+  sugar:           1
+  fibre:           1
+  amino:           11.5
+  salt:            2.5
+
+sources:           { nutriVal: "web (information on packaging may differ slightly)", price: "web" }
+lastUpd:           2026-09-07
+lastPriceUpd:      2026-09-07
