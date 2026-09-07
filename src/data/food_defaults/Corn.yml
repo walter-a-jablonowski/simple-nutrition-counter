@@ -1,0 +1,115 @@
+
+# AI-only
+
+# 2609 verified all values from source as far as active in /nutrients
+#      The food (REWE Bio Gemüsemais, 230 g glass jar) does not state whether
+#      the pack values are for drained corn or for solids and liquids. Two
+#      entries were weighed:
+#        169214  yellow, canned, whole kernel, drained solids   67 kcal, protein 2.29, fat 1.22, fibre 2.0
+#        170409  yellow, canned, brine pack, solids and liquids 61 kcal, protein 1.95, fat 0.77, fibre 1.7
+#      The pack says 64 kcal, protein 2.3, fat 1.5, fibre 2.2; the protein
+#      (2.3 vs 2.29) matches 169214 almost exactly, so the drained solids entry
+#      was taken. The food's own values win for kcal and macros anyway.
+#
+#      Source has no Atwater Specific/General energy (plain Energy only), no
+#      iodine, chromium, molybdenum, biotin; these stay 0. Sugar alcohol is not
+#      in the source. Fluoride is not in 169214 but is in 170409 (0.018 mg),
+#      taken from there per step 2b.3.
+
+acceptable:
+comment:
+                              # kcal
+calories:          67         # Energy, SR Legacy has no Atwater Specific/General
+
+nutritionalValues:            # g
+
+  fat:             1.22       # total lipid (fat)
+  saturatedFat:    0.245
+  monoUnsaturated: 0.374
+  polyUnsaturated: 0.519
+  carbs:           14.3       # by difference
+  sugar:           4.44       # total sugars
+  sugarAlcohol:    0          # not in source
+  fibre:           2.0
+  amino:           2.29       # is protein
+  salt:            0.205      # Sodium 205 mg -> g
+
+fattyAcids:                   # g, but EPA and DHA in mg
+
+  Alpha-linolenic acid: 0.018 # PUFA 18:3
+  Eicosapentaenoic acid: 0    # PUFA 20:5 n-3 (EPA), 0 in source
+  Docosahexaenoic acid: 0     # PUFA 22:6 n-3 (DHA), 0 in source
+  Linoleic acid:        0.483 # PUFA 18:2
+
+carbs:                        # g
+
+  Fibre:         2.0
+
+aminoAcids:                   # mg
+                              # source in g
+  Histidine:     62           # 0.062 g -> mg
+  Isoleucine:    72           # 0.072 g -> mg
+  Leucine:       285          # 0.285 g -> mg
+  Lysine:        215          # 0.215 g -> mg
+  Methionine:    53           # 0.053 g -> mg, cystine 0.035 not active in /nutrients
+  Phenylalanine: 106          # 0.106 g -> mg, tyrosine 0.088 not active in /nutrients
+  Threonine:     69           # 0.069 g -> mg
+  Tryptophan:    21           # 0.021 g -> mg
+  Valine:        108          # 0.108 g -> mg
+
+vitamins:                     # mg
+
+  Vitamin A:     0.002        # Vitamin A, RAE 2 µg
+  Vitamin D:     0            # Vitamin D (D2 + D3) 0 µg
+  Vitamin E:     0.09         # alpha-tocopherol
+  Vitamin K:     0            # phylloquinone 0.0 µg
+  Vitamin C:     1.8
+  Thiamin B1:    0.039
+  Riboflavin B2: 0.089
+  Niacin B3:     1.00
+  Pantothenic acid B5: 0.209
+  Vitamin B6:    0.037
+  Biotin B7:     0            # not in source
+  Folate B9:     0.039        # folate total 39 µg
+  Vitamin B12:   0            # 0 µg
+
+minerals:                     # default unit: mg except for Salt, Potassium and Calcium where grams need to be used
+
+  Salt:          0.205        # Sodium 205 mg -> g
+  Potassium:     0.132        # 132 mg -> g
+  Calcium:       0.003        # 3 mg -> g
+  Phosphorus:    46           # mg
+  Magnesium:     13
+  Iron:          0.27
+  Iodine:        0            # not in source
+  Fluoride:      0.018        # from 170409 (solids and liquids, not in 169214)
+  Zinc:          0.32
+  Selenium:      0.0006       # 0.6 µg -> mg
+  Copper:        0.033
+  Chromium:      0            # not in source
+  Manganese:     0.067
+  Molybdenum:    0            # not in source
+
+# secondary:
+
+misc:                         # ml or g
+
+  water:         81.4
+  alcohol:       0
+  caffeine:      0
+
+sources:
+
+  - title:   Default source = Corn, sweet, yellow, canned, whole kernel, drained solids (SR Legacy)
+    comment: fullest of the canned yellow corn entries (amino acids, vitamins, fatty acids, minerals)
+    source:  https://fdc.nal.usda.gov/food-details/169214/nutrients
+
+  - title:   Alternative = Corn, sweet, yellow, canned, brine pack, regular pack, solids and liquids (SR Legacy, unused)
+    comment: closer to an undrained serving, but lower protein (1.95 vs 2.29) and fewer nutrients
+    source:  https://fdc.nal.usda.gov/food-details/170409/nutrients
+
+  - title:   Alternative = Corn, sweet, yellow and white kernels, fresh, raw (Foundation, unused)
+    comment: wrong state - raw (85 kcal) vs canned (64 kcal on the pack)
+    source:  https://fdc.nal.usda.gov/food-details/2710826/nutrients
+
+lastUpd: 2026-09-07
