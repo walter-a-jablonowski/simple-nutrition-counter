@@ -1,0 +1,32 @@
+state:             unprecise
+type:              Poato
+productName:       "ja! Kartoffelpuffer 600g"
+vendor:            Rewe
+url:               "https://www.rewe.de/shop/p/ja-kartoffelpuffer-600g/7923861"
+
+acceptable:        occasionally
+comment:           "unprecise: has more ingredients"
+certificates:      { NutriScore: C, vegan: true }
+ingredients:       "Kartoffeln 91%, Stärke, Meersalz, Zwiebelpulver, HÜHNERVOLLEIPULVER*, Rapsöl, Zitronensaft, Dextrose, Gewürze. *aus Bodenhaltung"
+mayContain:        "Gluten und Milcherzeugnisse"
+packaging:         cardboard
+
+price:             
+weight:            600g
+pieces:            10
+usedAmounts:       ["1", "2", "3"]
+
+calories:          113
+nutritionalValues:
+
+  fat:             1
+  saturatedFat:    0.1
+  carbs:           22
+  sugar:           1
+  fibre:           2
+  amino:           3
+  salt:            1.1
+
+sources:           { nutriVal: "web (information on packaging may differ slightly)", price: "web" }
+lastUpd:           2026-09-12
+lastPriceUpd:      2026-09-12

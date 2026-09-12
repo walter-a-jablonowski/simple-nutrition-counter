@@ -1,8 +1,10 @@
-
+state:             unprecise
+type:              Poato
 vendor:            Rewe
 url:               "https://shop.rewe.de/p/rewe-bio-kartoffelpuffer-600g-10-stueck/8393848"
 
 acceptable:        occasionally
+comment:           "unprecise: has more ingredients"
 certificates:      { bio: true, vegan: true, NutriScore: C }
 ingredients:       "Kartoffeln¹ 90%, Kartoffelstärke¹, Kartoffelflocken¹, Meersalz, Rapsöl¹, Zwiebelpulver¹, Pfeffer¹, Antioxidationsmittel (Ascorbinsäure), Dextrose¹."
 packaging:         cardboard

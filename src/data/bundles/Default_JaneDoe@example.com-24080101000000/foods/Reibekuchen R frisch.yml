@@ -1,9 +1,11 @@
-
+state:             unprecise
+type:              Poato
 productName:       "ja! Frische Reibekuchen 300g"
 vendor:            Rewe
 url:               https://www.rewe.de/shop/p/ja-frische-reibekuchen-300g/7700915
 
 acceptable:        occasionally
+comment:           "unprecise: has more ingredients"
 certificates:      { NutriScore: C }
 ingredients:       "artoffeln 74 %, Rapsöl, WEIZENMEHL, Zwiebeln 6 %, VOLLEI*, Speisesalz. *aus Bodenhaltung"
 mayContain:        "Sellerie"
