@@ -13,9 +13,13 @@ schema; a schema plus responseMimeType json constrains the decoding, so the mode
 not emit an unknown key or a string where a number is required and the caller never
 has to parse prose.
 
-Two callers so far: the photo import reads a packaging (temperature 0, it is
-transcribing), the advisor reasons about a nutrient report and invents menus (warmer,
-and its answers are longer). So both belong to the caller, see $options.
+Two callers so far: the photo import reads a packaging (little thinking, it is
+transcribing), the advisor reasons about a nutrient report and invents menus (more
+thinking, and its answers are longer). So both belong to the caller, see $options.
+
+No temperature: Gemini 3.6 and later ignore the sampling parameters (temperature,
+topP, topK) and later generations reject them with a 400. The thinking level is the
+knob that is left.
 
 The api key stays here on the server, unlike the voice agent which needs an
 ephemeral token because php can not proxy a websocket (see ajax/get_agent_token.php).
@@ -28,8 +32,8 @@ class GeminiClient
 
 
   const DEFAULTS = [
-    'temperature'     => 0,      // transcription, not generation
-    'maxOutputTokens' => 4096    // long ingredient lists plus thinking tokens
+    'thinkingLevel'   => 'low',  // transcription, not reasoning (low | medium | high)
+    'maxOutputTokens' => 8192    // long ingredient lists plus thinking tokens
   ];
 
 
@@ -37,7 +41,7 @@ class GeminiClient
 
      $images:  [ ['mime' => 'image/jpeg', 'data' => <raw bytes>], ... ], may be empty
      $schema:  response schema in gemini's OpenAPI subset
-     $options: temperature and maxOutputTokens, see DEFAULTS
+     $options: thinkingLevel and maxOutputTokens, see DEFAULTS
 
      Throws with a user-facing message on any failure. */
 
@@ -60,7 +64,7 @@ class GeminiClient
       'contents'          => [ ['role' => 'user', 'parts' => $parts] ],
       'systemInstruction' => ['parts' => [ ['text' => $systemPrompt] ]],
       'generationConfig'  => [
-        'temperature'      => $options['temperature'],
+        'thinkingConfig'   => ['thinkingLevel' => $options['thinkingLevel']],
         'maxOutputTokens'  => $options['maxOutputTokens'],
         'responseMimeType' => 'application/json',
         'responseSchema'   => $schema

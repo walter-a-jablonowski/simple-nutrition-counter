@@ -161,7 +161,7 @@ mean the same thing by "7 days".
 
 ## Step 6 notes
 
-- Second call, own prompt (`data/advisor/menu_prompt.md`), temperature 0.8 — this is the half the user re-rolls
+- Second call, own prompt (`data/advisor/menu_prompt.md`) — this is the half the user re-rolls. It was temperature 0.8, but Gemini 3.6+ ignores sampling parameters, so it now only sets the thinking level like the analysis
 - Input: the recommended foods, the **whole grid** as vocabulary (253 foods, ~2.7k tokens), the over-limit nutrients, the diet rules
 - **`role` is checked, not believed** — a recommended food is `core` however the model labelled it, so the panel always shows what the menu is actually for
 - Ingredient names validated like the recommendations: unknown ones dropped and reported
@@ -182,7 +182,7 @@ mean the same thing by "7 days".
 ```yaml
 advisor:
   enabled:     true
-  model:       "gemini-3.6-flash" # same as the photo import; list ids, never recall them
+  model:       "gemini-3.8-flash" # same as the photo import; list ids, never recall them
   ranges:      [7, 30]
   maxFoods:    40
   minCoverage: 40                 # % of calories a group needs to count

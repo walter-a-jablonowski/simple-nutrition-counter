@@ -70,7 +70,7 @@ trait GetAgentTokenAjaxController
 
     return ['result' => 'success', 'data' => [
       'token'             => $token,
-      'model'             => $agent['model'] ?? 'gemini-3.1-flash-live-preview',
+      'model'             => $agent['model'] ?? 'gemini-3.8-live',
       'voice'             => $agent['voice'] ?? 'Aoede',
       'debug'             => ! empty( $agent['debug']),
       'systemInstruction' => $prompt

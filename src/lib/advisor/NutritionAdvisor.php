@@ -22,15 +22,15 @@ class NutritionAdvisor  /*@*/
 {
   const PROMPT_FILE   = 'data/advisor/analysis_prompt.md';
   const MENU_PROMPT   = 'data/advisor/menu_prompt.md';
-  const DEFAULT_MODEL = 'gemini-3.6-flash';   // must support generateContent, see config.yml
+  const DEFAULT_MODEL = 'gemini-3.8-flash';   // must support generateContent, see config.yml
 
-  // Warmer than the photo import, which transcribes. This one writes prose and picks
-  // between foods that score nearly the same, and 0 makes that read mechanical
+  // More thinking than the photo import, which transcribes. This one weighs the diet
+  // rules and picks between foods that score nearly the same. Medium is the model's
+  // default; 3.8 spends more of it than 3.6 did, hence the generous token limit
 
-  const TEMPERATURE      = 0.4;
-  const MENU_TEMPERATURE = 0.8;   // the menus are the half the user re-rolls for variety
+  const THINKING_LEVEL = 'medium';
 
-  const MAX_TOKENS  = 8192;   // six sections of prose plus the model's thinking
+  const MAX_TOKENS  = 16384;  // six sections of prose plus the model's thinking
 
 
   /*@
@@ -56,7 +56,7 @@ class NutritionAdvisor  /*@*/
       self::userText( $reports, $selection, $rules ),
       [],                      // no pictures, this one only reads numbers
       self::responseSchema(),
-      ['temperature' => self::TEMPERATURE, 'maxOutputTokens' => self::MAX_TOKENS]);
+      ['thinkingLevel' => self::THINKING_LEVEL, 'maxOutputTokens' => self::MAX_TOKENS]);
 
     if( config::get('advisor.debug'))
       error_log('NutritionAdvisor: ' . json_encode( $answer ));
@@ -92,7 +92,7 @@ class NutritionAdvisor  /*@*/
       self::menuText( $recommended, $vocabulary, $excesses, $rules ),
       [],
       self::menuSchema(),
-      ['temperature' => self::MENU_TEMPERATURE, 'maxOutputTokens' => self::MAX_TOKENS]);
+      ['thinkingLevel' => self::THINKING_LEVEL, 'maxOutputTokens' => self::MAX_TOKENS]);
 
     if( config::get('advisor.debug'))
       error_log('NutritionAdvisor menus: ' . json_encode( $answer ));

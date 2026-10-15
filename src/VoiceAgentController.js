@@ -187,7 +187,12 @@ class VoiceAgentController
     })
   }
 
-  // Tools have to be declared here, at session start - they can't be added later
+  // Tools have to be declared here, at session start - they can't be added later.
+  //
+  // They are declared BLOCKING: since Gemini 3.8 Live NON_BLOCKING is the default, and the
+  // model would talk on before a result arrives. Every tool here is built on the model
+  // waiting - updateEntry needs the ids from listDayEntries, logFoods reports back which
+  // items failed, and showChoices / analyseNutrition answer at once for exactly that reason
 
   buildSetup()
   {
@@ -203,7 +208,7 @@ class VoiceAgentController
         systemInstruction: { parts: [{ text: this.session.systemInstruction
                                            + '\n\n## The food list\n\n'
                                            + mainCrl.foodVocabulary() + '\n' }]},
-        tools: [{ functionDeclarations: this.toolDeclarations() }]
+        tools: [{ functionDeclarations: this.toolDeclarations().map( decl => ({ ...decl, behavior: 'BLOCKING' })) }]
       }
     }
   }
@@ -630,7 +635,7 @@ class VoiceAgentController
       for( let i = 0; i < samples.length; i++ )
         pcm[i] = Math.max(-32768, Math.min(32767, samples[i] * 32768))
 
-      // realtimeInput.audio is the format Gemini 3.1 Live wants; the older
+      // realtimeInput.audio is the format the Gemini 3.x Live models want; the older
       // mediaChunks was removed and closes the socket with 1007
 
       this.ws.send( JSON.stringify({

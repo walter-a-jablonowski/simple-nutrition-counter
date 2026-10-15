@@ -32,14 +32,14 @@ charts:                     # nutrition charts (integrated from reports/diagr)
 agent:                      # AI voice agent (Gemini Live), see dev_info/Voice_Agent_Plan.md
 
   enabled: true             # false hides the mic button in sidebar and bottom nav
-  model:   "gemini-3.1-flash-live-preview"
+  model:   "gemini-3.8-live"
   voice:   "Aoede"          # Gemini Live prebuilt voice
   debug:   false            # verbose console logging, keeps errors on screen
 
 photoImport:                # create a food from pictures of the packaging (Gemini vision)
 
   enabled:   true           # false hides the camera button in the new entry modal
-  model:     "gemini-3.6-flash"   # must support generateContent - the Live model above does't
+  model:     "gemini-3.8-flash"   # must support generateContent - the Live model above does't
   maxImages: 3              # front, nutrition table, ingredients
   maxEdge:   1568           # px, the browser downscales to this before uploading
   quality:   0.82           # jpeg quality of the downscaled upload
@@ -48,7 +48,7 @@ photoImport:                # create a food from pictures of the packaging (Gemi
 advisor:                    # AI nutrition advisor, see dev_info/Nutrition_Advisor_Plan.md
 
   enabled:     true         # false hides the nav entry and the voice tool
-  model:       "gemini-3.6-flash"  # same as the photo import, must support generateContent
+  model:       "gemini-3.8-flash"  # same as the photo import, must support generateContent
                                    # (the Live model of the voice agent does not).
                                    # List the ids, never recall them - they change often:
                                    #   php tools/test_photo_import.php --models

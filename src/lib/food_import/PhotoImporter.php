@@ -27,7 +27,7 @@ class PhotoImporter
 {
 
   const PROMPT_FILE     = 'data/food_import/photo_prompt.md';
-  const DEFAULT_MODEL   = 'gemini-3.6-flash';   // must support generateContent, the Live model does not
+  const DEFAULT_MODEL   = 'gemini-3.8-flash';   // must support generateContent, the Live model does not
 
   const MIME_ALLOWED    = ['image/jpeg', 'image/png', 'image/webp'];
   const MAX_IMAGE_BYTES = 4194304;   // 4 MB per picture, decoded
